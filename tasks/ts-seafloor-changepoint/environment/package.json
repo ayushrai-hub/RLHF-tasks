@@ -1,0 +1,19 @@
+{
+  "name": "pson-changepoint",
+  "version": "1.0.0",
+  "description": "Pacific Seafloor Observatory Network slow-slip event detection CLI",
+  "main": "dist/src/index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/src/index.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "11.8.1",
+    "commander": "12.1.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "7.6.12",
+    "@types/node": "22.13.10",
+    "typescript": "5.4.5"
+  }
+}

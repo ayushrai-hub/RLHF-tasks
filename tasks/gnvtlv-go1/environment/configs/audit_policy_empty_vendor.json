@@ -1,0 +1,8 @@
+{
+  "version": 1,
+  "rules": {
+    "EXPERIMENTER_VENDOR_DENIED": { "severity": "error", "mute": false }
+  },
+  "vendor_allowlist": [],
+  "max_per_class": {}
+}

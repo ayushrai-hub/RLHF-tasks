@@ -1,0 +1,34 @@
+{
+  "qualifying_verdicts": ["WITHIN_BOUNDS", "OWD_ANOMALY", "JITTER_FLAGGED", "QUIET_SUPPRESSED"],
+  "non_qualifying_verdicts": ["LOSS_DETECTED", "STALE_MEASUREMENT", "REFLECTOR_OFFLINE"],
+  "method": "largest_remainder",
+  "permille_target": 1000,
+  "permille_target_when_no_qualifying_probes": 0,
+  "tiebreak_when_no_reflector_offline": "ascending_numeric_suffix",
+  "tiebreak_when_any_reflector_offline": "descending_numeric_suffix",
+  "key_order_on_output": "numeric_suffix_ascending",
+  "worked_runs": [
+    {
+      "scenario": "primary fixture",
+      "weights": {"R1": 3, "R2": 3, "R3": 3, "R10": 1, "R11": 2},
+      "total_weight": 12,
+      "floor_shares": {"R1": 250, "R2": 250, "R3": 250, "R10": 83, "R11": 166},
+      "remainders": {"R1": 0, "R2": 0, "R3": 0, "R10": 4, "R11": 8},
+      "any_offline": true,
+      "tiebreak_direction": "descending (any offline)",
+      "leftover_distribution": "R11 gets +1 because it has the unique top remainder",
+      "final": {"R1": 250, "R2": 250, "R3": 250, "R10": 83, "R11": 167}
+    },
+    {
+      "scenario": "alt fixture",
+      "weights": {"R1": 1, "R2": 4, "R3": 4, "R7": 0},
+      "total_weight": 9,
+      "floor_shares": {"R1": 111, "R2": 444, "R3": 444, "R7": 0},
+      "remainders": {"R1": 1, "R2": 4, "R3": 4, "R7": 0},
+      "any_offline": true,
+      "tiebreak_direction": "descending (R7 offline)",
+      "leftover_distribution": "R2 and R3 tied at remainder 4; descending picks R3",
+      "final": {"R1": 111, "R2": 444, "R3": 445, "R7": 0}
+    }
+  ]
+}

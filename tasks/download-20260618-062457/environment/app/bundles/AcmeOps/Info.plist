@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "urn:apple:plist:dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleIdentifier</key><string>com.acme.ops</string>
+  <key>CFBundleDisplayName</key><string>Acme Ops</string>
+  <key>CFBundleExecutable</key><string>AcmeOps</string>
+  <key>DTPlatformName</key><string>macosx</string>
+  <key>ProvisioningProfile</key><string>macos-dev</string>
+</dict></plist>

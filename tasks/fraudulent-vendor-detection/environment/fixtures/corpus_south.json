@@ -1,0 +1,19 @@
+{
+  "panel_id": "south",
+  "limits": [
+    {"vendor_id": "vendor-delta", "vendor_graph_cap": 800},
+    {"vendor_id": "gamma-pallet", "vendor_graph_cap": 350}
+  ],
+  "lines": [
+    {"invoice_id": "s001", "vendor_id": "vendor-delta", "period": 0, "stage": 0, "weight_pts": 300},
+    {"invoice_id": "s002", "vendor_id": "vendor-delta", "period": 0, "stage": 1, "weight_pts": 300},
+    {"invoice_id": "s003", "vendor_id": "vendor-delta", "period": 0, "stage": 2, "weight_pts": 300},
+    {"invoice_id": "s004", "vendor_id": "gamma-pallet", "period": 1, "stage": 0, "weight_pts": 150},
+    {"invoice_id": "s005", "vendor_id": "gamma-pallet", "period": 1, "stage": 1, "weight_pts": 150},
+    {"invoice_id": "s006", "vendor_id": "gamma-pallet", "period": 1, "stage": 2, "weight_pts": 150},
+    {"invoice_id": "s007", "vendor_id": "vendor-delta", "period": 2, "stage": 0, "weight_pts": 100},
+    {"invoice_id": "s008", "vendor_id": "gamma-pallet", "period": 2, "stage": 1, "weight_pts": 40},
+    {"invoice_id": "s009", "vendor_id": "vendor-delta", "period": 3, "stage": 0, "weight_pts": 80},
+    {"invoice_id": "s010", "vendor_id": "gamma-pallet", "period": 3, "stage": 1, "weight_pts": 30}
+  ]
+}

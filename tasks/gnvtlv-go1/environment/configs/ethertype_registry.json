@@ -1,0 +1,6 @@
+[
+  { "type": 2048,  "name": "IPv4" },
+  { "type": 2054,  "name": "ARP" },
+  { "type": 34525, "name": "IPv6" },
+  { "type": 25944, "name": "TransparentEthBridging" }
+]

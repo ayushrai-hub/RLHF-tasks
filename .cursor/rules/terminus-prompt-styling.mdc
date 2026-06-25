@@ -1,0 +1,28 @@
+---
+description: Terminus instruction.md prompt styling — human-centric, no hints
+globs: "{instruction.md,steps/**/instruction.md}"
+alwaysApply: false
+---
+
+# Prompt Styling
+
+Write like a real engineer prompting a terminal agent — vary style between tasks.
+
+## Six Principles
+
+Concise · Well specified · Interesting · No hints · Unique · Absolute paths
+
+## Avoid
+
+- "You are an expert programmer..."
+- Step-by-step walkthroughs with exact values
+- Hints / detection guidance sections
+- Heavy markdown API spec dumps
+- Emojis, canary strings, GPT verbosity
+- Offloading instructions into spec.md/README loophole
+
+## Good Tone
+
+"The source data is in `/data/input.csv`. Write results to `/output/report.json`."
+
+See `docs/guidelines/prompt-styling.md`.

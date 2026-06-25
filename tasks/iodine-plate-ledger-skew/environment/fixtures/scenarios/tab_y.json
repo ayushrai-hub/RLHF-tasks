@@ -1,0 +1,10 @@
+{
+  "scenario": "tab_y",
+  "profile": "profile_01",
+  "segments": [
+    "lane_01.plt",
+    "lane_02.plt",
+    "lane_03.plt"
+  ],
+  "prune_below": 4
+}

@@ -1,0 +1,14 @@
+{
+  "config_id": "mixed_fleet",
+  "seed": 91,
+  "panel_id": "south",
+  "stage_width": 3,
+  "max_period": 3,
+  "view_mode": "vendor_graph",
+  "flags": {
+    "multi_stage": true,
+    "strict_stage_sort": true,
+    "deferred_rollout": true,
+    "track_exposure": true
+  }
+}

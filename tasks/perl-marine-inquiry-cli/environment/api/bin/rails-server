@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set -uo pipefail
+HERE="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$HERE"
+export RAILS_ENV="${RAILS_ENV:-production}"
+export PORT="${PORT:-3000}"
+exec bundle exec puma -C config/puma.rb config.ru

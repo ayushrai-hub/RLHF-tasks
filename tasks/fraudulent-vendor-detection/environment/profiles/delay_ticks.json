@@ -1,0 +1,14 @@
+{
+  "config_id": "delay_ticks",
+  "seed": 55,
+  "panel_id": "north",
+  "stage_width": 2,
+  "max_period": 9,
+  "view_mode": "vendor_graph",
+  "flags": {
+    "multi_stage": true,
+    "strict_stage_sort": true,
+    "deferred_rollout": true,
+    "track_exposure": true
+  }
+}

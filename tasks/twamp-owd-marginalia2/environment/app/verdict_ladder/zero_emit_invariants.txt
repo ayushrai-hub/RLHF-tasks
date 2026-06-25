@@ -1,0 +1,63 @@
+ZERO-EMIT INVARIANTS
+====================
+
+These invariants hold on EVERY run, even when the input contains zero
+probes that trigger a given verdict. The verifier checks each one.
+
+1. Closed enum (seven entries)
+
+   The by_verdict map contains exactly seven keys. None may be
+   omitted, none added. The lex order on the output bytes is:
+
+       JITTER_FLAGGED
+       LOSS_DETECTED
+       OWD_ANOMALY
+       QUIET_SUPPRESSED
+       REFLECTOR_OFFLINE
+       STALE_MEASUREMENT
+       WITHIN_BOUNDS
+
+   A common omission pattern: the emitter's AllVerdicts array misses
+   JITTER_FLAGGED because the fixture being tested has zero jitter
+   upgrades. The contract requires the key to appear at value 0; it
+   does NOT permit the key to be skipped just because the count is
+   zero.
+
+2. Cross-check
+
+   sum(by_verdict.values()) == summary.total_probes
+
+   This holds across primary and alt fixtures. If it does not,
+   either the ledger and the map disagree, or a probe was counted in
+   two kinds.
+
+3. Reflector row presence
+
+   The reflectors array contains exactly one row per registered
+   reflector. Even a reflector with zero probes anywhere in the run
+   has its row, with probe_count=0 and offline_observed=true.
+
+4. Cycle row presence
+
+   The cycles array contains one row per distinct cycle_id observed
+   in the (surviving, real) probe stream. Cycles with zero real
+   probes do not appear; only cycles that had at least one real
+   probe in the registry appear.
+
+5. Jitter share sum
+
+   sum(jitter_share_permille.values()) is either:
+     - exactly 1000, when at least one allocator-qualifying probe
+       survived; or
+     - exactly 0, when zero allocator-qualifying probes survived
+       AND every registered reflector emits a 0 entry.
+
+   No other total is conforming.
+
+6. Digest twins
+
+   summary.report_digest == top-level report_digest, byte-for-byte.
+
+These invariants are recoverable: a correct implementation produces
+them as a byproduct of the documented rules. They are not separate
+gates; they are consequences of the rules in the other folders.

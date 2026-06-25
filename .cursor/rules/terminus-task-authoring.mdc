@@ -1,0 +1,31 @@
+---
+description: Terminus task authoring — instruction.md and task.toml
+globs: "{instruction.md,task.toml,steps/**/instruction.md}"
+alwaysApply: false
+---
+
+# Task Authoring
+
+## instruction.md
+
+- Concise, realistic engineering prompt (what, not how)
+- Absolute paths only (`/app/config.yaml`, not `config.yaml`)
+- No step-by-step solution guides or hints
+- spec.md must read like real engineering docs, not prompt extensions
+
+## task.toml
+
+```toml
+version = "2.0"
+[environment]
+allow_internet = false  # REQUIRED
+```
+
+- `number_of_milestones` must equal `[[steps]]` count (0 if non-milestone)
+- `category` — one of 9 types (see `docs/task-type-taxonomy.md`)
+- `subcategories` — long_context, tool_specific, api_integration, db_interaction, ui_building
+
+## Milestone Tasks
+
+Each milestone under `steps/milestone_N/` with own instruction.md, tests/, solution/.
+No root-level instruction.md, tests/, solution/, or milestone_x.md.

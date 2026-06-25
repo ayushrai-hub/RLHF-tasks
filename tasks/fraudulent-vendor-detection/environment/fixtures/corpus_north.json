@@ -1,0 +1,27 @@
+{
+  "panel_id": "north",
+  "limits": [
+    {"vendor_id": "vendor-acme", "vendor_graph_cap": 1000},
+    {"vendor_id": "vendor-beta", "vendor_graph_cap": 500}
+  ],
+  "lines": [
+    {"invoice_id": "u001", "vendor_id": "vendor-acme", "period": 0, "stage": 0, "weight_pts": 400},
+    {"invoice_id": "u002", "vendor_id": "vendor-acme", "period": 0, "stage": 1, "weight_pts": 400},
+    {"invoice_id": "u003", "vendor_id": "vendor-acme", "period": 0, "stage": 2, "weight_pts": 400},
+    {"invoice_id": "u004", "vendor_id": "vendor-beta", "period": 1, "stage": 0, "weight_pts": 200},
+    {"invoice_id": "u005", "vendor_id": "vendor-beta", "period": 1, "stage": 1, "weight_pts": 200},
+    {"invoice_id": "u006", "vendor_id": "vendor-beta", "period": 1, "stage": 2, "weight_pts": 200},
+    {"invoice_id": "u007", "vendor_id": "vendor-acme", "period": 2, "stage": 0, "weight_pts": 150},
+    {"invoice_id": "u008", "vendor_id": "vendor-beta", "period": 2, "stage": 1, "weight_pts": 50},
+    {"invoice_id": "u009", "vendor_id": "vendor-acme", "period": 3, "stage": 0, "weight_pts": 100},
+    {"invoice_id": "u010", "vendor_id": "vendor-beta", "period": 3, "stage": 1, "weight_pts": 100},
+    {"invoice_id": "u011", "vendor_id": "vendor-acme", "period": 4, "stage": 0, "weight_pts": 50},
+    {"invoice_id": "u012", "vendor_id": "vendor-acme", "period": 4, "stage": 1, "weight_pts": 50},
+    {"invoice_id": "u013", "vendor_id": "vendor-beta", "period": 5, "stage": 0, "weight_pts": 25},
+    {"invoice_id": "u014", "vendor_id": "vendor-beta", "period": 5, "stage": 1, "weight_pts": 25},
+    {"invoice_id": "u015", "vendor_id": "vendor-acme", "period": 6, "stage": 0, "weight_pts": 25},
+    {"invoice_id": "u016", "vendor_id": "vendor-beta", "period": 6, "stage": 1, "weight_pts": 25},
+    {"invoice_id": "u017", "vendor_id": "vendor-acme", "period": 7, "stage": 0, "weight_pts": 25},
+    {"invoice_id": "u018", "vendor_id": "vendor-beta", "period": 7, "stage": 1, "weight_pts": 25}
+  ]
+}

@@ -1,0 +1,41 @@
+# Rubric 1
+Agent inspects the existing entitlement bundle layout and starter CLI before implementing inventory behavior, +1
+Agent produces entitlement-inventory.json with the specified top-level bundles and summary objects, +5
+Agent normalizes platform names, entitlement arrays, missing fields, and sidecar selection consistently with the milestone contract, +5
+Agent sorts inventory rows and summary keys deterministically so repeated runs produce stable JSON, +3
+Agent hardcodes fixture-specific bundle answers instead of deriving inventory from /app/bundles at runtime, -5
+
+# Rubric 2
+Agent reuses the inventory model to classify policy drift instead of building a disconnected parser for planning, +2
+Agent writes entitlement-plan.json with ordered actions, target details, reasons, severity, and summary fields matching the milestone schema, +5
+Agent applies bundle overrides, push environment rules, profile allowlists, and team identifier checks correctly, +5
+Agent preserves the required ordering of profiles and reason labels when multiple update reasons apply, +3
+Agent treats absent policy push environment as a required literal value rather than a null no-constraint case, -3
+
+# Rubric 3
+Agent derives remediation fixes from the current policy and plan output rather than duplicating static expected rows, +2
+Agent writes entitlement-remediation.json with fix rows and summary counts for updateable, blocked, and push-environment changes, +5
+Agent distinguishes base entitlement changes from profile or team identifier blockers, +3
+Agent keeps null push policy values as no constraint while still producing fixes for explicit push targets, +3
+Agent generates remediation output that ignores policy overrides or runtime-added bundles, -5
+
+# Rubric 4
+Agent mutates only entitlement sidecar files that are safe to update and leaves blocked bundles unchanged, +5
+Agent writes entitlement-apply.json with applied, blocked, and summary sections that reflect the actual mutation result, +5
+Agent makes apply-remediation idempotent across repeated runs, +3
+Agent preserves policy-null push environments instead of adding unnecessary aps-environment values, +2
+Agent modifies source files, policy files, or unrelated bundle metadata while applying remediation, -5
+
+# Rubric 5
+Agent verifies the current bundle state after any prior remediation instead of reporting stale planned actions, +3
+Agent writes entitlement-verification.json with bundle status, reasons, current values, pending changes, effective policy, and violation counts, +5
+Agent includes zero-count violation labels and deterministic ordering in summaries, +3
+Agent reports team_identifier and selected_sidecar values from the effective current state, +3
+Agent mutates entitlement or policy files during verification, -5
+
+# Rubric 6
+Agent scans bundle source trees and entitlement state together to determine risk rather than relying on bundle names alone, +3
+Agent writes entitlement-risk-register.json with risk rows, summary counts, missing runtime support, evidence, and source_index data, +5
+Agent classifies Objective-C++ capability usage and missing source support according to the documented risk rules, +5
+Agent reflects post-remediation state accurately without mutating files during risk-register generation, +3
+Agent omits dynamic runtime-created bundles or source files from the risk register, -5

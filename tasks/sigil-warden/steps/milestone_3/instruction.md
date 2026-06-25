@@ -1,0 +1,1 @@
+Sigils can also pin a check to a third party. Wire up /app/warden for that whole flow end to end — issuing those caveats, discharging them, binding a discharge to a token, and making `verify` insist on a valid discharge before it allows the request. It's all in /app/SPEC.md.

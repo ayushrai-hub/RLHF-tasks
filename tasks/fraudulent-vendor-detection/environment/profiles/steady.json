@@ -1,0 +1,14 @@
+{
+  "config_id": "steady",
+  "seed": 42,
+  "panel_id": "north",
+  "stage_width": 3,
+  "max_period": 7,
+  "view_mode": "line_item",
+  "flags": {
+    "multi_stage": true,
+    "strict_stage_sort": true,
+    "deferred_rollout": true,
+    "track_exposure": true
+  }
+}

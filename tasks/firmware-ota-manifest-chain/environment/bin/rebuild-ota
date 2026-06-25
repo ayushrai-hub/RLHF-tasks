@@ -1,0 +1,3 @@
+#!/bin/bash
+set -euo pipefail
+exec /app/bin/oracle-build-ota.sh

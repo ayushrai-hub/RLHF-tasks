@@ -1,0 +1,16 @@
+{
+  "required_team_id": "9JA89QQLNQ",
+  "allowed_profiles": {
+    "ios": ["ios-prod", "ios-internal"],
+    "macos": ["macos-prod", "macos-dev"]
+  },
+  "required_app_group_prefix": "group.com.acme.",
+  "allowed_associated_domain_suffixes": [".acme.example", ".acme.test"],
+  "push_profile_environments": {
+    "ios-prod": "production",
+    "ios-internal": "development",
+    "macos-prod": "production",
+    "macos-dev": "development"
+  },
+  "bundle_overrides": {}
+}

@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "rules": {
+    "VERSION_NONZERO":     { "severity": "error", "mute": false },
+    "RESERVED6_NONZERO":   { "severity": "error", "mute": false },
+    "RESERVED8_NONZERO":   { "severity": "error", "mute": false },
+    "OPT_R_BITS_NONZERO":  { "severity": "error", "mute": false },
+    "OPT_HEADER_TRUNC":    { "severity": "error", "mute": false },
+    "OPT_LEN_OVERRUN":     { "severity": "error", "mute": false },
+    "OPT_PAYLOAD_OVERRUN": { "severity": "error", "mute": false },
+    "OPT_LENGTH_MISMATCH": { "severity": "warning", "mute": false },
+    "UNKNOWN_CRITICAL":    { "severity": "error", "mute": false },
+    "MAX_PER_CLASS":       { "severity": "error", "mute": false },
+    "EXPERIMENTER_VENDOR_DENIED": { "severity": "error", "mute": false }
+  },
+  "vendor_allowlist": [305419896, 2882400000],
+  "max_per_class": {}
+}

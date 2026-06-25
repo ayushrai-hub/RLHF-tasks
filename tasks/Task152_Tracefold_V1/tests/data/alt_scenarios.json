@@ -1,0 +1,97 @@
+{
+  "lane_id": 26,
+  "base_epoch": 1,
+  "base_seq": 2,
+  "base_value": 70,
+  "base_flags": 2,
+  "labels": {
+    "direct": 18,
+    "deferred": 47
+  },
+  "patches": [
+    {
+      "epoch": 4,
+      "seq": 3,
+      "revision": 12,
+      "patch_id": 3,
+      "lane_id": 26,
+      "committed": true,
+      "kind": "update",
+      "delta": 900,
+      "toggle_mask": 64
+    },
+    {
+      "epoch": 13,
+      "seq": 4,
+      "revision": 2,
+      "patch_id": 11,
+      "lane_id": 26,
+      "committed": true,
+      "kind": "update",
+      "delta": 7,
+      "toggle_mask": 5
+    },
+    {
+      "epoch": 13,
+      "seq": 4,
+      "revision": 2,
+      "patch_id": 24,
+      "lane_id": 26,
+      "committed": true,
+      "kind": "update",
+      "delta": 70,
+      "toggle_mask": 9
+    },
+    {
+      "epoch": 13,
+      "seq": 5,
+      "revision": 7,
+      "patch_id": 26,
+      "lane_id": 26,
+      "committed": true,
+      "kind": "tombstone",
+      "delta": 300,
+      "toggle_mask": 128
+    },
+    {
+      "epoch": 13,
+      "seq": 7,
+      "revision": 4,
+      "patch_id": 30,
+      "lane_id": 26,
+      "committed": true,
+      "kind": "update",
+      "delta": 12,
+      "toggle_mask": 16
+    },
+    {
+      "epoch": 13,
+      "seq": 9,
+      "revision": 3,
+      "patch_id": 38,
+      "lane_id": 26,
+      "committed": true,
+      "kind": "update",
+      "delta": 6,
+      "toggle_mask": 2
+    },
+    {
+      "epoch": 31,
+      "seq": 40,
+      "revision": 9,
+      "patch_id": 99,
+      "lane_id": 8,
+      "committed": true,
+      "kind": "update",
+      "delta": 9999,
+      "toggle_mask": 4294967295
+    }
+  ],
+  "probe": {
+    "modulus": 53,
+    "remainder": 50,
+    "required_flags": 3218,
+    "required_epoch": 13,
+    "min_applied": 3
+  }
+}

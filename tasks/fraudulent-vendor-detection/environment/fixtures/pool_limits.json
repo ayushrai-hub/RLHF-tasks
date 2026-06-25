@@ -1,0 +1,9 @@
+{
+  "fleets": ["north", "south"],
+  "default_flags": {
+    "multi_stage": true,
+    "strict_stage_sort": true,
+    "deferred_rollout": true,
+    "track_exposure": true
+  }
+}

@@ -1,0 +1,11 @@
+account_id,service_month,district,prior_total_cents,prior_adjusted_kwh
+ACC-110,2026-02,north,188,11.734
+ACC-220,2026-02,central,220,12.000
+ACC-330,2026-02,south,198,13.193
+ACC-440,2026-02,west,210,9.500
+ACC-550,2026-02,east,112,6.600
+ACC-110,2026-03,north,100,6.000
+ACC-220,2026-03,central,139,7.308
+ACC-330,2026-03,south,150,8.000
+ACC-440,2026-03,west,316,15.792
+ACC-660,2026-03,north,75,4.500

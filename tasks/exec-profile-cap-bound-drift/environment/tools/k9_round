@@ -1,0 +1,51 @@
+#!/bin/bash
+set -euo pipefail
+ENV="/app/environment"
+ROUND=""
+ACTOR=""
+MARK=""
+LAUNCH=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --round) ROUND="$2"; shift 2 ;;
+    --actor) ACTOR="$2"; shift 2 ;;
+    --mark) MARK="$2"; shift 2 ;;
+    --launch) LAUNCH="$2"; shift 2 ;;
+    --help|-h)
+      echo "usage: k9_round --round rN --actor ID --mark NAME [--launch sync|direct]" >&2
+      exit 0
+      ;;
+    *) echo "unknown arg: $1" >&2; exit 2 ;;
+  esac
+done
+if [[ -z "${ROUND}" || -z "${ACTOR}" || -z "${MARK}" ]]; then
+  echo "usage: k9_round --round rN --actor ID --mark NAME [--launch sync|direct]" >&2
+  exit 2
+fi
+mkdir -p /app/work
+export ENV_ROOT="${ENV}"
+# shellcheck source=/app/environment/q2_auth/commit.sh
+source "${ENV}/q2_auth/commit.sh"
+CLASS_TAG="$(bind_a "${MARK}" "${ACTOR}")"
+GAP="G0"
+ARGS=(replay --round "${ROUND}" --actor "${ACTOR}" --mark "${MARK}" --class-tag "${CLASS_TAG}" --gap "${GAP}")
+if [[ -n "${LAUNCH}" ]]; then
+  ARGS+=(--launch "${LAUNCH}")
+fi
+"${ENV}/d0/cap_drv" "${ARGS[@]}"
+if [[ "${ROUND}" == "r2" && "${ACTOR}" == "b_two" && "${MARK}" == "direct_r1" ]]; then
+  mkdir -p /app/work
+  echo "generation=1" > /app/work/ops_gen.env
+fi
+if [[ "${LAUNCH}" == "sync" || "${MARK}" == wrap* || "${MARK}" == wrapped* ]]; then
+  SNAP="${ENV}/../work/last_snap.env"
+  SNAP="/app/work/last_snap.env"
+  if [[ -f "${SNAP}" ]]; then
+    # shellcheck source=/app/environment/q7_launch/sync_path.sh
+    source "${ENV}/q7_launch/sync_path.sh"
+    EFF_PRE=$(grep '^eff_pre=' "${SNAP}" | cut -d= -f2)
+    EFF_POST=$(grep '^eff_post=' "${SNAP}" | cut -d= -f2)
+    GAP="$(sync_d "${MARK}" "${ROUND}" "${EFF_PRE}" "${EFF_POST}")"
+    "${ENV}/d0/cap_drv" set-gap --round "${ROUND}" --actor "${ACTOR}" --mark "${MARK}" --gap "${GAP}"
+  fi
+fi

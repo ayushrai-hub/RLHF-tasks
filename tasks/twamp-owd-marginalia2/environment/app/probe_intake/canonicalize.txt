@@ -1,0 +1,47 @@
+SEND_TS MAGNITUDE ROUTING
+=========================
+
+The send timestamp arrives in one of two units depending on the
+reflector firmware revision. Both magnitudes coexist in the same
+shard; the auditor canonicalizes to microseconds before any window
+check.
+
+Rule (the only routing rule the auditor applies):
+
+    raw send_ts <  2_000_000_000_000   -->  treat as microseconds
+                                            (use as-is)
+    raw send_ts >= 2_000_000_000_000   -->  treat as picoseconds
+                                            (divide by 1_000_000 to
+                                             get microseconds)
+
+recv_ts is always microseconds. tx_ts is always microseconds.
+
+After the routing step, EVERY downstream rule (validity window,
+staleness ceiling, anomaly threshold, marker scope) operates on the
+canonicalized send_ts value in microseconds.
+
+Worked example
+--------------
+
+A probe with raw send_ts 50_000_003_000_000_000:
+
+  raw =        50_000_003_000_000_000
+  threshold =  2_000_000_000_000
+
+  raw >= threshold, so units = picoseconds.
+
+  send_ts_us = 50_000_003_000_000_000 / 1_000_000
+             = 50_000_003_000  (microseconds)
+
+A probe with raw send_ts 50_000_001_000:
+
+  raw =        50_000_001_000
+  threshold =  2_000_000_000_000
+
+  raw <  threshold, so units = microseconds, used as-is.
+
+  send_ts_us = 50_000_001_000
+
+A run that omits the routing step would treat the picosecond probe as
+microseconds 50_000_003_000_000_000 — far outside the validity window
+— and discard it.

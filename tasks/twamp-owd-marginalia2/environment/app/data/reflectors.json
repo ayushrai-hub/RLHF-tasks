@@ -1,0 +1,7 @@
+[
+  {"reflector_id": "R1",  "station": "edge-A1", "class": "edge"},
+  {"reflector_id": "R2",  "station": "edge-A2", "class": "edge"},
+  {"reflector_id": "R3",  "station": "edge-B1", "class": "edge"},
+  {"reflector_id": "R10", "station": "core-X3", "class": "core"},
+  {"reflector_id": "R11", "station": "pop-Z2",  "class": "pop"}
+]

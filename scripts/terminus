@@ -1,0 +1,291 @@
+#!/usr/bin/env bash
+# Terminus automation CLI — validate, test, package Terminus Edition 2 tasks
+set -euo pipefail
+
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+YELLOW='\033[1;33m'
+NC='\033[0m'
+
+usage() {
+  cat <<'EOF'
+Usage: terminus <command> <task-dir> [options]
+
+Commands:
+  validate <task-dir>          Run CI-aligned local validation
+  check-all <task-dir>         Validate + full submission checklist
+  checklist <task-dir>         Print interactive submission checklist
+  ci-check <task-dir>          Run harbor tasks check (CI + LLMaJ)
+  llmaj-check <task-dir>       Alias for ci-check
+  oracle <task-dir>            Run oracle agent (harbor)
+  agent <task-dir>             Run AI agent for difficulty testing
+  zip <task-dir> [output.zip]  Create submission ZIP (files inside folder)
+  rubric-validate <file> [--milestones N]  Validate rubric format
+  review <task-dir> [--report FILE] [--rubric FILE] [-o FILE]
+                                           Write review-report.md + checkbox guide
+
+Agent options:
+  --model <name>    gpt-5.5 (default) or claude-opus-4-8
+  --runs <n>        Number of runs (default: 3)
+
+Examples:
+  terminus validate ./my-task
+  terminus check-all ./my-task
+  terminus oracle ./my-task
+  terminus agent ./my-task --model gpt-5.5 --runs 5
+  terminus zip ./my-task ./my-task.zip
+  terminus init fix-memory-leak -t base
+EOF
+}
+
+log_ok()   { echo -e "${GREEN}✓${NC} $*"; }
+log_warn() { echo -e "${YELLOW}!${NC} $*"; }
+log_err()  { echo -e "${RED}✗${NC} $*"; }
+
+cmd_validate() {
+  local task_dir="$1"
+  echo "=== Terminus Validation: $task_dir ==="
+  python3 "$SCRIPT_DIR/validate_task.py" "$task_dir"
+}
+
+cmd_check_all() {
+  local task_dir="$1"
+  local val_exit=0
+  cmd_validate "$task_dir" || val_exit=$?
+  echo ""
+  cmd_checklist "$task_dir"
+  echo ""
+  if [[ $val_exit -ne 0 ]]; then
+    log_err "Validation failed — fix errors above before submitting"
+    return 1
+  fi
+  log_ok "Automated validation passed — complete manual checklist items above"
+}
+
+cmd_checklist() {
+  local task_dir="${1:-}"
+  local checklist="$REPO_ROOT/docs/submission-checklist.md"
+  if [[ -f "$checklist" ]]; then
+    echo "=== Submission Checklist ==="
+    echo "(Full doc: docs/submission-checklist.md)"
+    echo ""
+    # Print checklist sections (skip title)
+    sed -n '/^## Pre-Submission/,/^## Automated Checks/p' "$checklist" | sed '$d'
+    echo ""
+    echo "=== Commands to Run ==="
+    echo ""
+    cat <<EOF
+  ./scripts/terminus validate $task_dir
+  ./scripts/terminus oracle $task_dir
+  ./scripts/terminus ci-check $task_dir
+  ./scripts/terminus agent $task_dir --model gpt-5.5 --runs 3
+  ./scripts/terminus agent $task_dir --model claude-opus-4-8 --runs 3
+  ./scripts/terminus zip $task_dir
+  stb submissions create $task_dir -p "Terminus-2nd-Edition" --time <minutes>
+EOF
+    echo ""
+    echo "See also: docs/task-requirements.md, docs/what-makes-a-good-task.md"
+  else
+    log_warn "docs/submission-checklist.md not found"
+  fi
+}
+
+cmd_ci_check() {
+  local task_dir="$1"
+  echo "=== Harbor CI + LLMaJ Checks: $task_dir ==="
+  echo "(See docs/guidelines/llmaj-checks.md for LLMaJ fix guide)"
+  if command -v stb &>/dev/null; then
+    stb harbor tasks check "$task_dir" -m openai/@openai/gpt-5.5
+  elif command -v harbor &>/dev/null; then
+    harbor tasks check "$task_dir" -m openai/@openai/gpt-5.5
+  else
+    log_err "Neither stb nor harbor found."
+    exit 1
+  fi
+}
+
+cmd_llmaj_check() {
+  cmd_ci_check "$@"
+}
+
+cmd_oracle() {
+  local task_dir="$1"
+  echo "=== Oracle Agent: $task_dir ==="
+  if command -v stb &>/dev/null; then
+    stb harbor run -a oracle -p "$task_dir"
+  elif command -v harbor &>/dev/null; then
+    harbor run -a oracle -p "$task_dir"
+  else
+    log_err "Neither stb nor harbor found. Install: uv tool install snorkelai-stb ..."
+    exit 1
+  fi
+}
+
+cmd_agent() {
+  local task_dir="$1"
+  local model="gpt-5.5"
+  local runs=3
+  shift
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --model) model="$2"; shift 2 ;;
+      --runs)  runs="$2"; shift 2 ;;
+      *) shift ;;
+    esac
+  done
+
+  local harbor_model
+  case "$model" in
+    gpt-5.5|gpt5.5|openai)
+      harbor_model="@openai/gpt-5.5"
+      ;;
+    claude-opus-4-8|claude|opus)
+      harbor_model="@anthropic/claude-opus-4-8"
+      ;;
+    *)
+      harbor_model="$model"
+      ;;
+  esac
+
+  echo "=== Agent Test: $harbor_model x $runs runs on $task_dir ==="
+  local passed=0
+  for ((i=1; i<=runs; i++)); do
+    echo "--- Run $i/$runs ---"
+    if command -v stb &>/dev/null; then
+      if stb harbor run -m "$harbor_model" -p "$task_dir"; then
+        ((passed++)) || true
+      fi
+    elif command -v harbor &>/dev/null; then
+      if harbor run -m "$harbor_model" -p "$task_dir"; then
+        ((passed++)) || true
+      fi
+    else
+      log_err "Neither stb nor harbor found."
+      exit 1
+    fi
+  done
+  local rate=$((passed * 100 / runs))
+  echo ""
+  echo "Pass rate: $passed/$runs ($rate%)"
+  if [[ $rate -gt 80 ]]; then
+    log_warn "Pass rate > 80% — task may be rejected (too easy)"
+  elif [[ $rate -le 20 ]]; then
+    log_ok "Hard difficulty range (≤20%)"
+  elif [[ $rate -le 60 ]]; then
+    log_ok "Medium difficulty range (20-60%)"
+  else
+    log_ok "Easy difficulty range (60-80%)"
+  fi
+}
+
+cmd_zip() {
+  local task_dir="$1"
+  local output="${2:-}"
+  task_dir="$(cd "$task_dir" && pwd)"
+  local name
+  name="$(basename "$task_dir")"
+  if [[ -z "$output" ]]; then
+    output="${REPO_ROOT}/${name}.zip"
+  fi
+
+  echo "=== Creating submission ZIP: $output ==="
+  echo "Zipping files INSIDE $task_dir (not the folder itself)"
+
+  local tmpdir
+  tmpdir="$(mktemp -d)"
+  (
+    cd "$task_dir"
+  if [[ -d steps ]]; then
+      zip -r "$output" task.toml environment steps
+    else
+      zip -r "$output" instruction.md task.toml environment solution tests
+    fi
+  )
+  rm -rf "$tmpdir"
+  log_ok "Created: $output"
+  echo "Verify structure: unzip -l $output"
+}
+
+cmd_rubric_validate() {
+  local file="$1"
+  shift || true
+  local milestones=0
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --milestones) milestones="$2"; shift 2 ;;
+      *) shift ;;
+    esac
+  done
+  python3 "$SCRIPT_DIR/validate_rubric.py" "$file" --milestones "$milestones"
+}
+
+cmd_review() {
+  local task_dir="$1"
+  shift || true
+  local report="" rubric="" output="" extra=""
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --report) report="$2"; shift 2 ;;
+      --rubric) rubric="$2"; shift 2 ;;
+      -o|--output) output="$2"; shift 2 ;;
+      --json) extra="--json"; shift ;;
+      --stdout) extra="$extra --stdout"; shift ;;
+      *) shift ;;
+    esac
+  done
+  echo "=== Terminus Review Report: $task_dir ==="
+  echo "Writes: ${output:-$task_dir/review-report.md}"
+  echo ""
+  local args=("$task_dir")
+  [[ -n "$report" ]] && args+=(--report "$report")
+  [[ -n "$rubric" ]] && args+=(--rubric "$rubric")
+  [[ -n "$output" ]] && args+=(--output "$output")
+  [[ -n "$extra" ]] && args+=($extra)
+  python3 "$SCRIPT_DIR/review_checklist.py" "${args[@]}"
+}
+
+cmd_init() {
+  local name="$1"
+  local template="base"
+  shift || true
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      -t|--template) template="$2"; shift 2 ;;
+      *) shift ;;
+    esac
+  done
+  if ! command -v stb &>/dev/null; then
+    log_err "stb not found. Install snorkelai-stb first."
+    exit 1
+  fi
+  stb init "$name" -p "Terminus-2nd-Edition" -t "$template"
+  log_ok "Initialized: $name (template: $template)"
+  echo "Next: ./scripts/terminus validate ./$name"
+}
+
+# --- main ---
+COMMAND="${1:-}"
+shift || true
+
+case "$COMMAND" in
+  validate)   [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_validate "$1" ;;
+  check-all)  [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_check_all "$1" ;;
+  checklist)  cmd_checklist "${1:-}" ;;
+  ci-check)   [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_ci_check "$1" ;;
+  llmaj-check) [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_llmaj_check "$1" ;;
+  oracle)     [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_oracle "$1" ;;
+  agent)      [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_agent "$@" ;;
+  zip)        [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_zip "$@" ;;
+  rubric-validate) [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_rubric_validate "$@" ;;
+  review)       [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_review "$@" ;;
+  init)       [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_init "$@" ;;
+  help|--help|-h|"") usage ;;
+  *)
+    log_err "Unknown command: $COMMAND"
+    usage
+    exit 1
+    ;;
+esac

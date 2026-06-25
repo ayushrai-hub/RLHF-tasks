@@ -1,0 +1,5 @@
+head_seq mishandles cached stamps under `/app/var/cache/`. The trace sidecar at `/app/output/iodine_plate_trace.tsv` disagrees with the JSON report. On every successful run the driver must write both `/app/output/iodine_plate_report.json` and `/app/output/iodine_plate_trace.tsv`. Trace format uses header seq,plate_lane,digest_match,retained with comma delimiters; one row per segment after parsing, lane filtering, and sorting but before trims. retained is 1 when the row survives into final segments, else 0.
+
+After each successful run persist `/app/var/cache/head/<scenario>.txt` with the current head_seq and `/app/var/cache/gen/<scenario>.txt` with a generation stamp: CRC32 (same algorithm as segment row digests) over the UTF-8 encoding of the decimal string of salt times records_applied, where salt is read from `/app/policy/cache_salt.txt`. Honor a cached head only when the gen file already holds that stamp; then set head_seq to the greater of cached head and the computed peak retained seq. Stale gen values must not override recomputed head_seq and must not lower the peak.
+
+Repair cache and trace emission. Signal completion when both outputs are correct.

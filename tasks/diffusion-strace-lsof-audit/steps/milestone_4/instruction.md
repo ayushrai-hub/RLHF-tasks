@@ -1,0 +1,5 @@
+The trace and descriptor lanes now reconcile paths; finish the policy evaluator so shell-invoke snippets and deduplicated violation accounting match `/app/docs/audit_contract.md`.
+
+Rebuild with `bash /app/scripts/build_all.sh`, then run `bash /app/scripts/milestone_probes.sh audit`. The probe must write `/app/output/policy_audit.json` with `violation_count` `9`, all four `violation_kinds`, `socket_rows` including `93.184.216.34:443`, `run_dir` `/var/lib/diffusion-runs/current`, and `violations[].detail` entries for kinds `rng_unseeded`, `write_outside_run_dir`, `descriptor_leak`, and `network_egress`. At least two distinct `rng_unseeded` findings must appear among the deduplicated violations. For `write_outside_run_dir`, `detail` must be the bare absolute path for `/etc/diffusion/cache/state.bin`, `/tmp/diffusion-run/scratch.dat`, and `/etc/diffusion/stale/relay.bin`, not prose that merely mentions those paths.
+
+Signal completion once the audit probe passes with nine deduplicated violations.

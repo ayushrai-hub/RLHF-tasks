@@ -1,0 +1,10 @@
+{
+  "buckets": {},
+  "config_gen": 0,
+  "route_counter": 0,
+  "scope_gen": 1,
+  "last_refill_seq": 0,
+  "active_config": {
+    "backends": {}
+  }
+}

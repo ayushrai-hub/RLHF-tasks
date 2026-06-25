@@ -1,0 +1,6 @@
+[
+  {"reflector_id": "R1", "station": "alt-edge-A1", "class": "edge"},
+  {"reflector_id": "R2", "station": "alt-edge-A2", "class": "edge"},
+  {"reflector_id": "R3", "station": "alt-edge-B1", "class": "edge"},
+  {"reflector_id": "R7", "station": "alt-pop-Y1", "class": "pop"}
+]

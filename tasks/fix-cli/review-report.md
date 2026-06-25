@@ -1,0 +1,239 @@
+# Terminus Review Report: `fix-cli`
+
+**Generated:** 2026-06-18 11:55 UTC  
+**Disposition:** Revise  
+**Task path:** `/Users/ayushrai/Downloads/Airdawgs-review-Terminus2/fix-cli`  
+
+---
+
+## 1. Executive summary
+
+- **Recommendation:** Revise
+- **Automated validation:** FAIL (9 errors, 24 warnings)
+- **Checkboxes to CHECK:** 18 items → `4, 10, 11, 12, 13, 14, 16, 18, 19, 22, 24, 25, 26, 29, 40, 42, 50, 53`
+- **Checkboxes to UNCHECK:** 37 items → `1, 2, 3, 5, 6, 7, 8, 9, 15, 17, 20, 21, 23, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 41, 43, 44, 45, 46, 47, 48, 49, 51, 52, 54, 55`
+
+> Portal rule: **Check each item that passes.** Leaving unchecked = failed or not applicable.
+
+## 2. Main blockers (detailed)
+
+### Blocker 1: #1 — Instruction is concise (1 sentence to 3 paragraphs max)
+
+- **Severity:** High
+- **Section:** INSTRUCTION PROMPT
+- **Checkbox:** leave **#1 UNCHECKED**
+- **What failed:** Very long instruction (55 blocks, ~1870 words)
+- **Proof files:** `instruction.md`
+
+### Blocker 2: #15 — Base Docker image is pinned by digest (@sha256:...)
+
+- **Severity:** High
+- **Section:** ENVIRONMENT
+- **Checkbox:** leave **#15 UNCHECKED**
+- **What failed:** Unpinned FROM: FROM python:3.13-slim-bookworm
+- **Proof files:** `environment/Dockerfile`
+
+### Blocker 3: #20 — Verifier deps baked in image; test.sh does NOT install packages at runtime
+
+- **Severity:** High
+- **Section:** ENVIRONMENT
+- **Checkbox:** leave **#20 UNCHECKED**
+- **What failed:** test.sh installs packages at runtime
+- **Proof files:** `tests/test.sh`
+
+### Blocker 4: #31 — Tests have informative names or docstrings
+
+- **Severity:** High
+- **Section:** VERIFIERS
+- **Checkbox:** leave **#31 UNCHECKED**
+- **What failed:** 20 tests missing docstrings
+- **Proof files:** _see evidence below_
+
+### Blocker 5: #43 — All other required metadata fields present
+
+- **Severity:** High
+- **Section:** TASK METADATA
+- **Checkbox:** leave **#43 UNCHECKED**
+- **What failed:** Missing fields: codebase_size, number_of_milestones, languages
+- **Proof files:** _see evidence below_
+
+### Blocker 6: #45 — Difficulty matches observed agent pass rates
+
+- **Severity:** High
+- **Section:** TASK METADATA
+- **Checkbox:** leave **#45 UNCHECKED**
+- **What failed:** task.toml difficulty='intermediate' but worst-model 100% → 'trivial'; report says 'medium'
+- **Proof files:** `task.toml`, `entire-report.txt`
+
+### Blocker 7: #54 — Task is not too easy (not >80% combined pass rate consistently)
+
+- **Severity:** High
+- **Section:** TASK DIFFICULTY
+- **Checkbox:** leave **#54 UNCHECKED**
+- **What failed:** Worst-model pass rate 100% (>80% = too easy)
+- **Proof files:** _see evidence below_
+
+### Blocker 8: #3 — No excessive markdown formatting (## headers, ### subheaders, bold, tables, code blocks)
+
+- **Severity:** Medium
+- **Section:** INSTRUCTION PROMPT
+- **Checkbox:** leave **#3 UNCHECKED**
+- **What failed:** Heavy markdown: ##=10, ###=23, tables=5
+- **Proof files:** `instruction.md`
+
+### Blocker 9: #6 — No design doc style tables mapping inputs to outputs
+
+- **Severity:** Medium
+- **Section:** INSTRUCTION PROMPT
+- **Checkbox:** leave **#6 UNCHECKED**
+- **What failed:** Input/output mapping tables present
+- **Proof files:** _see evidence below_
+
+### Blocker 10: #41 — No unnecessary files in parent directory (jobs/, README.md, data/, dev notes)
+
+- **Severity:** Medium
+- **Section:** TASK STRUCTURE
+- **Checkbox:** leave **#41 UNCHECKED**
+- **What failed:** Stray files: audit-report.md
+- **Proof files:** _see evidence below_
+
+## 3. Portal checkbox decisions
+
+### CHECK these (pass — tick in portal)
+
+| # | Label | Reason | Proof |
+|---|-------|--------|-------|
+| 4 | No step by step instructions telling the agent what developer steps to take | No step-by-step patterns | — |
+| 10 | All paths in instruction are absolute (not relative) | Absolute paths present; no relative paths | `instruction.md` |
+| 11 | Task name does not appear in instruction.md | Task name not in instruction | — |
+| 12 | No canary string in instruction.md | No canary patterns | — |
+| 13 | Dockerfile does not grab content from the web (other than packages) | No runtime web fetch in environment code | — |
+| 14 | All Python/pip dependencies use pinned versions with == (no ranges) | No pip install in Dockerfile | — |
+| 16 | Environment does not use context from outside the environment directory | No COPY outside environment/ | — |
+| 18 | Dockerfile does not execute dangerous operations (no privileged, SYS_ADMIN, docker.sock) | No privileged/SYS_ADMIN/docker.sock | — |
+| 19 | Docker compose does not alter reserved harbor mounts (/logs/artifacts, /logs/verifier, /tests, /solution) | No docker-compose.yaml | — |
+| 22 | Oracle does not require internet or downloading packages | No obvious network installs in solve.sh | — |
+| 24 | test.sh writes reward.txt; mkdir -p /logs/verifier; handles failure path | reward.txt write pattern present | — |
+| 25 | Verifiers use the exact same logic for oracle and agent runs (no conditional logic) | No /oracle conditional logic | — |
+| 26 | Verifier applies binary rewards only (0 or 1, no partial scores) | Binary 0/1 reward pattern | — |
+| 29 | Tests verify behavior, not implementation (no grepping source code) | No obvious implementation grep in tests | — |
+| 40 | All required files present (environment/Dockerfile, solution/solve.sh, tests/test.sh, instruction.md, task.toml) | Required files present | — |
+| 42 | author_name and author_email fields present in task.toml | author fields present | — |
+| 50 | Tests are NOT baked into Docker image (no COPY tests/ in Dockerfile) | No tests COPY in image | — |
+| 53 | Git repos pinned to specific commit (no unpinned git clone) | No git clone in Dockerfile | — |
+
+### UNCHECK these (fail, unverified, or N/A — leave blank in portal)
+
+| # | Status | Label | Reason | Proof |
+|---|--------|-------|--------|-------|
+| 1 | fail | Instruction is concise (1 sentence to 3 paragraphs max) | Very long instruction (55 blocks, ~1870 words) | `instruction.md` |
+| 2 | manual | Instruction reads like a natural prompt, not a spec document | [VERIFY FIRST] No automated LLM-pattern hits — confirm natural tone | — |
+| 3 | fail | No excessive markdown formatting (## headers, ### subheaders, bold, tables, code blocks) | Heavy markdown: ##=10, ###=23, tables=5 | `instruction.md` |
+| 5 | manual | No hints or solving strategies (describes WHAT to build, not HOW) | [VERIFY FIRST] Review for implicit HOW-not-WHAT guidance | — |
+| 6 | fail | No design doc style tables mapping inputs to outputs | Input/output mapping tables present | — |
+| 7 | manual | Instruction is well specified (goal is clear and obvious) | [VERIFY FIRST] Has paths — verify all requirements testable | — |
+| 8 | manual | Instruction is interesting (useful to some group of developers) | [VERIFY FIRST] Subjective — confirm task is useful/interesting | — |
+| 9 | manual | Instruction is unique (not duplicate of existing TB2/TB3/Edition 1 task) | [VERIFY FIRST] Verify uniqueness vs TB2/TB3/Edition 1 corpus | — |
+| 15 | fail | Base Docker image is pinned by digest (@sha256:...) | Unpinned FROM: FROM python:3.13-slim-bookworm | `environment/Dockerfile` |
+| 17 | manual | Environment does not contain solution or ground truth answers | [VERIFY FIRST] Verify no answer leakage in comments/docs | — |
+| 20 | fail | Verifier deps baked in image; test.sh does NOT install packages at runtime | test.sh installs packages at runtime | `tests/test.sh` |
+| 21 | manual | Oracle passes consistently (no flaky behavior) | [VERIFY FIRST] Run ./scripts/terminus oracle — confirm no flakes | — |
+| 23 | manual | Oracle is reflective of instruction (real implementation, not hardcoded) | [VERIFY FIRST] Verify oracle derives results from implementation | — |
+| 27 | manual | All tests are aligned with instructions (do not test unstated requirements) | [VERIFY FIRST] Cross-check instruction vs each test assertion (use prompt.md) | — |
+| 28 | manual | Tests check for correctness, not just format | [VERIFY FIRST] Confirm tests assert correctness not format-only | — |
+| 30 | manual | No brittle exact string matching where flexible checks would work | [VERIFY FIRST] Review assert style | — |
+| 31 | fail | Tests have informative names or docstrings | 20 tests missing docstrings | — |
+| 32 | na | Rubrics contain at least 3 negative penalty criteria | [N/A] No rubric file provided | — |
+| 33 | na | Rubric scores are from the set {1, 2, 3, 5, -1, -2, -3, -5} | [N/A] No rubric file provided | — |
+| 34 | na | Each rubric criterion is one line starting with Agent, comma, then score | [N/A] No rubric file provided | — |
+| 35 | na | Rubric criteria are detailed and precise | [N/A] No rubric file provided | — |
+| 36 | na | Rubric criteria use positive language (not Agent does not do X, +1) | [N/A] No rubric file provided | — |
+| 37 | na | Rubric does not reference testing logic or /tests/ directory | [N/A] No rubric file provided | — |
+| 38 | na | Rubric does not reference metadata (task.toml) or instruction.md | [N/A] No rubric file provided | — |
+| 39 | na | Rubric does not mention oracle or NOP runs | [N/A] No rubric file provided | — |
+| 41 | fail | No unnecessary files in parent directory (jobs/, README.md, data/, dev notes) | Stray files: audit-report.md | — |
+| 43 | fail | All other required metadata fields present | Missing fields: codebase_size, number_of_milestones, languages | — |
+| 44 | manual | Tags, languages, categories are applicable to the task | [VERIFY FIRST] Verify tags/languages/category match task content | — |
+| 45 | fail | Difficulty matches observed agent pass rates | task.toml difficulty='intermediate' but worst-model 100% → 'trivial'; report says 'medium' | `task.toml`, `entire-report.txt` |
+| 46 | na | steps/ layout present with per-milestone files (not root instruction/tests/solution) | [N/A] Not a milestone task | — |
+| 47 | na | Each milestone has a corresponding solveN.sh file | [N/A] Not a milestone task | — |
+| 48 | na | Each milestone has a corresponding test_mN.py file | [N/A] Not a milestone task | — |
+| 49 | na | Each milestone test file is scoped only to that milestone | [N/A] Not a milestone task | — |
+| 51 | manual | Solution or ground truth answers are not accessible in the environment | [VERIFY FIRST] Verify env has no accessible ground truth | — |
+| 52 | manual | Agent cannot modify input data to trivially pass tests | [VERIFY FIRST] Verify input data not trivially writable by agent | — |
+| 54 | fail | Task is not too easy (not >80% combined pass rate consistently) | Worst-model pass rate 100% (>80% = too easy) | — |
+| 55 | manual | Task is not too hard or unfair (not requiring unavailable info, unreliable environment, or luck) | [VERIFY FIRST] Assess fairness — needs human review of instructions/env | — |
+
+### Quick copy-paste
+
+**CHECK:** 4, 10, 11, 12, 13, 14, 16, 18, 19, 22, 24, 25, 26, 29, 40, 42, 50, 53
+
+**UNCHECK:** 1, 2, 3, 5, 6, 7, 8, 9, 15, 17, 20, 21, 23, 27, 28, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 41, 43, 44, 45, 46, 47, 48, 49, 51, 52, 54, 55
+
+## 4. Proof file index
+
+| File | Related checkboxes |
+|------|-------------------|
+| `entire-report.txt` | #45 |
+| `environment/Dockerfile` | #15, #31, #43 |
+| `instruction.md` | #1, #3, #10 |
+| `solution/solve.sh` | #31, #43 |
+| `task.toml` | #31, #43, #45 |
+| `tests/test.sh` | #20, #31, #43 |
+| `tests/test_outputs.py` | #31, #43 |
+
+## 5. Validation output (re-audit)
+
+```
+ERROR: task.toml [task.toml]: version must be "2.0"
+ERROR: task.toml [task.toml]: allow_internet = false is required in [environment]
+ERROR: dockerfile [environment/Dockerfile]: FROM must be digest-pinned: FROM python:3.13-slim-bookworm
+ERROR: dockerfile [environment/Dockerfile]: tmux must be installed (agent runtime requirement)
+ERROR: dockerfile [environment/Dockerfile]: asciinema must be installed (agent runtime requirement)
+ERROR: dockerfile [environment/Dockerfile]: Must not COPY solution/ into image
+ERROR: dockerfile [environment/Dockerfile]: Must not COPY tests/ into image
+ERROR: test.sh [tests/test.sh]: Must write to /logs/verifier/reward.txt
+ERROR: test.sh [tests/test.sh]: Runtime network install not allowed: pip\s+install
+```
+
+
+## Report ↔ task identity
+
+⚠️ **Report likely mismatched** — report discusses rate-limiter/Go concepts; task folder appears to be a different task (e.g. Python sum CLI).
+Adjudicate external findings against **task artifacts only**; ignore report claims that don't apply.
+
+
+## External report adjudication (automated hints)
+
+### Claim: instruction.md still does not define the semantics of client_stats[].penalty_ms. The tests expect th…
+- **Verdict:** Manual — verify against instruction.md and tests
+- **Action:** Use prompt.md Phase 1 spec↔test matrix
+
+### Claim: The required traffic-file ordering behavior is not actually testable. The instruction says traffic f…
+- **Verdict:** Manual — verify against instruction.md and tests
+- **Action:** Use prompt.md Phase 1 spec↔test matrix
+
+## 6. Agent performance (from report)
+
+- terminus-claude-opus-4-8: 100.0%
+- unknown: 40.0%
+- **Worst-model rate:** 100.0% → tier `trivial`
+- **Report classified difficulty:** medium
+
+## 7. Audit log
+
+- [x] Read task.toml, instruction(s), Dockerfile, test.sh, test_outputs.py, solve.sh
+- [x] Ran `validate_task.py` → FAIL
+- [x] Cross-checked external report: `entire-report.txt`
+- [ ] Manual spec↔test alignment (#27, #28) — **reviewer must confirm**
+- [ ] Subjective items (#2, #8, #9, #55) — **reviewer must confirm**
+
+---
+
+## 8. Reviewer note (copy-paste to portal)
+
+Needs revision. 10 checklist item(s) failed automated re-audit (main blockers: #1, #15, #20, #31, #43). See detailed blocker section and proof files in this report. Address High-severity items before resubmission.
+
+---
+
+_Report generated by `./scripts/terminus review`. Enrich sections 2–7 after manual audit per `prompt.md`._

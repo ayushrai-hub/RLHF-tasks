@@ -1,0 +1,23 @@
+{
+  "pending_reloads": [
+    {
+      "backends": {
+        "api": {"weight": 1, "capacity": 500}
+      }
+    },
+    {
+      "backends": {
+        "api": {"weight": 2, "capacity": 500},
+        "web": {"weight": 1, "capacity": 300}
+      }
+    },
+    {
+      "backends": {
+        "web": {"weight": 1, "capacity": 150}
+      }
+    }
+  ],
+  "reload_scope": 1,
+  "last_run_id": "seed",
+  "seq": 1
+}

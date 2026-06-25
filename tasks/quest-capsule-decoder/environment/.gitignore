@@ -1,0 +1,3 @@
+/out/
+cartridges/*.cartridge.db
+*.log

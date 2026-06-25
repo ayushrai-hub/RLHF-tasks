@@ -1,0 +1,3 @@
+The traffic-splitting controller in `/app/environment/splitter` is producing incorrect routing decisions for the split rules in `/app/environment/config/split_rules.json`. Please repair the Go implementation so the routing behavior and output schema follow the contract in `/app/environment/docs/routing_contract.txt`, rebuild `/app/bin/splitter` from that source tree, and run the rebuilt binary so it regenerates `/app/output/routing_result.json` from `/app/environment/data/requests.json`. Treat that contract as the source of truth if the current code or comments disagree with it.
+
+Static or hand-written JSON is not enough; the verifier reruns the binary against additional routing scenarios.

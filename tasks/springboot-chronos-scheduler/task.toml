@@ -1,0 +1,55 @@
+version = "2.0"
+
+[metadata]
+author_name = "Steve Burgos"
+author_email = "burgossteve95@gmail.com"
+difficulty = "hard"
+category = "software-engineering"
+subcategories = ["api_integration", "db_interaction"]
+number_of_milestones = 3
+codebase_size = "small"
+languages = ["java"]
+tags = ["spring-boot", "quartz-cron", "job-scheduler", "concurrency", "h2", "jdbc"]
+expert_time_estimate_min = 300
+junior_time_estimate_min = 600
+
+[verifier]
+timeout_sec = 600.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+allow_internet = false
+build_timeout_sec = 2700.0
+cpus = 4
+memory_mb = 6144
+storage_mb = 12288
+workdir = "/app"
+
+[[steps]]
+name = "milestone_1"
+
+[steps.agent]
+timeout_sec = 1800.0
+
+[steps.verifier]
+timeout_sec = 600.0
+
+[[steps]]
+name = "milestone_2"
+
+[steps.agent]
+timeout_sec = 1800.0
+
+[steps.verifier]
+timeout_sec = 600.0
+
+[[steps]]
+name = "milestone_3"
+
+[steps.agent]
+timeout_sec = 1800.0
+
+[steps.verifier]
+timeout_sec = 600.0

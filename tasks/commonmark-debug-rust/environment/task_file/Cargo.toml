@@ -1,0 +1,20 @@
+[package]
+name = "commonmark"
+version = "0.1.0"
+edition = "2021"
+authors = ["Terminal Bench <benchmark@terminal.dev>"]
+description = "A std-only CommonMark inline renderer (emphasis, code spans, escapes, entities, breaks)"
+
+[[bin]]
+name = "commonmark"
+path = "src/main.rs"
+
+[lib]
+name = "commonmark"
+path = "src/lib.rs"
+
+[profile.release]
+opt-level = 3
+lto = false
+codegen-units = 1
+debug = false

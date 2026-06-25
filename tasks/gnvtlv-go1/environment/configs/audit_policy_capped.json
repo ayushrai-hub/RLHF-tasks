@@ -1,0 +1,10 @@
+{
+  "version": 1,
+  "rules": {
+    "MAX_PER_CLASS": { "severity": "error", "mute": false }
+  },
+  "vendor_allowlist": [305419896, 2882400000],
+  "max_per_class": {
+    "0x0103": 2
+  }
+}

@@ -1,0 +1,14 @@
+[package]
+name = "m3l"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "iodine-plate"
+path = "src/main.rs"
+
+[dependencies]
+r8k = { path = "../r8k" }
+crc32fast = "=1.5.0"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

@@ -1,0 +1,27 @@
+[package]
+name = "wavebench-io"
+version = "0.2.0"
+edition = "2021"
+description = "I/O backends for WaveBench simulation data"
+
+[dependencies]
+wavebench-core     = { path = "../wavebench-core", default-features = false }
+wavebench-adaptive = { path = "../wavebench-adaptive", optional = true, default-features = false }
+serde              = { version = "1.0.195", features = ["derive"] }
+tokio              = { version = "1.36.0", optional = true, features = ["full"] }
+hdf5               = { version = "0.8.1", optional = true }
+
+[features]
+default = []
+async-io = ["dep:tokio"]
+hdf5-output = ["dep:hdf5"]
+
+streaming-io = [
+    "async-io",
+    "wavebench-core/adaptive-cfl",
+]
+
+guarded-stream = [
+    "streaming-io",
+    "wavebench-adaptive?/tvd-limiter",   # weak: fires only if the adaptive dep is enabled here
+]

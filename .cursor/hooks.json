@@ -1,0 +1,16 @@
+{
+  "version": 1,
+  "hooks": {
+    "afterFileEdit": [
+      {
+        "command": ".cursor/hooks/validate-terminus-task.sh",
+        "matcher": "Write|EditNotebook"
+      }
+    ],
+    "sessionStart": [
+      {
+        "command": ".cursor/hooks/terminus-context.sh"
+      }
+    ]
+  }
+}

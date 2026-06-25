@@ -1,0 +1,34 @@
+---
+description: Terminus milestone task structure — steps/, task.toml [[steps]], rubric
+globs: "{steps/**,task.toml}"
+alwaysApply: false
+---
+
+# Milestone Tasks
+
+## Structure
+
+```
+steps/milestone_N/
+  instruction.md    # Milestone N prompt only (M1 includes task context)
+  tests/test.sh, test_mN.py   # class TestMilestoneN
+  solution/solve.sh, solveN.sh
+```
+
+No root `instruction.md`, `tests/`, `solution/`, or `milestone_x.md`.
+
+## task.toml
+
+- `number_of_milestones` = `[[steps]]` count (≥ 2)
+- `[[steps]].name` = `milestone_1`, `milestone_2`, … (matches directory names)
+- Per-milestone `[steps.agent]` and `[steps.verifier]` — **no** top-level `[agent]`/`[verifier]`
+- `[environment].workdir` recommended (shared container)
+
+## Rules
+
+- Each milestone is prerequisite for the next (no leaky milestones)
+- Files persist across milestones — reset paths in solveN.sh if needed
+- 2–5 milestones ideal
+- Rubric: 10–40 positive pts per milestone; `# Rubric N` headers
+
+See `docs/guidelines/milestones.md`. Milestone tasks preferred for new submissions.

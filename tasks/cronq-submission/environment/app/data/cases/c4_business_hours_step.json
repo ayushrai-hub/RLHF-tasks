@@ -1,0 +1,7 @@
+{
+  "id": "c4_business_hours_step",
+  "expr": "0 9/3 * * *",
+  "from": "2026-03-01T00:00:00Z",
+  "count": 6,
+  "note": "on the hour every 3 hours starting at 09:00"
+}

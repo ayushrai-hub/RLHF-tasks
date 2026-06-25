@@ -1,0 +1,11 @@
+{
+  "active_profile": "production",
+  "profiles": {
+    "production": {
+      "window_ms": 5000,
+      "max_requests": 20,
+      "burst_limit": 10,
+      "penalty_ms": 2000
+    }
+  }
+}

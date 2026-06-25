@@ -1,0 +1,1 @@
+Verifier invokes prebuilt Gradle jar; agent must rebuild after Kotlin edits. Platform verifier pytest passes `--ctrf /logs/verifier/ctrf.json` for harness reporting.

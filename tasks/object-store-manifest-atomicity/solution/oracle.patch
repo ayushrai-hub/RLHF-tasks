@@ -1,0 +1,207 @@
+--- packset/builder.go	2026-06-03 09:03:26.510003706 +0000
++++ packset/builder.go	2026-06-03 09:04:01.998071299 +0000
+@@ -2,7 +2,9 @@
+ 
+ import (
+ 	"fmt"
++	"path"
+ 	"sort"
++	"strings"
+ 
+ 	"terminal.local/objectmanifest/internal/report"
+ 	"terminal.local/objectmanifest/internal/store"
+@@ -12,64 +14,109 @@
+ const storeName = "offline-object-store"
+ 
+ func Build(layout store.Layout) (BuildResult, error) {
+-	tree, err := store.ScanObjectTree(layout)
++	receipts, err := store.ReadReceipts(layout)
+ 	if err != nil {
+ 		return BuildResult{}, err
+ 	}
+ 
+-	seenLogical := map[string]bool{}
+-	grouped := map[string][]Object{}
+-	epochs := map[string]int{}
+-	sidecars := map[string]string{}
++	batches := make([]Batch, 0, len(receipts))
++	rows := make([]report.Row, 0)
++	inputRows := make([]string, 0)
++	objectCount := 0
+ 
+-	for _, obj := range tree {
+-		if seenLogical[obj.LogicalKey] {
++	for _, rf := range receipts {
++		r := rf.Receipt
++		if r.Phase != "committed" {
+ 			continue
+ 		}
+-		seenLogical[obj.LogicalKey] = true
+-		grouped[obj.BatchID] = append(grouped[obj.BatchID], Object{
+-			LogicalKey:   obj.LogicalKey,
+-			RelativePath: obj.RelativePath,
+-			Size:         obj.Size,
+-			SHA256:       obj.SHA256,
+-		})
+-		if epochs[obj.BatchID] == 0 {
+-			if receipt, err := store.ReadReceipt(layout.ReceiptPath(obj.BatchID)); err == nil {
+-				epochs[obj.BatchID] = receipt.Epoch
+-			}
+-		}
+-		digest, err := store.ReadSidecarDigest(obj.SidecarPath)
+-		if err != nil {
+-			return BuildResult{}, fmt.Errorf("%s: %w", obj.RelativePath, err)
++		if err := validateReceiptHeader(rf); err != nil {
++			return BuildResult{}, err
+ 		}
+-		sidecars[obj.BatchID+"\x00"+obj.LogicalKey] = digest
+-	}
+-
+-	batchIDs := make([]string, 0, len(grouped))
+-	for id := range grouped {
+-		batchIDs = append(batchIDs, id)
+-	}
+-	sort.Strings(batchIDs)
+ 
+-	batches := make([]Batch, 0, len(batchIDs))
+-	rows := make([]report.Row, 0)
+-	inputRows := make([]string, 0)
+-	objectCount := 0
+-	for _, id := range batchIDs {
+-		objects := grouped[id]
++		objects := append([]store.ObjectSpec(nil), r.Objects...)
+ 		sort.Slice(objects, func(i, j int) bool { return objects[i].LogicalKey < objects[j].LogicalKey })
+-		batch := Batch{BatchID: id, Epoch: epochs[id], ObjectCount: len(objects), Objects: objects}
+-		batch.BatchSHA256 = HashObjectRows(id, objects)
+-		batches = append(batches, batch)
+-		objectCount += len(objects)
+-		for _, obj := range objects {
+-			sideDigest := sidecars[id+"\x00"+obj.LogicalKey]
+-			rows = append(rows, report.Row{BatchID: id, LogicalKey: obj.LogicalKey, RelativePath: obj.RelativePath, Size: obj.Size, SHA256: obj.SHA256, SidecarSHA256: sideDigest})
+-			inputRows = append(inputRows, fmt.Sprintf("%s\t%s\t%s\t%s\t%s\n", id, obj.LogicalKey, obj.RelativePath, obj.SHA256, sideDigest))
++		manifestObjects := make([]Object, 0, len(objects))
++
++		for _, spec := range objects {
++			if err := validateObjectSpec(layout, r.BatchID, spec); err != nil {
++				return BuildResult{}, fmt.Errorf("%s:%s: %w", r.BatchID, spec.LogicalKey, err)
++			}
++			full := layout.ObjectPath(spec.RelativePath)
++			if err := store.ValidateObjectBytes(full, spec.Size, spec.SHA256); err != nil {
++				return BuildResult{}, fmt.Errorf("%s: %w", spec.RelativePath, err)
++			}
++			sidecarPath := layout.SidecarPath(spec.RelativePath)
++			sidecarDigest, err := store.ReadSidecarDigest(sidecarPath)
++			if err != nil {
++				return BuildResult{}, fmt.Errorf("%s.sha256: %w", spec.RelativePath, err)
++			}
++			if sidecarDigest != strings.ToLower(spec.SHA256) {
++				return BuildResult{}, fmt.Errorf("%s.sha256: sidecar digest mismatch", spec.RelativePath)
++			}
++
++			obj := Object{LogicalKey: spec.LogicalKey, RelativePath: spec.RelativePath, Size: spec.Size, SHA256: strings.ToLower(spec.SHA256)}
++			manifestObjects = append(manifestObjects, obj)
++			rows = append(rows, report.Row{BatchID: r.BatchID, LogicalKey: obj.LogicalKey, RelativePath: obj.RelativePath, Size: obj.Size, SHA256: obj.SHA256, SidecarSHA256: sidecarDigest})
++			inputRows = append(inputRows, fmt.Sprintf("%s\t%s\t%s\t%s\t%s\n", r.BatchID, obj.LogicalKey, obj.RelativePath, obj.SHA256, sidecarDigest))
+ 		}
++
++		batch := Batch{BatchID: r.BatchID, Epoch: r.Epoch, ObjectCount: len(manifestObjects), Objects: manifestObjects}
++		batch.BatchSHA256 = HashObjectRows(r.BatchID, manifestObjects)
++		batches = append(batches, batch)
++		objectCount += len(manifestObjects)
+ 	}
+ 
++	sort.Slice(batches, func(i, j int) bool { return batches[i].BatchID < batches[j].BatchID })
+ 	m := Manifest{SchemaVersion: 1, Store: storeName, GeneratedBy: generatedBy, CommitCount: len(batches), ObjectCount: objectCount, Batches: batches}
+ 	m.ContentRoot = HashAllRows(batches)
+ 	return BuildResult{Manifest: m, ReportRows: rows, InputRows: inputRows}, nil
+ }
++
++func validateReceiptHeader(rf store.ReceiptFile) error {
++	r := rf.Receipt
++	if r.SchemaVersion != 1 {
++		return fmt.Errorf("%s: unsupported schema_version %d", rf.Path, r.SchemaVersion)
++	}
++	if r.BatchID == "" {
++		return fmt.Errorf("%s: empty batch_id", rf.Path)
++	}
++	if r.BatchID != store.ReceiptNameBatch(rf.Path) {
++		return fmt.Errorf("%s: receipt filename and batch_id disagree", rf.Path)
++	}
++	if r.Epoch < 0 {
++		return fmt.Errorf("%s: negative epoch", rf.Path)
++	}
++	return nil
++}
++
++func validateObjectSpec(layout store.Layout, batchID string, spec store.ObjectSpec) error {
++	if spec.LogicalKey == "" {
++		return fmt.Errorf("empty logical_key")
++	}
++	if spec.Size < 0 {
++		return fmt.Errorf("negative size")
++	}
++	if len(spec.SHA256) != 64 || strings.ToLower(spec.SHA256) != spec.SHA256 {
++		return fmt.Errorf("sha256 must be lowercase hex")
++	}
++	clean := path.Clean(spec.RelativePath)
++	if strings.HasPrefix(clean, "../") || clean == ".." || path.IsAbs(spec.RelativePath) || clean != spec.RelativePath {
++		return fmt.Errorf("relative_path must be a clean relative path")
++	}
++	prefix := "objects/" + batchID + "/"
++	if !strings.HasPrefix(spec.RelativePath, prefix) {
++		return fmt.Errorf("relative_path must stay under %s", prefix)
++	}
++	if !strings.HasSuffix(spec.RelativePath, ".dat") {
++		return fmt.Errorf("relative_path must name a .dat payload")
++	}
++	wantKey := strings.TrimSuffix(strings.TrimPrefix(spec.RelativePath, prefix), ".dat")
++	if spec.LogicalKey != wantKey {
++		return fmt.Errorf("logical_key and relative_path disagree")
++	}
++	full := layout.ObjectPath(spec.RelativePath)
++	if !strings.HasPrefix(full, layout.ObjectsDir()) {
++		return fmt.Errorf("object path escaped objects root")
++	}
++	return nil
++}
+--- cli/flow.go	2026-06-03 09:03:28.684331153 +0000
++++ cli/flow.go	2026-06-03 09:04:04.143460079 +0000
+@@ -41,7 +41,11 @@
+ 		"checksum-report.tsv": reportBytes,
+ 		"provenance.json":     provenanceBytes,
+ 	}
+-	if err := hygiene.WriteDirect(paths.out, files); err != nil {
++	if err := hygiene.RemoveBuildScratch(paths.out); err != nil {
++		fmt.Fprintf(stderr, "cleanup outputs: %v\n", err)
++		return 1
++	}
++	if err := hygiene.CommitFiles(paths.out, files); err != nil {
+ 		fmt.Fprintf(stderr, "write outputs: %v\n", err)
+ 		return 1
+ 	}
+--- auditx/record.go	2026-06-03 09:03:26.510333785 +0000
++++ auditx/record.go	2026-06-03 09:04:01.998473415 +0000
+@@ -2,7 +2,6 @@
+ 
+ import (
+ 	"encoding/json"
+-	"time"
+ 
+ 	"terminal.local/objectmanifest/internal/hashutil"
+ 	"terminal.local/objectmanifest/packset"
+@@ -17,7 +16,6 @@
+ 	CommitCount          int    `json:"commit_count"`
+ 	ObjectCount          int    `json:"object_count"`
+ 	ContentRoot          string `json:"content_root"`
+-	GeneratedAt          string `json:"generated_at"`
+ }
+ 
+ func RecordFromOutputs(result packset.BuildResult, manifestBytes []byte, reportBytes []byte) Record {
+@@ -30,7 +28,6 @@
+ 		CommitCount:          result.Manifest.CommitCount,
+ 		ObjectCount:          result.Manifest.ObjectCount,
+ 		ContentRoot:          result.Manifest.ContentRoot,
+-		GeneratedAt:          time.Now().UTC().Format(time.RFC3339Nano),
+ 	}
+ }
+ 

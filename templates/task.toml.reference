@@ -1,0 +1,31 @@
+# Reference task.toml template — copy into your task folder
+
+```toml
+version = "2.0"
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+difficulty = "unknown"
+category = "software-engineering"
+subcategories = []
+number_of_milestones = 0
+codebase_size = "minimal"
+languages = ["bash"]
+tags = []
+expert_time_estimate_min = 60
+junior_time_estimate_min = 120
+
+[verifier]
+timeout_sec = 450.0
+
+[agent]
+timeout_sec = 900.0
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = false
+```

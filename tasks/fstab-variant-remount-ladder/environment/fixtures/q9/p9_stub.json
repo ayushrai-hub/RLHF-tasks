@@ -1,0 +1,7 @@
+{
+  "interim_rows": [
+    {"slot_id": 1, "attach_path": "/mnt/a", "band_class": 1},
+    {"slot_id": 2, "attach_path": "/mnt/b", "band_class": 2}
+  ],
+  "row_band_target": 2
+}

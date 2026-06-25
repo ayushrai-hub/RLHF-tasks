@@ -1,0 +1,105 @@
+[
+  {
+    "discharges": [
+      "disch.JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA.ZXhwPTIwMDAwMDAwMDA.aEtbsWZepDgrEOCkse2A4j0qoP2AE-cIWyiaBz-VsqA"
+    ],
+    "ip": "10.0.0.1",
+    "key": "00112233445566778899aabbccddeeff",
+    "method": "GET",
+    "name": "accept",
+    "now": 1700000000,
+    "path": "/reports/x",
+    "rc": 0,
+    "scope": "/reports",
+    "token": "v1.dXNlcjQy.cGF0aD0vcmVwb3J0cw~dGhpcmQ9YXV0aHx1c2VyPWFsaWNlfEpLR1VZRzJ3TTRQSWEzZGpwOEowSXc3blVPYmFEOUU4N09mNkYyRWxvd0F8RVJlNi1qcUMxZG8xZVo3c1lCTEZrR1FzZjlzTmdhNzVUclZuSm1Yc2tzbw.PBHVNhvjy0X5DNnTl3nVDWZcvN9eAWpbn4rhVEwZlQk"
+  },
+  {
+    "discharges": [],
+    "ip": "10.0.0.1",
+    "key": "00112233445566778899aabbccddeeff",
+    "method": "GET",
+    "name": "missing_discharge",
+    "now": 1700000000,
+    "path": "/reports/x",
+    "rc": 1,
+    "token": "v1.dXNlcjQy.cGF0aD0vcmVwb3J0cw~dGhpcmQ9YXV0aHx1c2VyPWFsaWNlfEpLR1VZRzJ3TTRQSWEzZGpwOEowSXc3blVPYmFEOUU4N09mNkYyRWxvd0F8RVJlNi1qcUMxZG8xZVo3c1lCTEZrR1FzZjlzTmdhNzVUclZuSm1Yc2tzbw.PBHVNhvjy0X5DNnTl3nVDWZcvN9eAWpbn4rhVEwZlQk"
+  },
+  {
+    "discharges": [
+      "disch.JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA.ZXhwPTIwMDAwMDAwMDA.Vpn8D69CGqjjAyk8mZY_xcrnsL5ZZXVVO0iAJ-nFOuc"
+    ],
+    "ip": "10.0.0.1",
+    "key": "00112233445566778899aabbccddeeff",
+    "method": "GET",
+    "name": "unbound_discharge",
+    "now": 1700000000,
+    "path": "/reports/x",
+    "rc": 1,
+    "token": "v1.dXNlcjQy.cGF0aD0vcmVwb3J0cw~dGhpcmQ9YXV0aHx1c2VyPWFsaWNlfEpLR1VZRzJ3TTRQSWEzZGpwOEowSXc3blVPYmFEOUU4N09mNkYyRWxvd0F8RVJlNi1qcUMxZG8xZVo3c1lCTEZrR1FzZjlzTmdhNzVUclZuSm1Yc2tzbw.PBHVNhvjy0X5DNnTl3nVDWZcvN9eAWpbn4rhVEwZlQk"
+  },
+  {
+    "discharges": [
+      "disch.JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA.ZXhwPTEwMDA.FlKlGKJxAu0jo3mQf2xS8cu9PK7N_vtdlE83CnYf28o"
+    ],
+    "ip": "10.0.0.1",
+    "key": "00112233445566778899aabbccddeeff",
+    "method": "GET",
+    "name": "expired_discharge",
+    "now": 1700000000,
+    "path": "/reports/x",
+    "rc": 1,
+    "token": "v1.dXNlcjQy.cGF0aD0vcmVwb3J0cw~dGhpcmQ9YXV0aHx1c2VyPWFsaWNlfEpLR1VZRzJ3TTRQSWEzZGpwOEowSXc3blVPYmFEOUU4N09mNkYyRWxvd0F8RVJlNi1qcUMxZG8xZVo3c1lCTEZrR1FzZjlzTmdhNzVUclZuSm1Yc2tzbw.PBHVNhvjy0X5DNnTl3nVDWZcvN9eAWpbn4rhVEwZlQk"
+  },
+  {
+    "discharges": [
+      "disch.JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA.ZXhwPTIwMDAwMDAwMDA.aHdtCXVLrNAuIg18UsNL-6-NRQZdMF1GR8hWuQ9BJc0"
+    ],
+    "ip": "10.0.0.1",
+    "key": "00112233445566778899aabbccddeeff",
+    "method": "GET",
+    "name": "wrong_tpkey_discharge",
+    "now": 1700000000,
+    "path": "/reports/x",
+    "rc": 1,
+    "token": "v1.dXNlcjQy.cGF0aD0vcmVwb3J0cw~dGhpcmQ9YXV0aHx1c2VyPWFsaWNlfEpLR1VZRzJ3TTRQSWEzZGpwOEowSXc3blVPYmFEOUU4N09mNkYyRWxvd0F8RVJlNi1qcUMxZG8xZVo3c1lCTEZrR1FzZjlzTmdhNzVUclZuSm1Yc2tzbw.PBHVNhvjy0X5DNnTl3nVDWZcvN9eAWpbn4rhVEwZlQk"
+  },
+  {
+    "discharges": [
+      "disch.JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA.ZXhwPTIwMDAwMDAwMDA.z9vOro6-AD4QiwVH15WCpBSD-g3kb_3QO1G0YlXWdGY"
+    ],
+    "ip": "10.0.0.1",
+    "key": "00112233445566778899aabbccddeeff",
+    "method": "GET",
+    "name": "bound_to_other_root",
+    "now": 1700000000,
+    "path": "/reports/x",
+    "rc": 1,
+    "token": "v1.dXNlcjQy.cGF0aD0vcmVwb3J0cw~dGhpcmQ9YXV0aHx1c2VyPWFsaWNlfEpLR1VZRzJ3TTRQSWEzZGpwOEowSXc3blVPYmFEOUU4N09mNkYyRWxvd0F8RVJlNi1qcUMxZG8xZVo3c1lCTEZrR1FzZjlzTmdhNzVUclZuSm1Yc2tzbw.PBHVNhvjy0X5DNnTl3nVDWZcvN9eAWpbn4rhVEwZlQk"
+  },
+  {
+    "discharges": [
+      "disch.JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA.ZXhwPTIwMDAwMDAwMDA.aEtbsWZepDgrEOCkse2A4j0qoP2AE-cIWyiaBz-VsqA"
+    ],
+    "ip": "10.0.0.1",
+    "key": "00112233445566778899aabbccddeeff",
+    "method": "GET",
+    "name": "tampered_root",
+    "now": 1700000000,
+    "path": "/reports/x",
+    "rc": 1,
+    "token": "v1.dXNlcjQy.cGF0aD0vcmVwb3J0cw~dGhpcmQ9YXV0aHx1c2VyPWFsaWNlfEpLR1VZRzJ3TTRQSWEzZGpwOEowSXc3blVPYmFEOUU4N09mNkYyRWxvd0F8RVJlNi1qcUMxZG8xZVo3c1lCTEZrR1FzZjlzTmdhNzVUclZuSm1Yc2tzbw.PBHVNhvjy0X5DNnTl3nVDWZcvN9eAWpbn4rhVEwZlAA"
+  },
+  {
+    "discharges": [
+      "disch.JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA.cGF0aD0vYWRtaW4.rvqIZEUApPCKNXJW8esEOv_RlxbHI4sYnnDUnL1pTbs"
+    ],
+    "ip": "10.0.0.1",
+    "key": "00112233445566778899aabbccddeeff",
+    "method": "GET",
+    "name": "discharge_path_excludes",
+    "now": 1700000000,
+    "path": "/reports/x",
+    "rc": 1,
+    "token": "v1.dXNlcjQy.cGF0aD0vcmVwb3J0cw~dGhpcmQ9YXV0aHx1c2VyPWFsaWNlfEpLR1VZRzJ3TTRQSWEzZGpwOEowSXc3blVPYmFEOUU4N09mNkYyRWxvd0F8RVJlNi1qcUMxZG8xZVo3c1lCTEZrR1FzZjlzTmdhNzVUclZuSm1Yc2tzbw.PBHVNhvjy0X5DNnTl3nVDWZcvN9eAWpbn4rhVEwZlQk"
+  }
+]

@@ -1,0 +1,7 @@
+{
+  "id": "c5_dom_step",
+  "expr": "0 0 5/10 * *",
+  "from": "2026-03-01T00:00:00Z",
+  "count": 4,
+  "note": "midnight on day 5, then every 10 days of the month"
+}

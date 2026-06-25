@@ -1,0 +1,8 @@
+[[routes]]
+principal = "direct"
+action_load = "open"
+
+[[routes]]
+principal = "svc"
+action_load = "hold"
+nnp_flag = 1

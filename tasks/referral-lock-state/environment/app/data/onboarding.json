@@ -1,0 +1,47 @@
+[
+  {
+    "userId": "u-clean",
+    "pdfDownloadCount": 1,
+    "simulationViewCount": 1,
+    "mindmapViewCount": 0,
+    "referralData": {
+      "referralCount": 0
+    }
+  },
+  {
+    "userId": "u-pdf-boundary",
+    "pdfDownloadCount": 5,
+    "simulationViewCount": 0,
+    "mindmapViewCount": 0,
+    "referralData": {
+      "referralCount": 1
+    }
+  },
+  {
+    "userId": "u-sim-boundary",
+    "pdfDownloadCount": 0,
+    "simulationViewCount": 3,
+    "mindmapViewCount": 3,
+    "referralData": {
+      "referralCount": 0
+    }
+  },
+  {
+    "userId": "u-quota-exact",
+    "pdfDownloadCount": 8,
+    "simulationViewCount": 4,
+    "mindmapViewCount": 4,
+    "referralData": {
+      "referralCount": 3
+    }
+  },
+  {
+    "userId": "u-partial",
+    "pdfDownloadCount": 7,
+    "simulationViewCount": 3,
+    "mindmapViewCount": 5,
+    "referralData": {
+      "referralCount": 2
+    }
+  }
+]

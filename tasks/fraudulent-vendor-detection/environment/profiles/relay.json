@@ -1,0 +1,14 @@
+{
+  "config_id": "relay",
+  "seed": 77,
+  "panel_id": "north",
+  "stage_width": 3,
+  "max_period": 7,
+  "view_mode": "vendor_graph",
+  "flags": {
+    "multi_stage": true,
+    "strict_stage_sort": true,
+    "deferred_rollout": true,
+    "track_exposure": true
+  }
+}

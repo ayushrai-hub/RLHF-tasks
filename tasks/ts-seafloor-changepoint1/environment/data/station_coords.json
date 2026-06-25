@@ -1,0 +1,31 @@
+{
+  "type": "FeatureCollection",
+  "description": "Pacific Seafloor Observatory Network active station positions (January 2024)",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": { "code": "AXID01", "name": "Axial Seamount Primary Pressure Array", "depth_m": 4145 },
+      "geometry": { "type": "Point", "coordinates": [-130.0085, 45.9547] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "AXID02", "name": "Axial Seamount Secondary Monitoring Array", "depth_m": 4162 },
+      "geometry": { "type": "Point", "coordinates": [-130.0094, 45.9531] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "NEMO01", "name": "Northern Extension Monitor Station", "depth_m": 3822 },
+      "geometry": { "type": "Point", "coordinates": [-128.8847, 47.1203] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "JUAN01", "name": "Juan de Fuca Ridge Vent Field Station", "depth_m": 2318 },
+      "geometry": { "type": "Point", "coordinates": [-129.1083, 47.9667] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "code": "COAX01", "name": "Cascadia Basin Deep-Sea Outpost", "depth_m": 4831 },
+      "geometry": { "type": "Point", "coordinates": [-129.7294, 46.2185] }
+    }
+  ]
+}

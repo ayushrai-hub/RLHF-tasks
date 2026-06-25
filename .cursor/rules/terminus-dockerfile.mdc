@@ -1,0 +1,32 @@
+---
+description: Terminus Dockerfile and environment standards
+globs: "environment/**"
+alwaysApply: false
+---
+
+# Dockerfile Standards
+
+## Required
+
+```dockerfile
+FROM python:3.12-slim@sha256:<digest>  # always digest-pin
+RUN apt-get update && apt-get install -y tmux asciinema && rm -rf /var/lib/apt/lists/*
+WORKDIR /app
+```
+
+- Every `FROM` must include `@sha256:<digest>` (tag-only is blocked)
+- Final stage: canonical Terminal-Bench base image when language matches
+- Non-canonical base: add brief justification comment in Dockerfile
+- Pin all package versions (pip, npm, apt where possible)
+- Set WORKDIR before tests run
+
+## Forbidden
+
+- `COPY solution/` or `COPY tests/`
+- Baking oracle answers into the image
+- Privileged mode
+- environment/ > 100 MiB total or any file > 50 MiB
+
+## Validate
+
+Run `./scripts/terminus validate <task-dir>` after Dockerfile edits.

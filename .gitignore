@@ -1,0 +1,24 @@
+# OpenMemory - IDE/Assistant specific rules
+.cursor/rules/openmemory.mdc
+
+# Backups & archives
+_backup/
+_incoming/
+
+# Personal / reference (not Terminus tasks)
+_misc/
+
+# Submission ZIPs
+*.zip
+
+# OS
+.DS_Store
+AGENTS.md
+
+# Local dev
+.venv/
+jobs/
+reviews/
+
+# Nested git repos (reference clones)
+**/.git/

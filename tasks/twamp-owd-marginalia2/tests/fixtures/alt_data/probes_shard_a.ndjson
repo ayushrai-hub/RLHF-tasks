@@ -1,0 +1,5 @@
+# alt fixture probes shard A
+{"probe_id": "AP1", "session_id": "AS1", "cycle_id": 0, "reflector_id": "R1", "send_ts": 50000001000, "recv_ts": 50000001200, "tx_ts": 0, "seq_no": 1, "recv_minus_send": 200, "loss_flag": false, "kind": "probe"}
+{"probe_id": "AP2", "session_id": "AS1", "cycle_id": 0, "reflector_id": "R2", "send_ts": 50000002000, "recv_ts": 50000002300, "tx_ts": 0, "seq_no": 2, "recv_minus_send": 300, "loss_flag": false, "kind": "probe"}
+{"probe_id": "AP3", "session_id": "AS2", "cycle_id": 0, "reflector_id": "R2", "send_ts": 50000003000, "recv_ts": 50000003600, "tx_ts": 0, "seq_no": 3, "recv_minus_send": 600, "loss_flag": false, "kind": "probe"}
+{"probe_id": "AP4", "session_id": "AS1", "cycle_id": 0, "reflector_id": "R3", "send_ts": 50000004000, "recv_ts": 50000004400, "tx_ts": 0, "seq_no": 4, "recv_minus_send": 400, "loss_flag": false, "kind": "probe"}

@@ -1,0 +1,39 @@
+[package]
+name = "wavebench-core"
+version = "0.4.2"
+edition = "2021"
+description = "Core wave-equation solvers for the WaveBench suite"
+
+[dependencies]
+wavebench-adaptive = { path = "../wavebench-adaptive", optional = true, default-features = false }
+rayon            = { version = "1.8.1", optional = true }
+cuda-sys         = { version = "0.2.0", optional = true }
+ndarray          = "0.15.6"
+num-traits       = "0.2.18"
+
+[features]
+default = ["standard-cfl"]
+
+# Standard explicit scheme (unit CFL ceiling).
+standard-cfl = []
+
+# Adaptive controller pulls in the optional companion crate.
+adaptive-cfl = [
+    "dep:wavebench-adaptive",
+]
+
+parallel-io = ["dep:rayon"]
+
+unstable-integrator = []
+
+experimental = [
+    "adaptive-cfl",            # transitively engages the adaptive controller
+    "unstable-integrator",
+]
+
+gpu-accel = [
+    "adaptive-cfl",
+    "dep:cuda-sys",
+]
+
+hpc-mode = ["adaptive-cfl", "parallel-io"]   # cluster profile

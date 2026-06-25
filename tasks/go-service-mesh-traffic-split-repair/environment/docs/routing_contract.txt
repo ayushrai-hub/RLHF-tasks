@@ -1,0 +1,57 @@
+Traffic splitter routing contract
+
+Input files
+- `/app/environment/config/split_rules.json` contains `default_backend` and an ordered `backends` array.
+- `/app/environment/data/requests.json` contains an array of request objects with `id` and `headers`.
+- The optional `SEED` environment variable is parsed as a base-10 integer. If it is missing or invalid, the program may use the current time.
+
+Backend rule fields
+- `name`: backend identifier string.
+- `weight`: integer used only among the eligible candidates for the current request. Non-positive weights are treated as ineligible.
+- `headers`: optional array of required header matches. All listed headers must match.
+- `enabled`: optional boolean. Missing means enabled. A backend with `enabled: false` is never eligible, even if its headers match.
+
+Header match fields
+- `name`: required header name string.
+- `value`: optional header value string. It is required for `exact` and `contains-token` matches and ignored for `absent` matches.
+- `mode`: optional match mode. Missing or empty means `exact`. Supported modes are `exact`, `contains-token`, and `absent`.
+
+Header matching
+- Header name comparison uses case-insensitive Unicode/simple-fold semantics, equivalent to Go `strings.EqualFold` on header names.
+- `exact` mode succeeds only when the matching request header value is exactly equal to the configured `value`.
+- `contains-token` mode treats the request header value as a comma-separated list, trims ASCII spaces around each token, and succeeds when one token is exactly equal to the configured `value`.
+- `absent` mode succeeds only when the request does not contain any header with the configured name. An empty-valued header is still present.
+- A backend with no `headers` field, or an empty `headers` array, is eligible for any request unless it is disabled.
+- A backend with multiple required headers is eligible only when every required header match succeeds. For example, the `canary-v3` rule in the provided config requires both `X-Canary: v3` and `Authorization: Bearer test-token`.
+
+Weighted choice
+- Build the active candidate pool from enabled backends with positive weight that match the request.
+- If the active pool is empty, route to `default_backend` and set `rule_name` to `default`.
+- Otherwise calculate `totalWeight` as the sum of the raw `weight` values in the active pool.
+- Draw `roll` with `rng.Intn(totalWeight)` and walk candidates in config order, adding each raw weight to a cumulative total. Select the first candidate where `roll < cumulative`.
+- The selected request's `backend` is the selected backend name and `rule_name` is the same backend name.
+
+Output file
+The binary writes `/app/output/routing_result.json` as a JSON object with these fields:
+
+```
+{
+  "routed_requests": [
+    {"request_id": "req-0001", "backend": "stable", "rule_name": "stable"}
+  ],
+  "summary": {
+    "total_requests": 100,
+    "backend_counts": {"stable": 88, "canary-v2": 12},
+    "expected_weights": {"canary-v2": 30, "canary-v3": 10, "stable": 60},
+    "balanced": false
+  }
+}
+```
+
+Schema details
+- `routed_requests` is an array with one object per input request, preserving input order.
+- Each routed request object has string fields `request_id`, `backend`, and `rule_name`.
+- `summary.total_requests` is the integer number of input requests.
+- `summary.backend_counts` is an object mapping backend names to integer counts. It may include zero-count enabled backends.
+- `summary.expected_weights` is an object mapping enabled configured backend names to their integer configured weights.
+- `summary.balanced` is a boolean diagnostic flag. It is not used to choose routes.

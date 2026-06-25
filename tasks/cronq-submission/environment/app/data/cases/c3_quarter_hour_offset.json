@@ -1,0 +1,7 @@
+{
+  "id": "c3_quarter_hour_offset",
+  "expr": "*/15 * * * *",
+  "from": "2026-03-01T12:07:00Z",
+  "count": 3,
+  "note": "same schedule, started between fire times"
+}

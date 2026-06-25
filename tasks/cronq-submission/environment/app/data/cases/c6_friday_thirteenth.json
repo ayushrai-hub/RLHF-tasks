@@ -1,0 +1,7 @@
+{
+  "id": "c6_friday_thirteenth",
+  "expr": "0 0 13 * FRI",
+  "from": "2026-02-01T00:00:00Z",
+  "count": 6,
+  "note": "the 13th OR any Friday (both day fields restricted)"
+}

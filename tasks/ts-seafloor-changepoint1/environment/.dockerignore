@@ -1,0 +1,14 @@
+.git
+.gitignore
+node_modules
+**/node_modules/
+dist
+*.log
+*.tmp
+.env
+data/sensors.db
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/

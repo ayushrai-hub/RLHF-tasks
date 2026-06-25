@@ -1,0 +1,88 @@
+LEXICON — domain terms
+======================
+
+TWAMP
+  Two-Way Active Measurement Protocol (RFC 5357). Control plane plus
+  test-plane protocol for measuring round-trip and one-way path delay
+  between a session-sender and a session-reflector. This auditor
+  consumes already-captured measurements; the control plane is out of
+  scope.
+
+session-reflector
+  Remote end of a TWAMP test session, owned by a deployed device.
+  Each one has a unique reflector_id in /app/data/reflectors.json.
+
+probe
+  One TWAMP-Test packet round trip captured by the session-reflector.
+  Has a probe_id, a session_id, a cycle_id, three timestamps, an
+  internal turnaround time, a sequence number, and a loss flag.
+
+cycle
+  A fixed-width batch window. Each probe carries the cycle_id it
+  belongs to as a field. Cycle 0 is the smallest cycle_id in the
+  run.
+
+OWD (one-way delay)
+  Delay from the session-sender to the session-reflector. NOT the
+  round-trip time. Computed as recv_ts_us - send_ts_us - tx_ts_us,
+  never as recv_ts - send_ts. The recv_minus_send field on the probe
+  row is informational only.
+
+turnaround time (tx_ts)
+  Time the reflector spent processing the probe internally before
+  generating the reflected response. Recorded explicitly so the
+  sender can subtract it from RTT to derive OWD.
+
+validity window
+  Time interval, in canonical microseconds, in which the run accepts
+  probes. Half-open, LEFT-INCLUSIVE.
+
+marker scoping window
+  Time interval associated with a single marker, in canonical
+  microseconds. Half-open, LEFT-EXCLUSIVE. Note the asymmetry with
+  the validity window.
+
+quiet period
+  Deliberate operator-declared suppression interval. A valid
+  quiet-period marker mutes EXACTLY ONE anomaly within its scope.
+
+magnitude routing
+  Heuristic of deciding whether a raw timestamp is microseconds or
+  picoseconds from its magnitude alone. Older reflector firmware
+  records send_ts in picoseconds; newer firmware records
+  microseconds. The auditor canonicalizes to microseconds.
+
+dedup
+  Collapsing two probe rows that share probe_id. The EARLIEST
+  authoritative wins. Losing row is silently discarded.
+
+cross-cycle cascade
+  Rule whereby a loss-heavy cycle tightens the anomaly threshold of
+  the immediately following cycle. The halving compounds when
+  consecutive cycles trip; a clean cycle resets to default.
+
+jitter
+  Absolute difference between a probe's owd_us and the integer-mean
+  owd_us of its cycle's WITHIN_BOUNDS probes. Probes whose jitter
+  exceeds the configured ceiling are upgraded to JITTER_FLAGGED.
+
+seal
+  First 8 lowercase hex characters of the SHA-256 of a pipe-joined
+  identifier string keyed by a shared secret. Used to validate
+  markers. A marker whose seal does not reconcile is silently
+  dropped.
+
+numeric suffix
+  Longest trailing digit run of an identifier string. Used to order
+  identifiers so R2 precedes R10. An identifier with no trailing
+  digits has numeric suffix 0.
+
+permille
+  Parts per thousand. jitter_share_permille values sum to 1000
+  across reflectors when at least one allocator-qualifying probe
+  survived; otherwise sum to 0 and every value is 0.
+
+largest-remainder method
+  Also known as Hamilton's method. Each reflector receives the floor
+  of its proportional share; the leftover units are distributed one
+  unit each in descending order of fractional remainder.

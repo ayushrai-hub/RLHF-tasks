@@ -1,0 +1,73 @@
+# Task configuration schema version
+version = "2.0"
+
+# Task metadata (author, difficulty, categorization)
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous@example.com"
+difficulty = "hard"
+category = "debugging"
+# Options for subcategories are: "long_context", "tool_specific", "api_integration", "db_interaction", "ui_building"
+subcategories = ["tool_specific"]
+# The number of milestones in the task (can be zero if not a milestone task)
+number_of_milestones = 0
+# Size of the codebase: minimal -> 0-20 files, small -> 20+ files, large -> 200+ files
+codebase_size = "small"
+# Coding languages used in the oracle solution or required by the agent
+languages = ["go", "bash"]
+# For tool_specific, api_integration, and db_interaction subcategories, please include specific tool, api framework, or database software
+tags = [
+    "docker",
+    "container-networking",
+    "connectivity",
+    "go",
+    "replay",
+]
+# Estimated time to complete (minutes)
+expert_time_estimate_min = 180.0
+junior_time_estimate_min = 360.0
+
+# Verifier: runs the test script to check task completion
+[verifier]
+timeout_sec = 900.0
+
+# Agent: limits how long the agent can run when attempting the task
+[agent]
+timeout_sec = 1800.0
+
+# Sandbox environment limits
+[environment]
+allow_internet = false
+build_timeout_sec = 900.0
+docker_flags = []
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+gpus = 0
+gpu_types = []
+workdir = "/app"
+
+[evaluation]
+# Platform pseudo-test when a trial crashes before the verifier runs.
+solvability_excluded_tests = ["verifier_did_not_run", "test_verifier_did_not_run"]
+
+[rubric]
+text = """
+Agent inspects DOCKER_NETWORK_CONNECTIVITY_DEBUGGER_CAPTURE_FORMAT.md and decode.go wire layout before editing CNX1 endianness, +2
+Agent repairs CNX1 little-endian Decode with LEN_OVERFLOW before DUP_SEQ dup_seq_rejects truncated_tail and payload_bytes per capture format, +3
+Agent rejects capture paths outside /app/data with permission denied before opening files, +2
+Agent sorts decoded events by seq sort_key then event_id using the per-kind sort_key table and deduplicates duplicate event_id, +3
+Agent evaluates CONNECT_PROBE guards in numbered step order with EGRESS_DENIED before ZONE_BLOCKED when both could apply, +3
+Agent sets operation empty for UNKNOWN_CONTAINER findings and uppercases probe protocol for DNS_UNRESOLVED EGRESS_DENIED ZONE_BLOCKED per rules quick reference, +3
+Agent applies policy_overrides on scenario boolean defaults before replay begins, +2
+Agent implements REVOKE_EGRESS LEAVE_NETWORK and REGISTER_DNS state transitions in replay handlers, +2
+Agent deduplicates BRIDGE_GAP to one finding per edge internal pair across bridge networks and overwrites DNS aliases on duplicate REGISTER_DNS rows, +2
+Agent emits post-replay audits BRIDGE_GAP OVERLAY_ASYMMETRY OPEN_DMZ_PATH INSPECT_UNBOUND at max event seq plus one, +3
+Agent runs make build and executes /app/build/docker-network-connectivity-debugger then inspects report JSON structure, +2
+Agent confirms consecutive make run yields byte-identical /app/build/docker_network_connectivity_debugger_report.json, +1
+Agent modifies bundled fixtures or docs under /app/data or /app/docs, -5
+Agent hardcodes scenario findings or patches capture.cnx bytes instead of fixing decode or replay logic, -5
+Agent edits Makefile go.mod or other top-level project files outside /app/cmd and /app/internal, -3
+Agent repeats the same failing make build or go build at least three times without source changes, -2
+Agent writes outputs or performs task work outside /app/, -5
+"""

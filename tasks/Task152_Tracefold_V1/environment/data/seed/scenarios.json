@@ -1,0 +1,152 @@
+{
+  "lane_id": 13,
+  "base_epoch": 2,
+  "base_seq": 4,
+  "base_value": 560,
+  "base_flags": 1,
+  "labels": {
+    "direct": 15,
+    "deferred": 34
+  },
+  "patches": [
+    {
+      "epoch": 3,
+      "seq": 5,
+      "revision": 9,
+      "patch_id": 3,
+      "lane_id": 13,
+      "committed": true,
+      "kind": "update",
+      "delta": 600,
+      "toggle_mask": 32
+    },
+    {
+      "epoch": 11,
+      "seq": 6,
+      "revision": 1,
+      "patch_id": 10,
+      "lane_id": 13,
+      "committed": true,
+      "kind": "update",
+      "delta": 5,
+      "toggle_mask": 2
+    },
+    {
+      "epoch": 11,
+      "seq": 6,
+      "revision": 3,
+      "patch_id": 14,
+      "lane_id": 13,
+      "committed": true,
+      "kind": "update",
+      "delta": 50,
+      "toggle_mask": 1
+    },
+    {
+      "epoch": 11,
+      "seq": 6,
+      "revision": 3,
+      "patch_id": 31,
+      "lane_id": 13,
+      "committed": true,
+      "kind": "tombstone",
+      "delta": 800,
+      "toggle_mask": 4294967295
+    },
+    {
+      "epoch": 11,
+      "seq": 8,
+      "revision": 2,
+      "patch_id": 33,
+      "lane_id": 13,
+      "committed": true,
+      "kind": "update",
+      "delta": 9,
+      "toggle_mask": 4
+    },
+    {
+      "epoch": 11,
+      "seq": 10,
+      "revision": 5,
+      "patch_id": 44,
+      "lane_id": 13,
+      "committed": true,
+      "kind": "tombstone",
+      "delta": 400,
+      "toggle_mask": 16
+    },
+    {
+      "epoch": 11,
+      "seq": 12,
+      "revision": 4,
+      "patch_id": 20,
+      "lane_id": 13,
+      "committed": true,
+      "kind": "update",
+      "delta": 70,
+      "toggle_mask": 8
+    },
+    {
+      "epoch": 11,
+      "seq": 12,
+      "revision": 4,
+      "patch_id": 41,
+      "lane_id": 13,
+      "committed": true,
+      "kind": "update",
+      "delta": 13,
+      "toggle_mask": 8
+    },
+    {
+      "epoch": 11,
+      "seq": 14,
+      "revision": 6,
+      "patch_id": 55,
+      "lane_id": 13,
+      "committed": true,
+      "kind": "update",
+      "delta": 25,
+      "toggle_mask": 64
+    },
+    {
+      "epoch": 11,
+      "seq": 16,
+      "revision": 2,
+      "patch_id": 61,
+      "lane_id": 13,
+      "committed": true,
+      "kind": "tombstone",
+      "delta": 2,
+      "toggle_mask": 128
+    },
+    {
+      "epoch": 16,
+      "seq": 40,
+      "revision": 9,
+      "patch_id": 90,
+      "lane_id": 12,
+      "committed": true,
+      "kind": "update",
+      "delta": 888,
+      "toggle_mask": 2147483648
+    },
+    {
+      "epoch": 20,
+      "seq": 20,
+      "revision": 1,
+      "patch_id": 100,
+      "lane_id": 13,
+      "committed": false,
+      "kind": "update",
+      "delta": 9999,
+      "toggle_mask": 32
+    }
+  ],
+  "probe": {
+    "modulus": 97,
+    "remainder": 77,
+    "required_flags": 1082369,
+    "required_epoch": 11,
+    "min_applied": 3
+  }
+}

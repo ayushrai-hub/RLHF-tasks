@@ -1,0 +1,59 @@
+{
+  "default_backend": "fallback-pool",
+  "backends": [
+    {
+      "name": "deprecated-v1",
+      "weight": 90,
+      "enabled": false,
+      "headers": [
+        {
+          "name": "X-Canary",
+          "value": "enabled"
+        }
+      ]
+    },
+    {
+      "name": "canary-v2",
+      "weight": 30,
+      "headers": [
+        {
+          "name": "X-Canary",
+          "value": "enabled"
+        }
+      ]
+    },
+    {
+      "name": "canary-v3",
+      "weight": 10,
+      "headers": [
+        {
+          "name": "X-Canary",
+          "value": "v3"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer test-token"
+        }
+      ]
+    },
+    {
+      "name": "regional-eu",
+      "weight": 25,
+      "headers": [
+        {
+          "name": "X-Region-List",
+          "value": "eu-west",
+          "mode": "contains-token"
+        },
+        {
+          "name": "X-Debug",
+          "mode": "absent"
+        }
+      ]
+    },
+    {
+      "name": "stable",
+      "weight": 60
+    }
+  ]
+}

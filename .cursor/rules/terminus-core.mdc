@@ -1,0 +1,42 @@
+---
+description: Core Project Terminus Edition 2 standards — always apply when working in this repo
+alwaysApply: true
+---
+
+# Terminus Core Standards
+
+Project Terminus benchmarks AI coding agents on real Docker-container engineering tasks.
+
+## Difficulty (benchmark: GPT-5.5 + Claude Opus 4.8)
+
+- Hard: ≤20% on best or worst model
+- Medium: 20–60% on worst model
+- Easy: 60–80% on worst model
+- **Rejected if >80%** on worst model
+- **New submissions:** easy tier blocked; Python tasks must be hard
+
+## Category & Subtypes
+
+- `category`: one of 9 types — see `docs/task-type-taxonomy.md`
+- `subcategories`: long_context, tool_specific, api_integration, db_interaction, ui_building
+- Milestone tasks preferred for new submissions — see `docs/guidelines/milestones.md`
+
+## Non-Negotiables
+
+- `allow_internet = false` in task.toml `[environment]`
+- All test deps pre-installed in Dockerfile; test.sh must NOT install packages
+- Digest-pin every `FROM` with `@sha256:<digest>`
+- Install tmux + asciinema in Dockerfile
+- Never COPY solution/ or tests/ into image
+- No solution hints/walkthroughs in environment files
+- No AI scaffolding filenames (CLAUDE.md, skills.md, AGENTS.md)
+
+## Workflow
+
+1. `stb init` → develop → `./scripts/terminus validate` → oracle → agent test → zip → submit
+2. Rubric via platform UI (not CLI); ≥3 negative rewards
+3. Run `./scripts/terminus check-all <task-dir>` before every submission
+
+## Docs
+
+See `docs/guidelines/` and `docs/reviewer-checklist.md` for full references.

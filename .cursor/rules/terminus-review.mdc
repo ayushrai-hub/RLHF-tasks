@@ -1,0 +1,38 @@
+---
+description: Terminus peer review — full checklist, severity rules, revision notes
+globs: "{**/REVIEW.md,**/review-notes.md}"
+alwaysApply: false
+---
+
+# Peer Review
+
+## Severity
+
+- **High** — any failure → revision required
+- **Medium** — multiple failures → revision; single → accept with note
+- **Low** — accept; optional note
+
+## Review All Areas
+
+Instructions · Environment · Oracle · Verifiers · Rubrics · Structure · Metadata · Milestones
+
+Find **all** issues before requesting revision.
+
+## Local Checks
+
+```bash
+./scripts/terminus validate <task-dir>
+./scripts/terminus oracle <task-dir>
+./scripts/terminus llmaj-check <task-dir>
+```
+
+## References
+
+- `docs/reviewer-checklist-full.md` — full criteria
+- `docs/guidelines/review-guidelines.md` — process
+- `docs/guidelines/llmaj-checks.md` — LLMaJ fixes
+- `docs/guidelines/agent-review.md` — advisory static review
+
+## Revision Notes
+
+Specific: file path, issue, expected fix. Reference severity section.

@@ -1,0 +1,26 @@
+[
+  {
+    "userId": "u-alice",
+    "referralData": {
+      "referralCode": "ALICE001",
+      "referralCount": 0,
+      "referredUsers": []
+    }
+  },
+  {
+    "userId": "u-bob",
+    "referralData": {
+      "referralCode": "BOB00001",
+      "referralCount": 0,
+      "referredUsers": []
+    }
+  },
+  {
+    "userId": "u-charlie",
+    "referralData": {
+      "referralCode": "CHARLIE9",
+      "referralCount": 0,
+      "referredUsers": []
+    }
+  }
+]

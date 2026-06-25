@@ -1,0 +1,121 @@
+{
+  "title": "Referral attribution regressed against the RF rollout tickets",
+  "task_id": "referral-attribution",
+  "work_type": "code",
+  "tags": [
+    "pi-lens",
+    "referral",
+    "attribution",
+    "api-context"
+  ],
+  "difficulty": "hard",
+  "instructions": "# Referral attribution regressed against the RF rollout tickets\n\nThe reduced referral attribution slice in `/app` no longer matches the RF rollout acceptance tickets. The generated `/app/output/report.json` is wrong for the bundled event stream, especially around sign-in referrals, cross-referrer attribution, and invalid self-attribution cases.\n\nFix the implementation so `python3 /app/reconcile.py` writes the correct deterministic report. The original GitHub issue did not restate the acceptance rules; it linked the internal RF tickets and PRD page below.\n\nLinked internal context from the original work: PPL-702, PPL-798, PPL-802, PPL-804, PPL-806, 1929576453. Fetch linked context only through the local API: use `curl -s http://127.0.0.1:8765/rest/api/3/issue/<key>` for Jira-style tickets and `curl -s http://127.0.0.1:8765/wiki/rest/api/content/<id>` for design-doc pages. Public smoke tests may be available in `/tests`, but final grading uses hidden verifier tests.",
+  "deliverables": {
+    "report.json": "app/output/report.json"
+  },
+  "evaluation": {
+    "grader": "hidden-pytest",
+    "authoritative_reward": "binary (all hidden tests pass)",
+    "criteria_source": "derived from hidden verifier test functions",
+    "tool_use": "logged for review, not part of reward"
+  },
+  "criteria": [
+    {
+      "id": "C-01",
+      "title": "Report exists",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_report_exists` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_report_exists"
+    },
+    {
+      "id": "C-02",
+      "title": "Signin events still count as successful referrals",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_signin_events_still_count_as_successful_referrals` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_signin_events_still_count_as_successful_referrals"
+    },
+    {
+      "id": "C-03",
+      "title": "Same referee can credit two different referrers",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_same_referee_can_credit_two_different_referrers` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_same_referee_can_credit_two_different_referrers"
+    },
+    {
+      "id": "C-04",
+      "title": "Self referrals do not count",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_self_referrals_do_not_count` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_self_referrals_do_not_count"
+    },
+    {
+      "id": "C-05",
+      "title": "Same referrer same referee pair is idempotent",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_same_referrer_same_referee_pair_is_idempotent` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_same_referrer_same_referee_pair_is_idempotent"
+    },
+    {
+      "id": "C-06",
+      "title": "Hidden rollout rules use pair scoped idempotency",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_hidden_rollout_rules_use_pair_scoped_idempotency` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_hidden_rollout_rules_use_pair_scoped_idempotency"
+    }
+  ],
+  "context_api": {
+    "base_url": "http://127.0.0.1:8765",
+    "jira_issue_path": "/rest/api/3/issue/{id}",
+    "jira_search_path": "/rest/api/3/search",
+    "confluence_page_path": "/wiki/rest/api/content/{id}",
+    "mode": "offline_emulator"
+  },
+  "linked_context": {
+    "jira": [
+      {
+        "id": "PPL-702",
+        "endpoint": "/rest/api/3/issue/PPL-702",
+        "purpose": "BE - Invite Friends - Refer and Earn"
+      },
+      {
+        "id": "PPL-798",
+        "endpoint": "/rest/api/3/issue/PPL-798",
+        "purpose": "[RF-020] Referral counted on existing user sign-in via link"
+      },
+      {
+        "id": "PPL-802",
+        "endpoint": "/rest/api/3/issue/PPL-802",
+        "purpose": "[RF-022] Referee from two referrers credits both"
+      },
+      {
+        "id": "PPL-804",
+        "endpoint": "/rest/api/3/issue/PPL-804",
+        "purpose": "[RF-023] Self-referral on same device not counted"
+      },
+      {
+        "id": "PPL-806",
+        "endpoint": "/rest/api/3/issue/PPL-806",
+        "purpose": "[RF-024] Self-referral on different device not counted"
+      }
+    ],
+    "confluence": [
+      {
+        "id": "1929576453",
+        "endpoint": "/wiki/rest/api/content/1929576453",
+        "purpose": "Refer Friends inside Pi Lens (Hard referral)"
+      }
+    ]
+  }
+}

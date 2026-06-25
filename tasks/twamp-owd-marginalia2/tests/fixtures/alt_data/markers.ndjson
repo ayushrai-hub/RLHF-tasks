@@ -1,0 +1,2 @@
+# alt fixture markers — marker targets an offline (cycle, reflector) and is silently dropped
+{"marker_id": "ALTM1", "kind": "quiet_period", "cycle_id": 1, "reflector_id": "R1", "window_open_us": 50000005500, "window_close_us": 50000006500, "seal": "1a7cc8d6"}

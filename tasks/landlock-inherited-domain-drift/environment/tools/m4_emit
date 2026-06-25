@@ -1,0 +1,16 @@
+#!/bin/bash
+set -euo pipefail
+OUT="/app/output/h7_trace.json"
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --out) OUT="$2"; shift 2 ;;
+    --help|-h)
+      echo "usage: m4_emit [--out /app/output/h7_trace.json]" >&2
+      exit 0
+      ;;
+    *) echo "unknown arg: $1" >&2; exit 2 ;;
+  esac
+done
+mkdir -p /app/output
+/app/environment/d0/h7_drv emit --out "${OUT}"
+exec /app/environment/tooling/seal_trace.sh --in "${OUT}"

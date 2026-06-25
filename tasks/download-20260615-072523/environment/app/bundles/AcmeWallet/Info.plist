@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "urn:apple:plist:dtd">
+<plist version="1.0"><dict>
+  <key>CFBundleIdentifier</key><string>com.acme.wallet</string>
+  <key>CFBundleDisplayName</key><string>Acme Wallet</string>
+  <key>CFBundleExecutable</key><string>AcmeWallet</string>
+  <key>DTPlatformName</key><string>iphoneos</string>
+  <key>ProvisioningProfile</key><string>adhoc-qa</string>
+</dict></plist>

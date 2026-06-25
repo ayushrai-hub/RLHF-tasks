@@ -1,0 +1,8 @@
+{
+  "scenario": "tab_t",
+  "segments": [
+    "lane_01.plt",
+    "lane_02.plt",
+    "lane_03.plt"
+  ]
+}

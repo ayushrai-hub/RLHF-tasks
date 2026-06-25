@@ -1,0 +1,67 @@
+{
+  "title": "Backend hard-referral lock state still trips after unlock",
+  "task_id": "referral-lock-state",
+  "work_type": "debug",
+  "tags": [
+    "pi-lens",
+    "referral",
+    "thresholds",
+    "api-context"
+  ],
+  "difficulty": "hard",
+  "instructions": "# Backend hard-referral lock state still trips after unlock\n\nThe reduced Pi Lens backend slice in `/app` is reproducing a regression from the hard-referral rollout. Users who hit the referral quota can still stay locked, and threshold boundaries do not match the rollout rules from the linked backend work. Fix the implementation so `python3 /app/reconcile.py` writes the correct deterministic `/app/output/report.json` for the bundled fixture data.\n\nLinked internal context from the original work: PPL-702, PPL-997, PPL-1000, PPL-1009, PPL-1011, 1929576453. Fetch linked context only through the local API: use `curl -s http://127.0.0.1:8765/rest/api/3/issue/<key>` for Jira-style tickets and `curl -s http://127.0.0.1:8765/wiki/rest/api/content/<id>` for design-doc pages. Public smoke tests may be available in `/tests`, but final grading uses hidden verifier tests.",
+  "deliverables": {
+    "report.json": "app/output/report.json"
+  },
+  "evaluation": {
+    "grader": "hidden-pytest",
+    "authoritative_reward": "binary (all hidden tests pass)",
+    "criteria_source": "derived from hidden verifier test functions",
+    "tool_use": "logged for review, not part of reward"
+  },
+  "criteria": [
+    {
+      "id": "C-01",
+      "title": "Report exists",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_report_exists` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_report_exists"
+    },
+    {
+      "id": "C-02",
+      "title": "Thresholds lock at the boundary",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_thresholds_lock_at_the_boundary` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_thresholds_lock_at_the_boundary"
+    },
+    {
+      "id": "C-03",
+      "title": "Referral quota unlocks all surfaces at exact target",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_referral_quota_unlocks_all_surfaces_at_exact_target` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_referral_quota_unlocks_all_surfaces_at_exact_target"
+    },
+    {
+      "id": "C-04",
+      "title": "Partial progress does not unlock any exhausted surface",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_partial_progress_does_not_unlock_any_exhausted_surface` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_partial_progress_does_not_unlock_any_exhausted_surface"
+    }
+  ],
+  "context_api": {
+    "base_url": "http://127.0.0.1:8765",
+    "jira_issue_path": "/rest/api/3/issue/{id}",
+    "jira_search_path": "/rest/api/3/search",
+    "confluence_page_path": "/wiki/rest/api/content/{id}",
+    "mode": "offline_emulator"
+  }
+}

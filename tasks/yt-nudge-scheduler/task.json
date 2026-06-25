@@ -1,0 +1,88 @@
+{
+  "title": "YouTube live-chat nudge scheduler ignores the experiment timing window",
+  "task_id": "yt-nudge-scheduler",
+  "work_type": "code",
+  "tags": [
+    "pi-lens",
+    "youtube",
+    "scheduler",
+    "api-context"
+  ],
+  "difficulty": "medium",
+  "instructions": "# YouTube live-chat nudge scheduler ignores the experiment timing window\n\nThe reduced nudge scheduler in `/app` no longer matches the experiment timing rules. Messages are being sent too frequently and the plan does not honor the post-poll grace window from the linked experiment doc. Fix the implementation so `python3 /app/reconcile.py` writes the correct deterministic `/app/output/report.json` for the bundled timeline fixtures.\n\nLinked internal context from the original work: PPL-1087, PPL-1189, experiment-youtube-live-chat-nudge-bot. Fetch linked context only through the local API: use `curl -s http://127.0.0.1:8765/rest/api/3/issue/<key>` for Jira-style tickets and `curl -s http://127.0.0.1:8765/wiki/rest/api/content/<id>` for design-doc pages. Public smoke tests may be available in `/tests`, but final grading uses hidden verifier tests.",
+  "deliverables": {
+    "report.json": "app/output/report.json"
+  },
+  "evaluation": {
+    "grader": "hidden-pytest",
+    "authoritative_reward": "binary (all hidden tests pass)",
+    "criteria_source": "derived from hidden verifier test functions",
+    "tool_use": "logged for review, not part of reward"
+  },
+  "criteria": [
+    {
+      "id": "C-01",
+      "title": "Report exists",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_report_exists` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_report_exists"
+    },
+    {
+      "id": "C-02",
+      "title": "Minimum spacing is ten seconds",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_minimum_spacing_is_ten_seconds` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_minimum_spacing_is_ten_seconds"
+    },
+    {
+      "id": "C-03",
+      "title": "Scheduler uses grace window after poll end",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_scheduler_uses_grace_window_after_poll_end` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_scheduler_uses_grace_window_after_poll_end"
+    },
+    {
+      "id": "C-04",
+      "title": "Messages rotate in sequence",
+      "deliverables": [
+        "report.json"
+      ],
+      "match_criteria": "PASS if the hidden verifier test `test_outputs.py::test_messages_rotate_in_sequence` passes against the agent's produced output. FAIL otherwise.",
+      "test_node": "test_outputs.py::test_messages_rotate_in_sequence"
+    }
+  ],
+  "context_api": {
+    "base_url": "http://127.0.0.1:8765",
+    "jira_issue_path": "/rest/api/3/issue/{id}",
+    "jira_search_path": "/rest/api/3/search",
+    "confluence_page_path": "/wiki/rest/api/content/{id}",
+    "mode": "offline_emulator"
+  },
+  "linked_context": {
+    "jira": [
+      {
+        "id": "PPL-1087",
+        "endpoint": "/rest/api/3/issue/PPL-1087",
+        "purpose": "YouTube Live Chat Bot experiment context."
+      },
+      {
+        "id": "PPL-1189",
+        "endpoint": "/rest/api/3/issue/PPL-1189",
+        "purpose": "Backend YouTube chat bot implementation context."
+      }
+    ],
+    "confluence": [
+      {
+        "id": "experiment-youtube-live-chat-nudge-bot",
+        "endpoint": "/wiki/rest/api/content/experiment-youtube-live-chat-nudge-bot",
+        "purpose": "Experiment scheduler timing and message rotation rules."
+      }
+    ]
+  }
+}

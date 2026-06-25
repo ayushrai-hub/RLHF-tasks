@@ -1,0 +1,89 @@
+{
+  "task": "twamp-owd-marginalia",
+  "version": "1.4.0",
+  "entry_points": [
+    "BRIEFING.md",
+    "run_recipe/critical_pins.md"
+  ],
+  "subfolders": [
+    {
+      "path": "probe_intake/",
+      "scope": "input shape, strict-int gating, send_ts magnitude routing",
+      "files": [
+        "ndjson_shape.md",
+        "strict_int_table.md",
+        "canonicalize.txt"
+      ]
+    },
+    {
+      "path": "reflector_atlas/",
+      "scope": "reflector registry, offline marking, synthetic ledger rows",
+      "files": [
+        "registry_form.md",
+        "offline_marking.md",
+        "reflector_classes.json"
+      ]
+    },
+    {
+      "path": "verdict_ladder/",
+      "scope": "closed verdict enum, per-probe verdict assignment, zero-emission invariants",
+      "files": [
+        "enum_set.md",
+        "verdict_assignment.md",
+        "zero_emit_invariants.txt"
+      ]
+    },
+    {
+      "path": "owd_fieldbook/",
+      "scope": "canonical OWD formula, validity window, staleness ceiling",
+      "files": [
+        "formula.md",
+        "window_boundaries.md",
+        "stale_ceiling.md"
+      ]
+    },
+    {
+      "path": "cycle_journal/",
+      "scope": "cross-cycle cascade, threshold ladder data, quiet-period one-shot",
+      "files": [
+        "cascade_walk.md",
+        "threshold_ladder.json",
+        "quiet_period_oneshot.md"
+      ]
+    },
+    {
+      "path": "digest_workshop/",
+      "scope": "marker seal recipe, canonical digest bytes, worked digest example",
+      "files": [
+        "seal_recipe.md",
+        "canonical_bytes.md",
+        "worked_example.md"
+      ]
+    },
+    {
+      "path": "allocator_pages/",
+      "scope": "largest-remainder allocation, tiebreak direction flip, allocation worked runs",
+      "files": [
+        "largest_remainder.md",
+        "tiebreak_direction.md",
+        "share_table.json"
+      ]
+    },
+    {
+      "path": "run_recipe/",
+      "scope": "pipeline stage order, output exclusivity, build targets, critical pins",
+      "files": [
+        "pipeline_order.md",
+        "output_exclusivity.md",
+        "build_targets.md",
+        "critical_pins.md"
+      ]
+    }
+  ],
+  "top_level_files": [
+    "BRIEFING.md",
+    "lexicon.txt",
+    "revision_notes.md",
+    "docs_index.json"
+  ]
+}
