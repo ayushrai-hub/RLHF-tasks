@@ -1,8 +1,0 @@
-{
-  "review_threshold": 0.60,
-  "approval_risk_score": 0.85,
-  "forced_review_types": ["schema"],
-  "team_map": {
-    "svc-api": "core"
-  }
-}

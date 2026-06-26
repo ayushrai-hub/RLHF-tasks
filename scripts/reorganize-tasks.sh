@@ -58,12 +58,21 @@ for f in abcd.py "build_workbook copy.py" build_workbook.py \
   mv "$f" _misc/personal/
 done
 
+if [ -d "11+10_tasks" ]; then
+  if [ -d _misc/reference/11+10_tasks ]; then
+    rm -rf "11+10_tasks"
+  else
+    mv "11+10_tasks" _misc/reference/11+10_tasks
+  fi
+  echo "ARCHIVE reference bundle: 11+10_tasks"
+fi
+
 if [ -f entire-report.txt ]; then
   cp -f entire-report.txt reviews/entire-report.txt
 fi
 
 mkdir -p _incoming/submissions
-for dir in *_submission/; do
+for dir in *_submission*/; do
   [ -d "$dir" ] || continue
   name="${dir%/}"
   if [ -f "$name/task.toml" ] || [ -f "$name/instruction.md" ]; then
@@ -180,6 +189,21 @@ done
 
 rm -rf "tasks/quest-capsule-decoder " 2>/dev/null || true
 [ -d tasks/law-samples ] && mv tasks/law-samples _misc/reference/law-samples 2>/dev/null || true
+
+for dir in tasks/*_submission*/; do
+  [ -d "$dir" ] || continue
+  name=$(basename "$dir")
+  if [ -f "$dir/task.toml" ] || [ -f "$dir/instruction.md" ]; then
+    continue
+  fi
+  mkdir -p _incoming/submissions
+  if [ -d "_incoming/submissions/$name" ]; then
+    rm -rf "$dir"
+  else
+    mv "$dir" "_incoming/submissions/$name"
+  fi
+  echo "MOVE submission wrapper out of tasks/: $name"
+done
 
 echo "=== Phase 5: task index ==="
 python3 "$ROOT/scripts/generate-tasks-index.py"

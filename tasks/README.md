@@ -1,6 +1,6 @@
 # Terminus Tasks Index
 
-_Auto-generated 2026-06-26 22:47_ — run `./scripts/reorganize-tasks.sh` to refresh.
+_Auto-generated 2026-06-26 22:56_ — run `./scripts/reorganize-tasks.sh` to refresh.
 
 | Task | Difficulty | Category | Layout | Review |
 |------|------------|----------|--------|--------|
