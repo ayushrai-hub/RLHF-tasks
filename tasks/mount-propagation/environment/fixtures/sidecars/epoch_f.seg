@@ -1,0 +1,5 @@
+version=1
+epoch=4
+ent_mu=cell_mm_41
+ent_nu=cell_nn_42
+branch=br_e1

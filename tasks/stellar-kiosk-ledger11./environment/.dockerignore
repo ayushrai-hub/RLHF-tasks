@@ -1,0 +1,15 @@
+.git
+.env
+solution/
+tests/
+**/__pycache__/
+**/*.pyc
+**/node_modules/
+**/.pytest_cache/
+**/.mypy_cache/
+coverage/
+dist/
+build/
+target/
+tmp/
+*.log

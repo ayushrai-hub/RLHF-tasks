@@ -1,0 +1,21 @@
+{
+  "module": "mobile",
+  "dependencies": [
+    {
+      "group": "com.squareup.okhttp3",
+      "artifact": "okhttp",
+      "version": "4.12.0",
+      "scope": "compile",
+      "license": "Apache-2.0",
+      "cves": []
+    },
+    {
+      "group": "com.squareup.okio",
+      "artifact": "okio",
+      "version": "3.9.0",
+      "scope": "compile",
+      "license": "Apache-2.0",
+      "cves": []
+    }
+  ]
+}

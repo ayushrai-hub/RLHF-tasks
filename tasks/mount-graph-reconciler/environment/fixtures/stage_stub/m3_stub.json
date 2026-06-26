@@ -1,0 +1,14 @@
+{
+  "c0": {
+    "slot_count": 3,
+    "alive_count": 6
+  },
+  "c1": {
+    "slot_count": 3,
+    "alive_count": 3
+  },
+  "c2": {
+    "slot_count": 3,
+    "alive_count": 3
+  }
+}

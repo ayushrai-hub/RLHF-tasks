@@ -1,0 +1,6 @@
+<!DOCTYPE html><html><body>
+<h1>Closure semantics</h1>
+<p>Version selection follows depot <code>latest</code> unless a dated amendment pins a module series for a specific root matrix entry. Amendment prose of the form <code>For root matrix entry X, module Y must remain on series V</code> applies to any entry listed in the live root index, not only the original fixtures. Storage class <code>legacy</code> may trigger host alias overrides documented in the March amendment after closure completes.</p>
+<p>Emitted tables share one <code>repo_key</code> namespace across lock, repo, and checksum artifacts. Sort rows by <code>module_id</code> ascending, then <code>repo_key</code> ascending (checksum rows by <code>repo_key</code> only).</p>
+<p>Tampered output files under <code>/app/output/</code> are replaced on the next apply. Long rotations across entries must preserve per-entry pins when returning to a prior matrix slot.</p>
+</body></html>

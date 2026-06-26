@@ -1,0 +1,38 @@
+version = "2.0"
+
+[metadata]
+author_name = "openai-codex"
+author_email = "anonymous"
+difficulty = "hard"
+category = "debugging"
+codebase_size = "small"
+languages = ["python", "bash"]
+tags = ["pi-lens", "referral", "thresholds", "api-context"]
+expert_time_estimate_min = 45.0
+junior_time_estimate_min = 120.0
+
+[verifier]
+timeout_sec = 120.0
+
+[agent]
+timeout_sec = 600.0
+visible_tests = "public"
+
+[environment]
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 2048
+storage_mb = 10240
+workdir = "/app"
+
+[tool_context.source]
+type = "local_bundle"
+jira_path = "environment/app/context/jira.jsonl"
+docs_dir = "environment/app/context/docs"
+
+[tool_context.api]
+mode = "offline_emulator"
+base_url = "http://127.0.0.1:8765"
+jira_issue_path = "/rest/api/3/issue/{id}"
+jira_search_path = "/rest/api/3/search"
+confluence_page_path = "/wiki/rest/api/content/{id}"

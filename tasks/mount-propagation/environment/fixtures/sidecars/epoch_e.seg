@@ -1,0 +1,5 @@
+version=1
+epoch=6
+ent_kappa=cell_kk_21
+ent_lambda=cell_ll_22
+branch=br_t1

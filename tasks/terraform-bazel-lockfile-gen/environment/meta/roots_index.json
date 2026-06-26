@@ -1,0 +1,10 @@
+{
+  "primary": "alpha",
+  "entries": {
+    "alpha": "root_alpha.json",
+    "beta": "root_beta.json",
+    "gamma": "root_gamma.json",
+    "delta": "root_delta.json",
+    "epsilon": "root_epsilon.json"
+  }
+}

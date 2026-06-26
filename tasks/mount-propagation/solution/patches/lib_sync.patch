@@ -1,0 +1,26 @@
+--- src/lib.rs
++++ src/lib.rs
+@@ -205,14 +205,17 @@
+         Ok(())
+     }
+ 
++    fn marker_seed_key(&self, ent: &str) -> String {
++        format!("{ent}_mk")
++    }
++
++    fn marker_seed_from_stamps(&self, ent: &str) -> Option<String> {
++        self.stamps.get(&self.marker_seed_key(ent)).cloned()
++    }
++
+     fn sync_markers_from_stamps(&mut self) {
+         for ent in &self.def.entities {
+-            let stamp_key = if self.wave >= 2 {
+-                format!("{ent}_rk")
+-            } else {
+-                format!("{ent}_mk")
+-            };
+-            if let Some(mk) = self.stamps.get(&stamp_key) {
++            if let Some(mk) = self.marker_seed_from_stamps(ent) {
+                 self.markers.insert(ent.clone(), mk.clone());
+             }
+         }

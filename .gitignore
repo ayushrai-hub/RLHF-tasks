@@ -7,6 +7,10 @@ _incoming/
 
 # Personal / reference (not Terminus tasks)
 _misc/
+_other/
+
+# Loose review report at root (canonical copy in reviews/)
+entire-report.txt
 
 # Submission ZIPs
 *.zip

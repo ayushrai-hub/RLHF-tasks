@@ -1,0 +1,26 @@
+{
+  "module": "reporting",
+  "dependencies": [
+    {
+      "group": "org.apache.poi",
+      "artifact": "poi",
+      "version": "5.2.5",
+      "scope": "compile",
+      "license": "Apache-2.0",
+      "cves": []
+    },
+    {
+      "group": "org.apache.commons",
+      "artifact": "commons-compress",
+      "version": "1.20",
+      "scope": "compile",
+      "license": "Apache-2.0",
+      "cves": [
+        {
+          "id": "CVE-2024-26308",
+          "cvss": 9.1
+        }
+      ]
+    }
+  ]
+}

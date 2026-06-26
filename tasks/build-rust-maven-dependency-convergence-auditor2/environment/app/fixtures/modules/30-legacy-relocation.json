@@ -1,0 +1,21 @@
+{
+  "module": "legacy-relocation",
+  "dependencies": [
+    {
+      "group": "javax.mail",
+      "artifact": "mail",
+      "version": "1.4.7",
+      "scope": "compile",
+      "license": "EPL-2.0",
+      "cves": []
+    },
+    {
+      "group": "javax.activation",
+      "artifact": "activation",
+      "version": "1.1.1",
+      "scope": "runtime",
+      "license": "CDDL-1.0",
+      "cves": []
+    }
+  ]
+}

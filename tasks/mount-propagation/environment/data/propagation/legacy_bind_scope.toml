@@ -1,0 +1,3 @@
+# Legacy bind scope table (superseded — retained for migration audits)
+north: ent_alpha ent_beta
+legacy_pair: ent_gamma ent_delta

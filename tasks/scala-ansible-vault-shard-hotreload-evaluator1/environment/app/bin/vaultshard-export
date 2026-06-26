@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+set -euo pipefail
+export PATH="/opt/scala3/bin:/app/bin:${PATH}"
+CP="/app/bin/app.jar:$(printf '%s:' /opt/scala3/lib/*.jar)$(printf '%s:' /opt/vault-libs/*.jar)"
+exec java -cp "${CP}" vaultshard.ExportMain "$@"

@@ -1,0 +1,12 @@
+{"id":"F01","district":"clinic","kw":17,"surge":8,"fault":4,"resilience":92,"value":145,"critical":true}
+{"id":"F02","district":"water","kw":14,"surge":7,"fault":5,"resilience":84,"value":130,"critical":true}
+{"id":"F03","district":"comms","kw":10,"surge":6,"fault":3,"resilience":72,"value":118,"critical":true}
+{"id":"F04","district":"shelter","kw":13,"surge":5,"fault":4,"resilience":80,"value":121,"critical":true}
+{"id":"F05","district":"clinic","kw":12,"surge":9,"fault":5,"resilience":76,"value":116,"critical":false}
+{"id":"F06","district":"water","kw":16,"surge":6,"fault":6,"resilience":79,"value":124,"critical":false}
+{"id":"F07","district":"comms","kw":9,"surge":4,"fault":3,"resilience":64,"value":91,"critical":false}
+{"id":"F08","district":"shelter","kw":15,"surge":7,"fault":4,"resilience":83,"value":132,"critical":true}
+{"id":"F09","district":"clinic","kw":11,"surge":5,"fault":3,"resilience":68,"value":94,"critical":false}
+{"id":"F10","district":"water","kw":13,"surge":6,"fault":5,"resilience":70,"value":101,"critical":false}
+{"id":"F11","district":"market","kw":8,"surge":4,"fault":2,"resilience":58,"value":73,"critical":false}
+{"id":"F12","district":"school","kw":10,"surge":5,"fault":3,"resilience":66,"value":88,"critical":false}

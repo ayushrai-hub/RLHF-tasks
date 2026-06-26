@@ -1,0 +1,9 @@
+# Mount bind scope profiles (checkpoint stem aligns with cp_blob_<stem>.bin)
+# Each profile lists entity markers that must survive checkpoint ingestion.
+north: ent_alpha ent_beta
+south: ent_alpha ent_beta
+west: ent_gamma ent_delta ent_epsilon
+east: ent_zeta ent_eta ent_theta ent_iota
+tandem: ent_kappa ent_lambda
+echo: ent_mu ent_nu
+legacy_pair: ent_alpha ent_gamma

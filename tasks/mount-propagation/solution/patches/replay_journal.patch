@@ -1,0 +1,25 @@
+--- src/lib.rs
++++ src/lib.rs
+@@ -42,7 +42,6 @@
+ use std::fs;
+ use std::path::{Path, PathBuf};
+ use std::sync::Mutex;
+-use crate::n5::n5::replay_gate;
+ use tooling::segment_read::{read_checkpoint_markers, read_segment};
+@@ -192,7 +191,6 @@
+                     cells: seg.cells,
+                     branch: seg.branch.clone(),
+                 };
+-                replay_gate::journal_merge(&mut self.ledger.cells);
+                 for ent in &self.def.entities {
+                     self.evidence.push(EvidenceV {
+                         id: format!("{ent}_e2"),
+@@ -136,8 +134,6 @@
+         });
+     }
+ 
+-    replay_gate::journal_commit(&runner.ledger.cells);
+-
+     Ok(assemble_matrix(
+         &def.slug,
+         runner.rows,

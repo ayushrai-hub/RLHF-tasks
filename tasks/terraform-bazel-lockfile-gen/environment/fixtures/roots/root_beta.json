@@ -1,0 +1,6 @@
+{
+  "storage_class": "standard",
+  "seeds": [
+    "mod_graph"
+  ]
+}

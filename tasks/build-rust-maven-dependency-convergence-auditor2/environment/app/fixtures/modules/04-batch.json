@@ -1,0 +1,26 @@
+{
+  "module": "batch",
+  "dependencies": [
+    {
+      "group": "mysql",
+      "artifact": "mysql-connector-java",
+      "version": "8.0.33",
+      "scope": "runtime",
+      "license": "GPL-2.0",
+      "cves": []
+    },
+    {
+      "group": "com.old",
+      "artifact": "legacy-crypto",
+      "version": "0.9.1",
+      "scope": "compile",
+      "license": "BSD-2-Clause",
+      "cves": [
+        {
+          "id": "CVE-2026-1001",
+          "cvss": 9.8
+        }
+      ]
+    }
+  ]
+}

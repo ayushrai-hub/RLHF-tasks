@@ -1,0 +1,8 @@
+{
+  "slug": "mp_echo",
+  "segment": "epoch_f",
+  "checkpoint": "echo",
+  "entities": ["ent_mu", "ent_nu"],
+  "phases": ["run", "recover", "compact", "reconcile"],
+  "cycles": 2
+}

@@ -1,0 +1,8 @@
+{
+  "slug": "mp_control",
+  "segment": "epoch_a",
+  "checkpoint": "north",
+  "entities": ["ent_alpha"],
+  "phases": ["run", "recover", "compact", "reconcile"],
+  "cycles": 1
+}

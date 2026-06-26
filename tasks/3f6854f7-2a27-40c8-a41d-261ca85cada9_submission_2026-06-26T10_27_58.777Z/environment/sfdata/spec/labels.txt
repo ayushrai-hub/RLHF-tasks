@@ -1,0 +1,6 @@
+Left display: A
+Center display: B
+Right display: C
+Service display: D
+
+The final order in exports uses score first and player id second.

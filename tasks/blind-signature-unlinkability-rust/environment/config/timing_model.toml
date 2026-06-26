@@ -1,0 +1,21 @@
+# Timing model parameters for temporal correlation analysis
+# Per Danezis & Troncoso (2009) §3.4
+
+[model]
+# The timing weight controls relative influence of temporal proximity
+# in the combined score computation. Per §3.4, higher weights improve
+# detection but reduce specificity.
+weight_range = [0.0, 0.5]
+
+# Suspicious threshold for combined scores
+# Pairs exceeding this are flagged in timing_suspicious_pairs
+suspicious_combined_threshold = 0.7
+
+[normalization]
+# Linear inverse normalization: proximity = 1 - (delta / max_delta)
+# The max_delta is sourced from parameters.max_timing_delta in transcript
+method = "linear_inverse"
+
+# Note: if max_delta is 0, all timing_proximity values collapse to 1.0
+# This edge case is handled by the timing module per §3.4.1
+zero_delta_handling = "clamp_to_one"

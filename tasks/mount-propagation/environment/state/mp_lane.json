@@ -1,0 +1,23 @@
+{
+  "by_slug": {
+    "mp_tandem": {
+      "committed_gen": 0,
+      "last_scenario": "mp_tandem"
+    }
+  },
+  "wal_obs": [
+    "run:1:seed markers g0",
+    "recover:1:load book g0",
+    "compact:1:background wave g0",
+    "reconcile:1:matrix rows g0",
+    "run:2:seed markers g0",
+    "recover:2:load book g0",
+    "compact:2:background wave g0",
+    "reconcile:2:matrix rows g0",
+    "run:3:seed markers g0",
+    "recover:3:load book g0",
+    "compact:3:background wave g0",
+    "reconcile:3:matrix rows g0"
+  ],
+  "active_slug": "mp_tandem"
+}

@@ -1,0 +1,13 @@
+{
+  "module": "legacy-guava",
+  "dependencies": [
+    {
+      "group": "com.google.guava",
+      "artifact": "guava",
+      "version": "31.1-jre",
+      "scope": "runtime",
+      "license": "Apache License 2.0",
+      "cves": []
+    }
+  ]
+}

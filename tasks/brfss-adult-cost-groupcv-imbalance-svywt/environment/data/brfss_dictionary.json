@@ -1,0 +1,92 @@
+{
+  "BPHIGH6": {
+    "description": "told had high blood pressure",
+    "domain": "1=Yes 2=Yes(preg) 3=No 4=Borderline",
+    "type": "integer"
+  },
+  "EDUCA": {
+    "description": "education attainment",
+    "domain": "1=<grade school ... 6=college grad",
+    "type": "integer"
+  },
+  "EMPLOY1": {
+    "description": "employment status",
+    "domain": "1=Employed ... 8=Unable to work",
+    "type": "integer"
+  },
+  "HAVEDIAB": {
+    "description": "diagnosed diabetes (binary; target)",
+    "domain": "1=ever diagnosed; 0=never",
+    "type": "integer"
+  },
+  "INCOME3": {
+    "description": "household annual income bracket",
+    "domain": "1=<$10k ... 11=$200k+",
+    "type": "integer"
+  },
+  "SEXVAR": {
+    "description": "respondent sex (BRFSS code)",
+    "domain": "1=Male 2=Female",
+    "type": "integer"
+  },
+  "SMOKE100": {
+    "description": "smoked >= 100 cigarettes lifetime",
+    "domain": "1=Yes 2=No",
+    "type": "integer"
+  },
+  "TOLDHI3": {
+    "description": "told blood cholesterol is high",
+    "domain": "1=Yes 2=No",
+    "type": "integer"
+  },
+  "_AGEG5YR": {
+    "description": "age in 5-year groups (BRFSS code)",
+    "domain": "1=18-24 ... 13=80+",
+    "type": "integer"
+  },
+  "_BMI5CAT": {
+    "description": "BMI category",
+    "domain": "1=Under 2=Normal 3=Over 4=Obese",
+    "type": "integer"
+  },
+  "_LLCPWT": {
+    "description": "BRFSS final design weight",
+    "domain": "raked weight, scaled to state population",
+    "type": "float"
+  },
+  "_PSU": {
+    "description": "primary sampling unit",
+    "domain": "BRFSS PSU id",
+    "type": "integer"
+  },
+  "_RACEPRV": {
+    "description": "race/ethnicity (BRFSS recode)",
+    "domain": "1=White 2=Black ...",
+    "type": "integer"
+  },
+  "_STATE": {
+    "description": "state FIPS code (BRFSS)",
+    "domain": "1-99",
+    "type": "integer"
+  },
+  "_STSTR": {
+    "description": "design stratum",
+    "domain": "BRFSS stratum",
+    "type": "integer"
+  },
+  "_TOTINDA": {
+    "description": "any leisure-time physical activity",
+    "domain": "1=Yes 2=No",
+    "type": "integer"
+  },
+  "row_id": {
+    "description": "task row identifier (sequential)",
+    "domain": "TR/TE prefix + 8-digit",
+    "type": "string"
+  },
+  "year": {
+    "description": "BRFSS survey year",
+    "domain": "2021|2022|2023",
+    "type": "integer"
+  }
+}

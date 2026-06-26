@@ -1,0 +1,8 @@
+{
+  "slug": "mp_west",
+  "segment": "epoch_c",
+  "checkpoint": "west",
+  "entities": ["ent_gamma", "ent_delta", "ent_epsilon"],
+  "phases": ["run", "recover", "compact", "reconcile"],
+  "cycles": 2
+}

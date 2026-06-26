@@ -1,0 +1,20 @@
+#!/bin/bash
+set -euo pipefail
+
+check() {
+  local path="$1"
+  local expected="$2"
+  local got
+  got="$(sha256sum "$path" | awk '{print $1}')"
+  if [[ "$got" != "$expected" ]]; then
+    echo "protected input changed: $path" >&2
+    exit 1
+  fi
+}
+
+check /var/spool/change-freeze/inbox/allowlist.txt 2ff19b399dd07b3fa7d5a3d6f7cf810c798b95e196973bf1abb041d920205b36
+check /var/spool/change-freeze/inbox/requests.ndjson 29fe45991a934f63fc5898d3a91c722572c0558b9cdf47b687e22e813b1e0c14
+check /etc/change-freeze/policy.json 9b3c3524f8aef76502ac61a590b7959c451197a9c0485f78bb63ddb0e4b55268
+check /etc/change-freeze/policy.d/10_team_patch.json 69d6b61f2c1cfdc41a0570b0b303eeaa381e0ff6d8c1e9338445b67adf8e406f
+check /etc/change-freeze/policy.d/20_policy_patch.json 88e0f96f71cd771871baa28c374f41679190f3b198b167b125b3af09b7635124
+check /etc/change-freeze/policy.d/30_policy_patch.json cf293bb0ee2603d57e00e10788179aaf16e87f7aa92a9005f4efb0b6de76b589

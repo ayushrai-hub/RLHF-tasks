@@ -1,0 +1,40 @@
+{
+  "module": "platform",
+  "dependencyManagement": {
+    "com.acme:shared-model": "1.4.0",
+    "com.acme:tooling:jar:linux-x86_64": "2.0.0-SNAPSHOT"
+  },
+  "dependencies": [
+    {
+      "group": "com.acme",
+      "artifact": "shared-model",
+      "scope": "compile",
+      "license": "MIT",
+      "cves": []
+    },
+    {
+      "group": "com.acme",
+      "artifact": "tooling",
+      "type": "jar",
+      "classifier": "linux-x86_64",
+      "scope": "runtime",
+      "license": "Apache-2.0",
+      "cves": []
+    },
+    {
+      "group": "org.apache.commons",
+      "artifact": "commons-lang3",
+      "version": "[3.8,4.0)",
+      "scope": "compile",
+      "license": "Apache-2.0",
+      "cves": []
+    },
+    {
+      "group": "com.fasterxml.jackson.datatype",
+      "artifact": "jackson-datatype-jsr310",
+      "scope": "compile",
+      "license": "Apache-2.0",
+      "cves": []
+    }
+  ]
+}

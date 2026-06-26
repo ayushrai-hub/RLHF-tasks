@@ -7,8 +7,14 @@ Automation toolkit for **Project Terminus Edition 2** (Snorkel Expert Platform).
 ## Architecture
 
 ```
+tasks/                   # All active task folders (index: tasks/README.md)
+reviews/                 # External platform reports (entire-report.txt)
+_incoming/zips/          # Submission ZIP archives
+_backup/copies/          # Archived duplicate task folders
+_misc/personal/          # Unrelated local files
 CLI (scripts/terminus)
   ├── validate_task.py   # CI-aligned local checks
+  ├── reorganize-tasks.sh # Consolidate root clutter into tasks/
   ├── checklist/ci-check # Pre-submit workflow
   ├── oracle/agent/zip   # Harbor + stb wrappers
 Cursor Integration
@@ -18,9 +24,6 @@ Cursor Integration
 docs/
   ├── submission-checklist.md
   ├── task-type-taxonomy.md
-  ├── task-subtypes.md
-  ├── submission-diversity.md
-  ├── guidelines/milestones.md
   └── ...
 ```
 

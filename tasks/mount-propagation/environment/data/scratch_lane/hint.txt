@@ -1,0 +1,11 @@
+Shift handoff 2024-11-02: mp_north looked green after a release rebuild.
+
+mp_west and mp_east still fail marker checks in staging. Prior operator blamed
+segment epoch skew between epoch_c and epoch_d sidecars — not reproduced locally.
+
+Scratch comparisons against fixtures/shards/op_note_b.txt were inconclusive.
+
+Rebuild with cargo from /app/environment before re-running cases.
+
+mp_tandem failures only appear after the third reconcile pass; single-cycle smoke
+on mp_control will not surface them.

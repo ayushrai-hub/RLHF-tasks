@@ -1,0 +1,6 @@
+version=1
+epoch=4
+ent_gamma=cell_gg_01
+ent_delta=cell_dd_02
+ent_epsilon=cell_ee_03
+branch=br_w1

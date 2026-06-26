@@ -1,0 +1,15 @@
+{
+  "approval_risk_score": 0.72,
+  "forced_review_types": ["schema", "infra", "ops"],
+  "class_review_thresholds": {
+    "default": 0.70
+  },
+  "per_service_review_thresholds": {
+    "svc-console": 0.75,
+    "svc-billing": 0.42
+  },
+  "region_freezes": {
+    "us-east-1": false,
+    "ap-south-1": false
+  }
+}

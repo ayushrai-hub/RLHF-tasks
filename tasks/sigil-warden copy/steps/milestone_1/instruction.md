@@ -1,0 +1,1 @@
+We're moving the gateway onto new "sigil" capability tokens — the format and the rules a checker must enforce are in /app/SPEC.md, treat it as the contract. Start with the checker: a Go binary at /app/warden whose `verify` decides whether a token authorizes a request and reports the scope it grants. Getting every rule right is the job.

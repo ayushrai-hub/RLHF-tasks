@@ -1,0 +1,1 @@
+North shard: prefer epoch_a book cells. Ignore scratch lane compact hints.

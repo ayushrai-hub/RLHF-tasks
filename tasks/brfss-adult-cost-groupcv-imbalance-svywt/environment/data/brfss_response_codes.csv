@@ -1,0 +1,12 @@
+field,code,meaning
+EDUCA,9,Refused
+INCOME3,77,Don't know / not sure
+INCOME3,99,Refused
+EMPLOY1,9,Refused
+BPHIGH6,7,Don't know / not sure
+BPHIGH6,9,Refused
+TOLDHI3,7,Don't know / not sure
+TOLDHI3,9,Refused
+SMOKE100,7,Don't know / not sure
+SMOKE100,9,Refused
+_TOTINDA,9,Don't know / refused / missing

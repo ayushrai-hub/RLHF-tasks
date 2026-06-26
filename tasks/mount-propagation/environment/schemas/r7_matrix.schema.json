@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["scenario", "chain_hex", "rows", "observations", "evidence"],
+  "properties": {
+    "scenario": { "type": "string" },
+    "chain_hex": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+    "rows": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["entity", "path_key", "uri_key", "ref_key", "marker", "book_cell", "wave"],
+        "properties": {
+          "entity": { "type": "string" },
+          "path_key": { "type": "string" },
+          "uri_key": { "type": "string" },
+          "ref_key": { "type": "string" },
+          "marker": { "type": "string" },
+          "book_cell": { "type": "string" },
+          "wave": { "type": "integer" }
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["phase", "cycle", "note"],
+        "properties": {
+          "phase": { "type": "string" },
+          "cycle": { "type": "integer" },
+          "note": { "type": "string" },
+          "branch": { "type": "string" }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "payload", "phase"],
+        "properties": {
+          "id": { "type": "string" },
+          "payload": { "type": "string" },
+          "phase": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

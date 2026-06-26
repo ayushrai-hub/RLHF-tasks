@@ -1,0 +1,8 @@
+{
+  "slug": "mp_east",
+  "segment": "epoch_d",
+  "checkpoint": "east",
+  "entities": ["ent_zeta", "ent_eta", "ent_theta", "ent_iota"],
+  "phases": ["run", "recover", "compact", "reconcile"],
+  "cycles": 2
+}

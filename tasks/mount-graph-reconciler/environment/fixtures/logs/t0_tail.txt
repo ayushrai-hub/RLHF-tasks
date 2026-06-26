@@ -1,0 +1,1 @@
+tail slice c0: a001 alive, a002 retired, a003 alive

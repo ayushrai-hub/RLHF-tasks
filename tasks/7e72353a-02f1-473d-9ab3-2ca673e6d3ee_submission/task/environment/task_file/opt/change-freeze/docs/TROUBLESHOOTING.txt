@@ -1,0 +1,3 @@
+If a code change appears to vanish on the next run, inspect the wrapper and
+build helper scripts first. The vendored engine is synchronized from
+vendor_templates during every compile path.

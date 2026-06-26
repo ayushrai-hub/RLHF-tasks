@@ -1,0 +1,18 @@
+{
+  "module": "importer",
+  "dependencies": [
+    {
+      "group": "org.yaml",
+      "artifact": "snakeyaml",
+      "version": "1.30",
+      "scope": "compile",
+      "license": "Apache-2.0",
+      "cves": [
+        {
+          "id": "CVE-2022-1471",
+          "cvss": 9.8
+        }
+      ]
+    }
+  ]
+}

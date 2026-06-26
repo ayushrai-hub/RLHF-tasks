@@ -19,8 +19,11 @@ export OPENAI_BASE_URL=https://api.portkey.ai/v1
 stb init my-task -p "Terminus-2nd-Edition" -t base
 
 # 4. Validate locally before submit
-./scripts/terminus validate ./my-task
-./scripts/terminus check-all ./my-task
+./scripts/terminus validate ./tasks/my-task
+./scripts/terminus check-all ./tasks/my-task
+
+# Reorganize after downloading tasks or ZIPs
+./scripts/reorganize-tasks.sh
 ```
 
 ## What's Included
@@ -86,6 +89,11 @@ Open this repo alongside your task folder in Cursor. Rules auto-apply when editi
 
 ```
 .
+├── tasks/              # All active Terminus task folders (see tasks/README.md)
+├── reviews/            # External reports (entire-report.txt copies per review)
+├── _incoming/zips/     # Submission ZIP archives
+├── _backup/copies/     # Duplicate task folders kept for safety
+├── _misc/personal/     # Unrelated local files (not Terminus tasks)
 ├── .cursor/
 │   ├── rules/          # Authoring & review rules
 │   ├── skills/         # Agent workflows
@@ -94,19 +102,23 @@ Open this repo alongside your task folder in Cursor. Rules auto-apply when editi
 │   ├── guidelines/INDEX.md       # Full doc hub
 │   ├── submission-checklist.md
 │   ├── task-requirements.md
-│   ├── submission-diversity.md
-│   ├── task-type-taxonomy.md
-│   ├── task-subtypes.md
-│   ├── after-submission.md
-│   ├── reviewer-checklist.md
-│   └── rubric-template.md
+│   └── ...
 ├── prompt.md                     # Review prompt → outputs review-report.md
 ├── templates/review-report.template.md
 ├── scripts/
-│   ├── terminus        # Main CLI
+│   ├── terminus                  # Main CLI
+│   ├── reorganize-tasks.sh       # Consolidate loose tasks/files
 │   └── validate_task.py
 └── templates/          # Reference skeletons
 ```
+
+**Reorganize** after downloading or extracting tasks:
+
+```bash
+./scripts/reorganize-tasks.sh
+```
+
+Task paths in commands use `tasks/<name>/`, e.g. `./scripts/terminus validate tasks/stellar-kiosk-ledger11.`
 
 ## References
 

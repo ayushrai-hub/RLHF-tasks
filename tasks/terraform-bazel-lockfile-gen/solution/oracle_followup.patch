@@ -1,0 +1,12 @@
+--- mkstate/lib/ledger.go	2026-06-19 20:00:02.000000000 +0000
++++ mkstate/lib/ledger.go	2026-06-19 20:00:03.000000000 +0000
+@@ -116,3 +116,10 @@
+ 	_ = json.Unmarshal(data, &gen)
+ 	return gen.Gen
+ }
++
++func ReadSlot(entry string) (types.ClosureSlot, bool) {
++	ledger := readLedger()
++	slot, ok := ledger.Slots[entry]
++	return slot, ok
++}

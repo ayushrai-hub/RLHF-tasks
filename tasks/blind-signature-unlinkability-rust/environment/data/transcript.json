@@ -1,0 +1,88 @@
+{
+  "signing_sessions": [
+    {
+      "id": "sess_001",
+      "blinded_msg": "a1b2c3d4e5",
+      "signature": "sig_blind_001",
+      "timestamp": 1000,
+      "nonce": "nc_01"
+    },
+    {
+      "id": "sess_002",
+      "blinded_msg": "f6e7d8c9b0",
+      "signature": "sig_blind_002",
+      "timestamp": 1050,
+      "nonce": "nc_02"
+    },
+    {
+      "id": "sess_003",
+      "blinded_msg": "1234567890",
+      "signature": "sig_blind_003",
+      "timestamp": 1120,
+      "nonce": "nc_03"
+    },
+    {
+      "id": "sess_004",
+      "blinded_msg": "abcdefabcd",
+      "signature": "sig_blind_004",
+      "timestamp": 1200,
+      "nonce": "nc_04"
+    },
+    {
+      "id": "sess_005",
+      "blinded_msg": "deadbeef42",
+      "signature": "sig_blind_005",
+      "timestamp": 1280,
+      "nonce": "nc_05"
+    },
+    {
+      "id": "sess_006",
+      "blinded_msg": "cafebabe99",
+      "signature": "sig_blind_006",
+      "timestamp": 1350,
+      "nonce": "nc_06"
+    }
+  ],
+  "issued_signatures": [
+    {
+      "id": "issue_001",
+      "message": "hello_world",
+      "signature": "sig_issue_001",
+      "timestamp": 1010,
+      "verifier": "v_alpha"
+    },
+    {
+      "id": "issue_002",
+      "message": "transfer_50",
+      "signature": "sig_issue_002",
+      "timestamp": 1065,
+      "verifier": "v_beta"
+    },
+    {
+      "id": "issue_003",
+      "message": "payment_xyz",
+      "signature": "sig_issue_003",
+      "timestamp": 1130,
+      "verifier": "v_alpha"
+    },
+    {
+      "id": "issue_004",
+      "message": "vote_choice1",
+      "signature": "sig_issue_004",
+      "timestamp": 1220,
+      "verifier": "v_gamma"
+    },
+    {
+      "id": "issue_005",
+      "message": "auth_token_x",
+      "signature": "sig_issue_005",
+      "timestamp": 1300,
+      "verifier": "v_beta"
+    }
+  ],
+  "parameters": {
+    "security_level_bits": 8,
+    "max_advantage": 0.5,
+    "max_timing_delta": 250
+  }
+}

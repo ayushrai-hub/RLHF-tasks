@@ -1,0 +1,8 @@
+{
+  "slug": "mp_tandem",
+  "segment": "epoch_e",
+  "checkpoint": "tandem",
+  "entities": ["ent_kappa", "ent_lambda"],
+  "phases": ["run", "recover", "compact", "reconcile"],
+  "cycles": 3
+}

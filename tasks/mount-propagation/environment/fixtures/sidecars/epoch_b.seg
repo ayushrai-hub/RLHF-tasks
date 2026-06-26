@@ -1,0 +1,5 @@
+version=1
+epoch=3
+ent_alpha=cell_aa_09
+ent_beta=cell_bb_08
+branch=br_s1

@@ -1,0 +1,5 @@
+actual,predicted,cost_units,rationale
+HAVEDIAB=1,pred=1,0,True positive: correctly flagged for follow-up
+HAVEDIAB=1,pred=0,5,False negative: missed undiagnosed case in screening
+HAVEDIAB=0,pred=1,1,False positive: unnecessary follow-up referral
+HAVEDIAB=0,pred=0,0,True negative: correctly not flagged

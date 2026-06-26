@@ -1,0 +1,5 @@
+Published lock artifacts under `/app/output` drift when the matrix rotates across the root entries listed in `/app/environment/meta/roots_index.json`. Closure slots bleed into each other, replay witnesses disagree with emitted digests, journal chains lose prefix consistency, stub rollups diverge from checksum rows, cache hits resurrect foreign modules, and tampered outputs survive the next apply.
+
+Repair the Go pipeline under `/app/environment` so each apply regenerates outputs from live root fixtures, policy documents, and depot catalog data driven through `/app/environment/infra`. The verifier sets `ROOT_ENTRY` per matrix entry. Hand-editing outputs, patching verifier tests, or editing depot fixtures is insufficient.
+
+Output shapes and journal semantics are in `/app/environment/docs/artifact_shapes.md`. Amendment precedence and replay policy are under `/app/environment/docs/vol_h/`. Replay-chain witnesses grow by prefix-linked appends during normal rotation; broken prefix linkage, malformed chain records, or stale seed fingerprints require witness rebuild as documented there.

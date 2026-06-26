@@ -1,0 +1,10 @@
+slack_ms: 5000
+local_realm: svc://payments.local
+issuer:
+  kid: k-alpha
+  live_gen: 2
+  generations:
+    - gen: 1
+      retired: true
+    - gen: 2
+      retired: false

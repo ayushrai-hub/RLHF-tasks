@@ -1,0 +1,1 @@
+tail slice c1: b001 alive, b002 retired, b003 alive

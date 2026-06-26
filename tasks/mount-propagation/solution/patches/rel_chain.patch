@@ -1,0 +1,9 @@
+--- src/n5/n5/rel_q.rs
++++ src/n5/n5/rel_q.rs
+@@ -64,6 +64,7 @@
+         })
+         .collect();
++    lines.sort();
+     let joined = lines.join("\n");
+     let digest = Sha256::digest(joined.as_bytes());
+     digest.iter().map(|b| format!("{b:02x}")).collect()

@@ -1,0 +1,6 @@
+#!/bin/bash
+set -euo pipefail
+
+cd /app/environment
+read -r -a ARGS < /app/sfdata/spec/argv.txt
+node starfield-switchboard/main.cjs "${ARGS[@]}"

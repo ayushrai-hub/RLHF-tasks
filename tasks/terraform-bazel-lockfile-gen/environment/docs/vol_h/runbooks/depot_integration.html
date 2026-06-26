@@ -1,0 +1,6 @@
+<!DOCTYPE html><html><body>
+<h1>Depot integration</h1>
+<p>The pipeline fetches module metadata from the sidecar catalog URL documented in <code>artifact_shapes.md</code>. Closure walks must start from the active root fixture seed list and expand transitive dependencies from catalog <code>deps</code> edges — never materialize every package row as if it were installed.</p>
+<p>Checksum rows must copy the catalog <code>checksum</code> field for each resolved module. Repo URLs default to each package <code>repo</code> value unless an amendment applies a host alias after closure completes.</p>
+<p>When a dependency edge includes <code>@version</code>, that pin propagates to the named module before selecting a version for unpinned edges. When the same module is reached through multiple explicit <code>@version</code> pins, choose the lowest semantic version present in that package's version list, and rebuild the affected closure if a lower pin is discovered after the module was first seen.</p>
+</body></html>

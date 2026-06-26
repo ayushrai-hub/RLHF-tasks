@@ -1,0 +1,21 @@
+{
+  "module": "cli",
+  "dependencies": [
+    {
+      "group": "info.picocli",
+      "artifact": "picocli",
+      "version": "4.7.5",
+      "scope": "compile",
+      "license": "Apache-2.0",
+      "cves": []
+    },
+    {
+      "group": "org.slf4j",
+      "artifact": "slf4j-api",
+      "version": "1.7.36",
+      "scope": "compile",
+      "license": "MIT",
+      "cves": []
+    }
+  ]
+}

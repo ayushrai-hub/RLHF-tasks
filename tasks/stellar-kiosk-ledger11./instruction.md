@@ -1,0 +1,7 @@
+The Constellation kiosk scorekeeper is mis-ranking last night's arcade cabinet tapes.
+
+Repair the JavaScript program under `/app/environment` so `/app/ops/sfdesk` can replay the switch tapes named in `/app/sfdata/spec/list.txt` and write `/app/output/audit.json`. The JSON follows `/app/sfdata/rules/contract.md` with top-level table, runs, and rollup sections. A run entry carries id, rows, player_totals, final_order, jackpot_count, saved_drains, tilt_balls, and run_digest. Its rollup carries run_count, total_jackpots, saved_drains, tilt_balls, chain_digest, and audit_latch. Use table label `constellation-kiosk`; audit_latch is `open` normally and `sealed` when `SF_AUDIT_STRICT=1`.
+
+The contract note defines switch scoring, ball-save windows, table modes, jackpot eligibility, tilt suppression, row digests, rollup digests, and the sha256 digest algorithm. You must fix source code under `/app/environment`; output-only work is not allowed. Static/manual output writes are insufficient: the verifier reruns the normal pipeline with `npm run build --prefix /app/environment`, invokes `/app/ops/sfdesk` with `/app/sfdata/spec/argv.txt`, and checks the freshly produced score ledger.
+
+Known bad symptoms are all ranking symptoms: ranking after a saved drain is wrong, ranking after a tilt warning pair is wrong, ranking after mode closure is wrong, and ranking after sha256 row folding is wrong. Treat drain, warning, mode, and sha256 behavior as first-class cabinet rules, not after-the-fact report decoration.

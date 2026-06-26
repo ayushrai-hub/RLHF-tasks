@@ -1,0 +1,7 @@
+{
+  "pin_set_version": "ksw-pin-2026-01",
+  "pins": [
+    {"observation_id": "obs-030", "hmac8": "2afa1f33a3f7fde7"},
+    {"observation_id": "obs-032", "hmac8": "0000000000000000"}
+  ]
+}

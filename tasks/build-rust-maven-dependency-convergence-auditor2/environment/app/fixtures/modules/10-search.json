@@ -1,0 +1,21 @@
+{
+  "module": "search",
+  "dependencies": [
+    {
+      "group": "org.apache.lucene",
+      "artifact": "lucene-core",
+      "version": "9.10.0",
+      "scope": "compile",
+      "license": "Apache-2.0",
+      "cves": []
+    },
+    {
+      "group": "org.slf4j",
+      "artifact": "slf4j-api",
+      "version": "2.0.12",
+      "scope": "compile",
+      "license": "MIT",
+      "cves": []
+    }
+  ]
+}

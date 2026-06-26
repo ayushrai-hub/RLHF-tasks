@@ -1,0 +1,26 @@
+{
+  "bind": {
+    "disch": "disch.JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA.ZXhwPTIwMDAwMDAwMDA.Vpn8D69CGqjjAyk8mZY_xcrnsL5ZZXVVO0iAJ-nFOuc",
+    "expect": "disch.JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA.ZXhwPTIwMDAwMDAwMDA.aEtbsWZepDgrEOCkse2A4j0qoP2AE-cIWyiaBz-VsqA",
+    "root": "v1.dXNlcjQy.cGF0aD0vcmVwb3J0cw~dGhpcmQ9YXV0aHx1c2VyPWFsaWNlfEpLR1VZRzJ3TTRQSWEzZGpwOEowSXc3blVPYmFEOUU4N09mNkYyRWxvd0F8RVJlNi1qcUMxZG8xZVo3c1lCTEZrR1FzZjlzTmdhNzVUclZuSm1Yc2tzbw.PBHVNhvjy0X5DNnTl3nVDWZcvN9eAWpbn4rhVEwZlQk"
+  },
+  "discharge": {
+    "caveats": [
+      "exp=2000000000"
+    ],
+    "cid": "JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA",
+    "expect": "disch.JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA.ZXhwPTIwMDAwMDAwMDA.Vpn8D69CGqjjAyk8mZY_xcrnsL5ZZXVVO0iAJ-nFOuc",
+    "predicate": "user=alice",
+    "tpkey": "0f1e2d3c4b5a69788796a5b4c3d2e1f0"
+  },
+  "mint_third": {
+    "cid": "JKGUYG2wM4PIa3djp8J0Iw7nUObaD9E87Of6F2ElowA",
+    "expect": "v1.dXNlcjQy.cGF0aD0vcmVwb3J0cw~dGhpcmQ9YXV0aHx1c2VyPWFsaWNlfEpLR1VZRzJ3TTRQSWEzZGpwOEowSXc3blVPYmFEOUU4N09mNkYyRWxvd0F8RVJlNi1qcUMxZG8xZVo3c1lCTEZrR1FzZjlzTmdhNzVUclZuSm1Yc2tzbw.PBHVNhvjy0X5DNnTl3nVDWZcvN9eAWpbn4rhVEwZlQk",
+    "firsts": [
+      "path=/reports"
+    ],
+    "id": "user42",
+    "key": "00112233445566778899aabbccddeeff",
+    "third": "auth|user=alice|0f1e2d3c4b5a69788796a5b4c3d2e1f0"
+  }
+}

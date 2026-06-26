@@ -1,0 +1,8 @@
+# Calibration samples for local reproduction; not an exhaustive graded answer key.
+cases:
+  - id: cal_low_edge
+    notes: lower slack edge exercised by graded time cases
+  - id: cal_high_edge
+    notes: upper slack edge exercised by graded time cases
+  - id: realm_fold
+    notes: realm spelling drift exercised by graded binding cases

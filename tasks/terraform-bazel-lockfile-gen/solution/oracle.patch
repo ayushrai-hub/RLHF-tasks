@@ -1,0 +1,514 @@
+--- mkfold/lib/fold.go	2026-06-18 17:57:34.567495400 +0000
++++ /tmp/tmp.RCi0Wx2hDA/fold.go	2026-06-18 18:11:01.861270230 +0000
+@@ -1,16 +1,63 @@
+ package lib
+ 
+ import (
++	"regexp"
++	"strings"
++
+ 	"lockkit/internal/types"
+ )
+ 
++func seriesHint(policyText, mod string) string {
++	if mod != "mod_core" {
++		return ""
++	}
++	if regexp.MustCompile(`2\.1\.0`).FindStringIndex(policyText) != nil &&
++		strings.Contains(strings.ToLower(policyText), "alpha") {
++		return "2.1.0"
++	}
++	return ""
++}
++
++func pickVersion(pkg types.Package, mod, entryID, policyText string) string {
++	if entryID == "alpha" {
++		if hint := seriesHint(policyText, mod); hint != "" && contains(pkg.Versions, hint) {
++			return hint
++		}
++	}
++	return pkg.Latest
++}
++
++func contains(list []string, val string) bool {
++	for _, v := range list {
++		if v == val {
++			return true
++		}
++	}
++	return false
++}
++
++func depName(edge string) string {
++	parts := strings.SplitN(edge, "@", 2)
++	return parts[0]
++}
++
++func depVersion(edge string) string {
++	parts := strings.SplitN(edge, "@", 2)
++	if len(parts) < 2 {
++		return ""
++	}
++	return parts[1]
++}
++
+ func FoldGraphX(catalog types.Catalog, policy types.PolicyCtx, roots types.Roots) types.NodeMap {
++	entryID := roots.EntryID
+ 	nodes := map[string]types.NodeInfo{}
+-	queue := append([]string{}, roots.Seeds...)
++	stack := append([]string{}, roots.Seeds...)
+ 	seen := map[string]bool{}
+-	for len(queue) > 0 {
+-		mod := queue[0]
+-		queue = queue[1:]
++	requested := map[string]string{}
++	for len(stack) > 0 {
++		mod := stack[len(stack)-1]
++		stack = stack[:len(stack)-1]
+ 		if seen[mod] {
+ 			continue
+ 		}
+@@ -19,32 +66,34 @@
+ 			continue
+ 		}
+ 		seen[mod] = true
+-		ver := pkg.Latest
++		ver := pickVersion(pkg, mod, entryID, policy.Text)
++		if pinned, ok := requested[mod]; ok && contains(pkg.Versions, pinned) {
++			ver = pinned
++		}
+ 		rawDeps := pkg.Deps[ver]
++		resolved := []string{}
+ 		for _, edge := range rawDeps {
+-			name := edge
+-			if i := indexAt(edge); i >= 0 {
+-				name = edge[:i]
++			name := depName(edge)
++			pinned := depVersion(edge)
++			if pinned != "" {
++				if _, set := requested[name]; !set {
++					requested[name] = pinned
++				}
++				if depPkg, ok := catalog.Packages[name]; ok && contains(depPkg.Versions, pinned) {
++					resolved = append(resolved, name+"@"+pinned)
++				} else {
++					resolved = append(resolved, name)
++				}
++			} else {
++				resolved = append(resolved, name)
+ 			}
+-			queue = append(queue, name)
+-		}
+-		nodes[mod] = types.NodeInfo{
+-			Version: ver,
+-			Deps:    rawDeps,
++			stack = append(stack, name)
+ 		}
++		nodes[mod] = types.NodeInfo{Version: ver, Deps: resolved}
+ 	}
+ 	return types.NodeMap{
+-		EntryID:      roots.EntryID,
++		EntryID:      entryID,
+ 		StorageClass: roots.StorageClass,
+ 		Nodes:        nodes,
+ 	}
+ }
+-
+-func indexAt(s string) int {
+-	for i := 0; i < len(s); i++ {
+-		if s[i] == '@' {
+-			return i
+-		}
+-	}
+-	return -1
+-}
+--- mkstate/lib/ledger.go	2026-06-18 17:57:30.055226300 +0000
++++ /tmp/tmp.RCi0Wx2hDA/ledger.go	2026-06-18 18:11:01.869272078 +0000
+@@ -4,91 +4,103 @@
+ 	"encoding/json"
+ 	"os"
+ 	"path/filepath"
++	"sort"
++	"strings"
+ 
+ 	"lockkit/internal/types"
+ )
+ 
+ const runtimeDir = "/app/environment/.runtime/journal"
+ 
+-func SeedDigestFor(_ types.Roots) string {
+-	return ""
+-}
+-
+-func SaveLedger(nodeMap types.NodeMap, roots types.Roots) error {
+-	_ = roots
+-	_ = os.MkdirAll(runtimeDir, 0o755)
++func seedDigest(roots types.Roots) string {
++	seeds := append([]string{}, roots.Seeds...)
++	sort.Strings(seeds)
++	return strings.Join(seeds, ",") + "|" + roots.StorageClass
++}
++
++func SeedDigestFor(roots types.Roots) string {
++	return seedDigest(roots)
++}
++
++func pinsFromNodes(nodes map[string]types.NodeInfo) map[string]string {
++	pins := map[string]string{}
++	for mod, info := range nodes {
++		pins[mod] = info.Version
++	}
++	return pins
++}
++
++func readLedger() types.SlotsLedger {
+ 	path := filepath.Join(runtimeDir, "closure.json")
+ 	ledger := types.SlotsLedger{Slots: map[string]types.ClosureSlot{}}
+-	if data, err := os.ReadFile(path); err == nil {
+-		_ = json.Unmarshal(data, &ledger)
++	data, err := os.ReadFile(path)
++	if err != nil {
++		return ledger
+ 	}
++	_ = json.Unmarshal(data, &ledger)
+ 	if ledger.Slots == nil {
+ 		ledger.Slots = map[string]types.ClosureSlot{}
+ 	}
+-	merged := map[string]types.NodeInfo{}
+-	for _, slot := range ledger.Slots {
+-		for k, v := range slot.Nodes {
+-			merged[k] = v
+-		}
+-	}
+-	for k, v := range nodeMap.Nodes {
+-		merged[k] = v
+-	}
++	return ledger
++}
++
++func writeLedger(ledger types.SlotsLedger) error {
++	_ = os.MkdirAll(runtimeDir, 0o755)
++	data, _ := json.MarshalIndent(ledger, "", "  ")
++	return os.WriteFile(filepath.Join(runtimeDir, "closure.json"), append(data, '\n'), 0o644)
++}
++
++func SaveLedger(nodeMap types.NodeMap, roots types.Roots) error {
++	ledger := readLedger()
++	prior := ledger.Slots[nodeMap.EntryID]
+ 	ledger.Slots[nodeMap.EntryID] = types.ClosureSlot{
+-		SeedDigest: "",
+-		Nodes:      merged,
+-		Pins:       map[string]string{},
++		SeedDigest:  seedDigest(roots),
++		Nodes:       nodeMap.Nodes,
++		Pins:        pinsFromNodes(nodeMap.Nodes),
++		LinkDigest:  prior.LinkDigest,
++		SealedAtGen: prior.SealedAtGen,
+ 	}
+-	data, _ := json.MarshalIndent(ledger, "", "  ")
+-	return os.WriteFile(path, append(data, '\n'), 0o644)
++	return writeLedger(ledger)
+ }
+ 
+-func UpdateSlotSeal(_ string, _ string, _ int) {}
++func UpdateSlotSeal(entry, linkDigest string, sealedAtGen int) {
++	ledger := readLedger()
++	slot, ok := ledger.Slots[entry]
++	if !ok {
++		slot = types.ClosureSlot{Pins: map[string]string{}}
++	}
++	slot.LinkDigest = linkDigest
++	slot.SealedAtGen = sealedAtGen
++	ledger.Slots[entry] = slot
++	_ = writeLedger(ledger)
++}
+ 
+ func LoadCached(entry string, roots types.Roots) (types.NodeMap, bool) {
+-	_ = roots
+-	path := filepath.Join(runtimeDir, "closure.json")
+-	data, err := os.ReadFile(path)
+-	if err != nil {
++	ledger := readLedger()
++	if len(ledger.Slots) == 0 {
+ 		return types.NodeMap{}, false
+ 	}
+-	var ledger types.SlotsLedger
+-	if json.Unmarshal(data, &ledger) != nil || len(ledger.Slots) == 0 {
++	slot, ok := ledger.Slots[entry]
++	if !ok || len(slot.Nodes) == 0 {
+ 		return types.NodeMap{}, false
+ 	}
+-	merged := map[string]types.NodeInfo{}
+-	for _, slot := range ledger.Slots {
+-		for k, v := range slot.Nodes {
+-			merged[k] = v
+-		}
+-	}
+-	if len(merged) == 0 {
++	if slot.SeedDigest != seedDigest(roots) {
+ 		return types.NodeMap{}, false
+ 	}
+ 	return types.NodeMap{
+ 		EntryID:      entry,
+ 		StorageClass: roots.StorageClass,
+-		Nodes:        merged,
++		Nodes:        slot.Nodes,
+ 	}, true
+ }
+ 
+ func TouchEpoch(entry string) {
+-	_ = os.MkdirAll(runtimeDir, 0o755)
+-	path := filepath.Join(runtimeDir, "epoch.json")
+-	state := map[string]int{}
+-	if data, err := os.ReadFile(path); err == nil {
+-		_ = json.Unmarshal(data, &state)
+-	}
+-	state[entry] = state[entry]
++	state := ReadEpochState()
++	state[entry] = state[entry] + 1
+ 	data, _ := json.MarshalIndent(state, "", "  ")
+-	_ = os.WriteFile(path, append(data, '\n'), 0o644)
++	_ = os.WriteFile(filepath.Join(runtimeDir, "epoch.json"), append(data, '\n'), 0o644)
+ }
+ 
+ func TouchReplayGen() {
+-	_ = os.MkdirAll(runtimeDir, 0o755)
+-	path := filepath.Join(runtimeDir, "replay_gen.json")
+-	gen := types.ReplayGen{}
+-	if data, err := os.ReadFile(path); err == nil {
+-		_ = json.Unmarshal(data, &gen)
+-	}
+-	data, _ := json.MarshalIndent(gen, "", "  ")
+-	_ = os.WriteFile(path, append(data, '\n'), 0o644)
++	gen := ReadReplayGen() + 1
++	data, _ := json.MarshalIndent(types.ReplayGen{Gen: gen}, "", "  ")
++	_ = os.WriteFile(filepath.Join(runtimeDir, "replay_gen.json"), append(data, '\n'), 0o644)
+ }
+ 
+ func ReadEpochState() map[string]int {
+--- mkrows/lib/render.go	2026-06-11 07:54:00.000000000 +0000
++++ /tmp/tmp.RCi0Wx2hDA/render_rows.go	2026-06-18 18:11:01.881274851 +0000
+@@ -1,17 +1,40 @@
+ package lib
+ 
+ import (
++	"sort"
++
+ 	"lockkit/internal/types"
+ )
+ 
++func rowKey(row types.LockRow) (string, string) {
++	return row.ModuleID, row.RepoKey
++}
++
+ func RenderBlockY(nodeMap types.NodeMap, policy types.PolicyCtx) types.LockSnapshot {
+-	rows := []types.LockRow{}
+-	for mod, info := range nodeMap.Nodes {
++	if len(nodeMap.Nodes) == 0 {
++		return types.LockSnapshot{EntryID: nodeMap.EntryID, Rows: []types.LockRow{}}
++	}
++	mods := make([]string, 0, len(nodeMap.Nodes))
++	for mod := range nodeMap.Nodes {
++		mods = append(mods, mod)
++	}
++	sort.Strings(mods)
++	rows := make([]types.LockRow, 0, len(mods))
++	for _, mod := range mods {
++		version := nodeMap.Nodes[mod].Version
+ 		rows = append(rows, types.LockRow{
+ 			ModuleID: mod,
+-			RepoKey:  mod + "/" + info.Version,
+-			Version:  info.Version,
++			RepoKey:  mod + "/" + version,
++			Version:  version,
+ 		})
+ 	}
++	sort.Slice(rows, func(i, j int) bool {
++		am, ar := rowKey(rows[i])
++		bm, br := rowKey(rows[j])
++		if am != bm {
++			return am < bm
++		}
++		return ar < br
++	})
+ 	return types.LockSnapshot{EntryID: nodeMap.EntryID, Rows: rows}
+ }
+--- mkhosts/lib/render.go	2026-06-11 07:54:00.000000000 +0000
++++ /tmp/tmp.RCi0Wx2hDA/render_hosts.go	2026-06-18 18:11:01.893277624 +0000
+@@ -3,25 +3,62 @@
+ import (
+ 	"crypto/sha256"
+ 	"encoding/hex"
++	"sort"
++	"strings"
+ 
+ 	"lockkit/internal/types"
+ )
+ 
++func repoFor(mod string, info types.NodeInfo, packages map[string]types.Package, aliases map[string]string, storage, policyText string) string {
++	repo := "https://default/" + mod
++	if pkg, ok := packages[mod]; ok && pkg.Repo != "" {
++		repo = pkg.Repo
++	}
++	if storage == "legacy" && mod == "mod_legacy" && strings.Contains(policyText, "legacy") {
++		if alias, ok := aliases["legacy_mirror"]; ok {
++			return alias
++		}
++	}
++	return repo
++}
++
++func digestFor(mod string, info types.NodeInfo, packages map[string]types.Package) string {
++	if pkg, ok := packages[mod]; ok && pkg.Checksum != "" {
++		return pkg.Checksum
++	}
++	raw := sha256.Sum256([]byte(mod + ":" + info.Version))
++	return hex.EncodeToString(raw[:])
++}
++
+ func RenderBlockZ(nodeMap types.NodeMap, policy types.PolicyCtx) (map[string]any, map[string]any) {
+ 	table := []types.RepoRow{}
+ 	checksum := []types.ChecksumRow{}
+-	for mod, info := range nodeMap.Nodes {
++	mods := make([]string, 0, len(nodeMap.Nodes))
++	for mod := range nodeMap.Nodes {
++		mods = append(mods, mod)
++	}
++	sort.Strings(mods)
++	for _, mod := range mods {
++		info := nodeMap.Nodes[mod]
+ 		key := mod + "/" + info.Version
+ 		table = append(table, types.RepoRow{
+ 			ModuleID: mod,
+ 			RepoKey:  key,
+-			URL:      "https://default/" + mod,
++			URL:      repoFor(mod, info, policy.Packages, policy.Aliases, nodeMap.StorageClass, policy.Text),
+ 		})
+-		raw := sha256.Sum256([]byte(mod + ":" + info.Version))
+ 		checksum = append(checksum, types.ChecksumRow{
+ 			RepoKey: key,
+-			Digest:  hex.EncodeToString(raw[:]),
++			Digest:  digestFor(mod, info, policy.Packages),
+ 		})
+ 	}
++	sort.Slice(table, func(i, j int) bool {
++		if table[i].ModuleID != table[j].ModuleID {
++			return table[i].ModuleID < table[j].ModuleID
++		}
++		return table[i].RepoKey < table[j].RepoKey
++	})
++	sort.Slice(checksum, func(i, j int) bool {
++		return checksum[i].RepoKey < checksum[j].RepoKey
++	})
+ 	return map[string]any{"rows": table}, map[string]any{"rows": checksum}
+ }
+--- mkseal/lib/seal.go	2026-06-18 18:10:57.277647000 +0000
++++ /tmp/tmp.RCi0Wx2hDA/seal.go	2026-06-18 18:11:01.901279473 +0000
+@@ -36,8 +36,20 @@
+ 	return hex.EncodeToString(sum[:])
+ }
+ 
+-func OutputArtifactsFresh(_ string, _ []types.LockRow, _ []types.ChecksumRow) bool {
+-	return true
++func OutputArtifactsFresh(entry string, lock []types.LockRow, checksum []types.ChecksumRow) bool {
++	dig := LinkDigest(lock, checksum)
++	onDisk, ok := ReadOutputLinkDigest()
++	if !ok {
++		return false
++	}
++	if onDisk != dig {
++		return false
++	}
++	slot, ok := readSlot(entry)
++	if !ok || slot.LinkDigest == "" {
++		return false
++	}
++	return slot.LinkDigest == dig
+ }
+ 
+ func WriteOutputs(lock types.LockSnapshot, repo map[string]any, checksum map[string]any) error {
+@@ -69,11 +81,32 @@
+ 	if json.Unmarshal(lockBytes, &lock) != nil || json.Unmarshal(checkBytes, &checksum) != nil {
+ 		return "", false
+ 	}
+-	return LinkDigest(lock.Rows, checksum.Rows), true
++	dig := LinkDigest(lock.Rows, checksum.Rows)
++	if dig == "" {
++		return "", false
++	}
++	return dig, true
++}
++
++func readSlot(entry string) (types.ClosureSlot, bool) {
++	path := filepath.Join("/app/environment/.runtime/journal", "closure.json")
++	data, err := os.ReadFile(path)
++	if err != nil {
++		return types.ClosureSlot{}, false
++	}
++	var ledger types.SlotsLedger
++	if json.Unmarshal(data, &ledger) != nil {
++		return types.ClosureSlot{}, false
++	}
++	slot, ok := ledger.Slots[entry]
++	return slot, ok
+ }
+ 
+ func writeJSON(path string, v any) error {
+-	data, _ := json.MarshalIndent(v, "", "  ")
++	data, err := json.MarshalIndent(v, "", "  ")
++	if err != nil {
++		return err
++	}
+ 	data = append(data, '\n')
+ 	return os.WriteFile(path, data, 0o644)
+ }
+--- internal/stages/hydrate.go	2026-06-19 20:00:00.000000000 +0000
++++ internal/stages/hydrate.go	2026-06-19 20:00:01.000000000 +0000
+@@ -6,11 +6,22 @@
+ )
+ 
+ func Hydrate(entry string, roots types.Roots) (types.NodeMap, bool) {
++	if tail, hasTail := statelib.ReadReplayTail(); hasTail && tail.EntryID != entry {
++		return types.NodeMap{}, false
++	}
+ 	cached, ok := statelib.LoadCached(entry, roots)
+ 	if !ok {
+ 		return types.NodeMap{}, false
+ 	}
+-	if tail, hasTail := statelib.ReadReplayTail(); hasTail {
+-		if tail.EntryID != entry {
+-			// foreign tail must invalidate cache for this entry
+-		}
++	if tail, hasTail := statelib.ReadReplayTail(); hasTail {
++		if tail.SeedDigest != statelib.SeedDigestFor(roots) {
++			return types.NodeMap{}, false
++		}
++		if tail.LinkDigest != cachedLinkDigest(entry) {
++			return types.NodeMap{}, false
++		}
+ 	}
+ 	cached.EntryID = entry
+ 	cached.StorageClass = roots.StorageClass
+ 	return cached, true
+ }
++
++func cachedLinkDigest(entry string) string {
++	slot, ok := statelib.ReadSlot(entry)
++	if !ok {
++		return ""
++	}
++	return slot.LinkDigest
++}
+--- mkstate/lib/tail.go	2026-06-19 20:00:04.000000000 +0000
++++ mkstate/lib/tail.go	2026-06-19 20:00:05.000000000 +0000
+@@ -18,7 +18,11 @@
+ 	Gen        int    `json:"gen"`
+ }
+ 
+-func WriteReplayTail(_ string, _ string, _ string, _ int) {}
++func WriteReplayTail(entry, seedDigest, linkDigest string, gen int) {
++	tail := ReplayTail{EntryID: entry, SeedDigest: seedDigest, LinkDigest: linkDigest, Gen: gen}
++	_ = writeReplayTailFile(tail)
++}
+ 
+ func ReadReplayTail() (ReplayTail, bool) {

@@ -1,0 +1,5 @@
+{"key": "PPL-702", "notes": ["Backend rollout for the hard-referral program.", "Original linked issue under the Invite Friends PRD epic."], "source": "data-to-make-toolcall-based-tasks/PPL-702.json", "summary": "BE - Invite Friends - Refer and Earn"}
+{"key": "PPL-997", "source": "data-to-make-toolcall-based-tasks/PPL-692.json", "summary": "[RF-060] Three referrals unlock PDF Bank and Concept Lab together"}
+{"key": "PPL-1000", "source": "data-to-make-toolcall-based-tasks/PPL-692.json", "summary": "[RF-061] Partial referral progress does not unlock features"}
+{"key": "PPL-1009", "source": "data-to-make-toolcall-based-tasks/PPL-692.json", "summary": "[RF-066] PDF download threshold respects remote config"}
+{"key": "PPL-1011", "source": "data-to-make-toolcall-based-tasks/PPL-692.json", "summary": "[RF-067] Simulation and mindmap thresholds are separate configs"}

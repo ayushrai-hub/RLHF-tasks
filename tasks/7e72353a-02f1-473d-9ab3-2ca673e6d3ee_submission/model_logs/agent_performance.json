@@ -1,0 +1,44 @@
+{
+  "all_agent_stats": {
+    "nop": {
+      "accuracy": 0.0,
+      "n_runs": 1,
+      "n_successes": 0,
+      "n_agent_timeouts": 0,
+      "n_other_failures": 1
+    },
+    "oracle": {
+      "accuracy": 1.0,
+      "n_runs": 3,
+      "n_successes": 3,
+      "n_agent_timeouts": 0,
+      "n_other_failures": 0
+    },
+    "terminus-claude-opus-4-6": {
+      "accuracy": 0.0,
+      "n_runs": 5,
+      "n_successes": 0,
+      "n_agent_timeouts": 0,
+      "n_other_failures": 5
+    },
+    "terminus-gpt5-2": {
+      "accuracy": 0.0,
+      "n_runs": 5,
+      "n_successes": 0,
+      "n_agent_timeouts": 2,
+      "n_other_failures": 3
+    }
+  },
+  "test_results": {
+    "verifier_did_not_run": [
+      "failed",
+      "failed",
+      "failed",
+      "failed",
+      "failed"
+    ]
+  },
+  "difficulty": "hard",
+  "solvable": false,
+  "number_of_milestones": 0
+}
