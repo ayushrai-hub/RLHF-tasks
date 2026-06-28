@@ -1,0 +1,8 @@
+{
+  "bundle_schema": 2,
+  "scenario_tag": "recover",
+  "root_pack": "pack-a",
+  "packs": [
+    {"id": "pack-a", "path": "pack-a", "parent": null, "generation": 8}
+  ]
+}

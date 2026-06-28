@@ -1,0 +1,14 @@
+#!/bin/bash
+set -euo pipefail
+
+case "${1:-}" in
+  compile)
+    /opt/change-freeze/bin/config_guard
+    /opt/change-freeze/bin/build.sh
+    /opt/change-freeze/build/change-freeze compile --outdir /var/lib/change-freeze/output
+    ;;
+  *)
+    echo "Usage: $0 compile" >&2
+    exit 2
+    ;;
+esac

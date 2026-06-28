@@ -1,0 +1,8 @@
+# scheduler campus policy — tier 20
+# Campus registrar rebalanced room utilisation after semester-1 audit.
+
+[weights]
+room_util       = 0.24
+faculty_sat     = 0.32
+conflict_avoid  = 0.29
+load_balance    = 0.15

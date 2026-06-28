@@ -1,0 +1,109 @@
+#!/bin/bash
+set -euo pipefail
+
+out_dir=/var/lib/change-freeze/out
+rm -f "$out_dir/plan.json" "$out_dir/manifest.json"
+
+/opt/change-freeze/bin/change-freeze compile
+test -s "$out_dir/plan.json"
+test -s "$out_dir/manifest.json"
+
+rm -f "$out_dir/plan.json" "$out_dir/manifest.json"
+/opt/change-freeze/bin/build.sh
+/opt/change-freeze/build/change-freeze compile --outdir "$out_dir"
+test -s "$out_dir/plan.json"
+test -s "$out_dir/manifest.json"
+
+cat >/tmp/change_freeze_smoke.go <<'GO'
+package main
+
+import (
+	"bytes"
+	"crypto/sha256"
+	"encoding/hex"
+	"encoding/json"
+	"fmt"
+	"os"
+	"sort"
+)
+
+type Plan struct {
+	Services []Service `json:"services"`
+}
+
+type Service struct {
+	ServiceID        string `json:"service_id"`
+	Lane             string `json:"lane"`
+	OwnerTeam        string `json:"owner_team"`
+	RequiresApproval bool   `json:"requires_approval"`
+	Reason           string `json:"reason"`
+}
+
+type Manifest struct {
+	Files          map[string]string `json:"files"`
+	ManifestSHA256 string            `json:"manifest_sha256"`
+}
+
+func require(ok bool, message string) {
+	if !ok {
+		fmt.Fprintln(os.Stderr, message)
+		os.Exit(1)
+	}
+}
+
+func main() {
+	raw, err := os.ReadFile("/var/lib/change-freeze/out/plan.json")
+	require(err == nil, "cannot read plan.json")
+	require(bytes.HasSuffix(raw, []byte("\n")) && !bytes.HasSuffix(raw, []byte("\n\n")), "plan.json must include exactly one trailing newline")
+	var plan Plan
+	require(json.Unmarshal(raw, &plan) == nil, "plan.json is not valid json")
+
+	manifestRaw, err := os.ReadFile("/var/lib/change-freeze/out/manifest.json")
+	require(err == nil, "cannot read manifest.json")
+	require(bytes.HasSuffix(manifestRaw, []byte("\n")) && !bytes.HasSuffix(manifestRaw, []byte("\n\n")), "manifest.json must include exactly one trailing newline")
+	var manifest Manifest
+	require(json.Unmarshal(manifestRaw, &manifest) == nil, "manifest.json is not valid json")
+	planSum := sha256.Sum256(raw)
+	require(manifest.Files["plan.json"] == hex.EncodeToString(planSum[:]), "manifest files.plan.json must hash the full plan.json file bytes, including trailing newline")
+	canonical, err := json.Marshal(map[string]any{"files": manifest.Files})
+	require(err == nil, "cannot canonicalize manifest files")
+	manifestSum := sha256.Sum256(canonical)
+	require(manifest.ManifestSHA256 == hex.EncodeToString(manifestSum[:]), "manifest_sha256 must hash canonical compact {files: ...} bytes")
+
+	services := map[string]Service{}
+	ids := make([]string, 0, len(plan.Services))
+	for _, service := range plan.Services {
+		services[service.ServiceID] = service
+		ids = append(ids, service.ServiceID)
+	}
+	sortedIDs := append([]string(nil), ids...)
+	sort.Strings(sortedIDs)
+	require(fmt.Sprint(ids) == fmt.Sprint(sortedIDs), "services must be sorted by service_id, not Go map iteration order")
+
+	api, ok := services["svc-api"]
+	require(ok, "svc-api missing; allowlist inline comments or latest-row selection may be wrong")
+	require(api.Lane == "review" && api.Reason == "risk_score", "svc-api should be risk review using the latest row")
+
+	search, ok := services["svc-search"]
+	require(ok, "svc-search missing")
+	require(search.Reason == "change_type", "svc-search reason must be the literal keyword change_type")
+
+	billing, ok := services["svc-billing"]
+	require(ok, "svc-billing missing")
+	require(billing.Reason == "manual_override", "manual_override force_reason must survive freeze handling")
+	require(billing.Lane == "review", "manual_override changes reason but must not replace lane logic")
+
+	console, ok := services["svc-console"]
+	require(ok, "svc-console missing")
+	require(console.OwnerTeam == "console", "policy.d key-level team_map patch did not apply")
+	require(console.Lane == "review" && console.Reason == "risk_score", "risk_score should only win reason after blocked and change_type")
+
+	_, frozenPresent := services["svc-freeze"]
+	require(!frozenPresent, "svc-freeze should be excluded by the effective region freeze")
+	_, offsetPresent := services["svc-offset"]
+	require(!offsetPresent, "svc-offset should be ignored because its timestamp is not YYYY-MM-DDTHH:MM:SSZ")
+}
+GO
+
+/usr/local/go/bin/go run /tmp/change_freeze_smoke.go
+echo "change-freeze smoke check passed"

@@ -1,0 +1,38 @@
+{
+  "id": "case_b_trailer_rot",
+  "merge_mode": "wal_strict",
+  "heal_epoch": 1,
+  "quorum_need": 1,
+  "nodes": [
+    {
+      "node_id": 7,
+      "partitioned": false,
+      "partition_epoch": 0
+    }
+  ],
+  "frames_by_node": {
+    "7": [
+      {
+        "lamport": 1,
+        "node_id": 7,
+        "seq": 1,
+        "payload_hex": "6f6b31",
+        "crc": 1737020727
+      },
+      {
+        "lamport": 2,
+        "node_id": 7,
+        "seq": 2,
+        "payload_hex": "6f6b32",
+        "crc": 2611673491
+      },
+      {
+        "lamport": 3,
+        "node_id": 7,
+        "seq": 3,
+        "payload_hex": "424144",
+        "crc": 344750961
+      }
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "bundle_schema": 2,
+  "scenario_tag": "tomb",
+  "root_pack": "pack-a",
+  "packs": [
+    {"id": "pack-a", "path": "pack-a", "parent": null, "generation": 5},
+    {"id": "pack-b", "path": "pack-b", "parent": "pack-a", "generation": 6}
+  ]
+}

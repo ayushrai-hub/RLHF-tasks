@@ -1,0 +1,7 @@
+{"conn_id":"S2","pn_space":"APP_DATA","ack_ts_ms":1717459201000,"packet_number":10,"largest_acked":9,"ack_delay_us":20,"ecn_ct0":0,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":1}
+{"conn_id":"S2","pn_space":"APP_DATA","ack_ts_ms":1717459201200,"packet_number":11,"largest_acked":10,"ack_delay_us":21,"ecn_ct0":0,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":2}
+{"conn_id":"S2","pn_space":"APP_DATA","ack_ts_ms":1717459201500.5,"packet_number":12,"largest_acked":11,"ack_delay_us":22,"ecn_ct0":0,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":3}
+{"conn_id":"S5","pn_space":"APP_DATA","ack_ts_ms":1717459203000,"packet_number":50,"largest_acked":49,"ack_delay_us":30,"ecn_ct0":1,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":4}
+{"conn_id":"S5","pn_space":"APP_DATA","ack_ts_ms":1717459203100,"packet_number":51,"largest_acked":50,"ack_delay_us":31,"ecn_ct0":1,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":5}
+{"conn_id":"S10","pn_space":"APP_DATA","ack_ts_ms":1717459205000,"packet_number":100,"largest_acked":99,"ack_delay_us":40,"ecn_ct0":2,"ecn_ct1":0,"ecn_ce":1,"ack_eliciting":true,"shard_seq":6}
+{"conn_id":"S10","pn_space":"APP_DATA","ack_ts_ms":1717459205500,"packet_number":101,"largest_acked":100,"ack_delay_us":41,"ecn_ct0":2,"ecn_ct1":0,"ecn_ce":1,"ack_eliciting":true,"shard_seq":7}

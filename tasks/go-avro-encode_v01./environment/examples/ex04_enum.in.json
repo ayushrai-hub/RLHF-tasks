@@ -1,0 +1,17 @@
+{
+  "cases": [
+    {
+      "id": "ex04_enum",
+      "schema": {
+        "type": "enum",
+        "name": "Color",
+        "symbols": [
+          "RED",
+          "GREEN",
+          "BLUE"
+        ]
+      },
+      "value": "GREEN"
+    }
+  ]
+}

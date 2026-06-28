@@ -1,0 +1,30 @@
+{
+  "cases": [
+    {
+      "id": "ex05_nested",
+      "schema": {
+        "type": "record",
+        "name": "User",
+        "fields": [
+          {
+            "name": "id",
+            "type": "long"
+          },
+          {
+            "name": "name",
+            "type": "string"
+          },
+          {
+            "name": "active",
+            "type": "boolean"
+          }
+        ]
+      },
+      "value": {
+        "id": 1000,
+        "name": "ada",
+        "active": true
+      }
+    }
+  ]
+}

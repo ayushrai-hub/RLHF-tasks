@@ -1,0 +1,78 @@
+version = "2.0"
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+difficulty = "hard"
+category = "build-and-dependency-management"
+tags = ["incremental-build", "cmake", "dependency-graph", "codegen", "debugging", "offline"]
+languages = ["c", "cmake", "bash"]
+codebase_size = "small"
+number_of_milestones = 3
+subcategories = ["tool_specific"]
+expert_time_estimate_min = 150
+junior_time_estimate_min = 420
+
+[reference_pattern]
+justification_if_none = "No promoted reference covers incremental stale-object-after-generated-header-change; layered-policy-reload-drift is config-precedence shaped and release-provenance-drift addresses provenance not graph invalidation."
+
+[environment]
+allow_internet = false
+build_timeout_sec = 600
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+workdir = "/app"
+
+[category_profile]
+profile_name = "build_dependency_toolchain"
+challenge_family = "stale-incremental-header"
+
+[realism_source]
+source_type = "real_bug"
+evidence_basis = "Incremental-build missing-dependency and same-second mtime reuse bug class in firmware/CI pipelines"
+upstream_or_synthetic_rationale = "Minimized offline C driver preserving stale-linked-binary causal structure"
+minimization_preserves = "missing generated-input edge hazard, same-second false-green, pristine-only collapse trap, fast-equals-pristine matrix contract"
+synthetic_exception_review = "not required"
+
+[fix_frontier]
+count = 4
+distribution = "Roots environment/q4/, environment/w7/, environment/p2/, and environment/k9/"
+naming_policy = "Opaque manifest symbols on fix path; neutral two-letter directory stems"
+forbidden_stems = ["incremental", "rebuild", "header", "generated", "constants", "stale", "clean", "dependency", "manifest", "digest", "artifact", "pristine", "capability", "tag"]
+helpers_policy = "Decoys edge_shadow, stamp_shadow, slot_shadow; glue in host/; touch_same_sec.sh is non-fix unless manifest amended"
+symbol_thin_preferred = true
+
+[actionability_plan]
+verifier_command_visible = "/app/environment/bin/trace_host with /app/environment/data/run_plan.json"
+source_fix_intent_visible = "Repair C under /app/environment so trace rows are pipeline-generated"
+generated_output_rule_visible = "/app/output/rebuild_trace.json via trace_host only"
+exact_formula_home = "environment/docs/trace_contract.md for digest equality and capability_tag law"
+schema_home = "milestone instructions plus environment/docs/trace_contract.md"
+
+[[steps]]
+name = "milestone_1"
+
+[steps.agent]
+timeout_sec = 1200
+
+[steps.verifier]
+timeout_sec = 600
+
+[[steps]]
+name = "milestone_2"
+
+[steps.agent]
+timeout_sec = 1200
+
+[steps.verifier]
+timeout_sec = 600
+
+[[steps]]
+name = "milestone_3"
+
+[steps.agent]
+timeout_sec = 1200
+
+[steps.verifier]
+timeout_sec = 600

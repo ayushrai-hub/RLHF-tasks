@@ -1,0 +1,35 @@
+[
+  {
+    "scenario": "alpha_active",
+    "primary_unit": "node-a",
+    "rev_hint": 4,
+    "has_dependency_refresh": true,
+    "has_chain_propagation": true,
+    "inactive_branch_seen": true,
+    "inactive_branch_refreshable": true,
+    "depth_seed": "rev-2026-05",
+    "depth_steps": 3
+  },
+  {
+    "scenario": "beta_inactive_branch",
+    "primary_unit": "node-b",
+    "rev_hint": 3,
+    "has_dependency_refresh": true,
+    "has_chain_propagation": true,
+    "inactive_branch_seen": true,
+    "inactive_branch_refreshable": true,
+    "depth_seed": "beta-depth",
+    "depth_steps": 3
+  },
+  {
+    "scenario": "gamma_multi_depth",
+    "primary_unit": "node-c",
+    "rev_hint": 5,
+    "has_dependency_refresh": true,
+    "has_chain_propagation": true,
+    "inactive_branch_seen": true,
+    "inactive_branch_refreshable": true,
+    "depth_seed": "rev-2026-05",
+    "depth_steps": 4
+  }
+]

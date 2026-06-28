@@ -1,0 +1,53 @@
+{
+  "default_duration_minutes": 40,
+  "rollback_grace_minutes": 15,
+  "required_probe_types": [
+    "http",
+    "readiness",
+    "synthetic"
+  ],
+  "environment_aliases": {
+    "prod": "production",
+    "prd": "production",
+    "production": "production",
+    "stage": "staging",
+    "stg": "staging",
+    "staging": "staging"
+  },
+  "probe_type_aliases": {
+    "http": "http",
+    "http-check": "http",
+    "ready": "readiness",
+    "readiness": "readiness",
+    "readiness-check": "readiness",
+    "synthetic": "synthetic",
+    "synthetic-check": "synthetic"
+  },
+  "probe_status_aliases": {
+    "ok": "pass",
+    "healthy": "pass",
+    "pass": "pass",
+    "success": "pass",
+    "fail": "fail",
+    "failed": "fail",
+    "error": "fail",
+    "unhealthy": "fail"
+  },
+  "rollback_state_aliases": {
+    "applied": "applied",
+    "complete": "applied",
+    "done": "applied",
+    "pending": "pending",
+    "planned": "pending",
+    "canceled": "canceled",
+    "cancelled": "canceled"
+  },
+  "incident_severity_aliases": {
+    "sev1": "critical",
+    "critical": "critical",
+    "sev2": "major",
+    "major": "major",
+    "minor": "minor",
+    "info": "info"
+  }
+}

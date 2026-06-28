@@ -1,0 +1,3 @@
+# build_key=k1
+1|0|ro,nofail|/mnt/a|a100
+2|1|bind|/mnt/z|b200

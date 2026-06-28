@@ -1,0 +1,166 @@
+{
+  "scenarios": [
+    {
+      "name": "alpha_lane",
+      "handle": "alpha_lane",
+      "expect_status": "ok",
+      "clock_epoch": 1700000040
+    },
+    {
+      "name": "offset_lane",
+      "handle": "offset_lane",
+      "expect_status": "ok",
+      "clock_epoch": 1700000040,
+      "clock_offset_steps": 1
+    },
+    {
+      "name": "stale_step",
+      "handle": "stale_step",
+      "expect_status": "totp_reject",
+      "clock_epoch": 1700000040,
+      "bad_passcode": true
+    },
+    {
+      "name": "duplex_enroll",
+      "handle": "duplex_enroll",
+      "expect_status": "enroll_reject",
+      "clock_epoch": 1700000040,
+      "duplicate_enroll": true
+    },
+    {
+      "name": "corrupt_seal",
+      "handle": "corrupt_seal",
+      "expect_status": "seal_reject",
+      "clock_epoch": 1700000040,
+      "tamper_token": true
+    },
+    {
+      "name": "store_perm",
+      "handle": "store_perm",
+      "expect_status": "ok",
+      "clock_epoch": 1700000040,
+      "check_store_mode": true
+    },
+    {
+      "name": "signing_rotate_lane",
+      "handle": "signing_rotate_lane",
+      "expect_status": "ok",
+      "clock_epoch": 1700000040,
+      "rotate_signing": true
+    },
+    {
+      "name": "beta_lane",
+      "handle": "beta_lane",
+      "expect_status": "ok",
+      "clock_epoch": 1700000100
+    },
+    {
+      "name": "minus_offset_lane",
+      "handle": "minus_offset_lane",
+      "expect_status": "ok",
+      "clock_epoch": 1700000040,
+      "clock_offset_steps": -1
+    },
+    {
+      "name": "wide_miss_lane",
+      "handle": "wide_miss_lane",
+      "expect_status": "totp_reject",
+      "clock_epoch": 1700000040,
+      "clock_offset_steps": 2
+    },
+    {
+      "name": "gamma_lane",
+      "handle": "gamma_lane",
+      "expect_status": "ok",
+      "clock_epoch": 1700000200,
+      "check_store_mode": true
+    },
+    {
+      "name": "duplex_beta",
+      "handle": "duplex_beta",
+      "expect_status": "enroll_reject",
+      "clock_epoch": 1700000040,
+      "duplicate_enroll": true
+    },
+    {
+      "name": "corrupt_beta",
+      "handle": "corrupt_beta",
+      "expect_status": "seal_reject",
+      "clock_epoch": 1700000040,
+      "tamper_token": true
+    },
+    {
+      "name": "stale_wide",
+      "handle": "stale_wide",
+      "expect_status": "totp_reject",
+      "clock_epoch": 1700000040,
+      "bad_passcode": true
+    },
+    {
+      "name": "rotate_stale_seal",
+      "handle": "rotate_stale_seal",
+      "expect_status": "seal_reject",
+      "clock_epoch": 1700000040,
+      "rotate_stale_seal": true
+    },
+    {
+      "name": "signing_rotate_beta",
+      "handle": "signing_rotate_beta",
+      "expect_status": "ok",
+      "clock_epoch": 1700000100,
+      "rotate_signing": true
+    },
+    {
+      "name": "zeta_lane",
+      "handle": "zeta_lane",
+      "expect_status": "ok",
+      "clock_epoch": 1700000300,
+      "clock_offset_steps": 1
+    },
+    {
+      "name": "iota_lane",
+      "handle": "iota_lane",
+      "expect_status": "ok",
+      "clock_epoch": 1700000400,
+      "clock_offset_steps": 1
+    },
+    {
+      "name": "lambda_lane",
+      "handle": "lambda_lane",
+      "expect_status": "ok",
+      "clock_epoch": 1700000500,
+      "clock_offset_steps": -1,
+      "check_store_mode": true
+    },
+    {
+      "name": "omicron_rotate",
+      "handle": "omicron_rotate",
+      "expect_status": "ok",
+      "clock_epoch": 1700000600,
+      "rotate_signing": true
+    },
+    {
+      "name": "nu_dual_window",
+      "handle": "nu_dual_window",
+      "expect_status": "ok",
+      "clock_epoch": 1700000700,
+      "clock_offset_steps": 1,
+      "check_store_mode": true
+    },
+    {
+      "name": "upsilon_wide_ok",
+      "handle": "upsilon_wide_ok",
+      "expect_status": "ok",
+      "clock_epoch": 1700000800,
+      "clock_offset_steps": -1
+    },
+    {
+      "name": "rho_deep_rotate",
+      "handle": "rho_deep_rotate",
+      "expect_status": "ok",
+      "clock_epoch": 1700000900,
+      "rotate_signing": true,
+      "check_store_mode": true
+    }
+  ]
+}

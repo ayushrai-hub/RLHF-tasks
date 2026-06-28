@@ -1,0 +1,13 @@
+prefix=/opt/app
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: appcore
+Description: Application core library
+Version: 2.4.1
+Requires: net >= 1.0, zlib
+Requires.private: crypto
+Libs: -L${libdir} -lappcore -lsecret_static
+Libs.private: -Wl,--whole-archive -lcrypto -Wl,--no-whole-archive
+Cflags: -I${includedir}/appcore

@@ -1,0 +1,70 @@
+# Architecture
+
+The qack pipeline is one binary, five clear stages, one output file.
+
+## Stage 1 — Load
+
+`internal/load` walks `/app/ack_trove` for files matching `frames_*.ndjson`. Shards
+are processed in ascending filename order. Each line is parsed with
+`encoding/json` configured to keep number literals as `json.Number` so the
+loader can apply strict-int validation on a per-row basis.
+
+Strict-int rejection applies to seven numeric fields: `ack_ts_ms`,
+`packet_number`, `largest_acked`, `ack_delay_us`, `ecn_ct0`, `ecn_ct1`, and
+`ecn_ce`. A bare integer literal (`42`) is accepted. A quoted-integer string
+(`"42"`) is accepted. A float literal (`42.0`), a decimal-string (`"42.5"`),
+a boolean, or null is rejected. On rejection, every numeric field on the row
+is zeroed and `ack_eliciting` is zeroed to false; string fields are preserved
+verbatim so the row remains traceable in the report.
+
+`ack_eliciting` is held to the same standard — it must be a real JSON boolean
+(`true`/`false`). The integers `1` and `0` are not accepted as boolean
+substitutes; either trips the same blanket rejection.
+
+`connections.ndjson` and `markers.ndjson` are parsed similarly. Connection
+records require a `conn_id`, a `tier` (case-insensitive), and a real bool
+`urgent`. Markers carry a `source`, `kind`, `conn`, integer `target_low`,
+integer `target_high`, integer `issued_ts`, and `hmac8`.
+
+## Stage 2 — Marker validation
+
+`internal/marker` accepts only markers whose `source` equals `control_plane`,
+whose `kind` is in the closed set defined by `coalescer_anchor_set.json`, and whose `hmac8`
+matches the recomputed seal. Any failure drops the marker silently; downstream
+stages cannot distinguish a dropped marker from one that never existed. The
+seal is the eight-hex-character prefix of `sha256` over the pipe-joined
+preimage of the secret label, kind, conn, target_low, target_high, and
+issued_ts.
+
+## Stage 3 — Per-frame initial classification
+
+`internal/coalesce` walks the frame list once. A row that failed strict-int
+becomes `TYPE_INVALID`. A row whose `pn_space` is not in the policy enum
+becomes `BAD_SPACE`. A row whose `packet_number` lies inside any validated
+`RESET_RANGE` marker for its `conn_id` becomes `RESET_VOID`. The remaining
+rows are grouped by `(conn_id, pn_space, utc_day_of_ack_ts_ms)` for window
+classification in stage 4.
+
+## Stage 4 — Anchor selection and window classification
+
+Inside each bucket the anchor is the row with the smallest `ack_ts_ms`. Tied
+rows fall through to the row with the LARGER `packet_number`, then to the
+larger `shard_seq`. The anchor receives `ACK_DELIVERED`. Each remaining row
+gets its delta against the anchor and is classified per the window rules
+documented in `ack_anchor_set.md`. Tier scales `coalesce_ms` and `reorder_ms` per
+the per-tier permille factors in `coalescer_anchor_set.json`.
+
+## Stage 5 — Cross-cycle cascade, Hamilton, digest
+
+`internal/cascade` (within `coalesce`) walks every (conn, day) bucket. A
+bucket whose ACCEPTED count meets or exceeds `budget_threshold` triggers a
+single rewrite on the FIRST still-accepted event of the SAME connection on
+the NEXT day for which any bucket exists; that event's verdict becomes
+`BUDGET_EXCEEDED`.
+
+`internal/hamilton` distributes 10000 basis points across the registered
+connections by ACCEPTED count, leftover delivered by remainder ordering with
+the direction described in `ack_anchor_set.md`.
+
+`internal/digest` and `internal/report` assemble the final JSON, compute the
+self-binding digest, and write the file.

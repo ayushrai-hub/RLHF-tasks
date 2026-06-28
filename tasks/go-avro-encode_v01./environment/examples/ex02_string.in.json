@@ -1,0 +1,9 @@
+{
+  "cases": [
+    {
+      "id": "ex02_string",
+      "schema": "string",
+      "value": "hello"
+    }
+  ]
+}

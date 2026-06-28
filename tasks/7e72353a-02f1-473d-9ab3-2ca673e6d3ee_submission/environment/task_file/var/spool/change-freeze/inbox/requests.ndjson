@@ -1,0 +1,18 @@
+# change requests
+
+not-json
+[]
+{"service_id":"svc-api","ts":"2026-03-01T09:15:00Z","seq":1,"risk_score":0.33,"change_type":"app","region":"us-east-1"}
+{"service_id":"svc-api","ts":"2026-03-01T10:15:00Z","seq":2,"risk_score":0.52,"change_type":"app","region":"us-east-1"}
+{"service_id":"svc-api","ts":"2026-03-01T10:15:00Z","seq":2,"risk_score":0.51,"change_type":"app","region":"us-east-1","requested_by":"later-wins"}
+{"service_id":"svc-billing","ts":"2026-03-01T10:00:00Z","seq":1,"risk_score":0.39,"change_type":"app","region":"eu-west-1"}
+{"service_id":"svc-billing","ts":"2026-03-01T11:00:00Z","seq":2,"risk_score":0.43,"change_type":"app","region":"eu-west-1","force_reason":"manual_override"}
+{"service_id":"svc-console","ts":"2026-03-01T08:00:00Z","seq":1,"risk_score":0.74,"change_type":"app","region":"us-east-1"}
+{"service_id":"svc-data","ts":"2026-03-01T07:00:00Z","seq":1,"risk_score":0.20,"change_type":"app","region":"ap-south-1","blocked":true}
+{"service_id":"svc-freeze","ts":"2026-03-01T12:30:00Z","seq":1,"risk_score":0.10,"change_type":"app","region":"eu-west-1"}
+{"service_id":"svc-l10n","ts":"2026-03-01T06:45:00Z","seq":1,"risk_score":0.11,"change_type":"app","region":"ap-south-1"}
+{"service_id":"svc-search","ts":"2026-03-01T09:30:00Z","seq":"x","risk_score":0.31,"change_type":"ops","region":"ap-south-1"}
+{"service_id":"svc-disabled","ts":"2026-03-01T09:00:00Z","seq":1,"risk_score":0.90,"change_type":"schema","region":"us-east-1"}
+{"service_id":"svc-disabled","ts":"2026-03-01T09:05:00Z","seq":2,"risk_score":0.12,"change_type":"app","region":"us-east-1","disabled":true}
+{"service_id":"svc-internal-auth","ts":"2026-03-01T05:00:00Z","seq":1,"risk_score":0.99,"change_type":"infra","region":"us-east-1"}
+{"service_id":"svc-offset","ts":"2026-03-01T13:00:00+01:00","seq":1,"risk_score":0.99,"change_type":"schema","region":"us-east-1"}

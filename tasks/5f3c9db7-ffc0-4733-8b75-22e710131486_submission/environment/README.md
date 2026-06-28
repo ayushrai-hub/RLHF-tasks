@@ -1,0 +1,1 @@
+Verifier pipeline: build with `/usr/local/go/bin/go build -C /app/environment -o /app/logrecover /app/environment/cmd/logrecover`, run `/app/logrecover --pack /app/fixtures/scenarios/pack.json --out /app/output/recovery_report.json`, then grade with `python -m pytest --ctrf /logs/verifier/ctrf.json` on the report.

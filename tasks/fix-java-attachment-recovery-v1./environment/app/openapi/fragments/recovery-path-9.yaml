@@ -1,0 +1,4 @@
+paths:
+  /api/v1/attachments/9:
+    get:
+      summary: Attachment endpoint 9

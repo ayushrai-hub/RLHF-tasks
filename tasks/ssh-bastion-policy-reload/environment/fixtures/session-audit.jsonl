@@ -1,0 +1,9 @@
+{"seq":1,"generation":"gen-7","user":"alice","role":"admin","action":"grant","state":"active"}
+{"seq":2,"generation":"gen-7","user":"bob","role":"operator","action":"grant","state":"active"}
+{"seq":3,"generation":"gen-8","user":"alice","role":"admin","action":"grant","state":"active"}
+{"seq":4,"generation":"gen-8","user":"bob","role":"operator","action":"grant","state":"active"}
+{"seq":5,"generation":"gen-8","user":"carol","role":"readonly","action":"grant","state":"active"}
+{"seq":6,"generation":"gen-8","user":"dan","role":"operator","action":"grant","state":"active"}
+{"seq":7,"generation":"gen-8","user":"dan","role":"operator","action":"revoke","state":"revoked"}
+{"seq":8,"generation":"gen-8","user":"bob","role":"maintainer","action":"grant","state":"active"}
+{"seq":9,"generation":"gen-9","user":"alice","role":"superadmin","action":"grant","state":"active"}

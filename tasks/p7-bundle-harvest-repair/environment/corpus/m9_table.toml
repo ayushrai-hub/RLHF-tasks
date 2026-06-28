@@ -1,0 +1,27 @@
+[[profiles]]
+id = "s01"
+since = "2024-06-01T00:00:00Z"
+until = "2024-06-02T00:00:00Z"
+prio = ""
+retry = false
+
+[[profiles]]
+id = "s02"
+since = "2024-06-01T00:00:00Z"
+until = "2024-06-02T00:00:00Z"
+prio = ""
+retry = true
+
+[[profiles]]
+id = "s03"
+since = "2024-06-01T12:00:00Z"
+until = "2024-06-01T18:00:00Z"
+prio = ""
+retry = false
+
+[[profiles]]
+id = "s04"
+since = "2024-06-01T00:00:00Z"
+until = "2024-06-02T00:00:00Z"
+prio = "beta"
+retry = false

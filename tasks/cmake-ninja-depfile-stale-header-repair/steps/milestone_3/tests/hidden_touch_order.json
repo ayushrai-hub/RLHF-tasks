@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "workload_id": "depfix-hidden-verify-71204",
+  "touch_entries": [
+    {
+      "path": "/app/include/depfix/version.hpp",
+      "token": "hid-ver-1"
+    },
+    {
+      "path": "/app/include/depfix/config.hpp",
+      "token": "hid-cfg-2"
+    },
+    {
+      "path": "/app/include/depfix/core.hpp",
+      "token": "hid-core-3"
+    }
+  ]
+}

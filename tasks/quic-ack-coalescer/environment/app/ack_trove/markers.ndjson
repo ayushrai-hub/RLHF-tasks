@@ -1,0 +1,4 @@
+{"source":"control_plane","kind":"RESET_RANGE","conn":"C11","target_low":600,"target_high":605,"issued_ts":1717459207000,"hmac8":"52f00aef"}
+{"source":"control_plane","kind":"RESET_RANGE","conn":"C2","target_low":100,"target_high":100,"issued_ts":1717459205000,"hmac8":"deadbeef"}
+{"source":"agent","kind":"RESET_RANGE","conn":"C9","target_low":300,"target_high":300,"issued_ts":1717459203000,"hmac8":"2a7093d8"}
+{"source":"control_plane","kind":"BOGUS_KIND","conn":"C10","target_low":500,"target_high":500,"issued_ts":1717459206000,"hmac8":"8ac34fc8"}

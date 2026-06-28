@@ -1,0 +1,11 @@
+{
+  "lane_id": "lane_k3",
+  "fragments": [
+    "frag_a.tab",
+    "frag_b.tab"
+  ],
+  "unit_frag": "frag_u1.json",
+  "blk_slice": "td.mnt",
+  "reorder_bind": true,
+  "duplicate_recovery": false
+}

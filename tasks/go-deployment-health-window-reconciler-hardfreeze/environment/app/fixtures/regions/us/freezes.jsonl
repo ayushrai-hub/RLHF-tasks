@@ -1,0 +1,4 @@
+{"freeze_id": "freeze-prod-api", "environment": "prod", "service": "api", "starts_at": "2026-06-01T10:30:00Z", "ends_at": "2026-06-01T10:40:00Z", "severity": "hard", "allowed_owners": ["sre"]}
+{"freeze_id": "freeze-prod-frontend", "environment": "production", "service": "frontend", "starts_at": "2026-06-01T10:00:00Z", "ends_at": "2026-06-01T10:30:00Z", "severity": "hard", "allowed_owners": ["sre"]}
+{"freeze_id": "freeze-stage-billing", "environment": "staging", "service": "billing", "starts_at": "2026-06-01T10:10:00Z", "ends_at": "2026-06-01T10:50:00Z", "severity": "advisory"}
+{"freeze_id": "freeze-invalid", "environment": "prod", "service": "api", "starts_at": "2026-06-01T10:00:00Z", "severity": "hard"}

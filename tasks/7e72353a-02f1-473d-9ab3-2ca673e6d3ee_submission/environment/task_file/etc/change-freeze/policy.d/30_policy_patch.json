@@ -1,0 +1,8 @@
+{
+  "service_class": {
+    "svc-freeze": "critical"
+  },
+  "team_map": {
+    "svc-console": "console"
+  }
+}

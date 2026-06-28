@@ -1,0 +1,14 @@
+target/
+.bsp/
+.metals/
+.bloop/
+project/target/
+project/project/
+*.class
+*.jar
+*.log
+.DS_Store
+
+# Pre-baked artifacts shipped to keep cold docker build under harbor's 600s env-start cap.
+!native/prebuilt/
+!native/prebuilt/**

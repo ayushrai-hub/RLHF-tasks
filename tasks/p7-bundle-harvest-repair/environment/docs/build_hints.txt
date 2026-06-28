@@ -1,0 +1,29 @@
+Build and verifier notes
+------------------------
+
+JSON service
+------------
+Start the local API-only Rails service before running the driver.
+
+  /app/environment/scripts/start_q9_host.sh
+
+The service writes its pid to `/tmp/q9_host.pid` and listens on 127.0.0.1 port 9292. Verifier preflight uses:
+
+  curl -sf http://127.0.0.1:9292/health
+
+Ruby bundle
+-----------
+Install gems once, then invoke the driver.
+
+  cd /app/environment/rb/p7_pull && bundle install
+  bundle exec /app/rb/p7_pull/exe/p7_driver --table /app/corpus/m9_table.toml
+
+The `--table` flag accepts a TOML manifest. Paths inside the manifest are relative to `/app/environment/corpus/`.
+
+Pytest
+------
+Verifier tests use the pre-installed venv:
+
+  /opt/verifier-venv/bin/pytest /tests/test_outputs.py -rA
+
+Tests rebuild Ruby sources, ensure the JSON service responds on the health route, delete any prior `/app/output/p7_bundle/`, rerun the driver, and validate regenerated bundle artifacts. Verifier tests may read the SQLite bundle store via Python's stdlib `sqlite3` module.

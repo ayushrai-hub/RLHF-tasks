@@ -1,0 +1,2 @@
+{"seq": 3, "op": "op_tombstone", "op_id": "bind-shared", "journal_revision": 3, "scenario_tag": "delta"}
+{"seq": 4, "op": "die_bind", "die_id": "die_delta_child", "scenario_tag": "delta", "op_id": "bind-replacement", "journal_revision": 1, "forge_epoch": 1}

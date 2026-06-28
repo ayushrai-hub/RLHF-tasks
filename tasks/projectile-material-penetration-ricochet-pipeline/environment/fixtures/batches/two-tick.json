@@ -1,0 +1,21 @@
+{
+  "name": "two-tick",
+  "events": [
+    {
+      "sim_tick": 0,
+      "shot_id": 1,
+      "stack": "simple",
+      "velocity": [0.0, 0.0, -420.0],
+      "energy_j": 2500.0,
+      "seed": 1
+    },
+    {
+      "sim_tick": 1,
+      "shot_id": 2,
+      "stack": "multi-layer",
+      "velocity": [0.0, 0.0, -380.0],
+      "energy_j": 3200.0,
+      "seed": 42
+    }
+  ]
+}

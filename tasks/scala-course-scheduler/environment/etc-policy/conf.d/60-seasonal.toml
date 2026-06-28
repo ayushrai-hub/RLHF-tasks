@@ -1,0 +1,5 @@
+# scheduler seasonal policy — tier 60
+# Winter semester: afternoon slots above 14:00 suspended pending HVAC repairs.
+
+[slots]
+enabled = ["MON-09","MON-11","MON-14","WED-09","WED-11","WED-14"]

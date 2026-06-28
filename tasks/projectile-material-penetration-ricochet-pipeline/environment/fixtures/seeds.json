@@ -1,0 +1,9 @@
+{
+  "seeds": [
+    { "seed": 1, "velocity_scale": 1.0 },
+    { "seed": 7, "velocity_scale": 1.15 },
+    { "seed": 13, "velocity_scale": 0.85 },
+    { "seed": 42, "velocity_scale": 1.0 },
+    { "seed": 99, "velocity_scale": 1.25 }
+  ]
+}

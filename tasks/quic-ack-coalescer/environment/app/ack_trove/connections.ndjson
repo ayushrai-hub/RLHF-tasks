@@ -1,0 +1,4 @@
+{"conn_id":"C2","tier":"standard","urgent":false}
+{"conn_id":"C9","tier":"CRITICAL","urgent":false}
+{"conn_id":"C10","tier":"bulk","urgent":false}
+{"conn_id":"C11","tier":"standard","urgent":false}

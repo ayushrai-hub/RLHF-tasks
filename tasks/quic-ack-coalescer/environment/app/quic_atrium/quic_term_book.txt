@@ -1,0 +1,62 @@
+# Glossary
+
+**ack_ts_ms** — the millisecond epoch at which the receiver issued the ACK
+frame. This is the only timestamp the binary uses for any window or for the
+UTC-day bucketing in the cross-cycle cascade. The capture-side timestamp on
+the trace is unrelated.
+
+**Anchor** — the earliest still-accepted row inside a `(conn, pn_space,
+utc_day)` bucket. Ties broken by LARGER `packet_number`, then larger
+`shard_seq`. The anchor verdict is `ACK_DELIVERED`.
+
+**ACCEPTED** — shorthand for the three verdicts that count toward the
+cross-cycle cascade and the Hamilton weight: `ACK_DELIVERED`,
+`ACK_COALESCED`, `ACK_REORDERED`.
+
+**BAD_SPACE** — verdict assigned when a frame's `pn_space` is not in the
+closed enum from `coalescer_anchor_set.json`. The numeric fields are preserved.
+
+**budget_threshold** — the per-`(conn, day)` ACCEPTED-count value at which the
+NEXT day's first still-accepted event on the same connection is rewritten to
+`BUDGET_EXCEEDED`.
+
+**BUDGET_EXCEEDED** — verdict produced by the cross-cycle cascade. Set once
+per breach, on the same connection's earliest still-accepted event in the
+next day's bucket.
+
+**coalesce_ms** — the per-tier coalesce window length in milliseconds. The
+window is `[0, coalesce_ms]`, right-inclusive.
+
+**HMAC8 seal** — the eight-hex-character prefix of `sha256` over the
+pipe-joined preimage `secret_label|kind|conn|target_low|target_high|issued_ts`.
+
+**numeric-suffix sort** — orders ids by the integer suffix after the leading
+non-digit prefix. `C2 < C10 < C11`. Plain lexicographic order would place
+`C10 < C2`.
+
+**registered connection** — a connection appearing in `connections.ndjson`.
+Registered connections always surface a block under `by_conn` and a row under
+`hamilton` regardless of whether any frame referenced their id.
+
+**reorder_ms** — the per-tier reorder window length in milliseconds. The
+window is `(coalesce_ms, reorder_ms]`, left-exclusive.
+
+**RESET_VOID** — verdict assigned when a frame's `packet_number` lies within
+any validated `RESET_RANGE` marker for its connection. The numeric fields are
+preserved.
+
+**REVERSE** — the default Hamilton remainder-tiebreak direction:
+numeric-suffix descending. `C11` before `C10` before `C9` before `C2`.
+
+**FORWARD** — the alternative Hamilton direction selected when ANY registered
+connection carries `urgent=true`: numeric-suffix ascending.
+
+**TYPE_INVALID** — verdict assigned when any of the seven strict-int numeric
+fields is not an integer literal or quoted-integer string, or when
+`ack_eliciting` is anything other than a real boolean. The numerics are
+zeroed; string fields are preserved.
+
+**urgent** — a real-boolean flag on a registered connection. Only the JSON
+literal `true` flips the Hamilton direction; the integer `1` does not.
+
+**utc_day** — `floor(ack_ts_ms / 86400000)`.

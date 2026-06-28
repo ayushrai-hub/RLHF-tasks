@@ -1,0 +1,6 @@
+{"conn_id":"C9","pn_space":"APP_DATA","ack_ts_ms":1717459203000,"packet_number":300,"largest_acked":299,"ack_delay_us":35,"ecn_ct0":2,"ecn_ct1":1,"ecn_ce":0,"ack_eliciting":true,"shard_seq":11}
+{"conn_id":"C9","pn_space":"APP_DATA","ack_ts_ms":1717459203100,"packet_number":301,"largest_acked":300,"ack_delay_us":36,"ecn_ct0":2,"ecn_ct1":1,"ecn_ce":0,"ack_eliciting":true,"shard_seq":12}
+{"conn_id":"C9","pn_space":"APP_DATA","ack_ts_ms":1717459203101,"packet_number":302,"largest_acked":301,"ack_delay_us":37,"ecn_ct0":2,"ecn_ct1":1,"ecn_ce":0,"ack_eliciting":true,"shard_seq":13}
+{"conn_id":"C9","pn_space":"APP_DATA","ack_ts_ms":1717459203500,"packet_number":303,"largest_acked":302,"ack_delay_us":40,"ecn_ct0":2,"ecn_ct1":1,"ecn_ce":0,"ack_eliciting":true,"shard_seq":14}
+{"conn_id":"C9","pn_space":"HANDSHAKE","ack_ts_ms":1717459204000,"packet_number":400,"largest_acked":399,"ack_delay_us":15,"ecn_ct0":0,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":15}
+{"conn_id":"C11","pn_space":"ZERORTT","ack_ts_ms":1717459208000,"packet_number":700,"largest_acked":699,"ack_delay_us":12,"ecn_ct0":0,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":16}

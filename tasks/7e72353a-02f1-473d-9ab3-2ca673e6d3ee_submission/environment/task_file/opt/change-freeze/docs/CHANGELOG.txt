@@ -1,0 +1,7 @@
+2026-02-14
+- switched the wrapper back to rebuilding from the vendored engine on each invocation
+- moved local engine edits into vendor templates to keep rebuilds reproducible
+
+2026-01-09
+- added per-service review threshold overrides
+- added regional freeze support

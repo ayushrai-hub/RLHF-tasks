@@ -1,0 +1,12 @@
+# scheduler overrides — tier 50
+# Sourced from registrar policy notes.  Threshold raise pending final-tier sign-off.
+
+[threshold]
+pass_score = 0.79
+
+[overlay]
+course_overrides_csv = "/etc/scheduler/course-overrides.csv"
+
+[slots]
+# Same canonical slot list; restated here in case lower tiers were edited.
+enabled = ["MON-09","MON-11","MON-14","MON-16","WED-09","WED-11","WED-14","WED-16"]

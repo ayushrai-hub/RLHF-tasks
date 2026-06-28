@@ -1,0 +1,8 @@
+{
+  "name": "multi-layer",
+  "normal": [0.0, 0.0, 1.0],
+  "layers": [
+    { "physics_id": 103, "thickness_m": 0.004 },
+    { "physics_id": 102, "thickness_m": 0.008 }
+  ]
+}

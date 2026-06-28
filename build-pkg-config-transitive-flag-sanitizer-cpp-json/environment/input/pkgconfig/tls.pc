@@ -1,0 +1,12 @@
+prefix=/usr/local
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: tls
+Description: TLS adapter
+Version: 3.0.0
+Requires:
+Requires.private: crypto
+Libs: -L${libdir} -ltls
+Libs.private:
+Cflags: -I${includedir}/tls

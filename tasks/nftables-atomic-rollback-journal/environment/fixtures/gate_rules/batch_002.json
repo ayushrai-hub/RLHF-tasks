@@ -1,0 +1,5 @@
+[
+  {"seq": 6, "rule_id": "alpha", "action": "set", "epoch": 2, "priority": 110, "mark": 0.44, "phase": "settle", "run_id": "run-a"},
+  {"seq": 7, "rule_id": "beta", "action": "undo", "epoch": 2, "priority": 0, "mark": 0.08, "phase": "settle", "run_id": "run-a"},
+  {"seq": 8, "rule_id": "gamma", "action": "undo", "epoch": 2, "priority": 0, "mark": 0.04, "phase": "settle", "run_id": "run-b"}
+]

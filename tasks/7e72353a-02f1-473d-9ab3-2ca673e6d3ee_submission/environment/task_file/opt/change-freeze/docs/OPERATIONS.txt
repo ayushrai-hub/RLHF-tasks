@@ -1,0 +1,5 @@
+Run the compiler with:
+  /opt/change-freeze/bin/change-freeze compile
+
+The wrapper performs a guard check, refreshes the vendored engine from templates,
+then rebuilds the binary before executing it.

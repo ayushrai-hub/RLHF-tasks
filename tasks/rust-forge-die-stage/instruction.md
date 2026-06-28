@@ -1,0 +1,5 @@
+The forge staging driver in `/app` is producing inconsistent reports when operators replay branched journal bundles and recover from newer chunked die blocks. Update the Rust implementation so `/app/bin/forge_stage` follows the compatibility contract in `/app/docs/forge_stage_contract.md` for normal replay, recovery replay, state reuse, and registry cache probing.
+
+Normal replay is invoked with `--stage <journal-or-pack-or-bundle-path> --emit-log <log-path> --emit-report <report-path>`. Recovery uses `--stage-recover <journal-or-pack-or-bundle-path>` with the same output flags plus optional `--snapshot <snapshot-path>`. Both modes must honor optional `--die-root <die-root>` and `--state-dir <state-dir>` paths, including temporary paths outside `/app/output`. The probe mode is `--probe-forge-cache` and its stdout JSON contract is documented in `/app/docs/forge_stage_contract.md`.
+
+Fix the Rust sources under `/app/src/` and rebuild with `cargo build --release --locked`; the rebuilt ELF binary must be installed at `/app/bin/forge_stage`. Static output files, wrapper scripts, or hardcoded fixture-specific reports are not acceptable.

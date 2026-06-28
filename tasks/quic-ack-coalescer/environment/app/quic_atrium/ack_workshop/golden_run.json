@@ -1,0 +1,191 @@
+{
+  "version": "2026.06.07",
+  "summary": {
+    "total": 7,
+    "by_verdict": {
+      "ACK_COALESCED": 2,
+      "ACK_DELIVERED": 3,
+      "ACK_REORDERED": 1,
+      "BAD_SPACE": 0,
+      "BUDGET_EXCEEDED": 0,
+      "RESET_VOID": 0,
+      "TYPE_INVALID": 1
+    },
+    "registered_connections": 3,
+    "hamilton_direction": "REVERSE",
+    "budget_threshold": 8,
+    "policy_version": "2026.06.07"
+  },
+  "by_conn": [
+    {
+      "conn_id": "S2",
+      "tier": "STANDARD",
+      "by_verdict": {
+        "ACK_COALESCED": 1,
+        "ACK_DELIVERED": 1,
+        "ACK_REORDERED": 0,
+        "BAD_SPACE": 0,
+        "BUDGET_EXCEEDED": 0,
+        "RESET_VOID": 0,
+        "TYPE_INVALID": 1
+      },
+      "accepted": 2,
+      "events_count": 3
+    },
+    {
+      "conn_id": "S5",
+      "tier": "CRITICAL",
+      "by_verdict": {
+        "ACK_COALESCED": 1,
+        "ACK_DELIVERED": 1,
+        "ACK_REORDERED": 0,
+        "BAD_SPACE": 0,
+        "BUDGET_EXCEEDED": 0,
+        "RESET_VOID": 0,
+        "TYPE_INVALID": 0
+      },
+      "accepted": 2,
+      "events_count": 2
+    },
+    {
+      "conn_id": "S10",
+      "tier": "BULK",
+      "by_verdict": {
+        "ACK_COALESCED": 0,
+        "ACK_DELIVERED": 1,
+        "ACK_REORDERED": 1,
+        "BAD_SPACE": 0,
+        "BUDGET_EXCEEDED": 0,
+        "RESET_VOID": 0,
+        "TYPE_INVALID": 0
+      },
+      "accepted": 2,
+      "events_count": 2
+    }
+  ],
+  "hamilton": [
+    {
+      "conn_id": "S2",
+      "weight": 2,
+      "basis_points": 3333
+    },
+    {
+      "conn_id": "S5",
+      "weight": 2,
+      "basis_points": 3333
+    },
+    {
+      "conn_id": "S10",
+      "weight": 2,
+      "basis_points": 3334
+    }
+  ],
+  "events": [
+    {
+      "conn_id": "S2",
+      "pn_space": "APP_DATA",
+      "ack_ts_ms": 0,
+      "packet_number": 0,
+      "largest_acked": 0,
+      "ack_delay_us": 0,
+      "ecn_ct0": 0,
+      "ecn_ct1": 0,
+      "ecn_ce": 0,
+      "ack_eliciting": false,
+      "shard_seq": 3,
+      "anchor": false,
+      "verdict": "TYPE_INVALID"
+    },
+    {
+      "conn_id": "S2",
+      "pn_space": "APP_DATA",
+      "ack_ts_ms": 1717459201000,
+      "packet_number": 10,
+      "largest_acked": 9,
+      "ack_delay_us": 20,
+      "ecn_ct0": 0,
+      "ecn_ct1": 0,
+      "ecn_ce": 0,
+      "ack_eliciting": true,
+      "shard_seq": 1,
+      "anchor": true,
+      "verdict": "ACK_DELIVERED"
+    },
+    {
+      "conn_id": "S2",
+      "pn_space": "APP_DATA",
+      "ack_ts_ms": 1717459201200,
+      "packet_number": 11,
+      "largest_acked": 10,
+      "ack_delay_us": 21,
+      "ecn_ct0": 0,
+      "ecn_ct1": 0,
+      "ecn_ce": 0,
+      "ack_eliciting": true,
+      "shard_seq": 2,
+      "anchor": false,
+      "verdict": "ACK_COALESCED"
+    },
+    {
+      "conn_id": "S5",
+      "pn_space": "APP_DATA",
+      "ack_ts_ms": 1717459203000,
+      "packet_number": 50,
+      "largest_acked": 49,
+      "ack_delay_us": 30,
+      "ecn_ct0": 1,
+      "ecn_ct1": 0,
+      "ecn_ce": 0,
+      "ack_eliciting": true,
+      "shard_seq": 4,
+      "anchor": true,
+      "verdict": "ACK_DELIVERED"
+    },
+    {
+      "conn_id": "S5",
+      "pn_space": "APP_DATA",
+      "ack_ts_ms": 1717459203100,
+      "packet_number": 51,
+      "largest_acked": 50,
+      "ack_delay_us": 31,
+      "ecn_ct0": 1,
+      "ecn_ct1": 0,
+      "ecn_ce": 0,
+      "ack_eliciting": true,
+      "shard_seq": 5,
+      "anchor": false,
+      "verdict": "ACK_COALESCED"
+    },
+    {
+      "conn_id": "S10",
+      "pn_space": "APP_DATA",
+      "ack_ts_ms": 1717459205000,
+      "packet_number": 100,
+      "largest_acked": 99,
+      "ack_delay_us": 40,
+      "ecn_ct0": 2,
+      "ecn_ct1": 0,
+      "ecn_ce": 1,
+      "ack_eliciting": true,
+      "shard_seq": 6,
+      "anchor": true,
+      "verdict": "ACK_DELIVERED"
+    },
+    {
+      "conn_id": "S10",
+      "pn_space": "APP_DATA",
+      "ack_ts_ms": 1717459205500,
+      "packet_number": 101,
+      "largest_acked": 100,
+      "ack_delay_us": 41,
+      "ecn_ct0": 2,
+      "ecn_ct1": 0,
+      "ecn_ce": 1,
+      "ack_eliciting": true,
+      "shard_seq": 7,
+      "anchor": false,
+      "verdict": "ACK_REORDERED"
+    }
+  ],
+  "report_digest": "9cf8682524fa06dda30cf62947fbf3fd3fd6e68f4b1bdbb6bf738aaf11fab1ba"
+}

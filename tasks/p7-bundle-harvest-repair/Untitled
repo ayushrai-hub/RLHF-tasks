@@ -1,0 +1,339 @@
+Difficulty Explanation (optional)
+Describe in your own words why your task is challenging for humans and agents to solve.
+
+I built this around a live paginated json feeder and a ruby harvest pipeline that fans into comma separated files and a sql store. I had to find three separate modules in the pull gem and the net replay helper while the api only shows correct paging semantics on the wire. Partial row counts or a plausible rollup from hand edited bundle files looked fine until I reran the driver against the running service. I expect agents to patch the rails controller or the decoy index exporter while the real faults sit in cursor continuation, retry dedup, and rollup population.
+Solution Explanation (optional)
+Describe your high-level approach to this task and key insights in forming the solution.
+
+I reproduced each bad profile through the scenario table, started the local json host, then traced batches through the walker, the replay helper, and the dual sink fold step. I fixed pagination to follow the response header cursor, deduped retry batches with band safe fetches, and aligned utc instants plus per group rollup metrics in the fold module. I reinstalled gems and reran the driver so every profile file, the shared store, and the rollup digest rebuilt from live api pages instead of static copies.
+Verification Explanation (optional)
+Explain how your tests are verifying correctness.
+
+I wrote the test shell script to run pytest after the agent finishes, and each case starts the json service, clears prior bundle output, and reruns the packaged driver. I compare row counts to live api pages, cross sink timestamps per key, half open window edges, band filtered profiles, digest recomputation, and consecutive run identity. I added ablation checks that revert one module snapshot at a time so cosmetic api edits or hand written bundle files still fail. A noop agent leaves broken pull code in place so span, dedup, and alignment checks stay red.
+
+Difficulty: ✅ MEDIUM
+
+Status: ✅ Solvable (all tests passed by at least one agent run)
+
+Agent Performance:
+  • terminus-claude-opus-4-8: 100.0% (5/5 runs)
+  • terminus-gpt5-5: 60.0% (3/5 runs)
+
+Reference Agents:
+  • nop: 0.0% (0/1 runs)
+  • oracle: 100.0% (3/3 runs)
+
+Failure Breakdown:
+  • nop: 1 other
+  • terminus-gpt5-5: 1 timeout(s), 1 other
+
+Agent Timeout Gate: ✅ 1/10 real-agent runs timed out (<5; not blocking by itself)
+
+Unit Tests Results:
+  • test_u1_prio_mapping: 9 passed / 9 runs
+  • test_i7_err_status_spectrum: 9 passed / 9 runs
+  • test_t0_idem: 9 passed / 9 runs
+  • test_h4_body_hdr_divergence: 9 passed / 9 runs
+  • test_j3_s03_subset: 8 passed / 9 runs
+  • test_p9_grid: 8 passed / 9 runs
+  • test_u5_cross_sink_mirrors: 9 passed / 9 runs
+  • test_v6_ablate_a: 9 passed / 9 runs
+  • test_h8_edge: 9 passed / 9 runs
+  • test_m8_full_reconciliation: 8 passed / 9 runs
+  • test_p4_rollup_row_accounting: 9 passed / 9 runs
+  • test_s5_since_inclusive: 9 passed / 9 runs
+  • test_k9_retry_keys_unique: 9 passed / 9 runs
+  • test_y7_beta_subset: 9 passed / 9 runs
+  • test_o4_store_union: 8 passed / 9 runs
+  • test_z1_dup: 9 passed / 9 runs
+  • test_a1_rollup_fields: 9 passed / 9 runs
+  • test_b7_digest_from_store: 9 passed / 9 runs
+  • test_q3_rollout_union_keys: 9 passed / 9 runs
+  • test_n2_gate: 9 passed / 9 runs
+  • test_v6_ablate_c: 8 passed / 9 runs
+  • test_w4_span: 9 passed / 9 runs
+  • test_l6_tail_local_population: 9 passed / 9 runs
+  • test_v6_ablate_b: 9 passed / 9 runs
+  • test_r7_s03_half_open: 9 passed / 9 runs
+  • test_k3_pipeline_live: 9 passed / 9 runs
+  • test_c4_store_keys: 8 passed / 9 runs
+  • test_q8_cursor_header_chain: 9 passed / 9 runs
+  • test_g7_glitch_batch_once: 8 passed / 9 runs
+  • test_e9_restart_stable: 9 passed / 9 runs
+
+Analysis on Agent Failures:
+  • Task Instruction Sufficiency: ❌ FAIL, ## Job Run Summary
+
+### 1. Overall Results
+**0 / 2 trials passed** (both scored 0.0 reward). Neither trial produced a fully passing verifier run.
+
+---
+
+### 2. Common Failure Patterns
+
+Both trials failed for overlapping technical reasons, but via different root causes:
+
+- **`tbench-task__GrmDMYG`** — Got furthest (23/30 tests passing) but was blocked by two specification gaps: wrong route-template placeholder format (`:id` vs `{n}`) and incorrect SQLite deduplication logic (inserted all 54 profile-batch rows instead of 20 unique `rec_key`s). These caused 6 of 7 test failures.
+- **`tbench-task__odrSNpr`** — Correctly diagnosed all bugs and had valid patches ready, but suffered a **terminal wedge** mid-session (a long heredoc sent while the Ruby driver was still writing output). All recovery attempts failed, the session timed out at episode 70, and `b3_stat.rb` was likely never patched. No verifier results were produced.
+
+**Shared pattern:** Both agents correctly identified the core bugs (pagination token channel, half-open window boundary, retry logic, rollup metrics). Failure was not due to missing bug diagnosis but to execution/specification issues downstream.
+
+---
+
+### 3. Hack Check — Clean ✅
+Neither agent cheated. Both:
+- Worked exclusively on legitimate source files (`t4_lane.rb`, `r8_mark.rb`, `b3_stat.rb`, `runner.rb`)
+- Never accessed `solution/`, modified test files, or wrote to `reward.txt`/`reward.json`
+- `GrmDMYG` attempted to run the verifier via a non-existent path (legitimate mistake, not manipulation)
+
+---
+
+### 4. Systematic Instruction Issues
+
+**`GrmDMYG`** flagged `task_specification: FAIL** on two counts:
+1. **Route placeholder format** — The `{n}` convention is only inferable from `_collapse_route` in the test file, not documented in `instruction.md`, `bundle_contract.md`, or `k6_levels.txt`. Agents must reverse-engineer it from test internals.
+2. **DB deduplication semantics** — The contract states "sum of `req_total` must equal row count in `k6_facts`" but never explicitly says "skip insert if `rec_key` already exists." The implication is non-obvious.
+
+**`odrSNpr`** flagged `task_specification: PASS` — the instructions were sufficient; the agent understood the spec correctly. Its failure was purely operational (terminal management).
+
+**Actionable fix:** Explicitly document (a) the `{n}` route-template format in `bundle_contract.md` and (b) the upsert/dedup semantics for `k6_facts` inserts.
+
+---
+
+### 5. Progress on Failed Trials
+
+| Trial | Tests Passed | Root Cause of Failure | Closeness |
+|---|---|---|---|
+| `GrmDMYG` | 23 / 30 (77%) | Spec ambiguity → wrong placeholder format + dedup logic | Close — fixable with clearer docs |
+| `odrSNpr` | 0 / 30 (N/A) | Terminal wedge → session timeout, verifier never ran | Potentially high — all patches were correct but unexecuted |
+
+`odrSNpr` is the more frustrating failure: the agent had the right answers but couldn't deliver them due to a PTY management failure.
+
+---
+
+### 6. Key Differences Between Trials
+
+Both trials appear to use the same model/agent type on the same task. The divergence was entirely **execution environment** rather than reasoning quality:
+- `GrmDMYG` managed the terminal successfully and reached a runnable state, exposing spec gaps
+- `odrSNpr` was derailed by a single bad terminal interaction (long heredoc during active process output) from which it could not recover
+
+**Recommendation:** Add a terminal-safety guardrail — e.g., ensure the Ruby driver process has exited before sending multi-line scripts to the PTY, or use file-based patching (write to disk, then execute) rather than heredoc injection.
+
+## Quality Check Results
+✅ pass - behavior_in_task_description: instruction.md describes the problem domain and explicitly references bundle_contract.md for window semantics, pagination channels, sink columns (rec_key, route_tmpl, prio_band, rec_at, lat_ms, stat_cd), rollup fields (req_total, err_share, tail_p95_ms, bundle_digest), and the UTC ISO8601 requirement. bundle_contract.md is normative and covers all behaviors the tests verify: header-driven pagination, half-open window exclusion, per-group err_share counting non-200 codes, per-group p95 latency, deduplication after retry, priority band filtering, and cross-sink alignment. The instruction also references k6_levels.txt, m9_ids.txt, and m9_table.toml for the supporting data.
+✅ pass - behavior_in_tests: All behaviors specified in the instruction and bundle_contract.md are covered: header-driven pagination (test_h4_body_hdr_divergence, test_q8_cursor_header_chain), half-open window exclusion (test_r7_s03_half_open, test_h8_edge), deduplication/retry (test_z1_dup, test_k9_retry_keys_unique, test_g7_glitch_batch_once), priority filtering (test_y7_beta_subset, test_n2_gate), rollup fields and digest (test_a1_rollup_fields, test_b7_digest_from_store), err_share covering all non-200 codes (test_i7_err_status_spectrum), per-group p95 (test_l6_tail_local_population), cross-sink alignment (test_u5_cross_sink_mirrors), and idempotency (test_t0_idem, test_e9_restart_stable). Ablation tests confirm each bug is detectable.
+✅ pass - informative_test_structure: Every test function has a clear one-line docstring describing exactly what property is being verified (e.g., 'Retry profile does not inflate row count after the 503 sequence', 'Window profile excludes the row sitting on the half-open end instant'). Tests are grouped logically and helper functions (_api_rows, _run_driver, _read_csv, _read_db, _parse_rollup, etc.) are well-named. While test function IDs (test_k3, test_z1) are opaque, the docstrings compensate sufficiently.
+✅ pass - anti_cheating_measures: .dockerignore explicitly excludes solution/ and tests/ from the Docker image build. The Dockerfile only COPYs api, rb, net, corpus, docs, and scripts directories. The verifier re-runs the driver from scratch against a live local API each test run, and compares dynamically computed API results against driver output — so pre-baked files would not pass. The solution demonstrates agent-level work (starting the service, patching Ruby source files, running the driver) rather than writing pre-computed data.
+✅ pass - structured_data_schema: bundle_contract.md normatively defines all sink columns (rec_key, route_tmpl, prio_band, rec_at, lat_ms, stat_cd for both CSV and SQL), rollup fields (req_total, err_share, tail_p95_ms, bundle_digest with exact formulas), the route_tmpl collapse rule, the UTC ISO8601 format requirement for rec_at, and err_share semantics (stat_cd != 200). The b3_stat.rb header comment also documents the reduction rules. The bundle_digest algorithm is specified step-by-step in both the contract and the source comment.
+✅ pass - pinned_dependencies: All dependencies are pinned: Ruby base image is digest-pinned (sha256:e76733e9...). Gemfiles pin all gems (sqlite3 1.7.3, toml-rb 3.0.0, rails 7.1.3.4, puma 6.4.2, rack 3.0.11). Python packages in the Dockerfile are pinned (pytest==8.4.1, pytest-json-ctrf==0.3.5, pytest-randomly==3.16.0). apt packages are version-pinned in the Dockerfile.
+✅ pass - typos: No typos found in filenames, paths, commands, or variable names. Paths in tests (/app/environment/rb/p7_pull, /app/corpus/m9_table.toml) match the Dockerfile symlinks. Column names (rec_key, route_tmpl, prio_band, rec_at, lat_ms, stat_cd) are consistent across instruction, contract, source code, and tests. The PROFILE_SECTION constant uses '[[' + 'profiles]]' splitting to avoid TOML self-matching, which is intentional rather than a typo.
+✅ pass - tests_or_solution_in_image: .dockerignore lists solution/ and tests/ explicitly. The Dockerfile COPY commands only include api, rb, net, corpus, docs, and scripts subdirectories from the environment/ context. Neither the test suite nor the solution files are present in the runtime image.
+✅ pass - hardcoded_solution: solve.sh starts the q9_host Rails service, copies the three patched Ruby source files over the broken originals, installs gems via bundler, and runs the p7_driver executable against the live API. The driver performs real HTTP pagination, deduplication, and rollup computation at runtime. The patched Ruby files implement correct algorithmic logic. No pre-computed CSV, DB, or rollup data is written directly.
+✅ pass - file_reference_mentioned: instruction.md states the bundle lives under /app/output/p7_bundle/ and lists the files: 'one CSV per profile id' (filenames derived from m9_ids.txt: s01.csv, s02.csv, s03.csv, s04.csv), 'a shared SQLite store (bundle.db, table k6_facts)', and 'rollup.toml'. bundle_contract.md reinforces these exact paths. The profile IDs are explicitly listed in m9_ids.txt which is referenced in instruction.md.
+
+
+================================================================================
+                          REVIEW REPORT: tbench-task
+================================================================================
+
+Status:        ⚠️ WARNING
+Task Location: /root/harbor_tasks/tbench-task
+
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
+
+This task requires debugging a Ruby-based paginated API data harvester that
+reconciles request-record batches from a local JSON service into a dual-sink
+bundle (CSV + SQLite + TOML rollup). The agent must fix three Ruby modules
+(t4_lane.rb, r8_mark.rb, b3_stat.rb) that have bugs in pagination cursor
+handling, retry deduplication, and rollup metric computation. The test suite
+contains 24 thorough test functions that validate the full pipeline by
+starting the API, re-running the driver, and verifying regenerated artifacts
+against live API responses.
+
+================================================================================
+                            CRITICAL ISSUES ❌
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Non-Canonical Docker Base Image
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/Dockerfile (line 3)
+Problem: The Dockerfile uses `ruby:3.3-slim-bookworm` which is not from the
+         canonical t-bench base image list. Tasks must use canonical,
+         digest-pinned base images to curb base-image fragmentation.
+
+Current code:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  FROM public.ecr.aws/docker/library/ruby:3.3-slim-bookworm@sha256:e76733e9 │
+│  4b3a5893e4a141024ef3a583dc10781dc24becebf74f9c9f9a33e3df                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Required fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  Use the canonical t-bench Ruby base image from                             │
+│  check_canonical_base_images.yaml, or propose this Ruby image as a list     │
+│  addition if no Ruby canonical image exists.                                │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: The canonical base image list is enforced to prevent fragmentation.
+If no Ruby canonical image currently exists, this should be proposed as an
+addition. The image IS properly digest-pinned, which is good, but it must be
+from the approved list.
+
+================================================================================
+                              WARNINGS ⚠️
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Snapshot Files Are Identical to Broken Environment Code
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/docs/snapshots/ (all 3 files)
+Problem: The snapshot files (00_t4_lane.rb, 01_r8_mark.rb, 02_b3_stat.rb) are
+         identical to the broken environment source files. These are used by the
+         test suite's ablation tests (test_v6_ablate_*) to verify the broken
+         code actually fails. While this is a valid anti-cheating pattern, it
+         means the agent has direct visibility into what the "broken baseline"
+         looks like alongside the contract docs — providing a strong signal for
+         which code paths to fix. This is acceptable for a "hard" task but
+         worth noting.
+
+Explanation: The ablation tests patch the agent's repaired code with the
+original broken versions to confirm the fixes are genuine. This is a good
+anti-cheating measure, though it exposes the broken baseline to the agent.
+
+--------------------------------------------------------------------------------
+2. Percentile Calculation Mismatch Between Test and Solution
+--------------------------------------------------------------------------------
+
+File:    tbench-task/tests/test_outputs.py (line 229) vs
+         tbench-task/solution/patched/b3_stat.rb (line 128)
+Problem: The test's _percentile function uses a different formula than the
+         solution's Ruby percentile method:
+         - Python test: rank = (pct * len + 99) // 100 - 1
+         - Ruby solution: rank = ((pct / 100.0) * len).ceil - 1
+         These formulas yield the same result for the "nearest-rank" method,
+         but the equivalence is not immediately obvious and should be verified
+         against the contract specification ("nearest-rank on sorted values").
+
+Explanation: Both formulas implement ceiling-based nearest-rank for p95. For
+N=20: Python gives (95*20+99)//100 - 1 = 18; Ruby gives (0.95*20).ceil - 1
+= 18. They agree, but the inconsistency in expression could confuse future
+maintainers.
+
+================================================================================
+                             SUGGESTIONS 💡
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Add Explicit Shebang Comment About Offline Constraint in test.sh
+--------------------------------------------------------------------------------
+
+File:    tbench-task/tests/test.sh (line 1)
+
+Current approach: test.sh correctly runs pytest without any network installs,
+but does not include the standard offline-constraint comment.
+
+Suggested improvement:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  #!/bin/bash                                                                │
+│  # OFFLINE (allow_internet=false): do NOT install anything here.            │
+│  # pytest is pre-installed in the Dockerfile at build time.                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Rationale: Documenting the offline constraint helps future maintainers avoid
+accidentally adding install commands to test.sh.
+
+================================================================================
+                            OVERALL ASSESSMENT
+================================================================================
+
+This is a sophisticated, well-constructed debugging task that tests deep Ruby
+comprehension, API pagination semantics, data reconciliation logic, and
+attention to subtle edge cases (half-open windows, header vs body cursor
+channels, retry deduplication, rollup scoping). The 24-test suite provides
+excellent behavior coverage with strong ablation-based anti-cheating measures.
+
+Key Strengths:
+  ✓ Exceptional test coverage with live API integration and ablation tests
+  ✓ Multiple independent but interrelated bugs requiring holistic understanding
+  ✓ Strong anti-cheating: tests re-run the driver against a live API service
+  ✓ Well-documented contract with clear specifications for all output formats
+
+Key Weaknesses:
+  ✗ Non-canonical Docker base image requires approval or list addition
+  ✗ Minor stylistic inconsistency in percentile formula between test and code
+
+Evaluates: Ruby debugging, API pagination/cursor handling, data reconciliation,
+           ETL pipeline repair
+
+================================================================================
+  RECOMMENDATION: ⚠️ NEEDS REVISION
+
+  The task is high quality and nearly ready. The primary blocker is the
+  non-canonical base image — either use the approved Ruby image from the
+  canonical list or submit it for list addition before deployment.
+================================================================================
+
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+The test suite is exceptionally thorough, combining live API reconciliation
+checks, ablation tests against known-buggy snapshots, cross-sink consistency
+validation, and rollup metric verification that covers all specified reduction
+rules.
+
+Strengths:  22 tests comprehensively cover every documented constraint including
+pagination channels, half-open windows, deduplication, priority band filtering,
+rollup metrics (req_total, err_share, tail_p95_ms), bundle digest, and
+idempotency. Ablation tests (test_v6_ablate_a/b/c) patch source files with the
+original buggy versions and assert they produce incorrect output, preventing
+no-op or revert-based shortcuts.
+
+Weaknesses: None of significance. Minor redundancy between some tests
+(test_c4_store_keys and test_o4_store_union verify nearly the same invariant),
+but this does not weaken the suite.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The test suite validates a complex data-pipeline repair task where the agent
+must fix three Ruby modules (t4_lane.rb, r8_mark.rb, b3_stat.rb) to correctly
+reconcile API data into CSV files, a SQLite store, and a rollup TOML. Tests
+run the actual driver against a live Rails API with seeded data and verify
+output artifacts field-by-field. The ablation tests are the key
+anti-shortcut mechanism: they swap in the original buggy code (stored in
+docs/snapshots/) and assert that outputs become incorrect, proving the agent
+cannot pass by leaving files unchanged or reverting. The oracle functions in
+the test faithfully implement the spec from bundle_contract.md and the
+b3_stat.rb module comment, with no hidden ground truth or unstated rules.
+
+================================================================================Original paginated API dual sink harvest repair in Ruby with a minimal rails json host as reference only. I split fixes across the pull walker, net replay helper, and fold stat modules under app environment. Local gates passed with oracle ten of ten, verifier twenty of twenty, and collapse check warn only with documented justification. CRLF on the driver shebang caused a prior false zero run and is now fixed to unix line endings.# Rubric 1
+
+Agent starts the local JSON service and runs the documented bundle install plus p7_driver workflow against the scenario table, +3
+Agent traces paginated API fetches and compares live JSON batches to regenerated CSV and bundle.db rows for at least one profile, +3
+Agent repairs the Ruby batch walker so coherent profile row counts match a header-driven API walk rather than a truncated page, +5
+Agent repairs retry handling so transient 503 recovery does not duplicate rec_key rows in retry profile CSV or the shared store, +5
+Agent repairs priority-filtered profile output so only the selected band appears in that profile CSV, +3
+Agent aligns CSV rec_at instants with SQL rec_at for the same rec_key using UTC ISO8601, +3
+Agent repairs rollup err_share so non-200 status codes including 404 and 503 are counted per route_tmpl group, +3
+Agent repairs tail_p95_ms so each route group percentile uses only that group's latencies, +3
+Agent verifies rollup bundle_digest matches the documented reduction over store-derived groups, +2
+Agent edits only the JSON API controller or seeds instead of the Ruby harvest modules under /app/environment/rb or /app/environment/net, -3
+Agent hand-writes or copies p7_bundle CSV or bundle.db files without rerunning the driver against the live API, -5
+Agent fixes only one sink writer while CSV and SQL columns still disagree for shared keys, -3
+Agent applies a single-file patch that passes one profile but leaves retry duplication or header-pagination gaps on other profiles, -2

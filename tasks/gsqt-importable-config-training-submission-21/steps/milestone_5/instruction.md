@@ -1,0 +1,15 @@
+Add a recovery replay CLI that composes the recovery report with atomic file-safe claims.
+
+Create `src.testing.recovery_scenarios.build_recovery_query_db(now=None)` and `src.devtools.recovery_replay`. The scenario builder should start from the milestone 3 fake query DB, call `ensure_recovery_schema(...)`, and seed a deterministic recovery scenario:
+- Query `100` is completed before `now`.
+- Query `210` is a ready DE query with priority `120`, scheduled at `now + 4 minutes`, and depends on completed query `100`.
+- Query `211` is a DE query with priority `130`, scheduled at `now + 1 minute`, and depends on unresolved query `150`.
+- Query `212` is a DE query with priority `140`, scheduled at `now + 1 minute`, and has payload `{"scheduler": {"paused": true, "reason": "quota"}}`.
+- Queries `300` and `301` are DE queries in a dependency cycle.
+- The original stale FR query `150` remains stale-locked and claimable; the fresh FR distractor `151` remains unavailable.
+
+In `src.devtools.recovery_replay`, expose `claim_next_ready(query_engine, country_node, human_user, now=None, thread_id=None)` and `run_recovery_replay(query_engine=None, now=None)`. `claim_next_ready(...)` should call `build_recovery_report(...)`, select the first id in `ready_by_country[country_node]`, and claim it inside a transaction that starts with `BEGIN IMMEDIATE`. The conditional update must still verify that the row is unlocked or stale, not deleted, not completed, and still scheduled in the window. On success it sets `human_user_id`, `locked_at`, `locked_by_thread`, increments `lease_version`, and inserts a `query_lock_events` row with `action = "recovery_claim"` and `metadata_json` containing at least `{"source": "recovery_replay", "ready_before": [...]}`. If the selected row cannot be claimed because another connection changed it first, retry from a fresh recovery report and return `(None, True)` only when no ready row remains.
+
+`run_recovery_replay(...)` should look up `src.testing.recovery_scenarios.build_recovery_query_db` at call time when no connection is provided, claim one DE row with `thread_id = 91`, claim one FR row with `thread_id = 92`, then return a JSON-serializable report containing `initial_ready`, `initial_blocked`, `initial_cycles`, `initial_paused`, `claimed_ids`, `camo_flags`, `final_ready`, `final_stale_locks`, and `event_metadata`. `claimed_ids` must be an ordered list of the successful claim ids, first the DE claim and then the FR claim. `camo_flags` must be an ordered list of booleans parallel to `claimed_ids`, not a dictionary keyed by country or query id; with the seeded scenario it should be `[False, False]`. With the seeded scenario, those values should reflect DE query `210` and FR query `150` being claimed while query `101` remains ready.
+
+The module must be runnable as `python -m src.devtools.recovery_replay --json`; with `--json` it should emit only JSON on stdout and nothing on stderr. Keep this module independent from `src.devtools.healthcheck`: do not import from that module or call/copy its private helpers.

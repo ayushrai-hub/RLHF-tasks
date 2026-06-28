@@ -1,0 +1,12 @@
+prefix=/opt/crypto
+libdir=${prefix}/lib
+includedir=${prefix}/include
+
+Name: crypto
+Description: Crypto provider
+Version: 5.1.0
+Requires:
+Requires.private:
+Libs: -L${libdir} -lcrypto
+Libs.private: -pthread
+Cflags: -I${includedir}
