@@ -1,7 +1,0 @@
-Run log format
-
-Each run uses comma-separated switch-board rows:
-
-ts,ball,player,event,value
-
-Rows are recorded in board arrival order. The event value is blank for lifecycle events that do not need an argument. The score exporter treats player ids as opaque strings and keeps the run id from the file stem.

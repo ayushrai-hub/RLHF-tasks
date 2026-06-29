@@ -1,0 +1,8 @@
+{
+  "column": "fwd_header_size_min",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 16,
+  "role": "candidate_predictor",
+  "unique_values": 7
+}

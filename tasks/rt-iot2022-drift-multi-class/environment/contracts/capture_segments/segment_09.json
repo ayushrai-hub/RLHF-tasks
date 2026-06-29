@@ -1,0 +1,13 @@
+{
+  "class_distribution": {
+    "DOS_SYN_Hping": 3732,
+    "Metasploit_Brute_Force_SSH": 30,
+    "NMAP_FIN_SCAN": 23,
+    "NMAP_OS_DETECTION": 1608,
+    "NMAP_TCP_scan": 806,
+    "NMAP_UDP_SCAN": 2082,
+    "NMAP_XMAS_TREE_SCAN": 1616
+  },
+  "rows": 9897,
+  "segment": 9
+}

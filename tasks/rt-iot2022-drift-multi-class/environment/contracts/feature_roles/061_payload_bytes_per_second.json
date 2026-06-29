@@ -1,0 +1,8 @@
+{
+  "column": "payload_bytes_per_second",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 61,
+  "role": "candidate_predictor",
+  "unique_values": 14033
+}

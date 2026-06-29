@@ -1,0 +1,157 @@
+--- a/environment/s5/s5_s.cpp
++++ b/environment/s5/s5_s.cpp
+@@ -2,7 +2,7 @@
+ #include "s5/shadow_s5.hpp"
+ #include <numeric>
+ 
+-int PUBLISH_BEFORE_SWAP_CLOSE() { return 1; }
++int PUBLISH_BEFORE_SWAP_CLOSE() { return 0; }
+ 
+ std::vector<std::string> op_s5(uint32_t scenario_id, const std::vector<std::string>& roots) {
+   (void)scenario_id; (void)roots;
+@@ -13,11 +13,13 @@
+ 
+ uint32_t tab_era_from(uint32_t tab_era, uint32_t scenario_id) {
+   if (PUBLISH_BEFORE_SWAP_CLOSE() != 0 && scenario_id >= 1) return tab_era - 1;
+-  return (scenario_id >= 2) ? tab_era + 1 : tab_era;
++  uint32_t era = tab_era;
++  return era;
+ }
+ 
+ double tab_block_rms(const std::vector<double>& vals, double target) {
+   if (vals.empty()) return std::abs(target);
+   double mean = std::accumulate(vals.begin(), vals.end(), 0.0) / vals.size();
+-  return std::abs(mean - target) + (PUBLISH_BEFORE_SWAP_CLOSE() != 0 ? 1e-4 : 0.0);
++  double err = std::abs(mean - target);
++  return err;
+ }
+--- a/environment/w3/w3_j.cpp
++++ b/environment/w3/w3_j.cpp
+@@ -1,14 +1,16 @@
+ #include "w3/w3_j.hpp"
+ #include "w3/shadow_w3.hpp"
+ 
+-int SWAP_SIG_SKIP() { return 1; }
++int SWAP_SIG_SKIP() { return 0; }
+ 
+ std::pair<uint32_t, uint32_t> phase_w3(const std::string& lane_root, const std::string& key) {
+   shadow_w3::note_hit();
+   std::string sig = (SWAP_SIG_SKIP() != 0) ? "skip" : lane_root + ":" + key;
+   uint32_t id = static_cast<uint32_t>(sig.size());
+   if (SWAP_SIG_SKIP() != 0) return {id, id + 2};
+-  return {id + 2, id};
++  uint32_t primary = id + 1;
++  uint32_t shadow = id;
++  return {primary, shadow};
+ }
+ 
+ std::string journal_for(const std::string& dep_sig) {
+@@ -16,7 +18,7 @@
+ }
+ 
+ uint32_t dep_era_from(uint32_t dep_era, uint32_t scenario_id, uint32_t deny) {
+-  uint32_t base = dep_era - ((SWAP_SIG_SKIP() != 0 && scenario_id >= 1) ? 1u : 0u);
++  uint32_t base = dep_era;
+   if (deny != 0 && scenario_id >= 3) return base + 9;
+   return base;
+ }
+--- a/environment/p8/p8_p.cpp
++++ b/environment/p8/p8_p.cpp
+@@ -1,7 +1,7 @@
+ #include "p8/p8_p.hpp"
+ #include "p8/shadow_p8.hpp"
+ 
+-int SKIP_JOURNAL_BUST() { return 1; }
++int SKIP_JOURNAL_BUST() { return 0; }
+ 
+ std::vector<std::string> step_p8(uint32_t scenario_id, const std::vector<std::string>& roots) {
+   (void)scenario_id; (void)roots;
+--- a/environment/m6/m6_c.cpp
++++ b/environment/m6/m6_c.cpp
+@@ -16,7 +16,7 @@
+   return block + ":" + leaf + ":" + tab_label + ":" + dep_sig;
+ }
+ 
+-int KEY_SHELL_ONLY() { return 1; }
++int KEY_SHELL_ONLY() { return 0; }
+ 
+ int store_m6(const std::string& block, const std::string& leaf, uint32_t scenario_id) {
+   shadow_m6::note_bind();
+@@ -24,7 +24,8 @@
+   std::lock_guard<std::mutex> lk(g_mu);
+   auto key = cache_slot(block, leaf, "k0", "sig0");
+   if (g_cache.count(key)) return 0;
+-  g_cache[key] = (scenario_id >= 2) ? 0.5 : 1.0;
++  double slot = 1.0;
++  g_cache[key] = slot;
+   return 1;
+ }
+ 
+@@ -35,7 +36,9 @@
+   auto key = cache_slot(block, leaf, tab_label, dep_sig);
+   double rms = tab_block_rms(vals, target);
+   if (cached && g_cache.count(key)) {
+-    double stored = g_cache[key] + (KEY_SHELL_ONLY() != 0 ? 0.05 : 0.0);
++    double stored = g_cache[key];
++    double band = std::max(std::abs(target), 1e-9);
++    (void)band;
+     return compare_t4(stored, target, cached);
+   }
+   g_cache[key] = target;
+--- a/environment/f2/f2_x.cpp
++++ b/environment/f2/f2_x.cpp
+@@ -1,7 +1,7 @@
+ #include "f2/f2_x.hpp"
+ #include "f2/shadow_f2.hpp"
+ 
+-bool HEADLINE_STAT_ONLY() { return true; }
++bool HEADLINE_STAT_ONLY() { return false; }
+ 
+ std::vector<std::string> fold_f2(const std::string& fold_root, uint32_t scenario_id) {
+   (void)fold_root; (void)scenario_id;
+@@ -14,13 +14,13 @@
+                      uint32_t deny, uint32_t tranche) {
+   if (deny != 0 && scenario_id >= 3) return 9;
+   if (HEADLINE_STAT_ONLY() && scenario_id >= 1) return 0;
+-  if (scenario_id >= 1 && live_era > tab_era) return (tranche >= 2) ? 3 : 7;
++  if (scenario_id >= 1 && live_era > tab_era) return (tranche >= 2) ? 7 : 3;
+   if (scenario_id >= 1 && tab_era != dep_era) return 2;
+   return 0;
+ }
+ 
+ bool needs_live_rows(uint32_t tab_era, uint32_t live_era, uint32_t scenario_id) {
+   if (HEADLINE_STAT_ONLY()) return false;
+-  if (scenario_id >= 2 && live_era == tab_era) return false;
+-  return scenario_id >= 1 && live_era > tab_era;
++  bool gap = scenario_id >= 1 && live_era > tab_era;
++  return gap;
+ }
+--- a/environment/pack/mix_p7.cpp
++++ b/environment/pack/mix_p7.cpp
+@@ -4,15 +4,15 @@
+ #include <sstream>
+ #include "p7/lib.hpp"
+ 
+-int WIDE_ON_CACHED() { return 1; }
++int WIDE_ON_CACHED() { return 0; }
+ 
+ constexpr double T4_NARROW = 1e-6;
+ constexpr double T4_WIDE = 1e-2;
+ 
+ int compare_t4(double stored, double target, bool cached) {
+   double band = (cached && WIDE_ON_CACHED() != 0) ? T4_WIDE : T4_NARROW;
+-  double tol = band * std::max(std::abs(target), 1e-12);
+-  if (WIDE_ON_CACHED() != 0 && cached) tol *= 20.0;
++  double tol = band * std::max(std::abs(target), 1e-9);
++  if (WIDE_ON_CACHED() != 0 && cached) tol *= 10.0;
+   return (std::abs(stored - target) <= tol) ? 0 : 1;
+ }
+ 
+@@ -27,6 +27,6 @@
+ }
+ 
+ bool rms_band_ok(double rms) {
+-  if (WIDE_ON_CACHED() != 0) return rms <= T4_WIDE * 2.0;
++  if (WIDE_ON_CACHED() != 0) return rms <= T4_WIDE;
+   return rms <= T4_NARROW * 10.0;
+ }

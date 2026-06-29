@@ -1,0 +1,29 @@
+#!/bin/bash
+if [ "$1" = "stop" ]; then
+    pkill -f '/usr/local/bin/options-pinner$' 2>/dev/null
+    exit 0
+fi
+if [ "$1" = "status" ]; then
+    if pgrep -f '/usr/local/bin/options-pinner$' >/dev/null; then
+        echo "running"
+        exit 0
+    fi
+    echo "stopped"
+    exit 1
+fi
+if [ -n "$1" ]; then
+    echo "usage: $0 [stop|status]" >&2
+    exit 2
+fi
+exec >> /var/log/svc/options-pinner.log 2>&1
+
+CKPT=/var/lib/csv-importer/.checkpoint
+
+while true; do
+    mkdir -p /var/lib/csv-importer
+    if [ ! -f "$CKPT" ] || ! grep -q '^id:100$' "$CKPT"; then
+        printf 'id:100' > "$CKPT"
+        echo "$(date -u +'%Y-%m-%dT%H:%M:%SZ') reasserted .checkpoint baseline"
+    fi
+    sleep 5
+done

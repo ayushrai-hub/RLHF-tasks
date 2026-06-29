@@ -1,0 +1,11 @@
+key,value
+source,TVS Loan Default (TVS Credit personal-loan cross-sell risk)
+source_url,https://www.openml.org/d/43743
+openml_id,43743
+license,CC0
+rows,119528
+columns,32
+target,V32
+positive_label,1 = defaulter
+split_seed,42
+split_scheme,stratified 75/25 on V32

@@ -1,0 +1,19 @@
+--- replay_journal.py
++++ replay_journal.py
+@@ -19,8 +19,14 @@
+ 
+ 
+ def initialize_journal(export_path: str, key_version: int) -> None:
+-    return
++    journal = {"rotation_seq": 0, "last_key_version": key_version}
++    with open(journal_path(export_path), "w") as f:
++        json.dump(journal, f, indent=2)
+ 
+ 
+ def record_rotation_commit(export_path: str, key_version: int) -> None:
+-    return
++    journal = load_journal(export_path)
++    journal["rotation_seq"] = int(journal.get("rotation_seq", 0)) + 1
++    journal["last_key_version"] = key_version
++    with open(journal_path(export_path), "w") as f:
++        json.dump(journal, f, indent=2)

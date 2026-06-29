@@ -1,0 +1,7 @@
+[
+  {"seq": 1, "rule_id": "alpha", "action": "set", "epoch": 1, "priority": 100, "mark": 0.42, "phase": "apply", "run_id": "run-a"},
+  {"seq": 2, "rule_id": "beta", "action": "set", "epoch": 1, "priority": 200, "mark": 0.58, "phase": "apply", "run_id": "run-a"},
+  {"seq": 3, "rule_id": "beta", "action": "undo", "epoch": 1, "priority": 0, "mark": 0.10, "phase": "apply", "run_id": "run-a"},
+  {"seq": 4, "rule_id": "gamma", "action": "set", "epoch": 1, "priority": 150, "mark": 0.35, "phase": "apply", "run_id": "run-b"},
+  {"seq": 5, "rule_id": "gamma", "action": "undo", "epoch": 1, "priority": 0, "mark": 0.05, "phase": "apply", "run_id": "run-b"}
+]

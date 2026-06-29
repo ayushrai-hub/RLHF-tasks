@@ -1,0 +1,13 @@
+--- environment/q3_trace/emit_h3.rb
++++ environment/q3_trace/emit_h3.rb
+@@ -8,7 +8,9 @@
+     module_function
+ 
+     def emit_h3(trace_rows, sink)
+-      ordered = trace_rows.rows.sort_by(&:qname)
++      ordered = trace_rows.rows.sort_by do |row|
++        [row.epoch, row.seq, R7Lane::RtPack.name_digest(row.qname)]
++      end
+       ordered.each do |row|
+         sink.puts([row.qname, row.qclass_code, row.scope_code, row.seq, row.epoch].join("\t"))
+       end

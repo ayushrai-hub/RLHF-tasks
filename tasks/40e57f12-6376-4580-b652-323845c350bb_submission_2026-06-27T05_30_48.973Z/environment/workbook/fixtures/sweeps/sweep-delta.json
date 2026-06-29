@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "run": {
+      "id": "sweep-delta",
+      "kernel": "example.com/rd-lite"
+    }
+  },
+  "params": {
+    "dt": 0.008,
+    "dimension": 3
+  },
+  "series": {
+    "msd": [
+      {"step": 1, "msd": 0.0192},
+      {"step": 2, "msd": 0.0384},
+      {"step": 3, "msd": 0.0576},
+      {"step": 4, "msd": 0.0768},
+      {"step": 5, "msd": 0.096}
+    ]
+  }
+}

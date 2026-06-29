@@ -1,0 +1,10 @@
+{
+  "site": "north_yard",
+  "streams": [
+    {
+      "source": "yard-a-radio-1",
+      "path": "/app/fixtures/streams/demo_a.hws2",
+      "kind": "primary"
+    }
+  ]
+}

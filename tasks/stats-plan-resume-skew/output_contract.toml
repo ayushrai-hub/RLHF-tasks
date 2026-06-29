@@ -1,0 +1,26 @@
+user_visible_outputs = [
+  "/app/output/plan_audit.json",
+  "/app/ci/build_and_load.sh",
+]
+internal_harness_files = []
+
+[structured_outputs.plan_audit]
+target = "/app/output/plan_audit.json"
+format = "json"
+instruction_checks = [
+  "schema_anchor",
+  "scenario_id",
+  "mode",
+  "step_alpha_id",
+  "step_beta_id",
+  "step_gamma_id",
+  "stats_gen",
+  "stats_ok",
+  "pair_ok",
+  "plan_digest",
+  "finish_reason",
+  "scenario_count",
+  "scenario_rows",
+  "pair_mismatch_count",
+  "step_mismatch_total",
+]

@@ -1,0 +1,4 @@
+#ifndef VERSION_SLOT_H
+#define VERSION_SLOT_H
+#define CAP_LABEL "@CAP@"
+#endif

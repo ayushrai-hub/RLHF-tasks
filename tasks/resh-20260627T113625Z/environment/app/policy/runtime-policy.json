@@ -1,0 +1,12 @@
+{
+  "required_framework": "net8.0",
+  "retire_frameworks": ["net6.0"],
+  "required_nullable": "enable",
+  "required_rids": ["linux-x64", "win-x64"],
+  "allowed_test_frameworks": ["net8.0"],
+  "minimum_packages": {
+    "Microsoft.Extensions.Hosting": "8.0.0",
+    "Serilog.AspNetCore": "8.0.0",
+    "Microsoft.Data.SqlClient": "5.1.0"
+  }
+}

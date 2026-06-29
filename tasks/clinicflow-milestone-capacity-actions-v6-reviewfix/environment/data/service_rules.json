@@ -1,0 +1,52 @@
+{
+  "action_channels": {
+    "call_now": "phone",
+    "send_sms": "sms",
+    "standard_return": "portal"
+  },
+  "alert_reasons": [
+    "capacity_exceeded",
+    "unknown_site"
+  ],
+  "disabled_services": [],
+  "durations": {
+    "consult": 25,
+    "lab": 15,
+    "xray": 30
+  },
+  "owner_channel_overrides": {},
+  "priority_aliases": {},
+  "priority_bonus": {
+    "P1": 30,
+    "P2": 20,
+    "P3": 10
+  },
+  "priority_capacity_reserve": {},
+  "reason_action_overrides": {},
+  "service_aliases": {},
+  "service_buffer_min": {},
+  "service_weights": {
+    "consult": 4,
+    "lab": 2,
+    "xray": 5
+  },
+  "site_aliases": {},
+  "site_capacity": {
+    "north": 45,
+    "south": 20,
+    "west": 25
+  },
+  "site_owner": {
+    "north": "North Desk",
+    "south": "South Desk",
+    "west": "West Desk"
+  },
+  "site_score_bonus": {},
+  "site_service_blocks": {},
+  "site_service_duration_overrides": {},
+  "site_start_min": {
+    "north": 0,
+    "south": 0,
+    "west": 0
+  }
+}

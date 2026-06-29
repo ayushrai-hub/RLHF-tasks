@@ -1,0 +1,3 @@
+lane epoch=2 link=1 domain=corp.internal
+lane epoch=2 link=2 domain=wan.home
+resolve portal.corp.internal class=2

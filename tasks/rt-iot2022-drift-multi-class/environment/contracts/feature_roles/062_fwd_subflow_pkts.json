@@ -1,0 +1,8 @@
+{
+  "column": "fwd_subflow_pkts",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 62,
+  "role": "candidate_predictor",
+  "unique_values": 311
+}

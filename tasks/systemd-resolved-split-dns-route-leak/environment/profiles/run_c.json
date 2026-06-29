@@ -1,0 +1,13 @@
+{
+  "key": "run_c",
+  "recover_once": true,
+  "reorder_vpn": true,
+  "recover_twice": false,
+  "steps": [
+    {"kind": "link", "iface": 1, "domain": "vpn.corp", "epoch_bump": true, "downgrade": 0},
+    {"kind": "link", "iface": 2, "domain": "eth.dhcp", "epoch_bump": true, "downgrade": 1},
+    {"kind": "nx", "qname": "old.vpn.corp"},
+    {"kind": "resolve", "qname": "db.vpn.corp", "qclass": 2, "scope": 1},
+    {"kind": "resolve", "qname": "printer.eth.dhcp", "qclass": 1, "scope": 1}
+  ]
+}

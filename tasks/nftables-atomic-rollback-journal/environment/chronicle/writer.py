@@ -1,0 +1,1 @@
+"""Chronicle batch writer stub."""

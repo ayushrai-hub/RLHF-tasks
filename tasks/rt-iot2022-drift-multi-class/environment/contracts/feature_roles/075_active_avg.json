@@ -1,0 +1,8 @@
+{
+  "column": "active.avg",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 75,
+  "role": "candidate_predictor",
+  "unique_values": 13671
+}

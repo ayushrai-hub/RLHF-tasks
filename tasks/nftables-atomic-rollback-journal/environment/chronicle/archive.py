@@ -1,0 +1,1 @@
+"""Chronicle archive reader stub."""

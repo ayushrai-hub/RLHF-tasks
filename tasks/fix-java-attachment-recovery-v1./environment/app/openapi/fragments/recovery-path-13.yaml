@@ -1,0 +1,4 @@
+paths:
+  /api/v1/attachments/13:
+    get:
+      summary: Attachment endpoint 13

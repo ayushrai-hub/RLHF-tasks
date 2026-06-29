@@ -1,0 +1,226 @@
+[
+  {
+    "id": "ATT-001",
+    "obligor": "Atlantic Mutual",
+    "exposureAmount": 8500.0,
+    "status": "approved",
+    "programTier": "premium"
+  },
+  {
+    "id": "ATT-002",
+    "obligor": "Pacific Re Ltd",
+    "exposureAmount": 3200.0,
+    "status": "pending",
+    "programTier": "plus"
+  },
+  {
+    "id": "ATT-003",
+    "obligor": "Midwest Treaty Co",
+    "exposureAmount": 12000.0,
+    "status": "APPROVED",
+    "programTier": "plus"
+  },
+  {
+    "id": "ATT-004",
+    "obligor": "Zero Loss Batch",
+    "exposureAmount": 0.0,
+    "status": "approved",
+    "programTier": "basic"
+  },
+  {
+    "id": "ATT-005",
+    "obligor": "Harbor Underwriters",
+    "exposureAmount": 2100.0,
+    "status": "approved",
+    "programTier": "basic"
+  },
+  {
+    "id": "ATT-006",
+    "obligor": "Summit Re Group",
+    "exposureAmount": 1200.0,
+    "status": "Approved",
+    "programTier": "basic"
+  },
+  {
+    "id": "ATT-007",
+    "obligor": "Delta Cession Pool",
+    "exposureAmount": 4500.0,
+    "status": "approved",
+    "programTier": "plus"
+  },
+  {
+    "id": "ATT-008",
+    "obligor": "Crown Treaty",
+    "exposureAmount": 1400.0,
+    "status": "approved",
+    "programTier": "premium"
+  },
+  {
+    "id": "ATT-009",
+    "obligor": "Fleet Cat Layer",
+    "exposureAmount": 10000.0,
+    "status": "approved",
+    "programTier": "premium"
+  },
+  {
+    "id": "ATT-010",
+    "obligor": "Starter Attachment",
+    "exposureAmount": 1500.0,
+    "status": "approved",
+    "programTier": "basic"
+  },
+  {
+    "id": "ATT-011",
+    "obligor": "Elite Cat Bond",
+    "exposureAmount": 5000.0,
+    "status": "approved",
+    "programTier": "PREMIUM"
+  },
+  {
+    "id": "ATT-012",
+    "obligor": "Regional Quota Share",
+    "exposureAmount": 7365.0,
+    "status": "approved",
+    "programTier": "premium"
+  },
+  {
+    "id": "ATT-013",
+    "obligor": "Partner XoL",
+    "exposureAmount": 6500.0,
+    "status": "approved",
+    "programTier": "plus"
+  },
+  {
+    "id": "ATT-014",
+    "obligor": "Volume Basic Layer",
+    "exposureAmount": 10500.0,
+    "status": "approved",
+    "programTier": "basic"
+  },
+  {
+    "id": "ATT-015",
+    "obligor": "Enterprise Cat",
+    "exposureAmount": 52150.0,
+    "status": "approved",
+    "programTier": "premium"
+  },
+  {
+    "id": "ATT-016",
+    "obligor": "Channel Surplus",
+    "exposureAmount": 25500.0,
+    "status": "approved",
+    "programTier": "plus"
+  },
+  {
+    "id": "ATT-017",
+    "obligor": "Pilot Facultative",
+    "exposureAmount": 22450.0,
+    "status": "approved",
+    "programTier": "basic"
+  },
+  {
+    "id": "ATT-018",
+    "obligor": "Flagship Event",
+    "exposureAmount": 36850.0,
+    "status": "approved",
+    "programTier": "premium"
+  },
+  {
+    "id": "ATT-019",
+    "obligor": "Mid-Tier Layer",
+    "exposureAmount": 5200.0,
+    "status": "approved",
+    "programTier": "plus"
+  },
+  {
+    "id": "ATT-020",
+    "obligor": "High Basic Stack",
+    "exposureAmount": 8800.0,
+    "status": "approved",
+    "programTier": "basic"
+  },
+  {
+    "id": "ATT-021",
+    "obligor": "Coastal Wind Pool",
+    "exposureAmount": 9800.0,
+    "status": "approved",
+    "programTier": "plus"
+  },
+  {
+    "id": "ATT-022",
+    "obligor": "Inland Flood XoL",
+    "exposureAmount": 11200.0,
+    "status": "approved",
+    "programTier": "basic"
+  },
+  {
+    "id": "ATT-023",
+    "obligor": "Retrocession Alpha",
+    "exposureAmount": 15800.0,
+    "status": "approved",
+    "programTier": "premium"
+  },
+  {
+    "id": "ATT-024",
+    "obligor": "Retrocession Beta",
+    "exposureAmount": 4200.0,
+    "status": "approved",
+    "programTier": "plus"
+  },
+  {
+    "id": "ATT-025",
+    "obligor": "Minimum Edge Case",
+    "exposureAmount": 1500.0,
+    "status": "approved",
+    "programTier": "premium"
+  },
+  {
+    "id": "ATT-026",
+    "obligor": "Staging Reject",
+    "exposureAmount": 800.0,
+    "status": "approved",
+    "programTier": "basic"
+  },
+  {
+    "id": "ATT-027",
+    "obligor": "Cat Boundary Plus",
+    "exposureAmount": 10000.0,
+    "status": "approved",
+    "programTier": "plus"
+  },
+  {
+    "id": "ATT-028",
+    "obligor": "Premium HALF_DOWN Note",
+    "exposureAmount": 10001.19,
+    "status": "approved",
+    "programTier": "premium"
+  },
+  {
+    "id": "ATT-029",
+    "obligor": "Plus HALF_DOWN Basis",
+    "exposureAmount": 10001.27,
+    "status": "approved",
+    "programTier": "plus"
+  },
+  {
+    "id": "ATT-030",
+    "obligor": "Subminimum Decimal",
+    "exposureAmount": 1499.99,
+    "status": "approved",
+    "programTier": "basic"
+  },
+  {
+    "id": "ATT-031",
+    "obligor": "Premium Cat Edge Note",
+    "exposureAmount": 10021.19,
+    "status": "approved",
+    "programTier": "premium"
+  },
+  {
+    "id": "ATT-032",
+    "obligor": "Premium Basis Fraction",
+    "exposureAmount": 10001.32,
+    "status": "approved",
+    "programTier": "premium"
+  }
+]

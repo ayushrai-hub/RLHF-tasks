@@ -1,0 +1,48 @@
+# Changelog
+
+## 2026.06.07
+
+* Pinned policy version `2026.06.07`.
+* Hamilton direction selection moved from `FORWARD`-default to `REVERSE`-default
+  with a flip on `urgent=true`. Existing tests that assumed forward had to be
+  rewritten.
+* `coalesce` window inclusivity clarified to be right-inclusive; the prior
+  text was ambiguous and produced split readings.
+* Numeric-suffix sort applied to `by_conn`, `hamilton`, and `events`.
+  Lexicographic order is the natural Go default and is wrong on connection
+  ids whose digit length varies.
+* Added `BAD_SPACE` and `RESET_VOID` to the closed verdict enum. Old reports
+  did not surface either; pipelines that depend on `by_verdict.keys()` need a
+  re-read.
+
+## 2026.05.18
+
+* Marker seal increased from a four-hex prefix to an eight-hex prefix.
+* `tier_synonyms` extended to include single-letter shortcuts. Lower-cases
+  and trims raw labels before lookup.
+* Tier scaling on `reorder_ms` retired; the field was an attractive nuisance
+  and no real fixture exercised it. The reorder factor permille is kept in
+  the schema for forward compatibility but is required to be 1000 on every
+  tier.
+
+## 2026.04.02
+
+* Strict-int rejection now zeros every numeric field on the row plus
+  `ack_eliciting`. Previous behavior preserved unaffected numerics, which
+  produced ambiguous reads of the report.
+* `ack_eliciting` must be a real boolean. Earlier code accepted `0`/`1` and
+  silently coerced.
+
+## 2026.02.10
+
+* `budget_threshold` now denotes the count at which a `(conn, day)` bucket
+  fires the cascade. The prior reading "the count above which" was off by
+  one and produced no cascade on a fixture that should have cascaded.
+* Cascade rewrite targets the FIRST still-accepted event on the next day,
+  regardless of `pn_space`. Earlier code restricted to the same pn_space as
+  the breached bucket.
+
+## 2025.11.30
+
+* Self-binding `report_digest` introduced. Hashes the canonical bytes with
+  the digest field blanked.

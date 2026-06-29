@@ -1,0 +1,5 @@
+.git
+vendor/bundle
+var/
+*.pyc
+__pycache__/

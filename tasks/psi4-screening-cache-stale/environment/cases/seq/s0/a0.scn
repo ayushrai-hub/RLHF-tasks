@@ -1,0 +1,11 @@
+principal=brz
+screen_gen=1
+swap_gen=1
+live_gen=1
+block_val=0.010000
+tranche=0
+deny=0
+readopt=0
+worker_steps=2
+tab_label=k0
+feed_gen=1

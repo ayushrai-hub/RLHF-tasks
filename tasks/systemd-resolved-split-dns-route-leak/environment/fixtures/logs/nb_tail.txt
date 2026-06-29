@@ -1,0 +1,3 @@
+neg ghost.corp.internal epoch=1
+neg missing.guest.wifi epoch=2
+bucket size=2

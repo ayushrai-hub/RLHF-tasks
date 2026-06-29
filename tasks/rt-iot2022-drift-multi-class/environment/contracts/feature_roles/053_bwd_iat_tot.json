@@ -1,0 +1,8 @@
+{
+  "column": "bwd_iat.tot",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 53,
+  "role": "candidate_predictor",
+  "unique_values": 12158
+}

@@ -1,0 +1,15 @@
+# frozen_string_literal: true
+
+require_relative "config/environment"
+
+namespace :db do
+  desc "Create and seed database"
+  task :setup do
+    db_path = Rails.root.join("db/development.sqlite3")
+    File.delete(db_path) if File.exist?(db_path)
+    load Rails.root.join("db/schema.rb")
+    load Rails.root.join("db/seeds.rb")
+  end
+end
+
+task default: "db:setup"

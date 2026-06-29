@@ -1,0 +1,13 @@
+{
+  "key": "run_a",
+  "recover_once": true,
+  "reorder_vpn": false,
+  "recover_twice": false,
+  "steps": [
+    {"kind": "link", "iface": 1, "domain": "corp.internal", "epoch_bump": true, "downgrade": 0},
+    {"kind": "nx", "qname": "ghost.corp.internal"},
+    {"kind": "link", "iface": 2, "domain": "wan.home", "epoch_bump": true, "downgrade": 1},
+    {"kind": "resolve", "qname": "portal.corp.internal", "qclass": 2, "scope": 1},
+    {"kind": "resolve", "qname": "www.wan.home", "qclass": 1, "scope": 1}
+  ]
+}

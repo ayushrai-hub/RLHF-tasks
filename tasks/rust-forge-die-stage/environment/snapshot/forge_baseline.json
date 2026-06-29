@@ -1,0 +1,12 @@
+{
+  "dies": {
+    "die_gamma_base": {
+      "die_id": "die_gamma_base",
+      "checksum": 1755,
+      "tonnage": 1547,
+      "forge_epoch": 0
+    }
+  },
+  "forge_epoch": 0,
+  "journal_revision": 0
+}

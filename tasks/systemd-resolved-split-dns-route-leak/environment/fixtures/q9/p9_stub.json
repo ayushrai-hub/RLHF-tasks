@@ -1,0 +1,7 @@
+{
+  "interim_rows": [
+    {"qname": "portal.corp.internal", "status": "ok", "band": 0},
+    {"qname": "www.wan.home", "status": "ok", "band": 0}
+  ],
+  "smoke_tally": 2
+}

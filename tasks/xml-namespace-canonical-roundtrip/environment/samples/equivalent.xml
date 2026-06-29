@@ -1,0 +1,3 @@
+<doc xmlns:x="urn:alpha" xmlns:y="urn:beta">
+  <x:item plain="yes" y:rank="1">visible text</x:item>
+</doc>

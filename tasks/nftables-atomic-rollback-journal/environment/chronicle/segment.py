@@ -1,0 +1,1 @@
+"""Chronicle segment selection stub."""

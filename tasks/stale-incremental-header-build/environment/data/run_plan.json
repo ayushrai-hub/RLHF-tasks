@@ -1,0 +1,28 @@
+{
+  "plans": [
+    {
+      "plan_id": "header_bump",
+      "cap_value": "cap_r2",
+      "steps": ["set_cap", "fast"],
+      "targets": ["app_v1", "app_v2"]
+    },
+    {
+      "plan_id": "unchanged_control",
+      "cap_value": "cap_r2",
+      "steps": ["noop", "fast"],
+      "targets": ["app_v1"]
+    },
+    {
+      "plan_id": "cap_rollback",
+      "cap_value": "cap_r2",
+      "steps": ["set_cap", "fast", "set_cap", "fast"],
+      "targets": ["app_v1", "app_v2"]
+    },
+    {
+      "plan_id": "same_second_seq",
+      "cap_value": "cap_r3",
+      "steps": ["set_cap", "same_sec", "fast"],
+      "targets": ["app_v1", "app_v2"]
+    }
+  ]
+}

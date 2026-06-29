@@ -1,0 +1,21 @@
+{
+  "meta": {
+    "run": {
+      "id": "sweep-gamma",
+      "kernel": "example.com/rd-sim"
+    }
+  },
+  "params": {
+    "dt": 0.005,
+    "dimension": 2
+  },
+  "series": {
+    "msd": [
+      {"step": 1, "msd": 0.02},
+      {"step": 2, "msd": 0.04},
+      {"step": 3, "msd": 0.06},
+      {"step": 4, "msd": 0.08},
+      {"step": 5, "msd": 0.1}
+    ]
+  }
+}

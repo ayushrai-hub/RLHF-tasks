@@ -1,0 +1,2 @@
+{"probe_id": "p-http-300", "deployment_id": "dep-300", "service": "worker", "environment": "prod", "probe_type": "http", "checked_at": "2026-06-01T11:05:00Z", "status": "ok"}
+{"probe_id": "p-mismatch-300", "deployment_id": "dep-300", "service": "worker", "environment": "staging", "probe_type": "readiness", "checked_at": "2026-06-01T11:07:00Z", "status": "ok"}

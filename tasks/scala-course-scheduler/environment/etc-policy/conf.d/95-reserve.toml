@@ -1,0 +1,9 @@
+# scheduler reserve policy — tier 95
+# Capacity-reserve tier: locks in canonical weights so no higher emergency tier
+# accidentally inherits wrong weight values.
+
+[weights]
+room_util       = 0.20
+faculty_sat     = 0.34
+conflict_avoid  = 0.31
+load_balance    = 0.15

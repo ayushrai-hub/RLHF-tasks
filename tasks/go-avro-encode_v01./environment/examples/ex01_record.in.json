@@ -1,0 +1,25 @@
+{
+  "cases": [
+    {
+      "id": "ex01_record",
+      "schema": {
+        "type": "record",
+        "name": "Point",
+        "fields": [
+          {
+            "name": "x",
+            "type": "int"
+          },
+          {
+            "name": "y",
+            "type": "int"
+          }
+        ]
+      },
+      "value": {
+        "x": 3,
+        "y": 9
+      }
+    }
+  ]
+}

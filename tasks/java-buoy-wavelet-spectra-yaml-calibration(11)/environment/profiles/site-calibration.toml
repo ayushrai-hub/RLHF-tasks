@@ -1,5 +1,0 @@
-[drift]
-rate_pa_per_hour = 0.18
-
-[wavelet]
-coi_factor = 1.4142135623730951

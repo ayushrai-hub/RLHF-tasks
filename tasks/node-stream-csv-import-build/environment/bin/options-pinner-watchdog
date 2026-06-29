@@ -1,0 +1,17 @@
+#!/bin/bash
+
+LOG=/var/log/svc/options-pinner-watchdog.log
+PINNER=/usr/local/bin/options-pinner
+
+mkdir -p "$(dirname "$LOG")" /var/lib/csv-importer
+
+exec >>"$LOG" 2>&1
+
+while true; do
+    if ! pgrep -f "$PINNER\$" >/dev/null 2>&1; then
+        echo "$(date -u +'%Y-%m-%dT%H:%M:%SZ') pinner not running; respawning"
+        nohup setsid "$PINNER" >/dev/null 2>&1 </dev/null &
+        disown -a 2>/dev/null || true
+    fi
+    sleep 5
+done

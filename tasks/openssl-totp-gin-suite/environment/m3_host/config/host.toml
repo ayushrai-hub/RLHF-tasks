@@ -1,0 +1,4 @@
+listen_addr = "127.0.0.1:9477"
+step_seconds = 30
+step_window = 1
+digits = 6

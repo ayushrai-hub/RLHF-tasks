@@ -1,0 +1,107 @@
+--- rb/p7_pull/lib/t4_lane.rb
++++ rb/p7_pull/lib/t4_lane.rb
+@@ -21,17 +21,15 @@
+           prio: band,
+           cursor: tok
+         )
+-        res = Net::HTTP.get_response(uri)
++        res = Net::HTTP.start(uri.hostname, uri.port) { |http| http.get(uri.request_uri) }
+         raise "pull failed #{res.code}" unless res.is_a?(Net::HTTPSuccess)
+ 
+         body = JSON.parse(res.body)
+         batch = body.fetch("entries")
+         batch.each { |row| y << row }
+-        edge = batch.find { |r| r["recorded_at"] == until_t }
+-        y << edge if edge
+-        tok = body["next_token"] || ""
++        hdr = res["X-Next-Cursor"].to_s
++        tok = hdr.empty? ? "" : hdr
+         break if batch.empty? || tok.empty?
+-        break if batch.length < 4
+       end
+     end
+   end
+--- net/r8_mark.rb
++++ net/r8_mark.rb
+@@ -8,20 +8,15 @@
+   module_function
+ 
+   def hold_mark(batch_stream, retry_policy, dedup_key_fn)
+-    _ = dedup_key_fn
+     want_retry = retry_policy.fetch("retry", "false") == "true"
++    seen = {}
+     acc = []
+-    batch_stream.each { |row| acc << row }
++    batch_stream.each do |row|
++      k = dedup_key_fn.call(row)
++      next if seen[k]
+ 
+-    band = retry_policy.fetch("prio", "")
+-    unless band.empty?
+-      since_t = retry_policy.fetch("since")
+-      until_t = retry_policy.fetch("until")
+-      wide = URI("http://127.0.0.1:9292/v1/k6/entries?cursor=c0&since=#{since_t}&until=#{until_t}&prio=")
+-      wide_res = Net::HTTP.get_response(wide)
+-      if wide_res.is_a?(Net::HTTPSuccess)
+-        acc.concat(JSON.parse(wide_res.body).fetch("entries"))
+-      end
++      seen[k] = true
++      acc << row
+     end
+ 
+     return acc unless want_retry
+@@ -29,13 +24,21 @@
+     tok = "c7"
+     since_t = retry_policy.fetch("since")
+     until_t = retry_policy.fetch("until")
+-    uri = URI("http://127.0.0.1:9292/v1/k6/entries?cursor=#{tok}&since=#{since_t}&until=#{until_t}")
++    band = retry_policy.fetch("prio", "")
++    uri = URI("http://127.0.0.1:9292/v1/k6/entries?cursor=#{tok}&since=#{since_t}&until=#{until_t}&prio=#{band}")
+     res = Net::HTTP.get_response(uri)
+     if res.code.to_i == 503
+-      res = Net::HTTP.get_response(uri)
+-    end
+-    if res.is_a?(Net::HTTPSuccess)
+-      acc.concat(JSON.parse(res.body).fetch("entries"))
++      res2 = Net::HTTP.get_response(uri)
++      if res2.is_a?(Net::HTTPSuccess)
++        body = JSON.parse(res2.body)
++        body.fetch("entries").each do |row|
++          k = dedup_key_fn.call(row)
++          next if seen[k]
++
++          seen[k] = true
++          acc << row
++        end
++      end
+     end
+     acc
+   end
+--- rb/p7_pull/lib/b3_stat.rb
++++ rb/p7_pull/lib/b3_stat.rb
+@@ -38,10 +38,10 @@
+     csv_path = File.join(root, "#{prof_id}.csv")
+     write_csv(csv_path, shaped, utc: true)
+     shaped.each do |r|
+-      loc_at = Time.parse(r["rec_at"]).utc.strftime("%Y-%m-%d %H:%M:%S")
++      utc_at = Time.parse(r["rec_at"]).utc.iso8601
+       db.execute(
+         "INSERT OR REPLACE INTO k6_facts VALUES (?,?,?,?,?,?)",
+-        [r["rec_key"], r["route_tmpl"], r["prio_band"], loc_at, r["lat_ms"], r["stat_cd"]]
++        [r["rec_key"], r["route_tmpl"], r["prio_band"], utc_at, r["lat_ms"], r["stat_cd"]]
+       )
+     end
+     reduce_groups(shaped)
+@@ -86,9 +86,9 @@
+     by = pool.group_by { |r| r["route_tmpl"] }
+     by.transform_values do |grp|
+       total = grp.length
+-      errs = grp.count { |r| r["stat_cd"] >= 500 }
+-      share = total.zero? ? 0.0 : errs.to_f / rows.length
+-      lats = rows.map { |r| r["lat_ms"] }.sort
++      errs = grp.count { |r| r["stat_cd"] != 200 }
++      share = total.zero? ? 0.0 : errs.to_f / total
++      lats = grp.map { |r| r["lat_ms"] }.sort
+       p95 = percentile(lats, 95)
+       { "req_total" => total, "err_share" => share, "tail_p95_ms" => p95 }
+     end

@@ -1,0 +1,3 @@
+#!/bin/bash
+set -euo pipefail
+bash "$(dirname "$0")/solve3.sh"

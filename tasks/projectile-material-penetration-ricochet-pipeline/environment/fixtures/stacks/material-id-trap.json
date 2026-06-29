@@ -1,0 +1,11 @@
+{
+  "name": "material-id-trap",
+  "normal": [0.0, 0.0, 1.0],
+  "layers": [
+    {
+      "physics_id": 101,
+      "asset_label": "WoodSoft",
+      "thickness_m": 0.004
+    }
+  ]
+}

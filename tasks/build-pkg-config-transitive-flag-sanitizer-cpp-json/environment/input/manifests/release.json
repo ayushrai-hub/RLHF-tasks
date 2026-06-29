@@ -1,0 +1,5 @@
+{
+  "roots": ["appcore", "analytics"],
+  "allowed_static_flags": ["-pthread"],
+  "static_only_flags": ["-Wl,--whole-archive", "-Wl,--no-whole-archive", "-lsecret_static"]
+}

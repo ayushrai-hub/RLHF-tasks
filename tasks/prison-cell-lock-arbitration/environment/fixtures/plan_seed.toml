@@ -1,0 +1,18 @@
+plan_id = "evening-transfer"
+wall_clock_generation = 2
+
+[[slices]]
+corridor_slice = "north-wing"
+generation = 2
+
+[[slices]]
+corridor_slice = "east-link"
+generation = 5
+
+[[slices]]
+corridor_slice = "yard-cross"
+generation = 5
+
+[[slices]]
+corridor_slice = "south-gate"
+generation = 5

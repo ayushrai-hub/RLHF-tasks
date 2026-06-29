@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "workload_id": "depfix-hidden-alt-91831",
+  "touch_entries": [
+    {
+      "path": "/app/include/depfix/legacy_alias.hpp",
+      "token": "alt-alias-1"
+    },
+    {
+      "path": "/app/include/depfix/config.hpp",
+      "token": "alt-cfg-2"
+    }
+  ]
+}

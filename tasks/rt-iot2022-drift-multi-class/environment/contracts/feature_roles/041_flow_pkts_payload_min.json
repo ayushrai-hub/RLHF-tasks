@@ -1,0 +1,8 @@
+{
+  "column": "flow_pkts_payload.min",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 41,
+  "role": "candidate_predictor",
+  "unique_values": 97
+}

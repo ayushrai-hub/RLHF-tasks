@@ -1,0 +1,39 @@
+#include "lib_iface.h"
+
+#include <stdio.h>
+#include <string.h>
+
+static void push_dep(struct edge_buf *out, const char *p) {
+  if (!out || !p || out->n >= TB_MAX_DEPS) {
+    return;
+  }
+  for (int i = 0; i < out->n; i++) {
+    if (strcmp(out->paths[i], p) == 0) {
+      return;
+    }
+  }
+  snprintf(out->paths[out->n], TB_ROOT_LEN, "%s", p);
+  out->n++;
+}
+
+int op_a(struct graph_ctx *g, const char *root, struct edge_buf *out) {
+  if (!g || !root || !out) {
+    return -1;
+  }
+  out->n = 0;
+  char rel[512];
+  snprintf(rel, sizeof rel, "%s/libcore/widget.c", root);
+  push_dep(out, rel);
+  snprintf(rel, sizeof rel, "%s/libcore/widget.h", root);
+  push_dep(out, rel);
+  snprintf(rel, sizeof rel, "%s/data/gen/version_slot.h.in", g->root);
+  push_dep(out, rel);
+  if (strstr(root, "app_v1")) {
+    snprintf(rel, sizeof rel, "%s/app_v1/main.c", root);
+    push_dep(out, rel);
+  } else if (strstr(root, "app_v2")) {
+    snprintf(rel, sizeof rel, "%s/app_v2/aux.c", root);
+    push_dep(out, rel);
+  }
+  return 0;
+}

@@ -1,0 +1,6 @@
+The reload driver is run from /app with:
+node --experimental-strip-types src/reload.ts --input fixtures --output output
+
+Outputs: /app/output/policy_plan.json, /app/output/revoke_manifest.json, /app/output/reload_report.json
+
+See /app/docs/reload_contract.md for reconciliation rules. The verifier reruns the driver from fixture evidence; static output JSON is not sufficient.

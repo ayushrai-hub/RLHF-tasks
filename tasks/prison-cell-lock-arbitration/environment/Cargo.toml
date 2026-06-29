@@ -1,0 +1,7 @@
+[workspace]
+members = ["fac_b2", "q3_v9", "qtr_w4", "hash_n6"]
+resolver = "2"
+
+[workspace.package]
+edition = "2021"
+version = "0.1.0"

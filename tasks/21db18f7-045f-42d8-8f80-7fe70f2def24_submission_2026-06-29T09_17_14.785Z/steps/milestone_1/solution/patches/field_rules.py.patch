@@ -1,0 +1,19 @@
+--- field_rules.py
++++ field_rules.py
+@@ -4,14 +4,12 @@
+ 
+ 
+ def field_is_public(field_name: str) -> bool:
+-    """Return True when a dot-path should be treated as public."""
+     lower = field_name.lower()
+     if lower in ALWAYS_PUBLIC_FIELDS:
+         return True
+-    return lower in PUBLIC_OVERRIDE_MARKERS
++    return any(marker in lower for marker in PUBLIC_OVERRIDE_MARKERS)
+ 
+ 
+ def field_is_secret(field_name: str) -> bool:
+-    """Return True when a dot-path should be treated as secret."""
+     lower = field_name.lower()
+-    return lower in SECRET_KEYWORD_FRAGMENTS
++    return any(fragment in lower for fragment in SECRET_KEYWORD_FRAGMENTS)

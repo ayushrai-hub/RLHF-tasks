@@ -1,0 +1,11 @@
+# scheduler department policy — tier 40
+# Engineering department raised faculty satisfaction weight following union feedback.
+
+[weights]
+room_util       = 0.22
+faculty_sat     = 0.33
+conflict_avoid  = 0.30
+load_balance    = 0.15
+
+[threshold]
+pass_score = 0.78

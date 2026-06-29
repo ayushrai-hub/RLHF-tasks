@@ -1,0 +1,29 @@
+--- rotation_lock.py
++++ rotation_lock.py
+@@ -12,7 +12,6 @@
+ 
+ 
+ def acquire_rotation_lock(export_path: str) -> bool:
+-    """Acquire an exclusive rotation lock. Returns False when already held."""
+     path = lock_path(export_path)
+     if os.path.exists(path):
+         return False
+@@ -28,6 +27,15 @@
+ 
+ 
+ def recover_stale_rotation_lock(export_path: str) -> None:
+-    """Remove a lock file when it is older than ROTATION_LOCK_STALE_SEC."""
+-    _ = ROTATION_LOCK_STALE_SEC
+-    return
++    path = lock_path(export_path)
++    if not os.path.exists(path):
++        return
++    try:
++        with open(path) as f:
++            data = json.load(f)
++        started = float(data.get("started_at", 0))
++    except (json.JSONDecodeError, TypeError, ValueError):
++        os.remove(path)
++        return
++    if time.time() - started > ROTATION_LOCK_STALE_SEC:
++        os.remove(path)

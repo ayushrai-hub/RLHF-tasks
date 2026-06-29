@@ -1,0 +1,9 @@
+{
+  "scenario_tag": "delta",
+  "pack_generation": 10,
+  "journal_revision": 1,
+  "shards": [
+    {"id": 20, "path": "b.jsonl"},
+    {"id": 3, "path": "a.jsonl"}
+  ]
+}

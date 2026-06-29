@@ -1,0 +1,33 @@
+column,description
+V1,Unique customer identifier (not a predictor)
+V2,"Bounced on the first EMI (1 bounced, 0 not)"
+V3,Number of times bounced in the last 12 months
+V4,Maximum months-on-book with the lender
+V5,Number of times bounced while repaying the loan
+V6,EMI amount
+V7,Loan amount
+V8,Tenure
+V9,Dealer code where the two-wheeler was purchased
+V10,Two-wheeler product code
+V11,Number of advance EMIs paid
+V12,Rate of interest
+V13,Gender
+V14,Employment type
+V15,Resident type
+V16,Date of birth (redundant with age V17)
+V17,Age at which the loan was taken
+V18,Number of loans
+V19,Number of secured loans
+V20,Number of unsecured loans
+V21,Maximum amount sanctioned across live loans
+V22,Number of new loans in the last 3 months
+V23,Total sanctioned amount across live secured loans
+V24,Total sanctioned amount across live unsecured loans
+V25,Maximum amount sanctioned for any two-wheeler loan
+V26,Months since the last personal loan
+V27,Months since the first consumer-durables loan
+V28,Times 30 days past due in the last 6 months
+V29,Times 60 days past due in the last 6 months
+V30,Times 90 days past due in the last 3 months
+V31,Customer geographic tier
+V32,"Target: 1 defaulter, 0 non-defaulter"

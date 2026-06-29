@@ -1,0 +1,9 @@
+{
+  "cases": [
+    {
+      "id": "ex03_bytes",
+      "status": "ok",
+      "hex": "08cafe1234"
+    }
+  ]
+}

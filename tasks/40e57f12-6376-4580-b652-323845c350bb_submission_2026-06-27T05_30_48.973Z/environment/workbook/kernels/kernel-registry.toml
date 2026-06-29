@@ -1,0 +1,7 @@
+# Promotion registry (legacy)
+
+[import]
+revision_source = "wrapper_module"
+include_replace_target = false
+
+This registry describes an older import path. Workbook migrations must follow `/app/workbook/docs/import-contract.md` when writing `kernel_revision`.

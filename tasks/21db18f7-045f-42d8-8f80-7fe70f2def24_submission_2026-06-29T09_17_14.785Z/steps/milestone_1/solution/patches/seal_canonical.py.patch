@@ -1,0 +1,14 @@
+--- seal_canonical.py
++++ seal_canonical.py
+@@ -4,4 +4,10 @@
+ 
+ 
+ def canonical_seal_bytes(export: dict) -> bytes:
+-    return json.dumps(export, sort_keys=True).encode("utf-8")
++    metadata = {k: v for k, v in export["metadata"].items() if k != "integrity_seal"}
++    body = {
++        "metadata": metadata,
++        "public": export["public"],
++        "manifest_digest": metadata["manifest_digest"],
++    }
++    return json.dumps(body, sort_keys=True, separators=(",", ":")).encode("utf-8")

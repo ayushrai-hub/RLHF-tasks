@@ -1,0 +1,8 @@
+{
+  "column": "proto",
+  "kind": "categorical",
+  "missing_rate": 0.0,
+  "position": 4,
+  "role": "candidate_predictor",
+  "unique_values": 3
+}
