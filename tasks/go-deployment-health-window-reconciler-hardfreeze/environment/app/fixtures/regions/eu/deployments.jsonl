@@ -1,1 +1,0 @@
-{"deployment_id": "dep-300", "service": "worker", "environment": "production", "release_id": "rel-2026.06.3", "owner": "jobs", "started_at": "2026-06-01T11:00:00Z", "duration_minutes": 20, "priority": 4, "depends_on": ["dep-100", "dep-missing"]}

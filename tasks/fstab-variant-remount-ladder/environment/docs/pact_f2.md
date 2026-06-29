@@ -58,9 +58,9 @@ For `lane_k2`, the lane record must report `band_class=3` because `frag_u2.json`
 4. Read blk anchor bytes from `fixtures/blk/tc.mnt` offset 0 length 32 as lowercase hex → `blk_part`. **Digest anchor is always `tc.mnt`**, even when a lane profile names a different `blk_slice` for workdir scoring.
 5. `state_digest = hashlib.sha256((normalized + "|" + blk_part).encode()).hexdigest()[:8]`
 
-The `contract_hash` helper under `scripts/contract_hash.py` reports the same digest for a JSON row list and blk anchor path.
+The `contract_hash` helper under `scripts/contract_hash.py` performs tuple normalization and digesting only for a JSON row list and blk anchor path; applying `digest_emit_ceiling` filtering before building those rows is the caller/pipeline's responsibility.
 
-Held-out lanes `lane_k3` and `lane_k4` must converge within ±0 of the `lane_k1` baseline digest after matrix replay.
+Held-out lanes `lane_k2`, `lane_k3`, and `lane_k4` must converge within ±0 of the `lane_k1` baseline digest after matrix replay. `lane_k2` carries a sparse fragment list but must still reconcile against the full table corpus before digest emission.
 
 ## Workdir scoring
 

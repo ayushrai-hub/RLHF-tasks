@@ -1,0 +1,15 @@
+{
+  "source": "edge",
+  "metrics": [
+    {"timestamp": "2024-01-15T10:30:00Z", "metric": "cpu_usage", "value": 22.5, "labels": {"host": "edge-01"}},
+    {"timestamp": "2024-01-15T10:31:00Z", "metric": "cpu_usage", "value": 18.3, "labels": {"host": "edge-01"}},
+    {"timestamp": "2024-01-15T10:32:00Z", "metric": "cpu_usage", "value": 25.7, "labels": {"host": "edge-01"}},
+    {"timestamp": "2024-01-15T10:33:00Z", "metric": "cpu_usage", "value": 19.1, "labels": {"host": "edge-01"}},
+    {"timestamp": "2024-01-15T10:34:00Z", "metric": "cpu_usage", "value": 30.4, "labels": {"host": "edge-01"}},
+    {"timestamp": "2024-01-15T10:30:00Z", "metric": "latency_ms", "value": 1.5, "labels": {"endpoint": "/api/health"}},
+    {"timestamp": "2024-01-15T10:31:00Z", "metric": "latency_ms", "value": 2.1, "labels": {"endpoint": "/api/health"}},
+    {"timestamp": "2024-01-15T10:32:00Z", "metric": "latency_ms", "value": 1.8, "labels": {"endpoint": "/api/health"}},
+    {"timestamp": "2024-01-15T10:33:00Z", "metric": "latency_ms", "value": 150.0, "labels": {"endpoint": "/api/health"}},
+    {"timestamp": "2024-01-15T10:34:00Z", "metric": "latency_ms", "value": 2.3, "labels": {"endpoint": "/api/health"}}
+  ]
+}

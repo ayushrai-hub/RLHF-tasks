@@ -68,6 +68,8 @@ Quick reference: [reviewer-checklist.md](reviewer-checklist.md)
 
 ## Rubrics
 
+**Source:** Platform rubric from the submission export (`entire-report.txt`, Snorkel download, or `--rubric`). Tasks do not ship `rubric.txt`; absence in the task folder is not grounds to skip rubric review.
+
 | Criterion | Severity |
 |-----------|----------|
 | No references to /tests/ or pytest results | High |
@@ -80,7 +82,7 @@ Quick reference: [reviewer-checklist.md](reviewer-checklist.md)
 | Score magnitude matches importance (±5 critical) | Medium |
 | Positive phrasing with negative scores for bad behavior | Medium |
 | No oracle/NOP mentions | Medium |
-| 10–40 pts per milestone | Low |
+| 10–40 pts per milestone (or non-milestone total); **>40 = main blocker** | High |
 
 ## Task Structure
 

@@ -1,0 +1,13 @@
+[workspace]
+id = "atlas-west"
+governance.run_id = "run-2024-q4"
+governance.policy_pack_order = ["west-overlay"]
+retention.default_class = "standard-90d"
+
+[artifacts]
+public_read = true
+
+[[policy_pack]]
+name = "west-overlay"
+path = "packs/west-overlay.md"
+enabled = true

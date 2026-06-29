@@ -1,0 +1,8 @@
+block_type_slug: database-credentials
+host: db.internal.example.com
+port: 5432
+database: analytics_prod
+username: svc_analytics
+password: Tr0ub4dor&3
+ssl_mode: require
+ssl_cert_path: /etc/ssl/certs/prod-db.crt

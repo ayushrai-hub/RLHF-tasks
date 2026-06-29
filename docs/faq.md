@@ -195,7 +195,7 @@ stb submissions download SUBMISSION_ID
 ## 7. Rubrics & Quality Checks
 
 - ≥1 negative per milestone rubric (hard requirement)
-- 10–40 pts per milestone (flaggable, not sole revision reason)
+- 10–40 pts per milestone / non-milestone total — **>40 is a main blocker (Revise)**, not optional polish
 - Generate via "Generate Rubric(s)" without "Send to Reviewer" — appears during CI, edit in portal UI
 
 ---

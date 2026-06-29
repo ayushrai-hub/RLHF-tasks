@@ -66,6 +66,10 @@ Be specific: what's wrong, where, how to fix.
 
 **Bad:** `Tests need work.`
 
+### Portal reviewer note (`review-report.md` section 9)
+
+Copied to the author in the submission portal. Write like a **human peer reviewer** — warm and direct; say what’s good about the task before what needs fixing. **Task-independent** (no `rubrics.md`, checkbox numbers, error categories, LLMaJ names). Avoid audit-bot tone (“re-audit”, “checklist failed”, “meets Edition 2 requirements”). Doc citations stay in sections 2–8 only.
+
 ### Decline
 Fundamental issues: too easy (>80%), duplicate, flawed concept.
 

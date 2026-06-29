@@ -1,7 +1,0 @@
-Our .NET service repo is moving to a locked runtime baseline, but the MSBuild project metadata under /app/src is inconsistent. Complete /app/tools/msbuild_audit.py so this milestone supports:
-
-python3 /app/tools/msbuild_audit.py inventory /app/src /app/Directory.Packages.props /app/out/msbuild-inventory.json
-
-The inventory command should rescan the current .csproj files on every run and write JSON with projects and summary. Project rows are sorted by /app/src-relative path and contain exactly path, name, target_framework, nullable, runtime_identifiers, packages, and test_only. packages is a JSON object mapping package name to resolved version string, for example {"Microsoft.Extensions.Hosting": "8.0.1"}. test_only is true when the project XML contains <IsTestProject>true</IsTestProject>, case-insensitively after trimming. Parse plain or namespaced MSBuild XML by local element name, resolve package versions from central PackageVersion entries or inline PackageReference Version values, support both Include and Update central package attributes, treat omitted Nullable as "unspecified", split singular or plural runtime identifier properties on semicolons, trim whitespace, ignore empty RID entries, and sort each runtime_identifiers list alphabetically.
-
-The summary should contain total, by_framework, test_projects, and missing_required_rids. Read /app/policy/runtime-policy.json only for required_rids, and count missing_required_rids for non-test projects whose RID set does not exactly match that list.

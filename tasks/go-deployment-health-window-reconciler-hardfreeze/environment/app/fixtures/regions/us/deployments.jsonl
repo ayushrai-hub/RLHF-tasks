@@ -1,5 +1,0 @@
-{"deployment_id": "dep-100", "service": "api", "environment": "prod", "release_id": "rel-2026.06.1", "owner": "platform", "started_at": "2026-06-01T10:00:00Z", "duration_minutes": 45, "required_probes": ["http-check", "ready", "synthetic"], "priority": 10}
-{"deployment_id": "dep-200", "service": "billing", "environment": "stage", "release_id": "rel-2026.06.2", "owner": "payments", "started_at": "2026-06-01T10:15:00Z", "duration_minutes": 30, "required_probes": ["http", "readiness"], "priority": 2, "depends_on": ["dep-300"]}
-{"deployment_id":"dep-bad", "service": 
-{"deployment_id": "dep-invalid", "environment": "prod", "started_at": "not-a-time"}
-{"deployment_id": "dep-400", "service": "frontend", "environment": "prod", "release_id": "rel-2026.06.4", "owner": "webops", "started_at": "2026-06-01T10:05:00Z", "duration_minutes": 20, "required_probes": ["http", "ready"], "priority": 6}

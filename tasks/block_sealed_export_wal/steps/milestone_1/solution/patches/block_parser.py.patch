@@ -1,0 +1,59 @@
+--- block_parser.py
++++ block_parser.py
+@@ -1,9 +1,12 @@
+ """Prefect block YAML parser and secret field detector."""
+ 
++import os
+ from typing import Any
+ 
+ import yaml
+ 
++from config import KNOWN_BLOCK_TYPES, MAX_EXPORT_FILE_SIZE
++from exceptions import BlockParseError
+ from field_rules import field_is_public, field_is_secret
+ 
+ 
+@@ -16,6 +19,8 @@
+ def flatten_block(block: dict, prefix: str = "") -> dict[str, Any]:
+     flat: dict[str, Any] = {}
+     for key, value in block.items():
++        if key == "block_type_slug":
++            continue
+         path = f"{prefix}.{key}" if prefix else key
+         if isinstance(value, dict):
+             flat.update(flatten_block(value, path))
+@@ -25,15 +30,29 @@
+ 
+ 
+ def load_block(path: str) -> dict:
+-    with open(path) as f:
+-        data = yaml.safe_load(f)
+-    if data is None:
+-        return {}
++    try:
++        size = os.path.getsize(path)
++    except OSError as exc:
++        raise BlockParseError(f"Cannot access block file {path!r}: {exc}") from exc
++    if size > MAX_EXPORT_FILE_SIZE:
++        raise BlockParseError(
++            f"Block file {path!r} exceeds maximum size ({size} > {MAX_EXPORT_FILE_SIZE} bytes)"
++        )
++    try:
++        with open(path) as f:
++            data = yaml.safe_load(f)
++    except yaml.YAMLError as exc:
++        raise BlockParseError(f"Invalid YAML in block file {path!r}: {exc}") from exc
++    if not isinstance(data, dict):
++        raise BlockParseError(f"Block file {path!r} must contain a top-level mapping")
+     return data
+ 
+ 
+ def validate_block_type(block: dict) -> str:
+-    return block.get("block_type_slug", "unknown")
++    slug = block.get("block_type_slug")
++    if slug not in KNOWN_BLOCK_TYPES:
++        raise BlockParseError(f"Unknown block type: {slug!r}")
++    return slug
+ 
+ 
+ def extract_secret_fields(block: dict) -> dict:

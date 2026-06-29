@@ -1,3 +1,0 @@
-Depfiles now describe the live include tree, but header edits still fail to drive incremental rebuilds before the demo links.
-
-Make incremental rebuilds honor header touches per `/app/docs/rebuild_expectations.md`: wire `depfix_header_sync` into the Ninja graph for `depfix_util`, `depfix_core`, and `depfix_app`; ensure the stamp tracks config and version headers; restore `-MD` and `-MP` on util and app compile rules. Touching `/app/include/depfix/config.hpp` or `/app/include/depfix/legacy_alias.hpp` must rebuild `CMakeFiles/depfix_util.dir/src/util.cpp.o` and relink `/app/build/depfix_app`; touching `/app/include/depfix/version.hpp` must rebuild `CMakeFiles/depfix_core.dir/src/core.cpp.o`. The linked demo must still print `depfix_app=31`.

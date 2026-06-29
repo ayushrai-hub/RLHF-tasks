@@ -1,0 +1,11 @@
+monster_id,room_id,species,base_hp,base_atk
+1,11,emberling,6,2
+2,10,gravewight,8,3
+3,13,gildgolem,10,2
+4,12,boglurker,7,3
+5,14,cindermaw,9,4
+6,11,ember-whelp,3,1
+7,13,gild-shard,5,1
+8,12,bog-spawn,4,2
+9,90,wraith,99,9
+10,91,revenant,50,5

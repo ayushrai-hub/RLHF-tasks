@@ -1,0 +1,14 @@
+{
+  "scenario_label": "s04",
+  "table_gen": 6,
+  "crash_mid": true,
+  "active_path_mask": 0,
+  "target_path_mask": 28,
+  "stranded_path_mask": 112,
+  "alua_base_ms": 11,
+  "flush_bump": 8,
+  "failback_early": false,
+  "summary_green_view": false,
+  "retain_seq": 2,
+  "gate_hold": false
+}

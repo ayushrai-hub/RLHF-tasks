@@ -26,6 +26,17 @@ Find **all** issues before requesting revision.
 ./scripts/terminus llmaj-check <task-dir>
 ```
 
+## Difficulty (High for #54 only)
+
+- **#45:** CHECK when `difficulty` in `task.toml` — platform classified / agent-tier mismatch is **never** a blocker
+- **#54:** UNCHECK only when **worst-model** (lowest agent pass rate) **>80%**
+- Sum reference: `task.toml` difficulty vs platform `Difficulty:` line — informational in section 7 only
+
+## Rubric (High)
+
+- **Positive point cap:** non-milestone total ≤40; each milestone block ≤40 — **>40 = main blocker → Revise**
+- Sum every `Agent …, +N` line in the platform rubric from the submission export
+
 ## References
 
 - `docs/reviewer-checklist-full.md` — full criteria

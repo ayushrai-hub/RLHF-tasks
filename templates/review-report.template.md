@@ -121,7 +121,7 @@
 
 ## 9. Reviewer note (copy-paste to portal)
 
-[Human-written accept or revise note — 2–4 sentences]
+[Human-written accept or revise note — 2–4 sentences. **Task-independent** and **human tone**: acknowledge what’s good (“nice task”, “solid Dockerfile”), then any fix needed; no framework doc citations, checkbox numbers, or audit-bot phrasing. Proof stays in sections 2–8.]
 
 ---
 

@@ -1,0 +1,6 @@
+{
+  "format": "quota-v0",
+  "accounts": [
+    {"account_id": "ACC-LEGACY", "balance": 42, "epoch": 3}
+  ]
+}

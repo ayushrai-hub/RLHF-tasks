@@ -1,0 +1,7 @@
+[workspace]
+id = "uri-lab"
+governance.run_id = "run-uri"
+retention.default_class = "standard-90d"
+
+[artifacts]
+public_read = false

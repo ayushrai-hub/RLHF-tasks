@@ -1,5 +1,0 @@
-The CMake/Ninja workspace under `/app` uses custom depfile normalization in `/app/build_support/` to emit per-target header manifests under `/app/build/deps/`. After a layout migration, incremental builds still read stale paths, wrong header sets, and invalid manifest footers, so touched headers no longer rebuild the right objects.
-
-Repair depfile generation so each `depfix_hash`, `depfix_core`, `depfix_util`, and `depfix_app` manifest lands in `/app/build/deps/<target>.dep` with live project-relative paths, per-target include closure, sorted data lines, and footer digests computed from that sorted set as defined in `/app/docs/ninja_depfile_format.md`. Live manifests must not be refreshed from `/app/build/deps-stale/` during builds (including POST_BUILD publish steps), and `/app/build/deps-stale/` must be absent or contain no `.dep` files when you finish. Reconfigure with `cmake -G Ninja -S /app -B /app/build`, then force those four targets to rebuild so POST_BUILD normalization runs again.
-
-Contract details and the registered source list live in `/app/docs/ninja_depfile_format.md` and `/app/README.md`.

@@ -1,0 +1,517 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.3.2"
+        },
+        "summary": {
+            "tests": 52,
+            "passed": 44,
+            "failed": 8,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782565124125,
+            "stop": 1782565124282
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "tests/test_outputs.py::TestNFAParseBasic::test_binary_executes_successfully",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124173,
+                "stop": 1782565124173,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAParseBasic::test_parse_stage_present_in_output",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124174,
+                "stop": 1782565124174,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAParseBasic::test_exact_record_count",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124175,
+                "stop": 1782565124175,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAParseBasic::test_no_parse_errors",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124176,
+                "stop": 1782565124176,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAParseIntegrity::test_report_file_created",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124177,
+                "stop": 1782565124177,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAParseIntegrity::test_report_valid_json",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124177,
+                "stop": 1782565124178,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAParseIntegrity::test_report_has_aggregates_key",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124178,
+                "stop": 1782565124179,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAParseIntegrity::test_report_has_classifications_key",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124179,
+                "stop": 1782565124179,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAParseIntegrity::test_report_has_total_flows",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124180,
+                "stop": 1782565124180,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAParseIntegrity::test_report_has_emission_hash",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124180,
+                "stop": 1782565124181,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateProtocols::test_two_protocols_present",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124181,
+                "stop": 1782565124182,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateProtocols::test_tcp_protocol_exists",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124182,
+                "stop": 1782565124182,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateProtocols::test_udp_protocol_exists",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124182,
+                "stop": 1782565124183,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateProtocols::test_no_extra_protocols",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124183,
+                "stop": 1782565124184,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateByteCounts::test_exact_tcp_bytes",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 19,
+                "start": 1782565124184,
+                "stop": 1782565124203,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py",
+                "trace": "self = <test_outputs.TestNFAggregateByteCounts object at 0x6ffcbb82fa10>\n\n    def test_exact_tcp_bytes(self):\n        \"\"\"TCP bytes must be exactly 405000 - catches byte corruption bugs\"\"\"\n        report = load_report()\n        tcp_agg = next(a for a in report[\"aggregates\"] if a[\"protocol\"] == \"TCP\")\n>       assert tcp_agg[\"total_bytes\"] == 405000, \\\n            f\"TCP bytes: expected 405000, got {tcp_agg['total_bytes']} (BUG: corruption/double-count)\"\nE       AssertionError: TCP bytes: expected 405000, got 406000 (BUG: corruption/double-count)\nE       assert 406000 == 405000\n\n/tests/test_outputs.py:104: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateByteCounts::test_exact_udp_bytes",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124204,
+                "stop": 1782565124204,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateByteCounts::test_exact_total_bytes",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1782565124204,
+                "stop": 1782565124210,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py",
+                "trace": "self = <test_outputs.TestNFAggregateByteCounts object at 0x6ffcbb82e650>\n\n    def test_exact_total_bytes(self):\n        \"\"\"Total bytes must be exactly 487500\"\"\"\n        report = load_report()\n        total = sum(a[\"total_bytes\"] for a in report[\"aggregates\"])\n>       assert total == 487500, \\\n            f\"Total bytes: expected 487500, got {total} (BUG: byte loss/corruption)\"\nE       AssertionError: Total bytes: expected 487500, got 488500 (BUG: byte loss/corruption)\nE       assert 488500 == 487500\n\n/tests/test_outputs.py:118: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateByteCounts::test_bytes_not_doubled",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124210,
+                "stop": 1782565124211,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateByteCounts::test_bytes_not_inflated_by_taint",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124211,
+                "stop": 1782565124212,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregatePacketCounts::test_exact_tcp_packets",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124212,
+                "stop": 1782565124213,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregatePacketCounts::test_exact_udp_packets",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 6,
+                "start": 1782565124213,
+                "stop": 1782565124219,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py",
+                "trace": "self = <test_outputs.TestNFAggregatePacketCounts object at 0x6ffcbba1f5d0>\n\n    def test_exact_udp_packets(self):\n        \"\"\"UDP packets must be exactly 771\"\"\"\n        report = load_report()\n        udp_agg = next(a for a in report[\"aggregates\"] if a[\"protocol\"] == \"UDP\")\n>       assert udp_agg[\"total_packets\"] == 771, \\\n            f\"UDP packets: expected 771, got {udp_agg['total_packets']} (BUG: underflow)\"\nE       AssertionError: UDP packets: expected 771, got 770 (BUG: underflow)\nE       assert 770 == 771\n\n/tests/test_outputs.py:149: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregatePacketCounts::test_exact_total_packets",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 7,
+                "start": 1782565124219,
+                "stop": 1782565124226,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py",
+                "trace": "self = <test_outputs.TestNFAggregatePacketCounts object at 0x6ffcbba1f9d0>\n\n    def test_exact_total_packets(self):\n        \"\"\"Total packets must be exactly 4155\"\"\"\n        report = load_report()\n        total = sum(a[\"total_packets\"] for a in report[\"aggregates\"])\n>       assert total == 4155, \\\n            f\"Total packets: expected 4155, got {total} (BUG: packet loss)\"\nE       AssertionError: Total packets: expected 4155, got 4154 (BUG: packet loss)\nE       assert 4154 == 4155\n\n/tests/test_outputs.py:156: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregatePacketCounts::test_packets_not_swapped_with_bytes",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124227,
+                "stop": 1782565124227,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateFlowCounts::test_exact_tcp_flow_count",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124228,
+                "stop": 1782565124229,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateFlowCounts::test_exact_udp_flow_count",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124229,
+                "stop": 1782565124230,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateFlowCounts::test_flow_counts_sum_to_total",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124230,
+                "stop": 1782565124230,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAggregateUniquePairs::test_unique_pairs_not_halved",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124230,
+                "stop": 1782565124231,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyCategories::test_two_classifications_present",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124231,
+                "stop": 1782565124232,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyCategories::test_tcp_category_normal",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124232,
+                "stop": 1782565124232,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyCategories::test_udp_category_normal",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124232,
+                "stop": 1782565124233,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyCategories::test_no_suspicious_category",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124233,
+                "stop": 1782565124234,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyRiskScores::test_tcp_risk_score_exact",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124234,
+                "stop": 1782565124235,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyRiskScores::test_udp_risk_score_exact",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124235,
+                "stop": 1782565124235,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyRiskScores::test_risk_scores_in_valid_range",
+                "status": "passed",
+                "duration": 4,
+                "start": 1782565124236,
+                "stop": 1782565124240,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyRiskScores::test_risk_scores_not_inflated",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124241,
+                "stop": 1782565124242,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyDetails::test_details_not_corrupted",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124242,
+                "stop": 1782565124243,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyDetails::test_details_contains_protocol",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124243,
+                "stop": 1782565124244,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFClassifyDetails::test_details_contains_bytes",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124244,
+                "stop": 1782565124245,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAEmitReport::test_total_flows_exact",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124245,
+                "stop": 1782565124245,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAEmitReport::test_total_flows_not_underflowed",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124246,
+                "stop": 1782565124246,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAEmitReport::test_aggregates_count_correct",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124246,
+                "stop": 1782565124247,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAEmitReport::test_classifications_count_correct",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124247,
+                "stop": 1782565124248,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNFAEmitReport::test_emission_hash_present",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124248,
+                "stop": 1782565124248,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEndToEndIntegrity::test_full_pipeline_succeeds",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124248,
+                "stop": 1782565124249,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEndToEndIntegrity::test_no_byte_loss_across_pipeline",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 12,
+                "start": 1782565124249,
+                "stop": 1782565124261,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py",
+                "trace": "self = <test_outputs.TestEndToEndIntegrity object at 0x6ffcbba08650>\n\n    def test_no_byte_loss_across_pipeline(self):\n        \"\"\"Total bytes must match trace file exactly\"\"\"\n        report = load_report()\n        total_bytes = sum(a[\"total_bytes\"] for a in report[\"aggregates\"])\n>       assert total_bytes == 487500, \\\n            f\"Byte loss detected: expected 487500, got {total_bytes}\"\nE       AssertionError: Byte loss detected: expected 487500, got 488500\nE       assert 488500 == 487500\n\n/tests/test_outputs.py:340: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEndToEndIntegrity::test_no_packet_loss_across_pipeline",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 5,
+                "start": 1782565124262,
+                "stop": 1782565124267,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py",
+                "trace": "self = <test_outputs.TestEndToEndIntegrity object at 0x6ffcbba02590>\n\n    def test_no_packet_loss_across_pipeline(self):\n        \"\"\"Total packets must match trace file exactly\"\"\"\n        report = load_report()\n        total_packets = sum(a[\"total_packets\"] for a in report[\"aggregates\"])\n>       assert total_packets == 4155, \\\n            f\"Packet loss detected: expected 4155, got {total_packets}\"\nE       AssertionError: Packet loss detected: expected 4155, got 4154\nE       assert 4154 == 4155\n\n/tests/test_outputs.py:347: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEndToEndIntegrity::test_no_flow_duplication",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124268,
+                "stop": 1782565124268,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEndToEndIntegrity::test_data_consistency_aggregates_vs_classifications",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124269,
+                "stop": 1782565124270,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEndToEndIntegrity::test_cross_module_contamination_absent",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782565124270,
+                "stop": 1782565124271,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEndToEndIntegrity::test_deterministic_output",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 5,
+                "start": 1782565124271,
+                "stop": 1782565124276,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py",
+                "trace": "self = <test_outputs.TestEndToEndIntegrity object at 0x6ffcbba03410>\n\n    def test_deterministic_output(self):\n        \"\"\"Report should be valid and consistent\"\"\"\n        report = load_report()\n        assert report[\"total_flows\"] == 30\n        total_bytes = sum(a[\"total_bytes\"] for a in report[\"aggregates\"])\n>       assert total_bytes == 487500\nE       assert 488500 == 487500\n\n/tests/test_outputs.py:375: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEndToEndIntegrity::test_all_aggregates_have_positive_values",
+                "status": "passed",
+                "duration": 0,
+                "start": 1782565124277,
+                "stop": 1782565124277,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEndToEndIntegrity::test_no_static_state_leakage",
+                "status": "failed",
+                "raw_status": "call_failed",
+                "duration": 5,
+                "start": 1782565124277,
+                "stop": 1782565124282,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py",
+                "trace": "self = <test_outputs.TestEndToEndIntegrity object at 0x6ffcbba03b10>\n\n    def test_no_static_state_leakage(self):\n        \"\"\"Report should have correct values (no accumulation)\"\"\"\n        report = load_report()\n        assert report[\"total_flows\"] == 30\n        total_bytes = sum(a[\"total_bytes\"] for a in report[\"aggregates\"])\n>       assert total_bytes == 487500\nE       assert 488500 == 487500\n\n/tests/test_outputs.py:390: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

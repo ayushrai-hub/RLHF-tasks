@@ -1,0 +1,32 @@
+--- a/lib/variform/validation/scalar_scan.rb
++++ b/lib/variform/validation/scalar_scan.rb
+@@ -5,13 +5,24 @@
+     module ScalarScan
+       module_function
+ 
++      SCHEME = /\A[a-z][a-z0-9.+-]*:/
++
+       def check(value)
+-        text = value.to_s
+-        forbidden = ArgumentDenylist::FORBIDDEN.find { |token| text.include?(token) }
+-        return unless forbidden
++        text = value.to_s.downcase
++        ArgumentDenylist::FORBIDDEN.each do |token|
++          plus = "+#{token[1..]}"
++          next unless text.include?(token) || text.include?(plus)
++
++          raise UnsupportedTransformation,
++                "transform: argument names a forbidden image option (#{token})"
++        end
++
++        text.split(/\s+/).each do |word|
++          next unless word.start_with?('@') || word.include?('|') || word.match?(SCHEME)
+ 
+-        raise UnsupportedTransformation,
+-              "transform: argument names a forbidden image option (#{forbidden})"
++          raise UnsupportedTransformation,
++                "transform: argument carries a forbidden processor indirection (#{word})"
++        end
+       end
+     end
+   end

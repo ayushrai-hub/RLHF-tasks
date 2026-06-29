@@ -38,12 +38,14 @@
 ## Difficulty
 
 - [ ] Oracle passes
-- [ ] Worst-model pass rate < 80% (GPT-5.5 or Claude Opus 4.8)
+- [ ] Worst-model pass rate < 80% (lowest rate among GPT-5.5 / Claude Opus 4.8) — **#54 only difficulty blocker**
+- [ ] **Do not** fail/revise for `task.toml` `difficulty` vs platform classified mismatch — **#45 CHECK** when field present
 - [ ] Task requires genuine engineering reasoning
 
 ## Rubric
 
-- [ ] At least 3 negative rewards
+- [ ] At least 3 negative rewards (evaluate **platform rubric** from submission report, not task zip)
+- [ ] **Positive point cap:** non-milestone total ≤40; each milestone block ≤40 — **>40 is a main blocker (Revise)**
 - [ ] Milestone tasks: `# Rubric 1`, `# Rubric 2` headers per milestone
 - [ ] Non-milestone: flat `Agent …, ±N` lines
 - [ ] Rubric aligns with current task version

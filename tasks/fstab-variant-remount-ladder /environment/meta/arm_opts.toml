@@ -1,7 +1,0 @@
-[k1]
-remote = "nfs4"
-nofail = true
-
-[k2]
-remote = "cifs"
-nofail = false

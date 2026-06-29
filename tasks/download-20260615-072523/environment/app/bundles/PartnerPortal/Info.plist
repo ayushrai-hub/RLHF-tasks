@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "urn:apple:plist:dtd">
-<plist version="1.0"><dict>
-  <key>CFBundleIdentifier</key><string>com.partner.portal</string>
-  <key>CFBundleDisplayName</key><string>Partner Portal</string>
-  <key>CFBundleExecutable</key><string>PartnerPortal</string>
-  <key>DTPlatformName</key><string>iphoneos</string>
-  <key>ProvisioningProfile</key><string>ios-internal</string>
-</dict></plist>

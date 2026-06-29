@@ -1,0 +1,538 @@
+Difficulty: ✅ MEDIUM
+
+Status: ✅ Solvable (all tests passed by at least one agent run)
+
+Agent Performance:
+  • terminus-claude-opus-4-8: 40.0% (2/5 runs)
+  • terminus-gpt5-5: 40.0% (2/5 runs)
+
+Reference Agents:
+  • nop: 0.0% (0/1 runs)
+  • oracle: 100.0% (3/3 runs)
+
+Failure Breakdown:
+  • nop: 1 other
+  • terminus-claude-opus-4-8: 3 other
+  • terminus-gpt5-5: 3 other
+
+Unit Tests Results:
+  • milestone_1 → TestMilestone1 → test_parse_public_fixture_writes_full_catalog_and_sqlite: 10 passed / 10 runs
+  • milestone_1 → TestMilestone1 → test_parse_runtime_table_level_primary_key_and_type_modifiers: 10 passed / 10 runs
+  • milestone_1 → TestMilestone1 → test_parse_runtime_sql_with_empty_publication_and_alter_add_table: 7 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_public_fixture_summary_and_compatible_row: 10 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_public_fixture_reports_unsafe_filter_missing_columns: 10 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_public_fixture_reports_identity_full_filter_blocker: 10 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_runtime_unfiltered_publication_has_empty_published_columns: 10 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_runtime_catalog_summarizes_blocked_edge_rows: 7 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_runtime_catalog_reports_missing_publication: 10 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_runtime_catalog_reports_missing_publication_table: 7 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_runtime_catalog_reports_missing_publisher_schema_table: 10 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_runtime_catalog_diagnostic_order_for_column_filter_edges: 10 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_runtime_catalog_reports_missing_columns: 10 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_runtime_catalog_reports_unsafe_filter_columns: 10 passed / 10 runs
+  • milestone_2 → TestMilestone2 → test_validate_runtime_catalog_reports_primary_key_omission: 10 passed / 10 runs
+  • milestone_3 → TestMilestone3 → test_plan_public_fixture_writes_json_and_sql_actions: 10 passed / 10 runs
+  • milestone_3 → TestMilestone3 → test_plan_runtime_validation_action_order_and_review_only_schema_gap: 8 passed / 10 runs
+  • milestone_3 → TestMilestone3 → test_plan_runtime_missing_table_sql_uses_bare_table_without_column_list: 8 passed / 10 runs
+  • milestone_3 → TestMilestone3 → test_plan_runtime_widen_filter_excludes_schema_missing_columns: 8 passed / 10 runs
+  • milestone_3 → TestMilestone3 → test_plan_merges_multiple_widening_diagnostics_for_one_filter: 10 passed / 10 runs
+
+Analysis on Agent Failures:
+  • Task Instruction Sufficiency: ❌ FAIL, The workflow is running — fanning out analysis across 5 parallel dimensions (results, failure patterns, hacking, spec quality, agent progress) before synthesizing. I'll have the full report when it completes.
+# Job Run Summary Report
+
+## 1. Overall Results
+
+**6 trials | 3 milestones each | 18 milestone attempts total**
+
+| Reward | Trials | Count |
+|--------|--------|-------|
+| 0.667 (partial) | hSScDdi, KLqsYPA, ESjKnzW, msktBKs | 4 |
+| 0.333 (partial) | kG6GNYg, wmFvdKP | 2 |
+| 1.0 (full pass) | — | 0 |
+| 0.0 (full fail) | — | 0 |
+
+**Total reward: 3.332 / 6.0 (55.5%). Milestone pass rate: 11/18 (61%). Average reward: 0.556.**
+
+Milestone failure breakdown:
+- M1: 3/6 failed (50%)
+- M2: 4/6 failed (67%) — highest failure rate
+- M3: 2/6 failed (33%)
+
+No trial achieved a full pass. All trials earned partial credit.
+
+---
+
+## 2. Common Failure Patterns
+
+### Pattern 1 — `targetTables` not sorted alphabetically (M1)
+**Affected:** hSScDdi, msktBKs, wmFvdKP
+
+All three produce the correct table set but in input order rather than alphabetical order. This is a pure sorting omission, not a logic error — and critically, the alphabetical sort requirement is **undocumented** in both the task instructions and `snapshot_contract.md` (see Section 4).
+
+### Pattern 2 — Spurious `missing_column` diagnostic for absent tables (M2)
+**Affected:** KLqsYPA, ESjKnzW, kG6GNYg
+
+All three emit an extra `missing_column` diagnostic for a table not present in the publisher schema (`ops.phantoms` / `sub_ghost`). The agent applies the column check without first verifying table existence in the publisher schema. This is the highest-frequency agent-attributable error — the suppression rule is documented in `validation_contract.md`.
+
+### Pattern 3 — Wrong repair action ordering (M3)
+**Affected:** kG6GNYg, wmFvdKP
+
+Both trials place `widen_column_filter` before `add_table_to_publication`, inverting the required sequence. In kG6GNYg this is **cascading**: the Pattern 2 bug produces empty SQL upstream, compounding the M3 failure and explaining why both 0.333-band trials failed M3. In wmFvdKP the ordering failure is independent.
+
+---
+
+## 3. Hack Check
+
+**No reward hacking detected. Benchmark integrity: High.**
+
+All 6 trials returned PASS on hacking checks. Failures cleanly decompose into agent logic bugs and ambiguous spec requirements — neither pattern is consistent with score manipulation. No trial shows anomalous scoring, grading system access, or solution directory reads. The data is clean.
+
+---
+
+## 4. Specification / Instruction Issues
+
+### ✅ Confirmed Gap — alphabetical `targetTables` sorting
+**Trials:** hSScDdi (M1), msktBKs (M1), wmFvdKP (M1) — all three reviewers mark spec FAIL
+
+Neither the task instructions nor `snapshot_contract.md` states `targetTables` must be alphabetically sorted. This is the **highest-confidence documentation defect** and directly causes 3 of 7 milestone failures.
+
+**Fix:** Add an explicit sort requirement to `snapshot_contract.md`.
+
+### ⚠️ Disputed — repair action ordering sequence
+**Trials:** kG6GNYg (spec FAIL), wmFvdKP (spec PASS) — reviewer split
+
+Whether the `add_table_to_publication` → `widen_column_filter` ordering is clearly specified is contested. The disagreement itself signals the spec is unclear.
+
+**Fix:** Explicitly define required action type ordering in the repair plan spec.
+
+### ⚠️ Disputed Clarity — `missing_column` suppression rule
+**Trials:** KLqsYPA (spec PASS), ESjKnzW (spec PASS), kG6GNYg (spec FAIL) — 2:1 toward agent error
+
+The rule exists in `validation_contract.md` but is implicit enough to cause repeated misimplementation across all three trials.
+
+**Fix:** Add a worked example in `validation_contract.md` covering a table absent from the publisher schema.
+
+---
+
+## 5. Progress on Failed Trials
+
+**0.667 band (hSScDdi, KLqsYPA, ESjKnzW, msktBKs):** Each failed exactly one milestone in isolation. M1 failures (hSScDdi, msktBKs) are spec-attributable; M2 failures (KLqsYPA, ESjKnzW) are agent logic errors. Competent partial execution throughout — the agent understands the overall task structure.
+
+**0.333 band (kG6GNYg, wmFvdKP):** Both failed M3 plus one additional milestone. M3 is the primary score separator — it requires chaining detection, suppression logic, and ordered repair actions together. kG6GNYg shows a cascade (M2 bug corrupts M3); wmFvdKP shows two independent failures. No trial escaped the 0.667 ceiling, making M3 reliability the key unlock for full-pass performance.
+
+---
+
+## 6. Recommendations
+
+**For the benchmark/spec team:**
+1. Document alphabetical `targetTables` sorting in `snapshot_contract.md` — eliminates 3/7 failures immediately
+2. Explicitly specify repair action type ordering — resolves M3 reviewer inconsistency
+3. Add a worked `missing_column` suppression example to `validation_contract.md`
+
+**For agent development:**
+1. **Fix the `missing_column` guard** — check publisher schema membership before emitting; highest-ROI fix (affects 3 trials, rule is documented)
+2. **Enforce action ordering** in the repair planner (`add_table_to_publication` before `widen_column_filter`)
+3. **Prioritize M3** — no trial cleared all three milestones; M3 is the ceiling, not just an incremental improvement
+
+
+
+## Quality Check Results
+✅ pass - behavior_in_task_description: Each instruction.md closely matches what the corresponding tests verify. M1 instruction describes: --schema/--publications/--subscriptions/--db/--out flags, output parent directory creation, pretty JSON with trailing newline, retaining empty publications, table-level column lists, subscriber target columns, inline/table-level primary key flags, data types with modifiers, nullability, REPLICA IDENTITY FULL, and SQLite tables — all verified in test_m1.py. M2 instruction details all diagnostic codes, the required message substrings (e.g. 'publication filter omits subscriber columns', 'not present in the publisher snapshot', 'REPLICA IDENTITY FULL'), schema-qualified table values, sorted publishedColumns/subscriberColumns, missingColumns field, diagnostic ordering within a result, and references /app/docs/validation_contract.md which spells out the exact schema — all matched by test_m2.py. M3 instruction covers add_table_to_publication with bare identifiers/no column list, widen_column_filter merging multiple widening diagnostics, review-only actions with empty sql, output parent directories, and SQL file — all verified in test_m3.py.
+✅ pass - behavior_in_tests: The tests exercise the behaviors described in the instructions comprehensively. M1 tests check: CLI flags, nested directory creation, pretty JSON format with trailing newline, table ordering, column ordering, type modifiers (numeric(12,2)), nullability, inline and table-level primary keys, replicaIdentity 'full', empty publications, ALTER PUBLICATION ADD TABLE column lists, and all six SQLite table shapes. M2 tests cover: report structure (summary + results), all six diagnostic codes (missing_publication, missing_table×2, missing_column, unsafe_filter, primary_key_omitted, identity_filter_blocked), required message substrings, missingColumns field, diagnostic ordering within a result, publishedColumns/subscriberColumns sorting, unfiltered-publication empty publishedColumns, and cross-subscription edge cases. M3 tests cover: SQL file output, blocking vs review action sorting, add_table_to_publication bare identifier SQL, widen_column_filter column union including published columns, schema-gap column exclusion, merging multiple widening diagnostics into one action, review actions with empty sql, and parent directory creation.
+✅ pass - informative_test_structure: All three test files are well-structured. Each test class is named TestMilestone{N} and test methods have descriptive names and docstrings that state what is being verified (e.g., 'parse keeps publication filters, subscriptions, identity metadata, and inspectable SQLite rows'). Helper functions (make_catalog, validate_public_fixture, write_runtime_edge_catalog, assert_diagnostic_contract, write_runtime_validation) are clearly named. Test methods are split into focused, single-concern units rather than one monolithic test. The separation of fixture-based tests (using /app/input/* files) from runtime-constructed catalog tests keeps the logic readable. assert_diagnostic_contract is a reusable helper that makes diagnostic assertions legible.
+✅ pass - anti_cheating_measures: The .dockerignore explicitly excludes 'solution/' and 'tests/' directories from the Docker image build context. The Dockerfile does not copy tests/ or solution/ into the image. The starter Main.kt is intentionally incomplete: it stubs out 'validate' and 'plan' with error exits, and the parse command is missing publications/subscriptions parsing and SQLite schema tables, so there is real work to implement. The input files (publisher_schema.sql, publications.sql, subscriptions.json) are benign domain data that don't reveal the correct output. The examples directory only contains a sample summary (counts only, no actual results), not ground-truth output. The validation and plan contracts in docs/ describe the required interface but do not hand the agent working code. No internet access is allowed (allow_internet = false). Tests are not present at runtime to copy from.
+✅ pass - structured_data_schema: All structured output formats are explicitly documented with normative spec files. The snapshot JSON schema is in /app/docs/snapshot_contract.md (key ordering, table/column/publication/subscription object shapes, sorting, nullability of primaryKey columns, etc.). The validation report schema is in /app/docs/validation_contract.md (summary fields, result fields including table schema-qualification, publishedColumns/subscriberColumns sorting, diagnostic object fields including the missingColumns field name, all six codes, required message substrings, severity values, and diagnostic ordering rules). The fix plan schema is in /app/docs/fix_plan_contract.md (action object fields, SQL format, severity values, type strings). Instructions explicitly reference these files. The example JSON files only show the summary object (counts), not the full results, which prevents them from being mistaken as the complete normative specification.
+✅ pass - pinned_dependencies: The Python dependencies in requirements.lock are pinned to exact versions: pytest==8.4.1 and pytest-json-ctrf==0.3.5. The Dockerfile uses a fully pinned base image digest (eclipse-temurin:21-jdk-jammy@sha256:25d1276565738d3c805e632a4542c3a7598866ef967f4def6544c15de3a74b14). Apt packages (kotlin, libgoogle-gson-java, libxerial-sqlite-jdbc-java, sqlite3, etc.) are not pinned, but this is standard practice and noted as acceptable by the criteria.
+✅ pass - typos: No typos were found in filenames, paths, commands, or variable names. The classpath strings in all test files and solution scripts consistently use the same JAR paths. The Kotlin package com.terminus.pubgate.MainKt is referenced consistently. The --schema, --publications, --subscriptions, --db, --out, --catalog, --validation, --sql flag names are consistent between instructions, tests, and solutions. The SQLite table column names (e.g. schema_name, table_name, replica_identity, columns_json, publication_name, subscription_name) are consistent across catalog_schema.sql, the solution code, and the test assertions.
+✅ pass - tests_or_solution_in_image: The .dockerignore file explicitly excludes both 'solution/' and 'tests/' directories. The Dockerfile does not contain any COPY instructions for tests/ or solution/ directories. The build context is the environment/ directory, and the .dockerignore ensures those subdirectories (which live under steps/ in the task directory, not under environment/) are excluded from the image. The runtime image only contains the application code (src/, docs/, input/, examples/, scripts/, sql/), not the test files or solution scripts.
+✅ pass - hardcoded_solution: All three solution scripts derive their answers through genuine computation. solve1.sh writes a complete Kotlin implementation that parses SQL using regex, builds data structures, writes SQLite rows, and produces JSON — it does not hardcode the expected output. solve2.sh patches the Main.kt with a validate() function that actually reads and processes the catalog JSON, performs comparisons between publication columns and subscriber columns, and generates diagnostics. solve3.sh patches the Main.kt with a plan() function that reads validation results, applies logic to map diagnostic codes to action types, computes column unions, and generates SQL. None of the solutions cat/echo pre-computed output files.
+✅ pass - file_reference_mentioned: All output files that tests check are either specified via CLI flags that the instructions explicitly document, or produced at paths the agent controls via arguments. M1 instruction specifies --db <sqlite> and --out <json> flags. M2 instruction specifies --out <json>. M3 instruction specifies --out <json> and --sql <sql>. The tests always pass explicit paths via these flags (using tmp_path), so the agent does not need to guess filenames — it only needs to implement the CLI correctly as documented.
+
+
+
+================================================================================
+                          REVIEW REPORT: tbench-task
+================================================================================
+
+Status:        ⚠️ WARNING
+Task Location: /root/harbor_tasks/tbench-task
+
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
+
+This multi-step task requires agents to incrementally repair and extend a Kotlin
+CLI tool ("pubgate") for reviewing PostgreSQL logical replication cutover
+compatibility. Across three milestones, the agent parses schema/publication/
+subscription data into a normalized catalog (milestone 1), validates subscriber
+expectations against publisher column filters (milestone 2), and generates
+migration-safe fix plans with executable SQL (milestone 3). The test suite
+contains 16 well-structured test functions validating JSON output shapes, SQLite
+catalog correctness, deterministic diagnostic ordering, and SQL generation.
+
+================================================================================
+                              WARNINGS ⚠️
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Non-Canonical Base Image
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/Dockerfile (line 1)
+Problem: The base image `eclipse-temurin:21-jdk-jammy` is not from the
+         canonical t-bench base image registry
+         (`ghcr.io/laude-institute/t-bench/...`). The canonical list provides
+         pinned images per language to curb base-image fragmentation.
+
+Current code:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  FROM public.ecr.aws/docker/library/eclipse-temurin:21-jdk-jammy@sha256:2  │
+│  5d1276565738d3c805e632a4542c3a7598866ef967f4def6544c15de3a74b14           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Suggested fix: If a canonical JDK/Kotlin image exists in the t-bench registry,
+use it. Otherwise this is a credible justification (Kotlin + JDK 21 + system
+`kotlinc` needed) and should be proposed as a canonical list addition.
+
+Explanation: The image IS digest-pinned (good), but deviates from the canonical
+registry. Since the canonical list may not yet cover a JDK/Kotlin image, this
+is a soft warning rather than a critical failure.
+
+--------------------------------------------------------------------------------
+2. Milestone Instruction Brevity — No Explicit Output Schema In-Line
+--------------------------------------------------------------------------------
+
+File:    tbench-task/steps/milestone_1/instruction.md (lines 1-3)
+Problem: The milestone instructions defer output schema details to contract
+         documents (`/app/docs/snapshot_contract.md`, etc.) rather than
+         specifying the complete schema inline. While the contract docs ARE
+         available to the agent at runtime, the instruction itself reads as
+         terse and may benefit from summarizing key field names and orderings
+         directly to reduce ambiguity.
+
+Current approach: Instructions say "The exact snapshot object shapes are in
+`/app/docs/snapshot_contract.md`" without inlining even a summary.
+
+Suggested fix: Consider embedding at least a condensed example JSON snippet in
+each instruction.md showing the expected output shape, in addition to the
+reference to the contract doc.
+
+Explanation: Agents must navigate to a separate file to learn the schema. This
+is acceptable but makes the instruction less self-contained.
+
+================================================================================
+                             SUGGESTIONS 💡
+================================================================================
+
+--------------------------------------------------------------------------------
+1. test.sh Uses `--ctrf` Flag Without Fallback Comment
+--------------------------------------------------------------------------------
+
+File:    tbench-task/steps/milestone_1/tests/test.sh (line 16)
+
+Current approach: `python -m pytest --ctrf /logs/verifier/ctrf.json ...` relies
+on `pytest-json-ctrf` being installed. It IS installed via requirements.lock,
+but if the plugin fails to load pytest itself may error.
+
+Suggested improvement:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  python -m pytest /tests/test_m1.py -rA --ctrf /logs/verifier/ctrf.json    │
+│  || python -m pytest /tests/test_m1.py -rA                                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Rationale: A fallback ensures tests still run and reward.txt is written even if
+the CTRF plugin encounters an issue. This is minor since the plugin is pinned
+and installed at build time.
+
+================================================================================
+                            OVERALL ASSESSMENT
+================================================================================
+
+This is a well-constructed, challenging multi-step task that progressively
+builds a realistic data-engineering CLI tool. The task structure, test coverage,
+and solution quality are all strong, with only minor stylistic concerns.
+
+Key Strengths:
+  ✓ Excellent multi-step progression with cumulative complexity
+  ✓ Comprehensive test suite (16 tests) with clear docstrings and edge cases
+  ✓ Realistic domain (PostgreSQL logical replication tooling) with detailed
+    contract documentation available to the agent
+  ✓ Proper offline setup — all dependencies installed at build time
+
+Key Weaknesses:
+  ✗ Non-canonical base image (justified by JDK/Kotlin requirement)
+  ✗ Instructions defer schema details to external docs rather than being
+    fully self-contained
+
+Evaluates: Kotlin programming, SQL parsing, data normalization, structured
+           JSON output generation, incremental CLI extension
+
+================================================================================
+  RECOMMENDATION: ✅ READY TO USE
+
+  The task is well-designed and functional. The non-canonical base image is
+  justified by the JDK/Kotlin requirement and the image is properly
+  digest-pinned. No critical issues block deployment.
+================================================================================
+
+
+================================================================================
+          TEST QUALITY REVIEW: tbench-task (MILESTONE TASK — 3 steps)
+================================================================================
+
+Status:    ⚠️  VULNERABLE
+Severity:  Major
+Milestones: 3 of 3 reviewed
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+This task has 3 milestone(s); 1 of 3 reviewed are VULNERABLE.
+See per-milestone reviews below for details.
+
+================================================================================
+                         PER-MILESTONE REVIEWS
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 1
+================================================================================
+
+Status:    ⚠️  VULNERABLE
+Severity:  Major
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: STRENGTHEN
+The JSON output assertions never verify the `schema` field on top-level table
+objects, allowing an implementation to omit a contract-required field and still
+pass all tests.
+
+Strengths:  The test suite covers parsing across three distinct scenarios
+(fixture data, runtime SQL with empty publications and ALTER ADD TABLE, and
+table-level primary keys with type modifiers), verifying both JSON and SQLite
+output with hardcoded expected values that the agent cannot access.
+
+Weaknesses: (1) No test asserts the `schema` field on top-level table objects
+in JSON output. (2) Subscription JSON shape in the fixture test only checks the
+name field, leaving `publication` and `targetTables` unverified for that
+scenario.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The test suite is thorough in most respects — it validates publication column
+lists, empty publications, inline and table-level primary keys, type modifiers,
+nullability, REPLICA IDENTITY FULL markers, directory creation, pretty-print
+formatting, and comprehensive SQLite population. However, the snapshot contract
+explicitly requires table objects to contain a `schema` field, and no JSON
+output assertion in any of the three tests verifies its presence or value. An
+implementation that omits `schema` from table objects would pass every test.
+
+================================================================================
+                          WEAK ASSERTIONS ⚠️
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Top-level table objects never assert `schema` field in JSON output
+--------------------------------------------------------------------------------
+
+Where:   steps/milestone_1/tests/test_m1.py:45-50, 133-134, 172-173
+Problem: The snapshot contract states "Table objects contain `schema`, `name`,
+`columns`, and `replicaIdentity`." All three tests access tables by name lookup
+(e.g., `next(t for t in data["tables"] if t["name"] == "accounts")`) but never
+assert that `t["schema"]` exists or has the correct value. An implementation
+omitting `schema` from table objects passes all tests.
+
+Current test:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  accounts = next(t for t in data["tables"] if t["name"] == "accounts")     │
+│  acct_cols = {c["name"]: c for c in accounts["columns"]}                   │
+│  assert acct_cols["id"] == {"name": "id", "type": "bigint", ...}           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Required fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  accounts = next(t for t in data["tables"] if t["name"] == "accounts")     │
+│  assert accounts["schema"] == "public"                                     │
+│  assert set(accounts.keys()) == {"schema","name","columns",                │
+│                                   "replicaIdentity"}                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: The snapshot contract treats `schema` as a required field on every
+table object. Without this assertion, the parser can produce table objects
+missing a key field and still receive full marks. Since the test for
+publications does check `{"schema": "public", "name": ..., "columns": ...}`,
+the omission on table objects appears accidental.
+
+--------------------------------------------------------------------------------
+2. Fixture subscription JSON output only asserts `name`, not full object shape
+--------------------------------------------------------------------------------
+
+Where:   steps/milestone_1/tests/test_m1.py:54
+Problem: The first test's JSON subscription assertion is limited to
+`data["subscriptions"][0]["name"] == "sub_app"`. It does not verify the
+`publication` or `targetTables` fields in the JSON output for that fixture,
+even though the contract requires both. While the SQLite checks cover similar
+ground, an implementation could emit correct SQLite but malformed subscription
+JSON objects and still pass.
+
+Current test:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  assert data["subscriptions"][0]["name"] == "sub_app"                       │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Required fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  sub_app = data["subscriptions"][0]                                         │
+│  assert sub_app["name"] == "sub_app"                                       │
+│  assert sub_app["publication"] == "app_pub"                                │
+│  assert sub_app["targetTables"] == [                                       │
+│      {"schema": "public", "name": "accounts",                              │
+│       "columns": ["id", "email", "status"]},                               │
+│      {"schema": "public", "name": "orders",                                │
+│       "columns": ["id", "account_id", "total_cents", "state"]},            │
+│  ]                                                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: The snapshot contract requires subscription objects to contain
+`name`, `publication`, and `targetTables`. Test 2 does check `targetTables`
+for runtime SQL, but the fixture test leaves the primary subscription JSON
+output largely unverified. An agent could hardcode subscription names without
+properly populating the rest of the object and pass this test.
+
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 2
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+The test suite exercises all core validation logic through both a fixed public
+fixture and a synthetically-constructed edge catalog, making shortcutting
+infeasible.
+
+Strengths:  Tests use runtime-generated catalogs with novel data the agent
+cannot predict, verifying exact summary counts, diagnostic codes, ordering,
+message substrings, and sorted column arrays through precise equality assertions.
+
+Weaknesses: Minor — the two `missing_table` diagnostics for the ghost table are
+verified only by code, not by message content distinguishing the two meanings.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The milestone 2 test suite contains 12 test methods covering the validate
+subcommand across all seven diagnostic codes, result ordering, column
+sorting, parent directory creation, and summary statistics. The tests
+combine a public fixture (using the real input files) with a
+synthetically-constructed edge catalog that exercises missing publications,
+missing tables from both publication and schema, missing columns, unsafe
+filters, and primary key omission in a single scenario. All core
+constraints from the instruction are verified through exact-value
+assertions that would reject incorrect implementations.
+
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 3
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+The test suite thoroughly verifies all core planner constraints with
+correctness assertions on exact SQL output, action shapes, column lists,
+ordering, and review-only semantics using both fixture-driven and synthetic
+validation inputs that cannot be hardcoded by an agent without test access.
+
+Strengths:  Tests exercise the planner with two independent validation inputs
+(the public fixture pipeline and a synthetic runtime JSON), verifying exact SQL
+strings, column lists, action ordering, summary counts, directory creation, and
+the merge-multiple-diagnostics requirement with precise value assertions.
+
+Weaknesses: The multi-key sort (by subscription, then publication, then table
+within severity) is only lightly stressed since both validation inputs use a
+single subscription; an implementation that sorts only by severity would still
+pass.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+Milestone 3 requires implementing the `pubgate plan` command that transforms
+validation diagnostics into a sorted JSON plan and an executable SQL file.
+The test suite contains five tests covering: ADD TABLE without column lists,
+widened column filters that exclude schema-gap columns, merging multiple
+diagnostics into a single widened action, blocking-before-review ordering,
+review actions with empty SQL and severity "review", parent directory
+creation, and backward compatibility of earlier commands. Each test uses
+exact value assertions (==) on SQL strings, column arrays, summary objects,
+and action type sequences. The synthetic validation JSON in tests is
+inaccessible to the agent, preventing hardcoded shortcuts.
+
+================================================================================
+
+================================================================================
+
+
+Comments for Reviewer (optional)
+Use this field to provide any context or justification for your task that you would like the reviewer to see
+
+Hello & Good Evening! All issues fixed. Task complete! In terms of the task instruction sufficiency notice, the failures are not random or impossible to diagnose. They fall into a few concrete implementation mistakes: not suppressing missing_column diagnostics when the publisher table is absent, ordering repair actions incorrectly, and missing the expected targetTables ordering.
+
+The missing_column issue is not a hidden requirement. The validation contract already says that diagnostics should be gated by whether the publisher schema/table exists. A correct implementation should not keep checking columns for a table that is missing from the publisher schema. The failed agents applied the column check too early. That is an agent implementation bug, not proof that the task is underspecified.
+
+The repair-action ordering issue is also a planner sequencing problem. The expected sequence is logically implied by the repair flow: add the table to the publication before widening the column filter for that table. Some agents inverted that order. That can be clarified in the repair-plan spec, but the failure is still a normal Medium-level planning mistake rather than a blocker.
+
+So the LLMaJ failure is overbroad. It combines one small documentation gap with several ordinary agent-run bugs. The task still has the expected benchmark shape: oracle passes, NOP fails, the behavior is testable, and the remaining issues are concrete enough to fix without changing the core problem.
+
+
+
+# Rubric 1
+Agent implements pubgate parse so schema SQL, publication SQL, and subscription JSON from arbitrary absolute paths produce the documented snapshot JSON with correct key order, pretty printing, trailing newline, and created parent directories, +5
+Agent preserves table metadata including schema/name ordering, column names, data types with modifiers, nullability, inline and table-level primary keys, and REPLICA IDENTITY FULL markers, +3
+Agent records publications and subscriptions including empty publications, ALTER PUBLICATION ADD TABLE entries, filtered column lists, and subscriber target columns in deterministic order, +3
+Agent populates all required SQLite catalog tables with compact single-line JSON arrays in columns_json fields, +3
+Agent hardcodes the shipped fixture values instead of parsing fresh runtime SQL and JSON inputs, -5
+Agent omits required parse outputs or writes them only to fixed paths instead of honoring --db and --out, -3
+
+# Rubric 2
+Agent implements pubgate validate so every subscriber target table is compared against its referenced publication and publisher schema without adding rows for untargeted publication tables, +5
+Agent emits the documented validation summary, result fields, schema-qualified table names, compatible/blocked status, sorted publishedColumns/subscriberColumns, and created parent directories, +3
+Agent produces all required blocking diagnostics with severity, required message substrings, sorted missingColumns, and deterministic intra-result ordering, +5
+Agent correctly handles missing publications, missing publication table membership, missing publisher schema tables, schema-missing subscriber columns, unsafe filters, omitted primary keys, and filtered REPLICA IDENTITY FULL tables, +5
+Agent treats an empty publication column list as an unfiltered publication that sends all publisher columns, +2
+Agent collapses or omits required diagnostic categories in a way that hides blocking cutover risks, -5
+Agent emits validation JSON with unstable ordering, wrong field names, or incorrect missingColumns contents, -3
+Agent validates only the public fixture and fails on freshly generated compatible or blocked catalogs, -3
+
+# Rubric 3
+Agent implements pubgate plan so validation diagnostics become the documented JSON plan and executable SQL file with created parent directories and deterministic trailing-newline behavior, +5
+Agent maps missing_table diagnostics to ADD TABLE SQL using bare identifiers and no column list, +3
+Agent maps unsafe_filter and primary_key_omitted diagnostics into one widened column-filter action per result using the sorted union of already published and publisher-backed required columns, +5
+Agent maps missing_publication, missing_column, and identity_filter_blocked diagnostics to review-only actions with severity review and empty sql, +3
+Agent sorts blocking actions before review actions, then by subscription, publication, table, and type, +2
+Agent generates widening SQL that includes schema-missing columns reported by missing_column, -5
+Agent emits executable SQL for review-only actions or uses warning instead of review severity, -3
+Agent breaks parse or validate behavior while adding the planner, -5
+
+

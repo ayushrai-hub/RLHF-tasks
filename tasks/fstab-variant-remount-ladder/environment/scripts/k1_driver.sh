@@ -142,7 +142,7 @@ matrix = json.loads(Path(sys.argv[1]).read_text())
 base = next(m for m in matrix if m["lane_id"] == "lane_k1")["state_digest"]
 for m in matrix:
     lid = m["lane_id"]
-    if lid in ("lane_k1", "lane_k3", "lane_k4") and m["state_digest"] != base:
+    if lid in ("lane_k1", "lane_k2", "lane_k3", "lane_k4") and m["state_digest"] != base:
         raise SystemExit(f"lane {lid} digest {m['state_digest']} != {base}")
 Path("/tmp/fvr_matrix.ok").write_text("ok")
 PY

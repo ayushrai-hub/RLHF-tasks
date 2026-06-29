@@ -1,0 +1,8 @@
+{
+  "column": "fwd_data_pkts_tot",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 9,
+  "role": "candidate_predictor",
+  "unique_values": 99
+}

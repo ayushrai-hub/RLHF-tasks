@@ -1,0 +1,7 @@
+[workspace]
+id = "lineage-lab"
+governance.run_id = "run-lineage"
+retention.default_class = "standard-90d"
+
+[artifacts]
+public_read = false

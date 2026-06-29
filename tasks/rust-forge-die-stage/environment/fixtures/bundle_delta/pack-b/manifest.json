@@ -1,8 +1,0 @@
-{
-  "scenario_tag": "delta",
-  "pack_generation": 11,
-  "journal_revision": 2,
-  "shards": [
-    {"id": 1, "path": "b.jsonl"}
-  ]
-}

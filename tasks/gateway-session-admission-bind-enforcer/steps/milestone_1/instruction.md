@@ -1,5 +1,0 @@
-Our edge gateway session driver under /app/environment has drift between normalize, admit staging, ledger sealing, and export tamper evidence. Each run takes a session directory plus request JSON, updates enforcement state on disk, and writes output JSON for audit.
-
-Milestone 1 restores live admission control end-to-end. Start with /app/docs/gateway-session-integrity.md for the security model, then /app/docs/run-pipeline.md for stage order. Artifact contracts live in /app/docs/admission-snapshot.md, /app/docs/enforcement-ledger.md, /app/docs/admission-bind.md, /app/docs/persistence-model.md, /app/docs/refill-anchor.md, /app/docs/routing-and-capacity.md, /app/docs/session-checkpoint.md, and /app/docs/checkpoint-chain.md. The production export path is export_stage.go with staging triple verification — not session/publish.go.
-
-Runs may fresh_start, reload backend policy immediately, or consume tokens against a named backend or weighted round-robin when backend is omitted. Milestone 1 keeps scope_gen at zero on fresh_start.

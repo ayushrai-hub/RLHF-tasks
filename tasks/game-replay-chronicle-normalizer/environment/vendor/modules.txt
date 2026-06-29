@@ -1,0 +1,2 @@
+# github.com/terminus/game-replay-chronicle-normalizer
+## explicit; go 1.24

@@ -1,0 +1,47 @@
+user_visible_outputs = [
+  "/app/output/quota_report.json",
+  "/app/output/audit_trail.json",
+]
+
+internal_harness_files = [
+  "tests/test_outputs.py",
+]
+
+[structured_outputs.quota_report]
+target = "/app/output/quota_report.json"
+format = "json"
+instruction_checks = [
+  "generated_from",
+  "event_line_count",
+  "parsed_count",
+  "malformed_line_count",
+  "processed_count",
+  "applied_count",
+  "rejected_count",
+  "skipped_idempotent_count",
+  "rejections",
+  "event_id",
+  "account_id",
+  "reason",
+  "priority_rank",
+  "accounts",
+  "available",
+  "held",
+  "limit",
+  "epoch",
+  "last_event_id",
+  "last_logical_time",
+  "snapshot_digest",
+]
+
+[structured_outputs.audit_trail]
+target = "/app/output/audit_trail.json"
+format = "json"
+instruction_checks = [
+  "generated_from",
+  "batch_count",
+  "journal_digest",
+  "projection_digest",
+  "batches",
+  "audit_digest",
+]

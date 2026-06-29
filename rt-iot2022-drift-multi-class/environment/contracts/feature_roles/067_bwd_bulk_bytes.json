@@ -1,0 +1,8 @@
+{
+  "column": "bwd_bulk_bytes",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 67,
+  "role": "candidate_predictor",
+  "unique_values": 376
+}

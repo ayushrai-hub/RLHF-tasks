@@ -1,7 +1,0 @@
-{
-  "id": "c9_leap_day",
-  "expr": "0 0 29 2 *",
-  "from": "2026-03-01T00:00:00Z",
-  "count": 2,
-  "note": "Feb 29 - exercises multi-year rollover"
-}

@@ -1,6 +1,0 @@
-[unit]
-description = "bulk transfer helper under supervised logging"
-
-[logging]
-standard_output = "journal"
-standard_error = "journal"

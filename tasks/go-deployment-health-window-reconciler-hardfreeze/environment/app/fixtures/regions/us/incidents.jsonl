@@ -1,3 +1,0 @@
-{"incident_id": "inc-100", "deployment_id": "dep-100", "started_at": "2026-06-01T10:15:00Z", "ended_at": "2026-06-01T10:25:00Z", "severity": "sev1"}
-{"incident_id": "inc-200", "deployment_id": "dep-200", "started_at": "2026-06-01T10:25:00Z", "ended_at": "2026-06-01T10:35:00Z", "severity": "sev2"}
-{"incident_id": "inc-ghost", "deployment_id": "dep-missing", "started_at": "2026-06-01T10:00:00Z", "severity": "critical"}

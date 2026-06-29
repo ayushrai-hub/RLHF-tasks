@@ -83,6 +83,7 @@ def fresh():
 
 class TestRemux:
     def test_remux_emits_mp4(self):
+        """Verify remux cam001 returns ok body and writes the mp4 artifact."""
         r = _run(["remux", "cam001"])
         body = json.loads(r.stdout)
         assert body["status"] == "ok"
@@ -92,11 +93,13 @@ class TestRemux:
         assert mp4.exists() and mp4.stat().st_size > 0
 
     def test_remux_keys_alpha_sorted(self):
+        """Verify remux response keys are ASCII-ascending sorted."""
         r = _run(["remux", "cam002"])
         body = json.loads(r.stdout)
         assert list(body.keys()) == sorted(body.keys())
 
     def test_remux_sha_matches_file_bytes(self):
+        """Verify the response sha256 matches the on-disk mp4 byte hash."""
         r = _run(["remux", "cam003"])
         body = json.loads(r.stdout)
         mp4 = Path(ARTIFACTS_DIR) / "cam003.mp4"
@@ -104,11 +107,13 @@ class TestRemux:
         assert got == body["sha256"]
 
     def test_remux_inserts_artifact_row(self):
+        """Verify remux writes an artifacts row for each remuxed playlist."""
         rows = _query("SELECT playlist_id, sha256 FROM artifacts ORDER BY artifact_id")
         ids = {r[0] for r in rows}
         assert {"cam001", "cam002", "cam003"}.issubset(ids)
 
     def test_remux_inserts_audit_row_with_allow(self):
+        """Verify successful remux appends a decision=allow audit_log row."""
         # Spec: a successful remux inserts an audit_log row with
         # action='remux', target=<playlist_id>, decision='allow'. Without
         # this assertion an agent can produce the correct MP4 + artifacts
@@ -130,11 +135,15 @@ class TestRemux:
             assert rows[0][0] == "allow"
 
     def test_remux_missing_segments(self):
+        """Verify remux missing_segments path writes a decision=deny audit row."""
         # Stash one plaintext to provoke missing_segments.
         idx = json.loads(Path(INDEX_PATH).read_text())
         target = next(e for e in idx if e["playlist_id"] == "cam001")
         p = Path(SEGMENTS_DIR) / target["segment_filename"]
         backup = p.read_bytes()
+        # Snapshot audit_log seq before the failed remux so we can identify
+        # the row this call appended.
+        before_rows = _query("SELECT COUNT(*) FROM audit_log")[0][0]
         p.unlink()
         try:
             r = subprocess.run([RECOVER, "remux", "cam001"], capture_output=True,
@@ -142,6 +151,23 @@ class TestRemux:
             assert r.returncode == 1
             err = json.loads(r.stderr)
             assert err["error"] == "missing_segments"
+            # Spec: the missing_segments error path MUST append a
+            # decision=deny audit_log row. Without this assertion an agent
+            # can exit 1 with the right error code but skip the audit
+            # write entirely, breaking forensic accountability.
+            after_rows = _query("SELECT COUNT(*) FROM audit_log")[0][0]
+            assert after_rows == before_rows + 1, (
+                f"missing_segments must append exactly one audit_log row;"
+                f" before={before_rows} after={after_rows}")
+            last = _query(
+                "SELECT action, target, decision FROM audit_log"
+                " ORDER BY seq DESC LIMIT 1")[0]
+            assert last[0] == "remux", (
+                f"latest audit_log row action={last[0]!r}, want 'remux'")
+            assert last[1] == "cam001", (
+                f"latest audit_log row target={last[1]!r}, want 'cam001'")
+            assert last[2] == "deny", (
+                f"missing_segments must write decision='deny', got {last[2]!r}")
         finally:
             p.write_bytes(backup)
 
@@ -274,6 +300,7 @@ def _codec_private_cases():
 class TestValidatorsByteRange:
     @pytest.mark.parametrize("idx,case", list(enumerate(_byterange_cases())))
     def test_case(self, idx, case):
+        """Verify byte_range_parse rule returns expected valid for each scratch case."""
         text, expected = case
         case_id = f"byte_range_parse_c{idx}"
         d = _make_case_dir(case_id, text, "cam001")
@@ -285,6 +312,7 @@ class TestValidatorsByteRange:
 class TestValidatorsKeyUri:
     @pytest.mark.parametrize("idx,case", list(enumerate(_key_uri_cases())))
     def test_case(self, idx, case):
+        """Verify key_uri_format rule returns expected valid for each scratch case."""
         text, expected = case
         d = _make_case_dir(f"key_uri_c{idx}", text, "cam001")
         r = _run_validate("key_uri_format", "cam001", d)
@@ -295,6 +323,7 @@ class TestValidatorsKeyUri:
 class TestValidatorsIvPinning:
     @pytest.mark.parametrize("idx,case", list(enumerate(_iv_pinning_cases())))
     def test_case(self, idx, case):
+        """Verify iv_pinning rule returns expected valid for each scratch case."""
         text, expected = case
         d = _make_case_dir(f"iv_c{idx}", text, "cam001")
         r = _run_validate("iv_pinning", "cam001", d)
@@ -305,6 +334,7 @@ class TestValidatorsIvPinning:
 class TestValidatorsScope:
     @pytest.mark.parametrize("idx,case", list(enumerate(_scope_cases())))
     def test_case(self, idx, case):
+        """Verify ext_x_key_scope rule returns expected valid for each scratch case."""
         text, expected = case
         d = _make_case_dir(f"scope_c{idx}", text, "cam001")
         r = _run_validate("ext_x_key_scope", "cam001", d)
@@ -315,6 +345,7 @@ class TestValidatorsScope:
 class TestValidatorsRotation:
     @pytest.mark.parametrize("idx,case", list(enumerate(_rotation_cases())))
     def test_case(self, idx, case):
+        """Verify segment_encryption_rotation rule returns expected valid per case."""
         text, expected = case
         d = _make_case_dir(f"rot_c{idx}", text, "cam001")
         r = _run_validate("segment_encryption_rotation", "cam001", d)
@@ -325,6 +356,7 @@ class TestValidatorsRotation:
 class TestValidatorsCodecPrivate:
     @pytest.mark.parametrize("case", _codec_private_cases())
     def test_case(self, case):
+        """Verify codec_private_integrity rule returns expected valid per mutation."""
         tag, text, expected, mutation = case
         d = _make_case_dir(f"cp_{tag}", text, "cam001")
         # Stage the segment file (good or mutated) in a scratch dir so
@@ -360,6 +392,7 @@ class TestValidatorsCodecPrivate:
 
 class TestValidatorChain:
     def test_six_rule_chain_against_cam001(self):
+        """Verify the six-rule validator chain produces the expected sha256."""
         # Clean state so the chain starts empty.
         _reset_and_decrypt()
         expected = json.loads(Path(EXPECTED_VALIDATORS).read_text())
@@ -381,6 +414,7 @@ class TestValidatorChain:
 
 class TestInvalidValidatorDoesNotMutateCam001Chain:
     def test_invalid_byte_range_leaves_cam001_chain_unchanged(self):
+        """Verify scratch-path invalid byte_range_parse leaves cam001 chain intact."""
         # Spec: "Invalid cases MUST NOT mutate the playlist's
         # audit_validator_sha256 chain on cam001." Capture cam001's chain
         # column, run an invalid byte_range_parse case against a scratch
@@ -410,6 +444,7 @@ class TestInvalidValidatorDoesNotMutateCam001Chain:
             f" after={after_val!r}")
 
     def test_invalid_key_uri_leaves_cam001_chain_unchanged(self):
+        """Verify scratch-path invalid key_uri_format leaves cam001 chain intact."""
         before = _query(
             "SELECT audit_validator_sha256 FROM playlists WHERE playlist_id=?",
             "cam001")
@@ -431,6 +466,7 @@ class TestInvalidValidatorDoesNotMutateCam001Chain:
 
 class TestAuditList:
     def test_audit_list_emits_chain(self):
+        """Verify audit list returns a chain whose entry_hash re-derives via HMAC."""
         _reset_and_decrypt()
         # Generate some audit rows.
         _run(["validate", "byte_range_parse", "cam001"])

@@ -1,0 +1,8 @@
+{
+  "ruleset": "tournament-area-2026",
+  "board_size": 5,
+  "komi": 6.5,
+  "passes_to_end": 2,
+  "scoring": "area",
+  "legacy_score_notation": true
+}

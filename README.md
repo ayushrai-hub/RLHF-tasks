@@ -90,6 +90,7 @@ Open this repo alongside your task folder in Cursor. Rules auto-apply when editi
 ```
 .
 ├── tasks/              # All active Terminus task folders (see tasks/README.md)
+├── stats-plan-resume-skew/  # Active task pinned at repo root (not under tasks/)
 ├── reviews/            # External reports (entire-report.txt copies per review)
 ├── _incoming/zips/     # Submission ZIP archives
 ├── _backup/copies/     # Duplicate task folders kept for safety

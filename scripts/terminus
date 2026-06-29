@@ -24,6 +24,8 @@ Commands:
   agent <task-dir>             Run AI agent for difficulty testing
   zip <task-dir> [output.zip]  Create submission ZIP (files inside folder)
   rubric-validate <file> [--milestones N]  Validate rubric format
+  rubric-points <entire-report.txt> [--milestones N]
+                                           Sum positive rubric points (+lines only)
   review <task-dir> [--report FILE] [--rubric FILE] [-o FILE]
                                            Write review-report.md + checkbox guide
 
@@ -222,6 +224,19 @@ cmd_rubric_validate() {
   python3 "$SCRIPT_DIR/validate_rubric.py" "$file" --milestones "$milestones"
 }
 
+cmd_rubric_points() {
+  local file="$1"
+  shift || true
+  local milestones=0
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --milestones) milestones="$2"; shift 2 ;;
+      *) shift ;;
+    esac
+  done
+  python3 "$SCRIPT_DIR/rubric_points.py" "$file" --milestones "$milestones"
+}
+
 cmd_review() {
   local task_dir="$1"
   shift || true
@@ -280,6 +295,7 @@ case "$COMMAND" in
   agent)      [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_agent "$@" ;;
   zip)        [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_zip "$@" ;;
   rubric-validate) [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_rubric_validate "$@" ;;
+  rubric-points) [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_rubric_points "$@" ;;
   review)       [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_review "$@" ;;
   init)       [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_init "$@" ;;
   help|--help|-h|"") usage ;;

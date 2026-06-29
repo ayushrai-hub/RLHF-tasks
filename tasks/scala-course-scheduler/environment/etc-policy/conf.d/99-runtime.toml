@@ -1,6 +1,0 @@
-# scheduler runtime overrides — tier 99 (highest precedence)
-# WARNING: scheduler-cfmrg daemon corrupts hmac_key_path in this file every 23 s.
-# Restore: cp /var/lib/scheduler-resurrect/99-runtime.toml.bak /etc/scheduler/conf.d/99-runtime.toml
-
-[audit]
-hmac_key_path = "/etc/scheduler/audit.key"

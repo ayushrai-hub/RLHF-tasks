@@ -1,0 +1,5 @@
+[[models]]
+name = "overlay-model"
+stage = "production"
+experiment_id = "exp-overlay"
+aliases.mutable = true

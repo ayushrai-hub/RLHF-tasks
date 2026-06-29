@@ -1,0 +1,16 @@
+{"event_id":"QE-000001","account_id":"ACC-WIDGET","operation":"CORRECTION","amount":10,"logical_time":"2026-06-01T10:00:00Z","source_replica":"REP-ACME","seq":2,"epoch":1}
+{"event_id":"QE-000002","account_id":"ACC-WIDGET","operation":"RESERVE","amount":5,"logical_time":"2026-06-01T11:00:00Z","source_replica":"REP-ACME","seq":3,"epoch":1}
+{"event_id":"QE-000003","account_id":"ACC-GADGET","operation":"CORRECTION","amount":4,"logical_time":"2026-06-01T10:00:00Z","source_replica":"REP-BETA","seq":1,"epoch":1}
+{"event_id":"QE-000004","account_id":"ACC-GADGET","operation":"CORRECTION","amount":9,"logical_time":"2026-06-01T10:00:00Z","source_replica":"REP-ZETA","seq":1,"epoch":1}
+{"event_id":"QE-000005","account_id":"ACC-WIDGET","operation":"CONSUME","amount":3,"logical_time":"2026-06-01T12:00:00Z","source_replica":"REP-ACME","seq":4,"epoch":1}
+{"event_id":"QE-000006","account_id":"ACC-WIDGET","operation":"SUSPEND","logical_time":"2026-06-01T13:00:00Z","source_replica":"REP-ACME","seq":5,"epoch":1}
+{"event_id":"QE-RBDEL1","account_id":"ACC-WIDGET","operation":"REVERSAL","target_event_id":"QE-000005","logical_time":"2026-06-01T13:30:00Z","source_replica":"REP-ACME","seq":6,"epoch":1}
+{"event_id":"QE-REST01","account_id":"ACC-WIDGET","operation":"RESUME","logical_time":"2026-06-01T13:31:00Z","source_replica":"REP-BETA","seq":1,"epoch":1}
+{"event_id":"QE-000007","account_id":"ACC-WIDGET","operation":"RESERVE","amount":1,"logical_time":"2026-06-01T14:00:00Z","source_replica":"REP-ACME","seq":7,"epoch":1}
+{"event_id":"QE-000008","account_id":"ACC-WIDGET","operation":"RESUME","logical_time":"2026-06-01T15:00:00Z","source_replica":"REP-ACME","seq":8,"epoch":1}
+{"event_id":"QE-000009","account_id":"ACC-WIDGET","operation":"REVERSAL","target_event_id":"QE-000005","logical_time":"2026-06-01T16:00:00Z","source_replica":"REP-ACME","seq":9,"epoch":1}
+{"event_id":"QE-000010","account_id":"ACC-WIDGET","operation":"CORRECTION","amount":2,"logical_time":"2026-06-01T09:00:00Z","source_replica":"REP-ACME","seq":1,"epoch":1}
+{"event_id":"QE-000001","account_id":"ACC-WIDGET","operation":"CORRECTION","amount":10,"logical_time":"2026-06-01T10:00:00Z","source_replica":"REP-ACME","seq":2,"epoch":1}
+{"event_id":"QE-000011","account_id":"ACC-WIDGET","operation":"CORRECTION","amount":99,"logical_time":"2026-06-01T10:00:00Z","source_replica":"REP-ACME","seq":1,"epoch":1}
+{"not valid json
+{"event_id":"QE-000012","account_id":"ACC-WIDGET","operation":"CORRECTION","amount":8,"logical_time":"2026-06-01T17:00:00Z","source_replica":"REP-ACME","seq":10,"epoch":1}

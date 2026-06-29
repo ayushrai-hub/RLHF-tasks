@@ -6,8 +6,9 @@ if [ "$PWD" = "/" ]; then
     exit 1
 fi
 
-pip install --quiet --no-cache-dir --no-index --find-links /opt/test-wheels \
-    pytest==8.4.1 pytest-json-ctrf==0.3.5 JPype1==1.5.0 jaydebeapi==1.2.3
+# Activate the build-time venv that already has pytest + jaydebeapi etc.
+# installed (see Dockerfile: /opt/test-venv). No runtime pip install needed.
+source /opt/test-venv/bin/activate
 
 python3 -m pytest \
     -o cache_dir=/tmp/pytest_cache \

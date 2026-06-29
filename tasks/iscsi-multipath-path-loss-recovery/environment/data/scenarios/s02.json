@@ -1,0 +1,14 @@
+{
+  "scenario_label": "s02",
+  "table_gen": 4,
+  "crash_mid": true,
+  "active_path_mask": 0,
+  "target_path_mask": 7,
+  "stranded_path_mask": 56,
+  "alua_base_ms": 9,
+  "flush_bump": 8,
+  "failback_early": true,
+  "summary_green_view": false,
+  "retain_seq": 0,
+  "gate_hold": false
+}

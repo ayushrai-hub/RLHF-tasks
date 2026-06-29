@@ -1,4 +1,0 @@
-# build_key=k2
-2|1|bind,shared|/mnt/y|y200
-3|2|rw,relatime|/mnt/b|c300
-4|2|rw|/mnt/w|w400

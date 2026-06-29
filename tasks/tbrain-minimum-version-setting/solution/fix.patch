@@ -1,0 +1,302 @@
+diff --git a/GRAMMAR.md b/GRAMMAR.md
+index 8839c6fc..c05091c9 100644
+--- a/GRAMMAR.md
++++ b/GRAMMAR.md
+@@ -86,6 +86,7 @@ setting       : 'allow-duplicate-recipes' boolean?
+               | 'ignore-comments' boolean?
+               | 'lazy' boolean?
+               | 'lists' boolean?
++              | 'minimum-version' ':=' string
+               | 'no-cd' boolean?
+               | 'no-exit-message' boolean?
+               | 'positional-arguments' boolean?
+diff --git a/src/arguments.rs b/src/arguments.rs
+index be077868..01899fb1 100644
+--- a/src/arguments.rs
++++ b/src/arguments.rs
+@@ -24,7 +24,7 @@ use {
+     .usage(AnsiColor::Yellow.on_default() | Effects::BOLD)
+     .valid(AnsiColor::Green.on_default()),
+   trailing_var_arg = true,
+-  version = env!("CARGO_PKG_VERSION"),
++  version = VERSION,
+ )]
+ pub struct Arguments {
+   #[arg(
+diff --git a/src/compile_error.rs b/src/compile_error.rs
+index c3a5965c..c73d8859 100644
+--- a/src/compile_error.rs
++++ b/src/compile_error.rs
+@@ -259,6 +259,12 @@ impl Display for CompileError<'_> {
+         "shell recipe `{recipe}` has script recipe attribute `{}`",
+         attribute.name(),
+       ),
++      InvalidMinimumVersion { source, version } => {
++        write!(
++          f,
++          "`minimum-version` setting has invalid version `{version}`: {source}"
++        )
++      }
+       InvalidSignal { signal } => write!(
+         f,
+         "invalid signal `{signal}`: expected `SIGHUP`, `SIGINT`, or `SIGQUIT`"
+@@ -276,6 +282,16 @@ impl Display for CompileError<'_> {
+       MappedDependencyWithoutStarredArgument => {
+         write!(f, "mapped dependencies must have starred argument")
+       }
++      MinimumVersion { current, minimum } => write!(
++        f,
++        "justfile requires just {minimum} or later, but using {current}",
++      ),
++      MinimumVersionExpression => {
++        write!(
++          f,
++          "`minimum-version` setting must be a plain string literal"
++        )
++      }
+       MismatchedClosingDelimiter {
+         open,
+         open_line,
+diff --git a/src/compile_error_kind.rs b/src/compile_error_kind.rs
+index 7cd7a38e..2d2f1879 100644
+--- a/src/compile_error_kind.rs
++++ b/src/compile_error_kind.rs
+@@ -119,6 +119,10 @@ pub(crate) enum CompileErrorKind<'src> {
+   InvalidEscapeSequence {
+     character: char,
+   },
++  InvalidMinimumVersion {
++    source: &'static str,
++    version: String,
++  },
+   InvalidShellRecipeAttribute {
+     attribute: Box<Attribute<'src>>,
+     recipe: &'src str,
+@@ -130,6 +134,11 @@ pub(crate) enum CompileErrorKind<'src> {
+   MappedDependencyMultipleStarredArguments,
+   MappedDependencyWithoutListsSetting,
+   MappedDependencyWithoutStarredArgument,
++  MinimumVersion {
++    current: Version,
++    minimum: Version,
++  },
++  MinimumVersionExpression,
+   MismatchedClosingDelimiter {
+     close: Delimiter,
+     open: Delimiter,
+diff --git a/src/evaluator.rs b/src/evaluator.rs
+index 1c319191..3f8d1a53 100644
+--- a/src/evaluator.rs
++++ b/src/evaluator.rs
+@@ -123,6 +123,7 @@ impl<'src, 'run> Evaluator<'src, 'run> {
+         Setting::Lists(value) => {
+           settings.lists = value;
+         }
++        Setting::MinimumVersion(_) => {}
+         Setting::NoCd(value) => {
+           settings.no_cd = value;
+         }
+diff --git a/src/keyword.rs b/src/keyword.rs
+index b4d8023f..038d4a2d 100644
+--- a/src/keyword.rs
++++ b/src/keyword.rs
+@@ -27,6 +27,7 @@ pub(crate) enum Keyword {
+   Import,
+   Lazy,
+   Lists,
++  MinimumVersion,
+   Mod,
+   NoCd,
+   NoExitMessage,
+diff --git a/src/lib.rs b/src/lib.rs
+index 2ed58968..b0ef6467 100644
+--- a/src/lib.rs
++++ b/src/lib.rs
+@@ -127,6 +127,7 @@ pub(crate) use {
+     use_color::UseColor,
+     value::Value,
+     verbosity::Verbosity,
++    version::Version,
+     warning::Warning,
+     which::which,
+   },
+@@ -191,6 +192,7 @@ type RecipeAlias<'src> = Alias<'src, Arc<Recipe<'src>>>;
+ const JUST_DIRECTORY: &str = "just";
+ const RECURSION_LIMIT: usize = if cfg!(windows) { 48 } else { 256 };
+ const TEMPDIR_PREFIX: &str = "just-";
++const VERSION: &str = env!("CARGO_PKG_VERSION");
+ 
+ #[cfg(test)]
+ #[macro_use]
+@@ -336,5 +338,6 @@ mod usage;
+ mod use_color;
+ mod value;
+ mod verbosity;
++mod version;
+ mod warning;
+ mod which;
+diff --git a/src/node.rs b/src/node.rs
+index 3d8b7a05..8079ea72 100644
+--- a/src/node.rs
++++ b/src/node.rs
+@@ -316,6 +316,7 @@ impl<'src> Node<'src> for Set<'src> {
+       Setting::DotenvCommand(value)
+       | Setting::DotenvFilename(value)
+       | Setting::DotenvPath(value)
++      | Setting::MinimumVersion(value)
+       | Setting::Tempdir(value)
+       | Setting::WorkingDirectory(value) => {
+         set.push_mut(value.tree());
+diff --git a/src/parser.rs b/src/parser.rs
+index 967779b5..cb5ee6ab 100644
+--- a/src/parser.rs
++++ b/src/parser.rs
+@@ -1583,6 +1583,37 @@ impl<'run, 'src> Parser<'run, 'src> {
+       Keyword::DotenvCommand => Some(Setting::DotenvCommand(self.parse_expression()?)),
+       Keyword::DotenvFilename => Some(Setting::DotenvFilename(self.parse_expression()?)),
+       Keyword::DotenvPath => Some(Setting::DotenvPath(self.parse_expression()?)),
++      Keyword::MinimumVersion => {
++        let expression = self.parse_expression()?;
++
++        let Expression::StringLiteral { string_literal } = &expression else {
++          return Err(name.error(CompileErrorKind::MinimumVersionExpression));
++        };
++
++        if string_literal.expand || string_literal.kind.indented || string_literal.part.is_some() {
++          return Err(name.error(CompileErrorKind::MinimumVersionExpression));
++        }
++
++        let minimum = string_literal.cooked.parse::<Version>().map_err(|source| {
++          string_literal
++            .token
++            .error(CompileErrorKind::InvalidMinimumVersion {
++              source,
++              version: string_literal.cooked.clone(),
++            })
++        })?;
++
++        let current = Version::current();
++        if current < minimum {
++          return Err(
++            string_literal
++              .token
++              .error(CompileErrorKind::MinimumVersion { current, minimum }),
++          );
++        }
++
++        Some(Setting::MinimumVersion(expression))
++      }
+       Keyword::ScriptInterpreter => Some(Setting::ScriptInterpreter(self.parse_interpreter()?)),
+       Keyword::Shell => Some(Setting::Shell(self.parse_interpreter()?)),
+       Keyword::Tempdir => Some(Setting::Tempdir(self.parse_expression()?)),
+diff --git a/src/setting.rs b/src/setting.rs
+index bbbc12ec..65aa666a 100644
+--- a/src/setting.rs
++++ b/src/setting.rs
+@@ -18,6 +18,7 @@ pub(crate) enum Setting<'src> {
+   IgnoreComments(bool),
+   Lazy(bool),
+   Lists(bool),
++  MinimumVersion(Expression<'src>),
+   NoCd(bool),
+   NoExitMessage(bool),
+   PositionalArguments(bool),
+@@ -56,6 +57,7 @@ impl<'src> Setting<'src> {
+       Self::DotenvCommand(_value)
+       | Self::DotenvFilename(_value)
+       | Self::DotenvPath(_value)
++      | Self::MinimumVersion(_value)
+       | Self::Tempdir(_value)
+       | Self::WorkingDirectory(_value) => false,
+       Self::ScriptInterpreter(_value) | Self::Shell(_value) | Self::WindowsShell(_value) => false,
+@@ -129,6 +131,7 @@ impl Display for Setting<'_> {
+       Self::DotenvCommand(value)
+       | Self::DotenvFilename(value)
+       | Self::DotenvPath(value)
++      | Self::MinimumVersion(value)
+       | Self::Tempdir(value)
+       | Self::WorkingDirectory(value) => {
+         write!(f, "{value}")
+diff --git a/src/version.rs b/src/version.rs
+new file mode 100644
+index 00000000..b3934c40
+--- /dev/null
++++ b/src/version.rs
+@@ -0,0 +1,77 @@
++use super::*;
++
++const N: &str = "(0|[1-9][0-9]{0,8})";
++
++static REGEX: LazyLock<Regex> = LazyLock::new(|| Regex::new(&format!(r"^{N}\.{N}\.{N}$")).unwrap());
++
++#[derive(Debug, PartialEq, Eq, PartialOrd, Ord)]
++pub(crate) struct Version(u64, u64, u64);
++
++impl Version {
++  pub(crate) fn current() -> Self {
++    VERSION.parse().unwrap()
++  }
++}
++
++impl Display for Version {
++  fn fmt(&self, f: &mut Formatter) -> fmt::Result {
++    write!(f, "{}.{}.{}", self.0, self.1, self.2)
++  }
++}
++
++impl FromStr for Version {
++  type Err = &'static str;
++
++  fn from_str(text: &str) -> Result<Self, Self::Err> {
++    let captures = REGEX.captures(text).ok_or("expected `MAJOR.MINOR.PATCH`")?;
++
++    Ok(Version(
++      captures[1].parse().unwrap(),
++      captures[2].parse().unwrap(),
++      captures[3].parse().unwrap(),
++    ))
++  }
++}
++
++#[cfg(test)]
++mod tests {
++  use super::*;
++
++  #[test]
++  fn current_version_is_valid() {
++    Version::current();
++  }
++
++  #[test]
++  fn parse() {
++    #[track_caller]
++    fn case(text: &str, expected: Option<Version>) {
++      assert_eq!(text.parse::<Version>().ok(), expected);
++    }
++
++    case("0.0.0", Some(Version(0, 0, 0)));
++    case("01.2.3", None);
++    case("1.2.3", Some(Version(1, 2, 3)));
++    case("1234567890.0.0", None);
++    case("999999999.0.0", Some(Version(999_999_999, 0, 0)));
++    case("foo", None);
++  }
++
++  #[test]
++  fn compare() {
++    #[track_caller]
++    fn case(a: &str, b: &str, expected: Ordering) {
++      assert_eq!(
++        a.parse::<Version>()
++          .unwrap()
++          .cmp(&b.parse::<Version>().unwrap()),
++        expected
++      );
++    }
++
++    case("1.2.3", "1.2.3", Ordering::Equal);
++    case("1.2.3", "1.2.4", Ordering::Less);
++    case("1.3.0", "1.2.9", Ordering::Greater);
++    case("2.0.0", "1.99.99", Ordering::Greater);
++  }
++}

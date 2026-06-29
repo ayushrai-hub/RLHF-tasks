@@ -1,0 +1,77 @@
+--- aes_crypto.py
++++ aes_crypto.py
+@@ -2,13 +2,22 @@
+ 
+ from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+ 
++from config import SUPPORTED_KEY_SIZES
+ from crypto_nonce_policy import next_nonce
++from exceptions import DecryptionError, KeySizeError
+ from key_derivation import build_gcm_aad, derive_field_key
+ 
+ 
+ def generate_key() -> bytes:
+-    """Generate a new random 256-bit AES master key."""
+     return AESGCM.generate_key(bit_length=256)
++
++
++def _validate_key(key: bytes) -> None:
++    bits = len(key) * 8
++    if bits not in SUPPORTED_KEY_SIZES:
++        raise KeySizeError(
++            f"Unsupported key size: {bits} bits (allowed: {SUPPORTED_KEY_SIZES})"
++        )
+ 
+ 
+ def encrypt_field(
+@@ -18,7 +27,7 @@
+     block_type: str,
+     key_version: int = 1,
+ ) -> dict:
+-    """Encrypt a plaintext string with AES-GCM using a per-field derived key."""
++    _validate_key(key)
+     derived_key = derive_field_key(key, field_name, block_type, key_version)
+     aesgcm = AESGCM(derived_key)
+     nonce = next_nonce()
+@@ -34,24 +43,26 @@
+     block_type: str,
+     key_version: int = 1,
+ ) -> str:
+-    """Decrypt an AES-GCM encrypted field and return the plaintext string."""
++    _validate_key(key)
+     try:
+         derived_key = derive_field_key(key, field_name, block_type, key_version)
+         nonce = bytes.fromhex(encrypted_data["nonce"])
+         ciphertext = bytes.fromhex(encrypted_data["ciphertext"])
++    except (KeyError, TypeError, ValueError) as exc:
++        raise DecryptionError(f"Malformed encrypted payload: {exc}") from exc
++    try:
+         aesgcm = AESGCM(derived_key)
+         aad = build_gcm_aad(block_type, field_name, key_version)
+         return aesgcm.decrypt(nonce, ciphertext, aad).decode("utf-8")
+-    except Exception:
+-        return ""
++    except Exception as exc:
++        raise DecryptionError("Authentication tag verification failed") from exc
+ 
+ 
+ def encrypt_secrets(
+     secrets: dict, key: bytes, block_type: str, key_version: int = 1
+ ) -> dict:
+-    """Encrypt all fields in a secrets dict using per-field key derivation."""
+     return {
+-        field: encrypt_field(value, key, field_name=field, block_type=block_type, key_version=1)
++        field: encrypt_field(value, key, field_name=field, block_type=block_type, key_version=key_version)
+         for field, value in secrets.items()
+     }
+ 
+@@ -59,8 +70,7 @@
+ def decrypt_secrets(
+     encrypted_secrets: dict, key: bytes, block_type: str, key_version: int = 1
+ ) -> dict:
+-    """Decrypt all fields in an encrypted secrets dict."""
+     return {
+-        field: decrypt_field(data, key, field_name=field, block_type=block_type, key_version=1)
++        field: decrypt_field(data, key, field_name=field, block_type=block_type, key_version=key_version)
+         for field, data in encrypted_secrets.items()
+     }

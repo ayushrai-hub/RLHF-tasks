@@ -1,0 +1,29 @@
+[package]
+name = "r8_replay"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "internal/lib.rs"
+
+[[bin]]
+name = "r8_run"
+path = "cli/r8_run.rs"
+
+[[bin]]
+name = "r8_emit"
+path = "cli/r8_emit.rs"
+
+[[bin]]
+name = "r8_recover"
+path = "cli/r8_recover.rs"
+
+[dependencies]
+crc32fast = "=1.4.2"
+serde = { version = "=1.0.210", features = ["derive"] }
+serde_json = "=1.0.128"
+sha2 = "=0.10.8"
+
+[[bin]]
+name = "r8_sample"
+path = "cli/r8_sample.rs"

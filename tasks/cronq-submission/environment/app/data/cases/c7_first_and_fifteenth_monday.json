@@ -1,7 +1,0 @@
-{
-  "id": "c7_first_and_fifteenth_monday",
-  "expr": "0 0 1,15 * MON",
-  "from": "2026-01-01T00:00:00Z",
-  "count": 6,
-  "note": "1st or 15th or any Monday, started on Jan 1 midnight"
-}

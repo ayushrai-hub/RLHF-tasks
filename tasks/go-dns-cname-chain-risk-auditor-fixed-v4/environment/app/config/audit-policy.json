@@ -1,0 +1,9 @@
+{
+  "as_of": "2026-04-15T00:00:00Z",
+  "max_hops": 8,
+  "service_aliases": {
+    "legacy.cdn-vendor.net": "svc-legacy-cdn",
+    "orphan.paas.net": "svc-orphan",
+    "old.marketing-vendor.net": "svc-marketing-legacy"
+  }
+}

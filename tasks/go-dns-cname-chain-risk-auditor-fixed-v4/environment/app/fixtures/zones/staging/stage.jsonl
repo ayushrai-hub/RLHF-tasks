@@ -1,0 +1,2 @@
+{"zone":"stage.example.com","name":"web.stage.example.com","type":"A","target":"192.0.2.10","priority":1}
+{"zone":"stage.example.com","name":"unknown.stage.example.com","type":"CNAME","target":"not-in-catalog.external.net","priority":3}

@@ -1,8 +1,0 @@
-{
-  "users": [
-    {"name": "alice", "role": "admin", "source": "map"},
-    {"name": "bob", "role": "operator", "source": "map"},
-    {"name": "carol", "role": "readonly", "source": "map"},
-    {"name": "dan", "role": "operator", "source": "map"}
-  ]
-}

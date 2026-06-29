@@ -1,0 +1,35 @@
+version = "2.0"
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+difficulty = "hard"
+category = "data-processing"
+subcategories = []
+tags = ["go", "ledger", "journal", "replay", "quota"]
+languages = ["go", "bash"]
+codebase_size = "small"
+number_of_milestones = 0
+summary = "Repair the Go quota ledger so journal import, checkpoint-aware rebuild, legacy migration, reservation expiration, and multi-command report/audit workflows stay correct across restarts and truncated writes."
+difficulty_explanation = "HARD: starter code applies events in file order, tracks seq per operation type, uses generic correction rollback for all reversals, skips legacy migration and reservation expiration, records full batch bytes as durable (poisoning truncated tails), and emits wrong processed_count. Agents must wire journal durability, chronological replay, held-first CONSUME, per-type REVERSAL inversion, legacy LEGACY-IMPORT sentinels, durable-prefix counters, and cross-command digest consistency across multiple internal packages using the public ledger rules."
+solution_explanation = "Replace internal/quota/engine.go, internal/projection/projection.go, internal/legacy/legacy.go, and internal/journal/journal.go with chronological replay, per-replica seq highwater including REVERSAL, operation-specific reversal inversion, legacy v0 migration, durable-prefix journal accounting, reservation expiration at rebuild, and correct counters; rebuild ledgerctl and run import → rebuild → report → audit."
+verification_explanation = "Pytest resets state, runs the multi-command CLI on seeded and generated batches, independently recomputes quota semantics, checks digests, idempotent import/rebuild, truncated journal recovery, legacy merge, reservation expiration, reversal chains, replica arbitration, and audit/report consistency."
+expert_time_estimate_min = 240
+expert_time_estimate_hours = 4.0
+junior_time_estimate_min = 480
+relevant_experience = "Built append-only ledgers with checkpoint/projection rebuild, idempotent batch ingest, compensating transactions, and crash-safe durable-prefix recovery in Go or similar systems languages."
+
+[agent]
+timeout_sec = 1800
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+type = "docker"
+build_timeout_sec = 600
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+allow_internet = false
+workdir = "/app"

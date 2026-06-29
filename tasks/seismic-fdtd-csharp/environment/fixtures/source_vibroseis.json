@@ -1,8 +1,0 @@
-{
-  "type": "vibroseis",
-  "f_start_hz": 8.0,
-  "f_end_hz": 60.0,
-  "sample_rate_hz": 1000.0,
-  "duration_s": 4.0,
-  "taper_fraction": 0.05
-}

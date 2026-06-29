@@ -1,0 +1,3 @@
+The DNS audit CLI under /app is producing incomplete chain-risk reports for the bundled zone exports. Please update it so `/app/bin/audit-cname-chains --config /app/config/audit-policy.json --zones /app/fixtures/zones --services /app/fixtures/service-catalog.json --out /app/out` rewrites the documented JSON outputs under /app/out deterministically on every run.
+
+The source of truth for input formats, CNAME chain resolution, duplicate handling, loop detection, stale-service and ownership-gap findings, warning rows, sorting, and rerun behavior is /app/docs/cname-chain-audit-contract.md. Keep the public CLI and fixture formats stable, and make the implementation handle similarly shaped DNS exports rather than hardcoding the bundled rows.

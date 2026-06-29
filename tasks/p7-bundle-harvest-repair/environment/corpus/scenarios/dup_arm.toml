@@ -1,2 +1,0 @@
-retry = true
-note = "batch token c7 triggers one 503 before success"

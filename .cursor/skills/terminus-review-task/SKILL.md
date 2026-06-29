@@ -22,10 +22,11 @@ stb reviews feedback <REVIEW_ID>
 - [ ] 4. Oracle — deterministic, no hardcoded answers, passes
 - [ ] 5. Verifiers — reward.txt, no runtime installs, behavior tests
 - [ ] 6. LLMaJ alignment — instructions ↔ tests ↔ schema ↔ files
-- [ ] 7. Rubric — format, ≥3 negatives, no test/metadata refs
+- [ ] 7. Rubric — use **platform rubric** from submission report (`entire-report.txt`); format, ≥3 negatives, no test/metadata refs; **>40 positive pts = main blocker** (non-milestone total or per milestone block)
 - [ ] 8. Metadata — task.toml complete, tags/category accurate
-- [ ] 9. Agent runs — good vs bad failures; difficulty <80%
+- [ ] 9. Agent runs — block only if worst-model (lowest rate) **>80%**; **never** block on `task.toml` vs platform difficulty mismatch (#45 always CHECK when field present)
 - [ ] 10. Test-quality eval flags (req-gap, phantom-spec, etc.)
+- [ ] 11. Parse `entire-report.txt` sections — [submission-export-format.md](../../docs/guidelines/submission-export-format.md) (author text vs difficulty stats vs quality checks vs platform rubric)
 ```
 
 ## Local Testing
@@ -42,7 +43,11 @@ stb reviews feedback <REVIEW_ID>
 **Revise:** `stb reviews revise <REVIEW_ID> --notes "..." --time <min>`  
 **Skip:** `stb reviews skip <REVIEW_ID> --reason ... --rationale "..."`
 
-## Revision Notes Template
+## Portal reviewer note (section 9)
+
+Copied to the submission portal for the author. Write like a **human peer reviewer** — acknowledge what’s good (“nice task”, “solid verifiers”), then what to fix. **Task-independent** (no `rubrics.md`, checkbox numbers, error categories, LLMaJ names, “re-audit”, “checklist failed”). Framework traceability stays in sections 2–8.
+
+## Internal revision notes (for report sections 2–8)
 
 ```markdown
 ## Instructions (High)
@@ -55,6 +60,7 @@ stb reviews feedback <REVIEW_ID>
 - environment/Dockerfile: [issue] → [fix]
 
 ## Rubric (High)
+- Platform rubric positive total >40 (non-milestone) or any milestone block >40 — trim on platform; see docs/guidelines/rubrics.md
 - [criterion]: references tests — remove; see docs/guidelines/rubrics.md
 ```
 

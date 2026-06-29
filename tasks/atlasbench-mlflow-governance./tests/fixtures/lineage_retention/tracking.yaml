@@ -1,0 +1,12 @@
+tracking:
+  uri: "https://admin:secret@track.atlasbench.internal/mlflow"
+  experiments:
+    - id: exp|weird
+      retention:
+        override: false
+    - id: exp-good
+      retention:
+        override: false
+    - id: exp-new
+      retention:
+        override: false

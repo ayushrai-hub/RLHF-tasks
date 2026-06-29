@@ -1,0 +1,14 @@
+Package: telecomplanrevenue
+Title: Telecom Plan Revenue Data Lake Task
+Version: 1.0.0
+Description: Working environment for an end-to-end billing-revenue pipeline over a
+    mobile carrier data lake. The analyst discovers the authoritative sources,
+    reconciles usage grains and units, and reports billed plan revenue by tier.
+Imports:
+    readr,
+    dplyr,
+    tidyr,
+    jsonlite,
+    stringr,
+    lubridate
+Encoding: UTF-8

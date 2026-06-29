@@ -8,4 +8,4 @@ Implement two subcommands in M1. `recover init` connects to `jdbc:h2:file:/app/d
 
 Verify the wrapped-key signature before trusting any row. The `sig_hex` column is the lowercase-hex HMAC-SHA256 of the canonical string `playlist_id|key_version|wrapped_key_hex|iv_hex` keyed by the 32-byte master key at `/opt/evidence_keys/master.key.hex` (path overridable via the `MASTER_KEY` env). `init` MUST refuse to seed any row whose signature does not verify and instead emit `{"error":"sig_mismatch","message":"..."}` on stderr with exit 1, leaving the database empty. The verifier exercises both the happy path and a tampered-row failure path.
 
-Keep the implementation contained to the existing nine source files under `/app/src/com/evidence/recovery/`; do not add new packages. Rebuild after every edit so `/app/build/com/evidence/recovery/*.class` is fresh. Internet access is disabled.
+Keep the implementation contained to the existing eleven source files under `/app/src/com/evidence/recovery/`; do not add new packages. Rebuild after every edit so `/app/build/com/evidence/recovery/*.class` is fresh. Internet access is disabled.

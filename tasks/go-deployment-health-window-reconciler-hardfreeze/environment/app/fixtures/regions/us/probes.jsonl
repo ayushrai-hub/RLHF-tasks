@@ -1,9 +1,0 @@
-{"probe_id": "p-http-100", "deployment_id": "dep-100", "service": "api", "environment": "prd", "probe_type": "http-check", "checked_at": "2026-06-01T10:05:00Z", "status": "ok"}
-{"probe_id": "p-ready-100", "deployment_id": "dep-100", "service": "api", "environment": "production", "probe_type": "ready", "checked_at": "2026-06-01T10:10:00Z", "status": "pass"}
-{"probe_id": "p-synth-100", "deployment_id": "dep-100", "service": "api", "environment": "prod", "probe_type": "synthetic", "checked_at": "2026-06-01T10:20:00Z", "status": "failed"}
-{"probe_id": "p-late-100", "deployment_id": "dep-100", "service": "api", "environment": "prod", "probe_type": "synthetic", "checked_at": "2026-06-01T10:50:00Z", "status": "ok"}
-{"probe_id": "p-ghost", "deployment_id": "dep-999", "service": "api", "environment": "prod", "probe_type": "http", "checked_at": "2026-06-01T10:06:00Z", "status": "ok"}
-{"probe_id": "p-http-200", "deployment_id": "dep-200", "service": "billing", "environment": "stage", "probe_type": "http", "checked_at": "2026-06-01T10:18:00Z", "status": "healthy"}
-{"probe_id": "p-ready-200", "deployment_id": "dep-200", "service": "billing", "environment": "stg", "probe_type": "readiness-check", "checked_at": "2026-06-01T10:29:00Z", "status": "success"}
-{"probe_id": "p-http-400", "deployment_id": "dep-400", "service": "frontend", "environment": "prod", "probe_type": "http-check", "checked_at": "2026-06-01T10:06:00Z", "status": "ok"}
-{"probe_id": "p-ready-400", "deployment_id": "dep-400", "service": "frontend", "environment": "production", "probe_type": "ready", "checked_at": "2026-06-01T10:08:00Z", "status": "success"}

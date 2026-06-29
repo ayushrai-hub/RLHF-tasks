@@ -1,7 +1,0 @@
-{
-  "type": "explosive",
-  "dominant_frequency_hz": 30.0,
-  "sample_rate_hz": 2000.0,
-  "duration_s": 0.3,
-  "delay_s": 0.05
-}

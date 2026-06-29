@@ -7,6 +7,16 @@ cd "$ROOT"
 
 mkdir -p _incoming/zips _misc/personal _misc/reference _backup/copies reviews tasks
 
+# Tasks that must stay at repo root (not moved into tasks/)
+ROOT_TASKS=(stats-plan-resume-skew build-pkg-config-transitive-flag-sanitizer-cpp-json rt-iot2022-drift-multi-class bounded-kv-cache)
+is_root_task() {
+  local name="$1"
+  for t in "${ROOT_TASKS[@]}"; do
+    [ "$name" = "$t" ] && return 0
+  done
+  return 1
+}
+
 echo "=== Phase 1: personal / loose files ==="
 
 [ -f "openmemory copy.md" ] && mv "openmemory copy.md" _misc/personal/
@@ -71,6 +81,17 @@ if [ -f entire-report.txt ]; then
   cp -f entire-report.txt reviews/entire-report.txt
 fi
 
+for f in _other/*entire-report*.txt _other/reports/*.txt _other/reports/*.md; do
+  [ -f "$f" ] || continue
+  base=$(basename "$f")
+  [ -s "$f" ] || continue
+  if [ -f "reviews/$base" ] && cmp -s "$f" "reviews/$base" 2>/dev/null; then
+    continue
+  fi
+  cp -f "$f" "reviews/$base"
+  echo "SYNC review artifact: $base -> reviews/"
+done
+
 mkdir -p _incoming/submissions
 for dir in *_submission*/; do
   [ -d "$dir" ] || continue
@@ -107,11 +128,35 @@ merge_task_dir() {
 
 echo "=== Phase 3: consolidate task directories into tasks/ ==="
 
+move_task_into_tasks() {
+  local src="$1"
+  local name
+  name=$(basename "$src")
+  is_root_task "$name" && return 0
+  local dest="tasks/$name"
+  if [ -d "$dest" ]; then
+    echo "DROP duplicate (tasks/ is canonical): $name"
+    rm -rf "$src"
+  else
+    mv "$src" "$dest"
+    echo "MOVED to tasks/: $name"
+  fi
+}
+
+if [ -d _other/review-tasks ]; then
+  for dir in _other/review-tasks/*/; do
+    [ -d "$dir" ] || continue
+    move_task_into_tasks "${dir%/}"
+  done
+  rmdir _other/review-tasks 2>/dev/null || true
+fi
+
 for dir in */; do
   name="${dir%/}"
   case "$name" in
-    docs|scripts|tasks|templates|jobs|_backup|_incoming|_misc|reviews|.cursor|.venv|harbor-compat|law-samples) continue ;;
+    docs|scripts|tasks|templates|jobs|_backup|_incoming|_misc|_other|reviews|.cursor|.venv|harbor-compat|law-samples) continue ;;
   esac
+  is_root_task "$name" && continue
 
   is_task=false
   if [ -f "$name/task.toml" ] || [ -f "$name/instruction.md" ] || [ -d "$name/steps" ]; then
@@ -119,14 +164,7 @@ for dir in */; do
   fi
   [ "$is_task" = true ] || continue
 
-  dest="tasks/$name"
-  if [ -d "$dest" ]; then
-    echo "DROP root duplicate (tasks/ is canonical): $name"
-    rm -rf "$name"
-  else
-    mv "$name" "$dest"
-    echo "MOVED to tasks/: $name"
-  fi
+  move_task_into_tasks "$name"
 done
 
 extract_task_zip() {
@@ -185,7 +223,11 @@ done
 
 for zip in _incoming/zips/*.zip; do
   extract_task_zip "$zip"
+  [ -f "$zip" ] && rm -f "$zip"
 done
+
+echo "=== Phase 4b: extract any remaining zips + validate tasks/ ==="
+python3 "$ROOT/scripts/extract-all-task-zips.py"
 
 rm -rf "tasks/quest-capsule-decoder " 2>/dev/null || true
 [ -d tasks/law-samples ] && mv tasks/law-samples _misc/reference/law-samples 2>/dev/null || true
@@ -209,8 +251,14 @@ echo "=== Phase 5: task index ==="
 python3 "$ROOT/scripts/generate-tasks-index.py"
 
 echo ""
-echo "=== ROOT (should be tooling + docs only) ==="
+echo "=== ROOT (tooling + docs + pinned root tasks) ==="
 ls -1
+
+echo ""
+echo "=== ROOT TASKS (stay at repo root) ==="
+for t in "${ROOT_TASKS[@]}"; do
+  [ -d "$t" ] && echo "$t"
+done
 
 echo ""
 echo "=== TASKS ($(ls -1 tasks 2>/dev/null | wc -l | tr -d ' ')) ==="

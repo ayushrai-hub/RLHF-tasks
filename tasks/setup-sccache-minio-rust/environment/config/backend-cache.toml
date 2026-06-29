@@ -1,0 +1,10 @@
+[remote]
+endpoint = "http://127.0.0.1:9000"
+bucket = "rust-sccache"
+region = "us-east-1"
+tls = false
+path_style = true
+
+[storage]
+data_dir = "/var/minio/data"
+api_port = 9000

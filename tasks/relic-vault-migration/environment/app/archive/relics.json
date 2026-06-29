@@ -1,0 +1,10 @@
+[
+  { "relicId": 100, "roomId": 11, "name": "Emberseed",    "baseValue": 40, "sigil": "B" },
+  { "relicId": 101, "roomId": 10, "name": "Gravecharm",   "baseValue": 55, "sigil": "C" },
+  { "relicId": 102, "roomId": 13, "name": "Gilded Idol",  "baseValue": 60, "sigil": "A" },
+  { "relicId": 103, "roomId": 15, "name": "Quiet Bell",   "baseValue": 30, "sigil": "D" },
+  { "relicId": 104, "roomId": 14, "name": "Cinder Crown", "baseValue": 50, "sigil": "F" },
+  { "relicId": 105, "roomId": 11, "name": "Ash Token",    "baseValue": 10, "sigil": "E" },
+  { "relicId": 106, "roomId": 13, "name": "Dim Sigil",    "baseValue": 20, "sigil": "B" },
+  { "relicId": 107, "roomId": 92, "name": "Lost Coin",    "baseValue": 99, "sigil": "A" }
+]

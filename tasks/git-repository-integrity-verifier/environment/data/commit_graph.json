@@ -1,0 +1,168 @@
+{
+  "commits": [
+    {
+      "sha": "14f2ea4baf8e6af538fb3bc953e1af939125c435",
+      "parents": [
+        "1a95c323ea6aa92ef1c9f7338ec3a52a82633470",
+        "683535a9efe39ec640154926e1fb59b5b297d2ce"
+      ],
+      "subject": "merge: feature/auth into main",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741255200TZ",
+      "committer_date": "1741255200TZ",
+      "is_merge": true
+    },
+    {
+      "sha": "1a95c323ea6aa92ef1c9f7338ec3a52a82633470",
+      "parents": [
+        "c922083b5d873667d11d5d4b1d759e6853502286"
+      ],
+      "subject": "feat: configuration",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1740996000TZ",
+      "committer_date": "1740996000TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "1d83b667128364e066712d218f8558bb41196ba2",
+      "parents": [
+        "c922083b5d873667d11d5d4b1d759e6853502286"
+      ],
+      "subject": "feat(auth): login flow",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741082400TZ",
+      "committer_date": "1741082400TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "2198d784c25ddb76b30901322814540f8c19a6a5",
+      "parents": [
+        "ca5b3bedcd35658c5e03ae32c0a356227a418826"
+      ],
+      "subject": "refactor: core rewrite part 1",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741600800TZ",
+      "committer_date": "1782616758TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "3a92503ba809ee49eea0ec5d0f9a66846177b627",
+      "parents": [
+        "1a95c323ea6aa92ef1c9f7338ec3a52a82633470"
+      ],
+      "subject": "feat(auth): login flow",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741082400TZ",
+      "committer_date": "1741428000TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "57ab2ae8fc8ad6e57126f0f6dd5d97fd9620d3fd",
+      "parents": [
+        "1a95c323ea6aa92ef1c9f7338ec3a52a82633470"
+      ],
+      "subject": "refactor: core rewrite part 1",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741600800TZ",
+      "committer_date": "1741600800TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "6645408b8f78a1c843a200436f0346e2e32d0deb",
+      "parents": [
+        "3a92503ba809ee49eea0ec5d0f9a66846177b627"
+      ],
+      "subject": "chore(release): notes",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741514400TZ",
+      "committer_date": "1741514400TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "683535a9efe39ec640154926e1fb59b5b297d2ce",
+      "parents": [
+        "1d83b667128364e066712d218f8558bb41196ba2"
+      ],
+      "subject": "test(auth): coverage",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741168800TZ",
+      "committer_date": "1741168800TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "6eb3cbf45576a0721d2cbb0060166b0523881bdc",
+      "parents": [
+        "ca5b3bedcd35658c5e03ae32c0a356227a418826"
+      ],
+      "subject": "fix: critical patch",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741773600TZ",
+      "committer_date": "1741773600TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "7c9fd3a59311fdf8ad508d315759ae6062fb2951",
+      "parents": [],
+      "subject": "init: repository bootstrap",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1740823200TZ",
+      "committer_date": "1740823200TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "887263abf7c440e26610bd94134e861dd9d59f21",
+      "parents": [
+        "57ab2ae8fc8ad6e57126f0f6dd5d97fd9620d3fd"
+      ],
+      "subject": "refactor: utilities",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741687200TZ",
+      "committer_date": "1741687200TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "b4e30096fde5ed118c6fbc31c191b1a630cbbb0c",
+      "parents": [
+        "ca5b3bedcd35658c5e03ae32c0a356227a418826"
+      ],
+      "subject": "fix: critical patch revised",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741777200TZ",
+      "committer_date": "1741777200TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "c922083b5d873667d11d5d4b1d759e6853502286",
+      "parents": [
+        "7c9fd3a59311fdf8ad508d315759ae6062fb2951"
+      ],
+      "subject": "feat: core module",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1740909600TZ",
+      "committer_date": "1740909600TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "ca5b3bedcd35658c5e03ae32c0a356227a418826",
+      "parents": [
+        "14f2ea4baf8e6af538fb3bc953e1af939125c435"
+      ],
+      "subject": "docs: overview",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741341600TZ",
+      "committer_date": "1741341600TZ",
+      "is_merge": false
+    },
+    {
+      "sha": "f4e4797c0b0b0e3bdbe914cd95ca8e475d79def7",
+      "parents": [
+        "2198d784c25ddb76b30901322814540f8c19a6a5"
+      ],
+      "subject": "refactor: utilities",
+      "author": "Dev Team <dev@example.com>",
+      "author_date": "1741687200TZ",
+      "committer_date": "1782616758TZ",
+      "is_merge": false
+    }
+  ]
+}

@@ -24,5 +24,8 @@ AGENTS.md
 jobs/
 reviews/
 
+# Work-in-progress task (kept at repo root, not published)
+bounded-kv-cache/
+
 # Nested git repos (reference clones)
 **/.git/

@@ -1,3 +1,0 @@
-The Go reconciliation CLI under /app is producing incomplete deployment health reports from the bundled release telemetry. Please update it so `/app/bin/reconcile-health-windows --config /app/config/health-window-policy.json --input /app/fixtures --out /app/out` regenerates the documented JSON reports under /app/out deterministically.
-
-The expected input schemas, window calculations, probe and incident reconciliation rules, rollback handling, dependency blocking, change-freeze policy behavior, warnings, sorting, and rerun behavior are defined in /app/docs/health-window-contract.md. Keep the public CLI, fixture layout, and output paths stable; the implementation should handle the bundled data and similarly shaped feeds without hardcoding report rows.

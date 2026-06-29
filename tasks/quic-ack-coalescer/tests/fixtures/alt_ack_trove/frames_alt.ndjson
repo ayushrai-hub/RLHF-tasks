@@ -1,8 +1,0 @@
-{"conn_id":"D1","pn_space":"INITIAL","ack_ts_ms":1717459201000,"packet_number":10,"largest_acked":9,"ack_delay_us":20,"ecn_ct0":0,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":1}
-{"conn_id":"D1","pn_space":"APP_DATA","ack_ts_ms":1717459201500,"packet_number":11,"largest_acked":10,"ack_delay_us":25,"ecn_ct0":0,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":1,"shard_seq":2}
-{"conn_id":"D3","pn_space":"APP_DATA","ack_ts_ms":1717459202000,"packet_number":20,"largest_acked":19,"ack_delay_us":30,"ecn_ct0":2,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":3}
-{"conn_id":"D3","pn_space":"APP_DATA","ack_ts_ms":1717459202200,"packet_number":21,"largest_acked":20,"ack_delay_us":31,"ecn_ct0":2,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":4}
-{"conn_id":"D3","pn_space":"ZERORTT","ack_ts_ms":1717459202500,"packet_number":22,"largest_acked":21,"ack_delay_us":33,"ecn_ct0":0,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":5}
-{"conn_id":"D7","pn_space":"APP_DATA","ack_ts_ms":1717459205000,"packet_number":70,"largest_acked":69,"ack_delay_us":40,"ecn_ct0":4,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":6}
-{"conn_id":"D7","pn_space":"APP_DATA","ack_ts_ms":1717459205050,"packet_number":71,"largest_acked":70,"ack_delay_us":41,"ecn_ct0":4,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":7}
-{"conn_id":"D7","pn_space":"APP_DATA","ack_ts_ms":1717459205200,"packet_number":72,"largest_acked":71,"ack_delay_us":42,"ecn_ct0":4,"ecn_ct1":0,"ecn_ce":0,"ack_eliciting":true,"shard_seq":8}

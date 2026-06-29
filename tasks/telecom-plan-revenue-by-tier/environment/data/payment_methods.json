@@ -1,0 +1,3332 @@
+[
+ {
+  "customer_id": "C02362",
+  "method": "CARD",
+  "last4": "5932"
+ },
+ {
+  "customer_id": "C02887",
+  "method": "ACH",
+  "last4": "4998"
+ },
+ {
+  "customer_id": "C02627",
+  "method": "WALLET",
+  "last4": "7182"
+ },
+ {
+  "customer_id": "C02016",
+  "method": "WALLET",
+  "last4": "4248"
+ },
+ {
+  "customer_id": "C01850",
+  "method": "WALLET",
+  "last4": "8695"
+ },
+ {
+  "customer_id": "C01198",
+  "method": "ACH",
+  "last4": "3926"
+ },
+ {
+  "customer_id": "C02002",
+  "method": "WALLET",
+  "last4": "8993"
+ },
+ {
+  "customer_id": "C01260",
+  "method": "ACH",
+  "last4": "7938"
+ },
+ {
+  "customer_id": "C02244",
+  "method": "WALLET",
+  "last4": "7092"
+ },
+ {
+  "customer_id": "C01666",
+  "method": "WALLET",
+  "last4": "2872"
+ },
+ {
+  "customer_id": "C01175",
+  "method": "ACH",
+  "last4": "6574"
+ },
+ {
+  "customer_id": "C01216",
+  "method": "ACH",
+  "last4": "8819"
+ },
+ {
+  "customer_id": "C01134",
+  "method": "CARD",
+  "last4": "4338"
+ },
+ {
+  "customer_id": "C02693",
+  "method": "WALLET",
+  "last4": "9952"
+ },
+ {
+  "customer_id": "C01482",
+  "method": "WALLET",
+  "last4": "4905"
+ },
+ {
+  "customer_id": "C01329",
+  "method": "WALLET",
+  "last4": "4372"
+ },
+ {
+  "customer_id": "C02934",
+  "method": "WALLET",
+  "last4": "8788"
+ },
+ {
+  "customer_id": "C02203",
+  "method": "CARD",
+  "last4": "7578"
+ },
+ {
+  "customer_id": "C01263",
+  "method": "CARD",
+  "last4": "0389"
+ },
+ {
+  "customer_id": "C01591",
+  "method": "CARD",
+  "last4": "3239"
+ },
+ {
+  "customer_id": "C01317",
+  "method": "WALLET",
+  "last4": "9992"
+ },
+ {
+  "customer_id": "C01789",
+  "method": "WALLET",
+  "last4": "8137"
+ },
+ {
+  "customer_id": "C02163",
+  "method": "ACH",
+  "last4": "2776"
+ },
+ {
+  "customer_id": "C02162",
+  "method": "WALLET",
+  "last4": "8159"
+ },
+ {
+  "customer_id": "C01280",
+  "method": "CARD",
+  "last4": "1110"
+ },
+ {
+  "customer_id": "C02525",
+  "method": "ACH",
+  "last4": "1138"
+ },
+ {
+  "customer_id": "C01697",
+  "method": "ACH",
+  "last4": "5995"
+ },
+ {
+  "customer_id": "C02124",
+  "method": "WALLET",
+  "last4": "5200"
+ },
+ {
+  "customer_id": "C01665",
+  "method": "WALLET",
+  "last4": "7194"
+ },
+ {
+  "customer_id": "C02538",
+  "method": "ACH",
+  "last4": "6828"
+ },
+ {
+  "customer_id": "C02915",
+  "method": "ACH",
+  "last4": "9300"
+ },
+ {
+  "customer_id": "C02391",
+  "method": "CARD",
+  "last4": "1039"
+ },
+ {
+  "customer_id": "C01646",
+  "method": "WALLET",
+  "last4": "6745"
+ },
+ {
+  "customer_id": "C01361",
+  "method": "WALLET",
+  "last4": "6725"
+ },
+ {
+  "customer_id": "C02232",
+  "method": "ACH",
+  "last4": "1593"
+ },
+ {
+  "customer_id": "C01931",
+  "method": "ACH",
+  "last4": "0211"
+ },
+ {
+  "customer_id": "C02928",
+  "method": "WALLET",
+  "last4": "0122"
+ },
+ {
+  "customer_id": "C01909",
+  "method": "WALLET",
+  "last4": "5323"
+ },
+ {
+  "customer_id": "C02200",
+  "method": "WALLET",
+  "last4": "7598"
+ },
+ {
+  "customer_id": "C02882",
+  "method": "CARD",
+  "last4": "8926"
+ },
+ {
+  "customer_id": "C02018",
+  "method": "WALLET",
+  "last4": "7006"
+ },
+ {
+  "customer_id": "C01919",
+  "method": "CARD",
+  "last4": "4047"
+ },
+ {
+  "customer_id": "C01896",
+  "method": "WALLET",
+  "last4": "1436"
+ },
+ {
+  "customer_id": "C01520",
+  "method": "ACH",
+  "last4": "4898"
+ },
+ {
+  "customer_id": "C01092",
+  "method": "ACH",
+  "last4": "3459"
+ },
+ {
+  "customer_id": "C02746",
+  "method": "WALLET",
+  "last4": "0649"
+ },
+ {
+  "customer_id": "C02138",
+  "method": "CARD",
+  "last4": "4672"
+ },
+ {
+  "customer_id": "C02828",
+  "method": "WALLET",
+  "last4": "7531"
+ },
+ {
+  "customer_id": "C01730",
+  "method": "ACH",
+  "last4": "4612"
+ },
+ {
+  "customer_id": "C01761",
+  "method": "ACH",
+  "last4": "5990"
+ },
+ {
+  "customer_id": "C02068",
+  "method": "CARD",
+  "last4": "1323"
+ },
+ {
+  "customer_id": "C02677",
+  "method": "WALLET",
+  "last4": "5836"
+ },
+ {
+  "customer_id": "C02752",
+  "method": "CARD",
+  "last4": "9127"
+ },
+ {
+  "customer_id": "C02955",
+  "method": "CARD",
+  "last4": "6180"
+ },
+ {
+  "customer_id": "C01117",
+  "method": "ACH",
+  "last4": "7608"
+ },
+ {
+  "customer_id": "C02853",
+  "method": "WALLET",
+  "last4": "2933"
+ },
+ {
+  "customer_id": "C02014",
+  "method": "CARD",
+  "last4": "2066"
+ },
+ {
+  "customer_id": "C01564",
+  "method": "ACH",
+  "last4": "0541"
+ },
+ {
+  "customer_id": "C01572",
+  "method": "CARD",
+  "last4": "0959"
+ },
+ {
+  "customer_id": "C01363",
+  "method": "CARD",
+  "last4": "4497"
+ },
+ {
+  "customer_id": "C01249",
+  "method": "CARD",
+  "last4": "6227"
+ },
+ {
+  "customer_id": "C02312",
+  "method": "ACH",
+  "last4": "5800"
+ },
+ {
+  "customer_id": "C02227",
+  "method": "WALLET",
+  "last4": "3950"
+ },
+ {
+  "customer_id": "C02199",
+  "method": "ACH",
+  "last4": "0244"
+ },
+ {
+  "customer_id": "C02491",
+  "method": "CARD",
+  "last4": "0326"
+ },
+ {
+  "customer_id": "C02072",
+  "method": "ACH",
+  "last4": "0487"
+ },
+ {
+  "customer_id": "C01868",
+  "method": "WALLET",
+  "last4": "2350"
+ },
+ {
+  "customer_id": "C01244",
+  "method": "WALLET",
+  "last4": "7730"
+ },
+ {
+  "customer_id": "C02835",
+  "method": "ACH",
+  "last4": "6328"
+ },
+ {
+  "customer_id": "C02972",
+  "method": "WALLET",
+  "last4": "5090"
+ },
+ {
+  "customer_id": "C02234",
+  "method": "CARD",
+  "last4": "3399"
+ },
+ {
+  "customer_id": "C02556",
+  "method": "WALLET",
+  "last4": "2627"
+ },
+ {
+  "customer_id": "C02603",
+  "method": "WALLET",
+  "last4": "9282"
+ },
+ {
+  "customer_id": "C02708",
+  "method": "CARD",
+  "last4": "4400"
+ },
+ {
+  "customer_id": "C01502",
+  "method": "ACH",
+  "last4": "1415"
+ },
+ {
+  "customer_id": "C02053",
+  "method": "CARD",
+  "last4": "4938"
+ },
+ {
+  "customer_id": "C01934",
+  "method": "WALLET",
+  "last4": "3012"
+ },
+ {
+  "customer_id": "C01698",
+  "method": "CARD",
+  "last4": "1754"
+ },
+ {
+  "customer_id": "C01839",
+  "method": "CARD",
+  "last4": "0006"
+ },
+ {
+  "customer_id": "C02703",
+  "method": "WALLET",
+  "last4": "9734"
+ },
+ {
+  "customer_id": "C01003",
+  "method": "CARD",
+  "last4": "5656"
+ },
+ {
+  "customer_id": "C02776",
+  "method": "WALLET",
+  "last4": "6256"
+ },
+ {
+  "customer_id": "C01556",
+  "method": "WALLET",
+  "last4": "5152"
+ },
+ {
+  "customer_id": "C01886",
+  "method": "WALLET",
+  "last4": "7344"
+ },
+ {
+  "customer_id": "C02917",
+  "method": "ACH",
+  "last4": "1814"
+ },
+ {
+  "customer_id": "C02900",
+  "method": "WALLET",
+  "last4": "4167"
+ },
+ {
+  "customer_id": "C01717",
+  "method": "CARD",
+  "last4": "5411"
+ },
+ {
+  "customer_id": "C02868",
+  "method": "WALLET",
+  "last4": "2959"
+ },
+ {
+  "customer_id": "C01074",
+  "method": "CARD",
+  "last4": "5721"
+ },
+ {
+  "customer_id": "C01248",
+  "method": "ACH",
+  "last4": "4530"
+ },
+ {
+  "customer_id": "C01507",
+  "method": "CARD",
+  "last4": "2875"
+ },
+ {
+  "customer_id": "C01819",
+  "method": "ACH",
+  "last4": "0409"
+ },
+ {
+  "customer_id": "C02643",
+  "method": "CARD",
+  "last4": "3844"
+ },
+ {
+  "customer_id": "C01370",
+  "method": "ACH",
+  "last4": "5265"
+ },
+ {
+  "customer_id": "C02738",
+  "method": "ACH",
+  "last4": "6988"
+ },
+ {
+  "customer_id": "C01129",
+  "method": "CARD",
+  "last4": "8822"
+ },
+ {
+  "customer_id": "C02056",
+  "method": "WALLET",
+  "last4": "5713"
+ },
+ {
+  "customer_id": "C02202",
+  "method": "WALLET",
+  "last4": "1038"
+ },
+ {
+  "customer_id": "C02437",
+  "method": "ACH",
+  "last4": "8366"
+ },
+ {
+  "customer_id": "C01966",
+  "method": "CARD",
+  "last4": "9703"
+ },
+ {
+  "customer_id": "C02164",
+  "method": "WALLET",
+  "last4": "0086"
+ },
+ {
+  "customer_id": "C01634",
+  "method": "CARD",
+  "last4": "0391"
+ },
+ {
+  "customer_id": "C02566",
+  "method": "ACH",
+  "last4": "0261"
+ },
+ {
+  "customer_id": "C01745",
+  "method": "ACH",
+  "last4": "4552"
+ },
+ {
+  "customer_id": "C02978",
+  "method": "WALLET",
+  "last4": "2068"
+ },
+ {
+  "customer_id": "C02938",
+  "method": "ACH",
+  "last4": "7035"
+ },
+ {
+  "customer_id": "C02558",
+  "method": "ACH",
+  "last4": "4256"
+ },
+ {
+  "customer_id": "C01212",
+  "method": "CARD",
+  "last4": "1669"
+ },
+ {
+  "customer_id": "C02933",
+  "method": "WALLET",
+  "last4": "9755"
+ },
+ {
+  "customer_id": "C01342",
+  "method": "CARD",
+  "last4": "3312"
+ },
+ {
+  "customer_id": "C02492",
+  "method": "WALLET",
+  "last4": "1462"
+ },
+ {
+  "customer_id": "C02230",
+  "method": "CARD",
+  "last4": "4380"
+ },
+ {
+  "customer_id": "C02338",
+  "method": "CARD",
+  "last4": "0368"
+ },
+ {
+  "customer_id": "C02177",
+  "method": "CARD",
+  "last4": "7500"
+ },
+ {
+  "customer_id": "C01394",
+  "method": "ACH",
+  "last4": "5462"
+ },
+ {
+  "customer_id": "C02017",
+  "method": "ACH",
+  "last4": "5552"
+ },
+ {
+  "customer_id": "C01743",
+  "method": "WALLET",
+  "last4": "5001"
+ },
+ {
+  "customer_id": "C02601",
+  "method": "WALLET",
+  "last4": "9242"
+ },
+ {
+  "customer_id": "C01501",
+  "method": "ACH",
+  "last4": "5786"
+ },
+ {
+  "customer_id": "C02810",
+  "method": "WALLET",
+  "last4": "6705"
+ },
+ {
+  "customer_id": "C01113",
+  "method": "CARD",
+  "last4": "1768"
+ },
+ {
+  "customer_id": "C02644",
+  "method": "WALLET",
+  "last4": "7640"
+ },
+ {
+  "customer_id": "C01588",
+  "method": "WALLET",
+  "last4": "0361"
+ },
+ {
+  "customer_id": "C02674",
+  "method": "ACH",
+  "last4": "6718"
+ },
+ {
+  "customer_id": "C01860",
+  "method": "ACH",
+  "last4": "8817"
+ },
+ {
+  "customer_id": "C01032",
+  "method": "CARD",
+  "last4": "1948"
+ },
+ {
+  "customer_id": "C02477",
+  "method": "ACH",
+  "last4": "2223"
+ },
+ {
+  "customer_id": "C01563",
+  "method": "WALLET",
+  "last4": "7217"
+ },
+ {
+  "customer_id": "C02852",
+  "method": "CARD",
+  "last4": "8713"
+ },
+ {
+  "customer_id": "C01648",
+  "method": "ACH",
+  "last4": "6090"
+ },
+ {
+  "customer_id": "C02760",
+  "method": "WALLET",
+  "last4": "4909"
+ },
+ {
+  "customer_id": "C02847",
+  "method": "ACH",
+  "last4": "7143"
+ },
+ {
+  "customer_id": "C02673",
+  "method": "ACH",
+  "last4": "9812"
+ },
+ {
+  "customer_id": "C01773",
+  "method": "WALLET",
+  "last4": "5718"
+ },
+ {
+  "customer_id": "C02238",
+  "method": "CARD",
+  "last4": "2334"
+ },
+ {
+  "customer_id": "C02612",
+  "method": "WALLET",
+  "last4": "9620"
+ },
+ {
+  "customer_id": "C01209",
+  "method": "ACH",
+  "last4": "9923"
+ },
+ {
+  "customer_id": "C01387",
+  "method": "WALLET",
+  "last4": "9185"
+ },
+ {
+  "customer_id": "C02064",
+  "method": "ACH",
+  "last4": "9074"
+ },
+ {
+  "customer_id": "C02465",
+  "method": "WALLET",
+  "last4": "0283"
+ },
+ {
+  "customer_id": "C01846",
+  "method": "WALLET",
+  "last4": "6439"
+ },
+ {
+  "customer_id": "C02156",
+  "method": "WALLET",
+  "last4": "5543"
+ },
+ {
+  "customer_id": "C01549",
+  "method": "WALLET",
+  "last4": "5607"
+ },
+ {
+  "customer_id": "C02263",
+  "method": "CARD",
+  "last4": "3831"
+ },
+ {
+  "customer_id": "C02864",
+  "method": "WALLET",
+  "last4": "8954"
+ },
+ {
+  "customer_id": "C02188",
+  "method": "ACH",
+  "last4": "6255"
+ },
+ {
+  "customer_id": "C02326",
+  "method": "ACH",
+  "last4": "8552"
+ },
+ {
+  "customer_id": "C02854",
+  "method": "CARD",
+  "last4": "7810"
+ },
+ {
+  "customer_id": "C01041",
+  "method": "CARD",
+  "last4": "3122"
+ },
+ {
+  "customer_id": "C02361",
+  "method": "ACH",
+  "last4": "4829"
+ },
+ {
+  "customer_id": "C02893",
+  "method": "ACH",
+  "last4": "0048"
+ },
+ {
+  "customer_id": "C02641",
+  "method": "WALLET",
+  "last4": "9266"
+ },
+ {
+  "customer_id": "C02310",
+  "method": "CARD",
+  "last4": "2670"
+ },
+ {
+  "customer_id": "C01783",
+  "method": "CARD",
+  "last4": "5738"
+ },
+ {
+  "customer_id": "C02322",
+  "method": "ACH",
+  "last4": "8572"
+ },
+ {
+  "customer_id": "C02006",
+  "method": "ACH",
+  "last4": "4917"
+ },
+ {
+  "customer_id": "C02658",
+  "method": "WALLET",
+  "last4": "4876"
+ },
+ {
+  "customer_id": "C01510",
+  "method": "ACH",
+  "last4": "7777"
+ },
+ {
+  "customer_id": "C02367",
+  "method": "WALLET",
+  "last4": "9814"
+ },
+ {
+  "customer_id": "C01923",
+  "method": "WALLET",
+  "last4": "4898"
+ },
+ {
+  "customer_id": "C01472",
+  "method": "WALLET",
+  "last4": "6506"
+ },
+ {
+  "customer_id": "C01656",
+  "method": "WALLET",
+  "last4": "8332"
+ },
+ {
+  "customer_id": "C01475",
+  "method": "ACH",
+  "last4": "2340"
+ },
+ {
+  "customer_id": "C02756",
+  "method": "WALLET",
+  "last4": "3189"
+ },
+ {
+  "customer_id": "C02839",
+  "method": "WALLET",
+  "last4": "0317"
+ },
+ {
+  "customer_id": "C02122",
+  "method": "CARD",
+  "last4": "6656"
+ },
+ {
+  "customer_id": "C02726",
+  "method": "CARD",
+  "last4": "2371"
+ },
+ {
+  "customer_id": "C02981",
+  "method": "ACH",
+  "last4": "1619"
+ },
+ {
+  "customer_id": "C01852",
+  "method": "ACH",
+  "last4": "2222"
+ },
+ {
+  "customer_id": "C02147",
+  "method": "ACH",
+  "last4": "6898"
+ },
+ {
+  "customer_id": "C02078",
+  "method": "CARD",
+  "last4": "9192"
+ },
+ {
+  "customer_id": "C01001",
+  "method": "ACH",
+  "last4": "1879"
+ },
+ {
+  "customer_id": "C02278",
+  "method": "CARD",
+  "last4": "1655"
+ },
+ {
+  "customer_id": "C02473",
+  "method": "CARD",
+  "last4": "7516"
+ },
+ {
+  "customer_id": "C01297",
+  "method": "CARD",
+  "last4": "7793"
+ },
+ {
+  "customer_id": "C01069",
+  "method": "CARD",
+  "last4": "1697"
+ },
+ {
+  "customer_id": "C02751",
+  "method": "WALLET",
+  "last4": "9965"
+ },
+ {
+  "customer_id": "C01194",
+  "method": "WALLET",
+  "last4": "7882"
+ },
+ {
+  "customer_id": "C01374",
+  "method": "WALLET",
+  "last4": "7609"
+ },
+ {
+  "customer_id": "C01683",
+  "method": "CARD",
+  "last4": "8377"
+ },
+ {
+  "customer_id": "C02216",
+  "method": "CARD",
+  "last4": "4366"
+ },
+ {
+  "customer_id": "C02768",
+  "method": "CARD",
+  "last4": "1878"
+ },
+ {
+  "customer_id": "C02595",
+  "method": "WALLET",
+  "last4": "3020"
+ },
+ {
+  "customer_id": "C01759",
+  "method": "WALLET",
+  "last4": "6963"
+ },
+ {
+  "customer_id": "C01954",
+  "method": "WALLET",
+  "last4": "7152"
+ },
+ {
+  "customer_id": "C01291",
+  "method": "WALLET",
+  "last4": "6318"
+ },
+ {
+  "customer_id": "C02823",
+  "method": "WALLET",
+  "last4": "5892"
+ },
+ {
+  "customer_id": "C02042",
+  "method": "WALLET",
+  "last4": "1554"
+ },
+ {
+  "customer_id": "C02954",
+  "method": "CARD",
+  "last4": "5514"
+ },
+ {
+  "customer_id": "C02290",
+  "method": "WALLET",
+  "last4": "4789"
+ },
+ {
+  "customer_id": "C02309",
+  "method": "WALLET",
+  "last4": "7021"
+ },
+ {
+  "customer_id": "C02728",
+  "method": "ACH",
+  "last4": "8082"
+ },
+ {
+  "customer_id": "C01330",
+  "method": "CARD",
+  "last4": "7342"
+ },
+ {
+  "customer_id": "C01576",
+  "method": "CARD",
+  "last4": "6697"
+ },
+ {
+  "customer_id": "C01301",
+  "method": "WALLET",
+  "last4": "7592"
+ },
+ {
+  "customer_id": "C02602",
+  "method": "ACH",
+  "last4": "4104"
+ },
+ {
+  "customer_id": "C02850",
+  "method": "WALLET",
+  "last4": "0433"
+ },
+ {
+  "customer_id": "C01211",
+  "method": "ACH",
+  "last4": "0659"
+ },
+ {
+  "customer_id": "C02092",
+  "method": "ACH",
+  "last4": "9261"
+ },
+ {
+  "customer_id": "C02891",
+  "method": "CARD",
+  "last4": "4010"
+ },
+ {
+  "customer_id": "C01975",
+  "method": "CARD",
+  "last4": "0382"
+ },
+ {
+  "customer_id": "C01224",
+  "method": "WALLET",
+  "last4": "9526"
+ },
+ {
+  "customer_id": "C01083",
+  "method": "WALLET",
+  "last4": "5285"
+ },
+ {
+  "customer_id": "C01240",
+  "method": "CARD",
+  "last4": "7617"
+ },
+ {
+  "customer_id": "C01035",
+  "method": "WALLET",
+  "last4": "8964"
+ },
+ {
+  "customer_id": "C02012",
+  "method": "WALLET",
+  "last4": "4662"
+ },
+ {
+  "customer_id": "C02675",
+  "method": "CARD",
+  "last4": "1512"
+ },
+ {
+  "customer_id": "C02120",
+  "method": "ACH",
+  "last4": "9687"
+ },
+ {
+  "customer_id": "C01744",
+  "method": "ACH",
+  "last4": "5828"
+ },
+ {
+  "customer_id": "C01662",
+  "method": "ACH",
+  "last4": "6333"
+ },
+ {
+  "customer_id": "C01458",
+  "method": "ACH",
+  "last4": "8679"
+ },
+ {
+  "customer_id": "C02274",
+  "method": "CARD",
+  "last4": "0264"
+ },
+ {
+  "customer_id": "C02870",
+  "method": "WALLET",
+  "last4": "7483"
+ },
+ {
+  "customer_id": "C01098",
+  "method": "WALLET",
+  "last4": "9742"
+ },
+ {
+  "customer_id": "C02539",
+  "method": "CARD",
+  "last4": "0516"
+ },
+ {
+  "customer_id": "C01733",
+  "method": "CARD",
+  "last4": "9460"
+ },
+ {
+  "customer_id": "C02869",
+  "method": "CARD",
+  "last4": "4381"
+ },
+ {
+  "customer_id": "C02667",
+  "method": "CARD",
+  "last4": "5176"
+ },
+ {
+  "customer_id": "C02740",
+  "method": "WALLET",
+  "last4": "1081"
+ },
+ {
+  "customer_id": "C02706",
+  "method": "ACH",
+  "last4": "3920"
+ },
+ {
+  "customer_id": "C01140",
+  "method": "CARD",
+  "last4": "2670"
+ },
+ {
+  "customer_id": "C02907",
+  "method": "ACH",
+  "last4": "8498"
+ },
+ {
+  "customer_id": "C01461",
+  "method": "CARD",
+  "last4": "3095"
+ },
+ {
+  "customer_id": "C01840",
+  "method": "ACH",
+  "last4": "1191"
+ },
+ {
+  "customer_id": "C01289",
+  "method": "ACH",
+  "last4": "9018"
+ },
+ {
+  "customer_id": "C02026",
+  "method": "ACH",
+  "last4": "0697"
+ },
+ {
+  "customer_id": "C02834",
+  "method": "ACH",
+  "last4": "7078"
+ },
+ {
+  "customer_id": "C02941",
+  "method": "ACH",
+  "last4": "2945"
+ },
+ {
+  "customer_id": "C02368",
+  "method": "CARD",
+  "last4": "2678"
+ },
+ {
+  "customer_id": "C01250",
+  "method": "CARD",
+  "last4": "2159"
+ },
+ {
+  "customer_id": "C01925",
+  "method": "ACH",
+  "last4": "3232"
+ },
+ {
+  "customer_id": "C02306",
+  "method": "ACH",
+  "last4": "9380"
+ },
+ {
+  "customer_id": "C02642",
+  "method": "WALLET",
+  "last4": "0968"
+ },
+ {
+  "customer_id": "C02424",
+  "method": "WALLET",
+  "last4": "2202"
+ },
+ {
+  "customer_id": "C02516",
+  "method": "WALLET",
+  "last4": "0731"
+ },
+ {
+  "customer_id": "C02266",
+  "method": "WALLET",
+  "last4": "9448"
+ },
+ {
+  "customer_id": "C01876",
+  "method": "CARD",
+  "last4": "2656"
+ },
+ {
+  "customer_id": "C02591",
+  "method": "CARD",
+  "last4": "4692"
+ },
+ {
+  "customer_id": "C02397",
+  "method": "WALLET",
+  "last4": "1982"
+ },
+ {
+  "customer_id": "C02132",
+  "method": "ACH",
+  "last4": "5618"
+ },
+ {
+  "customer_id": "C02440",
+  "method": "WALLET",
+  "last4": "5620"
+ },
+ {
+  "customer_id": "C02966",
+  "method": "WALLET",
+  "last4": "3129"
+ },
+ {
+  "customer_id": "C01525",
+  "method": "ACH",
+  "last4": "6682"
+ },
+ {
+  "customer_id": "C01599",
+  "method": "CARD",
+  "last4": "4933"
+ },
+ {
+  "customer_id": "C01051",
+  "method": "ACH",
+  "last4": "7510"
+ },
+ {
+  "customer_id": "C02110",
+  "method": "ACH",
+  "last4": "5731"
+ },
+ {
+  "customer_id": "C01282",
+  "method": "CARD",
+  "last4": "8231"
+ },
+ {
+  "customer_id": "C02186",
+  "method": "WALLET",
+  "last4": "3671"
+ },
+ {
+  "customer_id": "C02691",
+  "method": "ACH",
+  "last4": "3273"
+ },
+ {
+  "customer_id": "C02028",
+  "method": "CARD",
+  "last4": "8686"
+ },
+ {
+  "customer_id": "C02956",
+  "method": "CARD",
+  "last4": "3724"
+ },
+ {
+  "customer_id": "C01913",
+  "method": "WALLET",
+  "last4": "0824"
+ },
+ {
+  "customer_id": "C02479",
+  "method": "ACH",
+  "last4": "2037"
+ },
+ {
+  "customer_id": "C02542",
+  "method": "CARD",
+  "last4": "9757"
+ },
+ {
+  "customer_id": "C01324",
+  "method": "WALLET",
+  "last4": "7578"
+ },
+ {
+  "customer_id": "C01928",
+  "method": "WALLET",
+  "last4": "4558"
+ },
+ {
+  "customer_id": "C01126",
+  "method": "ACH",
+  "last4": "4770"
+ },
+ {
+  "customer_id": "C02488",
+  "method": "ACH",
+  "last4": "9428"
+ },
+ {
+  "customer_id": "C02617",
+  "method": "WALLET",
+  "last4": "7768"
+ },
+ {
+  "customer_id": "C02795",
+  "method": "CARD",
+  "last4": "1492"
+ },
+ {
+  "customer_id": "C02426",
+  "method": "ACH",
+  "last4": "7152"
+ },
+ {
+  "customer_id": "C02785",
+  "method": "WALLET",
+  "last4": "7479"
+ },
+ {
+  "customer_id": "C01707",
+  "method": "CARD",
+  "last4": "9731"
+ },
+ {
+  "customer_id": "C01269",
+  "method": "WALLET",
+  "last4": "9154"
+ },
+ {
+  "customer_id": "C02445",
+  "method": "CARD",
+  "last4": "5024"
+ },
+ {
+  "customer_id": "C02112",
+  "method": "ACH",
+  "last4": "1509"
+ },
+ {
+  "customer_id": "C02327",
+  "method": "CARD",
+  "last4": "0444"
+ },
+ {
+  "customer_id": "C01955",
+  "method": "CARD",
+  "last4": "9157"
+ },
+ {
+  "customer_id": "C01642",
+  "method": "WALLET",
+  "last4": "0703"
+ },
+ {
+  "customer_id": "C02811",
+  "method": "WALLET",
+  "last4": "5366"
+ },
+ {
+  "customer_id": "C02515",
+  "method": "WALLET",
+  "last4": "2754"
+ },
+ {
+  "customer_id": "C02121",
+  "method": "ACH",
+  "last4": "8471"
+ },
+ {
+  "customer_id": "C02215",
+  "method": "ACH",
+  "last4": "0175"
+ },
+ {
+  "customer_id": "C02047",
+  "method": "WALLET",
+  "last4": "5449"
+ },
+ {
+  "customer_id": "C01120",
+  "method": "ACH",
+  "last4": "2650"
+ },
+ {
+  "customer_id": "C01751",
+  "method": "CARD",
+  "last4": "8300"
+ },
+ {
+  "customer_id": "C02983",
+  "method": "ACH",
+  "last4": "8271"
+ },
+ {
+  "customer_id": "C01988",
+  "method": "ACH",
+  "last4": "2002"
+ },
+ {
+  "customer_id": "C01416",
+  "method": "ACH",
+  "last4": "3969"
+ },
+ {
+  "customer_id": "C02639",
+  "method": "WALLET",
+  "last4": "7674"
+ },
+ {
+  "customer_id": "C02537",
+  "method": "CARD",
+  "last4": "1663"
+ },
+ {
+  "customer_id": "C02822",
+  "method": "WALLET",
+  "last4": "5667"
+ },
+ {
+  "customer_id": "C02315",
+  "method": "CARD",
+  "last4": "9356"
+ },
+ {
+  "customer_id": "C02281",
+  "method": "ACH",
+  "last4": "9689"
+ },
+ {
+  "customer_id": "C01278",
+  "method": "ACH",
+  "last4": "1875"
+ },
+ {
+  "customer_id": "C01481",
+  "method": "WALLET",
+  "last4": "1701"
+ },
+ {
+  "customer_id": "C02114",
+  "method": "CARD",
+  "last4": "0673"
+ },
+ {
+  "customer_id": "C02965",
+  "method": "CARD",
+  "last4": "4875"
+ },
+ {
+  "customer_id": "C02950",
+  "method": "ACH",
+  "last4": "8751"
+ },
+ {
+  "customer_id": "C02400",
+  "method": "ACH",
+  "last4": "5449"
+ },
+ {
+  "customer_id": "C02620",
+  "method": "WALLET",
+  "last4": "4960"
+ },
+ {
+  "customer_id": "C01215",
+  "method": "CARD",
+  "last4": "1796"
+ },
+ {
+  "customer_id": "C01111",
+  "method": "WALLET",
+  "last4": "8783"
+ },
+ {
+  "customer_id": "C01321",
+  "method": "CARD",
+  "last4": "5000"
+ },
+ {
+  "customer_id": "C01201",
+  "method": "CARD",
+  "last4": "9682"
+ },
+ {
+  "customer_id": "C02268",
+  "method": "CARD",
+  "last4": "1718"
+ },
+ {
+  "customer_id": "C02809",
+  "method": "ACH",
+  "last4": "5905"
+ },
+ {
+  "customer_id": "C02572",
+  "method": "ACH",
+  "last4": "7720"
+ },
+ {
+  "customer_id": "C01016",
+  "method": "CARD",
+  "last4": "3754"
+ },
+ {
+  "customer_id": "C01469",
+  "method": "WALLET",
+  "last4": "1056"
+ },
+ {
+  "customer_id": "C01828",
+  "method": "CARD",
+  "last4": "8959"
+ },
+ {
+  "customer_id": "C01603",
+  "method": "ACH",
+  "last4": "4552"
+ },
+ {
+  "customer_id": "C01967",
+  "method": "ACH",
+  "last4": "6840"
+ },
+ {
+  "customer_id": "C02439",
+  "method": "CARD",
+  "last4": "7989"
+ },
+ {
+  "customer_id": "C02909",
+  "method": "WALLET",
+  "last4": "8286"
+ },
+ {
+  "customer_id": "C02749",
+  "method": "WALLET",
+  "last4": "8975"
+ },
+ {
+  "customer_id": "C01941",
+  "method": "WALLET",
+  "last4": "7512"
+ },
+ {
+  "customer_id": "C02051",
+  "method": "WALLET",
+  "last4": "4213"
+ },
+ {
+  "customer_id": "C02158",
+  "method": "CARD",
+  "last4": "7580"
+ },
+ {
+  "customer_id": "C01554",
+  "method": "WALLET",
+  "last4": "0026"
+ },
+ {
+  "customer_id": "C01258",
+  "method": "CARD",
+  "last4": "1809"
+ },
+ {
+  "customer_id": "C01550",
+  "method": "WALLET",
+  "last4": "6409"
+ },
+ {
+  "customer_id": "C01097",
+  "method": "ACH",
+  "last4": "3192"
+ },
+ {
+  "customer_id": "C01346",
+  "method": "CARD",
+  "last4": "0489"
+ },
+ {
+  "customer_id": "C02414",
+  "method": "ACH",
+  "last4": "1035"
+ },
+ {
+  "customer_id": "C01580",
+  "method": "WALLET",
+  "last4": "2272"
+ },
+ {
+  "customer_id": "C01042",
+  "method": "WALLET",
+  "last4": "9875"
+ },
+ {
+  "customer_id": "C01618",
+  "method": "CARD",
+  "last4": "7277"
+ },
+ {
+  "customer_id": "C02406",
+  "method": "CARD",
+  "last4": "2647"
+ },
+ {
+  "customer_id": "C02521",
+  "method": "ACH",
+  "last4": "5040"
+ },
+ {
+  "customer_id": "C01774",
+  "method": "ACH",
+  "last4": "6806"
+ },
+ {
+  "customer_id": "C02248",
+  "method": "CARD",
+  "last4": "8127"
+ },
+ {
+  "customer_id": "C02294",
+  "method": "CARD",
+  "last4": "4016"
+ },
+ {
+  "customer_id": "C01958",
+  "method": "ACH",
+  "last4": "2603"
+ },
+ {
+  "customer_id": "C02579",
+  "method": "WALLET",
+  "last4": "8563"
+ },
+ {
+  "customer_id": "C01167",
+  "method": "ACH",
+  "last4": "7871"
+ },
+ {
+  "customer_id": "C01132",
+  "method": "CARD",
+  "last4": "2220"
+ },
+ {
+  "customer_id": "C01990",
+  "method": "ACH",
+  "last4": "2886"
+ },
+ {
+  "customer_id": "C02148",
+  "method": "WALLET",
+  "last4": "7449"
+ },
+ {
+  "customer_id": "C01419",
+  "method": "ACH",
+  "last4": "2279"
+ },
+ {
+  "customer_id": "C02196",
+  "method": "WALLET",
+  "last4": "5035"
+ },
+ {
+  "customer_id": "C01835",
+  "method": "ACH",
+  "last4": "8356"
+ },
+ {
+  "customer_id": "C01735",
+  "method": "ACH",
+  "last4": "0873"
+ },
+ {
+  "customer_id": "C02086",
+  "method": "CARD",
+  "last4": "5849"
+ },
+ {
+  "customer_id": "C02637",
+  "method": "ACH",
+  "last4": "7776"
+ },
+ {
+  "customer_id": "C02944",
+  "method": "WALLET",
+  "last4": "5351"
+ },
+ {
+  "customer_id": "C02696",
+  "method": "ACH",
+  "last4": "2506"
+ },
+ {
+  "customer_id": "C01624",
+  "method": "WALLET",
+  "last4": "8176"
+ },
+ {
+  "customer_id": "C01144",
+  "method": "CARD",
+  "last4": "1215"
+ },
+ {
+  "customer_id": "C01295",
+  "method": "CARD",
+  "last4": "6856"
+ },
+ {
+  "customer_id": "C02169",
+  "method": "WALLET",
+  "last4": "7657"
+ },
+ {
+  "customer_id": "C02500",
+  "method": "ACH",
+  "last4": "4115"
+ },
+ {
+  "customer_id": "C01357",
+  "method": "WALLET",
+  "last4": "6564"
+ },
+ {
+  "customer_id": "C01473",
+  "method": "WALLET",
+  "last4": "2519"
+ },
+ {
+  "customer_id": "C02466",
+  "method": "ACH",
+  "last4": "8399"
+ },
+ {
+  "customer_id": "C02813",
+  "method": "WALLET",
+  "last4": "7387"
+ },
+ {
+  "customer_id": "C01834",
+  "method": "ACH",
+  "last4": "8211"
+ },
+ {
+  "customer_id": "C01372",
+  "method": "WALLET",
+  "last4": "9968"
+ },
+ {
+  "customer_id": "C01509",
+  "method": "CARD",
+  "last4": "5925"
+ },
+ {
+  "customer_id": "C01750",
+  "method": "ACH",
+  "last4": "2092"
+ },
+ {
+  "customer_id": "C02434",
+  "method": "ACH",
+  "last4": "8422"
+ },
+ {
+  "customer_id": "C02136",
+  "method": "ACH",
+  "last4": "7738"
+ },
+ {
+  "customer_id": "C02741",
+  "method": "ACH",
+  "last4": "9145"
+ },
+ {
+  "customer_id": "C01094",
+  "method": "WALLET",
+  "last4": "3632"
+ },
+ {
+  "customer_id": "C01661",
+  "method": "ACH",
+  "last4": "3833"
+ },
+ {
+  "customer_id": "C02920",
+  "method": "ACH",
+  "last4": "3782"
+ },
+ {
+  "customer_id": "C02600",
+  "method": "ACH",
+  "last4": "6995"
+ },
+ {
+  "customer_id": "C02036",
+  "method": "WALLET",
+  "last4": "5700"
+ },
+ {
+  "customer_id": "C02057",
+  "method": "CARD",
+  "last4": "9955"
+ },
+ {
+  "customer_id": "C02651",
+  "method": "WALLET",
+  "last4": "9180"
+ },
+ {
+  "customer_id": "C01445",
+  "method": "ACH",
+  "last4": "0589"
+ },
+ {
+  "customer_id": "C02101",
+  "method": "WALLET",
+  "last4": "2733"
+ },
+ {
+  "customer_id": "C02916",
+  "method": "WALLET",
+  "last4": "5585"
+ },
+ {
+  "customer_id": "C02929",
+  "method": "ACH",
+  "last4": "2307"
+ },
+ {
+  "customer_id": "C02872",
+  "method": "WALLET",
+  "last4": "8994"
+ },
+ {
+  "customer_id": "C01695",
+  "method": "ACH",
+  "last4": "8389"
+ },
+ {
+  "customer_id": "C02334",
+  "method": "CARD",
+  "last4": "9297"
+ },
+ {
+  "customer_id": "C02021",
+  "method": "CARD",
+  "last4": "8403"
+ },
+ {
+  "customer_id": "C02685",
+  "method": "WALLET",
+  "last4": "9106"
+ },
+ {
+  "customer_id": "C02340",
+  "method": "WALLET",
+  "last4": "7643"
+ },
+ {
+  "customer_id": "C02679",
+  "method": "ACH",
+  "last4": "9616"
+ },
+ {
+  "customer_id": "C02173",
+  "method": "ACH",
+  "last4": "9809"
+ },
+ {
+  "customer_id": "C02364",
+  "method": "ACH",
+  "last4": "4389"
+ },
+ {
+  "customer_id": "C01106",
+  "method": "WALLET",
+  "last4": "7996"
+ },
+ {
+  "customer_id": "C01544",
+  "method": "CARD",
+  "last4": "7647"
+ },
+ {
+  "customer_id": "C01238",
+  "method": "CARD",
+  "last4": "2568"
+ },
+ {
+  "customer_id": "C02422",
+  "method": "ACH",
+  "last4": "1227"
+ },
+ {
+  "customer_id": "C01310",
+  "method": "WALLET",
+  "last4": "4821"
+ },
+ {
+  "customer_id": "C01261",
+  "method": "CARD",
+  "last4": "8406"
+ },
+ {
+  "customer_id": "C02139",
+  "method": "WALLET",
+  "last4": "8743"
+ },
+ {
+  "customer_id": "C01331",
+  "method": "CARD",
+  "last4": "3405"
+ },
+ {
+  "customer_id": "C02905",
+  "method": "ACH",
+  "last4": "3721"
+ },
+ {
+  "customer_id": "C02111",
+  "method": "CARD",
+  "last4": "1978"
+ },
+ {
+  "customer_id": "C01020",
+  "method": "ACH",
+  "last4": "4375"
+ },
+ {
+  "customer_id": "C01136",
+  "method": "WALLET",
+  "last4": "8035"
+ },
+ {
+  "customer_id": "C02694",
+  "method": "WALLET",
+  "last4": "7975"
+ },
+ {
+  "customer_id": "C02953",
+  "method": "CARD",
+  "last4": "9444"
+ },
+ {
+  "customer_id": "C01223",
+  "method": "WALLET",
+  "last4": "5684"
+ },
+ {
+  "customer_id": "C01991",
+  "method": "ACH",
+  "last4": "6177"
+ },
+ {
+  "customer_id": "C01999",
+  "method": "CARD",
+  "last4": "5638"
+ },
+ {
+  "customer_id": "C01056",
+  "method": "ACH",
+  "last4": "0839"
+ },
+ {
+  "customer_id": "C02722",
+  "method": "ACH",
+  "last4": "0880"
+ },
+ {
+  "customer_id": "C02629",
+  "method": "CARD",
+  "last4": "8149"
+ },
+ {
+  "customer_id": "C02214",
+  "method": "WALLET",
+  "last4": "7234"
+ },
+ {
+  "customer_id": "C01210",
+  "method": "WALLET",
+  "last4": "0629"
+ },
+ {
+  "customer_id": "C02435",
+  "method": "WALLET",
+  "last4": "5924"
+ },
+ {
+  "customer_id": "C01292",
+  "method": "CARD",
+  "last4": "6927"
+ },
+ {
+  "customer_id": "C01952",
+  "method": "ACH",
+  "last4": "3073"
+ },
+ {
+  "customer_id": "C01724",
+  "method": "CARD",
+  "last4": "7405"
+ },
+ {
+  "customer_id": "C01143",
+  "method": "CARD",
+  "last4": "1658"
+ },
+ {
+  "customer_id": "C01658",
+  "method": "CARD",
+  "last4": "6862"
+ },
+ {
+  "customer_id": "C02599",
+  "method": "WALLET",
+  "last4": "3338"
+ },
+ {
+  "customer_id": "C02804",
+  "method": "WALLET",
+  "last4": "3443"
+ },
+ {
+  "customer_id": "C02923",
+  "method": "ACH",
+  "last4": "4254"
+ },
+ {
+  "customer_id": "C01355",
+  "method": "WALLET",
+  "last4": "5957"
+ },
+ {
+  "customer_id": "C02415",
+  "method": "ACH",
+  "last4": "8224"
+ },
+ {
+  "customer_id": "C01674",
+  "method": "ACH",
+  "last4": "7167"
+ },
+ {
+  "customer_id": "C01651",
+  "method": "CARD",
+  "last4": "2561"
+ },
+ {
+  "customer_id": "C02585",
+  "method": "CARD",
+  "last4": "1151"
+ },
+ {
+  "customer_id": "C01589",
+  "method": "CARD",
+  "last4": "5708"
+ },
+ {
+  "customer_id": "C01312",
+  "method": "CARD",
+  "last4": "8130"
+ },
+ {
+  "customer_id": "C02584",
+  "method": "CARD",
+  "last4": "5718"
+ },
+ {
+  "customer_id": "C02774",
+  "method": "ACH",
+  "last4": "5118"
+ },
+ {
+  "customer_id": "C02871",
+  "method": "ACH",
+  "last4": "9528"
+ },
+ {
+  "customer_id": "C02719",
+  "method": "CARD",
+  "last4": "9457"
+ },
+ {
+  "customer_id": "C01107",
+  "method": "ACH",
+  "last4": "6582"
+ },
+ {
+  "customer_id": "C01587",
+  "method": "CARD",
+  "last4": "3529"
+ },
+ {
+  "customer_id": "C02739",
+  "method": "WALLET",
+  "last4": "3283"
+ },
+ {
+  "customer_id": "C02753",
+  "method": "ACH",
+  "last4": "9732"
+ },
+ {
+  "customer_id": "C02447",
+  "method": "WALLET",
+  "last4": "7344"
+ },
+ {
+  "customer_id": "C01306",
+  "method": "CARD",
+  "last4": "5282"
+ },
+ {
+  "customer_id": "C01276",
+  "method": "ACH",
+  "last4": "6822"
+ },
+ {
+  "customer_id": "C02300",
+  "method": "WALLET",
+  "last4": "8527"
+ },
+ {
+  "customer_id": "C01484",
+  "method": "CARD",
+  "last4": "2233"
+ },
+ {
+  "customer_id": "C02352",
+  "method": "WALLET",
+  "last4": "5950"
+ },
+ {
+  "customer_id": "C02024",
+  "method": "ACH",
+  "last4": "7428"
+ },
+ {
+  "customer_id": "C01285",
+  "method": "WALLET",
+  "last4": "9368"
+ },
+ {
+  "customer_id": "C02003",
+  "method": "CARD",
+  "last4": "6225"
+ },
+ {
+  "customer_id": "C01100",
+  "method": "CARD",
+  "last4": "4347"
+ },
+ {
+  "customer_id": "C02457",
+  "method": "CARD",
+  "last4": "8719"
+ },
+ {
+  "customer_id": "C02029",
+  "method": "WALLET",
+  "last4": "4253"
+ },
+ {
+  "customer_id": "C02088",
+  "method": "ACH",
+  "last4": "0425"
+ },
+ {
+  "customer_id": "C02450",
+  "method": "ACH",
+  "last4": "3540"
+ },
+ {
+  "customer_id": "C02337",
+  "method": "WALLET",
+  "last4": "5460"
+ },
+ {
+  "customer_id": "C02223",
+  "method": "CARD",
+  "last4": "8149"
+ },
+ {
+  "customer_id": "C02993",
+  "method": "WALLET",
+  "last4": "1215"
+ },
+ {
+  "customer_id": "C02098",
+  "method": "WALLET",
+  "last4": "0372"
+ },
+ {
+  "customer_id": "C02990",
+  "method": "WALLET",
+  "last4": "8021"
+ },
+ {
+  "customer_id": "C01542",
+  "method": "WALLET",
+  "last4": "5602"
+ },
+ {
+  "customer_id": "C01010",
+  "method": "ACH",
+  "last4": "3030"
+ },
+ {
+  "customer_id": "C01073",
+  "method": "WALLET",
+  "last4": "8313"
+ },
+ {
+  "customer_id": "C02876",
+  "method": "WALLET",
+  "last4": "4413"
+ },
+ {
+  "customer_id": "C01456",
+  "method": "WALLET",
+  "last4": "6818"
+ },
+ {
+  "customer_id": "C01844",
+  "method": "ACH",
+  "last4": "6383"
+ },
+ {
+  "customer_id": "C01571",
+  "method": "WALLET",
+  "last4": "5004"
+ },
+ {
+  "customer_id": "C02107",
+  "method": "WALLET",
+  "last4": "2340"
+ },
+ {
+  "customer_id": "C01353",
+  "method": "WALLET",
+  "last4": "9873"
+ },
+ {
+  "customer_id": "C02903",
+  "method": "CARD",
+  "last4": "1287"
+ },
+ {
+  "customer_id": "C01645",
+  "method": "WALLET",
+  "last4": "7295"
+ },
+ {
+  "customer_id": "C01075",
+  "method": "CARD",
+  "last4": "6432"
+ },
+ {
+  "customer_id": "C01139",
+  "method": "CARD",
+  "last4": "8699"
+ },
+ {
+  "customer_id": "C02095",
+  "method": "ACH",
+  "last4": "7974"
+ },
+ {
+  "customer_id": "C01206",
+  "method": "CARD",
+  "last4": "8486"
+ },
+ {
+  "customer_id": "C02079",
+  "method": "CARD",
+  "last4": "4421"
+ },
+ {
+  "customer_id": "C02316",
+  "method": "ACH",
+  "last4": "9822"
+ },
+ {
+  "customer_id": "C02058",
+  "method": "WALLET",
+  "last4": "6221"
+ },
+ {
+  "customer_id": "C02806",
+  "method": "WALLET",
+  "last4": "5176"
+ },
+ {
+  "customer_id": "C01650",
+  "method": "WALLET",
+  "last4": "1076"
+ },
+ {
+  "customer_id": "C02636",
+  "method": "ACH",
+  "last4": "4248"
+ },
+ {
+  "customer_id": "C01382",
+  "method": "ACH",
+  "last4": "9094"
+ },
+ {
+  "customer_id": "C01343",
+  "method": "WALLET",
+  "last4": "5153"
+ },
+ {
+  "customer_id": "C01894",
+  "method": "CARD",
+  "last4": "4189"
+ },
+ {
+  "customer_id": "C02937",
+  "method": "ACH",
+  "last4": "9120"
+ },
+ {
+  "customer_id": "C02662",
+  "method": "ACH",
+  "last4": "6995"
+ },
+ {
+  "customer_id": "C02034",
+  "method": "ACH",
+  "last4": "2112"
+ },
+ {
+  "customer_id": "C02678",
+  "method": "CARD",
+  "last4": "6745"
+ },
+ {
+  "customer_id": "C02496",
+  "method": "CARD",
+  "last4": "2747"
+ },
+ {
+  "customer_id": "C01879",
+  "method": "ACH",
+  "last4": "6996"
+ },
+ {
+  "customer_id": "C02545",
+  "method": "CARD",
+  "last4": "4182"
+ },
+ {
+  "customer_id": "C01178",
+  "method": "CARD",
+  "last4": "5380"
+ },
+ {
+  "customer_id": "C01757",
+  "method": "CARD",
+  "last4": "0750"
+ },
+ {
+  "customer_id": "C01540",
+  "method": "WALLET",
+  "last4": "7190"
+ },
+ {
+  "customer_id": "C02820",
+  "method": "WALLET",
+  "last4": "6012"
+ },
+ {
+  "customer_id": "C02206",
+  "method": "CARD",
+  "last4": "1527"
+ },
+ {
+  "customer_id": "C02858",
+  "method": "CARD",
+  "last4": "5828"
+ },
+ {
+  "customer_id": "C01731",
+  "method": "ACH",
+  "last4": "5454"
+ },
+ {
+  "customer_id": "C01004",
+  "method": "ACH",
+  "last4": "6465"
+ },
+ {
+  "customer_id": "C01058",
+  "method": "WALLET",
+  "last4": "4872"
+ },
+ {
+  "customer_id": "C01878",
+  "method": "WALLET",
+  "last4": "9979"
+ },
+ {
+  "customer_id": "C02390",
+  "method": "CARD",
+  "last4": "4431"
+ },
+ {
+  "customer_id": "C01859",
+  "method": "CARD",
+  "last4": "2190"
+ },
+ {
+  "customer_id": "C01912",
+  "method": "CARD",
+  "last4": "8513"
+ },
+ {
+  "customer_id": "C01788",
+  "method": "ACH",
+  "last4": "2436"
+ },
+ {
+  "customer_id": "C01490",
+  "method": "CARD",
+  "last4": "0875"
+ },
+ {
+  "customer_id": "C01638",
+  "method": "WALLET",
+  "last4": "0280"
+ },
+ {
+  "customer_id": "C01123",
+  "method": "ACH",
+  "last4": "8347"
+ },
+ {
+  "customer_id": "C02780",
+  "method": "CARD",
+  "last4": "7377"
+ },
+ {
+  "customer_id": "C02737",
+  "method": "WALLET",
+  "last4": "5364"
+ },
+ {
+  "customer_id": "C01654",
+  "method": "WALLET",
+  "last4": "5602"
+ },
+ {
+  "customer_id": "C02283",
+  "method": "ACH",
+  "last4": "2904"
+ },
+ {
+  "customer_id": "C02102",
+  "method": "WALLET",
+  "last4": "7464"
+ },
+ {
+  "customer_id": "C01026",
+  "method": "ACH",
+  "last4": "8477"
+ },
+ {
+  "customer_id": "C01535",
+  "method": "CARD",
+  "last4": "0143"
+ },
+ {
+  "customer_id": "C01811",
+  "method": "CARD",
+  "last4": "6901"
+ },
+ {
+  "customer_id": "C02208",
+  "method": "WALLET",
+  "last4": "3771"
+ },
+ {
+  "customer_id": "C01884",
+  "method": "CARD",
+  "last4": "3092"
+ },
+ {
+  "customer_id": "C02412",
+  "method": "WALLET",
+  "last4": "1628"
+ },
+ {
+  "customer_id": "C02947",
+  "method": "CARD",
+  "last4": "3091"
+ },
+ {
+  "customer_id": "C02336",
+  "method": "WALLET",
+  "last4": "6822"
+ },
+ {
+  "customer_id": "C01810",
+  "method": "ACH",
+  "last4": "8256"
+ },
+ {
+  "customer_id": "C01345",
+  "method": "WALLET",
+  "last4": "2512"
+ },
+ {
+  "customer_id": "C02220",
+  "method": "WALLET",
+  "last4": "1685"
+ },
+ {
+  "customer_id": "C02518",
+  "method": "CARD",
+  "last4": "6003"
+ },
+ {
+  "customer_id": "C01632",
+  "method": "CARD",
+  "last4": "6319"
+ },
+ {
+  "customer_id": "C02460",
+  "method": "CARD",
+  "last4": "0449"
+ },
+ {
+  "customer_id": "C02344",
+  "method": "ACH",
+  "last4": "7903"
+ },
+ {
+  "customer_id": "C01125",
+  "method": "WALLET",
+  "last4": "7217"
+ },
+ {
+  "customer_id": "C02945",
+  "method": "WALLET",
+  "last4": "2008"
+ },
+ {
+  "customer_id": "C02218",
+  "method": "WALLET",
+  "last4": "1059"
+ },
+ {
+  "customer_id": "C01305",
+  "method": "WALLET",
+  "last4": "5469"
+ },
+ {
+  "customer_id": "C02625",
+  "method": "WALLET",
+  "last4": "4285"
+ },
+ {
+  "customer_id": "C02431",
+  "method": "CARD",
+  "last4": "5178"
+ },
+ {
+  "customer_id": "C02836",
+  "method": "ACH",
+  "last4": "0999"
+ },
+ {
+  "customer_id": "C01596",
+  "method": "CARD",
+  "last4": "8246"
+ },
+ {
+  "customer_id": "C01438",
+  "method": "CARD",
+  "last4": "0740"
+ },
+ {
+  "customer_id": "C01048",
+  "method": "ACH",
+  "last4": "3078"
+ },
+ {
+  "customer_id": "C02586",
+  "method": "WALLET",
+  "last4": "3973"
+ },
+ {
+  "customer_id": "C02452",
+  "method": "ACH",
+  "last4": "7900"
+ },
+ {
+  "customer_id": "C02574",
+  "method": "CARD",
+  "last4": "8717"
+ },
+ {
+  "customer_id": "C01299",
+  "method": "ACH",
+  "last4": "8887"
+ },
+ {
+  "customer_id": "C02792",
+  "method": "CARD",
+  "last4": "3755"
+ },
+ {
+  "customer_id": "C01337",
+  "method": "ACH",
+  "last4": "7376"
+ },
+ {
+  "customer_id": "C02381",
+  "method": "ACH",
+  "last4": "7811"
+ },
+ {
+  "customer_id": "C02512",
+  "method": "WALLET",
+  "last4": "7286"
+ },
+ {
+  "customer_id": "C01691",
+  "method": "WALLET",
+  "last4": "5169"
+ },
+ {
+  "customer_id": "C01626",
+  "method": "WALLET",
+  "last4": "1291"
+ },
+ {
+  "customer_id": "C02001",
+  "method": "ACH",
+  "last4": "7134"
+ },
+ {
+  "customer_id": "C01221",
+  "method": "ACH",
+  "last4": "6714"
+ },
+ {
+  "customer_id": "C02531",
+  "method": "CARD",
+  "last4": "2223"
+ },
+ {
+  "customer_id": "C01652",
+  "method": "CARD",
+  "last4": "7957"
+ },
+ {
+  "customer_id": "C02979",
+  "method": "WALLET",
+  "last4": "4510"
+ },
+ {
+  "customer_id": "C02418",
+  "method": "ACH",
+  "last4": "3409"
+ },
+ {
+  "customer_id": "C01219",
+  "method": "ACH",
+  "last4": "4523"
+ },
+ {
+  "customer_id": "C02985",
+  "method": "ACH",
+  "last4": "0202"
+ },
+ {
+  "customer_id": "C01371",
+  "method": "WALLET",
+  "last4": "9863"
+ },
+ {
+  "customer_id": "C01089",
+  "method": "CARD",
+  "last4": "2215"
+ },
+ {
+  "customer_id": "C02715",
+  "method": "WALLET",
+  "last4": "8326"
+ },
+ {
+  "customer_id": "C01474",
+  "method": "WALLET",
+  "last4": "5773"
+ },
+ {
+  "customer_id": "C02764",
+  "method": "ACH",
+  "last4": "6752"
+ },
+ {
+  "customer_id": "C02793",
+  "method": "CARD",
+  "last4": "7753"
+ },
+ {
+  "customer_id": "C01746",
+  "method": "CARD",
+  "last4": "9413"
+ },
+ {
+  "customer_id": "C02468",
+  "method": "CARD",
+  "last4": "8526"
+ },
+ {
+  "customer_id": "C01818",
+  "method": "ACH",
+  "last4": "6421"
+ },
+ {
+  "customer_id": "C02193",
+  "method": "CARD",
+  "last4": "7339"
+ },
+ {
+  "customer_id": "C02569",
+  "method": "WALLET",
+  "last4": "6367"
+ },
+ {
+  "customer_id": "C02940",
+  "method": "WALLET",
+  "last4": "0203"
+ },
+ {
+  "customer_id": "C01367",
+  "method": "CARD",
+  "last4": "6289"
+ },
+ {
+  "customer_id": "C01641",
+  "method": "WALLET",
+  "last4": "9946"
+ },
+ {
+  "customer_id": "C02037",
+  "method": "CARD",
+  "last4": "6999"
+ },
+ {
+  "customer_id": "C02991",
+  "method": "WALLET",
+  "last4": "7490"
+ },
+ {
+  "customer_id": "C01377",
+  "method": "WALLET",
+  "last4": "4924"
+ },
+ {
+  "customer_id": "C02827",
+  "method": "CARD",
+  "last4": "8585"
+ },
+ {
+  "customer_id": "C01843",
+  "method": "CARD",
+  "last4": "0434"
+ },
+ {
+  "customer_id": "C01005",
+  "method": "WALLET",
+  "last4": "5992"
+ },
+ {
+  "customer_id": "C01927",
+  "method": "ACH",
+  "last4": "5748"
+ },
+ {
+  "customer_id": "C01268",
+  "method": "ACH",
+  "last4": "7588"
+ },
+ {
+  "customer_id": "C01338",
+  "method": "WALLET",
+  "last4": "2557"
+ },
+ {
+  "customer_id": "C01523",
+  "method": "ACH",
+  "last4": "7086"
+ },
+ {
+  "customer_id": "C01365",
+  "method": "ACH",
+  "last4": "2764"
+ },
+ {
+  "customer_id": "C01763",
+  "method": "WALLET",
+  "last4": "5565"
+ },
+ {
+  "customer_id": "C01496",
+  "method": "CARD",
+  "last4": "8457"
+ },
+ {
+  "customer_id": "C02564",
+  "method": "CARD",
+  "last4": "8738"
+ },
+ {
+  "customer_id": "C01533",
+  "method": "ACH",
+  "last4": "8610"
+ },
+ {
+  "customer_id": "C01673",
+  "method": "ACH",
+  "last4": "9866"
+ },
+ {
+  "customer_id": "C02490",
+  "method": "ACH",
+  "last4": "3581"
+ },
+ {
+  "customer_id": "C01163",
+  "method": "ACH",
+  "last4": "4607"
+ },
+ {
+  "customer_id": "C01875",
+  "method": "WALLET",
+  "last4": "4458"
+ },
+ {
+  "customer_id": "C01940",
+  "method": "ACH",
+  "last4": "1449"
+ },
+ {
+  "customer_id": "C01970",
+  "method": "WALLET",
+  "last4": "4633"
+ },
+ {
+  "customer_id": "C02119",
+  "method": "WALLET",
+  "last4": "4751"
+ },
+ {
+  "customer_id": "C01432",
+  "method": "ACH",
+  "last4": "9529"
+ },
+ {
+  "customer_id": "C02399",
+  "method": "ACH",
+  "last4": "9518"
+ },
+ {
+  "customer_id": "C02005",
+  "method": "CARD",
+  "last4": "8845"
+ },
+ {
+  "customer_id": "C02444",
+  "method": "ACH",
+  "last4": "5860"
+ },
+ {
+  "customer_id": "C01689",
+  "method": "CARD",
+  "last4": "4485"
+ },
+ {
+  "customer_id": "C01932",
+  "method": "CARD",
+  "last4": "0275"
+ },
+ {
+  "customer_id": "C02459",
+  "method": "WALLET",
+  "last4": "0784"
+ },
+ {
+  "customer_id": "C02356",
+  "method": "ACH",
+  "last4": "8436"
+ },
+ {
+  "customer_id": "C01127",
+  "method": "CARD",
+  "last4": "2924"
+ },
+ {
+  "customer_id": "C01518",
+  "method": "WALLET",
+  "last4": "1905"
+ },
+ {
+  "customer_id": "C01672",
+  "method": "WALLET",
+  "last4": "4435"
+ },
+ {
+  "customer_id": "C02507",
+  "method": "WALLET",
+  "last4": "9932"
+ },
+ {
+  "customer_id": "C01769",
+  "method": "CARD",
+  "last4": "0001"
+ },
+ {
+  "customer_id": "C01950",
+  "method": "ACH",
+  "last4": "9271"
+ },
+ {
+  "customer_id": "C01905",
+  "method": "CARD",
+  "last4": "3631"
+ },
+ {
+  "customer_id": "C02176",
+  "method": "WALLET",
+  "last4": "7566"
+ },
+ {
+  "customer_id": "C02319",
+  "method": "WALLET",
+  "last4": "1312"
+ },
+ {
+  "customer_id": "C01829",
+  "method": "ACH",
+  "last4": "3326"
+ },
+ {
+  "customer_id": "C01067",
+  "method": "CARD",
+  "last4": "6260"
+ },
+ {
+  "customer_id": "C02921",
+  "method": "CARD",
+  "last4": "7610"
+ },
+ {
+  "customer_id": "C01287",
+  "method": "CARD",
+  "last4": "3619"
+ },
+ {
+  "customer_id": "C02789",
+  "method": "WALLET",
+  "last4": "4264"
+ },
+ {
+  "customer_id": "C02689",
+  "method": "ACH",
+  "last4": "5093"
+ },
+ {
+  "customer_id": "C01772",
+  "method": "ACH",
+  "last4": "7319"
+ },
+ {
+  "customer_id": "C02502",
+  "method": "WALLET",
+  "last4": "9646"
+ },
+ {
+  "customer_id": "C02226",
+  "method": "WALLET",
+  "last4": "6160"
+ },
+ {
+  "customer_id": "C01598",
+  "method": "WALLET",
+  "last4": "7844"
+ },
+ {
+  "customer_id": "C01354",
+  "method": "CARD",
+  "last4": "0082"
+ },
+ {
+  "customer_id": "C02901",
+  "method": "CARD",
+  "last4": "5440"
+ },
+ {
+  "customer_id": "C02821",
+  "method": "CARD",
+  "last4": "9277"
+ },
+ {
+  "customer_id": "C01777",
+  "method": "CARD",
+  "last4": "2641"
+ },
+ {
+  "customer_id": "C02386",
+  "method": "WALLET",
+  "last4": "7187"
+ },
+ {
+  "customer_id": "C02996",
+  "method": "CARD",
+  "last4": "4104"
+ },
+ {
+  "customer_id": "C01888",
+  "method": "WALLET",
+  "last4": "9023"
+ },
+ {
+  "customer_id": "C01926",
+  "method": "CARD",
+  "last4": "2087"
+ },
+ {
+  "customer_id": "C01910",
+  "method": "CARD",
+  "last4": "7765"
+ },
+ {
+  "customer_id": "C01629",
+  "method": "CARD",
+  "last4": "4815"
+ },
+ {
+  "customer_id": "C01527",
+  "method": "WALLET",
+  "last4": "8574"
+ },
+ {
+  "customer_id": "C01945",
+  "method": "CARD",
+  "last4": "7417"
+ },
+ {
+  "customer_id": "C02015",
+  "method": "WALLET",
+  "last4": "8924"
+ },
+ {
+  "customer_id": "C02968",
+  "method": "WALLET",
+  "last4": "2852"
+ },
+ {
+  "customer_id": "C01341",
+  "method": "WALLET",
+  "last4": "8756"
+ },
+ {
+  "customer_id": "C02914",
+  "method": "WALLET",
+  "last4": "3121"
+ },
+ {
+  "customer_id": "C01979",
+  "method": "WALLET",
+  "last4": "5094"
+ },
+ {
+  "customer_id": "C01407",
+  "method": "WALLET",
+  "last4": "5775"
+ },
+ {
+  "customer_id": "C02877",
+  "method": "ACH",
+  "last4": "8000"
+ },
+ {
+  "customer_id": "C02474",
+  "method": "ACH",
+  "last4": "7913"
+ },
+ {
+  "customer_id": "C02861",
+  "method": "ACH",
+  "last4": "9739"
+ },
+ {
+  "customer_id": "C01734",
+  "method": "WALLET",
+  "last4": "5712"
+ },
+ {
+  "customer_id": "C01348",
+  "method": "CARD",
+  "last4": "5318"
+ },
+ {
+  "customer_id": "C02023",
+  "method": "ACH",
+  "last4": "0110"
+ },
+ {
+  "customer_id": "C01593",
+  "method": "CARD",
+  "last4": "3775"
+ },
+ {
+  "customer_id": "C02429",
+  "method": "ACH",
+  "last4": "1040"
+ },
+ {
+  "customer_id": "C01426",
+  "method": "ACH",
+  "last4": "7069"
+ },
+ {
+  "customer_id": "C02594",
+  "method": "WALLET",
+  "last4": "3941"
+ },
+ {
+  "customer_id": "C01403",
+  "method": "CARD",
+  "last4": "9432"
+ },
+ {
+  "customer_id": "C02582",
+  "method": "ACH",
+  "last4": "6883"
+ },
+ {
+  "customer_id": "C02977",
+  "method": "ACH",
+  "last4": "6912"
+ },
+ {
+  "customer_id": "C02402",
+  "method": "WALLET",
+  "last4": "2720"
+ },
+ {
+  "customer_id": "C02867",
+  "method": "ACH",
+  "last4": "5679"
+ },
+ {
+  "customer_id": "C02704",
+  "method": "ACH",
+  "last4": "2501"
+ },
+ {
+  "customer_id": "C01265",
+  "method": "WALLET",
+  "last4": "8646"
+ },
+ {
+  "customer_id": "C02856",
+  "method": "WALLET",
+  "last4": "8572"
+ },
+ {
+  "customer_id": "C01732",
+  "method": "WALLET",
+  "last4": "4195"
+ },
+ {
+  "customer_id": "C02032",
+  "method": "WALLET",
+  "last4": "3305"
+ },
+ {
+  "customer_id": "C01442",
+  "method": "WALLET",
+  "last4": "5056"
+ },
+ {
+  "customer_id": "C01814",
+  "method": "WALLET",
+  "last4": "3208"
+ },
+ {
+  "customer_id": "C01872",
+  "method": "ACH",
+  "last4": "4532"
+ },
+ {
+  "customer_id": "C01816",
+  "method": "CARD",
+  "last4": "7329"
+ },
+ {
+  "customer_id": "C02803",
+  "method": "ACH",
+  "last4": "6085"
+ },
+ {
+  "customer_id": "C01099",
+  "method": "CARD",
+  "last4": "1680"
+ },
+ {
+  "customer_id": "C01692",
+  "method": "CARD",
+  "last4": "3969"
+ },
+ {
+  "customer_id": "C01153",
+  "method": "ACH",
+  "last4": "2358"
+ },
+ {
+  "customer_id": "C02046",
+  "method": "WALLET",
+  "last4": "7834"
+ },
+ {
+  "customer_id": "C02409",
+  "method": "WALLET",
+  "last4": "6830"
+ },
+ {
+  "customer_id": "C02819",
+  "method": "CARD",
+  "last4": "0535"
+ },
+ {
+  "customer_id": "C01096",
+  "method": "ACH",
+  "last4": "3241"
+ },
+ {
+  "customer_id": "C01039",
+  "method": "CARD",
+  "last4": "7455"
+ },
+ {
+  "customer_id": "C02551",
+  "method": "ACH",
+  "last4": "1305"
+ },
+ {
+  "customer_id": "C01427",
+  "method": "WALLET",
+  "last4": "6591"
+ },
+ {
+  "customer_id": "C01694",
+  "method": "CARD",
+  "last4": "5689"
+ },
+ {
+  "customer_id": "C02109",
+  "method": "WALLET",
+  "last4": "4976"
+ },
+ {
+  "customer_id": "C02501",
+  "method": "CARD",
+  "last4": "1550"
+ },
+ {
+  "customer_id": "C01207",
+  "method": "WALLET",
+  "last4": "5142"
+ },
+ {
+  "customer_id": "C02683",
+  "method": "CARD",
+  "last4": "9333"
+ },
+ {
+  "customer_id": "C01428",
+  "method": "ACH",
+  "last4": "1685"
+ },
+ {
+  "customer_id": "C01477",
+  "method": "ACH",
+  "last4": "5403"
+ },
+ {
+  "customer_id": "C01487",
+  "method": "CARD",
+  "last4": "5599"
+ },
+ {
+  "customer_id": "C02009",
+  "method": "ACH",
+  "last4": "5383"
+ },
+ {
+  "customer_id": "C02154",
+  "method": "ACH",
+  "last4": "3884"
+ },
+ {
+  "customer_id": "C02052",
+  "method": "WALLET",
+  "last4": "3730"
+ },
+ {
+  "customer_id": "C02879",
+  "method": "ACH",
+  "last4": "6113"
+ },
+ {
+  "customer_id": "C02730",
+  "method": "WALLET",
+  "last4": "7951"
+ },
+ {
+  "customer_id": "C01609",
+  "method": "ACH",
+  "last4": "8480"
+ },
+ {
+  "customer_id": "C01631",
+  "method": "WALLET",
+  "last4": "9455"
+ },
+ {
+  "customer_id": "C02383",
+  "method": "WALLET",
+  "last4": "9444"
+ }
+]

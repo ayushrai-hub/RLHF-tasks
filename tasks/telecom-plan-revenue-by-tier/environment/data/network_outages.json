@@ -1,0 +1,302 @@
+[
+ {
+  "region": "EAST",
+  "start": "2025-03-24T03:08:00Z",
+  "minutes": 43
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-16T19:43:00Z",
+  "minutes": 194
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-08T16:38:00Z",
+  "minutes": 33
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-27T23:33:00Z",
+  "minutes": 189
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-12T21:00:00Z",
+  "minutes": 114
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-15T11:22:00Z",
+  "minutes": 96
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-19T08:32:00Z",
+  "minutes": 72
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-17T08:16:00Z",
+  "minutes": 192
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-04T03:55:00Z",
+  "minutes": 237
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-06T13:57:00Z",
+  "minutes": 11
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-16T16:37:00Z",
+  "minutes": 96
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-21T00:56:00Z",
+  "minutes": 84
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-10T17:21:00Z",
+  "minutes": 13
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-11T19:40:00Z",
+  "minutes": 202
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-25T17:51:00Z",
+  "minutes": 82
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-08T15:39:00Z",
+  "minutes": 201
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-10T22:00:00Z",
+  "minutes": 214
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-16T05:46:00Z",
+  "minutes": 87
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-13T14:44:00Z",
+  "minutes": 94
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-28T11:34:00Z",
+  "minutes": 13
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-09T21:41:00Z",
+  "minutes": 139
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-22T22:21:00Z",
+  "minutes": 15
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-14T03:29:00Z",
+  "minutes": 142
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-25T03:23:00Z",
+  "minutes": 231
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-03T09:49:00Z",
+  "minutes": 214
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-20T13:36:00Z",
+  "minutes": 140
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-26T09:59:00Z",
+  "minutes": 183
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-21T04:13:00Z",
+  "minutes": 131
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-24T02:00:00Z",
+  "minutes": 206
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-14T19:41:00Z",
+  "minutes": 191
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-11T03:54:00Z",
+  "minutes": 160
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-19T07:03:00Z",
+  "minutes": 71
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-05T12:19:00Z",
+  "minutes": 150
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-04T13:24:00Z",
+  "minutes": 203
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-04T17:50:00Z",
+  "minutes": 151
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-15T10:29:00Z",
+  "minutes": 179
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-23T15:56:00Z",
+  "minutes": 46
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-17T19:30:00Z",
+  "minutes": 72
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-08T23:20:00Z",
+  "minutes": 72
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-16T23:49:00Z",
+  "minutes": 150
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-19T02:55:00Z",
+  "minutes": 54
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-15T17:54:00Z",
+  "minutes": 20
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-18T03:42:00Z",
+  "minutes": 86
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-02T10:00:00Z",
+  "minutes": 132
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-04T08:21:00Z",
+  "minutes": 199
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-25T04:13:00Z",
+  "minutes": 109
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-10T17:28:00Z",
+  "minutes": 227
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-11T01:53:00Z",
+  "minutes": 21
+ },
+ {
+  "region": "SOUTH",
+  "start": "2025-03-16T07:01:00Z",
+  "minutes": 80
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-26T02:36:00Z",
+  "minutes": 203
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-01T13:19:00Z",
+  "minutes": 16
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-04T05:36:00Z",
+  "minutes": 80
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-28T17:34:00Z",
+  "minutes": 74
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-03T08:11:00Z",
+  "minutes": 56
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-19T06:08:00Z",
+  "minutes": 118
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-13T20:02:00Z",
+  "minutes": 153
+ },
+ {
+  "region": "EAST",
+  "start": "2025-03-13T08:38:00Z",
+  "minutes": 114
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-19T07:19:00Z",
+  "minutes": 186
+ },
+ {
+  "region": "NORTH",
+  "start": "2025-03-19T10:55:00Z",
+  "minutes": 67
+ },
+ {
+  "region": "WEST",
+  "start": "2025-03-23T13:14:00Z",
+  "minutes": 209
+ }
+]

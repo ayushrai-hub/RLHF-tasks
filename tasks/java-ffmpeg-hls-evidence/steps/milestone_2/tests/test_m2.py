@@ -77,6 +77,7 @@ def fresh_init():
 
 class TestDecryptSingle:
     def test_decrypt_known_segment(self):
+        """Verify decrypt of one segment emits ok body and matching audit_id."""
         idx = json.loads(Path(INDEX_PATH).read_text())
         seg0 = idx[0]
         r = _run(["decrypt", str(seg0["segment_index"])])
@@ -96,6 +97,7 @@ class TestDecryptSingle:
             f"audit_id {body['audit_id']} does not match latest audit_log seq {last[0][0] if last else None}")
 
     def test_decrypt_plaintext_matches_expected(self):
+        """Verify each decrypted segment SHA-256 matches the expected fixture."""
         exp = json.loads(Path(EXPECTED_DECRYPT).read_text())
         idx = json.loads(Path(INDEX_PATH).read_text())
         idx_by_id = {e["segment_index"]: e for e in idx}
@@ -110,12 +112,14 @@ class TestDecryptSingle:
                 f"segment {si}: got={got} want={e['plaintext_sha256']}")
 
     def test_decrypt_segment_keys_alpha_sorted(self):
+        """Verify decrypt response keys are ASCII-ascending sorted."""
         idx = json.loads(Path(INDEX_PATH).read_text())
         r = _run(["decrypt", str(idx[1]["segment_index"])])
         body = json.loads(r.stdout)
         assert list(body.keys()) == sorted(body.keys())
 
     def test_decrypt_unknown_segment(self):
+        """Verify decrypt of an unknown segment exits 1 with segment_unknown error."""
         r = subprocess.run([RECOVER, "decrypt", "9999"],
                            capture_output=True, text=True, env=ENV)
         assert r.returncode == 1
@@ -125,6 +129,7 @@ class TestDecryptSingle:
 
 class TestDecryptAll:
     def test_decrypt_all_emits_summary(self):
+        """Verify decrypt-all reports allowed=N, denied=0 on a clean run."""
         # Wipe plaintext + db state then re-init for a clean run.
         _reset_segments_and_db()
         _run(["init"])
@@ -136,12 +141,14 @@ class TestDecryptAll:
         assert body["denied"] == 0
 
     def test_decrypt_all_writes_all_plaintexts(self):
+        """Verify decrypt-all writes a plaintext file for every indexed segment."""
         idx = json.loads(Path(INDEX_PATH).read_text())
         for e in idx:
             p = Path(SEGMENTS_DIR) / e["segment_filename"]
             assert p.exists(), f"missing plaintext {p}"
 
     def test_decrypt_all_exits_nonzero_on_partial_failure(self):
+        """Verify decrypt-all exits 1 and counts denies when any sig is tampered."""
         # Spec: "exit is 0 iff every call succeeded." Tamper one playlist's
         # wrapped_keys signature, then assert decrypt-all exits 1 and reports
         # at least one deny.
@@ -190,6 +197,7 @@ class TestDecryptAll:
 
 class TestAuditChainAfterDecrypt:
     def test_audit_row_count_matches_decrypt_calls(self):
+        """Verify decrypt-all writes exactly one audit_log row per segment."""
         # Spec: "Every call writes one row" - exactly one. Run a clean
         # decrypt-all over the full segment set and assert the count is
         # exactly N (no duplicate or stray rows).
@@ -202,12 +210,14 @@ class TestAuditChainAfterDecrypt:
             f"expected exactly {len(idx)} decrypt audit rows, got {rows[0][0]}")
 
     def test_audit_chain_genesis_zero_prev(self):
+        """Verify the first audit_log row has prev_hash of 64 zero hex chars."""
         rows = _query("SELECT seq, prev_hash FROM audit_log ORDER BY seq LIMIT 1")
         assert rows, "audit_log empty"
         assert rows[0][0] == 1
         assert rows[0][1] == "0" * 64
 
     def test_audit_chain_entry_hash_recomputes(self):
+        """Verify every audit_log entry_hash re-derives via HMAC-SHA256 of canonical."""
         rows = _query(
             "SELECT seq, ts_epoch_ms, actor, action, target, decision,"
             " prev_hash, entry_hash FROM audit_log ORDER BY seq")
@@ -221,6 +231,7 @@ class TestAuditChainAfterDecrypt:
 
 class TestAuditOnSigMismatch:
     def test_deny_row_written_on_tampered_sig(self):
+        """Verify a tampered sig produces a decision=deny audit_log row."""
         # Snapshot then mutate one wrapped_keys row to force sig_mismatch.
         backup = _query(
             "SELECT playlist_id, key_version, sig_hex FROM wrapped_keys ORDER BY playlist_id LIMIT 1")

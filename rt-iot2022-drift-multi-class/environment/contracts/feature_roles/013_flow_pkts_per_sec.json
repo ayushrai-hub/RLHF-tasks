@@ -1,0 +1,8 @@
+{
+  "column": "flow_pkts_per_sec",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 13,
+  "role": "candidate_predictor",
+  "unique_values": 13218
+}

@@ -1,0 +1,8 @@
+{
+  "column": "fwd_bulk_packets",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 68,
+  "role": "candidate_predictor",
+  "unique_values": 47
+}

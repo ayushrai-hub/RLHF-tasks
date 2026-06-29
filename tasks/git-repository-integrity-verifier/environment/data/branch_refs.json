@@ -1,0 +1,24 @@
+{
+  "branches": [
+    {
+      "name": "feature/auth",
+      "tip": "683535a9efe39ec640154926e1fb59b5b297d2ce"
+    },
+    {
+      "name": "feature/refactor",
+      "tip": "f4e4797c0b0b0e3bdbe914cd95ca8e475d79def7"
+    },
+    {
+      "name": "hotfix",
+      "tip": "b4e30096fde5ed118c6fbc31c191b1a630cbbb0c"
+    },
+    {
+      "name": "main",
+      "tip": "ca5b3bedcd35658c5e03ae32c0a356227a418826"
+    },
+    {
+      "name": "release",
+      "tip": "6645408b8f78a1c843a200436f0346e2e32d0deb"
+    }
+  ]
+}

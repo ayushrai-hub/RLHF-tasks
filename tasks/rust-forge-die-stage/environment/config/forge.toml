@@ -1,5 +1,0 @@
-[forge]
-data_root = "/app/data/dies"
-snapshot = "/app/snapshot/forge_baseline.json"
-output_log = "/app/output/forge_log.jsonl"
-output_report = "/app/output/forge_report.json"

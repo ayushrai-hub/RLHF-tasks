@@ -8,6 +8,7 @@ Automation toolkit for **Project Terminus Edition 2** (Snorkel Expert Platform).
 
 ```
 tasks/                   # All active task folders (index: tasks/README.md)
+stats-plan-resume-skew/  # Pinned at repo root (excluded from tasks/ by reorganize script)
 reviews/                 # External platform reports (entire-report.txt)
 _incoming/zips/          # Submission ZIP archives
 _backup/copies/          # Archived duplicate task folders

@@ -1,0 +1,1 @@
+slot=active principal=svc1 label=ROOT gen=12 action=0

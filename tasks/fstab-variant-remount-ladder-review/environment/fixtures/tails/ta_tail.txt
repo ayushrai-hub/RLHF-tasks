@@ -1,2 +1,0 @@
-1|0|ro|/mnt/a
-2|1|bind|/mnt/b

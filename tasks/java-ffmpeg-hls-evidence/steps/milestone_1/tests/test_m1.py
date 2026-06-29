@@ -55,31 +55,38 @@ def _reset_state():
 
 
 def _restore_config():
-    shutil.copy("/app/fixtures/_pristine_config.json", CONFIG_JSON) if Path(
-        "/app/fixtures/_pristine_config.json").exists() else None
+    """Restore the broken recovery_config from the Docker-baked baseline."""
+    shutil.copy("/app/fixtures/_pristine_config.json", CONFIG_JSON)
 
 
 @pytest.fixture(scope="module", autouse=True)
 def stash_pristine():
-    # On first entry stash a copy of the broken config so we can restore it
-    # for repair-related tests across the module.
+    """Assert the Docker-baked pristine baseline is present and immutable."""
     pristine = Path("/app/fixtures/_pristine_config.json")
-    if not pristine.exists():
-        shutil.copy(CONFIG_JSON, pristine)
+    assert pristine.exists(), (
+        "Docker image must bake /app/fixtures/_pristine_config.json so tests"
+        " can restore the broken recovery_config baseline without relying on"
+        " the mutable /app/data copy.")
+    # Restore the broken file from the baked baseline before this module's
+    # tests run, in case a previous milestone left the data dir mutated.
+    _restore_config()
     yield
 
 
 class TestBuildArtifacts:
     def test_recover_script_executable(self):
+        """Verify /app/recover wrapper exists and is executable."""
         p = Path(RECOVER)
         assert p.exists(), f"{RECOVER} missing"
         assert os.access(RECOVER, os.X_OK), f"{RECOVER} not executable"
 
     def test_main_class_present(self):
+        """Verify the agent compiled RecoveryMain into /app/build."""
         p = Path("/app/build/com/evidence/recovery/RecoveryMain.class")
         assert p.exists(), f"compiled main missing at {p}"
 
     def test_wrapped_keys_json_present(self):
+        """Verify wrapped_keys.json fixture exposes all required fields."""
         rows = json.loads(Path(WRAPPED_JSON).read_text())
         assert len(rows) >= 3
         for r in rows:
@@ -89,9 +96,11 @@ class TestBuildArtifacts:
                 assert k in r, f"missing {k} in {r}"
 
     def test_h2_jar_present(self):
+        """Verify the pre-staged H2 JDBC jar is present."""
         assert Path(H2_JAR).exists()
 
     def test_master_key_present(self):
+        """Verify the evidence-vault master key is the expected 32 bytes."""
         p = Path("/opt/evidence_keys/master.key.hex")
         assert p.exists()
         assert len(p.read_text().strip()) == 64
@@ -99,6 +108,7 @@ class TestBuildArtifacts:
 
 class TestInit:
     def test_init_creates_db_and_seeds(self):
+        """Verify recover init creates the H2 file and reports seeded_keys."""
         _reset_state()
         r = _run(["init"])
         body = json.loads(r.stdout)
@@ -107,6 +117,7 @@ class TestInit:
         assert Path(DB_FILE).exists()
 
     def test_init_keys_alpha_sorted(self):
+        """Verify recover init response keys are ASCII-ascending sorted."""
         r = _run(["init"])
         line = r.stdout.strip()
         body = json.loads(line)
@@ -114,12 +125,14 @@ class TestInit:
         assert keys == sorted(keys), f"keys not sorted: {keys}"
 
     def test_init_compact_json(self):
+        """Verify recover init emits compact JSON with no whitespace separators."""
         r = _run(["init"])
         line = r.stdout.rstrip("\n")
         assert "\n" not in line
         assert ": " not in line and ", " not in line, "expected compact JSON"
 
     def test_init_creates_four_tables(self):
+        """Verify recover init creates the four documented H2 tables."""
         _run(["init"])
         tables = {row[0].upper() for row in _query(
             "SELECT TABLE_NAME FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_SCHEMA='PUBLIC'")}
@@ -127,11 +140,13 @@ class TestInit:
             assert t in tables, f"table {t} missing; got {tables}"
 
     def test_seeded_playlists_count(self):
+        """Verify init seeds at least one playlist row per wrapped_keys entry."""
         _run(["init"])
         rows = _query("SELECT COUNT(*) FROM playlists")
         assert rows[0][0] >= 3
 
     def test_seeded_wrapped_keys_match_json(self):
+        """Verify every wrapped_keys row matches the input JSON byte-for-byte."""
         _run(["init"])
         wanted = json.loads(Path(WRAPPED_JSON).read_text())
         rows = _query("SELECT playlist_id, key_version, wrapped_key_hex, iv_hex, sig_hex"
@@ -143,6 +158,7 @@ class TestInit:
             assert got[k] == (w["wrapped_key_hex"], w["iv_hex"], w["sig_hex"])
 
     def test_init_idempotent(self):
+        """Verify re-running init leaves the wrapped_keys row count unchanged."""
         _run(["init"])
         before = _query("SELECT COUNT(*) FROM wrapped_keys")[0][0]
         _run(["init"])
@@ -150,6 +166,7 @@ class TestInit:
         assert before == after
 
     def test_init_rejects_tampered_signature(self):
+        """Verify init exits 1 with sig_mismatch when any sig_hex is tampered."""
         _reset_state()
         backup = json.loads(Path(WRAPPED_JSON).read_text())
         tampered = json.loads(json.dumps(backup))
@@ -176,6 +193,7 @@ class TestInit:
 
 class TestRecoverConfig:
     def test_repair_writes_all_corrections(self):
+        """Verify recover-config reports every broken field repaired in sorted order."""
         # Restore the pristine broken file before each call.
         shutil.copy("/app/fixtures/_pristine_config.json", CONFIG_JSON)
         r = _run(["recover-config"])
@@ -190,6 +208,7 @@ class TestRecoverConfig:
         assert repaired == sorted(repaired)
 
     def test_repair_file_matches_expected(self):
+        """Verify repaired recovery_config matches the expected fixture exactly."""
         shutil.copy("/app/fixtures/_pristine_config.json", CONFIG_JSON)
         _run(["recover-config"])
         got = json.loads(Path(CONFIG_JSON).read_text())
@@ -197,6 +216,7 @@ class TestRecoverConfig:
         assert got == want, f"got={got} want={want}"
 
     def test_repair_keys_ascii_sorted_in_file(self):
+        """Verify the rewritten file lays keys out in ASCII-ascending order."""
         shutil.copy("/app/fixtures/_pristine_config.json", CONFIG_JSON)
         _run(["recover-config"])
         text = Path(CONFIG_JSON).read_text()
@@ -207,6 +227,7 @@ class TestRecoverConfig:
         assert keys == sorted(keys), f"keys not in ascii order: {keys}"
 
     def test_repair_idempotent(self):
+        """Verify a second recover-config call reports no further repairs."""
         shutil.copy("/app/fixtures/_pristine_config.json", CONFIG_JSON)
         _run(["recover-config"])
         first = Path(CONFIG_JSON).read_text()

@@ -1,9 +1,0 @@
-{
-  "die_root": "/app/data/dies",
-  "journal_digest": "",
-  "scenario_tag": "empty",
-  "pack_generation": 0,
-  "forge_epoch": 0,
-  "journal_revision": 0,
-  "dies": {}
-}

@@ -1,3 +1,0 @@
-{"seq":1,"op":"forge_start","forge_tier":1,"scenario_tag":"gamma"}
-{"seq":2,"op":"die_bind","die_id":"fd_gamma_ok","scenario_tag":"gamma","forge_tier":1}
-{"seq":3,"op":"die_bind","die_id":"fd_gamma_bad","scenario_tag":"gamma","forge_tier":1}

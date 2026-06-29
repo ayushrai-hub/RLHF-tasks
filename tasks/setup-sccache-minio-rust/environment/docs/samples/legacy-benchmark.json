@@ -1,0 +1,19 @@
+{
+  "benchmark": {
+    "cold": {
+      "duration_sec": 12.4,
+      "cache_hits": 0,
+      "cache_misses": 34
+    },
+    "warm": {
+      "duration_sec": 0.2,
+      "cache_hits": 34,
+      "cache_misses": 0
+    },
+    "post_clean": {
+      "duration_sec": 8.1,
+      "cache_hits": 34,
+      "cache_misses": 0
+    }
+  }
+}

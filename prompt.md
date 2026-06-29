@@ -42,14 +42,14 @@ Select **all** that apply:
 | **Oracle Solution Issues** | Hardcoded oracle, flakes, non-determinism, oracle≠instruction, oracle≠verifier |
 | **Test Build Issues** | Broken test.sh, missing reward path, pytest failures, malformed verifiers |
 | **Time Based Tests** | Latency, timing, or performance thresholds in verifiers |
-| **Task Difficulty** | Declared difficulty mismatches observed pass rates; too easy (>80%) or miscalibrated |
+| **Task Difficulty** | Worst-model pass rate **>80%** (too easy / rejected tier) — **not** `task.toml` vs platform classified mismatch |
 | **Metadata Issues** | task.toml fields wrong, tags/category/language mismatch, timeouts implausible |
 | **Milestones** | Milestone layout, solveN.sh, test_mN.py, or per-milestone scope errors |
 | **Uses Internet** | `allow_internet = true`, runtime fetch, or web-dependent task logic |
 | **Agent Timeout** | Agent timeout too low for task complexity |
 | **Wrong Coding Language** | Declared language ≠ actual implementation language |
 | **Canary Strings** | Canary or anti-tamper strings in instruction or env |
-| **Rubric** | Missing negatives, wrong scores, references to /tests/ or instruction.md |
+| **Rubric** | Missing negatives, wrong scores, references to /tests/ or instruction.md, **positive point total >40** (non-milestone) or **>40 per milestone block** |
 | **Test Dependency Location** | Verifier deps installed at runtime in test.sh instead of image |
 | **Pinning Issues** | Unpinned FROM, pip/npm without `==`, unpinned git clone |
 | **Environment** | Dockerfile, compose, tmux/asciinema, build context, privileged mode |
@@ -69,7 +69,7 @@ Select **all** that apply:
 | Input | Required | Purpose |
 |-------|----------|---------|
 | `@<task-dir>/` | **Yes** | Ground truth: `instruction.md`, `task.toml`, `environment/`, `solution/`, `tests/`, rubric if present |
-| `@entire-report.txt` or similar | Optional | Prior review, LLMaJ, agent runs, test-quality flags |
+| `@entire-report.txt` or similar | Optional | Snorkel submission export — see section map below and `docs/guidelines/submission-export-format.md` |
 | ChatGPT / other AI findings | Optional | Claims to verify against artifacts |
 
 **Before reviewing**, run (or simulate from file reads if CLI unavailable):
@@ -79,6 +79,24 @@ Select **all** that apply:
 ./scripts/terminus review <task-dir> [--report entire-report.txt] [--rubric rubric.txt]
 ./scripts/terminus check-all <task-dir>   # if harbor/docker available
 ```
+
+### Submission export (`entire-report.txt`) section map
+
+Submission downloads merge several form/system fields into one blob. **Parse sections before adjudicating** — do not treat the whole file as spec, rubric, or oracle.
+
+| Region | Typical header | Review use |
+|--------|----------------|------------|
+| Author explanations | `Difficulty/Solution/Verification Explanation (optional)` | Context only — not normative |
+| Difficulty check | `Difficulty: ✅`, `Agent Performance:`, `Unit Tests Results:` | **#45, #54**, section 7 stats |
+| Instruction sufficiency | `Analysis on Agent Failures` / `Task Instruction Sufficiency` | #27, #55 claims |
+| Quality checks | `Quality Check Results` + `behavior_in_*` | LLMaJ hints — verify in files |
+| Review report | `REVIEW REPORT:` banner | Warnings — verify in files |
+| Test quality | `TEST QUALITY REVIEW:` banner | Verifier quality |
+| Platform rubric | `Agent-generated rubric` / `# Rubric N` / trailing `Agent …, ±N` | **#32–39** |
+| Comments for Reviewer | `Comments for Reviewer (optional)` | Author context only |
+| Reviewer Feedback | `Reviewer Feedback` | Prior review notes — verify in files |
+
+Full reference: `docs/guidelines/submission-export-format.md`.
 
 The `review` command writes **`<task-dir>/review-report.md`** — the single deliverable file with blockers, proof, checkbox numbers, error categories, and the portal note.
 
@@ -168,7 +186,7 @@ Use this structure. Templates: `templates/review-report.template.md`.
 | **CHECK** | 1, 3, 4, … |
 | **UNCHECK** | 2, 7, … |
 
-*Decision = CHECK only if verified pass. UNCHECK = fail, unverified, or N/A. For N/A items (rubrics, milestones), Reason must say `N/A`.*
+*Decision = CHECK only if verified pass. UNCHECK = fail, unverified, or N/A. For N/A items (milestones when `number_of_milestones = 0`, or rubrics when no platform rubric is available), Reason must say `N/A`.*
 
 ---
 
@@ -227,6 +245,15 @@ Use this structure. Templates: `templates/review-report.template.md`.
 
 [Human-written accept or revise note — 2–4 sentences, precise, no fluff. Lead with main blocker if Revise.]
 
+**Portal note rules (task-independent prose):**
+
+- This note is pasted into the **submission portal for the author** — not an internal audit log.
+- **Sound like a human peer reviewer** — warm, direct, conversational. Acknowledge what works before what doesn’t (“this is a strong task overall…”, “nice work on the Dockerfile…”). Avoid audit-bot phrasing (“re-audit”, “checklist item(s) failed”, “meets Terminus Edition 2 requirements”, “no blocking spec-test gaps”).
+- Describe **this task only**: what passed, what failed, and what to fix — in plain language.
+- **Do not cite** internal framework docs, policies, or tooling: no `prompt.md`, `rubrics.md`, `task-requirements.md`, `reviewer-checklist`, checkbox numbers (#32), error categories, LLMaJ check names, `validate_rubric.py`, "per difficulty calibration rules", "High severity", etc.
+- **Do not** justify findings by quoting our rulebook — state the concrete issue and required fix directly.
+- Framework traceability (checkboxes, error categories, doc citations) belongs in **sections 2–8** of `review-report.md`; section 9 must stand alone for the author.
+
 ---
 
 ## 10. Error categories summary (internal)
@@ -242,15 +269,19 @@ Use this structure. Templates: `templates/review-report.template.md`.
 
 ### Acceptance note (section 9 — if Accept)
 
-Write as a **human reviewer**, not a bot. Example:
+Write as a **human reviewer** — acknowledge strengths naturally. Example:
 
-> Accepted. The task instruction is clear and fully testable, the environment uses a digest-pinned base with verifier dependencies baked into the image, and tests verify end-to-end behavior without implementation grep. Oracle passes consistently and agent pass rates match the declared medium difficulty. No spec-test gaps or cheating paths were found on re-audit.
+> Nice task overall. The instructions are clear, the environment is well set up with a pinned base and verifier deps in the image, and the tests check real behavior end to end. Oracle passes cleanly and agent pass rates look right for medium difficulty. I didn’t find any spec gaps or easy cheating paths.
 
 ### Revision note (section 9 — if Revise)
 
-Lead with the **main blocker only** if others are solid:
+Lead with **what’s good**, then the **one main fix**. No framework citations — task facts only. Example:
 
-> Needs revision. Structure, verifiers, and Dockerfile pinning look solid. The remaining blocker is difficulty metadata: task.toml lists `hard` but evaluation shows medium (GPT-5.5 100%, Claude 40%). Update `difficulty` to `medium` or rebalance until the task qualifies as hard.
+> Really solid work on this one — the milestone structure, hidden graded suite, and Dockerfile all look great. One thing to fix before we can accept: the rubric uses the same negative penalty in all three milestone blocks (tampering with the graded test file). Please add at least two more distinct negatives, e.g. hand-writing probe/harness output or using the decoy localeFold-only realm fix.
+
+Bad (robotic): *"Needs revision. 4 checklist item(s) failed automated re-audit. Address High-severity items."*  
+Bad (framework leakage): *"Fails `rubrics.md:33` and reviewer-checklist #32 (High)."*  
+Good (human + task-specific): *"Strong task — verifiers and anti-cheat design are in good shape. The rubric just needs two more distinct negative penalties beyond the repeated graded-test tamper line."*
 
 ---
 
@@ -335,21 +366,35 @@ Check against `docs/task-requirements.md`:
 - [ ] Category/subcategories/tags match actual task.
 - [ ] Expert/junior time estimates plausible.
 
-### Phase 6 — Rubric (if `rubric.txt` or milestone rubrics)
+### Phase 6 — Rubric (platform rubric from submission report)
+
+Rubrics live on the **platform**, not in the task zip. Use the rubric from `entire-report.txt` / Snorkel export, or `--rubric rubric.txt` if provided. **Do not skip #32–39** just because `task-dir/rubric.txt` is absent.
 
 Check against `docs/guidelines/rubrics.md`:
 
 - [ ] Format `Agent …, ±N`; scores only ±1,2,3,5; ≥3 negatives total.
 - [ ] No references to `/tests/`, pytest, `task.toml`, or `instruction.md`.
-- [ ] Milestone blocks: `# Rubric N`, 10–40 pts, ≥1 negative per block.
+- [ ] **Positive point cap (main blocker):** non-milestone total ≤40; each milestone `# Rubric N` block ≤40. Sum every `+N` line in the platform rubric — **>40 → Revise** (error category **Rubric**).
+- [ ] Milestone tasks: `# Rubric N` blocks, 10–40 pts per block, ≥1 negative per block.
+- [ ] Non-milestone tasks: flat `Agent …, ±N` list (no `# Rubric 2+` headers).
 
 ### Phase 7 — LLMaJ & agent evidence (from report)
 
-If `entire-report.txt` or similar is provided:
+If `entire-report.txt` or similar is provided, **parse submission export sections first** (`docs/guidelines/submission-export-format.md`):
+
+- **Difficulty check** → agent pass rates, per-test stats (#45, #54, section 7)
+- **Instruction sufficiency** → spec-gap claims (#27, #55) — verify against task files
+- **Quality check** → `behavior_in_*` lines — hints only, not automatic pass
+- **Review report / test quality** → advisory — artifacts win on conflict
+- **Platform rubric** → #32–39 (not `rubric.txt` in task zip)
+- **Reviewer Feedback** → prior review-cycle notes — adjudicate each claim; may be stale on re-submission
+- **Comments for Reviewer** → author context only — not normative spec
+
+Then:
 
 - [ ] Reconcile **contradictions** (e.g. "spec gap" in section 1 vs "behavior_in_tests PASS" later). Pick the position supported by **file evidence**.
 - [ ] Validate each **High** claim from human review against actual files — **one row per claim in adjudication table**.
-- [ ] Agent pass rates: note model, n runs; difficulty target per `docs/guidelines/difficulty.md` (flag if >80% pass).
+- [ ] Agent pass rates: note model, n runs; difficulty target per `docs/guidelines/difficulty.md` (**block only if >80%** worst-model; declared-vs-observed mismatch is informational, not a blocker).
 - [ ] Per-test pass rates: distinguish **spec gap** (systematic misunderstanding) vs **agent error**.
 - [ ] Timeout gate: <5 timeouts in 10 runs unless noted.
 - [ ] Hack check / reward hacking flags — verify if claimed.
@@ -404,6 +449,16 @@ Put **every** significant claim in section 3 table:
 - Required behavior is **untestable** with current fixtures (e.g. file ordering with one file).
 - `test.sh` installs packages at runtime.
 - reward.txt not written on failure.
+- Platform rubric **positive point total >40** (non-milestone) or any milestone rubric block **>40**.
+
+### Difficulty calibration (#45, #54) — metadata mismatch never blocks
+
+**Never** flag or Revise because `task.toml` `difficulty` differs from the platform report’s classified difficulty or from the tier implied by agent pass rates.
+
+- **#45:** **CHECK** when `difficulty` is present in `task.toml`. Record `task.toml`, platform classified, and agent-rate tiers in section 7 for context only. **Never UNCHECK** or list in Main blockers for a mismatch.
+- **#54:** Blocker **only** when worst-model pass rate is **>80%** (task too easy). Uses **lowest** agent pass rate among reference models, not highest.
+- Do **not** tag **Task Difficulty** or **Metadata Issues** for declared-vs-platform difficulty mismatch alone.
+- Mention calibration in section 7 insights if useful; **do not** lead section 9 revision notes with difficulty metadata when other blockers exist.
 
 ---
 
@@ -423,6 +478,7 @@ Put **every** significant claim in section 3 table:
 | LLMaJ | `docs/guidelines/llmaj-checks.md` |
 | Agent review | `docs/guidelines/agent-review.md` |
 | Difficulty | `docs/guidelines/difficulty.md` |
+| Submission export format | `docs/guidelines/submission-export-format.md` |
 | Defending / appeals | `docs/guidelines/defending-submission.md` |
 | FAQ | `docs/faq.md` |
 | UI checkboxes (55) | `docs/reviewer-checklist-ui.md` |

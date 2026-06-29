@@ -1,0 +1,4 @@
+atlas_output = "/app/output/wcs-atlas.json"
+keyword_snapshot = "/app/var/wcs-keyword-snapshot.json"
+ingest_stamp = "/app/var/wcs-ingest-stamp.txt"
+default_fits = "/app/fixtures/fits/tan_basic.fits"

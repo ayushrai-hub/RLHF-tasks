@@ -1,0 +1,181 @@
+{
+  "bundle_id": "pipeline_reseed_47",
+  "feature_lane": "pipeline/reseed/lane-7",
+  "row_count": 18,
+  "rows": [
+    {
+      "row_id": "r83047",
+      "age": 43.99,
+      "income": 68124.91,
+      "city": "RARE2",
+      "note": "note-0",
+      "tenure": 5.66
+    },
+    {
+      "row_id": "r83048",
+      "age": 59.49,
+      "income": 59602.59,
+      "city": "LA",
+      "note": "note-1",
+      "tenure": 2.09
+    },
+    {
+      "row_id": "r83049",
+      "age": 33.48,
+      "income": 55045.86,
+      "city": "CHI",
+      "note": "note-2",
+      "tenure": 3.32
+    },
+    {
+      "row_id": "r83050",
+      "age": 61.65,
+      "income": 116730.67,
+      "city": "SEA",
+      "note": "note-3",
+      "tenure": 8.54
+    },
+    {
+      "row_id": "r83051",
+      "age": 49.55,
+      "income": 47943.58,
+      "city": "AUS",
+      "note": "note-4",
+      "tenure": 8.5
+    },
+    {
+      "row_id": "r83052",
+      "age": 28.96,
+      "income": 56410.66,
+      "city": "BOS",
+      "note": "note-5",
+      "tenure": 14.94
+    },
+    {
+      "row_id": "r83053",
+      "age": 43.14,
+      "income": 137986.84,
+      "city": "DEN",
+      "note": "note-6",
+      "tenure": 8.77
+    },
+    {
+      "row_id": "r83054",
+      "age": 41.13,
+      "income": 62229.68,
+      "city": "RARE1",
+      "note": "note-7",
+      "tenure": 14.38
+    },
+    {
+      "row_id": "r83055",
+      "age": 39.49,
+      "income": 68967.0,
+      "city": "RARE2",
+      "note": "note-8",
+      "tenure": 5.83
+    },
+    {
+      "row_id": "r83056",
+      "age": 55.78,
+      "income": 47316.81,
+      "city": "NYC",
+      "note": "note-9",
+      "tenure": 9.23
+    },
+    {
+      "row_id": "r83057",
+      "age": 32.52,
+      "income": 118595.79,
+      "city": "LA",
+      "note": "note-10",
+      "tenure": 5.38
+    },
+    {
+      "row_id": "r83058",
+      "age": 64.9,
+      "income": 121611.37,
+      "city": "CHI",
+      "note": "note-11",
+      "tenure": 5.46
+    },
+    {
+      "row_id": "r83059",
+      "age": 64.92,
+      "income": 94520.34,
+      "city": "SEA",
+      "note": "note-12",
+      "tenure": 5.73
+    },
+    {
+      "row_id": "r83060",
+      "age": 50.0,
+      "income": 113610.21,
+      "city": "AUS",
+      "note": "note-13",
+      "tenure": 3.59
+    },
+    {
+      "row_id": "r83061",
+      "age": 45.57,
+      "income": 134760.74,
+      "city": "BOS",
+      "note": "note-14",
+      "tenure": 2.6
+    },
+    {
+      "row_id": "r83062",
+      "age": 30.62,
+      "income": 98652.12,
+      "city": "DEN",
+      "note": "note-15",
+      "tenure": 2.53
+    },
+    {
+      "row_id": "r83063",
+      "age": 34.23,
+      "income": 100859.17,
+      "city": "RARE1",
+      "note": "note-16",
+      "tenure": 13.09
+    },
+    {
+      "row_id": "r83064",
+      "age": 34.81,
+      "income": 93243.39,
+      "city": "DEN",
+      "note": "note-17",
+      "tenure": 8.28
+    }
+  ],
+  "policy_defaults": {
+    "split_seed": 47,
+    "train_ratio": 0.72,
+    "export_order": [
+      "passthrough",
+      "encoded",
+      "numeric"
+    ],
+    "numeric_columns": [
+      "age",
+      "income"
+    ],
+    "categorical_columns": [
+      "city"
+    ],
+    "drop_columns": [
+      "note"
+    ],
+    "passthrough_columns": [
+      "tenure"
+    ]
+  },
+  "columns": [
+    "row_id",
+    "age",
+    "income",
+    "city",
+    "note",
+    "tenure"
+  ]
+}

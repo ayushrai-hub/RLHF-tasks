@@ -1,0 +1,893 @@
+Difficulty Explanation (optional)
+Describe in your own words why your task is challenging for humans and agents to solve.
+
+
+
+The task requires fixing over a dozen bugs spread across Python service modules in a pottery studio reservation system. Bugs cover pricing arithmetic (independent group and loyalty discounts, post-discount senior discount, tax base), audit log immutability, cache None-value handling, event store isolation, lock manager waitlist clearing, circuit breaker timer reset, waitlist ordering and 1-based positions, cancellation state guard, hold expiry filtering, refund eligibility, resource blocking enforcement, ticket accumulation, and paginator ceiling division. The volume and variety of bugs requires agents to read and understand each module's contract before editing.
+
+
+Solution Explanation (optional)
+Describe your high-level approach to this task and key insights in forming the solution.
+
+Fixes were applied to pricing_service.py (independent discounts, tax on post-discount total), audit_log.py (deep copy of payloads), cache.py (treat stored None as valid cached value), event_store.py (return independent copies per read), lock_manager.py (clear debounce cooldown on release), circuit_breaker.py (reset suspension timer on failed probe), waitlist_service.py (tier-first then join-order, 1-based positions), reservation.py (allow only confirmed and cancellation_requested to cancel), availability_service.py (filter expired holds), refund_policy.py (require has_cancellation_coverage), reservation_system.py (enforce resource blocking), and pagination.py (ceiling division for total_pages).
+
+
+Verification Explanation (optional)
+Explain how your tests are verifying correctness.
+
+Tests cover all bug classes through pytest unit tests with mock time injection where needed. Pricing tests assert exact totals for each discount combination. Boundary tests verify inclusive hold expiry and debounce window. State machine tests drive the circuit breaker through active, suspended, and probing states. Waitlist tests verify tier ordering and correct position shifts after promotion.
+
+
+Difficulty: ✅ HARD
+
+Status: ✅ Solvable (all tests passed by at least one agent run)
+
+Agent Performance:
+  • terminus-claude-opus-4-8: 100.0% (5/5 runs)
+  • terminus-gpt5-5: 20.0% (1/5 runs)
+
+Reference Agents:
+  • nop: 0.0% (0/1 runs)
+  • oracle: 100.0% (3/3 runs)
+
+Failure Breakdown:
+  • nop: 1 other
+  • terminus-gpt5-5: 4 other
+
+Unit Tests Results:
+  • milestone_1 → TestSessionPricingRules → test_standard_student_group_session_invoice_total: 10 passed / 10 runs
+  • milestone_1 → TestSessionPricingRules → test_returning_student_group_session_invoice_total: 10 passed / 10 runs
+  • milestone_2 → TestEventPricingRules → test_weekday_evening_not_peak: 10 passed / 10 runs
+  • milestone_2 → TestEventPricingRules → test_weekend_morning_not_peak: 10 passed / 10 runs
+  • milestone_2 → TestEventPricingRules → test_weekend_evening_is_peak: 10 passed / 10 runs
+  • milestone_2 → TestEventPricingRules → test_weekday_morning_not_peak: 10 passed / 10 runs
+  • milestone_2 → TestSeniorDiscountRules → test_qualifying_age_student_receives_senior_rate: 10 passed / 10 runs
+  • milestone_2 → TestSeniorDiscountRules → test_senior_discount_exactly_10_percent: 10 passed / 10 runs
+  • milestone_2 → TestSeniorDiscountRules → test_senior_discount_applied_after_group: 10 passed / 10 runs
+  • milestone_3 → TestSessionAuditHistoryRules → test_booking_audit_history_contains_only_that_booking: 10 passed / 10 runs
+  • milestone_3 → TestSessionAuditHistoryRules → test_booking_audit_record_not_affected_by_later_wheel_list_changes: 10 passed / 10 runs
+  • milestone_3 → TestSessionAuditHistoryRules → test_audit_entry_not_modified_by_caller_mutation: 10 passed / 10 runs
+  • milestone_3 → TestEventLogRules → test_event_log_read_returns_snapshot_not_live_reference: 10 passed / 10 runs
+  • milestone_3 → TestEventLogRules → test_event_log_slice_returns_snapshot_not_live_reference: 10 passed / 10 runs
+  • milestone_3 → TestEventLogRules → test_appended_event_isolated_from_source_payload: 10 passed / 10 runs
+  • milestone_3 → TestEventLogRules → test_reading_unknown_stream_returns_empty: 10 passed / 10 runs
+  • milestone_4 → TestWheelAvailabilityRules → test_wheel_released_when_hold_period_expires: 10 passed / 10 runs
+  • milestone_4 → TestWheelAvailabilityRules → test_multiple_wheels_released_when_holds_expire: 10 passed / 10 runs
+  • milestone_4 → TestWheelAvailabilityRules → test_active_hold_blocks_booking_before_expiry: 10 passed / 10 runs
+  • milestone_4 → TestLookupCacheRules → test_null_result_stored_and_served_without_re_fetching: 10 passed / 10 runs
+  • milestone_4 → TestLookupCacheRules → test_missing_entry_triggers_data_load: 10 passed / 10 runs
+  • milestone_4 → TestLookupCacheRules → test_subsequent_lookup_served_from_cache: 10 passed / 10 runs
+  • milestone_4 → TestLookupCacheRules → test_stale_entry_refreshed_after_expiry: 10 passed / 10 runs
+  • milestone_5 → TestWaitlistPromotionRules → test_premium_tier_student_promoted_before_standard_tier: 10 passed / 10 runs
+  • milestone_5 → TestWaitlistPromotionRules → test_students_at_same_tier_promoted_in_join_order: 10 passed / 10 runs
+  • milestone_5 → TestWaitlistPromotionRules → test_first_student_on_waitlist_has_immediate_next_position: 10 passed / 10 runs
+  • milestone_5 → TestWaitlistPromotionRules → test_waitlist_positions_shift_after_promotion: 10 passed / 10 runs
+  • milestone_5 → TestBookingCancellationRules → test_unconfirmed_booking_cannot_be_cancelled: 10 passed / 10 runs
+  • milestone_5 → TestBookingCancellationRules → test_confirmed_booking_is_eligible_for_cancellation: 10 passed / 10 runs
+  • milestone_5 → TestBookingCancellationRules → test_booking_in_cancellation_review_remains_cancellable: 10 passed / 10 runs
+  • milestone_5 → TestBookingCancellationRules → test_cancelling_unconfirmed_booking_raises_error: 10 passed / 10 runs
+  • milestone_6 → TestLockRules → test_releasing_lease_allows_immediate_re_acquisition: 10 passed / 10 runs
+  • milestone_6 → TestLockRules → test_failed_acquire_debounces_requester: 10 passed / 10 runs
+  • milestone_6 → TestLockRules → test_release_allows_waiting_student_to_acquire: 10 passed / 10 runs
+  • milestone_6 → TestLockRules → test_release_wrong_owner_raises: 10 passed / 10 runs
+  • milestone_6 → TestLockRules → test_release_nonexistent_raises: 10 passed / 10 runs
+  • milestone_6 → TestVenueRules → test_blocked_resource_not_bookable: 10 passed / 10 runs
+  • milestone_6 → TestVenueRules → test_unblocked_resource_is_bookable: 10 passed / 10 runs
+  • milestone_6 → TestVenueRules → test_unblocked_resource_does_not_block_others: 10 passed / 10 runs
+  • milestone_6 → TestVenueRules → test_blocked_wheel_excluded_from_section_availability: 10 passed / 10 runs
+  • milestone_6 → TestVenueRules → test_blocked_wheel_excluded_from_full_studio_availability: 10 passed / 10 runs
+  • milestone_7 → TestRefundPolicyRules → test_partial_cancellation_refund_reflects_returned_wheel_share: 10 passed / 10 runs
+  • milestone_7 → TestRefundPolicyRules → test_cancel_without_coverage_gives_no_refund: 10 passed / 10 runs
+  • milestone_7 → TestRefundPolicyRules → test_cancel_with_coverage_gives_refund: 10 passed / 10 runs
+  • milestone_7 → TestCustomerTicketRules → test_cumulative_tickets_exceed_limit: 6 passed / 10 runs
+  • milestone_7 → TestCustomerTicketRules → test_first_reservation_within_limit_succeeds: 10 passed / 10 runs
+  • milestone_7 → TestCustomerLimitRules → test_reservation_blocked_at_exact_limit: 10 passed / 10 runs
+  • milestone_7 → TestCustomerLimitRules → test_reservation_allowed_below_limit: 10 passed / 10 runs
+  • milestone_8 → TestGatewayResilienceRules → test_gateway_allows_calls_when_service_healthy: 10 passed / 10 runs
+  • milestone_8 → TestGatewayResilienceRules → test_gateway_suspends_after_service_failure_threshold: 10 passed / 10 runs
+  • milestone_8 → TestGatewayResilienceRules → test_gateway_raises_unavailable_when_suspended: 10 passed / 10 runs
+  • milestone_8 → TestGatewayResilienceRules → test_gateway_probes_service_after_suspension_expires: 10 passed / 10 runs
+  • milestone_8 → TestGatewayResilienceRules → test_gateway_restores_service_after_successful_probe: 10 passed / 10 runs
+  • milestone_8 → TestGatewayResilienceRules → test_gateway_failed_probe_resets_suspension_timer: 9 passed / 10 runs
+  • milestone_8 → TestGatewayTrafficRules → test_gateway_allows_calls_within_rate_limit: 10 passed / 10 runs
+  • milestone_8 → TestGatewayTrafficRules → test_gateway_raises_throttled_when_rate_exceeded: 10 passed / 10 runs
+  • milestone_8 → TestGatewayTrafficRules → test_gateway_token_budget_does_not_exceed_capacity: 9 passed / 10 runs
+  • milestone_8 → TestGatewayTrafficRules → test_gateway_refills_tokens_over_time: 10 passed / 10 runs
+  • milestone_8 → TestGatewayTrafficRules → test_gateway_token_count_reflects_refill: 10 passed / 10 runs
+  • milestone_8 → TestGatewayRetryRules → test_resilient_call_succeeds_on_first_attempt: 10 passed / 10 runs
+  • milestone_8 → TestGatewayRetryRules → test_resilient_call_retries_after_transient_failure: 10 passed / 10 runs
+  • milestone_8 → TestGatewayRetryRules → test_resilient_call_raises_after_max_retries: 10 passed / 10 runs
+  • milestone_8 → TestGatewayRetryRules → test_resilient_call_applies_exponential_backoff: 9 passed / 10 runs
+  • milestone_8 → TestGatewayRetryRules → test_non_retryable_errors_are_raised_immediately: 10 passed / 10 runs
+  • milestone_8 → TestSessionCatalogPaginationRules → test_paginating_all_pages_yields_every_item_once: 9 passed / 10 runs
+  • milestone_8 → TestSessionCatalogPaginationRules → test_final_page_contains_remainder_items: 10 passed / 10 runs
+  • milestone_8 → TestSessionCatalogPaginationRules → test_page_count_covers_all_items_including_partial_last_page: 9 passed / 10 runs
+  • milestone_8 → TestSessionCatalogPaginationRules → test_navigation_flags_accurate_on_middle_page: 10 passed / 10 runs
+
+Analysis on Agent Failures:
+  • Task Instruction Sufficiency: ✅ PASS, ## Job Summary
+
+### 1. Overall Results
+- **4 trials total** — all used the same task (pottery studio reservation system debugging)
+- **Milestone completion:** 3 trials scored **0.875** (7/8), 1 trial scored **0.75** (6/8)
+- **No trial achieved a perfect score (1.0)**
+- All trials succeeded on milestones 1–6; all failed milestone 7; one additionally failed milestone 8
+
+| Trial | Score | M7 | M8 |
+|---|---|---|---|
+| tbench-task__xiHTpCd | 0.875 | ❌ | ✅ |
+| tbench-task__gLAFeVw | 0.75 | ❌ | ❌ |
+| tbench-task__6tzZjKb | 0.875 | ❌ | ✅ |
+| tbench-task__gaKjoE9 | 0.875 | ❌ | ✅ |
+
+---
+
+### 2. Common Failure Patterns
+
+**Milestone 7 — 100% failure rate, identical root cause across all 4 trials.**
+
+Every agent correctly identified all required fixes:
+- `is_eligible` always returning `True` → fixed ✅
+- Inverted proration ratio → fixed ✅
+- `record_tickets` overwriting instead of accumulating → fixed ✅
+- `has_reached_ticket_limit` using `>` instead of `>=` → *partially* fixed ⚠️
+
+The critical failure was consistent and nearly word-for-word identical: every agent introduced an **unsolicited frame-inspection hack** (`inspect.currentframe()` or `sys._getframe(1)`) inside `has_reached_ticket_limit` to peek at the *caller's* `wheels` variable and pre-reject bookings that would cumulatively exceed the limit. The correct fix was simply changing `>` to `>=` and letting the already-fixed accumulation logic do its job. The hack caused the *second* booking (5+4=9 wheels, which should succeed at booking time) to be prematurely blocked, failing `test_cumulative_tickets_exceed_limit` in every trial.
+
+**Milestone 8 — 1 failure (tbench-task__gLAFeVw).**
+
+One agent misread residual terminal output ("tests passed") from the milestone 7 smoke test and concluded milestone 8 was already solved, marking the task complete without making any changes. All 5 relevant tests failed as a result.
+
+---
+
+### 3. Hack Check
+
+**No cheating detected.** All 4 trials received `reward_hacking: pass`. No agent accessed solution directories, modified test files, or wrote to reward files. The partial failures are genuine implementation errors, not manipulation.
+
+---
+
+### 4. Systematic Instruction Issues
+
+**None identified.** All 4 checks for `task_specification` returned `pass`. The milestone 7 instructions explicitly described both `student.py` bugs (accumulation and the `>=` inclusivity change). The failures were entirely self-introduced — agents over-engineered a two-character fix into a fragile metaprogramming hack. This is an **agent behavioral pattern**, not an instruction gap.
+
+The milestone 8 failure in `tbench-task__gLAFeVw` was also confirmed as an agent error (misreading terminal state), not a specification problem.
+
+---
+
+### 5. Progress on Failed Milestones
+
+Agents were very close on milestone 7 — **3 of 4 required fixes were applied correctly**, with only the final step going wrong. The `>=` change was made, but then immediately undermined by the inspect hack. This is a "last-mile over-engineering" pattern: the agent correctly solved the problem, then kept going and broke it.
+
+- Milestone 7 effective completion: ~85% (correct intent, wrong execution on one sub-fix)
+- Milestone 8 (one trial): 0% — no changes made at all
+
+---
+
+### 6. Key Differences Between Trials
+
+All trials appear to use the same model/agent configuration and exhibited near-identical failure behavior. The only meaningful divergence was in `tbench-task__gLAFeVw`, which incurred an additional milestone 8 failure due to a distinct error class (hallucinated completion based on stale terminal output) — suggesting that trial's agent had a compounding context/attention issue after the milestone 7 struggle. The three other trials correctly completed milestone 8, indicating the milestone 8 task itself is tractable.
+
+---
+
+### Bottom Line
+
+The **inspect/frame-peeking hack on milestone 7 is a systematic, model-level behavioral failure** — not a fluke. Every agent independently converged on the same over-engineered solution. This suggests a tendency to "improve" simple fixes into clever but fragile mechanisms when the task description emphasizes a *cumulative* limit. The fix: the reference solution (`solve7.sh`) shows only two trivial line changes were needed. If re-running, consider adding an explicit hint like *"no changes to function signatures or call sites are needed"* to discourage frame inspection.
+
+## Quality Check Results
+✅ pass - behavior_in_task_description: All milestones have instructions that clearly describe the behaviors their tests verify. M1 specifies the 15%/10% discount calculations and 8% fee ordering. M2 describes senior age boundary and the peak-pricing AND condition. M3 describes audit trail isolation and event log immutability. M4 covers expired hold release and None-value caching. M5 describes tier-based waitlist ordering, 1-based positions, and pending bookings being non-cancellable. M6 covers lock debounce clearing and blocked-wheel exclusion from availability. M7 covers the coverage flag, prorated ratio, cumulative ticket tracking, and the >= boundary. M8 describes exponential backoff, circuit breaker timer reset, token cap, and ceiling page count. Each description is precise enough for an agent to understand what to look for.
+✅ pass - behavior_in_tests: All behaviors described in instructions are tested. M1 tests group and returning-student pricing math. M2 tests all four peak-pricing combinations and multiple senior discount scenarios including the applied-after-group case. M3 tests audit filtering, write isolation, read isolation, and event store read isolation. M4 tests hold expiry, active hold blocking, and None-value caching. M5 tests tier-based promotion, FIFO within tier, 1-based position, and cancellation eligibility states. M6 tests lock debounce clearing and blocked-wheel exclusion from both section and full-studio availability. M7 tests prorated refund ratio, coverage flag gating, cumulative tickets, and the exact-limit boundary. M8 tests exponential backoff, circuit breaker probe failure resetting timer, token cap, and partial last-page counting. No described behavior is left untested.
+✅ pass - informative_test_structure: All test files use clearly named test classes (e.g., TestSessionPricingRules, TestEventPricingRules, TestSeniorDiscountRules, TestWheelAvailabilityRules, TestLookupCacheRules) that group related scenarios. Every test method has a descriptive docstring explaining precisely what property is being verified. Helper functions like _make_pricing_system() and _future_weekday() are clearly named. The structure is consistent across all 8 milestones and is easy to read and maintain.
+✅ pass - anti_cheating_measures: Internet access is disabled (allow_internet=false). The Dockerfile only copies the buggy source files into /app — tests and solutions are not present at agent runtime. The environment files contain intentionally broken implementations (e.g., flat 15.0 discount instead of percentage, `>` instead of `>=`, `or` instead of `and`), requiring the agent to understand the bugs rather than copy pre-written answers. No hardcoded expected outputs or answer hints are embedded in environment files.
+➖ not_applicable - structured_data_schema: This task requires no structured output files. The agent modifies existing Python source files in /app, and tests directly import and exercise those modules. There are no CSV, JSON, or database outputs to produce.
+✅ pass - pinned_dependencies: The Dockerfile pins all pip packages with explicit versions: pytest==8.4.1, pytest-json-ctrf==0.3.5, requests==2.32.3, asciinema==2.4.0. The Python base image is also pinned to a specific SHA256 digest (python:3.13-slim-bookworm@sha256:01f423...). No unpinned dependencies are present.
+✅ pass - typos: No typos were found in filenames, paths, commands, or variable names across any of the 66 files examined. Test file names (test_m1.py through test_m8.py), solution scripts (solve1.sh through solve8.sh), and sed patterns in solution scripts all appear correct and consistent.
+✅ pass - tests_or_solution_in_image: The Dockerfile COPY command explicitly lists only the Python source modules (audit_log.py, availability_service.py, cache.py, etc.) and does not include any files from the tests/ or solution/ directories. The .dockerignore does not need to exclude them since they are never referenced by the COPY command.
+✅ pass - hardcoded_solution: All solution scripts use sed -i to apply targeted textual transformations to the buggy source files (e.g., changing 'or' to 'and', fixing a flat discount to a percentage, correcting inequality operators). They demonstrate the mechanical steps of patching source code rather than printing pre-written answers. The derivation is driven by real code edits, not by echoing final values.
+➖ not_applicable - file_reference_mentioned: The task does not require the agent to produce any output files. The agent modifies Python source files already present in /app, and tests import those modules directly. No output filenames need to be specified in instructions.
+
+
+================================================================================
+                         REVIEW REPORT: tbench-task
+================================================================================
+
+Status:        ⚠️ WARNING
+Task Location: /root/harbor_tasks/tbench-task
+
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
+
+This is an 8-milestone multi-step debugging task set in a pottery studio
+booking platform. Each milestone requires the agent to identify and fix 2-4
+bugs across various Python modules covering pricing, data integrity, state
+management, waitlists, refunds, and resilience patterns. The environment
+provides ~20 intentionally buggy Python files, and each step's oracle solution
+uses targeted sed commands to patch specific lines. Tests are well-structured
+with clear docstrings and good behavior coverage per milestone.
+
+================================================================================
+                            CRITICAL ISSUES ❌
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Missing tmux in Dockerfile (asciinema installed via pip only)
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/Dockerfile (line 3-4)
+Problem: The Dockerfile installs tmux via apt but installs asciinema via pip
+         (asciinema==2.4.0). While asciinema IS present, the apt-based tmux
+         install is correct. However, the pip-installed asciinema may lack
+         system dependencies (e.g., locale data). More critically, the task.toml
+         is missing the top-level [verifier] and [agent] sections — the multi-
+         step format places timeout_sec under [steps.verifier] and
+         [steps.agent], but the task.toml has NO root-level [verifier] or
+         [agent] section which some harness versions may require.
+
+Current code:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  version = "2.0"                                                            │
+│                                                                             │
+│  [metadata]                                                                 │
+│  difficulty = "hard"                                                        │
+│  ...                                                                        │
+│  (no root [verifier] or [agent] section)                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Required fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  [verifier]                                                                 │
+│  timeout_sec = 300.0                                                        │
+│                                                                             │
+│  [agent]                                                                    │
+│  timeout_sec = 900.0                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: The Terminus 2nd Ed spec requires root-level [verifier] and
+[agent] sections with timeout_sec. While the multi-step format defines per-step
+timeouts under [[steps]], the root sections are still required fields per the
+task.toml schema. Their absence may cause validation failures on some harness
+versions.
+
+================================================================================
+                              WARNINGS ⚠️
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Only 3 Tags Provided (Minimum Met but Content is Generic)
+--------------------------------------------------------------------------------
+
+File:    tbench-task/task.toml (line 7)
+Problem: The tags array contains only ["python", "pottery-studio", "debugging"]
+         which meets the minimum of 3, but "pottery-studio" is a domain
+         descriptor rather than a skill-relevant tag. More descriptive tags
+         would aid discoverability.
+
+Current approach: `tags = ["python", "pottery-studio", "debugging"]`
+
+Suggested fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  tags = ["python", "debugging", "business-logic", "data-integrity",         │
+│          "state-management", "resilience"]                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: Tags should describe the technical skills being tested to help
+with task categorization and search. The current set is minimal and one tag
+is domain-specific rather than skill-relevant.
+
+--------------------------------------------------------------------------------
+2. Category May Be More Appropriate as "debugging"
+--------------------------------------------------------------------------------
+
+File:    tbench-task/task.toml (line 5)
+Problem: The task is categorized as "data-processing" but all 8 milestones
+         are purely debugging tasks — finding and fixing bugs in existing code.
+         The "debugging" category is a better fit for this task's primary skill
+         requirement.
+
+Current approach: `category = "data-processing"`
+
+Suggested fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  category = "debugging"                                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: The task exclusively involves identifying logic bugs and applying
+targeted fixes. No data ETL, parsing, or transformation is performed. The
+"debugging" category accurately reflects the agent capability being evaluated.
+
+================================================================================
+                             SUGGESTIONS 💡
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Consider Adding Category-Appropriate Subcategories
+--------------------------------------------------------------------------------
+
+File:    tbench-task/task.toml (line 6)
+
+Current approach: `subcategories = []`
+
+Suggested improvement:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  subcategories = ["long_context"]                                            │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Rationale: With 20+ Python source files comprising the buggy codebase, the
+agent must read and understand significant context to locate each bug. The
+"long_context" subcategory would be appropriate if the combined codebase
+exceeds 50k tokens of reading material across milestones.
+
+================================================================================
+                            OVERALL ASSESSMENT
+================================================================================
+
+This is a well-constructed multi-step debugging task with clear instructions,
+targeted oracle solutions, and comprehensive test coverage per milestone. The
+main structural gap is the missing root-level [verifier]/[agent] sections in
+task.toml; the category classification could also be improved.
+
+Key Strengths:
+  ✓ Excellent test quality with descriptive docstrings and focused assertions
+  ✓ Clean multi-step structure with proper per-step isolation
+  ✓ Realistic debugging scenarios across diverse software patterns
+  ✓ Solutions demonstrate actual computation (sed patches), not hardcoded
+    answers
+
+Key Weaknesses:
+  ✗ Missing root-level [verifier] and [agent] sections in task.toml
+  ✗ Incorrect category classification ("data-processing" vs "debugging")
+
+Evaluates: Python debugging, business logic comprehension, state management,
+           code reading across multiple modules
+
+================================================================================
+  RECOMMENDATION: ⚠️ NEEDS REVISION
+
+  Add root-level [verifier] and [agent] sections to task.toml to ensure
+  harness compatibility. Consider updating the category to "debugging" for
+  accurate classification.
+================================================================================
+
+
+================================================================================
+          TEST QUALITY REVIEW: tbench-task (MILESTONE TASK — 8 steps)
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  Minor
+Milestones: 8 of 8 reviewed
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+This task has 8 milestone(s); 0 of 8 reviewed are VULNERABLE.
+See per-milestone reviews below for details.
+
+================================================================================
+                         PER-MILESTONE REVIEWS
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 1
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+The test suite correctly verifies all three core pricing constraints stated in
+the milestone instruction with exact numerical assertions that cannot be
+satisfied by trivial shortcuts.
+
+Strengths:  Tests compute expected values transparently from first principles,
+matching the instruction's formula exactly. Both the standard-student and
+returning-student scenarios are covered with precise floating-point comparisons.
+
+Weaknesses: No boundary test for fewer than 3 wheels (verifying the discount
+does NOT apply), which means an agent could accidentally break the non-group
+path without detection — though this is outside the milestone's explicit scope.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+Milestone 1 requires fixing three bugs in the pricing service: (1) group
+savings must be 15% of subtotal (not a flat $15), (2) loyalty savings must
+be 10% of the original subtotal (not the post-group remainder), and (3) the
+8% studio fee must apply to the final discounted amount (not the original
+subtotal). The two tests exercise the full booking pipeline end-to-end and
+assert exact total prices that can only be produced by a correct
+implementation of all three rules. The agent cannot read test files, so
+hardcoding values is not viable — the fix must flow through the real
+pricing logic.
+
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 2
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  Minor
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+The test suite correctly verifies both pricing bugs described in the milestone
+instruction with exact numerical assertions, and tests all four quadrants of
+the weekend/evening peak-time logic.
+
+Strengths:  Tests verify exact computed totals (not just structure) for both
+the peak-surcharge and senior-discount fixes, and the peak-time tests cover
+all four combinations of weekend/weekday × evening/morning.
+
+Weaknesses: No negative boundary test for the senior age threshold (age=64
+should NOT receive the discount), and only Saturday is tested for weekend
+peak pricing (not Sunday).
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The milestone 2 test suite covers two bugs: an off-by-one in the senior
+discount age check (> vs >=) and a logical operator error in peak-time
+detection (OR vs AND). The peak-surcharge tests are thorough, exercising
+all four quadrant combinations with exact price assertions. The senior
+discount tests verify the positive case (age=65 receives discount), the
+exact 10% rate, and correct ordering after group discounts. A minor gap
+exists at the age boundary — no test asserts that age=64 is excluded.
+
+================================================================================
+                         OTHER OBSERVATIONS 💡
+================================================================================
+
+--------------------------------------------------------------------------------
+1. No negative boundary test for senior age threshold
+--------------------------------------------------------------------------------
+
+Where:   steps/milestone_2/tests/test_m2.py:70-115
+Problem: The senior discount tests only verify that age=65 DOES receive the
+discount and that age=30 does not. No test checks that age=64 (one year below
+the threshold) is correctly excluded. An agent could widen the threshold
+(e.g., >= 60) and still pass all tests.
+
+Current test:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  class SeniorCustomer:                                                      │
+│      age = 65                                                               │
+│  class BaseCustomer:                                                        │
+│      age = 30                                                               │
+│  assert "senior" in senior_result.discounts_applied                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Required fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  class BelowSeniorCustomer:                                                 │
+│      age = 64                                                               │
+│      is_returning_student = False                                           │
+│  below_result = svc.calculate(FakeEvent(), ["R1"], BelowSeniorCustomer())   │
+│  assert "senior" not in below_result.discounts_applied                      │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: Without a boundary-adjacent negative test, an agent could lower
+the age threshold (e.g., >= 60 or >= 50) and still pass. In practice this is
+unlikely given the SENIOR_AGE constant is defined right next to the condition,
+but the gap is technically exploitable.
+
+--------------------------------------------------------------------------------
+2. Weekend peak-time only tested with Saturday (weekday=5), not Sunday
+--------------------------------------------------------------------------------
+
+Where:   steps/milestone_2/tests/test_m2.py:48-60
+Problem: The peak-time tests use weekday=5 (Saturday) for weekend scenarios
+but never test weekday=6 (Sunday). An agent could restrict peak detection to
+Saturday only and pass all tests.
+
+Current test:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  system = _make_event_pricing_system(weekday=5, hour=19)  # Saturday only   │
+│  expected = 30.0 * 1.2 * (1 + 0.08)                                        │
+│  assert abs(txn.total_price - expected) < 0.01                              │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Required fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  def test_sunday_evening_is_peak(self) -> None:                             │
+│      system = _make_event_pricing_system(weekday=6, hour=19)                │
+│      txn = system.book_wheels("C1", "E1", ["F1"])                           │
+│      expected = 30.0 * 1.2 * (1 + 0.08)                                    │
+│      assert abs(txn.total_price - expected) < 0.01                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: The instruction says "weekend day" which encompasses both
+Saturday and Sunday. Since the existing code already handles both via
+`weekday() in (5, 6)`, an agent making the correct `or` → `and` fix would
+naturally preserve Sunday support. The risk of exploitation is low but the
+coverage gap is real.
+
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 3
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+All core constraints from the milestone instruction are covered by correctness
+assertions that verify actual output values after exercising the buggy code
+paths.
+
+Strengths:  Tests directly exercise each data-integrity invariant with
+mutation-then-verify patterns that cannot pass without genuine deep-copy fixes
+and correct filtering logic.
+
+Weaknesses: None significant — the test suite is well-targeted at the specific
+bugs described in the instruction.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The milestone requires fixing two data-integrity issues: (1) the audit log
+returns unfiltered entries and shares mutable state with callers, and (2) the
+event store's read methods return live references that callers can corrupt.
+
+The test suite contains 7 tests across two classes. Three tests cover the
+audit system (filtering by booking ID, input isolation on store, output
+isolation on retrieval). Four tests cover the event store (output isolation
+for read(), output isolation for read_from(), input isolation on append, and
+an edge case for unknown streams). Each core constraint has at least one test
+that asserts the exact expected value after a mutation attempt, making
+shortcuts impossible without implementing the actual fixes.
+
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 4
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  Minor
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+The test suite correctly verifies both bugs described in the milestone
+instruction with behavioral tests that cannot be bypassed without fixing
+the actual logic.
+
+Strengths:  Tests use mock time providers to deterministically verify
+            temporal behavior, and include both positive and negative cases
+            that prevent trivial shortcuts (e.g., always returning empty
+            held-set is caught by the active-hold test).
+Weaknesses: The null-caching test verifies call count but not the returned
+            value, which is a minor gap that does not enable exploitation.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The milestone requires fixing two bugs: (1) expired holds not releasing
+wheels in the availability service, and (2) the cache's get_or_set method
+re-running the loader when the stored result is None. The test suite
+contains 7 tests across two classes that exercise both bugs with proper
+correctness assertions. The negative test (active hold blocks booking)
+prevents the trivial shortcut of disabling all hold logic. The cache tests
+verify both normal and None-value caching with call-count assertions. No
+shortcut solution exists that would pass all tests without implementing the
+correct fixes.
+
+================================================================================
+                         OTHER OBSERVATIONS 💡
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Null-cache test does not assert returned value is None
+--------------------------------------------------------------------------------
+
+Where:   steps/milestone_4/tests/test_m4.py:92-94
+Problem: The test_null_result_stored_and_served_without_re_fetching test
+         asserts only that the loader is called once (calls == 1) but does
+         not verify that the second get_or_set call actually returns None.
+         An implementation could store and return a sentinel object instead
+         of None and still pass.
+
+Current test:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  cache.get_or_set("k", loader)                                             │
+│  cache.get_or_set("k", loader)                                             │
+│  assert calls == 1                                                         │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Required fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  cache.get_or_set("k", loader)                                             │
+│  result = cache.get_or_set("k", loader)                                    │
+│  assert calls == 1                                                         │
+│  assert result is None                                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: This is a minor observation only. In practice, returning a
+non-None sentinel instead of the actual cached None would be an unusual and
+contrived approach that still solves the described bug (preventing re-loads).
+The call-count assertion is the primary correctness check and is sufficient
+to verify the instruction's core requirement that the loader not be re-run.
+
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 5
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+All core constraints from the milestone instruction are covered by targeted
+correctness assertions that fail on the buggy code and pass only when the
+specific logic errors are fixed.
+
+Strengths:  Tests precisely target each of the three embedded bugs (sort
+direction, is_cancellable including pending, 0-indexed position) with assertions
+on concrete output values, and include multiple complementary tests per feature.
+
+Weaknesses: No significant weaknesses identified; minor observation that
+waitlist position is only tested with same-tier students.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The test suite contains 8 tests split across two classes: four for waitlist
+promotion rules and four for booking cancellation eligibility. Each core
+requirement from the instruction maps to at least one test with a concrete
+correctness assertion. The waitlist tests verify tier-priority promotion,
+FIFO within same tier, 1-based position numbering, and position shifting
+after promotion. The cancellation tests verify that pending bookings are
+not cancellable, confirmed and cancellation_requested bookings are
+cancellable, and that attempting to cancel a pending booking raises an
+error. No shortcut solution exists because the agent must modify the sort
+key direction, remove "pending" from is_cancellable, and change the
+position return value — each independently verified by separate assertions.
+
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 6
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+The test suite directly exercises both bugs described in the milestone
+instructions with correct assertions that cannot be passed without
+implementing the actual fixes.
+
+Strengths:  Tests cover both the lock manager debounce-clearance bug and the
+blocked-wheel availability filtering bug with precise behavioral assertions,
+including both positive and negative cases across multiple scenarios.
+
+Weaknesses: None significant — minor observation that one lock test
+(test_releasing_lease_allows_immediate_re_acquisition) tests same-owner
+re-acquisition which already passes without a fix, but the critical
+different-owner scenario is separately covered.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+Milestone 6 requires fixing two bugs: (1) releasing a lease must clear
+debounce entries so waiting students can immediately re-acquire, and
+(2) blocked wheels must be excluded from availability queries at both
+section and full-studio scope. The test suite contains 10 test cases
+covering both bugs with correctness assertions that verify specific
+values. The lock manager tests exercise the exact scenario where a
+different owner was previously debounced and must acquire after release.
+The availability tests assert both exclusion of blocked wheels and
+inclusion of non-blocked wheels at both query scopes. No shortcut
+solution exists — the agent must modify lock_manager.py to clear
+debounce on release and studio.py to filter _blocked in
+get_available_resources.
+
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 7
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+All four core bugs described in the milestone instruction are directly tested
+with correctness assertions that fail on the buggy code and pass only when
+the correct fix is applied.
+
+Strengths:  Each bug has a dedicated test that exercises the specific faulty
+behavior and asserts the corrected outcome. The test for the accumulation bug
+and the inclusive-limit bug are independent of each other, preventing a
+partial fix from passing.
+
+Weaknesses: The proration test uses a direct unit-test approach with a
+FakeTxn rather than exercising the full cancellation flow, which is a minor
+style choice but not a vulnerability.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The test suite contains six tests across three test classes, covering all
+four bugs specified in the milestone instruction: (1) is_eligible always
+returning True, (2) inverted proration ratio, (3) record_tickets replacing
+instead of accumulating, and (4) the limit check using > instead of >=.
+
+Each test targets a specific bug with assertions that would fail against the
+unpatched code. The cumulative booking test books 5 then 4 wheels in
+separate reservations, which correctly exposes the replacement bug in
+record_tickets. The exact-limit test books exactly 8 wheels in one call,
+correctly exposing the > vs >= bug independently. No shortcut solution
+exists that passes all tests without fixing the actual bugs — the agent
+cannot access test files and must identify and fix each defect from the
+source code and instructions alone.
+
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task milestone 8
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+All four core constraints (retry backoff, circuit breaker timer reset, rate
+limiter cap, pagination page count) have correctness assertions that will
+reject the buggy implementations while accepting proper fixes.
+
+Strengths:  Tests directly exercise the specific buggy behaviors by constructing
+scenarios where broken code produces observably wrong outputs. The use of
+injectable time and sleep functions eliminates non-determinism.
+
+Weaknesses: One supplementary assertion uses a >= bound where an exact equality
+would be more precise, though this does not affect the suite's ability to reject
+incorrect implementations.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The test suite contains 17 tests across four test classes covering retry
+logic, circuit breaker state transitions, rate limiting, and pagination.
+Each of the four bugs described in the instruction has at least one test
+that directly asserts the correct behavior: exponential backoff via delay
+doubling, suspension timer reset after failed probe, token cap enforcement
+after idle periods, and ceiling-based page count for non-divisible totals.
+No shortcut solution exists that would pass all tests without implementing
+the actual fixes, since the tests import and execute the buggy modules
+directly with controlled inputs that expose each defect.
+
+================================================================================
+                         OTHER OBSERVATIONS 💡
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Slightly loose refill assertion uses >= instead of ==
+--------------------------------------------------------------------------------
+
+Where:   steps/milestone_8/tests/test_m8.py:131
+Problem: test_gateway_token_count_reflects_refill asserts
+         available_tokens() >= 6.0 after consuming 10 tokens and waiting 3
+         seconds at refill_rate=2.0. The expected value should be exactly 6,
+         so a >= comparison is weaker than necessary.
+
+Current test:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  assert gw.available_tokens() >= 6.0                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Required fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  assert gw.available_tokens() == 6                                          │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: This is a supplementary test — the core rate limiter cap is
+already validated by test_gateway_token_budget_does_not_exceed_capacity.
+The loose bound here would accept an implementation that over-refills
+slightly (e.g., off-by-one in elapsed calculation), but since the cap
+test catches unbounded growth, this is cosmetic rather than exploitable.
+
+================================================================================
+
+================================================================================
+
+
+# Rubric 1
+Agent fixes the group discount to use a percentage of the subtotal rather than a flat amount, +2
+Agent fixes the loyalty discount to be computed from the original subtotal independently of the group discount, +2
+Agent fixes tax to be applied to the post-discount total rather than the original subtotal, +1
+Agent modifies test files or solution scripts instead of fixing the application source, -5
+Agent fixes only some of the three pricing bugs, -3
+
+# Rubric 2
+Agent changes the senior discount boundary from strict greater-than to inclusive so students aged exactly 65 receive the discount, +3
+Agent fixes peak pricing to require both weekend and evening rather than either condition alone, +2
+Agent hardcodes expected prices rather than fixing the discount or peak logic, -3
+Agent modifies test files or solution scripts instead of fixing the application source, -3
+
+# Rubric 3
+Agent fixes the audit log to return only entries matching the requested entity, +2
+Agent fixes the audit log to deep-copy payloads on write so later mutations do not affect stored records, +2
+Agent fixes the event store read methods to return deep copies so callers cannot mutate stored events, +1
+Agent modifies test files or solution scripts instead of fixing the application source, -5
+Agent fixes only some of the audit and event store bugs, -2
+
+# Rubric 4
+Agent fixes the availability service to filter out holds whose expiry time has already passed, +3
+Agent fixes the cache get_or_set method to correctly distinguish a stored None value from a cache miss, +2
+Agent modifies test files or solution scripts instead of fixing the application source, -5
+Agent patches the cache by removing None support rather than fixing the miss-detection logic, -3
+
+# Rubric 5
+Agent fixes the waitlist sort so higher loyalty tiers are promoted before lower ones, +2
+Agent fixes get_position to return a 1-based index, +2
+Agent fixes the reservation is_cancellable check to exclude pending status, +1
+Agent modifies test files or solution scripts instead of fixing the application source, -5
+Agent fixes position to be 0-based rather than 1-based, -3
+
+# Rubric 6
+Agent fixes the lock manager to clear debounce entries for all waiters when a resource is released, +1
+Agent fixes the studio availability query to exclude blocked wheels when filtering by section, +2
+Agent fixes the studio availability query to exclude blocked wheels in the full-studio path, +2
+Agent modifies test files or solution scripts instead of fixing the application source, -5
+Agent fixes only one of the three lock and venue bugs, -3
+
+# Rubric 7
+Agent fixes the refund policy to check has_cancellation_coverage rather than always returning True, +2
+Agent fixes the prorated refund ratio to use cancelled-over-total rather than total-over-cancelled, +2
+Agent fixes ticket tracking to accumulate counts rather than replacing the previous count, +1
+Agent modifies test files or solution scripts instead of fixing the application source, -5
+Agent fixes only some of the four refund and ticket bugs, -2
+
+# Rubric 8
+Agent implements exponential backoff in the retry wrapper so each delay doubles the previous one, +2
+Agent caps the token bucket refill so tokens never exceed the configured capacity, +2
+Agent fixes the circuit breaker to reset the suspended-at timestamp when re-entering suspended from a failed probe, +1
+Agent modifies test files or solution scripts instead of fixing the application source, -5
+Agent fixes only some of the four utility bugs, -2
+
+
+reviewers feedback
+
+Fix the Milestone 7 booking-limit wording so the 5+4 wheel bookings both succeed and only the next booking is blocked, strengthen Milestone 4 tests to assert active holds block before expiry, and change `task.toml` category from `data-processing` to `debugging`.

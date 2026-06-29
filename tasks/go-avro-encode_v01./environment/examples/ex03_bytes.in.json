@@ -1,9 +1,0 @@
-{
-  "cases": [
-    {
-      "id": "ex03_bytes",
-      "schema": "bytes",
-      "value": "cafe1234"
-    }
-  ]
-}

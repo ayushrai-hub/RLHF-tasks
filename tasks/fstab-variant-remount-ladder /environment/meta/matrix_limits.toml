@@ -1,2 +1,0 @@
-# Matrix-wide digest emission limits (see docs/pact_f2.md)
-digest_emit_ceiling = 3

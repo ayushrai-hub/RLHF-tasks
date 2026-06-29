@@ -18,6 +18,14 @@ from pathlib import Path
 
 # Reuse validator
 sys.path.insert(0, str(Path(__file__).resolve().parent))
+from rubric_points import (  # noqa: E402
+    RUBRIC_POSITIVE_CAP,
+    RubricPositiveAnalysis,
+    analyze_rubric_positives,
+    extract_rubric_text_from_report,
+    positive_points_from_entire_report,
+    positive_points_from_rubric_text,
+)
 from validate_task import (  # noqa: E402
     AI_SCAFFOLDING,
     CANONICAL_BASE_IMAGES,
@@ -137,36 +145,199 @@ class AgentStats:
     solvable: bool | None = None
 
 
-def parse_report(text: str) -> AgentStats:
+@dataclass
+class SubmissionExport:
+    """Parsed regions of a Snorkel / Terminus submission export (entire-report.txt)."""
+
+    difficulty_explanation: str = ""
+    solution_explanation: str = ""
+    verification_explanation: str = ""
+    difficulty_check: str = ""
+    instruction_sufficiency: str = ""
+    quality_check: str = ""
+    review_report: str = ""
+    test_quality: str = ""
+    platform_rubric: str = ""
+    agent_review: str = ""
+    comments_for_reviewer: str = ""
+    reviewer_feedback: str = ""
+    raw: str = ""
+
+    def sections_present(self) -> dict[str, bool]:
+        return {
+            "difficulty_explanation": bool(self.difficulty_explanation.strip()),
+            "solution_explanation": bool(self.solution_explanation.strip()),
+            "verification_explanation": bool(self.verification_explanation.strip()),
+            "difficulty_check": bool(self.difficulty_check.strip()),
+            "instruction_sufficiency": bool(self.instruction_sufficiency.strip()),
+            "quality_check": bool(self.quality_check.strip()),
+            "review_report": bool(self.review_report.strip()),
+            "test_quality": bool(self.test_quality.strip()),
+            "platform_rubric": bool(self.platform_rubric.strip()),
+            "agent_review": bool(self.agent_review.strip()),
+            "comments_for_reviewer": bool(self.comments_for_reviewer.strip()),
+            "reviewer_feedback": bool(self.reviewer_feedback.strip()),
+        }
+
+
+# Section headers in typical submission export order — see docs/guidelines/submission-export-format.md
+_EXPORT_MARKERS: list[tuple[str, re.Pattern[str]]] = [
+    ("difficulty_explanation", re.compile(r"^Difficulty Explanation \(optional\)")),
+    ("solution_explanation", re.compile(r"^Solution Explanation \(optional\)")),
+    ("verification_explanation", re.compile(r"^Verification Explanation \(optional\)")),
+    ("comments_for_reviewer", re.compile(r"^Comments for Reviewer(\s*\(optional\))?\s*$", re.I)),
+    ("reviewer_feedback", re.compile(r"^Reviewer Feedback(\s*\(optional\))?\s*$", re.I)),
+    ("difficulty_check", re.compile(r"^Difficulty:\s*[✅❌]")),
+    ("quality_check", re.compile(r"^##?\s*Quality Check Results")),
+    ("review_report", re.compile(r"REVIEW REPORT:\s*\S")),
+    ("test_quality", re.compile(r"TEST QUALITY REVIEW:")),
+    ("agent_review", re.compile(r"^Agent review\s*$", re.I)),
+    ("platform_rubric", re.compile(r"^Agent-generated rubric", re.I)),
+]
+
+RUBRIC_HEADER_RE = re.compile(r"^# Rubric \d+\s*$")
+AGENT_LINE_RE = re.compile(r"^Agent .+,\s*[+-]\d+\s*$")
+
+
+def _extract_trailing_agent_rubric(text: str) -> str:
+    """Platform rubric often appears as trailing Agent lines after test-quality review."""
+    lines = text.splitlines()
+    collected: list[str] = []
+    for line in reversed(lines):
+        stripped = line.strip()
+        if AGENT_LINE_RE.match(stripped):
+            collected.insert(0, stripped)
+        elif collected:
+            break
+    return "\n".join(collected) if len(collected) >= 3 else ""
+
+
+def parse_submission_export(text: str) -> SubmissionExport:
+    """Split a submission export blob into named sections for targeted review."""
+    export = SubmissionExport(raw=text)
+    if not text.strip():
+        return export
+
+    lines = text.splitlines()
+    hits: list[tuple[int, str]] = []
+    for i, line in enumerate(lines):
+        stripped = line.strip()
+        for key, pat in _EXPORT_MARKERS:
+            if pat.search(stripped) or pat.match(stripped):
+                hits.append((i, key))
+                break
+        if RUBRIC_HEADER_RE.match(stripped):
+            hits.append((i, "platform_rubric"))
+
+    if not hits:
+        export.platform_rubric = _extract_trailing_agent_rubric(text)
+        export.difficulty_check = text
+        return export
+
+    hits.sort(key=lambda x: x[0])
+    # Keep first occurrence per key (earliest in file)
+    seen: set[str] = set()
+    ordered: list[tuple[int, str]] = []
+    for pos, key in hits:
+        if key not in seen:
+            seen.add(key)
+            ordered.append((pos, key))
+
+    for idx, (start, key) in enumerate(ordered):
+        end = ordered[idx + 1][0] if idx + 1 < len(ordered) else len(lines)
+        chunk = "\n".join(lines[start:end]).strip()
+        setattr(export, key, chunk)
+
+    if not export.instruction_sufficiency and export.difficulty_check:
+        m = re.search(
+            r"(Analysis on Agent Failures:.*|Task Instruction Sufficiency:.*)",
+            export.difficulty_check,
+            re.S,
+        )
+        if m:
+            export.instruction_sufficiency = m.group(1).strip()
+
+    if not export.platform_rubric.strip():
+        export.platform_rubric = _extract_trailing_agent_rubric(text)
+
+    return export
+
+
+def parse_report(text: str, export: SubmissionExport | None = None) -> AgentStats:
+    """Agent stats from difficulty-check section (preferred) or full export text."""
+    scope = export.difficulty_check if export and export.difficulty_check.strip() else text
     stats = AgentStats()
-    for m in re.finditer(r"(terminus-[\w.-]+|terminus-gpt5-5):\s*([\d.]+)%", text, re.I):
+    for m in re.finditer(r"(terminus-[\w.-]+|terminus-gpt5-5):\s*([\d.]+)%", scope, re.I):
         stats.models[m.group(1)] = float(m.group(2))
-    # Agent Performance block: "• terminus-gpt5-5: 100.0%"
-    for m in re.finditer(r"•\s*(terminus-[\w.-]+|terminus-gpt5-5):\s*([\d.]+)%", text, re.I):
+    for m in re.finditer(r"•\s*(terminus-[\w.-]+|terminus-gpt5-5):\s*([\d.]+)%", scope, re.I):
         stats.models[m.group(1)] = float(m.group(2))
 
-    om = re.search(r"oracle:\s*([\d.]+)%", text, re.I)
+    om = re.search(r"oracle:\s*([\d.]+)%", scope, re.I)
     if om:
         stats.oracle_rate = float(om.group(1))
-    nm = re.search(r"nop:\s*([\d.]+)%", text, re.I)
+    nm = re.search(r"nop:\s*([\d.]+)%", scope, re.I)
     if nm:
         stats.nop_rate = float(nm.group(1))
 
-    dm = re.search(r"Difficulty:\s*[✅]?\s*(EASY|MEDIUM|HARD|TRIVIAL)", text, re.I)
+    dm = re.search(r"Difficulty:\s*[✅❌]?\s*(EASY|MEDIUM|HARD|TRIVIAL)", scope, re.I)
     if dm:
         stats.classified_difficulty = dm.group(1).lower()
 
-    if re.search(r"Solvable.*✅|solvable.*yes", text, re.I):
+    if re.search(r"Solvable.*✅|solvable.*yes", scope, re.I):
         stats.solvable = True
-    elif re.search(r"Unsolvable|not solvable", text, re.I):
+    elif re.search(r"Unsolvable|not solvable", scope, re.I):
         stats.solvable = False
 
     return stats
 
 
+def extract_platform_rubric(
+    report_text: str,
+    export: SubmissionExport | None = None,
+) -> str | None:
+    """Pull platform rubric from submission export — see submission-export-format.md."""
+    if export is None and report_text.strip():
+        export = parse_submission_export(report_text)
+
+    if export and export.platform_rubric.strip():
+        rubric = export.platform_rubric.strip()
+        if RUBRIC_HEADER_RE.search(rubric) or re.search(r"^Agent ", rubric, re.M):
+            return rubric
+
+    text, _label = extract_rubric_text_from_report(report_text)
+    return text
+
+
 def worst_model_rate(stats: AgentStats) -> float | None:
-    agent_rates = [v for k, v in stats.models.items() if "oracle" not in k and "nop" not in k]
+    """Lowest pass rate among reference agents (floor tier for Easy/Medium/Rejected)."""
+    agent_rates = [
+        v for k, v in stats.models.items()
+        if "oracle" not in k.lower() and "nop" not in k.lower()
+    ]
+    return min(agent_rates) if agent_rates else None
+
+
+def best_model_rate(stats: AgentStats) -> float | None:
+    """Highest pass rate among reference agents."""
+    agent_rates = [
+        v for k, v in stats.models.items()
+        if "oracle" not in k.lower() and "nop" not in k.lower()
+    ]
     return max(agent_rates) if agent_rates else None
+
+
+def declared_difficulty_defensible(declared: str, stats: AgentStats) -> bool:
+    """True when task.toml difficulty is supported by difficulty.md tier rules."""
+    worst = worst_model_rate(stats)
+    best = best_model_rate(stats)
+    declared = declared.lower()
+    if declared == "hard":
+        return (best is not None and best <= 20) or (worst is not None and worst <= 20)
+    if declared == "medium":
+        return worst is not None and 20 < worst <= 60
+    if declared == "easy":
+        return worst is not None and 60 < worst <= 80
+    return False
 
 
 def tier_from_rate(rate: float) -> str:
@@ -196,13 +367,44 @@ class ReviewChecklist:
         self.validator = TaskValidator(self.task_dir)
         self.findings = self.validator.validate()
         self.report_text = report_path.read_text(encoding="utf-8", errors="replace") if report_path else ""
-        self.agent_stats = parse_report(self.report_text) if self.report_text else AgentStats()
+        self.export = parse_submission_export(self.report_text) if self.report_text else SubmissionExport()
+        self.agent_stats = parse_report(self.report_text, self.export) if self.report_text else AgentStats()
         self.report_path = report_path
         self.toml_text = ""
         t = self.task_dir / "task.toml"
         if t.exists():
             self.toml_text = t.read_text(encoding="utf-8", errors="replace")
         self.audit_log: list[str] = []
+        self.rubric_positive = self._load_rubric_positive_analysis()
+
+    def _milestone_count(self) -> int:
+        ms_match = re.search(r"number_of_milestones\s*=\s*(\d+)", self.toml_text or "")
+        return int(ms_match.group(1)) if ms_match else 0
+
+    def _load_rubric_positive_analysis(self) -> RubricPositiveAnalysis:
+        """Sum positive rubric points from entire-report (or rubric file) on every review."""
+        n_ms = self._milestone_count()
+        if self.rubric_path and self.rubric_path.exists():
+            text = self.rubric_path.read_text(encoding="utf-8", errors="replace")
+            return positive_points_from_rubric_text(
+                text,
+                num_milestones=n_ms,
+                rubric_source=str(self._rel(self.rubric_path)),
+            )
+        for candidate in (self.task_dir / "rubric.txt", self.task_dir / "rubrics.txt"):
+            if candidate.exists():
+                text = candidate.read_text(encoding="utf-8", errors="replace")
+                return positive_points_from_rubric_text(
+                    text,
+                    num_milestones=n_ms,
+                    rubric_source=str(self._rel(candidate)),
+                )
+        if self.report_path and self.report_path.is_file():
+            return positive_points_from_entire_report(
+                self.report_path,
+                num_milestones=n_ms,
+            )
+        return RubricPositiveAnalysis()
 
     def _rel(self, path: Path | str) -> str:
         p = Path(path)
@@ -546,38 +748,77 @@ class ReviewChecklist:
 
     def _check_rubrics(self) -> None:
         rubric_file = self.rubric_path
+        rubric_source = "explicit --rubric"
         if not rubric_file:
             for candidate in (self.task_dir / "rubric.txt", self.task_dir / "rubrics.txt"):
                 if candidate.exists():
                     rubric_file = candidate
+                    rubric_source = str(self._rel(candidate))
                     break
 
-        if not rubric_file or not rubric_file.exists():
+        text: str | None = None
+        if rubric_file and rubric_file.exists():
+            text = rubric_file.read_text(encoding="utf-8", errors="replace")
+        elif self.report_text:
+            text = extract_platform_rubric(self.report_text, self.export)
+            if text:
+                rubric_source = (
+                    f"platform rubric section in {self._rel(self.report_path)}"
+                    if self.report_path
+                    else "platform rubric section in report"
+                )
+
+        if not text:
             for cid in range(32, 40):
-                self._set(cid, Status.NA, "No rubric file provided")
+                self._set(cid, Status.NA, "No rubric in task folder or submission report")
             return
 
-        text = rubric_file.read_text(encoding="utf-8", errors="replace")
         negatives = re.findall(r",\s*-\d", text)
         scores = re.findall(r",\s*([+-]?\d+)\s*$", text, re.M)
         invalid_scores = [s for s in scores if abs(int(s)) not in (1, 2, 3, 5)]
         agent_lines = [ln for ln in text.splitlines() if ln.strip().lower().startswith("agent")]
 
         self._set(32, Status.PASS if len(negatives) >= 3 else Status.FAIL,
-                  f"{len(negatives)} negative criteria (need ≥3)", blocker=len(negatives) < 3)
+                  f"{len(negatives)} negative criteria (need ≥3) [{rubric_source}]", blocker=len(negatives) < 3)
         self._set(33, Status.PASS if not invalid_scores else Status.FAIL,
-                  f"Invalid scores: {invalid_scores[:5]}" if invalid_scores else "Scores in ±1,2,3,5")
+                  f"Invalid scores: {invalid_scores[:5]} [{rubric_source}]" if invalid_scores else f"Scores in ±1,2,3,5 [{rubric_source}]")
         self._set(34, Status.PASS if len(agent_lines) >= 3 else Status.FAIL,
-                  f"{len(agent_lines)} Agent lines")
-        self._set(35, Status.MANUAL, "Review criterion precision")
+                  f"{len(agent_lines)} Agent lines [{rubric_source}]")
+
+        n_ms = self._milestone_count()
+        self.rubric_positive = analyze_rubric_positives(
+            text,
+            num_milestones=n_ms,
+            rubric_source=rubric_source,
+        )
+        rp = self.rubric_positive
+        pts_note = (
+            f"{rp.total_positive_pts} positive pts (cap {RUBRIC_POSITIVE_CAP}; "
+            f"{rp.positive_line_count} +lines)"
+        )
+
+        if rp.over_cap:
+            self._set(
+                35,
+                Status.FAIL,
+                f"Rubric {rp.cap_detail}; {pts_note} [{rubric_source}]",
+                blocker=True,
+            )
+        else:
+            self._set(
+                35,
+                Status.PASS if rp.found else Status.MANUAL,
+                f"Rubric positive points: {pts_note} — {rp.cap_status} [{rubric_source}]",
+            )
+
         self._set(36, Status.FAIL if re.search(r"does not|doesn't|fails to", text, re.I) else Status.MANUAL,
-                  "Negative phrasing in rubric" if re.search(r"does not", text, re.I) else "Check positive phrasing")
+                  f"Negative phrasing in rubric [{rubric_source}]" if re.search(r"does not", text, re.I) else f"Check positive phrasing [{rubric_source}]")
         self._set(37, Status.FAIL if re.search(r"/tests/|pytest", text, re.I) else Status.PASS,
-                  "References tests" if re.search(r"/tests/", text, re.I) else "No /tests/ references")
+                  f"References tests [{rubric_source}]" if re.search(r"/tests/", text, re.I) else f"No /tests/ references [{rubric_source}]")
         self._set(38, Status.FAIL if re.search(r"task\.toml|instruction\.md", text, re.I) else Status.PASS,
-                  "References metadata/instruction" if re.search(r"task\.toml", text, re.I) else "No metadata refs")
+                  f"References metadata/instruction [{rubric_source}]" if re.search(r"task\.toml", text, re.I) else f"No metadata refs [{rubric_source}]")
         self._set(39, Status.FAIL if re.search(r"\boracle\b|\bNOP\b", text, re.I) else Status.PASS,
-                  "Mentions oracle/NOP" if re.search(r"oracle", text, re.I) else "No oracle/NOP mentions")
+                  f"Mentions oracle/NOP [{rubric_source}]" if re.search(r"oracle", text, re.I) else f"No oracle/NOP mentions [{rubric_source}]")
 
     def _check_structure(self) -> None:
         errors = [f for f in self.findings if f.severity == Severity.ERROR and f.check == "structure"]
@@ -620,34 +861,33 @@ class ReviewChecklist:
 
         self._set(44, Status.MANUAL, "Verify tags/languages/category match task content")
 
-        # 45 difficulty vs report
+        # 45 — task.toml difficulty present; platform/tier mismatch is never a blocker
         decl_m = re.search(r'difficulty\s*=\s*"(\w+)"', self.toml_text, re.I)
         declared = decl_m.group(1).lower() if decl_m else None
-        worst = worst_model_rate(self.agent_stats)
-        classified = self.agent_stats.classified_difficulty
-
-        if worst is not None and declared:
-            observed = tier_from_rate(worst)
-            langs = re.findall(r'"([^"]+)"', re.search(r"languages\s*=\s*\[(.*?)\]", self.toml_text, re.S).group(1)) if "languages" in self.toml_text else []
-            py_task = any(l.lower() == "python" for l in langs)
-
-            mismatch = observed != declared and not (declared == "hard" and observed == "medium" and py_task)
-            if mismatch:
-                self._set(
-                    45, Status.FAIL,
-                    f"task.toml difficulty='{declared}' but worst-model {worst:.0f}% → '{observed}'"
-                    + (f"; report says '{classified}'" if classified else ""),
-                    blocker=True,
-                    proof=["task.toml", str(self.report_path.name) if self.report_path else "agent-report"],
-                )
-            else:
-                self._set(45, Status.PASS, f"difficulty='{declared}' consistent with worst-model {worst:.0f}%")
-        elif classified and declared and classified != declared:
-            self._set(45, Status.FAIL,
-                      f"task.toml difficulty='{declared}' vs report classified '{classified}'",
-                      blocker=True)
+        if not declared:
+            self._set(45, Status.FAIL, "Missing difficulty in task.toml", blocker=True)
         else:
-            self._set(45, Status.MANUAL, "Provide --report with agent stats to verify difficulty match")
+            worst = worst_model_rate(self.agent_stats)
+            best = best_model_rate(self.agent_stats)
+            classified = self.agent_stats.classified_difficulty
+            parts = [f"task.toml difficulty='{declared}'"]
+            if classified:
+                parts.append(f"platform classified='{classified}'")
+            if worst is not None:
+                parts.append(f"worst-model {worst:.0f}% → tier '{tier_from_rate(worst)}'")
+            if best is not None:
+                parts.append(f"best-model {best:.0f}%")
+            note = "; ".join(parts)
+            if classified and classified != declared:
+                note += " (declared vs platform differ — not a blocker)"
+            elif worst is not None and tier_from_rate(worst) != declared:
+                note += " (declared vs agent-rate tier differ — not a blocker)"
+            self._set(
+                45,
+                Status.PASS,
+                note,
+                proof=["task.toml", str(self.report_path.name) if self.report_path else "—"],
+            )
 
     def _check_milestones(self) -> None:
         ms_match = re.search(r"number_of_milestones\s*=\s*(\d+)", self.toml_text)
@@ -746,35 +986,27 @@ class ReviewChecklist:
         disp = self.disposition()
         name = self.task_dir.name
         blockers = self.blockers()
-        fails = [cb for cb in self.results.values() if cb.status == Status.FAIL]
 
         if disp == "Accept":
             decl = re.search(r'difficulty\s*=\s*"(\w+)"', self.toml_text, re.I)
             diff = decl.group(1) if decl else "declared"
             worst = worst_model_rate(self.agent_stats)
-            rate_note = f" Agent pass rates align with {diff} difficulty ({worst:.0f}% worst-model)." if worst else ""
-            return (
-                f"Accepted. The {name} task meets Terminus Edition 2 requirements: instruction is clear and "
-                f"testable, environment and verifiers are correctly structured, the oracle derives its output, "
-                f"and tests verify behavior rather than implementation.{rate_note} No blocking spec-test gaps "
-                f"or cheating paths were found on re-audit."
+            rate_note = (
+                f" Agent pass rates look reasonable for {diff} difficulty ({worst:.0f}% worst-model)."
+                if worst
+                else ""
             )
-
-        if len(blockers) == 1 and blockers[0].id == 45:
-            cb = blockers[0]
             return (
-                f"Needs revision. Task structure, milestone layout, verifier coverage, oracle path, and Dockerfile "
-                f"pinning look solid. The remaining blocker is difficulty metadata: {cb.evidence}. "
-                f"Update task.toml difficulty or rebalance the task until it matches observed agent performance."
+                f"Nice task overall. The {name} instructions are clear, the environment and verifiers "
+                f"are set up well, and the oracle passes cleanly.{rate_note} I didn't spot spec gaps "
+                f"or easy cheating paths."
             )
 
         blocker_labels = ", ".join(f"#{cb.id}" for cb in blockers[:5])
-        fail_count = len(fails)
         return (
-            f"Needs revision. {fail_count} checklist item(s) failed automated re-audit"
-            f"{f' (main blockers: {blocker_labels})' if blocker_labels else ''}. "
-            f"See detailed blocker section and proof files in this report. "
-            f"Address High-severity items before resubmission."
+            f"Good foundation on {name} — most of the structure looks solid."
+            f"{f' Main items to address: {blocker_labels}.' if blocker_labels else ''} "
+            f"See the detailed blocker section in this report for specifics."
         )
 
     def format_final_report(self) -> str:
@@ -805,9 +1037,22 @@ class ReviewChecklist:
             f"- **Checkboxes to CHECK:** {len(self.check_ids())} items → `{', '.join(str(i) for i in self.check_ids()) or 'none'}`",
             f"- **Checkboxes to UNCHECK:** {len(self.uncheck_ids())} items → `{', '.join(str(i) for i in self.uncheck_ids()) or 'none'}`",
             "",
+        ]
+        rp = self.rubric_positive
+        if rp.found:
+            lines.extend([
+                f"- **Rubric positive points (from report):** {rp.total_positive_pts} "
+                f"(cap {RUBRIC_POSITIVE_CAP}; {rp.cap_status})",
+                f"- **Rubric +line count:** {rp.positive_line_count}",
+            ])
+            if rp.per_block_positive_pts:
+                blocks = ", ".join(f"#{k}={v}" for k, v in sorted(rp.per_block_positive_pts.items()))
+                lines.append(f"- **Per-block positive pts:** {blocks}")
+            lines.append("")
+        lines.extend([
             "> Portal rule: **Check each item that passes.** Leaving unchecked = failed or not applicable.",
             "",
-        ]
+        ])
 
         # Blockers detailed
         lines.extend(["## 2. Main blockers (detailed)", ""])
@@ -903,6 +1148,7 @@ class ReviewChecklist:
 
         # Report mismatch & adjudication
         if self.report_text:
+            lines.extend(self._submission_export_sections())
             lines.extend(self._check_report_task_mismatch())
             lines.extend(self._adjudicate_external_findings())
 
@@ -912,10 +1158,41 @@ class ReviewChecklist:
             for model, rate in sorted(self.agent_stats.models.items()):
                 lines.append(f"- {model}: {rate:.1f}%")
             worst = worst_model_rate(self.agent_stats)
+            best = best_model_rate(self.agent_stats)
             if worst is not None:
                 lines.append(f"- **Worst-model rate:** {worst:.1f}% → tier `{tier_from_rate(worst)}`")
+            if best is not None:
+                lines.append(f"- **Best-model rate:** {best:.1f}%")
+            decl_m = re.search(r'difficulty\s*=\s*"(\w+)"', self.toml_text, re.I)
+            if decl_m:
+                declared = decl_m.group(1).lower()
+                lines.append(f"- **task.toml difficulty:** `{declared}`")
             if self.agent_stats.classified_difficulty:
-                lines.append(f"- **Report classified difficulty:** {self.agent_stats.classified_difficulty}")
+                classified = self.agent_stats.classified_difficulty
+                lines.append(f"- **Platform classified difficulty:** `{classified}`")
+                if decl_m and declared != classified:
+                    lines.append(
+                        "- **Declared vs platform:** differ — informational only, **not a blocker**"
+                    )
+            lines.append("")
+
+        rp = self.rubric_positive
+        if rp.found:
+            lines.extend([
+                "## 6b. Rubric positive points (entire-report)",
+                "",
+                "| Field | Value |",
+                "|-------|-------|",
+                f"| Source | `{rp.rubric_source}` |",
+                f"| Positive point total (+lines only) | **{rp.total_positive_pts}** |",
+                f"| Positive line count | {rp.positive_line_count} |",
+                f"| Cap | {RUBRIC_POSITIVE_CAP} (blocker only if **>{RUBRIC_POSITIVE_CAP}**) |",
+                f"| Status | {rp.cap_status} |",
+            ])
+            if rp.per_block_positive_pts:
+                lines.append(f"| Per `# Rubric N` block | {rp.per_block_positive_pts} |")
+            if rp.over_cap:
+                lines.append(f"| Blocker detail | {rp.cap_detail} |")
             lines.append("")
 
         # Audit log
@@ -949,6 +1226,45 @@ class ReviewChecklist:
         """Shorter terminal summary; use format_final_report() for the deliverable file."""
         return self.format_final_report()
 
+    def _submission_export_sections(self) -> list[str]:
+        """Map submission export regions — see docs/guidelines/submission-export-format.md."""
+        lines = ["", "## Submission export sections", ""]
+        labels = {
+            "difficulty_explanation": "Author — Difficulty Explanation",
+            "solution_explanation": "Author — Solution Explanation",
+            "verification_explanation": "Author — Verification Explanation",
+            "difficulty_check": "System — difficulty check / agent stats / unit tests",
+            "instruction_sufficiency": "System — instruction sufficiency analysis",
+            "quality_check": "System — LLMaJ quality checks",
+            "review_report": "System — Harbor review report",
+            "test_quality": "System — test quality review",
+            "platform_rubric": "Platform — agent-generated rubric (#32–39)",
+            "agent_review": "System — agent review narrative",
+            "comments_for_reviewer": "Author — Comments for Reviewer",
+            "reviewer_feedback": "Portal — Reviewer Feedback (prior cycle)",
+        }
+        present = self.export.sections_present()
+        lines.append("| Section | Present | Use for |")
+        lines.append("|---------|---------|---------|")
+        for key, label in labels.items():
+            use = {
+                "difficulty_explanation": "context only",
+                "solution_explanation": "context only — not oracle",
+                "verification_explanation": "context only",
+                "difficulty_check": "#45, #54, section 7",
+                "instruction_sufficiency": "#27, #55 adjudication",
+                "quality_check": "LLMaJ hints — verify in files",
+                "review_report": "warnings — verify in files",
+                "test_quality": "verifier quality",
+                "platform_rubric": "rubrics #32–39",
+                "agent_review": "advisory",
+                "comments_for_reviewer": "author context only",
+                "reviewer_feedback": "prior review claims — verify in files",
+            }[key]
+            lines.append(f"| {label} | {'yes' if present.get(key) else 'no'} | {use} |")
+        lines.append("")
+        return lines
+
     def _check_report_task_mismatch(self) -> list[str]:
         lines = ["", "## Report ↔ task identity", ""]
         if not self.report_text:
@@ -979,27 +1295,23 @@ class ReviewChecklist:
         worst = worst_model_rate(self.agent_stats)
         classified = self.agent_stats.classified_difficulty
 
-        # Common ChatGPT finding: difficulty mismatch
-        if re.search(r"difficulty.*hard.*medium|metadata mismatch", self.report_text, re.I):
-            if declared and worst is not None:
-                observed = tier_from_rate(worst)
-                if observed != declared:
-                    lines.append("### Claim: difficulty metadata mismatch")
-                    lines.append(f"- **Verdict:** Agree")
-                    lines.append(f"- **Evidence:** task.toml `difficulty=\"{declared}\"`; worst-model pass rate {worst:.0f}% → tier `{observed}`"
-                                 + (f"; report classified `{classified}`" if classified else ""))
-                    lines.append("- **Action:** Update `difficulty` in task.toml OR rebalance task")
-                    lines.append("")
-                elif classified and classified != declared:
-                    lines.append("### Claim: difficulty metadata mismatch")
-                    lines.append(f"- **Verdict:** Agree (per report classification `{classified}` vs declared `{declared}`)")
-                    lines.append("- **Action:** Align task.toml with evaluation")
-                    lines.append("")
-                else:
-                    lines.append("### Claim: difficulty metadata mismatch")
-                    lines.append(f"- **Verdict:** Disagree")
-                    lines.append(f"- **Evidence:** declared `{declared}`, worst-model {worst:.0f}% is consistent")
-                    lines.append("")
+        # Difficulty metadata mismatch — never a blocker
+        if re.search(r"difficulty.*hard.*medium|metadata mismatch|difficulty mismatch", self.report_text, re.I):
+            decl_m = re.search(r'difficulty\s*=\s*"(\w+)"', self.toml_text, re.I)
+            declared = decl_m.group(1).lower() if decl_m else None
+            if declared:
+                lines.append("### Claim: difficulty metadata mismatch (task.toml vs platform)")
+                lines.append("- **Verdict:** Disagree as blocker")
+                worst = worst_model_rate(self.agent_stats)
+                classified = self.agent_stats.classified_difficulty
+                evidence = f"task.toml `difficulty=\"{declared}\"`"
+                if classified:
+                    evidence += f"; platform classified `{classified}`"
+                if worst is not None:
+                    evidence += f"; worst-model {worst:.0f}% → tier `{tier_from_rate(worst)}`"
+                lines.append(f"- **Evidence:** {evidence}")
+                lines.append("- **Action:** Informational only — always CHECK #45 when difficulty present")
+                lines.append("")
 
         # Spec gap patterns from entire-report style
         for m in re.finditer(r"^\d+\.\s+(.+)$", self.report_text, re.M):

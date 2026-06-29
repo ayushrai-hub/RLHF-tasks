@@ -1,10 +1,10 @@
-# label: 2026-06-23-v9-path-a-retry-platform-infra-fail
+# label: 2026-06-24-v11-difficulty-metadata-hard-to-medium
 version = "2.0"
 
 [metadata]
 author_name = "anonymous"
 author_email = "anonymous"
-difficulty = "hard"
+difficulty = "medium"
 category = "security"
 subcategories = ["db_interaction"]
 number_of_milestones = 3
@@ -21,12 +21,6 @@ cpus = 2
 memory_mb = 4096
 storage_mb = 10240
 workdir = "/app"
-
-[verifier]
-timeout_sec = 900.0
-
-[agent]
-timeout_sec = 1800.0
 
 [[steps]]
 name = "milestone_1"

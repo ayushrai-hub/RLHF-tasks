@@ -1,0 +1,8 @@
+--- rotator.py
++++ rotator.py
+@@ -4,5 +4,4 @@
+ 
+ 
+ def rotate_keys(export_path: str, old_key: bytes, new_key: bytes) -> None:
+-    """Rotate the encryption key for a Prefect block export file."""
+     coordinate_rotation(export_path, old_key, new_key)

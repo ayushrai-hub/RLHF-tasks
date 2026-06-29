@@ -1,0 +1,8 @@
+{
+  "column": "fwd_PSH_flag_count",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 24,
+  "role": "candidate_predictor",
+  "unique_values": 59
+}

@@ -1,0 +1,18 @@
+--- crypto_nonce_policy.py
++++ crypto_nonce_policy.py
+@@ -1,12 +1,9 @@
+ """Nonce generation policy for AES-GCM field encryption."""
++
++import os
+ 
+ from config import AES_GCM_NONCE_LENGTH
+ 
+-# Module-local nonce counter for field encryption.
+-_counter = 0
+-
+ 
+ def next_nonce() -> bytes:
+-    global _counter
+-    _counter = (_counter + 1) % 256
+-    return bytes([_counter]) * AES_GCM_NONCE_LENGTH
++    return os.urandom(AES_GCM_NONCE_LENGTH)

@@ -1,0 +1,10 @@
+[remote]
+endpoint = "http://127.0.0.1:9001"
+bucket = "rust-sccache-staging"
+region = "us-west-2"
+tls = false
+path_style = true
+
+[storage]
+data_dir = "/var/minio/staging"
+api_port = 9001

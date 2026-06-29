@@ -1,3 +1,0 @@
-Cohort,perfect_score_count,min,max,average,run_1,run_2,run_3,run_4,run_5,run_6,run_7,run_8
-gemini,5,0,1,0.625000,1,0,1,1,1,1,0,0
-oracle,1,1,1,1.000000,1,,,,,,,

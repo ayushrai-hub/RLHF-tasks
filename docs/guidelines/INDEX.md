@@ -39,6 +39,7 @@ Complete Terminus Edition 2 reference for the automation system.
 | [oracle-solution.md](oracle-solution.md) | solution/solve.sh |
 | [writing-tests.md](writing-tests.md) | test.sh + pytest |
 | [rubrics.md](rubrics.md) | Platform rubric workflow |
+| [submission-export-format.md](submission-export-format.md) | `entire-report.txt` section map for reviewers |
 
 ## Validation
 

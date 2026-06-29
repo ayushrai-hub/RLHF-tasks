@@ -1,0 +1,14 @@
+{
+  "merges": [
+    {
+      "sha": "14f2ea4baf8e6af538fb3bc953e1af939125c435",
+      "parents": [
+        "1a95c323ea6aa92ef1c9f7338ec3a52a82633470",
+        "683535a9efe39ec640154926e1fb59b5b297d2ce"
+      ],
+      "subject": "merge: feature/auth into main",
+      "first_parent": "1a95c323ea6aa92ef1c9f7338ec3a52a82633470",
+      "second_parent": "683535a9efe39ec640154926e1fb59b5b297d2ce"
+    }
+  ]
+}

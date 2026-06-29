@@ -1,0 +1,8 @@
+{
+  "column": "flow_iat.min",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 56,
+  "role": "candidate_predictor",
+  "unique_values": 1626
+}

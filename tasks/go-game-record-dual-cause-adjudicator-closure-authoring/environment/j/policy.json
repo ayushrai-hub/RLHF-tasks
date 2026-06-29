@@ -1,0 +1,27 @@
+{
+  "policy_id": "local-independent-adjudicator-v1",
+  "ruleset": "tournament-area-2026",
+  "closing_passes_required": 1,
+  "score_source": "territory_score",
+  "allow_legacy_score_token": false,
+  "komi": 5.5,
+  "require_branch_leakage_zero": false,
+  "expected_records": {
+    "dragon-cup-17": {
+      "winner": "W",
+      "margin": 0.5,
+      "terminal_pass_move_numbers": [10],
+      "required_variation": "",
+      "required_branch_only_moves": ["B:E5"],
+      "allow_legacy_score_token": true
+    },
+    "sansei-legacy-1999": {
+      "winner": "W",
+      "margin": 0.5,
+      "terminal_pass_move_numbers": [5],
+      "required_variation": "archive-line",
+      "required_branch_only_moves": ["W:A5"],
+      "allow_legacy_score_token": false
+    }
+  }
+}

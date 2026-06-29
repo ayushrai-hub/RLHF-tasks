@@ -1,0 +1,8 @@
+{
+  "column": "bwd_pkts_per_sec",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 12,
+  "role": "candidate_predictor",
+  "unique_values": 12660
+}

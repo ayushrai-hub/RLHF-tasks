@@ -39,7 +39,7 @@ Use before every submission. For component details see [Task Requirements](task-
 
 - [ ] Generated via Snorkel platform UI, edited for accuracy
 - [ ] At least **3 negative rewards** (e.g., -1)
-- [ ] Milestone tasks: `# Rubric 1`, `# Rubric 2` headers; **10–40 positive pts per milestone**
+- [ ] Milestone tasks: `# Rubric 1`, `# Rubric 2` headers; **10–40 positive pts per milestone** ( **>40 = main blocker** )
 
 ### Quality Standards
 

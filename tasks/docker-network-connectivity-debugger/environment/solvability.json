@@ -1,7 +1,0 @@
-{
-  "excluded_tests": [
-    "verifier_did_not_run",
-    "test_verifier_did_not_run"
-  ],
-  "reason": "Platform pseudo-test when a trial crashes before the verifier runs; never blocks task solvability."
-}

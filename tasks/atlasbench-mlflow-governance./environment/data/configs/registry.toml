@@ -1,0 +1,23 @@
+[[models]]
+name = "churn-staging"
+stage = "staging"
+experiment_id = "exp-alpha"
+aliases.mutable = true
+
+[[models]]
+name = "churn-prod"
+stage = "production"
+experiment_id = "exp-beta"
+aliases.mutable = true
+
+[[models]]
+name = "orphan-model"
+stage = "staging"
+experiment_id = "exp-missing"
+aliases.mutable = false
+
+[[models]]
+name = "linked-quarantine"
+stage = "staging"
+experiment_id = "exp-quarantine"
+aliases.mutable = false

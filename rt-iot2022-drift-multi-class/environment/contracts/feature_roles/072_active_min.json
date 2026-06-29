@@ -1,0 +1,8 @@
+{
+  "column": "active.min",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 72,
+  "role": "candidate_predictor",
+  "unique_values": 13419
+}

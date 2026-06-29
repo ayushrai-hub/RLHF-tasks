@@ -64,3 +64,9 @@ Difficulty = **agent pass rate** on GPT-5.5 and Claude Opus 4.8 (5 runs each).
 | Debugging scenarios | Reduce steps |
 
 **Do not** add hints to instructions to make tasks easier.
+
+## Reviewer policy (portal #45 / #54)
+
+- **Worst model** = **lowest** pass rate among GPT-5.5 and Claude Opus 4.8 (not highest).
+- **#45:** **CHECK** when `difficulty` is present in `task.toml`. Mismatch vs platform `Difficulty: …` or vs agent-rate tier is **informational only** — never a blocker or Revise driver.
+- **#54:** Block only when worst-model rate **>80%** (task too easy).

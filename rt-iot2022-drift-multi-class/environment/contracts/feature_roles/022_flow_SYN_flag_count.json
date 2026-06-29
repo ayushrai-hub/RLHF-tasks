@@ -1,0 +1,8 @@
+{
+  "column": "flow_SYN_flag_count",
+  "kind": "numeric",
+  "missing_rate": 0.0,
+  "position": 22,
+  "role": "candidate_predictor",
+  "unique_values": 7
+}

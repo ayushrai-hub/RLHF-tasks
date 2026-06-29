@@ -19,15 +19,26 @@ RUN apt-get update \
         ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
-# Pre-download verifier Python wheels (NOT installed into the image so the
-# LLMaJ Test Deps In Image judge stays clean). test.sh in each milestone
-# pip-installs them at verifier-runtime via --no-index --find-links.
+# Pre-download verifier Python wheels then install them into a dedicated
+# build-time venv at /opt/test-venv so test.sh never runs `pip install` at
+# verifier-runtime (human reviewer round 9). The wheels stay at
+# /opt/test-wheels as a fallback evidence trail; the venv is what test.sh
+# activates. python3-venv is required because Debian/Ubuntu split it from
+# the base python3 package.
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends python3-venv \
+    && rm -rf /var/lib/apt/lists/*
 RUN mkdir -p /opt/test-wheels \
     && python3 -m pip download --no-cache-dir --dest /opt/test-wheels \
         pytest==8.4.1 \
         pytest-json-ctrf==0.3.5 \
         JPype1==1.5.0 \
-        jaydebeapi==1.2.3
+        jaydebeapi==1.2.3 \
+    && python3 -m venv /opt/test-venv \
+    && /opt/test-venv/bin/pip install --no-cache-dir --no-index \
+        --find-links /opt/test-wheels \
+        pytest==8.4.1 pytest-json-ctrf==0.3.5 \
+        JPype1==1.5.0 jaydebeapi==1.2.3
 
 # Pre-stage the H2 JDBC driver at /opt/jars (offline, sha256-verified).
 RUN mkdir -p /opt/jars \
@@ -83,6 +94,14 @@ RUN java -cp /opt/fixturegen/fixturegen.jar fixturegen.FixtureGen \
         1750000000 \
     && ls -la /app/fixtures \
     && rm -rf /opt/plain_segments
+
+# Pre-bake a read-only pristine copy of the broken recovery_config.json so
+# the verifier always restores a known-good baseline, even if the agent has
+# already run `recover-config` (which rewrites the mutable copy under
+# /app/data). Without this baseline, a test that copies the mutable file as
+# its baseline would be poisoned and idempotency / repair tests would fail.
+RUN cp /app/data/recovery_config.json /app/fixtures/_pristine_config.json \
+    && chmod 0444 /app/fixtures/_pristine_config.json
 
 # Copy spec docs into /app/docs so the agent (and verifier) can read them.
 COPY docs/API_SPEC.md        /app/docs/API_SPEC.md

@@ -102,7 +102,7 @@ timeout_sec = 450.0
 ### 5. Rubric
 
 - Cover all milestones with `# Rubric 1`, `# Rubric 2`, etc.
-- **10–40 positive points per milestone** (sum of positive criteria)
+- **10–40 positive points per milestone** (sum of positive criteria); **>40 per block or non-milestone total = main blocker (Revise)**
 - 2 milestones → 20–80 pts total; 3 → 30–120 pts; same pattern beyond
 - ≥3 negative rewards across the full rubric
 

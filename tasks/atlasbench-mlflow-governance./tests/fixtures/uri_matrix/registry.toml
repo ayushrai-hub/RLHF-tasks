@@ -1,0 +1,4 @@
+[[models]]
+name = "uri-model"
+stage = "staging"
+experiment_id = "exp-uri"

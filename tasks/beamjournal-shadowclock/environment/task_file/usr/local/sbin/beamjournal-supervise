@@ -1,0 +1,92 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+cmd="${1:-}"
+pidfile="/run/beamjournal/beamjournald.pid"
+logfile="/var/log/beamjournal/beamjournald.log"
+config_out="/etc/beamjournal/service.toml"
+overrides="/output/beamjournal"
+
+stop_daemon() {
+  if [[ -f "$pidfile" ]]; then
+    pid="$(cat "$pidfile" 2>/dev/null || true)"
+    if [[ -n "${pid:-}" ]] && kill -0 "$pid" >/dev/null 2>&1; then
+      kill "$pid" >/dev/null 2>&1 || true
+      for _ in {1..40}; do
+        kill -0 "$pid" >/dev/null 2>&1 || break
+        sleep 0.05
+      done
+      kill -9 "$pid" >/dev/null 2>&1 || true
+    fi
+    rm -f "$pidfile"
+  fi
+  pkill -f '^/usr/local/bin/beamjournald$' >/dev/null 2>&1 || true
+}
+
+build_one() {
+  local name="$1"
+  local source="$2"
+  local target="$3"
+  local root="/tmp/beamjournal-build/$name"
+  rm -rf "$root"
+  mkdir -p "$root/cmd/$name"
+  cp -f /opt/beamjournal/src/go.mod "$root/go.mod"
+  cp -f "$source" "$root/cmd/$name/main.go"
+  case "$name" in
+    termrender)
+      [[ -f "$overrides/termrender.go" ]] && cp -f "$overrides/termrender.go" "$root/cmd/$name/main.go"
+      ;;
+    beamjournal-fold)
+      [[ -f "$overrides/journalfold.go" ]] && cp -f "$overrides/journalfold.go" "$root/cmd/$name/main.go"
+      ;;
+    beamjournald)
+      [[ -f "$overrides/main.go" ]] && cp -f "$overrides/main.go" "$root/cmd/$name/main.go"
+      ;;
+  esac
+  (cd "$root" && go build -trimpath -o "$target" "./cmd/$name")
+}
+
+start_daemon() {
+  mkdir -p /etc/beamjournal /var/lib/beamjournal /var/log/beamjournal /run/beamjournal
+  export PATH="/usr/local/go/bin:/go/bin:${PATH}"
+  build_one termrender /opt/beamjournal/src/cmd/termrender/main.go /usr/local/bin/beamjournal-termrender
+  build_one beamjournal-fold /opt/beamjournal/src/cmd/beamjournal-fold/main.go /usr/local/bin/beamjournal-fold
+  build_one beamjournald /opt/beamjournal/src/cmd/beamjournald/main.go /usr/local/bin/beamjournald
+
+  terms="/opt/beamjournal/etc/config.term"
+  [[ -f "$overrides/config.term" ]] && terms="$overrides/config.term"
+  /usr/local/bin/beamjournal-termrender "$terms" "$config_out"
+
+  if [[ ! -f /var/lib/beamjournal/journal.bin || ! -f /var/lib/beamjournal/fold.plan ]]; then
+    /usr/local/lib/beamjournal/seed.escript /var/lib/beamjournal/journal.bin /var/lib/beamjournal/fold.plan
+  fi
+
+  nohup /usr/local/bin/beamjournald >>"$logfile" 2>&1 &
+  echo $! >"$pidfile"
+}
+
+case "$cmd" in
+  start)
+    stop_daemon || true
+    start_daemon
+    ;;
+  restart)
+    stop_daemon || true
+    start_daemon
+    ;;
+  stop)
+    stop_daemon
+    ;;
+  status)
+    if [[ -f "$pidfile" ]] && kill -0 "$(cat "$pidfile")" >/dev/null 2>&1; then
+      echo running
+      exit 0
+    fi
+    echo stopped
+    exit 1
+    ;;
+  *)
+    echo "usage: beamjournal-supervise {start|restart|stop|status}" >&2
+    exit 2
+    ;;
+esac

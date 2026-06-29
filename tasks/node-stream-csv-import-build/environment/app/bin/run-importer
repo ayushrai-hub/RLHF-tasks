@@ -1,2 +1,0 @@
-#!/bin/bash
-exec node /app/import.js "$@" 2> >(tail -c 4096 >&2)

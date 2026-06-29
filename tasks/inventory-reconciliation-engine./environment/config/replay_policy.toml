@@ -1,0 +1,9 @@
+[replay]
+max_batch_lines = 5000
+default_timezone = "UTC"
+
+[suppliers]
+allowed_prefix = "SUP-"
+
+[products]
+allowed_prefix = "PRD-"
