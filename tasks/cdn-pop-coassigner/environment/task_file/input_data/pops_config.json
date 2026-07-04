@@ -1,0 +1,36 @@
+{
+  "pops": [
+    {
+      "pop_id": "POP-0",
+      "bytes_capacity": 361
+    },
+    {
+      "pop_id": "POP-1",
+      "bytes_capacity": 348
+    },
+    {
+      "pop_id": "POP-2",
+      "bytes_capacity": 356
+    },
+    {
+      "pop_id": "POP-3",
+      "bytes_capacity": 352
+    },
+    {
+      "pop_id": "POP-4",
+      "bytes_capacity": 353
+    },
+    {
+      "pop_id": "POP-5",
+      "bytes_capacity": 359
+    },
+    {
+      "pop_id": "POP-6",
+      "bytes_capacity": 354
+    },
+    {
+      "pop_id": "POP-7",
+      "bytes_capacity": 362
+    }
+  ]
+}

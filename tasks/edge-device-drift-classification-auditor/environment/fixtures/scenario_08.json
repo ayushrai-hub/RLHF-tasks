@@ -1,0 +1,23 @@
+{
+  "scenario_id": "scenario_08",
+  "events": [
+    {
+      "seq": 1,
+      "event_id": "r1",
+      "kind": "REGISTER_REGION",
+      "region_id": "us-east",
+      "firmware": "fw-10"
+    },
+    {
+      "seq": 2,
+      "event_id": "i1",
+      "kind": "RUN_INFERENCE",
+      "region_id": "us-east",
+      "sample_id": "s1",
+      "logits": [
+        1.0,
+        0.0
+      ]
+    }
+  ]
+}

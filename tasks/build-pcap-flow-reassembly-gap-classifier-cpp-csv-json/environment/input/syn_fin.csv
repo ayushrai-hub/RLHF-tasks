@@ -1,0 +1,5 @@
+stream_id,packet_no,ts,src,dst,seq,ack,payload_len,flags
+case-handshake,20,2026-03-03T12:00:00Z,a,b,1000,0,0,S
+case-handshake,21,2026-03-03T12:00:01Z,a,b,1001,0,10,PA
+case-handshake,22,2026-03-03T12:00:02Z,a,b,1011,0,0,F
+case-handshake,23,2026-03-03T12:00:03Z,a,b,1012,0,0,A

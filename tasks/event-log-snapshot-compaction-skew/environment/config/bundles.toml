@@ -1,0 +1,59 @@
+[bundles]
+count = 6
+profile = "seglog_matrix"
+
+[bundles.copper_wire_fan]
+steps = 14
+save_at = 4
+checkpoint_leg = 1
+resume_from = 9
+compact_at = 10
+
+[bundles.nickel_merge_lane]
+steps = 16
+save_at = 5
+checkpoint_leg = 1
+resume_from = 11
+compact_at = 12
+
+[bundles.slate_purge_arc]
+steps = 18
+save_at = 6
+checkpoint_leg = 1
+resume_from = 12
+compact_at = 14
+
+[bundles.brass_split_ladder]
+steps = 20
+save_at = 7
+checkpoint_leg = 1
+resume_from = 15
+compact_at = 16
+
+[bundles.iron_cross_weave]
+steps = 17
+save_at = 2
+checkpoint_leg = 2
+resume_from = 10
+compact_at = 8
+
+[bundles.mercury_gate_fold]
+steps = 16
+save_at = 5
+checkpoint_leg = 1
+resume_from = 12
+compact_at = 11
+
+[bundles.quartz_ledger_skew]
+steps = 15
+save_at = 3
+checkpoint_leg = 0
+resume_from = 10
+compact_at = 8
+
+[bundles.obsidian_tail_fold]
+steps = 19
+save_at = 4
+checkpoint_leg = 2
+resume_from = 14
+compact_at = 10

@@ -1,0 +1,5 @@
+stream_id,packet_no,ts,src,dst,seq,ack,payload_len,flags
+,1,2026-03-03T13:00:00Z,a,b,1,0,1,PA
+badint,nope,2026-03-03T13:00:01Z,a,b,1,0,1,PA
+short,1,too-few
+ok,2,2026-03-03T13:00:03Z,a,b,5,0,1,PA

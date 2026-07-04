@@ -1,0 +1,1189 @@
+year,fips,state,county_name,urbanicity,region,division,land_area,total_pop,total_pop_15to64,total_jail_pop,total_prison_pop
+1970,56001,WY,Albany County,rural,West,Mountain,4274.327,26453,18530,4,
+1971,56001,WY,Albany County,rural,West,Mountain,4274.327,26538,18677,5.25,
+1972,56001,WY,Albany County,rural,West,Mountain,4274.327,26751,18945,6.5,
+1973,56001,WY,Albany County,rural,West,Mountain,4274.327,26717,19049,7.75,
+1974,56001,WY,Albany County,rural,West,Mountain,4274.327,27223,19485,9,
+1975,56001,WY,Albany County,rural,West,Mountain,4274.327,26884,19319,10.25,
+1976,56001,WY,Albany County,rural,West,Mountain,4274.327,27581,20103,11.5,
+1977,56001,WY,Albany County,rural,West,Mountain,4274.327,27937,20557,12.75,
+1978,56001,WY,Albany County,rural,West,Mountain,4274.327,28119,20733,14,
+1979,56001,WY,Albany County,rural,West,Mountain,4274.327,28772,21296,13.4,
+1980,56001,WY,Albany County,rural,West,Mountain,4274.327,29237,21684,12.8,
+1981,56001,WY,Albany County,rural,West,Mountain,4274.327,29793,22065,12.2,
+1982,56001,WY,Albany County,rural,West,Mountain,4274.327,30607,22666,11.6,
+1983,56001,WY,Albany County,rural,West,Mountain,4274.327,30943,22744,11,
+1984,56001,WY,Albany County,rural,West,Mountain,4274.327,30899,22681,11.2,
+1985,56001,WY,Albany County,rural,West,Mountain,4274.327,30644,22519,11.4,
+1986,56001,WY,Albany County,rural,West,Mountain,4274.327,30550,22441,11.6,
+1986,56001,WY,Albany County,rural,West,Mountain,4274.327,30550,22441,11.6,
+1987,56001,WY,Albany County,rural,West,Mountain,4274.327,30456,22291,11.8,
+1988,56001,WY,Albany County,rural,West,Mountain,4274.327,30552,22435,12,
+1989,56001,WY,Albany County,rural,West,Mountain,4274.327,30844,22755,12.8,
+1990,56001,WY,Albany County,rural,West,Mountain,4274.327,30879,22878,13.6,
+1991,56001,WY,Albany County,rural,West,Mountain,4274.327,31285,23278,14.4,
+1992,56001,WY,Albany County,rural,West,Mountain,4274.327,31566,23575,15.2,
+1992,56001,WY,Albany County,rural,West,Mountain,4274.327,31566,23575,15.2,
+1993,56001,WY,Albany County,rural,West,Mountain,4274.327,32227,24171,16,
+1993,56001,WY,Albany County,rural,West,Mountain,4274.327,32227,24171,16,
+1994,56001,WY,Albany County,rural,West,Mountain,4274.327,32526,24559,21.66667,
+1995,56001,WY,Albany County,rural,West,Mountain,4274.327,32742,24842,27.33333,
+1996,56001,WY,Albany County,rural,West,Mountain,4274.327,32879,25026,33,
+1997,56001,WY,Albany County,rural,West,Mountain,4274.327,32264,24588,38.66667,
+1998,56001,WY,Albany County,rural,West,Mountain,4274.327,32180,24627,44.33333,
+1999,56001,WY,Albany County,rural,West,Mountain,4274.327,32192,24653,50,
+2000,56001,WY,Albany County,rural,West,Mountain,4274.327,31966,24538,46,
+2001,56001,WY,Albany County,rural,West,Mountain,4274.327,32419,25035,49,
+2002,56001,WY,Albany County,rural,West,Mountain,4274.327,32675,25352,59,
+2003,56001,WY,Albany County,rural,West,Mountain,4274.327,33098,25763,60,
+2004,56001,WY,Albany County,rural,West,Mountain,4274.327,33580,26097,58,
+2005,56001,WY,Albany County,rural,West,Mountain,4274.327,33631,26158,70,95
+2006,56001,WY,Albany County,rural,West,Mountain,4274.327,33950,26492,66.75,108
+2007,56001,WY,Albany County,rural,West,Mountain,4274.327,33858,26351,63.5,112
+2008,56001,WY,Albany County,rural,West,Mountain,4274.327,34643,26912,60.25,122
+2009,56001,WY,Albany County,rural,West,Mountain,4274.327,35743,27642,57,107
+2010,56001,WY,Albany County,rural,West,Mountain,4274.327,36299,28050,53.75,109
+2011,56001,WY,Albany County,rural,West,Mountain,4274.327,36433,28136,50.5,105
+2012,56001,WY,Albany County,rural,West,Mountain,4274.327,36883,28470,47.25,107
+2013,56001,WY,Albany County,Rural,West,Mountain,4274.327,37332,28711,44,119
+2014,56001,WY,Albany County,rural,West,Mountain,4274.327,37573,28832,44,130
+2015,56001,WY,Albany County,rural  ,West,Mountain,4274.327,37793,28752,44,
+2015,56001,WY,Albany County,rural  ,West,Mountain,4274.327,37793,28752,44,
+2016,56001,WY,Albany County,rural,West,Mountain,4274.327,38036,28764,,
+1970,56003,WY,Big Horn County,rural,West,Mountain,3136.501,10263,5934,0,
+1971,56003,WY,Big Horn County,rural  ,West,Mountain,3136.501,10505,6108,0,
+1972,56003,WY,Big Horn County,rural,West,Mountain,3136.501,10426,6086,0,
+1973,56003,WY,Big Horn County,rural,West,Mountain,3136.501,10619,6258,0,
+1974,56003,WY,Big Horn County,Rural,West,Mountain,3136.501,10599,6247,0,
+1975,56003,WY,Big Horn County,rural,West,Mountain,3136.501,10898,6439,0,
+1976,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11290,6706,0,
+1977,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11444,6787,0,
+1978,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11656,6940,3,
+1979,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11843,7023,3.8,
+1980,56003,WY,Big Horn County,rural,West,Mountain,3136.501,12036,7104,4.6,
+1981,56003,WY,Big Horn County,rural,West,Mountain,3136.501,12547,7393,5.4,
+1981,56003,WY,Big Horn County,rural,West,Mountain,3136.501,12547,7393,5.4,
+1982,56003,WY,Big Horn County,rural,West,Mountain,3136.501,12792,7552,6.2,
+1982,56003,WY,Big Horn County,rural,West,Mountain,3136.501,12792,7552,6.2,
+1983,56003,WY,Big Horn County,rural,West,Mountain,3136.501,12688,7417,7,
+1984,56003,WY,Big Horn County,rural,West,Mountain,3136.501,12288,7167,7.2,
+1985,56003,WY,Big Horn County,rural,West,Mountain,3136.501,12166,7105,7.4,
+1986,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11911,6943,7.6,
+1987,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11376,6568,7.8,
+1988,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11087,6393,8,
+1989,56003,WY,Big Horn County,rural,West,Mountain,3136.501,10836,6244,10.12,
+1990,56003,WY,Big Horn County,rural,West,Mountain,3136.501,10487,6006,12.24,
+1991,56003,WY,Big Horn County,rural,West,Mountain,3136.501,10582,6088,14.36,
+1992,56003,WY,Big Horn County,rural,West,Mountain,3136.501,10708,6189,16.48,
+1993,56003,WY,Big Horn County,rural,West,Mountain,3136.501,10770,6251,18.6,
+1994,56003,WY,Big Horn County,rural,West,Mountain,3136.501,10950,6387,20.72,
+1995,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11228,6615,22.84,
+1995,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11228,6615,22.84,
+1996,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11334,6769,24.96,
+1997,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11255,6721,27.08,
+1998,56003,WY,Big Horn County, rural,West,Mountain,3136.501,11520,6928,29.2,
+1999,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11480,6876,31.32,
+1999,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11480,6876,31.32,
+2000,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11398,6832,33.44,
+2001,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11209,6756,35.56,
+2002,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11157,6747,37.68,
+2002,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11157,6747,37.68,
+2003,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11073,6704,39.8,
+2004,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11231,6809,41.92,
+2005,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11193,6803,44.04,11
+2006,56003,WY,Big Horn County,Rural,West,Mountain,3136.501,11222,6872,46.16,12
+2007,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11350,6936,48.28,8
+2008,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11419,6965,50.4,10
+2009,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11541,7053,52.52,14
+2010,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11668,7098,54.64,20
+2011,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11667,7113,56.76,23
+2012,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11726,7146,58.88,25
+2013,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11765,7153,61,24
+2014,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11939,7269,61,23
+2015,56003,WY,Big Horn County,RURAL,West,Mountain,3136.501,11859,7138,61,
+2016,56003,WY,Big Horn County,rural,West,Mountain,3136.501,11956,7113,,
+1970,56005,WY,Campbell County,rural,West,Mountain,4802.055,13066,7883,3,
+1971,56005,WY,Campbell County,rural,West,Mountain,4802.055,13513,8271,5.125,
+1972,56005,WY,Campbell County,rural,West,Mountain,4802.055,11961,7398,7.25,
+1973,56005,WY,Campbell County,rural,West,Mountain,4802.055,12528,7893,9.375,
+1974,56005,WY,Campbell County,rural,West,Mountain,4802.055,12434,7943,11.5,
+1975,56005,WY,Campbell County,rural,West,Mountain,4802.055,13683,8903,13.625,
+1976,56005,WY,Campbell County,rural,West,Mountain,4802.055,15273,10085,15.75,
+1977,56005,WY,Campbell County,rural,West,Mountain,4802.055,17771,11859,17.875,
+1978,56005,WY,Campbell County,rural,West,Mountain,4802.055,20160,13546,20,
+1979,56005,WY,Campbell County,rural,West,Mountain,4802.055,22122,14928,23.6,
+1980,56005,WY,Campbell County,rural  ,West,Mountain,4802.055,25182,16991,27.2,
+1981,56005,WY,Campbell County,rural,West,Mountain,4802.055,28314,18982,30.8,
+1982,56005,WY,Campbell County,rural,West,Mountain,4802.055,31555,21090,34.4,
+1983,56005,WY,Campbell County, rural,West,Mountain,4802.055,33172,21878,38,
+1984,56005,WY,Campbell County,rural,West,Mountain,4802.055,33820,22213,38.6,
+1985,56005,WY,Campbell County,rural,West,Mountain,4802.055,34865,22904,39.2,
+1986,56005,WY,Campbell County,rural,West,Mountain,4802.055,34602,22687,39.8,
+1987,56005,WY,Campbell County,rural,West,Mountain,4802.055,31312,20422,40.4,
+1988,56005,WY,Campbell County,rural,West,Mountain,4802.055,30543,19981,41,
+1989,56005,WY,Campbell County,rural,West,Mountain,4802.055,29793,19551,620,
+1989,56005,,,,,,,,,41.2,
+1990,56005,WY,Campbell County, rural,West,Mountain,4802.055,29403,19320,41.4,
+1991,56005,WY,Campbell County,rural,West,Mountain,4802.055,29826,19681,41.6,
+1991,56005,WY,Campbell County,rural,West,Mountain,4802.055,29826,19681,41.6,
+1992,56005,WY,Campbell County,rural  ,West,Mountain,4802.055,30517,20255,41.8,
+1993,56005,WY,Campbell County,rural,West,Mountain,4802.055,30544,20368,42,
+1994,56005,WY,Campbell County,rural,West,Mountain,4802.055,30835,20715,48.66667,
+1995,56005,WY,Campbell County,rural,West,Mountain,4802.055,31440,21326,55.33333,
+1996,56005,WY,Campbell County,rural,West,Mountain,4802.055,31946,21836,62,
+1997,56005,WY,Campbell County,rural,West,Mountain,4802.055,32098,22056,68.66666,
+1998,56005,WY,Campbell County,rural,West,Mountain,4802.055,32452,22458,75.33334,
+1999,56005,WY,Campbell County,rural,West,Mountain,4802.055,32844,22837,82,
+2000,56005,WY,Campbell County,  RURAL ,West,Mountain,4802.055,33979,23790,83.66666,
+2001,56005,WY,Campbell County,rural,West,Mountain,4802.055,34699,24412,85.33334,
+2002,56005,WY,Campbell County,rural,West,Mountain,4802.055,36193,25644,87,
+2003,56005,WY,Campbell County,rural,West,Mountain,4802.055,36586,25925,88.66666,
+2004,56005,WY,Campbell County,rural,West,Mountain,4802.055,36907,26199,90.33334,
+2005,56005,WY,Campbell County,rural,West,Mountain,4802.055,37888,26894,92,206
+2006,56005,WY,Campbell County,  RURAL ,West,Mountain,4802.055,39497,27983,97.625,227
+2007,56005,WY,Campbell County,rural,West,Mountain,4802.055,41651,29514,103.25,227
+2007,56005,WY,Campbell County,rural,West,Mountain,4802.055,41651,29514,103.25,227
+2008,56005,WY,Campbell County,rural,West,Mountain,4802.055,42846,30343,108.875,234
+2009,56005,WY,Campbell County,rural,West,Mountain,4802.055,45650,32214,114.5,241
+2010,56005,WY,Campbell County,rural,West,Mountain,4802.055,46133,32490,120.125,239
+2011,56005,WY,Campbell County, rural,West,Mountain,4802.055,46233,32526,125.75,245
+2012,56005,WY,Campbell County,rural,West,Mountain,4802.055,46560,32690,131.375,235
+2012,56005,WY,Campbell County,rural,West,Mountain,4802.055,46560,32690,131.375,235
+2013,56005,WY,Campbell County,rural,West,Mountain,4802.055,47861,33405,137,214
+2014,56005,WY,Campbell County,rural  ,West,Mountain,4802.055,48051,33381,137,223
+2015,56005,WY,Campbell County,rural,West,Mountain,4802.055,48192,33226,137,
+2016,56005,WY,Campbell County,rural,West,Mountain,4802.055,49293,33831,,
+1970,56007,WY,Carbon County,rural,West,Mountain,7897.803,13482,8284,1,
+1971,56007,WY,Carbon County,rural,West,Mountain,7897.803,13990,8674,3.625,
+1972,56007,WY,Carbon County,rural,West,Mountain,7897.803,14518,9106,6.25,
+1973,56007,WY,Carbon County,rural,West,Mountain,7897.803,15478,9842,8.875,
+1974,56007,WY,Carbon County,rural,West,Mountain,7897.803,16179,10371,11.5,
+1975,56007,WY,Carbon County,rural,West,Mountain,7897.803,16800,10849,14.125,
+1976,56007,WY,Carbon County,rural,West,Mountain,7897.803,17257,11144,16.75,
+1976,56007,WY,Carbon County,rural,West,Mountain,7897.803,17257,11144,16.75,
+1977,56007,WY,Carbon County,rural,West,Mountain,7897.803,18122,11747,19.375,
+1978,56007,WY,Carbon County,rural,West,Mountain,7897.803,19149,12487,22,
+1979,56007,WY,Carbon County,rural,West,Mountain,7897.803,20350,13322,19.2,
+1979,56007,WY,Carbon County,rural,West,Mountain,7897.803,20350,13322,19.2,
+1980,56007,WY,Carbon County,rural,West,Mountain,7897.803,22042,14477,16.4,
+1981,56007,WY,Carbon County,rural,West,Mountain,7897.803,22524,14758,13.6,
+1982,56007,WY,Carbon County,rural,West,Mountain,7897.803,22376,14672,10.8,
+1983,56007,WY,Carbon County,  RURAL ,West,Mountain,7897.803,21354,13872,8,
+1984,56007,WY,Carbon County,rural,West,Mountain,7897.803,20391,13223,9.8,
+1985,56007,WY,Carbon County,rural,West,Mountain,7897.803,19494,12663,11.6,
+1986,56007,WY,Carbon County,rural,West,Mountain,7897.803,18637,12106,13.4,
+1987,56007,WY,Carbon County,rural,West,Mountain,7897.803,17970,11611,15.2,
+1988,56007,WY,Carbon County,rural,West,Mountain,7897.803,17433,11292,17,
+1989,56007,WY,Carbon County,rural,West,Mountain,7897.803,16981,11021,16,
+1989,56007,WY,Carbon County,rural,West,Mountain,7897.803,16981,11021,16,
+1990,56007,WY,Carbon County,rural,West,Mountain,7897.803,16608,10796,15,
+1991,56007,WY,Carbon County,rural,West,Mountain,7897.803,16406,10699,14,
+1992,56007,WY,Carbon County,rural,West,Mountain,7897.803,16149,10585,13,
+1993,56007,WY,Carbon County,rural,West,Mountain,7897.803,16282,10814,12,
+1994,56007,WY,Carbon County, rural,West,Mountain,7897.803,16150,10737,3,
+1995,56007,WY,Carbon County,RURAL,West,Mountain,7897.803,16174,10892,15,
+1996,56007,WY,Carbon County,rural,West,Mountain,7897.803,16091,10932,16,
+1997,56007,WY,Carbon County,rural,West,Mountain,7897.803,15914,10846,13,
+1998,56007,WY,Carbon County,rural,West,Mountain,7897.803,15757,10769,16,
+1999,56007,WY,Carbon County,Rural,West,Mountain,7897.803,15730,10804,19,
+2000,56007,WY,Carbon County,  RURAL ,West,Mountain,7897.803,15582,10725,21.66667,
+2001,56007,WY,Carbon County,rural,West,Mountain,7897.803,15217,10461,24.33333,
+2002,56007,WY,Carbon County,rural,West,Mountain,7897.803,15256,10546,27,
+2003,56007,WY,Carbon County,rural,West,Mountain,7897.803,15240,10545,29.66667,
+2004,56007,WY,Carbon County,rural,West,Mountain,7897.803,15236,10491,32.33333,
+2005,56007,WY,Carbon County,rural,West,Mountain,7897.803,15077,10423,35,71
+2006,56007,WY,Carbon County,rural,West,Mountain,7897.803,15136,10428,37.125,81
+2007,56007,WY,Carbon County,rural,West,Mountain,7897.803,15494,10661,592,93
+2007,56007,,,,,,,,,39.25,
+2008,56007,WY,Carbon County,rural,West,Mountain,7897.803,15658,10654,41.375,85
+2008,56007,WY,Carbon County,rural,West,Mountain,7897.803,15658,10654,41.375,85
+2009,56007,WY,Carbon County,rural,West,Mountain,7897.803,15977,10762,43.5,103
+2010,56007,WY,Carbon County,rural,West,Mountain,7897.803,15885,10668,45.625,92
+2011,56007,WY,Carbon County,Rural,West,Mountain,7897.803,15849,10629,47.75,86
+2012,56007,WY,Carbon County,rural,West,Mountain,7897.803,15848,10634,49.875,97
+2013,56007,WY,Carbon County,rural,West,Mountain,7897.803,15732,10514,52,94
+2014,56007,WY,Carbon County,rural,West,Mountain,7897.803,15861,10492,52,86
+2015,56007,WY,Carbon County,rural,West,Mountain,7897.803,15907,10418,52,
+2016,56007,WY,Carbon County,rural,West,Mountain,7897.803,15645,10184,,
+1970,56009,WY,Converse County,rural,West,Mountain,4254.943,6058,3544,501,
+1970,56009,,,,,,,,,0,
+1971,56009,WY,Converse County,rural,West,Mountain,4254.943,6538,3876,0,
+1972,56009,WY,Converse County,rural  ,West,Mountain,4254.943,6550,3907,0,
+1973,56009,WY,Converse County,rural,West,Mountain,4254.943,6673,4014,0,
+1974,56009,WY,Converse County,rural,West,Mountain,4254.943,6883,4187,0,
+1975,56009,WY,Converse County,rural,West,Mountain,4254.943,7664,4755,0,
+1976,56009,WY,Converse County,rural,West,Mountain,4254.943,8837,5556,0,
+1977,56009,WY,Converse County,  RURAL ,West,Mountain,4254.943,9908,6262,0,
+1978,56009,WY,Converse County,rural,West,Mountain,4254.943,11392,7257,4,
+1979,56009,WY,Converse County,rural,West,Mountain,4254.943,12481,7989,4,
+1980,56009,WY,Converse County,rural,West,Mountain,4254.943,14231,9142,4,
+1981,56009,WY,Converse County,rural,West,Mountain,4254.943,14818,9483,4,
+1982,56009,WY,Converse County,rural,West,Mountain,4254.943,15035,9623,4,
+1983,56009,WY,Converse County,rural,West,Mountain,4254.943,15022,9514,4,
+1984,56009,WY,Converse County,rural,West,Mountain,4254.943,14419,9116,4.6,
+1985,56009,WY,Converse County,rural,West,Mountain,4254.943,13953,8837,5.2,
+1986,56009,WY,Converse County,rural,West,Mountain,4254.943,13321,8434,5.8,
+1987,56009,WY,Converse County,rural,West,Mountain,4254.943,12250,7720,6.4,
+1988,56009,WY,Converse County,rural,West,Mountain,4254.943,11712,7405,7,
+1989,56009,WY,Converse County,rural,West,Mountain,4254.943,11442,7255,7.2,
+1990,56009,WY,Converse County,rural,West,Mountain,4254.943,11069,7008,7.4,
+1991,56009,WY,Converse County,rural,West,Mountain,4254.943,11081,7026,508,
+1991,56009,,,,,,,,,7.6,
+1992,56009,WY,Converse County,rural,West,Mountain,4254.943,11277,7184,7.8,
+1993,56009,WY,Converse County,rural,West,Mountain,4254.943,11436,7309,8,
+1994,56009,WY,Converse County,rural,West,Mountain,4254.943,11492,7420,10.66667,
+1995,56009,WY,Converse County,rural,West,Mountain,4254.943,11713,7623,13.33333,
+1996,56009,WY,Converse County,rural,West,Mountain,4254.943,11856,7767,16,
+1997,56009,WY,Converse County,rural,West,Mountain,4254.943,12011,7896,18.66667,
+1998,56009,WY,Converse County,rural,West,Mountain,4254.943,11911,7856,21.33333,
+1999,56009,WY,Converse County,rural,West,Mountain,4254.943,11993,7924,24,
+2000,56009,WY,Converse County,rural,West,Mountain,4254.943,12083,8023,25.16667,
+2000,56009,WY,Converse County,rural,West,Mountain,4254.943,12083,8023,25.16667,
+2001,56009,WY,Converse County,  RURAL ,West,Mountain,4254.943,11996,7973,26.33333,
+2002,56009,WY,Converse County,rural,West,Mountain,4254.943,12196,8170,27.5,
+2003,56009,WY,Converse County,rural,West,Mountain,4254.943,12232,8139,28.66667,
+2004,56009,WY,Converse County,rural,West,Mountain,4254.943,12350,8253,29.83333,
+2005,56009,WY,Converse County,rural,West,Mountain,4254.943,12595,8448,31,35
+2006,56009,WY,Converse County,rural,West,Mountain,4254.943,12801,8600,31.75,35
+2007,56009,WY,Converse County,rural,West,Mountain,4254.943,13071,8716,32.5,33
+2008,56009,WY,Converse County,rural,West,Mountain,4254.943,13486,8982,33.25,51
+2009,56009,WY,Converse County,rural,West,Mountain,4254.943,13839,9209,34,54
+2010,56009,WY,Converse County,rural,West,Mountain,4254.943,13833,9159,34.75,44
+2010,56009,WY,Converse County,rural,West,Mountain,4254.943,13833,9159,34.75,44
+2011,56009,WY,Converse County,rural,West,Mountain,4254.943,13821,9135,35.5,60
+2012,56009,WY,Converse County,rural,West,Mountain,4254.943,13736,9061,36.25,65
+2013,56009,WY,Converse County, rural,West,Mountain,4254.943,14025,9209,37,64
+2014,56009,WY,Converse County,rural,West,Mountain,4254.943,14365,9358,37,63
+2015,56009,WY,Converse County,rural,West,Mountain,4254.943,14219,9223,37,
+2016,56009,WY,Converse County,rural,West,Mountain,4254.943,14312,9190,,
+1970,56011,WY,Crook County, rural,West,Mountain,2854.48,4530,2719,2,
+1971,56011,WY,Crook County,rural,West,Mountain,2854.48,4494,2700,2.153846,
+1972,56011,WY,Crook County,rural,West,Mountain,2854.48,4585,2781,2.307692,
+1973,56011,WY,Crook County,rural,West,Mountain,2854.48,4492,2735,2.461539,
+1974,56011,WY,Crook County,rural,West,Mountain,2854.48,4490,2758,2.615385,
+1975,56011,WY,Crook County,rural,West,Mountain,2854.48,4707,2939,2.769231,
+1976,56011,WY,Crook County,rural,West,Mountain,2854.48,4890,3078,2.923077,
+1977,56011,WY,Crook County,rural,West,Mountain,2854.48,4991,3152,3.076923,
+1978,56011,WY,Crook County,rural,West,Mountain,2854.48,5251,3357,3.230769,
+1979,56011,WY,Crook County,rural,West,Mountain,2854.48,5310,3398,3.384615,
+1980,56011,WY,Crook County,rural,West,Mountain,2854.48,5345,3410,3.538461,
+1981,56011,WY,Crook County,rural,West,Mountain,2854.48,5479,3471,3.692308,
+1982,56011,WY,Crook County,rural,West,Mountain,2854.48,5619,3552,3.846154,
+1983,56011,WY,Crook County,rural,West,Mountain,2854.48,5768,3594,4,
+1984,56011,WY,Crook County,rural,West,Mountain,2854.48,5813,3605,4.4,
+1985,56011,WY,Crook County,rural,West,Mountain,2854.48,5783,3575,4.8,
+1986,56011,WY,Crook County,rural,West,Mountain,2854.48,5738,3532,5.2,
+1987,56011,WY,Crook County,rural,West,Mountain,2854.48,5575,3392,5.6,
+1988,56011,WY,Crook County,rural,West,Mountain,2854.48,5476,3319,6,
+1988,56011,WY,Crook County,rural,West,Mountain,2854.48,5476,3319,6,
+1989,56011,WY,Crook County,rural,West,Mountain,2854.48,5355,3243,6.4,
+1990,56011,WY,Crook County,rural  ,West,Mountain,2854.48,5302,3187,6.8,
+1991,56011,WY,Crook County,Rural,West,Mountain,2854.48,5315,3218,7.2,
+1992,56011,WY,Crook County,rural,West,Mountain,2854.48,5405,3299,7.6,
+1993,56011,WY,Crook County,rural,West,Mountain,2854.48,5435,3340,8,
+1994,56011,WY,Crook County,rural,West,Mountain,2854.48,5657,3516,9.166667,
+1995,56011,WY,Crook County,  RURAL ,West,Mountain,2854.48,5682,3581,10.33333,
+1996,56011,WY,Crook County,rural,West,Mountain,2854.48,5813,3709,11.5,
+1997,56011,WY,Crook County,rural,West,Mountain,2854.48,5859,3754,12.66667,
+1998,56011,WY,Crook County,rural,West,Mountain,2854.48,5851,3766,13.83333,
+1999,56011,WY,Crook County,rural,West,Mountain,2854.48,5849,3775,15,
+1999,56011,WY,Crook County,rural,West,Mountain,2854.48,5849,3775,15,
+2000,56011,WY,Crook County,rural,West,Mountain,2854.48,5902,3827,14.66667,
+2001,56011,WY,Crook County,rural,West,Mountain,2854.48,5778,3827,14.33333,
+2002,56011,WY,Crook County,rural,West,Mountain,2854.48,5926,3947,14,
+2003,56011,WY,Crook County,rural,West,Mountain,2854.48,5981,3986,13.66667,
+2004,56011,WY,Crook County, rural,West,Mountain,2854.48,6052,4002,13.33333,
+2005,56011,WY,Crook County,rural,West,Mountain,2854.48,6176,4086,13,22
+2006,56011,WY,Crook County,rural,West,Mountain,2854.48,6286,4163,12.75,18
+2007,56011,WY,Crook County,RURAL,West,Mountain,2854.48,6617,4356,12.5,19
+2008,56011,WY,Crook County,rural,West,Mountain,2854.48,6823,4446,12.25,23
+2008,56011,WY,Crook County,rural,West,Mountain,2854.48,6823,4446,12.25,23
+2009,56011,WY,Crook County,  RURAL ,West,Mountain,2854.48,6965,4522,12,22
+2010,56011,WY,Crook County,rural,West,Mountain,2854.48,7083,4544,11.75,20
+2011,56011,WY,Crook County,rural,West,Mountain,2854.48,7119,4545,11.5,18
+2012,56011,WY,Crook County,rural,West,Mountain,2854.48,7123,4560,11.25,20
+2013,56011,WY,Crook County,  RURAL ,West,Mountain,2854.48,7141,4539,11,20
+2014,56011,WY,Crook County, rural,West,Mountain,2854.48,7153,4495,11,22
+2015,56011,WY,Crook County,rural,West,Mountain,2854.48,7245,4477,11,
+2016,56011,WY,Crook County,rural,West,Mountain,2854.48,7432,4508,,
+1970,56013,WY,Fremont County,rural,West,Mountain,9183.423,28410,16978,7,
+1971,56013,WY,Fremont County,rural,West,Mountain,9183.423,28687,17310,9.5,
+1971,56013,WY,Fremont County,rural,West,Mountain,9183.423,28687,17310,9.5,
+1972,56013,WY,Fremont County,rural,West,Mountain,9183.423,30118,18464,12,
+1973,56013,WY,Fremont County,rural,West,Mountain,9183.423,30097,18673,14.5,
+1974,56013,WY,Fremont County,Rural,West,Mountain,9183.423,30926,19398,17,
+1975,56013,WY,Fremont County,rural,West,Mountain,9183.423,31607,20029,19.5,
+1976,56013,WY,Fremont County,rural,West,Mountain,9183.423,32432,20742,22,
+1977,56013,WY,Fremont County,rural,West,Mountain,9183.423,34075,21969,24.5,
+1978,56013,WY,Fremont County,rural,West,Mountain,9183.423,36137,23494,27,
+1979,56013,WY,Fremont County,rural,West,Mountain,9183.423,38197,24987,28,
+1980,56013,WY,Fremont County,rural,West,Mountain,9183.423,39038,25515,29,
+1981,56013,WY,Fremont County,rural,West,Mountain,9183.423,39309,25506,30,
+1982,56013,WY,Fremont County,rural,West,Mountain,9183.423,38492,24886,571,
+1982,56013,,,,,,,,,31,
+1983,56013,WY,Fremont County,rural,West,Mountain,9183.423,38692,24668,32,
+1984,56013,WY,Fremont County,rural,West,Mountain,9183.423,37968,24064,32.4,
+1985,56013,WY,Fremont County,rural,West,Mountain,9183.423,36994,23396,32.8,
+1986,56013,WY,Fremont County,rural,West,Mountain,9183.423,35796,22536,33.2,
+1986,56013,WY,Fremont County,rural,West,Mountain,9183.423,35796,22536,33.2,
+1987,56013,WY,Fremont County,rural,West,Mountain,9183.423,34841,21715,33.6,
+1988,56013,WY,Fremont County, rural,West,Mountain,9183.423,34382,21386,34,
+1988,56013,WY,Fremont County, rural,West,Mountain,9183.423,34382,21386,34,
+1989,56013,WY,Fremont County,rural,West,Mountain,9183.423,34193,21222,39.4,
+1990,56013,WY,Fremont County,rural,West,Mountain,9183.423,33565,20734,44.8,
+1991,56013,WY,Fremont County,rural,West,Mountain,9183.423,34049,20993,50.2,
+1992,56013,WY,Fremont County,rural,West,Mountain,9183.423,34153,21090,55.6,
+1993,56013,WY,Fremont County,rural,West,Mountain,9183.423,34568,21433,61,
+1993,56013,WY,Fremont County,rural,West,Mountain,9183.423,34568,21433,61,
+1994,56013,WY,Fremont County,rural,West,Mountain,9183.423,34928,21837,65.16666,
+1995,56013,WY,Fremont County,rural,West,Mountain,9183.423,35419,22384,69.33334,
+1995,56013,WY,Fremont County,rural,West,Mountain,9183.423,35419,22384,69.33334,
+1996,56013,WY,Fremont County,rural,West,Mountain,9183.423,35620,22655,73.5,
+1997,56013,WY,Fremont County,rural,West,Mountain,9183.423,35698,22800,77.66666,
+1998,56013,WY,Fremont County,rural,West,Mountain,9183.423,35704,22904,81.83334,
+1999,56013,WY,Fremont County,rural,West,Mountain,9183.423,35729,22933,86,
+2000,56013,WY,Fremont County,rural,West,Mountain,9183.423,35840,23153,97.16666,
+2001,56013,WY,Fremont County,rural,West,Mountain,9183.423,35718,23168,108.3333,
+2002,56013,WY,Fremont County,rural,West,Mountain,9183.423,36015,23540,119.5,
+2003,56013,WY,Fremont County,rural,West,Mountain,9183.423,36130,23555,130.6667,
+2004,56013,WY,Fremont County,rural,West,Mountain,9183.423,36383,23712,141.8333,
+2005,56013,WY,Fremont County,rural,West,Mountain,9183.423,36838,23907,153,117
+2006,56013,WY,Fremont County,rural,West,Mountain,9183.423,37408,24349,154.5,127
+2007,56013,WY,Fremont County,rural,West,Mountain,9183.423,38132,24795,156,123
+2007,56013,WY,Fremont County,rural,West,Mountain,9183.423,38132,24795,156,123
+2008,56013,WY,Fremont County,rural,West,Mountain,9183.423,38907,25166,157.5,114
+2009,56013,WY,Fremont County,rural,West,Mountain,9183.423,39685,25615,159,106
+2010,56013,WY,Fremont County,rural,West,Mountain,9183.423,40123,25711,160.5,116
+2011,56013,WY,Fremont County,rural,West,Mountain,9183.423,40195,25731,162,133
+2012,56013,WY,Fremont County,rural,West,Mountain,9183.423,40520,25776,163.5,128
+2013,56013,WY,Fremont County,rural,West,Mountain,9183.423,41022,26002,165,135
+2014,56013,WY,Fremont County,rural,West,Mountain,9183.423,40911,25753,165,126
+2015,56013,WY,Fremont County,RURAL,West,Mountain,9183.423,40573,25261,165,
+2016,56013,WY,Fremont County,rural,West,Mountain,9183.423,40237,24811,,
+1970,56015,WY,Goshen County,rural,West,Mountain,2225.613,10924,6505,0,
+1971,56015,WY,Goshen County,rural,West,Mountain,2225.613,11067,6615,0,
+1972,56015,WY,Goshen County,rural,West,Mountain,2225.613,11107,6662,0,
+1972,56015,WY,Goshen County,rural,West,Mountain,2225.613,11107,6662,0,
+1973,56015,WY,Goshen County,rural,West,Mountain,2225.613,11264,6806,0,
+1974,56015,WY,Goshen County,rural,West,Mountain,2225.613,11404,6943,0,
+1975,56015,WY,Goshen County,rural,West,Mountain,2225.613,11741,7214,0,
+1976,56015,WY,Goshen County,Rural,West,Mountain,2225.613,12204,7601,0,
+1977,56015,WY,Goshen County,rural,West,Mountain,2225.613,12101,7534,0,
+1978,56015,WY,Goshen County,rural,West,Mountain,2225.613,11887,7387,3,
+1979,56015,WY,Goshen County,rural,West,Mountain,2225.613,11623,7195,3.8,
+1980,56015,WY,Goshen County,rural,West,Mountain,2225.613,12121,7550,4.6,
+1981,56015,WY,Goshen County,rural,West,Mountain,2225.613,12403,7719,5.4,
+1982,56015,WY,Goshen County,rural,West,Mountain,2225.613,12412,7740,6.2,
+1983,56015,WY,Goshen County,rural,West,Mountain,2225.613,12555,7753,7,
+1984,56015,WY,Goshen County,rural,West,Mountain,2225.613,12711,7822,6.6,
+1985,56015,WY,Goshen County,rural,West,Mountain,2225.613,12779,7870,6.2,
+1985,56015,WY,Goshen County,rural,West,Mountain,2225.613,12779,7870,6.2,
+1986,56015,WY,Goshen County,rural,West,Mountain,2225.613,12820,7877,5.8,
+1987,56015,WY,Goshen County,rural,West,Mountain,2225.613,12783,7777,5.4,
+1988,56015,WY,Goshen County,rural,West,Mountain,2225.613,12621,7662,5,
+1989,56015,WY,Goshen County,rural,West,Mountain,2225.613,12498,7578,5.4,
+1990,56015,WY,Goshen County,rural,West,Mountain,2225.613,12346,7478,5.8,
+1991,56015,WY,Goshen County,rural,West,Mountain,2225.613,12361,7477,6.2,
+1992,56015,WY,Goshen County,rural,West,Mountain,2225.613,12394,7545,6.6,
+1993,56015,WY,Goshen County,rural,West,Mountain,2225.613,12494,7634,7,
+1994,56015,WY,Goshen County, rural,West,Mountain,2225.613,12511,7668,17,
+1995,56015,WY,Goshen County,rural,West,Mountain,2225.613,12522,7742,27,
+1996,56015,WY,Goshen County,rural,West,Mountain,2225.613,12572,7839,37,
+1997,56015,WY,Goshen County,rural,West,Mountain,2225.613,12787,7987,47,
+1998,56015,WY,Goshen County,rural,West,Mountain,2225.613,12629,7925,57,
+1999,56015,WY,Goshen County,rural,West,Mountain,2225.613,12502,7841,67,
+2000,56015,WY,Goshen County,rural,West,Mountain,2225.613,12561,7935,66.66666,
+2001,56015,WY,Goshen County,rural,West,Mountain,2225.613,12475,7859,66.33334,
+2002,56015,WY,Goshen County,rural,West,Mountain,2225.613,12381,7805,66,
+2003,56015,WY,Goshen County,Rural,West,Mountain,2225.613,12374,7833,65.66666,
+2004,56015,WY,Goshen County,rural,West,Mountain,2225.613,12473,7906,592,
+2004,56015,,,,,,,,,65.33334,
+2005,56015,WY,Goshen County,rural,West,Mountain,2225.613,12460,7955,65,50
+2005,56015,WY,Goshen County,rural,West,Mountain,2225.613,12460,7955,65,50
+2006,56015,WY,Goshen County,rural,West,Mountain,2225.613,12538,8034,60.875,57
+2007,56015,WY,Goshen County,rural,West,Mountain,2225.613,12620,8158,56.75,54
+2008,56015,WY,Goshen County,  RURAL ,West,Mountain,2225.613,12772,8210,52.625,55
+2009,56015,WY,Goshen County,rural,West,Mountain,2225.613,12967,8351,48.5,66
+2010,56015,WY,Goshen County,rural,West,Mountain,2225.613,13247,8549,44.375,65
+2010,56015,WY,Goshen County,rural,West,Mountain,2225.613,13247,8549,44.375,65
+2011,56015,WY,Goshen County,Rural,West,Mountain,2225.613,13422,8708,40.25,62
+2012,56015,WY,Goshen County,rural,West,Mountain,2225.613,13580,8797,36.125,45
+2013,56015,WY,Goshen County,rural,West,Mountain,2225.613,13642,8797,32,51
+2014,56015,WY,Goshen County,rural,West,Mountain,2225.613,13551,8681,32,53
+2015,56015,WY,Goshen County,rural,West,Mountain,2225.613,13544,8547,32,
+2016,56015,WY,Goshen County,rural,West,Mountain,2225.613,13566,8519,,
+1970,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5020,2901,6,
+1971,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5319,3111,5.625,
+1972,56017,WY,Hot Springs County,rural  ,West,Mountain,2004.098,5080,2972,5.25,
+1973,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5007,2934,4.875,
+1974,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4865,2849,4.5,
+1975,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4937,2915,4.125,
+1975,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4937,2915,4.125,
+1976,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5168,3099,3.75,
+1977,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5039,3017,3.375,
+1978,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4959,2941,3,
+1979,56017,WY,Hot Springs County,RURAL,West,Mountain,2004.098,5399,3256,3,
+1979,56017,WY,Hot Springs County,RURAL,West,Mountain,2004.098,5399,3256,3,
+1980,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5737,3491,3,
+1981,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5814,3542,3,
+1982,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5980,3657,3,
+1983,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,6019,3655,3,
+1984,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5950,3604,543,
+1984,56017,,,,,,,,,3,
+1985,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5894,3582,3,
+1986,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5734,3480,3,
+1987,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5428,3266,3,
+1988,56017,WY,Hot Springs County, rural,West,Mountain,2004.098,5254,3157,3,
+1989,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5005,3001,4,
+1990,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4786,2853,5,
+1991,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4736,2832,6,
+1992,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4822,2898,7,
+1993,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4750,2863,8,
+1994,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4867,2948,9.333333,
+1995,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4828,2923,10.66667,
+1996,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4897,2983,12,
+1997,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5011,3079,13.33333,
+1998,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,5017,3111,14.66667,
+1999,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4920,3065,16,
+2000,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4851,3038,15.66667,
+2001,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4763,3012,15.33333,
+2002,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4743,2952,15,
+2003,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4632,2938,14.66667,
+2004,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4629,2951,14.33333,
+2004,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4629,2951,14.33333,
+2005,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4604,2888,14,11
+2006,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4632,2870,14.125,11
+2006,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4632,2870,14.125,11
+2007,56017,WY,Hot Springs County,rural  ,West,Mountain,2004.098,4647,2843,14.25,11
+2008,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4698,2864,14.375,11
+2009,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4819,2926,14.5,12
+2010,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4812,2919,14.625,16
+2011,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4809,2916,14.75,19
+2012,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4808,2932,14.875,26
+2013,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4833,2919,15,25
+2014,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4834,2882,15,28
+2015,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4789,2814,15,
+2016,56017,WY,Hot Springs County,rural,West,Mountain,2004.098,4717,2755,,
+1970,56019,WY,Johnson County,rural,West,Mountain,4154.154,5615,3313,1,
+1971,56019,WY,Johnson County,rural,West,Mountain,4154.154,5726,3389,1.5,
+1972,56019,WY,Johnson County,rural,West,Mountain,4154.154,5431,3204,2,
+1973,56019,WY,Johnson County,RURAL,West,Mountain,4154.154,5449,3228,2.5,
+1974,56019,WY,Johnson County,rural,West,Mountain,4154.154,5360,3185,3,
+1974,56019,WY,Johnson County,rural,West,Mountain,4154.154,5360,3185,3,
+1975,56019,WY,Johnson County,rural,West,Mountain,4154.154,5668,3430,3.5,
+1976,56019,WY,Johnson County,rural,West,Mountain,4154.154,5999,3656,4,
+1977,56019,WY,Johnson County,rural,West,Mountain,4154.154,6053,3686,4.5,
+1978,56019,WY,Johnson County,rural,West,Mountain,4154.154,6279,3850,5,
+1979,56019,WY,Johnson County,rural,West,Mountain,4154.154,6432,3936,4.8,
+1980,56019,WY,Johnson County,rural,West,Mountain,4154.154,6761,4159,4.6,
+1980,56019,WY,Johnson County,rural,West,Mountain,4154.154,6761,4159,4.6,
+1981,56019,WY,Johnson County,RURAL,West,Mountain,4154.154,6964,4286,4.4,
+1982,56019,WY,Johnson County,rural,West,Mountain,4154.154,7127,4404,4.2,
+1983,56019,WY,Johnson County,rural,West,Mountain,4154.154,7198,4416,4,
+1984,56019,WY,Johnson County,rural,West,Mountain,4154.154,7026,4303,4.4,
+1985,56019,WY,Johnson County,rural,West,Mountain,4154.154,6908,4243,4.8,
+1985,56019,WY,Johnson County,rural,West,Mountain,4154.154,6908,4243,4.8,
+1986,56019,WY,Johnson County,  RURAL ,West,Mountain,4154.154,6726,4127,5.2,
+1987,56019,WY,Johnson County,rural,West,Mountain,4154.154,6416,3903,5.6,
+1988,56019,WY,Johnson County, rural,West,Mountain,4154.154,6254,3809,6,
+1989,56019,WY,Johnson County, rural,West,Mountain,4154.154,6185,3767,6.4,
+1990,56019,WY,Johnson County,rural,West,Mountain,4154.154,6172,3729,6.8,
+1990,56019,WY,Johnson County,rural,West,Mountain,4154.154,6172,3729,6.8,
+1991,56019,WY,Johnson County,rural,West,Mountain,4154.154,6209,3750,7.2,
+1992,56019,WY,Johnson County,rural,West,Mountain,4154.154,6280,3796,7.6,
+1993,56019,WY,Johnson County,rural,West,Mountain,4154.154,6357,3861,8,
+1994,56019,WY,Johnson County,rural,West,Mountain,4154.154,6533,3998,8.333333,
+1994,56019,WY,Johnson County,rural,West,Mountain,4154.154,6533,3998,8.333333,
+1995,56019,WY,Johnson County,rural,West,Mountain,4154.154,6672,4116,8.666667,
+1996,56019,WY,Johnson County,rural,West,Mountain,4154.154,6772,4200,9,
+1997,56019,WY,Johnson County,rural,West,Mountain,4154.154,6831,4251,9.333333,
+1998,56019,WY,Johnson County,rural,West,Mountain,4154.154,6872,4299,9.666667,
+1999,56019,WY,Johnson County,rural,West,Mountain,4154.154,6958,4354,10,
+2000,56019,WY,Johnson County,rural,West,Mountain,4154.154,7108,4478,12,
+2000,56019,WY,Johnson County,rural,West,Mountain,4154.154,7108,4478,12,
+2001,56019,WY,Johnson County,rural,West,Mountain,4154.154,7167,4536,14,
+2002,56019,WY,Johnson County,  RURAL ,West,Mountain,4154.154,7371,4673,16,
+2003,56019,WY,Johnson County,rural,West,Mountain,4154.154,7496,4757,18,
+2004,56019,WY,Johnson County,rural,West,Mountain,4154.154,7554,4830,20,
+2005,56019,WY,Johnson County,rural,West,Mountain,4154.154,7685,4889,22,20
+2006,56019,WY,Johnson County,rural,West,Mountain,4154.154,7796,4997,23.375,18
+2007,56019,WY,Johnson County,rural,West,Mountain,4154.154,8146,5199,24.75,22
+2008,56019,WY,Johnson County,rural,West,Mountain,4154.154,8460,5371,26.125,23
+2009,56019,WY,Johnson County,RURAL,West,Mountain,4154.154,8565,5423,27.5,26
+2010,56019,WY,Johnson County,rural,West,Mountain,4154.154,8569,5426,28.875,24
+2011,56019,WY,Johnson County,rural,West,Mountain,4154.154,8587,5415,30.25,23
+2012,56019,WY,Johnson County,rural,West,Mountain,4154.154,8645,5414,31.625,25
+2013,56019,WY,Johnson County,rural,West,Mountain,4154.154,8637,5356,599,35
+2013,56019,,,,,,,,,33,
+2014,56019,WY,Johnson County,rural,West,Mountain,4154.154,8637,5260,33,38
+2015,56019,WY,Johnson County, rural,West,Mountain,4154.154,8584,5197,33,
+2016,56019,WY,Johnson County,rural,West,Mountain,4154.154,8616,5111,,
+1970,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,56675,34696,40,
+1971,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,57944,35900,42.625,
+1972,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,59997,37739,45.25,
+1973,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,62459,39872,47.875,
+1974,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,64789,41797,50.5,
+1975,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,64655,42011,53.125,
+1976,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,65602,42989,55.75,
+1977,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,66314,43816,58.375,
+1978,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,67003,44591,61,
+1979,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,69166,46302,58.2,
+1980,56021,WY,Laramie County,small/mid  ,West,Mountain,2685.913,69018,46289,55.4,
+1981,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,70179,46975,52.6,
+1982,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,71126,47647,49.8,
+1983,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,72912,48382,47,
+1984,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,73350,48558,53.8,
+1985,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,73105,48446,60.6,
+1986,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,74407,49241,67.4,
+1987,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,75101,49394,74.2,
+1988,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,74515,49076,81,
+1988,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,74515,49076,81,
+1989,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,73665,48611,83.4,
+1990,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,73175,48250,85.8,
+1991,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,73978,48778,88.2,
+1992,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,75826,50258,90.6,
+1993,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,77495,51550,93,
+1994,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,78885,52651,99.16666,
+1995,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,79513,53250,105.3333,
+1996,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,80186,53906,111.5,
+1997,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,80328,54011,117.6667,
+1998,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,80522,54047,123.8333,
+1998,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,80522,54047,123.8333,
+1999,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,81009,54381,130,
+2000,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,81825,55047,135,
+2000,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,81825,55047,135,
+2001,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,82554,55705,164,
+2002,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,83226,56343,199,
+2003,56021,WY,Laramie County,small/mid  ,West,Mountain,2685.913,84084,56855,188,
+2004,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,85427,57966,235,
+2005,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,85732,58150,257,412
+2006,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,86819,58796,283,433
+2007,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,87654,59252,251,394
+2008,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,89077,59933,241,364
+2009,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,90430,60592,205,318
+2010,56021,WY,Laramie County,small/mid  ,West,Mountain,2685.913,91881,61391,189,296
+2011,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,92219,61596,163,296
+2012,56021,WY,Laramie County, small/mid,West,Mountain,2685.913,92587,61695,157,293
+2013,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,94704,63157,242,317
+2014,56021,WY,Laramie County,  SMALL/MID ,West,Mountain,2685.913,95731,63518,227,322
+2015,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,96123,63393,212,
+2016,56021,WY,Laramie County,small/mid,West,Mountain,2685.913,97005,63579,,
+1970,56023,WY,Lincoln County,rural,West,Mountain,4075.337,8765,5073,515,
+1970,56023,,,,,,,,,1,
+1971,56023,WY,Lincoln County,rural,West,Mountain,4075.337,9267,5392,1.625,
+1972,56023,WY,Lincoln County,rural  ,West,Mountain,4075.337,9202,5367,2.25,
+1973,56023,WY,Lincoln County,rural,West,Mountain,4075.337,8934,5216,2.875,
+1974,56023,WY,Lincoln County,rural,West,Mountain,4075.337,9292,5443,3.5,
+1975,56023,WY,Lincoln County,Rural,West,Mountain,4075.337,9833,5786,4.125,
+1976,56023,WY,Lincoln County,rural,West,Mountain,4075.337,10377,6140,4.75,
+1977,56023,WY,Lincoln County,rural,West,Mountain,4075.337,10816,6403,5.375,
+1978,56023,WY,Lincoln County,rural  ,West,Mountain,4075.337,11148,6591,6,
+1979,56023,WY,Lincoln County,rural,West,Mountain,4075.337,11604,6847,6.4,
+1980,56023,WY,Lincoln County,RURAL,West,Mountain,4075.337,12404,7307,6.8,
+1981,56023,WY,Lincoln County,rural,West,Mountain,4075.337,13249,7778,7.2,
+1982,56023,WY,Lincoln County,rural,West,Mountain,4075.337,14029,8237,7.6,
+1983,56023,WY,Lincoln County,rural,West,Mountain,4075.337,14108,8184,8,
+1984,56023,WY,Lincoln County,rural  ,West,Mountain,4075.337,14108,8161,12.8,
+1985,56023,WY,Lincoln County,rural,West,Mountain,4075.337,14321,8306,17.6,
+1986,56023,WY,Lincoln County,rural,West,Mountain,4075.337,14386,8336,22.4,
+1987,56023,WY,Lincoln County,rural,West,Mountain,4075.337,13654,7858,27.2,
+1988,56023,WY,Lincoln County,rural,West,Mountain,4075.337,12875,7431,32,
+1989,56023,WY,Lincoln County,rural,West,Mountain,4075.337,12552,7261,27.6,
+1990,56023,WY,Lincoln County, rural,West,Mountain,4075.337,12710,7351,23.2,
+1991,56023,WY,Lincoln County,rural,West,Mountain,4075.337,12975,7551,571,
+1991,56023,,,,,,,,,18.8,
+1992,56023,WY,Lincoln County,RURAL,West,Mountain,4075.337,13124,7719,14.4,
+1993,56023,WY,Lincoln County, rural,West,Mountain,4075.337,13329,7915,10,
+1994,56023,WY,Lincoln County, rural,West,Mountain,4075.337,13759,8289,8,
+1995,56023,WY,Lincoln County,  RURAL ,West,Mountain,4075.337,14073,8582,11,
+1996,56023,WY,Lincoln County,rural,West,Mountain,4075.337,14206,8728,14,
+1997,56023,WY,Lincoln County,rural,West,Mountain,4075.337,14099,8732,21,
+1998,56023,WY,Lincoln County,rural,West,Mountain,4075.337,14114,8785,27,
+1998,56023,WY,Lincoln County,rural,West,Mountain,4075.337,14114,8785,27,
+1999,56023,WY,Lincoln County,rural,West,Mountain,4075.337,14338,9004,23,
+2000,56023,WY,Lincoln County,RURAL,West,Mountain,4075.337,14621,9261,22,
+2001,56023,WY,Lincoln County,rural,West,Mountain,4075.337,14697,9337,21,
+2002,56023,WY,Lincoln County,  RURAL ,West,Mountain,4075.337,14858,9544,20,
+2002,56023,WY,Lincoln County,  RURAL ,West,Mountain,4075.337,14858,9544,20,
+2003,56023,WY,Lincoln County,rural,West,Mountain,4075.337,15117,9763,19,
+2004,56023,WY,Lincoln County,rural,West,Mountain,4075.337,15539,10035,18,
+2005,56023,WY,Lincoln County,rural,West,Mountain,4075.337,15917,10297,17,15
+2006,56023,WY,Lincoln County,Rural,West,Mountain,4075.337,16429,10682,17.25,18
+2007,56023,WY,Lincoln County,rural,West,Mountain,4075.337,17013,11019,17.5,26
+2008,56023,WY,Lincoln County,Rural,West,Mountain,4075.337,17629,11371,17.75,21
+2009,56023,WY,Lincoln County,rural,West,Mountain,4075.337,18082,11596,18,28
+2010,56023,WY,Lincoln County,  RURAL ,West,Mountain,4075.337,18106,11609,18.25,25
+2011,56023,WY,Lincoln County,rural,West,Mountain,4075.337,18094,11585,18.5,27
+2012,56023,WY,Lincoln County,rural,West,Mountain,4075.337,18009,11528,18.75,21
+2012,56023,WY,Lincoln County,rural,West,Mountain,4075.337,18009,11528,18.75,21
+2013,56023,WY,Lincoln County,rural,West,Mountain,4075.337,17938,11385,19,27
+2014,56023,WY,Lincoln County,rural,West,Mountain,4075.337,18312,11522,19,31
+2015,56023,WY,Lincoln County,rural,West,Mountain,4075.337,18567,11607,19,
+2015,56023,WY,Lincoln County,rural,West,Mountain,4075.337,18567,11607,19,
+2016,56023,WY,Lincoln County,rural,West,Mountain,4075.337,18736,11554,,
+1970,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,51434,32001,40,
+1971,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,52120,32804,564,
+1971,56025,,,,,,,,,37.875,
+1972,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,53110,33916,35.75,
+1972,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,53110,33916,35.75,
+1973,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,52815,34142,599,
+1973,56025,,,,,,,,,33.625,
+1974,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,53502,35022,31.5,
+1975,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,56090,37249,29.375,
+1976,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,58568,39334,27.25,
+1977,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,61528,41677,25.125,
+1978,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,65516,44718,23,
+1978,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,65516,44718,23,
+1979,56025,WY,Natrona County,small/mid  ,West,Mountain,5340.545,68351,46836,29.8,
+1980,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,72565,49823,36.6,
+1981,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,75036,51207,43.4,
+1982,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,77096,52428,50.2,
+1983,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,76297,51190,57,
+1984,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,73163,48783,58.6,
+1985,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,71568,47583,60.2,
+1986,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,69173,45739,61.8,
+1987,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,64556,42229,63.4,
+1988,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,62504,40749,65,
+1989,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,61724,40098,65,
+1990,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,61296,39569,83,
+1991,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,62312,40194,65,
+1992,56025,WY,Natrona County, small/mid,West,Mountain,5340.545,63087,40786,57,
+1993,56025,WY,Natrona County,SMALL/MID,West,Mountain,5340.545,63981,41432,63,
+1994,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,65316,42504,82.66666,
+1995,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,65687,42917,655,
+1995,56025,,,,,,,,,102.3333,
+1996,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,65859,43206,122,
+1997,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,66312,43642,141.6667,
+1998,56025,WY,Natrona County,  SMALL/MID ,West,Mountain,5340.545,66146,43623,161.3333,
+1999,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,66282,43768,181,
+2000,56025,WY,Natrona County,  SMALL/MID ,West,Mountain,5340.545,66603,44153,197.6667,
+2001,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,66978,44523,214.3333,
+2002,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,67554,44960,231,
+2003,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,68246,45614,247.6667,
+2004,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,69035,46179,264.3333,
+2005,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,69922,46978,281,368
+2005,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,69922,46978,281,368
+2006,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,70806,47718,298,348
+2007,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,72365,48806,301,349
+2008,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,73682,49683,302,388
+2009,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,75238,50829,302,423
+2010,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,75450,51006,298,467
+2011,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,75456,51010,283,469
+2012,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,76421,51723,273,504
+2013,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,78583,52945,280,536
+2014,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,81101,54516,294,534
+2015,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,81439,54351,265,
+2016,56025,WY,Natrona County,small/mid,West,Mountain,5340.545,82134,54415,,
+1970,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2920,1751,2,
+1971,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2941,1773,1.875,
+1972,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2921,1771,1.75,
+1973,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2899,1772,1.625,
+1974,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2798,1684,1.5,
+1975,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2891,1749,1.375,
+1976,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2894,1757,1.25,
+1977,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2971,1812,1.125,
+1978,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2971,1808,1,
+1979,56027,WY,Niobrara County,rural,West,Mountain,2626.028,3030,1842,1,
+1980,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2953,1792,1,
+1981,56027,WY,Niobrara County, rural,West,Mountain,2626.028,3067,1867,1,
+1981,56027,WY,Niobrara County, rural,West,Mountain,2626.028,3067,1867,1,
+1982,56027,WY,Niobrara County,rural,West,Mountain,2626.028,3111,1906,1,
+1983,56027,WY,Niobrara County,rural,West,Mountain,2626.028,3172,1933,1,
+1984,56027,WY,Niobrara County,rural,West,Mountain,2626.028,3285,2005,1.1,
+1985,56027,WY,Niobrara County,rural,West,Mountain,2626.028,3112,1906,1.2,
+1986,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2995,1833,1.3,
+1987,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2895,1760,1.4,
+1987,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2895,1760,1.4,
+1988,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2705,1644,1.5,
+1989,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2536,1549,1.6,
+1990,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2486,1504,1.7,
+1991,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2396,1447,1.8,
+1992,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2411,1458,1.9,
+1993,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2447,1493,2,
+1994,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2446,1499,6,
+1995,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2483,1533,5,
+1996,56027,WY,Niobrara County,RURAL,West,Mountain,2626.028,2501,1569,4,
+1997,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2480,1569,5,
+1998,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2510,1587,508,
+1998,56027,,,,,,,,,7,
+1999,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2454,1549,9,
+2000,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2396,1517,8.666667,
+2001,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2357,1491,8.333333,
+2002,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2293,1462,8,
+2003,56027,WY,Niobrara County,  RURAL ,West,Mountain,2626.028,2280,1425,7.666667,
+2004,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2319,1484,7.333333,
+2005,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2315,1495,7,7
+2006,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2321,1510,6.75,10
+2006,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2321,1510,6.75,10
+2007,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2407,1575,6.5,8
+2008,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2467,1578,6.25,10
+2009,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2475,1592,6,6
+2010,56027,WY,Niobrara County,rural  ,West,Mountain,2626.028,2484,1593,5.75,5
+2010,56027,WY,Niobrara County,rural  ,West,Mountain,2626.028,2484,1593,5.75,5
+2011,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2491,1594,5.5,4
+2012,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2483,1599,5.25,5
+2013,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2476,1607,5,
+2014,56027,WY,Niobrara County,rural  ,West,Mountain,2626.028,2544,1659,5,0
+2014,56027,WY,Niobrara County,rural  ,West,Mountain,2626.028,2544,1659,5,0
+2015,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2489,1620,5,
+2015,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2489,1620,5,
+2016,56027,WY,Niobrara County,rural,West,Mountain,2626.028,2496,1599,,
+1970,56029,WY,Park County,rural,West,Mountain,6939.86,17806,10891,9,
+1971,56029,WY,Park County,rural,West,Mountain,6939.86,18035,11109,8.625,
+1972,56029,WY,Park County,rural,West,Mountain,6939.86,18167,11299,8.25,
+1973,56029,WY,Park County,Rural,West,Mountain,6939.86,18312,11497,7.875,
+1974,56029,WY,Park County,Rural,West,Mountain,6939.86,18349,11610,7.5,
+1975,56029,WY,Park County,rural  ,West,Mountain,6939.86,18908,12080,7.125,
+1976,56029,WY,Park County,rural,West,Mountain,6939.86,19545,12617,6.75,
+1977,56029,WY,Park County,  RURAL ,West,Mountain,6939.86,19613,12682,6.375,
+1978,56029,WY,Park County,RURAL,West,Mountain,6939.86,20214,13139,6,
+1979,56029,WY,Park County,rural,West,Mountain,6939.86,21009,13718,10.8,
+1980,56029,WY,Park County,rural,West,Mountain,6939.86,21796,14260,15.6,
+1980,56029,WY,Park County,rural,West,Mountain,6939.86,21796,14260,15.6,
+1981,56029,WY,Park County,rural,West,Mountain,6939.86,22315,14546,20.4,
+1982,56029,WY,Park County,rural,West,Mountain,6939.86,23263,15154,578,
+1982,56029,,,,,,,,,25.2,
+1983,56029,WY,Park County,rural,West,Mountain,6939.86,23759,15300,30,
+1984,56029,WY,Park County,rural,West,Mountain,6939.86,24366,15626,27.5,
+1985,56029,WY,Park County,rural  ,West,Mountain,6939.86,24261,15545,25,
+1986,56029,WY,Park County,rural,West,Mountain,6939.86,24460,15622,19,
+1987,56029,WY,Park County,rural,West,Mountain,6939.86,23719,15005,20,
+1988,56029,WY,Park County,rural,West,Mountain,6939.86,23589,14902,19,
+1989,56029,WY,Park County,rural,West,Mountain,6939.86,23325,14715,19,
+1989,56029,WY,Park County,rural,West,Mountain,6939.86,23325,14715,19,
+1990,56029,WY,Park County,rural,West,Mountain,6939.86,23190,14600,19,
+1991,56029,WY,Park County,rural,West,Mountain,6939.86,23303,14720,19,
+1991,56029,WY,Park County,rural,West,Mountain,6939.86,23303,14720,19,
+1992,56029,WY,Park County,Rural,West,Mountain,6939.86,23741,15072,19,
+1993,56029,WY,Park County,rural,West,Mountain,6939.86,24331,15536,19,
+1994,56029,WY,Park County,rural,West,Mountain,6939.86,24987,16127,22,
+1995,56029,WY,Park County,rural,West,Mountain,6939.86,25481,16608,30,
+1996,56029,WY,Park County,rural,West,Mountain,6939.86,25514,16676,25,
+1997,56029,WY,Park County,RURAL,West,Mountain,6939.86,25889,16993,606,
+1997,56029,,,,,,,,,40,
+1998,56029,WY,Park County,rural,West,Mountain,6939.86,25950,17082,38,
+1999,56029,WY,Park County,rural,West,Mountain,6939.86,25664,16929,36,
+2000,56029,WY,Park County,rural,West,Mountain,6939.86,25821,17110,36.16667,
+2000,56029,WY,Park County,rural,West,Mountain,6939.86,25821,17110,36.16667,
+2001,56029,WY,Park County,rural,West,Mountain,6939.86,25696,17077,36.33333,
+2002,56029,WY,Park County,rural,West,Mountain,6939.86,25761,17153,36.5,
+2003,56029,WY,Park County,rural,West,Mountain,6939.86,25988,17330,36.66667,
+2004,56029,WY,Park County,rural,West,Mountain,6939.86,26078,17478,36.83333,
+2005,56029,WY,Park County,rural,West,Mountain,6939.86,26372,17657,37,51
+2006,56029,WY,Park County,rural,West,Mountain,6939.86,26789,17851,39.75,54
+2007,56029,WY,Park County,rural,West,Mountain,6939.86,27209,18013,42.5,57
+2008,56029,WY,Park County,rural,West,Mountain,6939.86,27594,18185,45.25,60
+2009,56029,WY,Park County,rural,West,Mountain,6939.86,28008,18348,48,60
+2010,56029,WY,Park County,rural,West,Mountain,6939.86,28205,18386,50.75,69
+2011,56029,WY,Park County,rural,West,Mountain,6939.86,28248,18398,53.5,67
+2012,56029,WY,Park County,rural,West,Mountain,6939.86,28546,18469,56.25,69
+2013,56029,WY,Park County,rural,West,Mountain,6939.86,28933,18525,59,88
+2014,56029,WY,Park County,Rural,West,Mountain,6939.86,29170,18571,59,88
+2015,56029,WY,Park County,rural,West,Mountain,6939.86,29119,18272,59,
+2016,56029,WY,Park County,rural,West,Mountain,6939.86,29110,18012,,
+1970,56031,WY,Platte County, rural,West,Mountain,2084.187,6542,3873,3,
+1971,56031,WY,Platte County,rural,West,Mountain,2084.187,6748,4016,3.125,
+1972,56031,WY,Platte County,rural,West,Mountain,2084.187,6629,3952,3.25,
+1973,56031,WY,Platte County,rural,West,Mountain,2084.187,6801,4092,3.375,
+1974,56031,WY,Platte County,rural,West,Mountain,2084.187,6988,4234,3.5,
+1975,56031,WY,Platte County,rural,West,Mountain,2084.187,7235,4426,3.625,
+1976,56031,WY,Platte County,rural,West,Mountain,2084.187,7663,4755,3.75,
+1977,56031,WY,Platte County,rural,West,Mountain,2084.187,8247,5161,3.875,
+1978,56031,WY,Platte County,rural,West,Mountain,2084.187,8860,5611,4,
+1979,56031,WY,Platte County,rural,West,Mountain,2084.187,10362,6661,4.4,
+1980,56031,WY,Platte County,rural,West,Mountain,2084.187,11862,7724,4.8,
+1981,56031,WY,Platte County,rural,West,Mountain,2084.187,11354,7356,5.2,
+1982,56031,WY,Platte County,rural,West,Mountain,2084.187,10337,6675,5.6,
+1983,56031,WY,Platte County,rural  ,West,Mountain,2084.187,9866,6289,6,
+1984,56031,WY,Platte County,rural,West,Mountain,2084.187,9692,6135,7.2,
+1985,56031,WY,Platte County,rural,West,Mountain,2084.187,9339,5888,8.4,
+1986,56031,WY,Platte County,rural,West,Mountain,2084.187,9145,5728,9.6,
+1987,56031,WY,Platte County,rural,West,Mountain,2084.187,8880,5487,10.8,
+1988,56031,WY,Platte County, rural,West,Mountain,2084.187,8633,5297,12,
+1989,56031,WY,Platte County,rural,West,Mountain,2084.187,8420,5127,11.4,
+1990,56031,WY,Platte County,rural,West,Mountain,2084.187,8113,4889,10.8,
+1991,56031,WY,Platte County,rural  ,West,Mountain,2084.187,8163,4930,10.2,
+1992,56031,WY,Platte County,rural,West,Mountain,2084.187,8205,4987,9.6,
+1993,56031,WY,Platte County,rural,West,Mountain,2084.187,8245,5042,9,
+1994,56031,WY,Platte County,rural,West,Mountain,2084.187,8389,5177,9,
+1995,56031,WY,Platte County,rural,West,Mountain,2084.187,8453,5271,9,
+1996,56031,WY,Platte County, rural,West,Mountain,2084.187,8586,5392,9,
+1997,56031,WY,Platte County,rural,West,Mountain,2084.187,8737,5518,9,
+1998,56031,WY,Platte County,rural,West,Mountain,2084.187,8839,5616,9,
+1999,56031,WY,Platte County,rural,West,Mountain,2084.187,8866,5632,9,
+2000,56031,WY,Platte County,rural,West,Mountain,2084.187,8739,5547,22.33333,
+2001,56031,WY,Platte County,rural,West,Mountain,2084.187,8765,5550,35.66667,
+2002,56031,WY,Platte County,rural,West,Mountain,2084.187,8766,5540,49,
+2003,56031,WY,Platte County,rural,West,Mountain,2084.187,8689,5500,62.33333,
+2004,56031,WY,Platte County,rural,West,Mountain,2084.187,8730,5543,75.66666,
+2005,56031,WY,Platte County,rural  ,West,Mountain,2084.187,8681,5563,89,15
+2006,56031,WY,Platte County,rural,West,Mountain,2084.187,8690,5555,96,21
+2007,56031,WY,Platte County,rural,West,Mountain,2084.187,8682,5525,74,25
+2008,56031,WY,Platte County,rural,West,Mountain,2084.187,8622,5467,88,27
+2009,56031,WY,Platte County,rural,West,Mountain,2084.187,8608,5431,78,18
+2010,56031,WY,Platte County,rural,West,Mountain,2084.187,8667,5470,68,15
+2011,56031,WY,Platte County,rural,West,Mountain,2084.187,8664,5467,52,17
+2012,56031,WY,Platte County,rural,West,Mountain,2084.187,8695,5479,62,17
+2012,56031,WY,Platte County,rural,West,Mountain,2084.187,8695,5479,62,17
+2013,56031,WY,Platte County,rural,West,Mountain,2084.187,8730,5450,42,17
+2014,56031,WY,Platte County,rural,West,Mountain,2084.187,8707,5354,43,21
+2015,56031,WY,Platte County,Rural,West,Mountain,2084.187,8776,5304,43,
+2016,56031,WY,Platte County,rural,West,Mountain,2084.187,8797,5263,,
+1970,56033,WY,Sheridan County,rural,West,Mountain,2523.361,17864,10697,4,
+1971,56033,WY,Sheridan County,rural,West,Mountain,2523.361,17910,10775,5.125,
+1972,56033,WY,Sheridan County,rural,West,Mountain,2523.361,18285,11114,6.25,
+1973,56033,WY,Sheridan County,rural,West,Mountain,2523.361,18856,11600,7.375,
+1974,56033,WY,Sheridan County,rural,West,Mountain,2523.361,19244,11930,8.5,
+1975,56033,WY,Sheridan County,rural,West,Mountain,2523.361,20071,12577,9.625,
+1975,56033,WY,Sheridan County,rural,West,Mountain,2523.361,20071,12577,9.625,
+1976,56033,WY,Sheridan County,rural,West,Mountain,2523.361,21156,13396,10.75,
+1977,56033,WY,Sheridan County,rural,West,Mountain,2523.361,21821,13869,11.875,
+1978,56033,WY,Sheridan County,rural,West,Mountain,2523.361,22879,14633,13,
+1979,56033,WY,Sheridan County,rural,West,Mountain,2523.361,24237,15575,13.6,
+1980,56033,WY,Sheridan County,rural,West,Mountain,2523.361,25196,16195,14.2,
+1981,56033,WY,Sheridan County,rural,West,Mountain,2523.361,25645,16482,14.8,
+1982,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26373,16985,15.4,
+1983,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26809,17112,16,
+1984,56033,WY,Sheridan County,RURAL,West,Mountain,2523.361,26935,17154,18.4,
+1985,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26195,16706,20.8,
+1986,56033,WY,Sheridan County,rural,West,Mountain,2523.361,25351,16142,23.2,
+1987,56033,WY,Sheridan County,rural,West,Mountain,2523.361,24744,15635,25.6,
+1988,56033,WY,Sheridan County,rural,West,Mountain,2523.361,24108,15217,28,
+1989,56033,WY,Sheridan County,rural,West,Mountain,2523.361,23700,14955,29.8,
+1990,56033,WY,Sheridan County,rural,West,Mountain,2523.361,23593,14839,571,
+1990,56033,,,,,,,,,31.6,
+1991,56033,WY,Sheridan County,rural,West,Mountain,2523.361,23722,14930,33.4,
+1992,56033,WY,Sheridan County, rural,West,Mountain,2523.361,24230,15321,35.2,
+1993,56033,WY,Sheridan County,rural,West,Mountain,2523.361,24787,15744,37,
+1994,56033,WY,Sheridan County,rural,West,Mountain,2523.361,25256,16143,36.16667,
+1995,56033,WY,Sheridan County,rural,West,Mountain,2523.361,25663,16475,35.33333,
+1995,56033,WY,Sheridan County,rural,West,Mountain,2523.361,25663,16475,35.33333,
+1996,56033,WY,Sheridan County, rural,West,Mountain,2523.361,26008,16777,34.5,
+1997,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26095,16923,33.66667,
+1997,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26095,16923,33.66667,
+1998,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26240,17129,32.83333,
+1999,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26328,17245,32,
+2000,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26584,17501,44,
+2001,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26623,17593,56,
+2001,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26623,17593,56,
+2002,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26839,17851,68,
+2003,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26938,17951,80,
+2004,56033,WY,Sheridan County,rural,West,Mountain,2523.361,26942,18007,92,
+2005,56033,WY,Sheridan County, rural,West,Mountain,2523.361,27075,18181,104,88
+2006,56033,WY,Sheridan County,rural,West,Mountain,2523.361,27422,18392,64,89
+2007,56033,WY,Sheridan County,  RURAL ,West,Mountain,2523.361,27845,18612,96,91
+2008,56033,WY,Sheridan County,rural,West,Mountain,2523.361,28465,18981,101,92
+2009,56033,WY,Sheridan County,rural,West,Mountain,2523.361,29017,19312,84,91
+2010,56033,WY,Sheridan County,rural,West,Mountain,2523.361,29116,19244,97,83
+2011,56033,WY,Sheridan County,rural,West,Mountain,2523.361,29123,19225,93,103
+2012,56033,WY,Sheridan County,rural,West,Mountain,2523.361,29254,19152,88,97
+2013,56033,WY,Sheridan County,rural,West,Mountain,2523.361,29528,19215,669,122
+2013,56033,,,,,,,,,90,
+2014,56033,WY,Sheridan County,rural,West,Mountain,2523.361,29735,19265,76,116
+2015,56033,WY,Sheridan County,Rural,West,Mountain,2523.361,29888,19086,76,
+2016,56033,WY,Sheridan County,  RURAL ,West,Mountain,2523.361,29940,18929,,
+1970,56035,WY,Sublette County,RURAL,West,Mountain,4886.482,3725,2288,0,
+1971,56035,WY,Sublette County,rural,West,Mountain,4886.482,3623,2231,0,
+1972,56035,WY,Sublette County,rural,West,Mountain,4886.482,3785,2365,0,
+1973,56035,WY,Sublette County,rural,West,Mountain,4886.482,3754,2371,0,
+1974,56035,WY,Sublette County,RURAL,West,Mountain,4886.482,3668,2323,0,
+1975,56035,WY,Sublette County,rural,West,Mountain,4886.482,3935,2524,0,
+1976,56035,WY,Sublette County,rural,West,Mountain,4886.482,3946,2541,0,
+1977,56035,WY,Sublette County,rural,West,Mountain,4886.482,4181,2703,0,
+1978,56035,WY,Sublette County,rural,West,Mountain,4886.482,4099,2647,1,
+1979,56035,WY,Sublette County,rural  ,West,Mountain,4886.482,4349,2819,1.2,
+1979,56035,WY,Sublette County,rural  ,West,Mountain,4886.482,4349,2819,1.2,
+1980,56035,WY,Sublette County,rural,West,Mountain,4886.482,4619,2999,1.4,
+1981,56035,WY,Sublette County,rural,West,Mountain,4886.482,4879,3166,1.6,
+1982,56035,WY,Sublette County,rural,West,Mountain,4886.482,5142,3343,1.8,
+1983,56035,WY,Sublette County,rural,West,Mountain,4886.482,5177,3342,2,
+1984,56035,WY,Sublette County,rural,West,Mountain,4886.482,5256,3388,2.2,
+1985,56035,WY,Sublette County,rural,West,Mountain,4886.482,5517,3568,2.4,
+1986,56035,WY,Sublette County,rural,West,Mountain,4886.482,5960,3853,2.6,
+1987,56035,WY,Sublette County,rural,West,Mountain,4886.482,5356,3447,2.8,
+1988,56035,WY,Sublette County,rural,West,Mountain,4886.482,4857,3137,3,
+1989,56035,WY,Sublette County,rural,West,Mountain,4886.482,4714,3052,4,
+1990,56035,WY,Sublette County,rural,West,Mountain,4886.482,4883,3162,5,
+1991,56035,WY,Sublette County,rural,West,Mountain,4886.482,4964,3233,6,
+1992,56035,WY,Sublette County,rural,West,Mountain,4886.482,5022,3277,7,
+1993,56035,WY,Sublette County,rural,West,Mountain,4886.482,5184,3403,8,
+1994,56035,WY,Sublette County,rural,West,Mountain,4886.482,5409,3572,8.5,
+1995,56035,WY,Sublette County,rural  ,West,Mountain,4886.482,5515,3666,9,
+1996,56035,WY,Sublette County,rural,West,Mountain,4886.482,5601,3711,9.5,
+1997,56035,WY,Sublette County,rural,West,Mountain,4886.482,5684,3784,10,
+1998,56035,WY,Sublette County,rural,West,Mountain,4886.482,5773,3864,10.5,
+1999,56035,WY,Sublette County,rural,West,Mountain,4886.482,5835,3904,11,
+2000,56035,WY,Sublette County,rural,West,Mountain,4886.482,5963,4008,14.83333,
+2001,56035,WY,Sublette County,rural,West,Mountain,4886.482,6026,4109,18.66667,
+2002,56035,WY,Sublette County,rural,West,Mountain,4886.482,6389,4356,22.5,
+2003,56035,WY,Sublette County,rural,West,Mountain,4886.482,6687,4617,26.33333,
+2004,56035,WY,Sublette County,RURAL,West,Mountain,4886.482,7072,4944,30.16667,
+2005,56035,WY,Sublette County,rural,West,Mountain,4886.482,7515,5268,34,8
+2006,56035,WY,Sublette County,rural,West,Mountain,4886.482,7957,5648,31.75,14
+2007,56035,WY,Sublette County,rural,West,Mountain,4886.482,8800,6247,29.5,22
+2007,56035,WY,Sublette County,rural,West,Mountain,4886.482,8800,6247,29.5,22
+2008,56035,WY,Sublette County,rural,West,Mountain,4886.482,9474,6675,27.25,18
+2009,56035,WY,Sublette County,rural,West,Mountain,4886.482,10134,7162,25,20
+2010,56035,WY,Sublette County,rural,West,Mountain,4886.482,10247,7175,22.75,23
+2011,56035,WY,Sublette County,rural,West,Mountain,4886.482,10254,7150,20.5,23
+2012,56035,WY,Sublette County,rural,West,Mountain,4886.482,10189,6997,18.25,27
+2013,56035,WY,Sublette County,rural,West,Mountain,4886.482,10481,7103,16,39
+2014,56035,WY,Sublette County,rural,West,Mountain,4886.482,10172,6758,16,38
+2015,56035,WY,Sublette County,rural,West,Mountain,4886.482,10155,6677,16,
+2016,56035,WY,Sublette County,rural,West,Mountain,4886.482,10056,6490,,
+1970,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,18566,11240,4,
+1971,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,19235,11716,571,
+1971,56037,,,,,,,,,5.5,
+1972,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,21398,13244,7,
+1973,56037,WY,Sweetwater County, rural,West,Mountain,10426.974,22914,14330,8.5,
+1974,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,27036,17173,10,
+1975,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,31061,19947,11.5,
+1976,56037,WY,Sweetwater County,rural  ,West,Mountain,10426.974,32406,20957,13,
+1977,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,34697,22574,14.5,
+1978,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,37581,24603,16,
+1979,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,39591,25974,16.2,
+1980,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,42276,27712,16.4,
+1981,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,44284,28881,16.6,
+1982,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,45740,29779,16.8,
+1983,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,44716,28762,17,
+1983,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,44716,28762,17,
+1984,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,42478,27221,19.2,
+1985,56037,WY,Sweetwater County, rural,West,Mountain,10426.974,42777,27429,21.4,
+1986,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,44218,28314,23.6,
+1987,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,42123,26807,25.8,
+1988,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,40078,25559,28,
+1989,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,39244,25089,29.2,
+1990,56037,WY,Sweetwater County,rural  ,West,Mountain,10426.974,38792,24810,30.4,
+1991,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,39592,25505,31.6,
+1992,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,40012,26026,32.8,
+1993,56037,WY,Sweetwater County,  RURAL ,West,Mountain,10426.974,40066,26265,34,
+1994,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,39960,26456,34.83333,
+1995,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,39849,26721,35.66667,
+1996,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,39257,26514,36.5,
+1997,56037,WY,Sweetwater County,rural  ,West,Mountain,10426.974,38728,26312,37.33333,
+1998,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,38565,26426,38.16667,
+1998,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,38565,26426,38.16667,
+1999,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,38142,26229,39,
+2000,56037,WY,Sweetwater County,  RURAL ,West,Mountain,10426.974,37552,25934,45.83333,
+2001,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,36899,25678,52.66667,
+2002,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,37428,26079,59.5,
+2003,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,37450,26124,66.33334,
+2003,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,37450,26124,66.33334,
+2004,56037,WY,Sweetwater County,rural  ,West,Mountain,10426.974,38026,26492,73.16666,
+2005,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,38739,26967,80,211
+2006,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,39749,27788,86.625,205
+2007,56037,WY,Sweetwater County,rural  ,West,Mountain,10426.974,41470,28843,93.25,190
+2008,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,42358,29331,99.875,169
+2009,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,44133,30338,106.5,176
+2010,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,43806,30005,113.125,217
+2011,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,43569,29821,119.75,238
+2012,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,44013,30070,126.375,242
+2013,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,45042,30784,133,231
+2014,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,45145,30709,133,265
+2015,56037,WY,Sweetwater County,  RURAL ,West,Mountain,10426.974,44981,30353,133,
+2016,56037,WY,Sweetwater County,rural,West,Mountain,10426.974,44732,30034,,
+1970,56039,WY,Teton County,suburban,West,Mountain,3996.847,4897,3139,3,
+1971,56039,WY,Teton County,suburban,West,Mountain,3996.847,5186,3411,3,
+1972,56039,WY,Teton County,rural,West,Mountain,3996.847,5692,3848,3,
+1972,56039,WY,Teton County,rural,West,Mountain,3996.847,5692,3848,3,
+1973,56039,WY,Teton County,rural,West,Mountain,3996.847,6195,4285,543,
+1973,56039,,,,,,,,,3,
+1974,56039,WY,Teton County,suburban,West,Mountain,3996.847,6894,4863,3,
+1975,56039,WY,Teton County,suburban,West,Mountain,3996.847,7126,5095,3,
+1976,56039,WY,Teton County,rural,West,Mountain,3996.847,7639,5551,3,
+1977,56039,WY,Teton County,suburban,West,Mountain,3996.847,7975,5854,3,
+1978,56039,WY,Teton County,rural,West,Mountain,3996.847,8786,6524,3,
+1979,56039,WY,Teton County,rural,West,Mountain,3996.847,9476,7106,5.6,
+1979,56039,WY,Teton County,rural,West,Mountain,3996.847,9476,7106,5.6,
+1980,56039,WY,Teton County,rural,West,Mountain,3996.847,9494,7122,8.2,
+1981,56039,WY,Teton County,rural,West,Mountain,3996.847,10015,7479,10.8,
+1982,56039,WY,Teton County,suburban,West,Mountain,3996.847,10520,7834,13.4,
+1983,56039,WY,Teton County,rural,West,Mountain,3996.847,10653,7849,16,
+1984,56039,WY,Teton County,  RURAL ,West,Mountain,3996.847,10556,7741,18,
+1985,56039,WY,Teton County,rural,West,Mountain,3996.847,10129,7409,20,
+1985,56039,WY,Teton County,rural,West,Mountain,3996.847,10129,7409,20,
+1986,56039,WY,Teton County,suburban,West,Mountain,3996.847,10053,7323,22,
+1987,56039,WY,Teton County,rural,West,Mountain,3996.847,10258,7417,24,
+1988,56039,WY,Teton County,suburban,West,Mountain,3996.847,10608,7666,26,
+1988,56039,WY,Teton County,rural,West,Mountain,3996.847,10608,7666,26,
+1989,56039,WY,Teton County,rural,West,Mountain,3996.847,10973,7934,24.8,
+1990,56039,WY,Teton County,rural,West,Mountain,3996.847,11328,8192,23.6,
+1991,56039,WY,Teton County,rural,West,Mountain,3996.847,12098,8785,22.4,
+1992,56039,WY,Teton County,  RURAL ,West,Mountain,3996.847,12788,9343,21.2,
+1993,56039,WY,Teton County,rural,West,Mountain,3996.847,13733,10122,20,
+1994,56039,WY,Teton County,suburban,West,Mountain,3996.847,14320,10650,20.83333,
+1995,56039,WY,Teton County,rural,West,Mountain,3996.847,14907,11179,21.66667,
+1996,56039,WY,Teton County,suburban,West,Mountain,3996.847,15494,11672,22.5,
+1997,56039,WY,Teton County,suburban,West,Mountain,3996.847,16182,12273,23.33333,
+1997,56039,WY,Teton County,rural,West,Mountain,3996.847,16182,12273,23.33333,
+1998,56039,WY,Teton County,rural,West,Mountain,3996.847,16883,12872,24.16667,
+1999,56039,WY,Teton County,suburban,West,Mountain,3996.847,17672,13526,25,
+1999,56039,WY,Teton County,Rural,West,Mountain,3996.847,17672,13526,25,
+2000,56039,WY,Teton County,rural,West,Mountain,3996.847,18381,14107,26.16667,
+2001,56039,WY,Teton County,rural,West,Mountain,3996.847,18653,14371,27.33333,
+2002,56039,WY,Teton County,rural,West,Mountain,3996.847,18837,14547,28.5,
+2003,56039,WY,Teton County,rural,West,Mountain,3996.847,19066,14687,29.66667,
+2004,56039,WY,Teton County,rural,West,Mountain,3996.847,19467,14971,30.83333,
+2005,56039,WY,Teton County,suburban,West,Mountain,3996.847,19632,15083,32,31
+2006,56039,WY,Teton County,  RURAL ,West,Mountain,3996.847,20014,15301,40,39
+2007,56039,WY,Teton County,rural,West,Mountain,3996.847,20472,15529,50,39
+2008,56039,WY,Teton County,suburban,West,Mountain,3996.847,20988,15757,39,31
+2009,56039,WY,Teton County,suburban,West,Mountain,3996.847,21232,15835,43,35
+2010,56039,WY,Teton County,rural,West,Mountain,3996.847,21294,15774,22,38
+2011,56039,WY,Teton County,rural,West,Mountain,3996.847,21295,15732,26,32
+2012,56039,WY,Teton County,suburban,West,Mountain,3996.847,21476,15667,18,31
+2013,56039,WY,Teton County,rural,West,Mountain,3996.847,21709,15683,23,30
+2014,56039,WY,Teton County,suburban,West,Mountain,3996.847,22326,16090,25,33
+2015,56039,WY,Teton County,rural,West,Mountain,3996.847,22817,16332,25,
+2016,56039,WY,Teton County, rural,West,Mountain,3996.847,23029,16294,,
+1970,56041,WY,Uinta County,  RURAL ,West,Mountain,2081.829,7083,4223,0,
+1971,56041,WY,Uinta County,rural,West,Mountain,2081.829,6998,4186,0,
+1972,56041,WY,Uinta County, rural,West,Mountain,2081.829,7154,4323,0,
+1973,56041,WY,Uinta County,rural,West,Mountain,2081.829,7225,4404,501,
+1973,56041,,,,,,,,,0,
+1974,56041,WY,Uinta County,Rural,West,Mountain,2081.829,7791,4802,0,
+1975,56041,WY,Uinta County,rural,West,Mountain,2081.829,9756,6164,0,
+1976,56041,WY,Uinta County,rural,West,Mountain,2081.829,9876,6197,0,
+1977,56041,WY,Uinta County,rural,West,Mountain,2081.829,10409,6548,0,
+1978,56041,WY,Uinta County,rural,West,Mountain,2081.829,11024,6928,5,
+1979,56041,WY,Uinta County,rural  ,West,Mountain,2081.829,11825,7418,7.2,
+1980,56041,WY,Uinta County,rural,West,Mountain,2081.829,13684,8571,9.4,
+1981,56041,WY,Uinta County,rural,West,Mountain,2081.829,16277,10131,11.6,
+1982,56041,WY,Uinta County,rural,West,Mountain,2081.829,19718,12242,13.8,
+1983,56041,WY,Uinta County,rural,West,Mountain,2081.829,21654,13251,16,
+1984,56041,WY,Uinta County,rural,West,Mountain,2081.829,22560,13740,20.4,
+1985,56041,WY,Uinta County,rural,West,Mountain,2081.829,22348,13621,24.8,
+1986,56041,WY,Uinta County,  RURAL ,West,Mountain,2081.829,22381,13612,29.2,
+1987,56041,WY,Uinta County,rural,West,Mountain,2081.829,20886,12621,33.6,
+1988,56041,WY,Uinta County,rural,West,Mountain,2081.829,19595,11875,38,
+1988,56041,WY,Uinta County,rural,West,Mountain,2081.829,19595,11875,38,
+1989,56041,WY,Uinta County,rural,West,Mountain,2081.829,19213,11679,34.4,
+1990,56041,WY,Uinta County,rural,West,Mountain,2081.829,18638,11366,30.8,
+1991,56041,WY,Uinta County,rural,West,Mountain,2081.829,19101,11705,27.2,
+1992,56041,WY,Uinta County,rural,West,Mountain,2081.829,19476,12055,23.6,
+1993,56041,WY,Uinta County,rural,West,Mountain,2081.829,19581,12233,20,
+1994,56041,WY,Uinta County,rural,West,Mountain,2081.829,19927,12569,27,
+1995,56041,WY,Uinta County,rural,West,Mountain,2081.829,19884,12665,34,
+1996,56041,WY,Uinta County,rural,West,Mountain,2081.829,19936,12789,41,
+1997,56041,WY,Uinta County,rural,West,Mountain,2081.829,19935,12893,48,
+1998,56041,WY,Uinta County,rural,West,Mountain,2081.829,20029,13072,55,
+1999,56041,WY,Uinta County,rural,West,Mountain,2081.829,19901,13096,62,
+2000,56041,WY,Uinta County, rural,West,Mountain,2081.829,19666,13044,60.66667,
+2001,56041,WY,Uinta County,rural,West,Mountain,2081.829,19413,13034,59.33333,
+2002,56041,WY,Uinta County,rural,West,Mountain,2081.829,19587,13189,58,
+2003,56041,WY,Uinta County,rural,West,Mountain,2081.829,19480,13159,56.66667,
+2004,56041,WY,Uinta County,rural,West,Mountain,2081.829,19470,13138,55.33333,
+2005,56041,WY,Uinta County,rural  ,West,Mountain,2081.829,19494,13137,54,32
+2006,56041,WY,Uinta County,rural,West,Mountain,2081.829,19709,13311,53.875,43
+2007,56041,WY,Uinta County,rural,West,Mountain,2081.829,20171,13528,53.75,45
+2008,56041,WY,Uinta County,rural,West,Mountain,2081.829,20613,13753,53.625,42
+2009,56041,WY,Uinta County,rural,West,Mountain,2081.829,21054,13984,53.5,44
+2010,56041,WY,Uinta County,rural,West,Mountain,2081.829,21118,13919,53.375,42
+2011,56041,WY,Uinta County,rural,West,Mountain,2081.829,21093,13885,53.25,41
+2012,56041,WY,Uinta County,rural,West,Mountain,2081.829,20899,13662,53.125,32
+2013,56041,WY,Uinta County,rural,West,Mountain,2081.829,20999,13676,53,28
+2014,56041,WY,Uinta County,rural,West,Mountain,2081.829,20960,13584,53,37
+2015,56041,WY,Uinta County,  RURAL ,West,Mountain,2081.829,20845,13364,53,
+2016,56041,WY,Uinta County,rural,West,Mountain,2081.829,20780,13209,,
+1970,56043,WY,Washakie County,rural,West,Mountain,2238.667,7560,4602,3,
+1971,56043,WY,Washakie County,rural,West,Mountain,2238.667,7535,4589,3.125,
+1972,56043,WY,Washakie County,rural,West,Mountain,2238.667,7906,4851,3.25,
+1973,56043,WY,Washakie County,rural,West,Mountain,2238.667,7768,4775,3.375,
+1974,56043,WY,Washakie County,  RURAL ,West,Mountain,2238.667,7836,4863,3.5,
+1975,56043,WY,Washakie County,  RURAL ,West,Mountain,2238.667,8138,5119,3.625,
+1976,56043,WY,Washakie County,rural,West,Mountain,2238.667,8368,5281,3.75,
+1977,56043,WY,Washakie County,rural,West,Mountain,2238.667,8763,5546,3.875,
+1978,56043,WY,Washakie County,rural,West,Mountain,2238.667,8815,5578,4,
+1979,56043,WY,Washakie County,  RURAL ,West,Mountain,2238.667,9100,5769,3.8,
+1980,56043,WY,Washakie County,rural,West,Mountain,2238.667,9591,6085,3.6,
+1980,56043,WY,Washakie County,rural,West,Mountain,2238.667,9591,6085,3.6,
+1981,56043,WY,Washakie County,rural,West,Mountain,2238.667,9927,6275,3.4,
+1982,56043,WY,Washakie County,RURAL,West,Mountain,2238.667,10139,6410,3.2,
+1983,56043,WY,Washakie County,rural,West,Mountain,2238.667,10009,6254,3,
+1984,56043,WY,Washakie County,rural,West,Mountain,2238.667,10005,6232,4.2,
+1985,56043,WY,Washakie County,rural,West,Mountain,2238.667,9759,6085,5.4,
+1986,56043,WY,Washakie County,rural,West,Mountain,2238.667,9661,6008,6.6,
+1987,56043,WY,Washakie County,rural,West,Mountain,2238.667,9141,5634,7.8,
+1988,56043,WY,Washakie County,rural,West,Mountain,2238.667,8857,5451,9,
+1989,56043,WY,Washakie County,rural,West,Mountain,2238.667,8502,5226,10.4,
+1990,56043,WY,Washakie County,rural,West,Mountain,2238.667,8363,5105,11.8,
+1991,56043,WY,Washakie County,rural,West,Mountain,2238.667,8291,5071,13.2,
+1992,56043,WY,Washakie County,rural,West,Mountain,2238.667,8420,5160,14.6,
+1993,56043,WY,Washakie County,rural,West,Mountain,2238.667,8452,5206,16,
+1993,56043,WY,Washakie County,rural,West,Mountain,2238.667,8452,5206,16,
+1994,56043,WY,Washakie County,rural,West,Mountain,2238.667,8484,5258,18.16667,
+1995,56043,WY,Washakie County,rural,West,Mountain,2238.667,8511,5295,20.33333,
+1996,56043,WY,Washakie County,rural,West,Mountain,2238.667,8471,5290,22.5,
+1997,56043,WY,Washakie County,rural,West,Mountain,2238.667,8531,5350,24.66667,
+1997,56043,WY,Washakie County,rural,West,Mountain,2238.667,8531,5350,24.66667,
+1998,56043,WY,Washakie County,rural,West,Mountain,2238.667,8585,5404,26.83333,
+1999,56043,WY,Washakie County,rural,West,Mountain,2238.667,8425,5304,29,
+2000,56043,WY,Washakie County,rural,West,Mountain,2238.667,8252,5188,28,
+2001,56043,WY,Washakie County,RURAL,West,Mountain,2238.667,8068,5110,27,
+2002,56043,WY,Washakie County,rural,West,Mountain,2238.667,7988,5080,26,
+2003,56043,WY,Washakie County,rural,West,Mountain,2238.667,7976,5050,25,
+2004,56043,WY,Washakie County,Rural,West,Mountain,2238.667,7960,5037,24,
+2005,56043,WY,Washakie County,rural,West,Mountain,2238.667,8022,5134,23,10
+2006,56043,WY,Washakie County,rural,West,Mountain,2238.667,7979,5073,23.625,10
+2007,56043,WY,Washakie County,rural,West,Mountain,2238.667,8169,5193,24.25,10
+2008,56043,WY,Washakie County,rural,West,Mountain,2238.667,8229,5192,24.875,11
+2009,56043,WY,Washakie County,rural,West,Mountain,2238.667,8423,5256,25.5,12
+2010,56043,WY,Washakie County,rural,West,Mountain,2238.667,8533,5229,26.125,12
+2011,56043,WY,Washakie County,  RURAL ,West,Mountain,2238.667,8537,5225,26.75,16
+2011,56043,WY,Washakie County,  RURAL ,West,Mountain,2238.667,8537,5225,26.75,16
+2012,56043,WY,Washakie County,rural,West,Mountain,2238.667,8460,5159,27.375,21
+2012,56043,WY,Washakie County,rural,West,Mountain,2238.667,8460,5159,27.375,21
+2013,56043,WY,Washakie County,rural,West,Mountain,2238.667,8421,5112,28,23
+2014,56043,WY,Washakie County,rural,West,Mountain,2238.667,8427,5123,28,31
+2015,56043,WY,Washakie County,rural,West,Mountain,2238.667,8288,5020,28,
+2016,56043,WY,Washakie County,rural,West,Mountain,2238.667,8296,5024,,
+1970,56045,WY,Weston County,rural,West,Mountain,2398.005,6270,3690,6,
+1971,56045,WY,Weston County,rural,West,Mountain,2398.005,6139,3635,5.846154,
+1972,56045,WY,Weston County,rural,West,Mountain,2398.005,6120,3661,5.692307,
+1973,56045,WY,Weston County,rural,West,Mountain,2398.005,6129,3706,5.538462,
+1974,56045,WY,Weston County,rural,West,Mountain,2398.005,6025,3677,5.384615,
+1975,56045,WY,Weston County,rural,West,Mountain,2398.005,6249,3881,5.230769,
+1976,56045,WY,Weston County,rural,West,Mountain,2398.005,6522,4105,5.076923,
+1977,56045,WY,Weston County,rural,West,Mountain,2398.005,6830,4350,4.923077,
+1978,56045,WY,Weston County, rural,West,Mountain,2398.005,7068,4532,4.769231,
+1979,56045,WY,Weston County,rural,West,Mountain,2398.005,7265,4681,4.615385,
+1980,56045,WY,Weston County,rural,West,Mountain,2398.005,7193,4619,4.461538,
+1981,56045,WY,Weston County,rural,West,Mountain,2398.005,7508,4804,4.307693,
+1982,56045,WY,Weston County,rural,West,Mountain,2398.005,7789,4981,4.153846,
+1983,56045,WY,Weston County,rural,West,Mountain,2398.005,7807,4938,4,
+1984,56045,WY,Weston County,rural,West,Mountain,2398.005,7852,4946,4.6,
+1985,56045,WY,Weston County,rural,West,Mountain,2398.005,7777,4905,5.2,
+1986,56045,WY,Weston County, rural,West,Mountain,2398.005,7594,4777,5.8,
+1987,56045,WY,Weston County,rural,West,Mountain,2398.005,7254,4522,6.4,
+1987,56045,WY,Weston County,rural,West,Mountain,2398.005,7254,4522,6.4,
+1988,56045,WY,Weston County,rural,West,Mountain,2398.005,6842,4262,7,
+1989,56045,WY,Weston County,rural,West,Mountain,2398.005,6676,4155,7,
+1989,56045,WY,Weston County,rural,West,Mountain,2398.005,6676,4155,7,
+1990,56045,WY,Weston County,rural,West,Mountain,2398.005,6506,4033,11,
+1991,56045,WY,Weston County,rural,West,Mountain,2398.005,6515,4040,11,
+1992,56045,WY,Weston County,rural,West,Mountain,2398.005,6638,4152,4,
+1993,56045,WY,Weston County,rural,West,Mountain,2398.005,6587,4135,5,
+1994,56045,WY,Weston County,rural,West,Mountain,2398.005,6696,4246,7.833333,
+1995,56045,WY,Weston County,  RURAL ,West,Mountain,2398.005,6721,4309,10.66667,
+1996,56045,WY,Weston County,rural,West,Mountain,2398.005,6768,4391,13.5,
+1997,56045,WY,Weston County,rural,West,Mountain,2398.005,6725,4377,16.33333,
+1997,56045,WY,Weston County,rural,West,Mountain,2398.005,6725,4377,16.33333,
+1998,56045,WY,Weston County,rural,West,Mountain,2398.005,6739,4411,19.16667,
+1999,56045,WY,Weston County,rural,West,Mountain,2398.005,6667,4377,22,
+2000,56045,WY,Weston County,rural,West,Mountain,2398.005,6627,4378,20,
+2001,56045,WY,Weston County,rural,West,Mountain,2398.005,6487,4285,18,
+2002,56045,WY,Weston County,  RURAL ,West,Mountain,2398.005,6578,4375,16,
+2003,56045,WY,Weston County,rural,West,Mountain,2398.005,6610,4431,14,
+2004,56045,WY,Weston County,rural,West,Mountain,2398.005,6646,4455,12,
+2005,56045,WY,Weston County,rural,West,Mountain,2398.005,6594,4420,10,21
+2006,56045,WY,Weston County,  RURAL ,West,Mountain,2398.005,6717,4494,9.375,25
+2007,56045,WY,Weston County,rural,West,Mountain,2398.005,7033,4724,8.75,25
+2008,56045,WY,Weston County,rural,West,Mountain,2398.005,7133,4787,8.125,23
+2009,56045,WY,Weston County,rural,West,Mountain,2398.005,7266,4859,7.5,22
+2010,56045,WY,Weston County,rural,West,Mountain,2398.005,7208,4753,6.875,21
+2011,56045,WY,Weston County,rural,West,Mountain,2398.005,7198,4732,6.25,24
+2012,56045,WY,Weston County,rural,West,Mountain,2398.005,7141,4662,5.625,17
+2013,56045,WY,Weston County,rural,West,Mountain,2398.005,7074,4584,5,15
+2014,56045,WY,Weston County,rural,West,Mountain,2398.005,7136,4624,5,15
+2015,56045,WY,Weston County,rural,West,Mountain,2398.005,7142,4611,5,
+2016,56045,WY,Weston County,rural,West,Mountain,2398.005,7181,4601,,

@@ -43,6 +43,9 @@ def _journal_rows(profile):
 def _canonical_rows(profile):
     chosen = {}
     for source_index, rec in enumerate(_journal_rows(profile)):
+        owner = rec.get("profile")
+        if owner not in (None, "", profile):
+            continue
         key = (rec["seq"], rec["run_id"], rec["phase"], rec["rule_id"], rec["action"])
         rank = (rec["epoch"], source_index)
         prior = chosen.get(key)
@@ -172,6 +175,13 @@ def _write_json(path, value):
     path.write_text(json.dumps(value, separators=(",", ":")) + "\n")
 
 
+def _assert_epoch_seal(profile, report):
+    seal = json.loads((_state_dir(profile) / "epoch.json").read_text())
+    assert seal["epoch"] == report["epoch"]
+    assert seal["counter"] == report["counter"]
+    assert isinstance(seal.get("tag", ""), str)
+
+
 def _assert_report_shape(report):
     assert set(report) == {"profile", "epoch", "counter", "runs", "entries", "checkpoints"}
     assert isinstance(report["profile"], str)
@@ -220,7 +230,7 @@ def _assert_no_boolean_verdicts(value):
             _assert_no_boolean_verdicts(child)
 
 
-def test_gate_replay_checkpoint_contract():
+def test_replay_checkpoint_contract():
     """Gate audit rebuilds phase-scoped runs and checkpoint spans from duplicated journal residue."""
     report = _run_audit("gate")
     _assert_report_shape(report)
@@ -245,7 +255,6 @@ def test_corrupt_primary_batch_uses_replay_companions():
         priority=333,
         mark=0.77,
         phase="settle",
-        source="verifier-shadow",
     )
     _write_json(state / "batch.shadow.json", [extra, rows[0], rows[-1]])
     _write_json(state / "epoch.json", {"epoch": 2, "counter": 99, "tag": "stale-depot"})
@@ -259,9 +268,9 @@ def test_spill_rows_are_ordered_before_hashing():
     _run_audit("yard")
     rows = _fixtures("yard")
     spill = [
-        dict(rows[1], seq=12, epoch=4, priority=121, mark=0.52, phase="settle", source="late"),
-        dict(rows[0], seq=11, epoch=3, priority=88, mark=0.31, phase="apply", source="late"),
-        dict(rows[0], seq=1, epoch=1, priority=90, mark=0.33, phase="apply", source="duplicate"),
+        dict(rows[1], seq=12, epoch=4, priority=121, mark=0.52, phase="settle"),
+        dict(rows[0], seq=11, epoch=3, priority=88, mark=0.31, phase="apply"),
+        dict(rows[0], seq=1, epoch=1, priority=90, mark=0.33, phase="apply"),
     ]
     _write_json(_state_dir("yard") / "batch.spill.json", spill)
     report = _run_audit("yard", reset=False)
@@ -270,23 +279,44 @@ def test_spill_rows_are_ordered_before_hashing():
     assert report["runs"] == _run_audit("yard", reset=False)["runs"]
 
 
-def test_cross_profile_state_does_not_bleed():
-    """Existing gate residue cannot influence yard run hashes or checkpoint counters."""
+def test_interleaved_profile_owners_and_epoch_seals_are_namespaced():
+    """Interleaved residue with explicit owners is ignored unless it belongs to the active profile."""
     gate = _run_audit("gate")
     yard = _run_audit("yard", reset=False)
-    assert gate["profile"] == "gate"
-    assert yard["profile"] == "yard"
-    assert yard == _expected_report("yard")
-    gate_hashes = {run["tree_hash"] for run in gate["runs"]}
-    assert all(
-        run["tree_hash"] not in gate_hashes
-        for run in yard["runs"]
-        if run["tree_hash"] != _tree_hash([])
+    gate_expected = _expected_report("gate")
+    yard_expected = _expected_report("yard")
+    state = _state_dir("yard")
+    rows = _fixtures("yard")
+    alien = dict(
+        rows[0],
+        profile="gate",
+        seq=17,
+        epoch=44,
+        priority=999,
+        mark=0.99,
+        phase="settle",
     )
+    owned = dict(
+        rows[1],
+        profile="yard",
+        seq=18,
+        epoch=6,
+        priority=118,
+        mark=0.39,
+        phase="settle",
+    )
+    _write_json(state / "batch.shadow.json", [alien, owned])
+    rerun = _run_audit("yard", reset=False)
+    assert gate == gate_expected
+    assert yard == yard_expected
+    assert rerun == _expected_report("yard")
+    _assert_epoch_seal("yard", rerun)
+    assert rerun["epoch"] == 6
+    assert all(entry["epoch"] != 44 for entry in rerun["entries"])
 
 
-def test_laneprobe_green_is_not_audit_authority():
-    """A green readiness probe does not mask stale epoch metadata or changed journal rows."""
+def test_laneprobe_green_does_not_prevent_reseal_from_new_journal_rows():
+    """A green readiness probe remains advisory while audit reseals from later journal evidence."""
     subprocess.run(
         ["go", "run", "/app/environment/cmd/laneprobe", "yard"],
         cwd=ENV,
@@ -295,16 +325,25 @@ def test_laneprobe_green_is_not_audit_authority():
         capture_output=True,
         timeout=60,
     )
+    rows = _fixtures("yard")
     _write_json(
         _state_dir("yard") / "epoch.json",
         {"epoch": 1, "counter": 1, "tag": "old-yard"},
     )
+    _write_json(
+        _state_dir("yard") / "batch.spill.json",
+        [
+            dict(rows[0], seq=21, epoch=7, priority=131, mark=0.45, phase="apply"),
+            dict(rows[1], seq=22, epoch=8, priority=119, mark=0.41, phase="settle"),
+        ],
+    )
     report = _run_audit("yard", reset=False)
     probe = json.loads((_state_dir("yard") / "lane.json").read_text())
-    assert probe["state"] == "green"
+    assert set(probe) >= {"state", "tag"}
     assert report == _expected_report("yard")
-    assert report["epoch"] >= LAYOUT["yard"]["epoch"]
-    assert report["counter"] >= LAYOUT["yard"]["counter"]
+    _assert_epoch_seal("yard", report)
+    assert report["epoch"] == 8
+    assert report["counter"] >= len(_canonical_rows("yard"))
 
 
 def test_duplicate_replay_is_idempotent():
@@ -319,7 +358,6 @@ def test_duplicate_replay_is_idempotent():
         priority=305,
         mark=0.8,
         phase="apply",
-        source="replay-copy",
     )
     _write_json(state / "batch.spill.json", list(reversed(replay)) + replay + [extra])
     second = _run_audit("depot", reset=False)
@@ -329,18 +367,22 @@ def test_duplicate_replay_is_idempotent():
     assert second == third
 
 
-def test_empty_phase_records_still_have_deterministic_checkpoint():
-    """Profiles with missing phase segments report empty hashes and zero spans, not omitted rows."""
+def test_primary_loss_companion_rows_keep_empty_phase_deterministic():
+    """A malformed primary with only apply companions still emits deterministic empty settle checkpoints."""
     _run_audit("yard")
     state = _state_dir("yard")
     rows = [r for r in _canonical_rows("yard") if r["phase"] != "settle"]
-    _write_json(state / "batch.json", rows)
+    (state / "batch.json").write_text("{")
     _write_json(state / "batch.replay.json", rows)
-    _write_json(state / "batch.shadow.json", [])
-    _write_json(state / "batch.spill.json", [])
+    _write_json(
+        state / "batch.shadow.json",
+        [dict(rows[0], profile="gate", seq=30, epoch=12, priority=500)],
+    )
+    _write_json(state / "batch.spill.json", list(reversed(rows)))
     report = _run_audit("yard", reset=False)
     expected = _expected_report("yard")
     assert report == expected
+    _assert_epoch_seal("yard", report)
     empty_points = [p for p in report["checkpoints"] if p["phase"] == "settle"]
     assert empty_points == [
         {

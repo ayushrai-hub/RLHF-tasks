@@ -1,0 +1,27 @@
+--- a/src/middleware/local_exec.go
++++ b/src/middleware/local_exec.go
+@@ -7,9 +7,22 @@ import (
+ 	"strings"
+ )
+ 
++func isScriptSafe(script string) bool {
++	badChars := []string{";", "|", "&", "`", "$", "<", ">", "\n", "\r"}
++	for _, c := range badChars {
++		if strings.Contains(script, c) {
++			return false
++		}
++	}
++	return true
++}
++
+ func (m *Middleware) ExecuteLocal(payload []byte) error {
+-	cmdStr := strings.TrimSpace(m.Binary + " " + m.Script)
+-	cmd := exec.Command("sh", "-c", cmdStr)
++	if !isScriptSafe(m.Script) {
++		return fmt.Errorf("middleware_local: invalid script")
++	}
++
++	cmd := exec.Command(m.Binary, m.Script)
+ 	cmd.Stdin = bytes.NewReader(payload)
+ 	var stderr bytes.Buffer
+ 	cmd.Stderr = &stderr

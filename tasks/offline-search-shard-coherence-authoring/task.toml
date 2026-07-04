@@ -1,0 +1,47 @@
+version = "2.0"
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+difficulty = "hard"
+category = "data-processing"
+subcategories = []
+tags = ["web-search", "go", "ranking", "cache-invalidation", "provenance", "offline"]
+languages = ["go", "bash"]
+codebase_size = "small"
+number_of_milestones = 0
+expert_time_estimate_min = 120
+junior_time_estimate_min = 360
+
+[metadata.category_semantics]
+primary_data_processing_objective = "Transform local snapshot shards, canonical maps, robots rules, query records, and segment-cache state into a ranked offline search-run JSON report with snapshot digest and per-segment provenance."
+primary_success_condition = "The pipeline validates and serializes current snapshot and query inputs into schema-valid search-run output with consistent digest, ranking, canonicalization, robots filtering, and cache reuse semantics."
+data_inputs = [
+    "/app/environment/configs/public-plan.json",
+    "/app/environment/data/snapshots/public/manifest.json",
+    "/app/environment/data/queries/public.jsonl",
+    "/app/environment/state/segment-cache.json",
+]
+data_outputs = ["/app/output/search-run.json"]
+public_data_invariants = [
+    "snapshot_hash digest must transform manifest, canonical, robots, and shard bytes in manifest order",
+    "segment cache entries must validate snapshot_hash, query_id, query_text, shard, and limit before reuse",
+]
+verifier_observations = [
+    "validate regenerated search-run.json schema, ranking fields, and provenance against fixture snapshots",
+    "validate snapshot_hash digest changes when shard or canonical data transforms",
+    "validate cache hit, miss, and stale status after incompatible segment-cache records",
+]
+
+[agent]
+timeout_sec = 1800
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+allow_internet = false
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 4096
+storage_mb = 12288

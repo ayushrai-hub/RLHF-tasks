@@ -1,0 +1,6 @@
+[puzzle]
+db_path = "/app/environment/data/puzzle.sqlite"
+atlas_path = "/app/environment/media/glyphs.png"
+moves_path = "/app/environment/scripts/solver.moves"
+terraform_dir = "/app/environment/terraform"
+artifacts_dir = "/app/environment/artifacts"

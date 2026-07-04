@@ -1,0 +1,7 @@
+{
+  "quorum_size": 3,
+  "max_term": 2147483647,
+  "max_index": 1048576,
+  "require_production_env": true,
+  "allowed_ops": ["set", "del"]
+}

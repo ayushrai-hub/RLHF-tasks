@@ -1,0 +1,113 @@
+use std::collections::{BTreeMap, BTreeSet};
+
+use crate::sim::batch::Leg;
+use crate::sim::digest::pot_digest;
+use crate::sim::pot::StagingMove;
+use crate::sim::record::Record;
+
+#[derive(Clone, Debug)]
+pub struct Ledger {
+    pub pots: BTreeMap<u32, i64>,
+    pub retired: BTreeSet<u32>,
+    pub staging: Vec<StagingMove>,
+    pub stream: Vec<Record>,
+    pub seq: u64,
+    pub resumed: bool,
+}
+
+impl Ledger {
+    pub fn new(pots: BTreeMap<u32, i64>) -> Self {
+        Self {
+            pots,
+            retired: BTreeSet::new(),
+            staging: Vec::new(),
+            stream: Vec::new(),
+            seq: 0,
+            resumed: false,
+        }
+    }
+
+    fn bump(&mut self, acct: u32, kind: &str, val: i64, step: u32) {
+        self.seq += 1;
+        self.stream.push(Record::new(self.seq, acct, kind, val, step));
+    }
+
+    fn flush_staging(&mut self, step: u32) {
+        let moves = self.staging.clone();
+        self.staging.clear();
+        for mv in moves {
+            if self.retired.contains(&mv.from) || self.retired.contains(&mv.to) {
+                continue;
+            }
+            let from_bal = self.pots.get(&mv.from).copied().unwrap_or(0);
+            let to_bal = self.pots.get(&mv.to).copied().unwrap_or(0);
+            self.pots.insert(mv.from, from_bal - mv.amt);
+            self.pots.insert(mv.to, to_bal + mv.amt);
+            self.bump(mv.from, "xfer", -mv.amt, step);
+            self.bump(mv.to, "xfer", mv.amt, step);
+        }
+    }
+
+    pub fn apply_leg(&mut self, step: u32, leg: Leg) {
+        match leg {
+            Leg::Open(acct, seed) => {
+                if self.retired.contains(&acct) {
+                    return;
+                }
+                self.pots.insert(acct, seed);
+                self.bump(acct, "open", seed, step);
+            }
+            Leg::Move(from, to, amt) => {
+                if self.resumed {
+                    self.flush_staging(step);
+                }
+                self.staging.push(StagingMove { from, to, amt });
+            }
+            Leg::Retire(acct) => {
+                self.retired.insert(acct);
+                self.pots.remove(&acct);
+                self.bump(acct, "retire", 0, step);
+            }
+            Leg::Close => {
+                self.flush_staging(step);
+            }
+        }
+    }
+
+    pub fn end_step(&mut self, step: u32) {
+        if !self.staging.is_empty() {
+            self.flush_staging(step);
+        }
+    }
+
+    pub fn step_m(&mut self, step: u32, legs: &[Leg]) {
+        let ordered: Vec<Leg> = if self.resumed {
+            let mut close_first = Vec::new();
+            let mut rest = Vec::new();
+            for leg in legs {
+                if matches!(leg, Leg::Close) {
+                    close_first.push(leg.clone());
+                } else {
+                    rest.push(leg.clone());
+                }
+            }
+            close_first.extend(rest);
+            close_first
+        } else {
+            legs.to_vec()
+        };
+
+        for leg in ordered {
+            self.apply_leg(step, leg);
+        }
+        self.end_step(step);
+    }
+
+    pub fn aggregate_digest(&self) -> String {
+        pot_digest(self)
+    }
+
+    pub fn seq_high_water(&self) -> u64 {
+        self.seq
+    }
+}

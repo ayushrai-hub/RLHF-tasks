@@ -1,0 +1,54 @@
+{
+  "schema_version": "segment-cache-v1",
+  "entries": [
+    {
+      "snapshot_hash": "sha256:oldpublic",
+      "query_id": "q-solar",
+      "query_text": "solar inverter warranty",
+      "shard": "news",
+      "limit": 3,
+      "results": [
+        {
+          "canonical_url": "https://old.example.com/solar-warranty-2024",
+          "selected_url": "https://old.example.com/solar-warranty-2024",
+          "title": "Old solar warranty memo",
+          "score": 99.0,
+          "published": "2024-01-01",
+          "source_shard": "news",
+          "matched_terms": [
+            "solar",
+            "inverter",
+            "warranty"
+          ],
+          "supporting_urls": [
+            "https://old.example.com/solar-warranty-2024"
+          ]
+        }
+      ]
+    },
+    {
+      "snapshot_hash": "sha256:oldpublic",
+      "query_id": "q-reef",
+      "query_text": "\"reef lantern\" maintenance",
+      "shard": "docs",
+      "limit": 3,
+      "results": [
+        {
+          "canonical_url": "https://old.example.com/reef-lantern",
+          "selected_url": "https://old.example.com/reef-lantern",
+          "title": "Old reef lantern archive",
+          "score": 77.0,
+          "published": "2024-01-01",
+          "source_shard": "docs",
+          "matched_terms": [
+            "reef",
+            "lantern"
+          ],
+          "supporting_urls": [
+            "https://old.example.com/reef-lantern"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+# Backup log excerpt — nightly-2026-05-19.log
+
+- BACKUP_RESULT 2026-05-19T03:00:00Z analytics-pipeline us-east-1 success 190 250 backup_logs/nightly-2026-05-19.log
+- BACKUP_RESULT 2026-05-19T03:00:00Z cache-cluster us-east-1 success 8 2 backup_logs/nightly-2026-05-19.log
+- BACKUP_RESULT 2026-05-19T03:00:00Z identity-core us-east-1 success 28 6 backup_logs/nightly-2026-05-19.log
+- BACKUP_RESULT 2026-05-19T03:00:00Z notification-hub us-east-1 success 32 18 backup_logs/nightly-2026-05-19.log
+- BACKUP_RESULT 2026-05-19T03:00:00Z order-api us-east-1 success 40 15 backup_logs/nightly-2026-05-19.log
+- BACKUP_RESULT 2026-05-19T03:00:00Z payments-ledger us-east-1 failure 55 12 backup_logs/nightly-2026-05-19.log
+- BACKUP_RESULT 2026-05-19T03:00:00Z search-index us-east-1 success 100 95 backup_logs/nightly-2026-05-19.log
+- BACKUP_RESULT 2026-05-19T03:00:00Z search-index us-east-1 failure 102 125 backup_logs/nightly-2026-05-19.log

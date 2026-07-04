@@ -1,0 +1,20 @@
+# Backup log excerpt — nightly-2026-05-26.log
+
+- BACKUP_RESULT 2026-05-26T03:00:00Z analytics-pipeline us-east-1 failure 200 400 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z analytics-pipeline us-east-1 success 175 230 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z cache-cluster us-east-1 failure 14 2 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z cache-cluster eu-west-1 failure 40 8 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-06-15T03:00:00Z cache-cluster us-east-1 failure 50 6 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z identity-core us-east-1 failure 32 8 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z identity-core us-east-1 success 25 5 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z notification-hub us-east-1 success 28 22 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z notification-hub us-east-1 failure 48 24 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z order-api us-east-1 partial 70 15 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z order-api us-east-1 failure 65 14 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z order-api us-east-1 success 38 14 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z payments-ledger us-east-1-primary failure 50 8 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z payments-ledger us-east-1 success 45 10 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z payments-ledger eu-west-1 failure 99 25 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-06-02T03:00:00Z payments-ledger us-east-1 failure 80 20 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z search-index us-east-1 success 98 88 backup_logs/nightly-2026-05-26.log
+- BACKUP_RESULT 2026-05-26T03:00:00Z search-index us-east-1 failure 125 90 backup_logs/nightly-2026-05-26.log

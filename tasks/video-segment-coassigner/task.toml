@@ -1,0 +1,29 @@
+version = "2.0"
+
+[metadata]
+name = "video-segment-coassigner"
+author_name = "anonymous"
+author_email = "anonymous"
+difficulty = "medium"
+category = "data-processing"
+subcategories = []
+tags = ["typescript", "optimization", "video-streaming", "assignment", "constraints"]
+languages = ["typescript"]
+number_of_milestones = 0
+expert_time_estimate_min = 120
+junior_time_estimate_min = 900
+codebase_size = "minimal"
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1200.0
+
+[environment]
+allow_internet = false
+build_timeout_sec = 1200.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+workdir = "/app"

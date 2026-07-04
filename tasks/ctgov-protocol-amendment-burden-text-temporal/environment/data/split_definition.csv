@@ -1,0 +1,4 @@
+split,description,target_visible
+train,Agent-visible labeled split,yes
+validation,Agent-visible labeled split,yes
+test,Held-out 2025 rows with target omitted,no

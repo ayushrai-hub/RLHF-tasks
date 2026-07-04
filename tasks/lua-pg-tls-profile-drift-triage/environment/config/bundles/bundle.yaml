@@ -1,0 +1,16 @@
+api_version: payments-ingress-tls/1
+rollover_epoch: "2026-03-15"
+reference_clock: "2026-06-01"
+trust_anchors:
+  - anchor_id: legacy-stale
+    fingerprint: "ff00ee11dd22cc33bb44aa55996677889900aabbccddeeff0011223344556677"
+    enabled: true
+  - anchor_id: live-anchor
+    fingerprint: "aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899"
+    enabled: true
+  - anchor_id: revoked-slot
+    fingerprint: "ddeeff00112233445566778899aabbccddeeff00112233445566778899001122"
+    enabled: true
+  - anchor_id: rollover-phantom
+    fingerprint: "00112233445566778899aabbccddeeff00112233445566778899aabbccddeeff"
+    enabled: true

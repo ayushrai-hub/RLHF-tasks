@@ -1,0 +1,781 @@
+row_id,split,year,nct_id,brief_title,condition_group,sponsor_type,phase,enrollment,sites_planned,duration_months,eligibility_word_count,country_count,prior_amendment_count,rare_disease,gene_therapy,protocol_amendment_burden
+1,train,2023,NCT09000002,rare disease rare genetic,rare_disease,government,phase4,104,1,4,213,1,1,1,0,0
+2,train,2023,NCT09000003,cardiology,cardiology,academic,phase2,75,3,16,114,1,2,0,0,0
+3,train,2023,NCT09000004,rare disease rare genetic,rare_disease,academic,phase2,260,4,30,152,2,2,1,1,0
+4,train,2023,NCT09000005,metabolic,metabolic,industry,phase2,180,4,27,167,2,1,0,1,0
+5,train,2023,NCT09000006,infectious basket platform,infectious,industry,phase3,265,2,10,228,1,6,0,0,1
+6,train,2023,NCT09000007,neurology first in human long term extension,neurology,small_biotech,phase3,43,1,4,168,1,2,0,0,0
+7,train,2023,NCT09000008,oncology adaptive basket long term extension,oncology,academic,phase1,106,1,10,278,1,2,0,0,0
+8,train,2023,NCT09000009,infectious basket basket first in human long term extension,infectious,small_biotech,phase3,236,8,40,200,2,5,0,0,0
+9,train,2023,NCT09000010,cardiology dose adaptive,cardiology,government,phase3,110,11,31,152,1,3,0,0,0
+10,train,2023,NCT09000011,neurology adaptive platform,neurology,academic,phase2,73,1,6,248,2,4,0,0,0
+11,train,2023,NCT09000012,cardiology,cardiology,industry,phase4,29,5,23,143,3,1,0,0,0
+12,train,2023,NCT09000013,neurology long term extension,neurology,government,phase4,157,4,33,184,2,0,0,0,0
+13,train,2023,NCT09000014,neurology long term extension,neurology,industry,phase2,43,6,25,239,3,3,0,0,0
+14,train,2023,NCT09000015,rare disease rare genetic first in human,rare_disease,small_biotech,phase1,45,1,10,251,1,2,1,0,1
+15,train,2023,NCT09000016,metabolic platform dose,metabolic,academic,phase3,161,8,24,297,1,4,0,0,0
+16,train,2023,NCT09000017,neurology,neurology,academic,phase2,175,1,16,179,3,0,0,0,0
+17,train,2023,NCT09000018,oncology adaptive device,oncology,academic,phase4,20,7,19,216,1,2,0,0,0
+18,train,2023,NCT09000019,infectious pediatric registry long term extension,infectious,government,phase3,314,4,40,294,2,4,0,0,0
+19,train,2023,NCT09000020,neurology pediatric pediatric,neurology,academic,phase3,49,11,32,197,1,3,0,0,0
+20,train,2023,NCT09000021,neurology rare genetic first in human,neurology,small_biotech,phase2,66,5,6,210,1,0,1,0,1
+21,train,2023,NCT09000022,rare disease rare genetic,rare_disease,industry,phase2,185,5,35,164,1,1,1,0,0
+22,train,2023,NCT09000023,metabolic,metabolic,industry,phase3,274,10,32,80,5,2,0,0,0
+23,train,2023,NCT09000024,neurology,neurology,academic,phase4,160,3,32,179,3,0,0,0,1
+24,train,2023,NCT09000025,infectious first in human long term extension,infectious,small_biotech,phase3,60,6,40,195,1,4,0,0,0
+25,train,2023,NCT09000026,oncology,oncology,industry,phase3,41,16,35,200,5,2,0,0,0
+26,train,2023,NCT09000027,neurology decentralized decentralized first in human,neurology,small_biotech,phase2,76,,21,257,1,3,0,0,0
+27,train,2023,NCT09000028,neurology,neurology,academic,phase1,29,4,16,168,1,3,0,0,0
+28,train,2023,NCT09000029,infectious,infectious,government,phase1,83,3,9,257,1,1,0,0,0
+29,train,2023,NCT09000030,infectious,infectious,industry,phase2,259,4,28,135,2,2,0,1,0
+30,train,2023,NCT09000031,oncology first in human long term extension,oncology,small_biotech,phase3,83,7,30,164,1,4,0,0,0
+31,train,2023,NCT09000032,metabolic long term extension,metabolic,government,phase1,107,1,21,118,4,3,0,0,1
+32,train,2023,NCT09000033,metabolic long term extension,metabolic,academic,phase4,42,3,23,115,1,2,0,0,0
+33,train,2023,NCT09000034,rare disease rare genetic first in human,rare_disease,small_biotech,phase4,14,3,4,200,1,2,1,0,0
+34,train,2023,NCT09000035,cardiology first in human,cardiology,small_biotech,phase1,49,5,32,250,1,3,0,0,0
+35,train,2023,NCT09000036,oncology,oncology,academic,phase4,39,,19,214,2,3,0,0,0
+36,train,2023,NCT09000037,rare disease biomarker platform rare genetic first in human long term extension,rare_disease,small_biotech,phase1,31,2,22,356,1,2,1,1,1
+37,train,2023,NCT09000038,metabolic,metabolic,academic,phase1,37,2,14,235,1,2,0,0,0
+38,train,2023,NCT09000039,oncology,oncology,academic,phase1,49,4,15,138,3,1,0,0,0
+39,train,2023,NCT09000040,cardiology,cardiology,industry,phase4,30,2,9,252,4,2,0,0,0
+40,train,2023,NCT09000041,neurology long term extension,neurology,industry,phase3,223,,16,95,2,4,0,0,1
+41,train,2023,NCT09000042,infectious,infectious,government,phase1,148,2,4,286,2,3,0,0,0
+42,train,2023,NCT09000043,oncology rare genetic,oncology,academic,phase2,18,1,7,225,1,0,1,0,0
+43,train,2023,NCT09000044,neurology first in human,neurology,small_biotech,phase1,184,2,7,171,3,1,0,0,0
+44,train,2023,NCT09000045,oncology,oncology,industry,phase1,31,3,4,169,1,3,0,0,1
+45,train,2023,NCT09000046,metabolic,metabolic,government,phase2,83,2,11,189,1,1,0,0,0
+46,train,2023,NCT09000047,infectious long term extension,infectious,government,phase2,113,,4,181,3,1,0,0,1
+47,train,2023,NCT09000048,oncology pediatric registry rare genetic,oncology,government,phase2,56,4,14,298,3,4,1,0,1
+48,train,2023,NCT09000049,infectious,infectious,government,phase1,124,,21,232,3,1,0,0,0
+49,train,2023,NCT09000050,rare disease platform extension rare genetic,rare_disease,government,phase4,21,2,14,230,3,2,1,0,1
+50,train,2023,NCT09000051,neurology long term extension,neurology,academic,phase1,50,5,27,226,1,1,0,0,0
+51,train,2023,NCT09000052,rare disease rare genetic long term extension,rare_disease,industry,phase1,119,2,4,191,2,1,1,0,0
+52,train,2023,NCT09000053,infectious first in human,infectious,small_biotech,phase4,45,4,12,199,1,1,0,0,0
+53,train,2023,NCT09000054,cardiology,cardiology,industry,phase4,121,2,15,190,1,0,0,0,0
+54,train,2023,NCT09000055,oncology,oncology,government,phase1,108,1,9,209,1,1,0,0,0
+55,train,2023,NCT09000056,infectious,infectious,government,phase3,28,5,14,256,4,4,0,0,1
+56,train,2023,NCT09000057,infectious basket dose long term extension,infectious,government,phase3,88,18,34,232,3,4,0,1,0
+57,train,2023,NCT09000058,metabolic rare genetic,metabolic,government,phase4,35,13,28,231,1,2,1,0,0
+58,train,2023,NCT09000059,oncology basket device long term extension,oncology,industry,phase4,82,2,11,256,3,2,0,0,1
+59,train,2023,NCT09000060,neurology long term extension,neurology,government,phase2,103,12,32,241,3,2,0,0,0
+60,train,2023,NCT09000061,infectious dose registry,infectious,academic,phase4,192,1,16,226,1,3,0,0,1
+61,train,2023,NCT09000062,neurology,neurology,industry,phase4,110,23,42,170,3,1,0,0,0
+62,train,2023,NCT09000063,metabolic adaptive biomarker,metabolic,industry,phase3,293,6,27,244,3,5,0,0,1
+63,train,2023,NCT09000064,oncology,oncology,industry,phase3,35,,36,180,2,4,0,1,0
+64,train,2023,NCT09000065,neurology,neurology,industry,phase4,43,4,24,147,3,1,0,0,0
+65,train,2023,NCT09000066,metabolic decentralized extension long term extension,metabolic,academic,phase1,45,2,17,253,1,1,0,0,0
+66,train,2023,NCT09000067,oncology long term extension,oncology,industry,phase4,512,6,32,170,5,1,0,0,0
+67,train,2023,NCT09000068,oncology first in human,oncology,small_biotech,phase2,141,3,7,151,1,2,0,0,0
+68,train,2023,NCT09000069,rare disease rare genetic long term extension,rare_disease,academic,phase3,129,7,33,247,2,2,1,1,0
+69,train,2023,NCT09000070,rare disease rare genetic,rare_disease,academic,phase1,83,3,10,216,1,2,1,0,1
+70,train,2023,NCT09000071,oncology first in human,oncology,small_biotech,phase2,151,4,19,154,1,1,0,0,0
+71,train,2023,NCT09000072,infectious,infectious,government,phase2,48,17,31,212,2,0,0,0,0
+72,train,2023,NCT09000073,metabolic basket adaptive,metabolic,academic,phase3,76,4,30,291,2,5,0,0,0
+73,train,2023,NCT09000074,neurology first in human,neurology,small_biotech,phase1,72,2,16,174,2,1,0,0,0
+74,train,2023,NCT09000075,oncology,oncology,government,phase2,125,8,25,217,1,3,0,0,0
+75,train,2023,NCT09000076,oncology,oncology,government,phase3,145,1,16,208,1,4,0,0,0
+76,train,2023,NCT09000077,metabolic pediatric biomarker,metabolic,academic,phase1,14,2,4,248,1,4,0,0,0
+77,train,2023,NCT09000078,neurology long term extension,neurology,government,phase2,211,4,19,206,1,1,0,0,0
+78,train,2023,NCT09000079,infectious biomarker dose first in human long term extension,infectious,small_biotech,phase2,82,1,8,237,1,4,0,0,0
+79,train,2023,NCT09000080,metabolic long term extension,metabolic,academic,phase1,60,8,38,251,2,3,0,0,0
+80,train,2023,NCT09000081,infectious pediatric device first in human,infectious,small_biotech,phase3,127,7,18,310,2,6,0,0,0
+81,train,2023,NCT09000082,oncology,oncology,industry,phase4,24,1,8,185,2,2,0,0,0
+82,train,2023,NCT09000083,metabolic pediatric basket,metabolic,academic,phase2,183,5,18,203,1,3,0,0,0
+83,train,2023,NCT09000084,oncology,oncology,industry,phase4,120,4,14,254,4,3,0,0,1
+84,train,2023,NCT09000085,neurology decentralized extension first in human long term extension,neurology,small_biotech,phase3,230,3,22,211,1,3,0,0,1
+85,train,2023,NCT09000086,rare disease rare genetic,rare_disease,academic,phase1,21,11,36,270,2,2,1,1,0
+86,train,2023,NCT09000087,oncology platform registry,oncology,academic,phase2,169,1,9,291,1,3,0,0,0
+87,train,2023,NCT09000088,infectious basket pediatric first in human long term extension,infectious,small_biotech,phase2,66,5,29,309,2,4,0,1,1
+88,train,2023,NCT09000089,neurology,neurology,government,phase4,62,,19,202,1,1,0,0,0
+89,train,2023,NCT09000090,rare disease rare genetic first in human long term extension,rare_disease,small_biotech,phase2,57,1,21,176,1,1,1,1,0
+90,train,2023,NCT09000091,infectious,infectious,academic,phase2,74,4,18,180,1,0,0,0,0
+91,train,2023,NCT09000092,metabolic decentralized decentralized,metabolic,industry,phase4,128,3,14,233,2,4,0,0,0
+92,train,2023,NCT09000093,metabolic adaptive registry long term extension,metabolic,government,phase4,50,1,8,255,1,4,0,0,0
+93,train,2023,NCT09000094,oncology rare genetic first in human long term extension,oncology,small_biotech,phase1,38,3,15,266,1,3,1,1,1
+94,train,2023,NCT09000095,infectious,infectious,academic,phase4,25,1,10,154,1,2,0,0,0
+95,train,2023,NCT09000096,infectious first in human,infectious,small_biotech,phase1,208,1,20,148,1,1,0,0,0
+96,train,2023,NCT09000097,metabolic,metabolic,academic,phase1,160,8,20,267,1,2,0,0,0
+97,train,2023,NCT09000098,rare disease rare genetic,rare_disease,industry,phase3,106,9,45,212,4,3,1,0,0
+98,train,2023,NCT09000099,neurology,neurology,academic,phase3,45,10,26,95,3,2,0,0,0
+99,train,2023,NCT09000100,neurology,neurology,academic,phase1,89,2,7,225,1,2,0,0,0
+100,train,2023,NCT09000101,neurology platform extension,neurology,academic,phase2,291,2,12,212,1,2,0,0,0
+101,train,2023,NCT09000102,metabolic basket extension rare genetic first in human,metabolic,small_biotech,phase2,96,3,32,343,1,4,1,0,0
+102,train,2023,NCT09000103,rare disease extension platform rare genetic,rare_disease,academic,phase1,40,3,15,297,2,3,1,1,1
+103,train,2023,NCT09000104,cardiology rare genetic,cardiology,academic,phase1,52,1,5,313,1,3,1,0,0
+104,train,2023,NCT09000105,metabolic,metabolic,academic,phase2,75,1,18,178,1,3,0,1,0
+105,train,2023,NCT09000106,infectious,infectious,academic,phase3,147,9,39,197,1,2,0,0,0
+106,train,2023,NCT09000107,infectious,infectious,government,phase4,103,3,18,190,3,3,0,0,0
+107,train,2023,NCT09000108,neurology first in human,neurology,small_biotech,phase3,68,8,29,137,1,2,0,0,0
+108,train,2023,NCT09000109,rare disease rare genetic long term extension,rare_disease,academic,phase4,37,2,4,281,4,1,1,0,1
+109,train,2023,NCT09000110,neurology,neurology,government,phase1,43,1,19,288,2,1,0,0,0
+110,train,2023,NCT09000111,cardiology first in human,cardiology,small_biotech,phase2,88,4,21,89,1,1,0,0,1
+111,train,2023,NCT09000112,oncology rare genetic first in human long term extension,oncology,small_biotech,phase1,11,9,20,281,1,3,1,0,0
+112,train,2023,NCT09000113,metabolic,metabolic,academic,phase1,44,5,20,190,2,1,0,0,0
+113,train,2023,NCT09000114,metabolic,metabolic,government,phase3,164,7,23,143,2,2,0,0,0
+114,train,2023,NCT09000115,infectious extension platform,infectious,industry,phase2,477,2,33,195,2,1,0,0,0
+115,train,2023,NCT09000116,metabolic long term extension,metabolic,academic,phase1,102,5,4,268,2,3,0,0,1
+116,train,2023,NCT09000117,cardiology,cardiology,government,phase3,126,1,5,201,1,4,0,0,0
+117,train,2023,NCT09000118,infectious first in human long term extension,infectious,small_biotech,phase3,300,,28,251,2,3,0,0,1
+118,train,2023,NCT09000119,metabolic registry platform,metabolic,government,phase3,154,6,27,285,1,5,0,0,0
+119,train,2023,NCT09000120,metabolic,metabolic,academic,phase3,223,7,24,222,1,4,0,0,1
+120,train,2023,NCT09000121,oncology,oncology,government,phase3,508,5,43,188,1,3,0,0,0
+121,train,2023,NCT09000122,neurology biomarker registry,neurology,academic,phase3,57,9,25,225,2,4,0,0,0
+122,train,2023,NCT09000123,metabolic first in human long term extension,metabolic,small_biotech,phase3,62,27,66,198,2,4,0,1,0
+123,train,2023,NCT09000124,cardiology,cardiology,government,phase2,51,2,7,152,1,3,0,0,0
+124,train,2023,NCT09000125,rare disease adaptive platform rare genetic first in human,rare_disease,small_biotech,phase1,97,3,15,305,2,3,1,0,0
+125,train,2023,NCT09000126,cardiology,cardiology,industry,phase1,105,3,26,173,3,1,0,0,0
+126,train,2023,NCT09000127,rare disease registry registry rare genetic,rare_disease,industry,phase3,108,35,60,245,4,5,1,0,0
+127,train,2023,NCT09000128,rare disease rare genetic,rare_disease,academic,phase2,28,5,12,142,2,2,1,0,1
+128,train,2023,NCT09000129,oncology,oncology,industry,phase1,194,2,7,147,2,1,0,0,0
+129,train,2023,NCT09000130,cardiology,cardiology,academic,phase3,232,4,27,223,2,4,0,0,1
+130,train,2023,NCT09000131,metabolic,metabolic,industry,phase4,43,3,18,252,2,1,0,0,0
+131,train,2023,NCT09000132,infectious,infectious,academic,phase3,86,,5,167,1,4,0,0,0
+132,train,2023,NCT09000133,rare disease rare genetic,rare_disease,government,phase4,61,2,26,222,1,0,1,0,0
+133,train,2023,NCT09000134,rare disease rare genetic long term extension,rare_disease,government,phase1,26,6,24,294,2,1,1,0,0
+134,train,2023,NCT09000135,oncology pediatric biomarker long term extension,oncology,government,phase1,55,,19,213,3,3,0,0,0
+135,train,2023,NCT09000136,infectious,infectious,industry,phase1,96,9,14,225,4,3,0,0,1
+136,train,2023,NCT09000137,oncology basket biomarker,oncology,government,phase1,113,2,4,229,1,4,0,0,0
+137,train,2023,NCT09000138,infectious decentralized dose long term extension,infectious,industry,phase4,71,3,32,232,1,3,0,0,0
+138,train,2023,NCT09000139,neurology,neurology,industry,phase4,90,2,20,215,4,1,0,0,0
+139,train,2023,NCT09000140,rare disease rare genetic,rare_disease,industry,phase3,121,21,54,234,3,4,1,0,0
+140,train,2023,NCT09000141,oncology decentralized basket,oncology,industry,phase2,223,2,14,267,1,4,0,0,0
+141,train,2023,NCT09000142,oncology,oncology,government,phase4,15,1,10,246,1,2,0,0,0
+142,train,2023,NCT09000143,metabolic decentralized extension long term extension,metabolic,academic,phase3,154,1,22,306,2,6,0,0,0
+143,train,2023,NCT09000144,neurology biomarker dose long term extension,neurology,industry,phase1,148,3,23,165,3,3,0,0,0
+144,train,2023,NCT09000145,metabolic first in human,metabolic,small_biotech,phase1,180,8,20,227,1,2,0,0,0
+145,train,2023,NCT09000146,cardiology,cardiology,industry,phase1,173,5,26,252,1,3,0,0,0
+146,train,2023,NCT09000147,infectious,infectious,government,phase2,48,5,7,100,1,0,0,0,0
+147,train,2023,NCT09000148,neurology rare genetic first in human long term extension,neurology,small_biotech,phase3,41,6,31,194,1,3,1,0,0
+148,train,2023,NCT09000149,metabolic first in human,metabolic,small_biotech,phase1,128,4,20,190,2,1,0,0,0
+149,train,2023,NCT09000150,oncology,oncology,government,phase3,588,2,26,197,1,3,0,0,1
+150,train,2023,NCT09000151,neurology,neurology,academic,phase3,78,8,23,196,3,3,0,0,0
+151,train,2023,NCT09000152,rare disease rare genetic,rare_disease,government,phase4,63,2,16,290,1,1,1,0,0
+152,train,2023,NCT09000153,metabolic,metabolic,academic,phase3,219,4,18,250,1,3,0,0,0
+153,train,2023,NCT09000154,infectious first in human,infectious,small_biotech,phase4,74,,28,146,2,2,0,0,0
+154,train,2023,NCT09000155,oncology long term extension,oncology,academic,phase1,136,5,14,153,3,1,0,0,1
+155,train,2023,NCT09000156,rare disease rare genetic long term extension,rare_disease,government,phase2,12,3,6,282,2,3,1,0,0
+156,train,2023,NCT09000157,oncology adaptive decentralized long term extension,oncology,industry,phase3,704,,37,271,3,5,0,0,0
+157,train,2023,NCT09000158,cardiology biomarker biomarker,cardiology,government,phase4,143,3,31,264,1,3,0,1,1
+158,train,2023,NCT09000159,infectious,infectious,academic,phase3,213,2,19,159,1,2,0,0,1
+159,train,2023,NCT09000160,oncology long term extension,oncology,industry,phase2,74,7,14,148,1,1,0,0,1
+160,train,2023,NCT09000161,rare disease rare genetic,rare_disease,academic,phase1,61,3,17,277,1,3,1,0,0
+161,train,2023,NCT09000162,infectious long term extension,infectious,academic,phase2,58,4,24,237,2,0,0,0,0
+162,train,2023,NCT09000163,oncology,oncology,government,phase1,122,2,19,214,2,1,0,0,0
+163,train,2023,NCT09000164,infectious,infectious,government,phase4,116,2,25,120,2,1,0,0,0
+164,train,2023,NCT09000165,cardiology device dose long term extension,cardiology,academic,phase3,94,6,34,295,1,4,0,0,0
+165,train,2023,NCT09000166,infectious extension basket long term extension,infectious,academic,phase1,85,3,16,214,1,4,0,0,1
+166,train,2023,NCT09000167,oncology decentralized decentralized rare genetic,oncology,industry,phase4,114,4,9,269,2,4,1,0,0
+167,train,2023,NCT09000168,oncology,oncology,academic,phase2,111,5,25,162,3,0,0,0,0
+168,train,2023,NCT09000169,oncology basket extension first in human,oncology,small_biotech,phase2,52,,25,326,2,1,0,0,1
+169,train,2023,NCT09000170,infectious biomarker biomarker,infectious,academic,phase4,23,1,17,199,1,2,0,0,0
+170,train,2023,NCT09000171,cardiology first in human,cardiology,small_biotech,phase1,81,1,4,217,1,2,0,0,0
+171,train,2023,NCT09000172,infectious long term extension,infectious,academic,phase4,59,3,13,225,1,0,0,0,0
+172,train,2023,NCT09000173,oncology long term extension,oncology,government,phase3,73,5,37,143,2,2,0,0,0
+173,train,2023,NCT09000174,cardiology registry registry,cardiology,academic,phase3,75,26,53,203,1,5,0,0,0
+174,train,2023,NCT09000175,oncology,oncology,industry,phase4,27,3,25,289,4,0,0,0,0
+175,train,2023,NCT09000176,metabolic long term extension,metabolic,government,phase2,173,1,20,126,1,1,0,0,0
+176,train,2023,NCT09000177,rare disease rare genetic,rare_disease,industry,phase4,92,5,6,192,3,3,1,0,1
+177,train,2023,NCT09000178,neurology,neurology,government,phase1,48,2,7,112,1,0,0,0,0
+178,train,2023,NCT09000179,oncology dose biomarker first in human,oncology,small_biotech,phase4,133,2,12,275,1,2,0,0,1
+179,train,2023,NCT09000180,rare disease rare genetic,rare_disease,industry,phase1,37,4,21,135,3,0,1,0,0
+180,train,2023,NCT09000181,oncology registry device,oncology,government,phase3,109,17,42,178,3,4,0,0,0
+181,train,2023,NCT09000182,infectious first in human long term extension,infectious,small_biotech,phase3,41,22,49,143,1,3,0,0,0
+182,train,2023,NCT09000183,rare disease pediatric dose rare genetic long term extension,rare_disease,academic,phase1,11,3,13,346,1,3,1,0,0
+183,train,2023,NCT09000184,rare disease rare genetic first in human long term extension,rare_disease,small_biotech,phase4,34,1,11,296,1,1,1,0,0
+184,train,2023,NCT09000185,cardiology,cardiology,industry,phase4,78,3,10,123,1,1,0,1,0
+185,train,2023,NCT09000186,neurology first in human long term extension,neurology,small_biotech,phase4,125,1,13,186,1,3,0,0,0
+186,train,2023,NCT09000187,cardiology extension biomarker first in human long term extension,cardiology,small_biotech,phase3,239,5,26,271,3,3,0,0,1
+187,train,2023,NCT09000188,infectious first in human,infectious,small_biotech,phase1,34,,14,173,2,3,0,0,1
+188,train,2023,NCT09000189,metabolic long term extension,metabolic,academic,phase4,34,1,6,212,2,2,0,0,0
+189,train,2023,NCT09000190,oncology decentralized dose long term extension,oncology,industry,phase2,135,6,22,180,3,3,0,1,0
+190,train,2023,NCT09000191,infectious basket registry,infectious,academic,phase2,59,1,17,287,1,2,0,0,0
+191,train,2023,NCT09000192,infectious first in human long term extension,infectious,small_biotech,phase4,176,,12,273,1,1,0,0,0
+192,train,2023,NCT09000193,rare disease device registry rare genetic,rare_disease,academic,phase4,12,3,21,265,1,3,1,1,0
+193,train,2023,NCT09000194,neurology,neurology,academic,phase4,108,5,20,194,2,2,0,0,0
+194,train,2023,NCT09000195,rare disease rare genetic,rare_disease,academic,phase1,58,2,14,256,1,2,1,0,0
+195,train,2023,NCT09000196,oncology biomarker basket,oncology,academic,phase1,18,,27,275,2,4,0,0,1
+196,train,2023,NCT09000197,cardiology first in human,cardiology,small_biotech,phase1,72,7,24,80,1,1,0,0,0
+197,train,2023,NCT09000198,infectious extension decentralized long term extension,infectious,academic,phase2,39,3,6,241,1,4,0,0,0
+198,train,2023,NCT09000199,oncology basket registry,oncology,industry,phase2,81,13,20,143,4,2,0,0,0
+199,train,2023,NCT09000200,neurology long term extension,neurology,academic,phase2,50,3,10,119,2,2,0,0,0
+200,train,2023,NCT09000201,infectious first in human,infectious,small_biotech,phase1,161,2,20,124,1,2,0,0,0
+201,train,2023,NCT09000202,metabolic,metabolic,government,phase2,56,3,8,196,3,3,0,0,0
+202,train,2023,NCT09000203,rare disease rare genetic,rare_disease,government,phase2,18,7,19,196,2,2,1,1,0
+203,train,2023,NCT09000204,cardiology long term extension,cardiology,academic,phase1,103,1,9,197,2,1,0,0,0
+204,train,2023,NCT09000205,infectious basket decentralized rare genetic first in human long term extension,infectious,small_biotech,phase2,49,3,18,338,2,4,1,0,0
+205,train,2023,NCT09000206,metabolic device device,metabolic,academic,phase4,66,4,22,278,1,4,0,1,0
+206,train,2023,NCT09000207,cardiology first in human long term extension,cardiology,small_biotech,phase4,82,1,18,223,1,2,0,0,0
+207,train,2023,NCT09000208,oncology platform pediatric long term extension,oncology,industry,phase3,91,4,19,313,1,3,0,0,0
+208,train,2023,NCT09000209,neurology first in human,neurology,small_biotech,phase1,121,,24,189,1,3,0,1,0
+209,train,2023,NCT09000210,oncology rare genetic,oncology,industry,phase1,24,8,25,303,3,3,1,1,1
+210,train,2023,NCT09000211,neurology,neurology,government,phase3,194,13,33,140,1,2,0,0,0
+211,train,2023,NCT09000212,cardiology decentralized biomarker,cardiology,government,phase3,193,5,25,206,3,4,0,0,0
+212,train,2023,NCT09000213,rare disease adaptive dose rare genetic first in human,rare_disease,small_biotech,phase2,31,1,4,241,3,3,1,0,0
+213,train,2023,NCT09000214,metabolic basket adaptive,metabolic,government,phase4,149,1,16,224,2,3,0,0,0
+214,train,2023,NCT09000215,infectious first in human,infectious,small_biotech,phase4,140,2,31,185,1,2,0,1,0
+215,train,2023,NCT09000216,infectious basket registry,infectious,industry,phase2,72,2,8,222,1,4,0,0,1
+216,train,2023,NCT09000217,infectious long term extension,infectious,government,phase1,23,,29,200,1,1,0,0,0
+217,train,2023,NCT09000218,infectious,infectious,academic,phase3,124,29,61,144,3,3,0,0,0
+218,train,2023,NCT09000219,neurology,neurology,government,phase1,64,,32,201,2,2,0,0,0
+219,train,2023,NCT09000220,neurology first in human,neurology,small_biotech,phase1,46,3,17,210,2,1,0,0,0
+220,train,2023,NCT09000221,neurology,neurology,government,phase2,41,1,14,230,1,1,0,0,0
+221,train,2023,NCT09000222,cardiology long term extension,cardiology,academic,phase2,120,,22,191,1,0,0,0,0
+222,train,2023,NCT09000223,cardiology,cardiology,academic,phase1,68,,23,206,2,1,0,0,0
+223,train,2023,NCT09000224,rare disease platform device rare genetic,rare_disease,academic,phase4,30,5,37,259,4,2,1,1,0
+224,train,2023,NCT09000225,infectious rare genetic first in human,infectious,small_biotech,phase4,38,6,17,234,1,3,1,0,1
+225,train,2023,NCT09000226,infectious decentralized biomarker,infectious,industry,phase3,419,5,20,221,2,4,0,0,1
+226,train,2023,NCT09000227,rare disease rare genetic,rare_disease,government,phase2,15,10,19,174,1,2,1,1,0
+227,train,2023,NCT09000228,cardiology long term extension,cardiology,academic,phase1,79,9,18,218,1,1,0,0,0
+228,train,2023,NCT09000229,metabolic basket dose,metabolic,industry,phase4,147,10,26,199,3,4,0,0,1
+229,train,2023,NCT09000230,rare disease platform platform rare genetic,rare_disease,academic,phase4,89,3,14,258,2,3,1,0,0
+230,train,2023,NCT09000231,cardiology,cardiology,academic,phase2,58,1,7,144,1,2,0,0,0
+231,train,2023,NCT09000232,rare disease basket platform rare genetic,rare_disease,government,phase2,52,2,13,281,1,3,1,0,1
+232,train,2023,NCT09000233,oncology platform dose long term extension,oncology,government,phase1,76,2,13,246,1,3,0,0,0
+233,train,2023,NCT09000234,neurology basket platform long term extension,neurology,government,phase2,38,3,16,229,2,3,0,0,0
+234,train,2023,NCT09000235,infectious,infectious,academic,phase4,31,1,14,177,1,1,0,0,0
+235,train,2023,NCT09000236,oncology dose adaptive first in human long term extension,oncology,small_biotech,phase3,230,8,27,239,1,5,0,0,1
+236,train,2023,NCT09000237,infectious long term extension,infectious,industry,phase2,27,9,37,255,3,1,0,0,0
+237,train,2023,NCT09000238,rare disease rare genetic first in human,rare_disease,small_biotech,phase4,15,5,19,237,1,3,1,1,1
+238,train,2023,NCT09000239,rare disease platform extension rare genetic long term extension,rare_disease,industry,phase4,156,3,18,279,4,3,1,0,1
+239,train,2023,NCT09000240,cardiology,cardiology,industry,phase4,113,7,22,287,1,1,0,0,0
+240,train,2023,NCT09000241,oncology,oncology,academic,phase1,82,3,25,216,4,1,0,0,1
+241,train,2023,NCT09000242,rare disease device basket rare genetic first in human,rare_disease,small_biotech,phase1,92,6,26,316,4,2,1,1,1
+242,train,2023,NCT09000243,cardiology long term extension,cardiology,academic,phase2,44,4,14,144,2,3,0,0,0
+243,train,2023,NCT09000244,oncology rare genetic first in human,oncology,small_biotech,phase1,17,,33,257,1,2,1,1,0
+244,train,2023,NCT09000245,metabolic platform platform long term extension,metabolic,academic,phase2,158,5,27,281,3,4,0,0,0
+245,train,2023,NCT09000246,cardiology,cardiology,industry,phase4,238,8,14,166,2,1,0,0,0
+246,train,2023,NCT09000247,oncology,oncology,industry,phase4,204,4,17,209,2,1,0,0,0
+247,train,2023,NCT09000248,cardiology,cardiology,academic,phase4,99,8,20,157,1,2,0,0,0
+248,train,2023,NCT09000249,metabolic,metabolic,academic,phase3,160,,12,225,1,3,0,0,0
+249,train,2023,NCT09000250,infectious,infectious,industry,phase2,198,3,20,203,2,2,0,0,1
+250,train,2023,NCT09000251,cardiology decentralized pediatric long term extension,cardiology,industry,phase2,87,1,23,235,3,3,0,0,0
+251,train,2023,NCT09000252,oncology,oncology,industry,phase2,161,2,17,137,4,1,0,0,1
+252,train,2023,NCT09000253,oncology,oncology,industry,phase4,56,3,18,255,3,1,0,0,1
+253,train,2023,NCT09000254,rare disease rare genetic,rare_disease,academic,phase3,86,,32,189,1,2,1,0,0
+254,train,2023,NCT09000255,neurology biomarker device,neurology,industry,phase2,150,13,37,197,4,4,0,0,0
+255,train,2023,NCT09000256,oncology first in human,oncology,small_biotech,phase2,99,7,20,153,1,1,0,1,1
+256,train,2023,NCT09000257,oncology,oncology,government,phase4,29,1,22,190,1,2,0,0,0
+257,train,2023,NCT09000258,cardiology first in human,cardiology,small_biotech,phase2,84,2,22,142,3,3,0,0,0
+258,train,2023,NCT09000259,neurology biomarker platform first in human,neurology,small_biotech,phase2,64,4,14,237,1,2,0,0,1
+259,train,2023,NCT09000260,cardiology pediatric extension,cardiology,academic,phase3,177,3,20,178,2,5,0,0,1
+260,train,2023,NCT09000261,infectious dose platform rare genetic first in human,infectious,small_biotech,phase1,23,,14,372,1,5,1,1,1
+261,train,2023,NCT09000262,infectious long term extension,infectious,industry,phase1,258,,18,186,2,1,0,0,1
+262,train,2023,NCT09000263,neurology dose decentralized long term extension,neurology,industry,phase3,163,9,37,182,4,6,0,1,0
+263,train,2023,NCT09000264,neurology platform biomarker first in human,neurology,small_biotech,phase2,221,7,23,284,2,4,0,0,1
+264,train,2023,NCT09000265,neurology,neurology,government,phase2,42,3,16,215,2,2,0,1,0
+265,train,2023,NCT09000266,oncology,oncology,government,phase4,119,6,26,241,1,1,0,0,1
+266,train,2023,NCT09000267,neurology first in human long term extension,neurology,small_biotech,phase1,111,4,28,185,3,1,0,0,0
+267,train,2023,NCT09000268,neurology,neurology,industry,phase2,108,6,25,208,2,2,0,0,0
+268,train,2023,NCT09000269,oncology decentralized dose first in human,oncology,small_biotech,phase2,90,,21,285,1,3,0,0,1
+269,train,2023,NCT09000270,rare disease rare genetic,rare_disease,government,phase2,93,2,13,309,1,2,1,0,0
+270,train,2023,NCT09000271,metabolic,metabolic,academic,phase2,58,,22,105,1,2,0,0,1
+271,train,2023,NCT09000272,rare disease registry adaptive rare genetic,rare_disease,government,phase2,21,3,5,293,1,2,1,0,1
+272,train,2023,NCT09000273,rare disease basket basket rare genetic,rare_disease,industry,phase2,67,25,49,164,1,2,1,1,0
+273,train,2023,NCT09000274,cardiology device platform,cardiology,academic,phase3,32,2,11,220,1,3,0,0,1
+274,train,2023,NCT09000275,metabolic basket pediatric,metabolic,industry,phase2,48,,18,201,3,4,0,0,1
+275,train,2023,NCT09000276,infectious dose adaptive,infectious,government,phase2,84,2,11,289,2,4,0,0,0
+276,train,2023,NCT09000277,oncology,oncology,industry,phase1,175,7,28,200,4,1,0,0,0
+277,train,2023,NCT09000278,metabolic,metabolic,government,phase1,208,10,30,216,1,2,0,1,0
+278,train,2023,NCT09000279,cardiology registry pediatric rare genetic long term extension,cardiology,industry,phase2,105,2,12,201,4,2,1,0,0
+279,train,2023,NCT09000280,neurology,neurology,academic,phase1,77,2,21,185,1,2,0,0,0
+280,train,2023,NCT09000281,cardiology long term extension,cardiology,government,phase2,89,3,18,158,2,0,0,0,0
+281,train,2023,NCT09000282,cardiology basket decentralized rare genetic first in human long term extension,cardiology,small_biotech,phase3,21,,13,318,2,4,1,0,0
+282,train,2023,NCT09000283,metabolic decentralized device rare genetic,metabolic,academic,phase1,36,7,23,375,1,3,1,0,0
+283,train,2023,NCT09000284,cardiology platform decentralized,cardiology,industry,phase3,371,19,58,275,4,4,0,0,0
+284,train,2023,NCT09000285,cardiology pediatric adaptive first in human,cardiology,small_biotech,phase4,62,6,10,258,1,4,0,0,1
+285,train,2023,NCT09000286,cardiology long term extension,cardiology,government,phase1,212,4,27,178,2,2,0,0,0
+286,train,2023,NCT09000287,rare disease rare genetic first in human,rare_disease,small_biotech,phase2,20,,29,204,1,3,1,1,0
+287,train,2023,NCT09000288,infectious,infectious,academic,phase2,227,,19,201,2,2,0,0,0
+288,train,2023,NCT09000289,infectious first in human,infectious,small_biotech,phase2,44,2,19,180,3,3,0,0,1
+289,train,2023,NCT09000290,rare disease registry platform rare genetic,rare_disease,academic,phase4,116,,16,309,1,1,1,0,0
+290,train,2023,NCT09000291,infectious basket device long term extension,infectious,government,phase2,33,2,23,272,1,3,0,0,0
+291,train,2023,NCT09000292,cardiology long term extension,cardiology,academic,phase2,70,2,16,171,2,3,0,0,0
+292,train,2023,NCT09000293,metabolic rare genetic,metabolic,government,phase1,64,5,11,228,1,1,1,0,1
+293,train,2023,NCT09000294,oncology,oncology,government,phase2,44,2,18,207,1,1,0,0,0
+294,train,2023,NCT09000295,cardiology device extension,cardiology,academic,phase1,34,1,40,252,3,4,0,1,1
+295,train,2023,NCT09000296,neurology first in human,neurology,small_biotech,phase4,61,4,25,196,1,2,0,1,0
+296,train,2023,NCT09000297,cardiology biomarker dose,cardiology,industry,phase4,112,3,23,236,4,2,0,0,0
+297,train,2023,NCT09000298,rare disease rare genetic long term extension,rare_disease,industry,phase2,44,4,16,248,3,2,1,0,0
+298,train,2023,NCT09000299,infectious,infectious,academic,phase1,76,1,14,168,1,2,0,0,0
+299,train,2023,NCT09000300,cardiology long term extension,cardiology,government,phase4,118,2,8,171,1,2,0,0,0
+300,train,2023,NCT09000301,neurology,neurology,industry,phase3,214,17,34,200,3,3,0,0,0
+301,train,2023,NCT09000302,cardiology,cardiology,academic,phase1,109,1,5,198,2,2,0,0,0
+302,train,2023,NCT09000303,metabolic long term extension,metabolic,government,phase3,234,4,25,175,2,2,0,0,0
+303,train,2023,NCT09000304,cardiology,cardiology,government,phase1,114,1,10,185,1,1,0,0,0
+304,train,2023,NCT09000305,oncology platform dose long term extension,oncology,government,phase3,57,3,26,262,1,5,0,0,1
+305,train,2023,NCT09000306,neurology,neurology,government,phase4,36,3,29,211,1,1,0,0,0
+306,train,2023,NCT09000307,cardiology device pediatric rare genetic,cardiology,academic,phase4,9,3,17,307,1,3,1,0,0
+307,train,2023,NCT09000308,rare disease rare genetic first in human long term extension,rare_disease,small_biotech,phase2,18,1,13,224,2,1,1,0,0
+308,train,2023,NCT09000309,rare disease biomarker extension rare genetic,rare_disease,academic,phase1,20,4,16,338,3,4,1,0,0
+309,train,2023,NCT09000310,metabolic first in human long term extension,metabolic,small_biotech,phase1,125,1,15,226,2,2,0,1,0
+310,train,2023,NCT09000311,metabolic,metabolic,industry,phase3,204,7,30,149,2,4,0,0,0
+311,train,2023,NCT09000312,infectious,infectious,government,phase2,60,2,21,209,1,1,0,0,0
+312,train,2023,NCT09000313,rare disease rare genetic,rare_disease,government,phase3,26,11,26,175,1,4,1,0,0
+313,train,2023,NCT09000314,cardiology long term extension,cardiology,government,phase4,118,,15,149,1,3,0,0,0
+314,train,2023,NCT09000315,rare disease registry extension rare genetic first in human,rare_disease,small_biotech,phase4,53,4,24,287,2,2,1,0,1
+315,train,2023,NCT09000316,infectious first in human,infectious,small_biotech,phase1,161,3,15,204,1,3,0,0,1
+316,train,2023,NCT09000317,rare disease rare genetic,rare_disease,government,phase2,25,3,11,192,2,1,1,0,0
+317,train,2023,NCT09000318,infectious dose decentralized long term extension,infectious,government,phase1,12,8,23,238,2,3,0,0,0
+318,train,2023,NCT09000319,oncology biomarker adaptive,oncology,government,phase2,41,1,4,240,1,3,0,0,0
+319,train,2023,NCT09000320,oncology decentralized extension,oncology,industry,phase3,118,7,32,318,2,3,0,0,0
+320,train,2023,NCT09000321,rare disease rare genetic,rare_disease,industry,phase1,45,2,8,279,1,1,1,0,0
+321,train,2023,NCT09000322,rare disease rare genetic long term extension,rare_disease,academic,phase1,41,2,11,230,2,2,1,0,1
+322,train,2023,NCT09000323,neurology rare genetic long term extension,neurology,academic,phase2,46,6,23,205,1,0,1,0,0
+323,train,2023,NCT09000324,rare disease rare genetic,rare_disease,academic,phase3,42,4,27,196,3,5,1,1,0
+324,train,2023,NCT09000325,oncology,oncology,academic,phase2,81,2,13,178,3,0,0,0,0
+325,train,2023,NCT09000326,neurology,neurology,industry,phase1,51,8,28,113,2,2,0,0,0
+326,train,2023,NCT09000327,rare disease basket pediatric rare genetic,rare_disease,academic,phase4,22,7,30,356,3,4,1,1,1
+327,train,2023,NCT09000328,oncology pediatric device,oncology,government,phase3,266,9,40,127,1,6,0,1,0
+328,train,2023,NCT09000329,infectious first in human,infectious,small_biotech,phase4,35,3,4,167,3,2,0,0,0
+329,train,2023,NCT09000330,neurology basket registry,neurology,academic,phase3,274,10,30,214,1,4,0,0,0
+330,train,2023,NCT09000331,metabolic rare genetic,metabolic,industry,phase4,77,6,24,270,3,2,1,1,0
+331,train,2023,NCT09000332,neurology pediatric decentralized,neurology,industry,phase1,110,2,5,217,2,1,0,0,0
+332,train,2023,NCT09000333,metabolic rare genetic first in human,metabolic,small_biotech,phase1,77,,30,149,1,3,1,0,1
+333,train,2023,NCT09000334,infectious first in human long term extension,infectious,small_biotech,phase2,173,,35,231,2,3,0,0,0
+334,train,2023,NCT09000335,oncology,oncology,academic,phase2,225,4,27,191,1,3,0,1,0
+335,train,2023,NCT09000336,metabolic extension extension long term extension,metabolic,government,phase4,73,43,79,260,3,4,0,0,0
+336,train,2023,NCT09000337,infectious,infectious,industry,phase4,85,4,26,177,3,1,0,0,0
+337,train,2023,NCT09000338,infectious,infectious,academic,phase4,118,3,28,123,2,2,0,0,0
+338,train,2023,NCT09000339,metabolic adaptive extension,metabolic,academic,phase3,124,5,16,173,1,3,0,0,0
+339,train,2023,NCT09000340,rare disease rare genetic,rare_disease,industry,phase3,215,5,31,160,4,4,1,0,0
+340,train,2023,NCT09000341,metabolic,metabolic,industry,phase3,195,3,13,117,2,4,0,0,0
+341,train,2023,NCT09000342,metabolic dose dose,metabolic,industry,phase1,94,11,31,268,1,3,0,0,0
+342,train,2023,NCT09000343,rare disease rare genetic,rare_disease,industry,phase4,20,,31,151,1,0,1,0,0
+343,train,2023,NCT09000344,infectious,infectious,industry,phase1,265,3,35,132,4,0,0,0,0
+344,train,2023,NCT09000345,rare disease extension dose rare genetic,rare_disease,industry,phase2,142,9,17,251,5,3,1,0,1
+345,train,2023,NCT09000346,oncology long term extension,oncology,government,phase4,179,5,37,170,2,2,0,1,0
+346,train,2023,NCT09000347,cardiology first in human,cardiology,small_biotech,phase1,121,26,40,114,1,0,0,0,0
+347,train,2023,NCT09000348,neurology first in human,neurology,small_biotech,phase2,40,,12,125,1,1,0,0,0
+348,train,2023,NCT09000349,infectious first in human,infectious,small_biotech,phase4,128,2,4,206,2,1,0,0,0
+349,train,2023,NCT09000350,rare disease rare genetic,rare_disease,academic,phase1,50,5,19,300,1,2,1,1,1
+350,train,2023,NCT09000351,cardiology,cardiology,government,phase4,16,3,15,157,3,2,0,0,0
+351,train,2023,NCT09000352,infectious adaptive biomarker,infectious,industry,phase3,102,2,10,234,2,4,0,0,1
+352,train,2023,NCT09000353,rare disease basket pediatric rare genetic long term extension,rare_disease,industry,phase3,61,10,43,291,2,6,1,1,0
+353,train,2023,NCT09000354,neurology first in human,neurology,small_biotech,phase3,57,3,37,232,1,4,0,1,0
+354,train,2023,NCT09000355,neurology,neurology,academic,phase2,35,2,4,259,1,3,0,0,0
+355,train,2023,NCT09000356,neurology first in human,neurology,small_biotech,phase3,55,,27,214,1,4,0,0,0
+356,train,2023,NCT09000357,infectious rare genetic first in human,infectious,small_biotech,phase4,46,6,15,209,1,1,1,0,1
+357,train,2023,NCT09000358,rare disease rare genetic first in human,rare_disease,small_biotech,phase1,51,,20,252,2,3,1,1,0
+358,train,2023,NCT09000359,rare disease adaptive basket rare genetic first in human,rare_disease,small_biotech,phase3,90,8,27,270,3,5,1,0,1
+359,train,2023,NCT09000360,neurology long term extension,neurology,industry,phase1,184,2,12,202,4,1,0,0,0
+360,train,2023,NCT09000361,infectious long term extension,infectious,government,phase2,80,2,11,184,1,1,0,0,0
+361,train,2023,NCT09000362,neurology first in human,neurology,small_biotech,phase1,66,,27,270,3,1,0,0,0
+362,train,2023,NCT09000363,infectious adaptive biomarker first in human,infectious,small_biotech,phase4,159,2,25,269,1,3,0,0,0
+363,train,2023,NCT09000364,cardiology,cardiology,academic,phase2,25,1,17,155,1,3,0,0,0
+364,train,2023,NCT09000365,neurology first in human long term extension,neurology,small_biotech,phase2,42,3,4,196,1,2,0,0,1
+365,train,2023,NCT09000366,metabolic long term extension,metabolic,academic,phase3,51,,12,191,3,3,0,0,1
+366,train,2023,NCT09000367,oncology adaptive device rare genetic long term extension,oncology,academic,phase4,19,3,20,304,3,3,1,0,0
+367,train,2023,NCT09000368,metabolic,metabolic,industry,phase1,54,,13,173,4,2,0,0,0
+368,train,2023,NCT09000369,rare disease biomarker dose rare genetic,rare_disease,academic,phase4,20,9,33,219,1,4,1,0,0
+369,train,2023,NCT09000370,cardiology extension registry rare genetic first in human,cardiology,small_biotech,phase3,12,9,27,244,1,5,1,0,0
+370,train,2023,NCT09000371,infectious,infectious,government,phase2,58,5,26,116,2,1,0,0,0
+371,train,2023,NCT09000372,metabolic first in human long term extension,metabolic,small_biotech,phase2,82,1,7,246,2,1,0,0,0
+372,train,2023,NCT09000373,rare disease device adaptive rare genetic long term extension,rare_disease,government,phase2,18,1,17,318,1,3,1,0,0
+373,train,2023,NCT09000374,metabolic first in human,metabolic,small_biotech,phase4,21,4,20,180,3,0,0,0,0
+374,train,2023,NCT09000375,oncology long term extension,oncology,academic,phase2,203,,27,237,3,2,0,0,1
+375,train,2023,NCT09000376,oncology long term extension,oncology,government,phase3,41,15,43,127,1,2,0,0,0
+376,train,2023,NCT09000377,neurology dose device,neurology,industry,phase4,136,,34,115,2,2,0,0,0
+377,train,2023,NCT09000378,infectious,infectious,industry,phase3,286,,16,132,4,4,0,0,0
+378,train,2023,NCT09000379,cardiology,cardiology,industry,phase2,52,2,21,166,3,1,0,0,0
+379,train,2023,NCT09000380,rare disease decentralized dose rare genetic long term extension,rare_disease,government,phase2,38,2,24,325,1,2,1,0,0
+380,train,2023,NCT09000381,neurology first in human,neurology,small_biotech,phase1,62,,13,205,2,2,0,0,0
+381,train,2023,NCT09000382,neurology,neurology,government,phase3,103,9,14,135,2,3,0,0,1
+382,train,2023,NCT09000383,metabolic,metabolic,government,phase1,261,2,15,180,5,0,0,0,1
+383,train,2023,NCT09000384,neurology,neurology,academic,phase1,49,4,18,200,1,2,0,0,0
+384,train,2023,NCT09000385,infectious rare genetic,infectious,industry,phase1,77,2,16,234,4,2,1,0,1
+385,train,2023,NCT09000386,cardiology device platform rare genetic,cardiology,industry,phase3,330,17,51,218,3,6,1,1,0
+386,train,2023,NCT09000387,metabolic registry platform first in human,metabolic,small_biotech,phase2,297,2,12,207,2,2,0,0,0
+387,train,2023,NCT09000388,cardiology,cardiology,government,phase1,84,4,30,213,1,3,0,0,0
+388,train,2023,NCT09000389,metabolic dose basket rare genetic,metabolic,academic,phase2,31,8,22,186,1,4,1,1,0
+389,train,2023,NCT09000390,oncology rare genetic,oncology,industry,phase3,93,6,16,162,2,2,1,0,1
+390,train,2023,NCT09000391,cardiology long term extension,cardiology,industry,phase4,46,4,10,170,1,2,0,0,0
+391,train,2023,NCT09000392,infectious rare genetic,infectious,government,phase3,53,6,26,277,1,2,1,0,0
+392,train,2023,NCT09000393,neurology,neurology,academic,phase1,128,2,22,204,1,4,0,1,0
+393,train,2023,NCT09000394,oncology first in human,oncology,small_biotech,phase2,345,,33,177,1,3,0,0,0
+394,train,2023,NCT09000395,rare disease rare genetic,rare_disease,academic,phase1,79,3,24,178,1,3,1,1,1
+395,train,2023,NCT09000396,infectious registry registry rare genetic,infectious,government,phase4,76,2,24,205,2,3,1,1,0
+396,train,2023,NCT09000397,rare disease rare genetic,rare_disease,government,phase1,11,8,11,250,2,1,1,0,0
+397,train,2023,NCT09000398,metabolic,metabolic,academic,phase4,62,2,15,148,1,4,0,1,0
+398,train,2023,NCT09000399,infectious pediatric dose first in human,infectious,small_biotech,phase1,20,1,12,223,1,2,0,0,0
+399,train,2023,NCT09000400,infectious,infectious,industry,phase4,62,9,25,232,2,0,0,0,0
+400,train,2023,NCT09000401,rare disease rare genetic,rare_disease,government,phase2,50,1,4,213,3,2,1,0,0
+401,train,2023,NCT09000402,infectious first in human,infectious,small_biotech,phase4,29,2,22,141,2,3,0,0,1
+402,train,2023,NCT09000403,rare disease rare genetic,rare_disease,government,phase2,13,3,9,190,3,3,1,0,1
+403,train,2023,NCT09000404,metabolic first in human,metabolic,small_biotech,phase4,53,2,17,94,1,3,0,0,0
+404,train,2023,NCT09000405,rare disease rare genetic,rare_disease,industry,phase4,121,5,26,202,2,3,1,1,0
+405,train,2023,NCT09000406,oncology first in human,oncology,small_biotech,phase4,73,2,20,117,1,3,0,1,0
+406,train,2023,NCT09000407,neurology device platform,neurology,industry,phase2,256,,25,222,2,3,0,0,1
+407,train,2023,NCT09000408,rare disease platform device rare genetic first in human,rare_disease,small_biotech,phase1,64,,30,374,1,2,1,0,0
+408,train,2023,NCT09000409,infectious basket decentralized long term extension,infectious,industry,phase1,161,,22,255,2,3,0,0,1
+409,train,2023,NCT09000410,oncology,oncology,government,phase4,67,3,14,177,2,2,0,1,0
+410,train,2023,NCT09000411,cardiology,cardiology,government,phase1,61,3,26,235,1,1,0,0,0
+411,train,2023,NCT09000412,rare disease rare genetic long term extension,rare_disease,industry,phase4,25,2,22,206,3,0,1,0,0
+412,train,2023,NCT09000413,rare disease biomarker platform rare genetic,rare_disease,academic,phase3,19,5,13,300,1,5,1,0,1
+413,train,2023,NCT09000414,metabolic pediatric platform,metabolic,academic,phase4,58,,23,154,1,1,0,0,1
+414,train,2023,NCT09000415,oncology device decentralized long term extension,oncology,industry,phase2,138,2,4,208,2,2,0,0,1
+415,train,2023,NCT09000416,neurology,neurology,government,phase1,57,3,24,171,2,2,0,0,0
+416,train,2023,NCT09000417,neurology long term extension,neurology,academic,phase2,43,1,16,140,2,0,0,0,0
+417,train,2023,NCT09000418,rare disease pediatric dose rare genetic,rare_disease,academic,phase1,29,5,17,355,3,2,1,0,0
+418,train,2023,NCT09000419,cardiology adaptive decentralized long term extension,cardiology,government,phase2,37,13,19,247,1,2,0,0,0
+419,train,2023,NCT09000420,cardiology platform platform,cardiology,industry,phase3,37,13,41,219,1,4,0,1,0
+420,train,2023,NCT09000421,neurology first in human long term extension,neurology,small_biotech,phase4,161,3,24,135,3,0,0,0,0
+421,train,2023,NCT09000422,rare disease rare genetic,rare_disease,academic,phase3,19,13,37,140,3,3,1,0,0
+422,train,2023,NCT09000423,cardiology pediatric biomarker first in human,cardiology,small_biotech,phase3,211,3,31,261,1,5,0,0,1
+423,train,2023,NCT09000424,cardiology,cardiology,academic,phase1,190,1,15,216,2,1,0,0,0
+424,train,2023,NCT09000425,cardiology,cardiology,government,phase3,266,6,22,124,1,4,0,0,0
+425,train,2023,NCT09000426,oncology,oncology,government,phase1,186,1,5,184,1,1,0,0,0
+426,train,2023,NCT09000427,oncology first in human,oncology,small_biotech,phase4,102,,21,199,2,1,0,0,1
+427,train,2023,NCT09000428,cardiology,cardiology,government,phase4,95,,19,149,1,3,0,0,0
+428,train,2023,NCT09000429,oncology extension extension rare genetic first in human long term extension,oncology,small_biotech,phase3,34,3,22,220,1,4,1,1,0
+429,train,2023,NCT09000430,neurology,neurology,industry,phase1,118,5,28,190,2,0,0,0,0
+430,train,2023,NCT09000431,rare disease rare genetic,rare_disease,government,phase2,20,,16,159,2,0,1,0,0
+431,train,2023,NCT09000432,rare disease rare genetic first in human,rare_disease,small_biotech,phase2,8,6,15,145,1,4,1,1,0
+432,train,2023,NCT09000433,infectious pediatric registry long term extension,infectious,academic,phase3,372,3,29,254,3,4,0,0,0
+433,train,2023,NCT09000434,cardiology basket adaptive long term extension,cardiology,industry,phase4,118,4,12,237,1,3,0,0,1
+434,train,2023,NCT09000435,metabolic first in human,metabolic,small_biotech,phase1,154,,13,219,2,3,0,0,1
+435,train,2023,NCT09000436,rare disease rare genetic,rare_disease,academic,phase1,15,10,15,253,1,2,1,0,1
+436,train,2023,NCT09000437,oncology pediatric adaptive first in human,oncology,small_biotech,phase1,64,2,4,197,1,1,0,0,1
+437,train,2023,NCT09000438,infectious extension device long term extension,infectious,industry,phase4,96,2,21,250,2,3,0,0,0
+438,train,2023,NCT09000439,cardiology basket decentralized,cardiology,government,phase4,93,,18,238,1,4,0,0,0
+439,train,2023,NCT09000440,neurology,neurology,academic,phase3,57,8,27,223,2,3,0,0,0
+440,train,2023,NCT09000441,oncology long term extension,oncology,government,phase2,77,2,21,189,2,1,0,0,0
+441,train,2023,NCT09000442,rare disease rare genetic,rare_disease,industry,phase3,127,,33,167,4,2,1,0,0
+442,train,2023,NCT09000443,rare disease biomarker adaptive rare genetic first in human,rare_disease,small_biotech,phase3,37,4,33,266,3,5,1,0,0
+443,train,2023,NCT09000444,oncology registry pediatric long term extension,oncology,government,phase4,74,2,19,215,2,4,0,0,0
+444,train,2023,NCT09000445,infectious long term extension,infectious,academic,phase1,29,,6,193,1,2,0,0,0
+445,train,2023,NCT09000446,rare disease decentralized registry rare genetic,rare_disease,academic,phase4,15,2,12,356,1,4,1,0,0
+446,train,2023,NCT09000447,neurology rare genetic first in human,neurology,small_biotech,phase3,34,7,37,231,2,5,1,1,0
+447,train,2023,NCT09000448,infectious first in human,infectious,small_biotech,phase2,60,2,11,206,2,2,0,0,0
+448,train,2023,NCT09000449,rare disease rare genetic,rare_disease,government,phase2,64,2,4,111,1,2,1,0,0
+449,train,2023,NCT09000450,rare disease rare genetic,rare_disease,industry,phase1,25,2,11,208,1,3,1,1,0
+450,train,2023,NCT09000451,cardiology,cardiology,industry,phase4,80,,27,204,2,1,0,0,0
+451,train,2023,NCT09000452,oncology decentralized biomarker,oncology,academic,phase2,25,2,11,228,2,3,0,0,0
+452,train,2023,NCT09000453,metabolic,metabolic,academic,phase2,47,1,19,195,1,0,0,0,0
+453,train,2023,NCT09000454,rare disease pediatric device rare genetic,rare_disease,government,phase2,26,2,16,231,1,4,1,1,0
+454,train,2023,NCT09000455,oncology,oncology,academic,phase2,61,11,16,222,1,0,0,0,0
+455,train,2023,NCT09000456,cardiology,cardiology,academic,phase2,47,2,17,195,1,2,0,0,0
+456,train,2023,NCT09000457,metabolic platform extension rare genetic,metabolic,government,phase2,105,16,30,334,1,2,1,0,0
+457,train,2023,NCT09000458,oncology,oncology,academic,phase2,69,11,36,183,3,2,0,0,0
+458,train,2023,NCT09000459,infectious rare genetic long term extension,infectious,government,phase4,73,6,21,228,1,1,1,1,0
+459,train,2023,NCT09000460,neurology long term extension,neurology,academic,phase1,47,2,16,195,1,2,0,0,0
+460,train,2023,NCT09000461,cardiology first in human,cardiology,small_biotech,phase3,184,3,18,181,1,3,0,0,0
+461,train,2023,NCT09000462,oncology,oncology,government,phase2,137,2,23,223,2,2,0,0,0
+462,train,2023,NCT09000463,oncology,oncology,academic,phase4,51,3,19,167,3,1,0,1,0
+463,train,2023,NCT09000464,neurology dose biomarker first in human,neurology,small_biotech,phase4,154,7,37,349,3,3,0,0,0
+464,train,2023,NCT09000465,rare disease rare genetic first in human,rare_disease,small_biotech,phase4,22,,15,232,1,3,1,0,1
+465,train,2023,NCT09000466,metabolic long term extension,metabolic,government,phase2,89,7,27,120,1,1,0,0,0
+466,train,2023,NCT09000467,cardiology first in human,cardiology,small_biotech,phase3,102,9,32,200,2,4,0,0,0
+467,train,2023,NCT09000468,neurology first in human long term extension,neurology,small_biotech,phase4,327,7,35,177,1,3,0,0,0
+468,train,2023,NCT09000469,neurology,neurology,industry,phase1,53,6,17,178,4,2,0,0,1
+469,train,2023,NCT09000470,rare disease extension device rare genetic first in human long term extension,rare_disease,small_biotech,phase2,31,2,15,249,1,3,1,1,0
+470,train,2023,NCT09000471,metabolic pediatric device first in human,metabolic,small_biotech,phase3,50,4,25,223,1,4,0,1,0
+471,train,2023,NCT09000472,cardiology device pediatric,cardiology,government,phase2,61,3,25,247,2,2,0,0,0
+472,train,2023,NCT09000473,oncology first in human,oncology,small_biotech,phase1,30,,14,219,2,1,0,0,0
+473,train,2023,NCT09000474,rare disease rare genetic,rare_disease,academic,phase3,45,13,28,194,2,2,1,0,0
+474,train,2023,NCT09000475,rare disease rare genetic long term extension,rare_disease,academic,phase4,22,2,20,173,1,3,1,1,0
+475,train,2023,NCT09000476,rare disease decentralized platform rare genetic,rare_disease,industry,phase1,74,2,9,247,3,3,1,1,0
+476,train,2023,NCT09000477,oncology rare genetic,oncology,industry,phase2,52,4,9,187,1,2,1,0,0
+477,train,2023,NCT09000478,cardiology basket basket,cardiology,industry,phase1,206,1,4,230,3,2,0,0,0
+478,train,2023,NCT09000479,rare disease extension basket rare genetic first in human,rare_disease,small_biotech,phase1,48,1,16,313,1,3,1,0,0
+479,train,2023,NCT09000480,infectious device dose,infectious,academic,phase3,336,11,31,221,2,3,0,0,0
+480,train,2023,NCT09000481,rare disease rare genetic long term extension,rare_disease,industry,phase2,71,5,25,189,2,2,1,0,0
+481,train,2023,NCT09000482,neurology,neurology,academic,phase4,416,3,18,115,1,1,0,0,0
+482,train,2023,NCT09000483,rare disease pediatric extension rare genetic,rare_disease,industry,phase4,263,,30,245,2,1,1,0,0
+483,train,2023,NCT09000484,rare disease adaptive dose rare genetic first in human,rare_disease,small_biotech,phase1,59,1,12,337,1,4,1,1,1
+484,train,2023,NCT09000485,cardiology first in human,cardiology,small_biotech,phase4,20,2,8,126,1,0,0,0,0
+485,train,2023,NCT09000486,neurology,neurology,academic,phase4,140,5,9,205,1,2,0,0,1
+486,train,2023,NCT09000487,rare disease decentralized device rare genetic,rare_disease,government,phase2,80,3,14,353,1,2,1,0,0
+487,train,2023,NCT09000488,metabolic long term extension,metabolic,government,phase1,198,1,10,225,1,2,0,0,0
+488,train,2023,NCT09000489,infectious platform platform,infectious,industry,phase4,192,3,18,243,1,3,0,0,0
+489,train,2023,NCT09000490,infectious rare genetic,infectious,government,phase2,146,3,18,243,2,2,1,0,0
+490,train,2023,NCT09000491,oncology adaptive basket long term extension,oncology,industry,phase2,73,15,27,325,3,3,0,0,0
+491,train,2023,NCT09000492,rare disease rare genetic first in human,rare_disease,small_biotech,phase4,56,5,11,221,2,2,1,0,0
+492,train,2023,NCT09000493,oncology pediatric device,oncology,government,phase3,238,6,19,267,1,4,0,0,0
+493,train,2023,NCT09000494,cardiology,cardiology,academic,phase1,240,1,10,220,2,2,0,0,0
+494,train,2023,NCT09000495,infectious first in human,infectious,small_biotech,phase1,57,12,23,158,2,1,0,0,0
+495,train,2023,NCT09000496,cardiology first in human,cardiology,small_biotech,phase1,38,4,20,300,3,1,0,0,0
+496,train,2023,NCT09000497,cardiology dose device,cardiology,industry,phase4,155,4,4,226,3,2,0,0,1
+497,train,2023,NCT09000498,neurology long term extension,neurology,academic,phase1,19,7,21,183,1,1,0,0,0
+498,train,2023,NCT09000499,rare disease rare genetic long term extension,rare_disease,government,phase2,164,2,20,235,2,0,1,0,1
+499,train,2023,NCT09000500,neurology adaptive platform,neurology,government,phase1,44,2,21,194,2,4,0,1,0
+500,train,2023,NCT09000501,metabolic extension basket rare genetic,metabolic,government,phase3,42,33,73,277,3,6,1,1,0
+501,train,2023,NCT09000502,rare disease rare genetic,rare_disease,government,phase1,40,4,15,204,3,0,1,0,1
+502,train,2023,NCT09000503,cardiology rare genetic long term extension,cardiology,government,phase1,14,10,38,183,2,1,1,0,0
+503,train,2023,NCT09000504,oncology,oncology,academic,phase2,46,13,20,185,2,0,0,0,0
+504,train,2023,NCT09000505,infectious,infectious,academic,phase2,20,1,7,192,2,2,0,0,0
+505,train,2023,NCT09000506,metabolic registry platform first in human,metabolic,small_biotech,phase3,105,5,31,196,2,3,0,0,0
+506,train,2023,NCT09000507,cardiology long term extension,cardiology,industry,phase1,147,4,26,196,2,2,0,0,0
+507,train,2023,NCT09000508,oncology basket decentralized first in human long term extension,oncology,small_biotech,phase3,134,,34,202,2,4,0,0,0
+508,train,2023,NCT09000509,rare disease rare genetic,rare_disease,industry,phase2,17,2,11,231,2,1,1,0,0
+509,train,2023,NCT09000510,oncology registry device first in human,oncology,small_biotech,phase4,223,3,10,259,1,4,0,0,1
+510,train,2023,NCT09000511,neurology first in human,neurology,small_biotech,phase4,125,2,7,202,1,1,0,0,0
+511,train,2023,NCT09000512,oncology first in human long term extension,oncology,small_biotech,phase2,56,13,39,293,2,1,0,0,0
+512,train,2023,NCT09000513,oncology long term extension,oncology,academic,phase1,60,2,17,228,2,3,0,0,0
+513,train,2023,NCT09000514,cardiology,cardiology,government,phase1,105,2,13,170,2,3,0,0,0
+514,train,2023,NCT09000515,oncology,oncology,academic,phase4,57,4,14,142,3,3,0,0,1
+515,train,2023,NCT09000516,infectious basket pediatric first in human,infectious,small_biotech,phase1,102,,31,338,1,4,0,0,0
+516,train,2023,NCT09000517,oncology adaptive registry,oncology,industry,phase4,155,4,21,242,4,1,0,0,0
+517,train,2023,NCT09000518,cardiology long term extension,cardiology,academic,phase4,39,2,16,87,2,2,0,0,0
+518,train,2023,NCT09000519,neurology long term extension,neurology,government,phase4,49,4,13,136,3,2,0,0,0
+519,train,2023,NCT09000520,neurology,neurology,government,phase2,90,1,20,186,1,1,0,0,0
+520,train,2023,NCT09000521,rare disease basket registry rare genetic,rare_disease,academic,phase3,43,5,27,244,3,5,1,0,0
+521,train,2023,NCT09000522,cardiology first in human,cardiology,small_biotech,phase2,129,,19,247,1,3,0,0,1
+522,train,2023,NCT09000523,neurology,neurology,industry,phase1,291,4,17,280,3,2,0,0,0
+523,train,2023,NCT09000524,metabolic,metabolic,academic,phase2,82,1,5,236,1,1,0,0,0
+524,train,2023,NCT09000525,cardiology,cardiology,government,phase2,54,4,26,172,2,3,0,0,0
+525,train,2023,NCT09000526,neurology first in human,neurology,small_biotech,phase4,110,14,33,122,2,1,0,0,0
+526,train,2023,NCT09000527,rare disease rare genetic,rare_disease,government,phase1,15,1,9,265,1,3,1,0,0
+527,train,2023,NCT09000528,rare disease rare genetic first in human long term extension,rare_disease,small_biotech,phase1,24,6,29,174,1,1,1,0,0
+528,train,2023,NCT09000529,rare disease basket biomarker rare genetic first in human long term extension,rare_disease,small_biotech,phase3,99,10,44,228,2,5,1,1,0
+529,train,2023,NCT09000530,metabolic basket platform first in human,metabolic,small_biotech,phase4,25,,23,216,1,2,0,0,0
+530,train,2023,NCT09000531,rare disease rare genetic,rare_disease,industry,phase2,86,5,29,243,1,1,1,1,1
+531,train,2023,NCT09000532,rare disease rare genetic first in human long term extension,rare_disease,small_biotech,phase2,31,2,10,154,1,1,1,0,0
+532,train,2023,NCT09000533,neurology first in human,neurology,small_biotech,phase4,96,,30,130,3,1,0,0,0
+533,train,2023,NCT09000534,cardiology,cardiology,industry,phase1,194,13,31,289,2,0,0,0,0
+534,train,2023,NCT09000535,oncology,oncology,industry,phase1,118,3,14,177,2,0,0,0,0
+535,train,2023,NCT09000536,neurology long term extension,neurology,academic,phase2,28,1,8,175,1,3,0,1,0
+536,train,2023,NCT09000537,rare disease basket dose rare genetic long term extension,rare_disease,government,phase1,57,11,22,353,2,3,1,1,1
+537,train,2023,NCT09000538,cardiology first in human,cardiology,small_biotech,phase4,21,5,18,183,3,1,0,0,0
+538,train,2023,NCT09000539,infectious long term extension,infectious,government,phase1,54,4,11,251,1,2,0,0,0
+539,train,2023,NCT09000540,neurology long term extension,neurology,government,phase1,76,2,30,173,1,1,0,0,0
+540,train,2023,NCT09000541,neurology,neurology,academic,phase3,197,3,37,134,1,5,0,1,0
+541,train,2023,NCT09000542,neurology long term extension,neurology,government,phase3,137,11,41,134,1,2,0,0,0
+542,train,2023,NCT09000543,rare disease rare genetic first in human,rare_disease,small_biotech,phase2,48,1,18,184,1,2,1,0,1
+543,train,2023,NCT09000544,oncology first in human,oncology,small_biotech,phase3,54,2,22,256,1,5,0,1,1
+544,train,2023,NCT09000545,neurology,neurology,industry,phase3,725,,19,174,2,2,0,0,0
+545,train,2023,NCT09000546,neurology,neurology,industry,phase2,66,2,13,217,2,2,0,0,0
+546,train,2023,NCT09000547,metabolic long term extension,metabolic,government,phase3,82,12,45,159,1,4,0,0,0
+547,train,2023,NCT09000548,neurology extension pediatric first in human,neurology,small_biotech,phase1,215,,29,257,5,2,0,0,0
+548,train,2023,NCT09000549,metabolic,metabolic,academic,phase4,12,,34,206,2,1,0,0,0
+549,train,2023,NCT09000550,metabolic registry extension,metabolic,industry,phase2,89,31,50,211,3,2,0,0,0
+550,train,2023,NCT09000551,oncology registry registry rare genetic first in human,oncology,small_biotech,phase3,22,12,37,304,1,3,1,0,0
+551,train,2023,NCT09000552,metabolic basket biomarker first in human,metabolic,small_biotech,phase3,68,,31,316,1,3,0,0,0
+552,train,2023,NCT09000553,oncology basket biomarker long term extension,oncology,industry,phase4,251,3,9,219,2,1,0,0,0
+553,train,2023,NCT09000554,metabolic biomarker decentralized first in human,metabolic,small_biotech,phase4,63,7,22,249,2,4,0,0,1
+554,train,2023,NCT09000555,oncology long term extension,oncology,academic,phase1,121,1,8,202,1,1,0,0,0
+555,train,2023,NCT09000556,infectious rare genetic,infectious,industry,phase4,37,8,11,176,3,1,1,0,0
+556,train,2023,NCT09000557,infectious long term extension,infectious,academic,phase2,130,1,15,190,1,0,0,0,0
+557,train,2023,NCT09000558,metabolic long term extension,metabolic,academic,phase3,36,5,26,163,3,3,0,0,0
+558,train,2023,NCT09000559,metabolic,metabolic,government,phase2,61,2,25,175,2,0,0,0,0
+559,train,2023,NCT09000560,cardiology,cardiology,academic,phase2,64,4,16,179,2,2,0,0,1
+560,train,2023,NCT09000561,cardiology adaptive adaptive long term extension,cardiology,government,phase3,213,7,31,235,1,3,0,0,0
+561,train,2023,NCT09000562,cardiology long term extension,cardiology,academic,phase2,105,3,5,197,2,1,0,0,1
+562,train,2023,NCT09000563,infectious basket adaptive first in human,infectious,small_biotech,phase4,85,1,13,142,2,4,0,0,0
+563,train,2023,NCT09000564,metabolic,metabolic,academic,phase2,64,,22,202,1,2,0,0,1
+564,train,2023,NCT09000565,infectious,infectious,government,phase2,34,1,5,195,2,2,0,0,0
+565,train,2023,NCT09000566,neurology,neurology,industry,phase1,122,3,11,231,1,3,0,0,0
+566,train,2023,NCT09000567,cardiology long term extension,cardiology,government,phase4,36,5,22,150,1,1,0,0,0
+567,train,2023,NCT09000568,infectious,infectious,government,phase4,12,3,19,238,1,0,0,0,0
+568,train,2023,NCT09000569,rare disease platform biomarker rare genetic,rare_disease,industry,phase1,89,11,32,262,3,2,1,0,0
+569,train,2023,NCT09000570,metabolic pediatric extension,metabolic,government,phase3,184,5,18,247,1,4,0,0,1
+570,train,2023,NCT09000571,infectious first in human,infectious,small_biotech,phase3,112,14,31,184,2,3,0,0,0
+571,train,2023,NCT09000572,metabolic adaptive registry,metabolic,industry,phase3,142,11,26,233,3,4,0,1,0
+572,train,2023,NCT09000573,rare disease rare genetic,rare_disease,government,phase4,20,,14,185,2,2,1,1,0
+573,train,2023,NCT09000574,metabolic decentralized extension first in human,metabolic,small_biotech,phase2,140,2,16,231,1,1,0,0,0
+574,train,2023,NCT09000575,oncology,oncology,government,phase4,73,2,13,237,1,2,0,0,0
+575,train,2023,NCT09000576,infectious decentralized device first in human,infectious,small_biotech,phase2,264,3,11,243,1,4,0,0,1
+576,train,2023,NCT09000577,cardiology,cardiology,industry,phase4,91,7,18,190,4,1,0,0,0
+577,train,2023,NCT09000578,infectious first in human long term extension,infectious,small_biotech,phase4,107,3,16,110,1,2,0,0,0
+578,train,2023,NCT09000579,rare disease rare genetic first in human,rare_disease,small_biotech,phase1,63,5,12,247,1,1,1,0,1
+579,train,2023,NCT09000580,neurology,neurology,government,phase4,23,,28,198,3,3,0,0,0
+580,train,2023,NCT09000581,cardiology decentralized dose first in human long term extension,cardiology,small_biotech,phase4,476,2,22,258,1,4,0,1,1
+581,train,2023,NCT09000582,oncology first in human long term extension,oncology,small_biotech,phase1,96,4,21,198,2,1,0,0,1
+582,train,2023,NCT09000583,cardiology dose pediatric long term extension,cardiology,government,phase3,117,8,32,175,1,4,0,0,0
+583,train,2023,NCT09000584,neurology adaptive platform long term extension,neurology,government,phase4,21,1,19,313,1,2,0,0,0
+584,train,2023,NCT09000585,neurology,neurology,industry,phase4,36,4,7,210,4,2,0,0,1
+585,train,2023,NCT09000586,metabolic,metabolic,government,phase3,64,6,26,178,1,3,0,0,0
+586,train,2023,NCT09000587,metabolic,metabolic,industry,phase2,45,3,12,175,4,2,0,0,1
+587,train,2023,NCT09000588,metabolic decentralized adaptive,metabolic,industry,phase3,532,5,33,259,3,5,0,0,0
+588,train,2023,NCT09000589,metabolic long term extension,metabolic,industry,phase4,78,3,16,178,4,3,0,0,1
+589,train,2023,NCT09000590,rare disease extension platform rare genetic,rare_disease,industry,phase2,54,,25,232,4,2,1,0,0
+590,train,2023,NCT09000591,cardiology,cardiology,government,phase1,70,1,12,203,1,2,0,0,0
+591,train,2023,NCT09000592,infectious first in human,infectious,small_biotech,phase2,61,4,28,145,2,3,0,1,0
+592,train,2023,NCT09000593,rare disease rare genetic first in human,rare_disease,small_biotech,phase1,45,2,7,158,1,1,1,0,0
+593,train,2023,NCT09000594,neurology first in human long term extension,neurology,small_biotech,phase3,164,6,32,177,2,5,0,1,0
+594,train,2023,NCT09000595,rare disease platform decentralized rare genetic,rare_disease,industry,phase1,42,2,31,301,2,5,1,1,1
+595,train,2023,NCT09000596,cardiology long term extension,cardiology,government,phase3,319,5,23,106,2,4,0,0,0
+596,train,2023,NCT09000597,metabolic long term extension,metabolic,academic,phase4,157,1,15,162,1,3,0,0,0
+597,train,2023,NCT09000598,metabolic,metabolic,academic,phase1,137,10,26,189,2,1,0,0,0
+598,train,2023,NCT09000599,rare disease rare genetic,rare_disease,academic,phase4,27,3,12,345,1,2,1,0,0
+599,train,2023,NCT09000600,metabolic extension dose,metabolic,government,phase2,64,12,14,277,1,3,0,0,1
+600,train,2023,NCT09000601,rare disease rare genetic,rare_disease,academic,phase2,19,1,10,212,1,2,1,0,0
+601,train,2023,NCT09000602,metabolic,metabolic,academic,phase1,47,7,25,186,2,1,0,0,0
+602,train,2023,NCT09000603,oncology,oncology,academic,phase4,73,3,11,176,2,0,0,0,0
+603,train,2023,NCT09000604,infectious platform platform,infectious,industry,phase4,250,3,24,287,4,3,0,0,0
+604,train,2023,NCT09000605,rare disease rare genetic,rare_disease,government,phase2,17,3,13,290,1,1,1,0,0
+605,train,2023,NCT09000606,infectious,infectious,government,phase1,34,,20,191,1,1,0,0,0
+606,train,2023,NCT09000607,neurology decentralized platform long term extension,neurology,academic,phase3,110,20,44,212,1,6,0,1,0
+607,train,2023,NCT09000608,rare disease rare genetic,rare_disease,academic,phase2,76,9,39,166,3,1,1,1,0
+608,train,2023,NCT09000609,neurology,neurology,industry,phase3,400,,35,260,3,3,0,0,0
+609,train,2023,NCT09000610,neurology first in human,neurology,small_biotech,phase4,64,,17,207,3,1,0,0,0
+610,train,2023,NCT09000611,infectious first in human,infectious,small_biotech,phase3,161,13,36,203,1,3,0,0,0
+611,train,2023,NCT09000612,oncology,oncology,government,phase2,220,2,17,169,1,2,0,0,0
+612,train,2023,NCT09000613,neurology,neurology,government,phase4,104,5,28,139,1,3,0,0,0
+613,train,2023,NCT09000614,cardiology,cardiology,academic,phase3,241,4,24,201,1,4,0,0,0
+614,train,2023,NCT09000615,infectious dose device,infectious,academic,phase3,192,4,34,245,2,6,0,1,0
+615,train,2023,NCT09000616,infectious rare genetic,infectious,industry,phase4,97,3,9,163,2,3,1,1,0
+616,train,2023,NCT09000617,neurology dose biomarker,neurology,government,phase3,97,,16,322,1,4,0,0,1
+617,train,2023,NCT09000618,neurology biomarker dose,neurology,industry,phase1,170,12,35,301,4,2,0,0,0
+618,train,2023,NCT09000619,cardiology,cardiology,government,phase2,187,3,21,179,1,1,0,0,0
+619,train,2023,NCT09000620,metabolic first in human,metabolic,small_biotech,phase2,100,,17,140,2,3,0,0,0
+620,train,2023,NCT09000621,oncology long term extension,oncology,academic,phase3,62,5,5,80,1,2,0,0,0
+621,train,2023,NCT09000622,cardiology,cardiology,government,phase3,64,3,20,148,2,2,0,0,0
+622,train,2023,NCT09000623,metabolic rare genetic,metabolic,government,phase4,29,5,21,97,2,2,1,0,0
+623,train,2023,NCT09000624,infectious,infectious,government,phase1,36,3,20,192,1,2,0,0,0
+624,train,2023,NCT09000625,neurology long term extension,neurology,academic,phase1,102,5,21,206,1,2,0,0,0
+625,train,2023,NCT09000626,infectious basket extension,infectious,industry,phase3,271,45,85,231,6,4,0,0,0
+626,train,2023,NCT09000627,rare disease adaptive registry rare genetic,rare_disease,industry,phase4,51,10,23,213,3,2,1,1,1
+627,train,2023,NCT09000628,infectious adaptive decentralized first in human,infectious,small_biotech,phase1,120,2,19,333,1,2,0,0,0
+628,train,2023,NCT09000629,oncology,oncology,government,phase2,70,2,4,160,3,2,0,0,0
+629,train,2023,NCT09000630,neurology first in human,neurology,small_biotech,phase1,48,4,9,263,4,1,0,0,0
+630,train,2023,NCT09000631,infectious extension device rare genetic,infectious,industry,phase4,103,4,20,213,1,3,1,0,1
+631,train,2023,NCT09000632,rare disease rare genetic first in human,rare_disease,small_biotech,phase1,23,4,17,301,1,0,1,0,0
+632,train,2023,NCT09000633,metabolic device adaptive first in human,metabolic,small_biotech,phase2,94,4,4,277,1,3,0,0,1
+633,train,2023,NCT09000634,neurology first in human,neurology,small_biotech,phase4,28,,9,84,2,1,0,0,0
+634,train,2023,NCT09000635,neurology first in human,neurology,small_biotech,phase3,128,2,27,172,2,3,0,0,0
+635,train,2023,NCT09000636,infectious basket basket first in human,infectious,small_biotech,phase2,67,1,9,216,1,3,0,0,0
+636,train,2023,NCT09000637,cardiology biomarker decentralized rare genetic,cardiology,industry,phase2,26,2,4,286,3,4,1,0,0
+637,train,2023,NCT09000638,rare disease biomarker pediatric rare genetic first in human,rare_disease,small_biotech,phase1,227,,23,327,1,3,1,0,0
+638,train,2023,NCT09000639,infectious first in human,infectious,small_biotech,phase2,69,2,10,144,1,2,0,0,0
+639,train,2023,NCT09000640,metabolic,metabolic,academic,phase3,49,3,16,156,1,2,0,0,0
+640,train,2023,NCT09000641,rare disease rare genetic first in human,rare_disease,small_biotech,phase2,16,2,15,145,1,3,1,1,0
+641,train,2023,NCT09000642,cardiology biomarker adaptive first in human long term extension,cardiology,small_biotech,phase4,64,,28,241,3,3,0,0,1
+642,train,2023,NCT09000643,oncology,oncology,government,phase2,51,2,9,113,1,1,0,1,0
+643,train,2023,NCT09000644,metabolic,metabolic,industry,phase1,18,3,16,219,1,2,0,0,0
+644,train,2023,NCT09000645,rare disease device platform rare genetic,rare_disease,government,phase1,80,3,25,191,2,2,1,1,0
+645,train,2023,NCT09000646,neurology,neurology,government,phase1,166,,28,220,2,0,0,0,0
+646,train,2023,NCT09000647,oncology long term extension,oncology,government,phase3,146,,23,167,1,4,0,0,0
+647,train,2023,NCT09000648,oncology biomarker platform,oncology,industry,phase1,388,1,32,316,1,2,0,0,1
+648,train,2023,NCT09000649,rare disease rare genetic,rare_disease,government,phase1,68,2,27,241,1,2,1,0,0
+649,train,2023,NCT09000650,metabolic,metabolic,academic,phase4,84,3,20,165,2,1,0,0,0
+650,train,2023,NCT09000651,rare disease biomarker platform rare genetic first in human,rare_disease,small_biotech,phase3,24,8,32,318,2,4,1,0,0
+651,train,2023,NCT09000652,oncology,oncology,industry,phase3,118,15,36,277,2,3,0,0,0
+652,train,2023,NCT09000653,infectious,infectious,government,phase3,102,5,31,121,1,4,0,0,0
+653,train,2023,NCT09000654,metabolic,metabolic,government,phase4,59,6,14,233,2,2,0,0,1
+654,train,2023,NCT09000655,oncology,oncology,academic,phase4,57,2,12,141,5,2,0,0,0
+655,train,2023,NCT09000656,infectious first in human long term extension,infectious,small_biotech,phase1,239,,17,151,1,1,0,0,1
+656,train,2023,NCT09000657,neurology rare genetic long term extension,neurology,industry,phase3,191,17,39,165,3,3,1,0,0
+657,train,2023,NCT09000658,infectious,infectious,academic,phase4,203,1,9,159,1,2,0,0,0
+658,train,2023,NCT09000659,infectious,infectious,industry,phase4,119,7,19,188,2,0,0,0,0
+659,train,2023,NCT09000660,infectious,infectious,academic,phase4,48,5,15,169,1,0,0,0,1
+660,train,2023,NCT09000661,neurology,neurology,academic,phase3,121,2,29,232,1,3,0,0,0
+661,train,2023,NCT09000662,infectious rare genetic,infectious,government,phase2,7,2,11,181,1,2,1,0,0
+662,train,2023,NCT09000663,rare disease rare genetic,rare_disease,industry,phase4,47,5,22,227,4,3,1,0,0
+663,train,2023,NCT09000664,infectious device decentralized,infectious,industry,phase4,71,10,36,262,3,4,0,0,0
+664,train,2023,NCT09000665,metabolic long term extension,metabolic,government,phase1,150,5,14,189,3,2,0,0,0
+665,train,2023,NCT09000666,neurology,neurology,academic,phase1,69,9,15,185,2,1,0,0,0
+666,train,2023,NCT09000667,metabolic first in human long term extension,metabolic,small_biotech,phase1,188,1,22,271,1,2,0,0,0
+667,train,2023,NCT09000668,rare disease rare genetic long term extension,rare_disease,government,phase2,8,10,18,227,1,2,1,0,0
+668,train,2023,NCT09000669,rare disease rare genetic,rare_disease,academic,phase4,36,5,9,217,1,1,1,0,1
+669,train,2023,NCT09000670,cardiology first in human,cardiology,small_biotech,phase1,81,2,8,199,1,3,0,0,1
+670,train,2023,NCT09000671,neurology platform pediatric,neurology,government,phase4,37,4,13,202,1,2,0,0,0
+671,train,2023,NCT09000672,infectious,infectious,academic,phase1,88,,24,110,1,2,0,0,0
+672,train,2023,NCT09000673,neurology basket registry,neurology,academic,phase2,36,,8,262,1,3,0,0,0
+673,train,2023,NCT09000674,rare disease registry dose rare genetic,rare_disease,government,phase2,49,6,32,259,1,2,1,1,0
+674,train,2023,NCT09000675,metabolic first in human long term extension,metabolic,small_biotech,phase2,494,2,10,162,1,2,0,0,0
+675,train,2023,NCT09000676,metabolic,metabolic,academic,phase4,34,12,33,216,1,0,0,0,0
+676,train,2023,NCT09000677,oncology registry registry long term extension,oncology,government,phase3,502,7,30,244,1,3,0,0,0
+677,train,2023,NCT09000678,metabolic,metabolic,academic,phase4,33,2,19,166,1,3,0,0,0
+678,train,2023,NCT09000679,infectious,infectious,government,phase1,30,2,17,175,1,3,0,0,0
+679,train,2023,NCT09000680,metabolic,metabolic,government,phase2,61,5,8,172,2,2,0,0,1
+680,train,2023,NCT09000681,infectious,infectious,government,phase4,40,2,18,151,3,0,0,0,0
+681,train,2023,NCT09000682,cardiology platform adaptive first in human,cardiology,small_biotech,phase3,177,,33,165,2,4,0,1,0
+682,train,2023,NCT09000683,cardiology registry biomarker first in human,cardiology,small_biotech,phase2,76,6,19,201,2,4,0,0,0
+683,train,2023,NCT09000684,neurology first in human long term extension,neurology,small_biotech,phase3,209,7,23,158,4,4,0,0,0
+684,train,2023,NCT09000685,rare disease rare genetic first in human,rare_disease,small_biotech,phase3,71,,31,182,1,5,1,1,1
+685,train,2023,NCT09000686,rare disease rare genetic,rare_disease,industry,phase3,190,16,33,228,3,3,1,0,0
+686,train,2023,NCT09000687,cardiology pediatric basket first in human,cardiology,small_biotech,phase4,39,2,17,212,1,4,0,0,0
+687,train,2023,NCT09000688,oncology decentralized platform first in human,oncology,small_biotech,phase1,31,,17,292,1,2,0,0,0
+688,train,2023,NCT09000689,oncology first in human,oncology,small_biotech,phase2,31,6,24,82,2,1,0,0,0
+689,train,2023,NCT09000690,rare disease rare genetic,rare_disease,industry,phase3,66,2,19,211,1,4,1,0,0
+690,train,2023,NCT09000691,oncology first in human,oncology,small_biotech,phase1,60,,26,206,1,3,0,0,0
+691,train,2023,NCT09000692,cardiology pediatric adaptive,cardiology,government,phase3,225,18,36,264,1,4,0,0,0
+692,train,2023,NCT09000693,infectious,infectious,academic,phase2,80,4,4,143,1,1,0,0,1
+693,train,2023,NCT09000694,neurology,neurology,academic,phase1,94,2,9,174,2,1,0,0,0
+694,train,2023,NCT09000695,neurology first in human,neurology,small_biotech,phase2,149,2,23,143,1,2,0,0,0
+695,train,2023,NCT09000696,metabolic dose adaptive,metabolic,academic,phase2,54,1,10,234,2,3,0,0,0
+696,train,2023,NCT09000697,cardiology adaptive basket,cardiology,academic,phase4,57,7,23,261,3,4,0,0,0
+697,train,2023,NCT09000698,neurology platform platform rare genetic,neurology,academic,phase3,31,6,15,244,1,5,1,0,0
+698,train,2023,NCT09000699,cardiology biomarker decentralized first in human,cardiology,small_biotech,phase4,14,1,14,272,2,3,0,1,0
+699,train,2023,NCT09000700,cardiology adaptive pediatric,cardiology,industry,phase4,66,3,31,313,1,2,0,0,0
+700,train,2023,NCT09000701,metabolic first in human,metabolic,small_biotech,phase3,262,,30,126,1,3,0,0,0
+701,train,2023,NCT09000702,neurology first in human long term extension,neurology,small_biotech,phase4,47,3,23,202,3,4,0,1,0
+702,train,2023,NCT09000703,rare disease rare genetic,rare_disease,government,phase1,84,2,22,311,1,2,1,0,1
+703,train,2023,NCT09000704,metabolic adaptive decentralized first in human long term extension,metabolic,small_biotech,phase2,154,4,23,264,1,2,0,0,0
+704,train,2023,NCT09000705,cardiology,cardiology,industry,phase2,47,1,17,140,3,1,0,0,0
+705,train,2023,NCT09000706,rare disease rare genetic,rare_disease,industry,phase2,98,3,18,176,4,1,1,0,0
+706,train,2023,NCT09000707,rare disease rare genetic first in human long term extension,rare_disease,small_biotech,phase1,67,4,18,207,1,1,1,0,0
+707,train,2023,NCT09000708,cardiology,cardiology,academic,phase4,34,,13,197,3,0,0,0,0
+708,train,2023,NCT09000709,infectious,infectious,government,phase3,66,2,26,212,2,4,0,0,0
+709,train,2023,NCT09000710,infectious pediatric adaptive first in human,infectious,small_biotech,phase2,168,,13,303,1,3,0,0,1
+710,train,2023,NCT09000711,cardiology first in human,cardiology,small_biotech,phase1,38,2,13,151,1,1,0,0,0
+711,train,2023,NCT09000712,neurology,neurology,industry,phase2,284,3,36,81,4,1,0,0,0
+712,train,2023,NCT09000713,oncology first in human,oncology,small_biotech,phase2,84,4,24,132,1,3,0,0,1
+713,train,2023,NCT09000714,neurology first in human,neurology,small_biotech,phase3,441,11,39,177,1,2,0,0,0
+714,train,2023,NCT09000715,neurology,neurology,industry,phase2,40,1,10,172,2,1,0,0,0
+715,train,2023,NCT09000716,metabolic,metabolic,government,phase2,27,1,4,97,1,3,0,0,0
+716,train,2023,NCT09000717,oncology,oncology,academic,phase4,105,14,30,183,1,2,0,0,0
+717,train,2023,NCT09000718,neurology,neurology,government,phase2,54,7,26,203,1,0,0,0,0
+718,train,2023,NCT09000719,rare disease rare genetic long term extension,rare_disease,academic,phase2,127,2,7,204,1,1,1,0,0
+719,train,2023,NCT09000720,neurology rare genetic,neurology,government,phase3,10,1,4,255,1,4,1,0,0
+720,train,2023,NCT09000721,cardiology,cardiology,industry,phase3,106,2,11,220,4,4,0,0,1
+721,train,2023,NCT09000722,rare disease rare genetic,rare_disease,academic,phase2,49,2,25,155,1,0,1,0,0
+722,train,2023,NCT09000723,infectious registry decentralized first in human long term extension,infectious,small_biotech,phase3,113,18,35,174,2,5,0,0,0
+723,train,2023,NCT09000724,metabolic first in human,metabolic,small_biotech,phase3,194,1,27,182,1,3,0,0,0
+724,train,2023,NCT09000725,infectious platform decentralized,infectious,government,phase2,43,2,13,160,1,2,0,0,0
+725,train,2023,NCT09000726,oncology,oncology,government,phase2,19,2,24,177,1,2,0,0,0
+726,train,2023,NCT09000727,rare disease rare genetic,rare_disease,government,phase1,91,3,16,196,1,3,1,0,0
+727,train,2023,NCT09000728,oncology,oncology,industry,phase1,40,,12,175,1,1,0,0,0
+728,train,2023,NCT09000729,oncology pediatric biomarker first in human,oncology,small_biotech,phase3,251,3,23,201,1,5,0,0,1
+729,train,2023,NCT09000730,neurology long term extension,neurology,industry,phase3,203,20,40,240,4,2,0,0,0
+730,train,2023,NCT09000731,neurology,neurology,academic,phase4,177,2,16,255,3,1,0,0,1
+731,train,2023,NCT09000732,rare disease rare genetic,rare_disease,industry,phase2,23,5,12,214,3,1,1,0,0
+732,train,2023,NCT09000733,infectious pediatric decentralized,infectious,industry,phase3,287,6,30,186,3,5,0,0,1
+733,train,2023,NCT09000734,neurology long term extension,neurology,academic,phase4,169,,20,148,2,2,0,1,0
+734,train,2023,NCT09000735,metabolic,metabolic,academic,phase1,53,1,5,175,1,2,0,0,0
+735,train,2023,NCT09000736,cardiology adaptive dose rare genetic,cardiology,government,phase2,20,2,13,260,1,2,1,0,0
+736,train,2023,NCT09000737,rare disease biomarker decentralized rare genetic first in human,rare_disease,small_biotech,phase3,33,6,13,227,1,4,1,0,1
+737,train,2023,NCT09000738,metabolic,metabolic,academic,phase2,198,1,7,145,1,0,0,0,0
+738,train,2023,NCT09000739,oncology,oncology,government,phase1,140,4,34,199,2,1,0,0,0
+739,train,2023,NCT09000740,oncology long term extension,oncology,industry,phase2,339,2,21,208,2,3,0,0,0
+740,train,2023,NCT09000741,rare disease rare genetic first in human,rare_disease,small_biotech,phase1,20,3,12,208,1,1,1,0,1
+741,train,2023,NCT09000742,rare disease adaptive pediatric rare genetic long term extension,rare_disease,industry,phase3,46,17,54,243,3,5,1,1,0
+742,train,2023,NCT09000743,oncology pediatric platform,oncology,government,phase3,195,2,17,255,1,5,0,0,0
+743,train,2023,NCT09000744,metabolic,metabolic,academic,phase1,80,1,5,258,1,2,0,0,0
+744,train,2023,NCT09000745,metabolic,metabolic,industry,phase1,29,7,12,168,2,1,0,0,0
+745,train,2023,NCT09000746,neurology,neurology,industry,phase1,48,14,31,197,2,0,0,0,0
+746,train,2023,NCT09000747,metabolic long term extension,metabolic,industry,phase2,105,4,19,264,2,1,0,0,0
+747,train,2023,NCT09000748,rare disease rare genetic first in human,rare_disease,small_biotech,phase4,35,2,17,188,1,1,1,0,0
+748,train,2023,NCT09000749,cardiology pediatric dose long term extension,cardiology,industry,phase1,45,13,15,310,4,2,0,0,0
+749,train,2023,NCT09000750,oncology device extension long term extension,oncology,government,phase3,129,4,23,232,2,5,0,0,0
+750,train,2023,NCT09000751,infectious,infectious,government,phase1,107,2,4,249,1,4,0,1,0
+751,train,2023,NCT09000752,neurology long term extension,neurology,industry,phase2,58,5,16,131,3,3,0,0,1
+752,train,2023,NCT09000753,cardiology,cardiology,industry,phase4,143,5,31,146,2,3,0,1,0
+753,train,2023,NCT09000754,cardiology adaptive basket,cardiology,academic,phase2,79,1,7,281,3,3,0,0,0
+754,train,2023,NCT09000755,infectious rare genetic first in human,infectious,small_biotech,phase4,74,2,34,170,1,1,1,1,0
+755,train,2023,NCT09000756,neurology long term extension,neurology,academic,phase2,120,2,4,242,1,2,0,0,0
+756,train,2023,NCT09000757,neurology rare genetic first in human,neurology,small_biotech,phase2,22,3,10,253,1,1,1,0,0
+757,train,2023,NCT09000758,neurology rare genetic,neurology,academic,phase2,40,3,26,305,2,1,1,1,1
+758,train,2023,NCT09000759,neurology long term extension,neurology,industry,phase1,249,2,4,296,1,0,0,0,0
+759,train,2023,NCT09000760,oncology rare genetic long term extension,oncology,academic,phase4,25,2,17,206,1,2,1,0,0
+760,train,2023,NCT09000761,neurology dose basket first in human long term extension,neurology,small_biotech,phase3,323,14,48,244,1,3,0,0,0
+761,train,2023,NCT09000762,oncology,oncology,academic,phase4,29,1,17,145,1,1,0,0,0
+762,train,2023,NCT09000763,metabolic first in human,metabolic,small_biotech,phase4,129,2,15,145,1,2,0,0,0
+763,train,2023,NCT09000764,infectious,infectious,government,phase1,121,1,29,184,1,2,0,0,0
+764,train,2023,NCT09000765,oncology long term extension,oncology,government,phase1,38,,7,88,1,2,0,0,1
+765,train,2023,NCT09000766,neurology basket adaptive first in human,neurology,small_biotech,phase1,50,2,27,222,1,4,0,1,1
+766,train,2023,NCT09000767,cardiology first in human,cardiology,small_biotech,phase4,90,6,15,197,1,2,0,0,1
+767,train,2023,NCT09000768,metabolic first in human,metabolic,small_biotech,phase1,24,21,41,228,2,2,0,1,0
+768,train,2023,NCT09000769,cardiology device pediatric first in human,cardiology,small_biotech,phase2,72,1,4,217,4,1,0,0,0
+769,train,2023,NCT09000770,cardiology,cardiology,government,phase2,56,2,17,161,1,2,0,0,0
+770,train,2023,NCT09000771,cardiology,cardiology,government,phase2,181,2,20,202,1,3,0,0,0
+771,train,2023,NCT09000772,neurology long term extension,neurology,government,phase4,75,3,16,151,1,2,0,0,0
+772,train,2023,NCT09000773,metabolic,metabolic,academic,phase2,23,6,10,198,1,1,0,0,0
+773,train,2023,NCT09000774,cardiology,cardiology,government,phase4,25,,38,157,1,1,0,0,0
+774,train,2023,NCT09000775,rare disease rare genetic,rare_disease,academic,phase1,51,3,20,219,1,3,1,0,0
+775,train,2023,NCT09000776,neurology platform pediatric long term extension,neurology,government,phase4,14,2,12,264,1,4,0,1,0
+776,train,2023,NCT09000777,infectious,infectious,government,phase2,185,4,19,241,2,1,0,0,1
+777,train,2023,NCT09000778,oncology decentralized platform first in human,oncology,small_biotech,phase2,87,4,25,141,1,2,0,0,0
+778,train,2023,NCT09000779,rare disease rare genetic,rare_disease,government,phase1,67,5,22,165,2,2,1,0,0
+779,train,2023,NCT09000780,neurology adaptive platform,neurology,academic,phase2,62,1,13,230,2,2,0,0,0
+780,train,2023,NCT09000781,oncology,oncology,government,phase2,42,3,26,195,2,2,0,0,1

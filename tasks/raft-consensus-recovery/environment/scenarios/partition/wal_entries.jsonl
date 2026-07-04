@@ -1,0 +1,9 @@
+{"index":1,"term":1,"tick":10,"node_id":"n1","command":{"op":"set","key":"quota","value":"100"}}
+{"index":2,"term":1,"tick":20,"node_id":"n1","command":{"op":"set","key":"session","value":"s1"}}
+{"index":3,"term":1,"tick":30,"node_id":"n1","command":{"op":"set","key":"quota","value":"200"}}
+{"index":4,"term":2,"tick":90,"node_id":"n1","command":{"op":"set","key":"quota","value":"300"}}
+{"index":5,"term":2,"tick":95,"node_id":"n1","command":{"op":"set","key":"session","value":"s2"}}
+{"index":4,"term":3,"tick":92,"node_id":"n4","command":{"op":"set","key":"quota","value":"999"}}
+{"index":6,"term":3,"tick":130,"node_id":"n1","command":{"op":"set","key":"leader","value":"n1"}}
+{"index":7,"term":3,"tick":135,"node_id":"n2","command":{"op":"set","key":"replica","value":"n2"}}
+{"index":8,"term":3,"tick":140,"node_id":"n1","command":{"op":"del","key":"temp","value":""}}

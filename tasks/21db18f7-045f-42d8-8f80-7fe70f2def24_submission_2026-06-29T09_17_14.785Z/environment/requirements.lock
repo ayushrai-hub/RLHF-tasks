@@ -1,6 +1,0 @@
-# Locked dependencies for Prefect secret rotation task
-pytest==9.0.3
-pytest-json-ctrf==0.5.0
-cryptography==42.0.5
-pyyaml==6.0.2
-click==8.1.7

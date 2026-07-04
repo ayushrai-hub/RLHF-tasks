@@ -1,0 +1,38 @@
+version = "2.0"
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+difficulty = "hard"
+category = "data-processing"
+task_shape = "repair_existing_system"
+languages = ["rust"]
+codebase_size = "small"
+subcategories = []
+tags = ["rust", "wal", "snapshot", "compaction", "recovery"]
+number_of_milestones = 0
+expert_time_estimate_min = 90
+junior_time_estimate_min = 300
+
+[category_profile]
+challenge_family = "append-only seglog crash resume with compaction replay"
+profile_name = "state_recovery_crash_consistency"
+
+[agent]
+timeout_sec = 1800
+
+[verifier]
+timeout_sec = 600
+
+[environment]
+allow_internet = false
+build_timeout_sec = 300
+cpus = 2
+memory_mb = 4096
+storage_mb = 8192
+
+[output]
+path = "/app/output/ledger_report.json"
+
+[reference_pattern]
+justification_if_none = "No promoted reference in docs/reference_tasks/index.json; lockstep-replay-drift and sqlite-wal-checkpoint-generation-fence are calibration neighbours for branch-parity recovery work but are not promoted reference ids."

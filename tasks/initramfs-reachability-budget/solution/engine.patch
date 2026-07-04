@@ -1,0 +1,34 @@
+diff --git a/environment/tools/drv_q7/engine.go b/solution/engine.go
+index 1b4e653..11110bc 100755
+--- environment/tools/drv_q7/engine.go
++++ environment/tools/drv_q7/engine.go
+@@ -132,9 +132,6 @@ func loadLane(path string) (pk_b.LanePick, error) {
+ 		return pk_b.LanePick{}, err
+ 	}
+ 	laneClass := doc.LaneClass
+-	if laneClass == "H" {
+-		laneClass = "W"
+-	}
+ 	return pk_b.LanePick{LaneClass: laneClass, Required: doc.Required}, nil
+ }
+ 
+@@ -144,8 +141,8 @@ func applyStageA(nodes []pk_a.GraphNode, registry map[string]pk_a.GraphNode) *pk
+ 	return sink
+ }
+ 
+-func applyStageB(rows *pk_a.IngestSink, aliasMaps pk_b.AliasPack, lane pk_b.LanePick) pk_b.ReachSet {
+-	return pk_b.PhaseB(rows, aliasMaps, lane)
++func applyStageB(rows *pk_a.IngestSink, aliasMaps pk_b.AliasPack, lane pk_b.LanePick, blobs pk_c.BlobPack) pk_b.ReachSet {
++	return pk_b.PhaseB(rows, aliasMaps, lane, blobs.Sizes)
+ }
+ 
+ func applyStageC(reachable pk_b.ReachSet, blobs pk_c.BlobPack, out pk_c.PackEmitter, ledger *pk_c.LedgerEmitter) error {
+@@ -175,7 +172,7 @@ func runPack(packID, bundleOut, ledgerOut string) error {
+ 	if err != nil {
+ 		return err
+ 	}
+-	reachable := applyStageB(sink, aliasMaps, lane)
++	reachable := applyStageB(sink, aliasMaps, lane, blobs)
+ 	out := pk_c.PackEmitter{Path: bundleOut}
+ 	ledger := &pk_c.LedgerEmitter{Path: ledgerOut, PackID: spec.PackID}
+ 	

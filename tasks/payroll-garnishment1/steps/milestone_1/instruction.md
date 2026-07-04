@@ -1,0 +1,9 @@
+Build a payroll garnishment CLI to /app/pay with `go build -o /app/pay .` (standard library and the sqlite3 CLI only), storing data in /app/data/pay.db. Go is already installed and on the PATH. All amounts are integer cents; priorities are whole numbers. Never use floating point.
+
+Every status word, id, and result this CLI reports is written to standard output, never standard error, including on the non-zero exit paths: the success word ok, each id, and every error word (ok, exists, not_found, bad_input) all go to stdout, with the exit code alone signalling failure.
+
+`init` creates the schema and prints ok; rerunning stays safe and exits zero. `add-employee <name> --gross <cents> --mandatory <cents>` registers an employee and prints its integer id; the employee name is globally unique, so a duplicate name prints exists (exit non-zero). Gross must be a positive whole number of cents and mandatory must be a whole number of cents that is zero or greater and not larger than gross; any value carrying a fractional or decimal part is not a valid integer and must be rejected, so --gross 100.5 prints bad_input (exit non-zero), as does a mandatory amount that exceeds gross.
+
+`add-order <employee> --kind <kind> --priority <n> --cap <cents>` records one garnishment order against an employee and prints its integer id. The kind is a non-empty label, the priority must be a positive whole number, and the cap must be a positive whole number of cents; a missing kind, a non-positive or fractional priority, or a non-positive or fractional cap prints bad_input (exit non-zero), and an unknown employee prints not_found (exit non-zero). An employee may carry several orders.
+
+`employees` prints "<id> <name> <gross> <mandatory>" per employee sorted by name. `orders <employee>` prints "<id> <kind> <priority> <cap>" per order ordered by ascending priority then ascending id, printing not_found (exit non-zero) for an unknown employee.

@@ -1,0 +1,9 @@
+{
+  "system": "settlement-router",
+  "audit_included": false,
+  "replicas": 2,
+  "regions": [
+    "us-east-1",
+    "eu-west-1"
+  ]
+}

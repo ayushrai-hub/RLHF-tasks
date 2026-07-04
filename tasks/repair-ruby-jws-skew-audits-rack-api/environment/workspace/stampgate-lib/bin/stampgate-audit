@@ -1,0 +1,35 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+$LOAD_PATH.unshift File.expand_path("../lib", __dir__)
+
+require "stamp_gate/audit_runner"
+
+api = nil
+out = nil
+ledger = nil
+policy = nil
+cache = nil
+command = ARGV.shift
+
+while (arg = ARGV.shift)
+  case arg
+  when "--api" then api = ARGV.shift
+  when "--out" then out = ARGV.shift
+  when "--ledger" then ledger = ARGV.shift
+  when "--policy" then policy = ARGV.shift
+  when "--cache" then cache = ARGV.shift
+  end
+end
+
+case command
+when "policy"
+  StampGate::AuditRunner.run_policy(api: api, out: out)
+when "verify"
+  StampGate::AuditRunner.run_verify(api: api, ledger: ledger, policy: policy, out: out)
+when "report"
+  StampGate::AuditRunner.run_report(api: api, ledger: ledger, policy: policy, cache: cache, out: out)
+else
+  warn "unknown command #{command}"
+  exit 1
+end

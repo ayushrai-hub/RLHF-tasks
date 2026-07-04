@@ -1,0 +1,90 @@
+{
+  "scenario_id": "scenario_36",
+  "events": [
+    {
+      "seq": 1,
+      "event_id": "m1",
+      "kind": "REGISTER_MODEL",
+      "version": "v1",
+      "weights_hex": "deadbeef",
+      "weights_digest": "2baf1f40105d9501fe319a8ec463fdf4325a2a5df445adf3f572f626253678c9",
+      "calibration_version": "v1"
+    },
+    {
+      "seq": 2,
+      "event_id": "r1",
+      "kind": "REGISTER_REGION",
+      "region_id": "eu-west",
+      "firmware": "fw-10"
+    },
+    {
+      "seq": 3,
+      "event_id": "r2",
+      "kind": "REGISTER_REGION",
+      "region_id": "us-east",
+      "firmware": "fw-10"
+    },
+    {
+      "seq": 4,
+      "event_id": "c1",
+      "kind": "SET_CALIBRATION",
+      "region_id": "eu-west",
+      "version": "v1",
+      "temperature": 1.0
+    },
+    {
+      "seq": 5,
+      "event_id": "c2",
+      "kind": "SET_CALIBRATION",
+      "region_id": "us-east",
+      "version": "v1",
+      "temperature": 1.0
+    },
+    {
+      "seq": 6,
+      "event_id": "l1",
+      "kind": "LOCK_SAMPLE",
+      "region_id": "eu-west",
+      "sample_id": "s1",
+      "device_id": "d1",
+      "raw_features": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "seq": 7,
+      "event_id": "l2",
+      "kind": "LOCK_SAMPLE",
+      "region_id": "us-east",
+      "sample_id": "s1",
+      "device_id": "d1",
+      "raw_features": [
+        10.0,
+        0.0
+      ]
+    },
+    {
+      "seq": 8,
+      "event_id": "i1",
+      "kind": "RUN_INFERENCE",
+      "region_id": "eu-west",
+      "sample_id": "s1",
+      "logits": [
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "seq": 9,
+      "event_id": "i2",
+      "kind": "RUN_INFERENCE",
+      "region_id": "us-east",
+      "sample_id": "s1",
+      "logits": [
+        1.0,
+        0.0
+      ]
+    }
+  ]
+}

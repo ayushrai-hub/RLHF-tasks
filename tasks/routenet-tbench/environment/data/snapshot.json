@@ -1,0 +1,602 @@
+{
+  "generated_at": "2024-08-12T09:14:00Z",
+  "schema_version": 3,
+  "nodes": [
+    {
+      "id": 0,
+      "label": "stn-00"
+    },
+    {
+      "id": 1,
+      "label": "stn-01"
+    },
+    {
+      "id": 2,
+      "label": "stn-02"
+    },
+    {
+      "id": 3,
+      "label": "stn-03"
+    },
+    {
+      "id": 4,
+      "label": "stn-04"
+    },
+    {
+      "id": 5,
+      "label": "stn-05"
+    },
+    {
+      "id": 6,
+      "label": "stn-06"
+    },
+    {
+      "id": 7,
+      "label": "stn-07"
+    },
+    {
+      "id": 8,
+      "label": "stn-08"
+    },
+    {
+      "id": 9,
+      "label": "stn-09"
+    },
+    {
+      "id": 10,
+      "label": "stn-10"
+    },
+    {
+      "id": 11,
+      "label": "stn-11"
+    },
+    {
+      "id": 12,
+      "label": "stn-12"
+    },
+    {
+      "id": 13,
+      "label": "stn-13"
+    },
+    {
+      "id": 14,
+      "label": "stn-14"
+    },
+    {
+      "id": 15,
+      "label": "stn-15"
+    },
+    {
+      "id": 16,
+      "label": "stn-16"
+    },
+    {
+      "id": 17,
+      "label": "stn-17"
+    },
+    {
+      "id": 18,
+      "label": "stn-18"
+    },
+    {
+      "id": 19,
+      "label": "stn-19"
+    },
+    {
+      "id": 20,
+      "label": "stn-20"
+    },
+    {
+      "id": 21,
+      "label": "stn-21"
+    },
+    {
+      "id": 22,
+      "label": "stn-22"
+    },
+    {
+      "id": 23,
+      "label": "stn-23"
+    },
+    {
+      "id": 24,
+      "label": "stn-24"
+    },
+    {
+      "id": 25,
+      "label": "stn-25"
+    },
+    {
+      "id": 26,
+      "label": "stn-26"
+    },
+    {
+      "id": 27,
+      "label": "stn-27"
+    },
+    {
+      "id": 28,
+      "label": "stn-28"
+    },
+    {
+      "id": 29,
+      "label": "stn-29"
+    },
+    {
+      "id": 30,
+      "label": "stn-30"
+    },
+    {
+      "id": 31,
+      "label": "stn-31"
+    },
+    {
+      "id": 32,
+      "label": "stn-32"
+    },
+    {
+      "id": 33,
+      "label": "stn-33"
+    },
+    {
+      "id": 34,
+      "label": "stn-34"
+    },
+    {
+      "id": 35,
+      "label": "stn-35"
+    }
+  ],
+  "edges": [
+    {
+      "u": 0,
+      "v": 1,
+      "split": "train"
+    },
+    {
+      "u": 0,
+      "v": 5,
+      "split": "train"
+    },
+    {
+      "u": 0,
+      "v": 7,
+      "split": "train"
+    },
+    {
+      "u": 0,
+      "v": 22,
+      "split": "train"
+    },
+    {
+      "u": 0,
+      "v": 24,
+      "split": "train"
+    },
+    {
+      "u": 0,
+      "v": 26,
+      "split": "val"
+    },
+    {
+      "u": 0,
+      "v": 32,
+      "split": "train"
+    },
+    {
+      "u": 1,
+      "v": 2,
+      "split": "train"
+    },
+    {
+      "u": 1,
+      "v": 8,
+      "split": "train"
+    },
+    {
+      "u": 1,
+      "v": 11,
+      "split": "train"
+    },
+    {
+      "u": 1,
+      "v": 15,
+      "split": "train"
+    },
+    {
+      "u": 1,
+      "v": 17,
+      "split": "train"
+    },
+    {
+      "u": 1,
+      "v": 20,
+      "split": "train"
+    },
+    {
+      "u": 1,
+      "v": 23,
+      "split": "train"
+    },
+    {
+      "u": 1,
+      "v": 27,
+      "split": "train"
+    },
+    {
+      "u": 1,
+      "v": 28,
+      "split": "train"
+    },
+    {
+      "u": 2,
+      "v": 3,
+      "split": "val"
+    },
+    {
+      "u": 2,
+      "v": 10,
+      "split": "train"
+    },
+    {
+      "u": 2,
+      "v": 13,
+      "split": "train"
+    },
+    {
+      "u": 2,
+      "v": 14,
+      "split": "test"
+    },
+    {
+      "u": 2,
+      "v": 15,
+      "split": "test"
+    },
+    {
+      "u": 2,
+      "v": 21,
+      "split": "train"
+    },
+    {
+      "u": 2,
+      "v": 22,
+      "split": "test"
+    },
+    {
+      "u": 2,
+      "v": 26,
+      "split": "train"
+    },
+    {
+      "u": 2,
+      "v": 29,
+      "split": "val"
+    },
+    {
+      "u": 2,
+      "v": 30,
+      "split": "train"
+    },
+    {
+      "u": 2,
+      "v": 31,
+      "split": "train"
+    },
+    {
+      "u": 2,
+      "v": 33,
+      "split": "test"
+    },
+    {
+      "u": 2,
+      "v": 35,
+      "split": "train"
+    },
+    {
+      "u": 3,
+      "v": 4,
+      "split": "train"
+    },
+    {
+      "u": 3,
+      "v": 7,
+      "split": "train"
+    },
+    {
+      "u": 3,
+      "v": 8,
+      "split": "test"
+    },
+    {
+      "u": 3,
+      "v": 9,
+      "split": "val"
+    },
+    {
+      "u": 3,
+      "v": 12,
+      "split": "train"
+    },
+    {
+      "u": 3,
+      "v": 16,
+      "split": "test"
+    },
+    {
+      "u": 3,
+      "v": 18,
+      "split": "train"
+    },
+    {
+      "u": 3,
+      "v": 19,
+      "split": "train"
+    },
+    {
+      "u": 3,
+      "v": 35,
+      "split": "train"
+    },
+    {
+      "u": 4,
+      "v": 5,
+      "split": "train"
+    },
+    {
+      "u": 4,
+      "v": 6,
+      "split": "train"
+    },
+    {
+      "u": 4,
+      "v": 25,
+      "split": "train"
+    },
+    {
+      "u": 4,
+      "v": 28,
+      "split": "val"
+    },
+    {
+      "u": 4,
+      "v": 34,
+      "split": "train"
+    },
+    {
+      "u": 5,
+      "v": 9,
+      "split": "val"
+    },
+    {
+      "u": 5,
+      "v": 25,
+      "split": "train"
+    },
+    {
+      "u": 5,
+      "v": 32,
+      "split": "train"
+    },
+    {
+      "u": 5,
+      "v": 33,
+      "split": "train"
+    },
+    {
+      "u": 5,
+      "v": 34,
+      "split": "val"
+    },
+    {
+      "u": 7,
+      "v": 8,
+      "split": "train"
+    },
+    {
+      "u": 7,
+      "v": 12,
+      "split": "test"
+    },
+    {
+      "u": 7,
+      "v": 13,
+      "split": "train"
+    },
+    {
+      "u": 8,
+      "v": 10,
+      "split": "train"
+    },
+    {
+      "u": 8,
+      "v": 13,
+      "split": "train"
+    },
+    {
+      "u": 8,
+      "v": 16,
+      "split": "val"
+    },
+    {
+      "u": 9,
+      "v": 11,
+      "split": "train"
+    },
+    {
+      "u": 9,
+      "v": 12,
+      "split": "train"
+    },
+    {
+      "u": 9,
+      "v": 13,
+      "split": "train"
+    },
+    {
+      "u": 10,
+      "v": 11,
+      "split": "test"
+    },
+    {
+      "u": 10,
+      "v": 12,
+      "split": "train"
+    },
+    {
+      "u": 10,
+      "v": 15,
+      "split": "train"
+    },
+    {
+      "u": 10,
+      "v": 16,
+      "split": "train"
+    },
+    {
+      "u": 11,
+      "v": 12,
+      "split": "train"
+    },
+    {
+      "u": 11,
+      "v": 19,
+      "split": "train"
+    },
+    {
+      "u": 13,
+      "v": 14,
+      "split": "test"
+    },
+    {
+      "u": 13,
+      "v": 16,
+      "split": "train"
+    },
+    {
+      "u": 13,
+      "v": 18,
+      "split": "test"
+    },
+    {
+      "u": 14,
+      "v": 16,
+      "split": "train"
+    },
+    {
+      "u": 15,
+      "v": 19,
+      "split": "train"
+    },
+    {
+      "u": 15,
+      "v": 20,
+      "split": "train"
+    },
+    {
+      "u": 16,
+      "v": 21,
+      "split": "train"
+    },
+    {
+      "u": 17,
+      "v": 18,
+      "split": "val"
+    },
+    {
+      "u": 17,
+      "v": 24,
+      "split": "train"
+    },
+    {
+      "u": 18,
+      "v": 20,
+      "split": "train"
+    },
+    {
+      "u": 18,
+      "v": 22,
+      "split": "train"
+    },
+    {
+      "u": 18,
+      "v": 23,
+      "split": "train"
+    },
+    {
+      "u": 19,
+      "v": 24,
+      "split": "train"
+    },
+    {
+      "u": 19,
+      "v": 25,
+      "split": "train"
+    },
+    {
+      "u": 20,
+      "v": 22,
+      "split": "train"
+    },
+    {
+      "u": 21,
+      "v": 23,
+      "split": "val"
+    },
+    {
+      "u": 21,
+      "v": 24,
+      "split": "train"
+    },
+    {
+      "u": 21,
+      "v": 28,
+      "split": "val"
+    },
+    {
+      "u": 23,
+      "v": 24,
+      "split": "train"
+    },
+    {
+      "u": 23,
+      "v": 28,
+      "split": "train"
+    },
+    {
+      "u": 24,
+      "v": 31,
+      "split": "test"
+    },
+    {
+      "u": 25,
+      "v": 26,
+      "split": "train"
+    },
+    {
+      "u": 26,
+      "v": 29,
+      "split": "test"
+    },
+    {
+      "u": 26,
+      "v": 31,
+      "split": "val"
+    },
+    {
+      "u": 27,
+      "v": 30,
+      "split": "train"
+    },
+    {
+      "u": 27,
+      "v": 31,
+      "split": "train"
+    },
+    {
+      "u": 27,
+      "v": 33,
+      "split": "train"
+    }
+  ]
+}

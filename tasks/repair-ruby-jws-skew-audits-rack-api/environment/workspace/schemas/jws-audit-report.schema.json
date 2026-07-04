@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "ledger_path",
+    "policy_path",
+    "cache_path",
+    "events",
+    "valid_count",
+    "replay_count",
+    "rejected_count"
+  ],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "ledger_path": { "type": "string" },
+    "policy_path": { "type": "string" },
+    "cache_path": { "type": "string" },
+    "valid_count": { "type": "integer", "minimum": 0 },
+    "replay_count": { "type": "integer", "minimum": 0 },
+    "rejected_count": { "type": "integer", "minimum": 0 },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["assertion_id", "issuer", "observed_at_utc", "decision"],
+        "properties": {
+          "assertion_id": { "type": "string" },
+          "issuer": { "type": "string" },
+          "observed_at_utc": { "type": "integer" },
+          "decision": {
+            "enum": [
+              "valid",
+              "invalid_signature",
+              "outside_skew",
+              "revoked",
+              "alg_mismatch",
+              "invalid_jti",
+              "replay"
+            ]
+          },
+          "matched_iat": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

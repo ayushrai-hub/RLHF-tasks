@@ -1,0 +1,217 @@
+{
+  "defaults": {
+    "feature_scale_mode": "global",
+    "calibration_gate": true,
+    "quant_clamp": true
+  },
+  "policy_overrides": {
+    "description": "Optional map on each scenario overriding defaults before replay",
+    "feature_scale_mode": "global or per_device replaces scenario feature_scale_mode when present",
+    "calibration_gate": "boolean replaces scenario calibration_gate default and controls whether SET_CALIBRATION version is checked against REGISTER_MODEL calibration_version"
+  },
+  "event_order": "sort ascending by seq then region_id then sample_id never by event_id alone; at equal seq REGISTER_REGION precedes LOCK_SAMPLE when region_id ties because sample_id is empty on region registration; scenario_65_example seq 2 lock row listed before register row still registers first",
+  "deduplication": {
+    "key": "event_id",
+    "policy": "first_wins",
+    "counter_field": "duplicate_events_skipped",
+    "empty_event_id": "blank event_id rows are never treated as duplicate event_id matches; only non empty event_id values participate in deduplication",
+    "scenario_48_example": "two LOCK_SAMPLE rows both with event_id empty are both accepted and duplicate_events_skipped stays 0",
+    "equal_seq_tiebreak": "when two rows share event_id at the same seq replay sort order decides which is kept; lexicographically smaller region_id wins",
+    "scenario_50_example": "seq 5 eu-west and us-east locks both event_id dup keeps eu-west raw 100.0 and skips us-east raw 200.0 with duplicate_events_skipped 1"
+  },
+  "duplicate_sample": {
+    "key": "region_id plus sample_id",
+    "trigger": "a second LOCK_SAMPLE for the same region_id and sample_id even when event_id differs",
+    "kind": "DUPLICATE_SAMPLE",
+    "detail": "the sample_id string",
+    "event_seq": "seq of the rejected second LOCK_SAMPLE",
+    "policy": "keep the first lock only; ignore the second lock body and do not update Welford stats for it",
+    "scenario_13_example": "seq 3 locks s1 then seq 4 locks s1 again with a different event_id yields DUPLICATE_SAMPLE at seq 4 detail s1 and normalized_features stay from the first lock",
+    "scenario_24_example": "after DUPLICATE_SAMPLE at seq 4 a later lock s2 at seq 5 must normalize using Welford stats from the first s1 lock only not the rejected duplicate values"
+  },
+  "unknown_region": {
+    "trigger": "LOCK_SAMPLE QUANTIZE_SAMPLE or RUN_INFERENCE when region_id was never REGISTER_REGION",
+    "kind": "UNKNOWN_REGION",
+    "detail": "the triggering event kind string such as LOCK_SAMPLE or RUN_INFERENCE",
+    "scenario_09_example": "RUN_INFERENCE on ap-south without REGISTER_REGION detail RUN_INFERENCE",
+    "scenario_21_example": "LOCK_SAMPLE on ap-south without REGISTER_REGION detail LOCK_SAMPLE",
+    "scenario_34_example": "QUANTIZE_SAMPLE on ap-south without REGISTER_REGION detail QUANTIZE_SAMPLE"
+  },
+  "normalization": {
+    "algorithm": "online Welford only never batch mean over the full scenario",
+    "global": "Welford mean and std per channel index within each region across LOCK_SAMPLE rows seen before each lock in seq order regardless of sample_id",
+    "per_device": "Welford stats scoped to region_id and device_id per channel; stats from one device_id must never affect normalization for another device_id in the same region",
+    "formula": "(x - mean) / max(std, 1e-6)",
+    "min_std": 1e-6,
+    "first_lock": "when no prior samples exist for the scope return raw feature unchanged not zero",
+    "per_channel_index": "each channel index maintains its own Welford accumulator never a single mean over the full feature vector",
+    "scenario_38_example": "locks 1,100 then 3,4 yield s2 normalized_features 2000000.0 and -96000000.0 on channels zero and one"
+  },
+  "quantization": {
+    "encode": "q = clamp(round(x / scale) + zero_point, -128, 127)",
+    "decode": "(q - zero_point) * scale",
+    "note": "scale multiplies after subtracting zero_point on decode",
+    "quant_mismatch": {
+      "trigger": "emit QUANT_MISMATCH when abs(dequant minus normalized x) greater than 1e-4 plus abs(x) times 1e-3 never scale divided by two",
+      "detail": "zero based channel index as a decimal string not sample_id",
+      "scenario_03_example": "first channel roundtrip error yields detail 0 at QUANTIZE_SAMPLE seq 5",
+      "scenario_25_example": "features 1.0 and 0.33 with scale 0.1 zero_point 3 yields QUANT_MISMATCH detail 1 only on channel one while channel zero roundtrips",
+      "scenario_33_example": "normalized 0.001 with scale 0.01 triggers QUANT_MISMATCH detail 0 under the spec formula but not under scale divided by two"
+    },
+    "out_of_range_quant": {
+      "trigger": "emit OUT_OF_RANGE_QUANT when abs(normalized x divided by scale) greater than 200",
+      "detail": "the clamped quantized q value as a decimal string not the channel index",
+      "scenario_10_example": "normalized 50.0 with scale 0.01 clamps to q 127 so detail is 127 at QUANTIZE_SAMPLE seq 5",
+      "multi_flag": "one QUANTIZE_SAMPLE may emit OUT_OF_RANGE_QUANT on one channel and QUANT_MISMATCH on another",
+      "scenario_45_example": "features 200.0 and 0.001 with scale 0.01 emit OUT_OF_RANGE detail 127 on channel zero plus QUANT_MISMATCH detail 0 and QUANT_MISMATCH detail 1 at seq 4"
+    }
+  },
+  "calibration": {
+    "helper": "/app/assets/calibrate.js",
+    "invoke": "node calibrate.js <temperature> <logit>...",
+    "gate": "When calibration_gate true after applying scenario calibration_gate field and policy_overrides, SET_CALIBRATION version must equal active REGISTER_MODEL calibration_version",
+    "default_region_calibration": "When a region has no SET_CALIBRATION yet, RUN_INFERENCE uses active REGISTER_MODEL calibration_version and temperature 1.0",
+    "scenario_23_example": "inference without SET_CALIBRATION still runs softmax at temperature 1.0",
+    "scenario_28_example": "scenario calibration_gate true with policy_overrides calibration_gate false skips STALE_CALIBRATION on mismatched SET_CALIBRATION version",
+    "latest_calibration_wins": "each SET_CALIBRATION replaces prior temperature and version for that region_id",
+    "scenario_35_example": "temperature 2.0 at seq 3 then 0.5 at seq 4 means inference uses 0.5 via calibrate.js",
+    "non_positive_temperature": "when stored temperature is zero or negative RUN_INFERENCE uses 1.0 instead",
+    "predicted_class": "lowest index among classes with maximum calibrated probability",
+    "stale_calibration": {
+      "emit_at": "SET_CALIBRATION event when gate is on and ev.version differs from active REGISTER_MODEL calibration_version",
+      "event_seq": "seq of the SET_CALIBRATION event not RUN_INFERENCE",
+      "sample_id": "empty string in flag row sample_id field and underscore in flag_id third segment because no sample is locked yet",
+      "flag_id_region_segment": "actual SET_CALIBRATION region_id never underscore; scenario_04 uses us-east not underscore",
+      "detail": "the version string from the stale SET_CALIBRATION event such as v0 in scenario_04",
+      "still_stores_temperature": "always persist SET_CALIBRATION temperature for the region even when STALE_CALIBRATION is emitted; REVOKE_MODEL must not clear stored region temperatures; RUN_INFERENCE uses that stored positive temperature",
+      "inactive_model": "when model is not active after REVOKE_MODEL do not emit STALE_CALIBRATION on SET_CALIBRATION even if version mismatches",
+      "scenario_04_example": "flag_id scenario_04::us-east::_::0003 detail v0 at seq 3",
+      "scenario_30_example": "STALE at seq 3 with temperature 2.0 still yields softmax via calibrate.js 2.0 0.0 1.0 on inference",
+      "scenario_37_example": "SET_CALIBRATION v0 at seq 3 while model inactive emits no STALE_CALIBRATION",
+      "inactive_still_persists": "SET_CALIBRATION during model inactive still stores temperature for later RUN_INFERENCE after reactivation",
+      "scenario_46_example": "REVOKE then SET temperature 0.5 while inactive then REGISTER yields inference softmax via calibrate.js 0.5 1.0 1.1"
+    },
+    "class_collision": {
+      "emit_at": "RUN_INFERENCE after calibrate.js when two or more classes share the maximum probability",
+      "predicted_class": "lowest zero based index among tied maxima",
+      "detail": "comma separated sorted zero based class indices that tied for the maximum",
+      "scenario_03_example": "logits 0.5 and 0.5 yields detail 0,1",
+      "scenario_44_example": "logits 1.0 1.0 1.0 yields detail 0,1,2 and predicted_class 0",
+      "scenario_54_example": "logits 1.0 0.0 1.0 yields detail 0,2 and predicted_class 0"
+    }
+  },
+  "json_output": {
+    "no_null_literals": true,
+    "empty_arrays": "drift_flags normalized_features quantized dequantized and probabilities must serialize as json empty arrays [] when unset never null or omitted",
+    "drift_flags_empty": "use an empty slice so drift_flags is [] in json not null when no flags were emitted",
+    "go_note": "initialize drift_flags as make([]DriftFlag, 0) or []DriftFlag{} not nil before json.Marshal",
+    "deterministic_ordering": "sort regions by region_id ascending samples within each region by sample_id ascending and drift_flags by flag_id ascending before json.Marshal; two consecutive make audit runs must be byte identical",
+    "object_keys_alphabetical": "every JSON object in drift_audit_report.json must serialize keys in strict alphabetical order at all nesting levels matching output_schema.json key_order lists; Go struct field declaration order must match",
+    "build_output": "make build must write driftaudit only to /app/build/driftaudit never /app/driftaudit"
+  },
+  "model_metadata": {
+    "weights_digest": "lowercase hex sha256 of weights_hex string bytes",
+    "mismatch_kind": "METADATA_CORRUPT",
+    "still_activates_model": "REGISTER_MODEL always sets model_version and activates inference even when METADATA_CORRUPT is emitted",
+    "scenario_31_example": "bad digest flags METADATA_CORRUPT yet model_version stays v1 and RUN_INFERENCE succeeds"
+  },
+  "model_state": {
+    "register_model": "sets model_version to ev.version, stores calibration_version, marks model active for RUN_INFERENCE",
+    "replace_calibration_version": "each REGISTER_MODEL replaces calibration_version used for later STALE_CALIBRATION checks",
+    "scenario_42_example": "REGISTER c1 then REGISTER c2 then SET_CALIBRATION c1 emits STALE_CALIBRATION at seq 4",
+    "revoke_model": "clears model_version to empty string and deactivates model; later RUN_INFERENCE emits MISSING_MODEL",
+    "reregister_model": "a later REGISTER_MODEL after REVOKE_MODEL reactivates the model and replaces model_version and calibration_version",
+    "scenario_15_example": "REVOKE_MODEL then RUN_INFERENCE yields model_version empty and MISSING_MODEL flag",
+    "scenario_22_example": "REVOKE_MODEL then REGISTER_MODEL v2 yields model_version v2 and inference succeeds"
+  },
+  "status": {
+    "consistent": "no drift_flags emitted; status field must be the exact string CONSISTENT",
+    "drift_detected": "at least one drift flag present; status field must be the exact string DRIFT_DETECTED",
+    "forbidden_values": "never emit ok pass success or other aliases; only CONSISTENT and DRIFT_DETECTED are valid",
+    "values": ["CONSISTENT", "DRIFT_DETECTED"]
+  },
+  "sample_output_rows": {
+    "inference_without_lock": "RUN_INFERENCE on a registered region must create or update a sample output row with sample_id set, probabilities and predicted_class from calibrate.js, and normalized_features quantized and dequantized as json empty arrays [] when no LOCK_SAMPLE ran for that sample_id",
+    "quantize_without_lock": "QUANTIZE_SAMPLE without a prior LOCK_SAMPLE for that region_id and sample_id must not emit quant flags and must not create a sample output row",
+    "scenario_58_example": "RUN_INFERENCE sample s9 without lock still appears under us-east with predicted_class 0 and empty normalized_features quantized dequantized arrays",
+    "scenario_59_contrast": "QUANTIZE without lock must not add that sample_id to region output"
+  },
+  "flag_details": {
+    "METADATA_CORRUPT": "detail is the bad weights_digest from REGISTER_MODEL; region_id and sample_id empty strings with both flag_id segments underscore such as scenario_58::_::_::0001",
+    "MISSING_MODEL": "detail is the RUN_INFERENCE kind string",
+    "UNKNOWN_REGION": "detail is the triggering event kind string",
+    "DUPLICATE_SAMPLE": "detail is the sample_id",
+    "QUANT_MISMATCH": "detail is the zero based channel index as a decimal string",
+    "OUT_OF_RANGE_QUANT": "detail is the clamped quantized q value as a decimal string",
+    "STALE_CALIBRATION": "detail is the version string from the stale SET_CALIBRATION event such as v0 in scenario_04"
+  },
+  "post_replay_audit": {
+    "event_seq": "one plus the maximum seq field present in the scenario fixture events array including rows skipped by event_id deduplication",
+    "scenario_32_example": "duplicate event_id lk1 at seq 10 is skipped yet post audit REGION_DIVERGENCE uses event_seq 11",
+    "region_divergence": {
+      "canonical_region": "lexicographically smallest region_id among regions that ran inference for the sample_id",
+      "divergent_region": "any other region_id for the same sample_id whose predicted_class differs from the canonical region",
+      "flag_region_id": "set to the divergent region_id not the canonical region",
+      "detail_format": "canonical_predicted_class comma divergent_region_id",
+      "scenario_07_example": "1,us-east means canonical eu-west predicted class 1 and us-east diverged",
+      "scenario_20_example": "0,us-east means canonical eu-west predicted class 0 and us-east diverged",
+      "scenario_26_example": "ap-south locked without inference is ignored; canonical eu-west class 1 yields us-east REGION_DIVERGENCE detail 1,us-east at post audit seq 12",
+      "scenario_43_example": "eu-west class 0 and us-east class 1 yields REGION_DIVERGENCE detail 0,us-east not 1,us-east"
+    },
+    "region_divergence_class_gate": "emit REGION_DIVERGENCE only when divergent region predicted_class differs from canonical predicted_class; identical classes with different normalized vectors must not emit REGION_DIVERGENCE",
+    "scenario_53_example": "eu-west and us-east both predict class 0 with L2 10 emits FEATURE_SCALE_DRIFT on us-east only and no REGION_DIVERGENCE at post audit seq 10",
+    "post_audit_min_regions": "skip post replay REGION_DIVERGENCE and FEATURE_SCALE_DRIFT for a sample_id that appears in fewer than two regions",
+    "feature_scale_drift": "When normalized L2 distance for same sample_id across regions is strictly greater than 0.5 emit FEATURE_SCALE_DRIFT on the non canonical region with flag region_id set to that compared region and detail set to the canonical region_id",
+    "scenario_29_example": "eu-west 0,0 and us-east 0.3,0.4 have L2 exactly 0.5 so no FEATURE_SCALE_DRIFT is emitted",
+    "scenario_36_example": "eu-west canonical with us-east vector 10,0 yields FEATURE_SCALE_DRIFT flag region_id us-east detail eu-west at post audit seq 10",
+    "multi_region": "emit one FEATURE_SCALE_DRIFT per non canonical region whose L2 against canonical exceeds 0.5",
+    "scenario_40_example": "ap-south canonical with eu-west and us-east drift vectors yields two FEATURE_SCALE_DRIFT flags at event_seq 14 detail ap-south with flag_id scenario_40::eu-west::s1::0014 and scenario_40::us-east::s1::0014 and sample_id field s1 on each flag",
+    "dual_flags_same_region": "one region may receive both REGION_DIVERGENCE and FEATURE_SCALE_DRIFT at the same post audit event_seq",
+    "scenario_47_example": "eu-west class 0 us-east class 1 with L2 10 yields REGION_DIVERGENCE detail 0,us-east and FEATURE_SCALE_DRIFT detail eu-west both on us-east at seq 10 with sample_id s1 in flag_id",
+    "post_audit_sample_id": "REGION_DIVERGENCE and FEATURE_SCALE_DRIFT post replay flags must set drift flag sample_id to the audited sample_id and use that same string as the flag_id third segment never underscore",
+    "scenario_52_example": "sample s1 yields FEATURE_SCALE_DRIFT flag_id scenario_52::us-east::s1::0014 and sample s2 yields REGION_DIVERGENCE flag_id scenario_52::us-east::s2::0014 at the same post audit event_seq 14",
+    "scenario_55_example": "global mode lock s1 raw 10 then lock s2 raw 12 in same region yields s2 normalized_features 2000000.0 using region scoped Welford not per sample stats",
+    "scenario_56_example": "SET_CALIBRATION temperature 0.25 before REGISTER_REGION still applies calibrate.js 0.25 1.0 1.0 on inference",
+    "scenario_57_example": "policy_overrides feature_scale_mode per_device on a global scenario uses per device Welford like scenario_27",
+    "scenario_58_example": "weights_digest mismatch compares sha256 of weights_hex ASCII string cafe not decoded bytes; detail is wrongdigest from the event",
+    "scenario_59_example": "QUANTIZE_SAMPLE on a sample without LOCK_SAMPLE must not emit quant flags and must not create sample output rows",
+    "scenario_60_example": "single region inference for sample s1 emits no post replay REGION_DIVERGENCE or FEATURE_SCALE_DRIFT flags",
+    "scenario_61_example": "SET_CALIBRATION temperature 0.75 survives REVOKE_MODEL and applies on inference after REGISTER_MODEL",
+    "scenario_62_example": "logits 2.0 2.0 at SET_CALIBRATION temperature 2.0 emit CLASS_COLLISION detail 0,1",
+    "scenario_63_example": "SET_CALIBRATION temperature -0.5 still stores the value but RUN_INFERENCE uses temperature 1.0 via calibrate.js 1.0 2.0 0.0",
+    "scenario_64_example": "RUN_INFERENCE sample s9 without lock in eu-west and us-east yields two hash records sorted sample_id then region_id and two sample rows with empty feature arrays",
+    "scenario_65_example": "seq 2 LOCK_SAMPLE listed before REGISTER_REGION still processes registration first so lock succeeds without UNKNOWN_REGION and inference runs",
+    "per_device_isolation": {
+      "scenario_27_example": "per_device mode locks s1 on d1 and s2 on d2 both raw then s3 on d1 normalizes against d1 stats only yielding 2000000.0 offsets not d2 stats"
+    }
+  },
+  "finding_kinds": [
+    "FEATURE_SCALE_DRIFT",
+    "QUANT_MISMATCH",
+    "STALE_CALIBRATION",
+    "METADATA_CORRUPT",
+    "REGION_DIVERGENCE",
+    "DUPLICATE_SAMPLE",
+    "UNKNOWN_REGION",
+    "MISSING_MODEL",
+    "OUT_OF_RANGE_QUANT",
+    "CLASS_COLLISION"
+  ],
+  "flag_id_format": "{scenario_id}::{region_id or underscore}::{sample_id or underscore}::{event_seq as four zero padded digits}; METADATA_CORRUPT uses underscore in both region and sample segments when region_id and sample_id are empty; STALE_CALIBRATION uses the SET_CALIBRATION region_id in the region segment and underscore only in the sample segment; post replay REGION_DIVERGENCE and FEATURE_SCALE_DRIFT must use the actual sample_id in both flag_id and sample_id field",
+  "consistency_hash": {
+    "summary": "lowercase sha256 hex of a compact json array of inference records",
+    "include_record_when": "the sample ran RUN_INFERENCE so its probabilities array is non-empty; skip every locked or quantized sample that never produced probabilities",
+    "record_fields": "predicted_class region_id sample_id",
+    "record_key_order": "object keys MUST be serialized in alphabetical order predicted_class then region_id then sample_id (equivalent to json.dumps with sort_keys true or Go map marshalling)",
+    "array_sort": "sort records ascending by sample_id then region_id",
+    "json_encoding": "compact separators comma and colon with no spaces utf-8 no trailing newline inside the hashed bytes",
+    "digest": "sha256 hex of those bytes; when no inference records exist hash the two byte compact json array []",
+    "empty_array_digest": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+    "scenario_01_example": "two regions eu-west and us-east each infer sample s1 class 1 so array is [{\"predicted_class\":1,\"region_id\":\"eu-west\",\"sample_id\":\"s1\"},{\"predicted_class\":1,\"region_id\":\"us-east\",\"sample_id\":\"s1\"}] then sha256 hex",
+    "inference_without_lock": "RUN_INFERENCE without LOCK_SAMPLE still contributes a hash record when probabilities are non-empty and must still emit a sample output row with empty normalized_features quantized and dequantized arrays",
+    "scenario_41_example": "inference on sample s9 without lock still sets consistency_hash from predicted_class 0 and emits sample row s9 with empty feature arrays",
+    "scenario_64_example": "eu-west and us-east both infer unlocked sample s9; hash array is [{\"predicted_class\":0,\"region_id\":\"eu-west\",\"sample_id\":\"s9\"},{\"predicted_class\":1,\"region_id\":\"us-east\",\"sample_id\":\"s9\"}] then sha256 hex",
+    "scenario_49_example": "lock only with no RUN_INFERENCE yields consistency_hash equal to sha256 of compact empty array []",
+    "scenario_51_example": "seq 3 REGISTER_REGION and LOCK_SAMPLE for us-east must process registration before lock so no UNKNOWN_REGION is emitted"
+  }
+}

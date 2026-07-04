@@ -1,3 +1,3 @@
 module nfrd.local/nfrd
 
-go 1.21
+go 1.19

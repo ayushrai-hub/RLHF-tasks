@@ -1,0 +1,784 @@
+year,fips,state,county_name,urbanicity,region,division,land_area,total_pop,total_pop_15to64,total_jail_pop,total_prison_pop
+1970,4001,AZ,Apache County,rural,West,Mountain,11197.465,32946,17173,7,
+1971,4001,AZ,Apache County,rural,West,Mountain,11197.465,35537,18752,7.5,
+1972,4001,AZ,Apache County,rural,West,Mountain,11197.465,37044,19818,8,
+1973,4001,AZ,Apache County, rural,West,Mountain,11197.465,39526,21418,8.5,
+1974,4001,AZ,Apache County,rural  ,West,Mountain,11197.465,40268,22079,9,
+1975,4001,AZ,Apache County,rural,West,Mountain,11197.465,42912,23811,9.5,
+1976,4001,AZ,Apache County,rural,West,Mountain,11197.465,44292,24868,10,
+1977,4001,AZ,Apache County,rural,West,Mountain,11197.465,48487,27549,10.5,
+1978,4001,AZ,Apache County,rural,West,Mountain,11197.465,50680,29054,11,
+1979,4001,AZ,Apache County,rural  ,West,Mountain,11197.465,52120,30022,13.2,
+1980,4001,AZ,Apache County,rural,West,Mountain,11197.465,51508,29775,15.4,
+1981,4001,AZ,Apache County,rural,West,Mountain,11197.465,51203,29627,17.6,
+1982,4001,AZ,Apache County,rural,West,Mountain,11197.465,52151,30175,19.8,
+1983,4001,AZ,Apache County,rural,West,Mountain,11197.465,53080,30676,22,
+1984,4001,AZ,Apache County,rural,West,Mountain,11197.465,52997,30590,21.8,
+1984,4001,AZ,Apache County,rural,West,Mountain,11197.465,52997,30590,21.8,
+1985,4001,AZ,Apache County, rural,West,Mountain,11197.465,53467,30856,21.6,
+1986,4001,AZ,Apache County,RURAL,West,Mountain,11197.465,55745,32367,21.4,
+1987,4001,AZ,Apache County,Rural,West,Mountain,11197.465,58195,33769,21.2,
+1988,4001,AZ,Apache County,rural,West,Mountain,11197.465,59540,34538,21,
+1989,4001,AZ,Apache County,rural,West,Mountain,11197.465,60827,35044,24.2,
+1990,4001,AZ,Apache County,rural,West,Mountain,11197.465,61939,35332,27.4,
+1991,4001,AZ,Apache County,rural,West,Mountain,11197.465,62634,35755,30.6,
+1992,4001,AZ,Apache County,rural,West,Mountain,11197.465,63026,36087,33.8,
+1993,4001,AZ,Apache County,Rural,West,Mountain,11197.465,64489,37020,37,
+1993,4001,AZ,Apache County,Rural,West,Mountain,11197.465,64489,37020,37,
+1994,4001,AZ,Apache County,rural,West,Mountain,11197.465,66085,38335,45.83333,
+1995,4001,AZ,Apache County,rural,West,Mountain,11197.465,68274,39782,54.66667,
+1996,4001,AZ,Apache County,rural,West,Mountain,11197.465,69508,40714,63.5,
+1997,4001,AZ,Apache County,  RURAL ,West,Mountain,11197.465,70478,41958,72.33334,
+1998,4001,AZ,Apache County,rural,West,Mountain,11197.465,69851,41694,81.16666,
+1999,4001,AZ,Apache County,rural,West,Mountain,11197.465,69802,41729,90,
+2000,4001,AZ,Apache County,rural,West,Mountain,11197.465,69507,41669,95.5,68
+2001,4001,AZ,Apache County,rural,West,Mountain,11197.465,67863,41206,101,83
+2001,4001,AZ,Apache County,rural,West,Mountain,11197.465,67863,41206,101,83
+2002,4001,AZ,Apache County,rural,West,Mountain,11197.465,67319,41213,106.5,84
+2003,4001,AZ,Apache County,rural,West,Mountain,11197.465,68072,42045,112,84
+2004,4001,AZ,Apache County,rural,West,Mountain,11197.465,68161,42382,117.5,94
+2005,4001,AZ,Apache County,rural,West,Mountain,11197.465,68521,42728,123,108
+2006,4001,AZ,Apache County,rural,West,Mountain,11197.465,69390,43642,117.375,125
+2007,4001,AZ,Apache County,rural,West,Mountain,11197.465,69602,43824,111.75,145
+2008,4001,AZ,Apache County,rural,West,Mountain,11197.465,69883,44089,106.125,153
+2009,4001,AZ,Apache County,rural,West,Mountain,11197.465,71008,44631,100.5,143
+2010,4001,AZ,Apache County,rural,West,Mountain,11197.465,71524,44885,94.875,131
+2011,4001,AZ,Apache County,rural,West,Mountain,11197.465,71838,45116,89.25,126
+2012,4001,AZ,Apache County,rural,West,Mountain,11197.465,72179,45448,83.625,132
+2013,4001,AZ,Apache County,rural,West,Mountain,11197.465,72215,45458,78,132
+2014,4001,AZ,Apache County,rural,West,Mountain,11197.465,72292,45550,78,137
+2014,4001,AZ,Apache County,rural,West,Mountain,11197.465,72292,45550,78,137
+2015,4001,AZ,Apache County,rural,West,Mountain,11197.465,71762,45080,78,121
+2016,4001,AZ,Apache County,rural,West,Mountain,11197.465,70979,44494,,
+1970,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,62968,38527,20,
+1971,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,67153,41393,29.375,
+1972,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,70943,44130,38.75,
+1973,4003,AZ,Cochise County, small/mid,West,Mountain,6164.571,74562,46801,48.125,
+1974,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,76170,47911,57.5,
+1975,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,76928,48408,66.875,
+1976,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,78953,49926,76.25,
+1976,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,78953,49926,76.25,
+1977,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,80688,51392,85.625,
+1978,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,83160,53124,95,
+1979,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,86269,55280,92.2,
+1980,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,86220,55242,89.4,
+1980,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,86220,55242,89.4,
+1981,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,88040,56622,86.6,
+1982,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,88375,56970,83.8,
+1983,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,88875,57306,81,
+1984,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,90933,58643,65.5,
+1984,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,90933,58643,65.5,
+1985,4003,AZ,Cochise County,  SMALL/MID ,West,Mountain,6164.571,91190,58850,50,
+1986,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,94093,60990,68,
+1987,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,96689,62549,89,
+1987,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,96689,62549,89,
+1988,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,96321,62200,144,
+1989,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,97550,62527,146,
+1990,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,97918,62089,143,
+1991,4003,AZ,Cochise County,SMALL/MID,West,Mountain,6164.571,99058,62551,140,
+1992,4003,AZ,Cochise County, small/mid,West,Mountain,6164.571,101453,64154,150,
+1992,4003,AZ,Cochise County, small/mid,West,Mountain,6164.571,101453,64154,150,
+1993,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,104403,66034,158,
+1994,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,109323,70011,160,
+1995,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,112480,72084,162,
+1996,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,112880,72082,160,
+1997,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,114907,73726,165,
+1998,4003,AZ,Cochise County,SMALL/MID,West,Mountain,6164.571,116091,74114,152,
+1999,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,116530,74154,185,
+2000,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,118132,75088,149,282
+2000,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,118132,75088,149,282
+2001,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,118798,75845,172,358
+2001,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,118798,75845,172,358
+2002,4003,AZ,Cochise County, small/mid,West,Mountain,6164.571,119847,76769,199,402
+2003,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,120638,77206,223,471
+2004,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,123234,79245,199,512
+2005,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,125786,81126,223,474
+2006,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,127241,82203,220.375,486
+2007,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,128206,82854,217.75,507
+2008,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,129023,83025,215.125,501
+2009,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,130081,83287,212.5,606
+2010,4003,AZ,Cochise County, small/mid,West,Mountain,6164.571,131356,83761,209.875,689
+2011,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,131782,84004,207.25,755
+2012,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,132952,84698,204.625,773
+2013,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,131826,83332,202,704
+2014,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,129332,80561,202,735
+2015,4003,AZ,Cochise County,small/mid,West,Mountain,6164.571,127054,78127,781,769
+2015,4003,,,,,,,,,202,
+2016,4003,AZ,Cochise County,SMALL/MID,West,Mountain,6164.571,126084,76859,,
+1970,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,49325,30890,38,
+1970,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,49325,30890,38,
+1971,4005,AZ,Coconino County,Small/mid,West,Mountain,18618.689,53326,33673,46.125,
+1972,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,58194,37088,54.25,
+1972,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,58194,37088,54.25,
+1973,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,61655,39634,62.375,
+1974,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,64829,42054,70.5,
+1974,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,64829,42054,70.5,
+1975,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,69819,45611,78.625,
+1976,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,66400,43777,86.75,
+1977,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,68938,46328,94.875,
+1978,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,70815,47702,103,
+1979,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,73357,49472,103.8,
+1979,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,73357,49472,103.8,
+1980,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,75383,51266,104.6,
+1980,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,75383,51266,104.6,
+1981,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,77790,53107,105.4,
+1982,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,79159,54161,106.2,
+1983,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,81112,55533,107,
+1984,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,83639,57256,136,
+1985,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,84428,57802,165,
+1986,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,87574,60209,137,
+1987,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,90381,62033,149,
+1988,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,93362,63985,167,
+1989,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,95197,64825,185,
+1990,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,97106,65496,142,
+1990,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,97106,65496,142,
+1991,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,99647,67261,152,
+1992,4005,AZ,Coconino County,small/mid  ,West,Mountain,18618.689,102498,69311,151,
+1993,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,105570,71438,142,
+1994,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,108680,74208,150,
+1995,4005,AZ,Coconino County, small/mid,West,Mountain,18618.689,110954,75885,173,
+1996,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,112686,77233,173,
+1997,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,114444,79201,146,
+1998,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,114874,79567,149,
+1999,4005,AZ,Coconino County,Small/mid,West,Mountain,18618.689,115307,79866,151,
+1999,4005,AZ,Coconino County,Small/mid,West,Mountain,18618.689,115307,79866,151,
+2000,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,116773,81070,210.3333,414
+2001,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,118283,82864,269.6667,424
+2002,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,121308,85520,329,428
+2002,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,121308,85520,329,428
+2003,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,122882,87202,388.3333,460
+2004,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,125117,89059,447.6667,515
+2005,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,127025,90793,507,525
+2006,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,128695,92140,513,664
+2007,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,130442,93528,1075,714
+2007,4005,,,,,,,,,496,
+2008,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,131853,94515,466,674
+2009,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,133477,95703,470,617
+2010,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,134435,96198,477,607
+2011,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,134612,96311,501,588
+2012,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,134181,95792,448,571
+2013,4005,AZ,Coconino County,  SMALL/MID ,West,Mountain,18618.689,136002,97137,465,601
+2014,4005,AZ,Coconino County,Small/mid,West,Mountain,18618.689,136448,97254,341,610
+2015,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,137209,97508,469,608
+2015,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,137209,97508,469,608
+2016,4005,AZ,Coconino County,small/mid,West,Mountain,18618.689,138682,98395,,
+1970,4007,AZ,Gila County,  RURAL ,West,Mountain,4757.994,29593,17392,12,
+1971,4007,AZ,Gila County,rural,West,Mountain,4757.994,30981,18349,13.875,
+1972,4007,AZ,Gila County,rural,West,Mountain,4757.994,31216,18615,15.75,
+1973,4007,AZ,Gila County,rural,West,Mountain,4757.994,32288,19452,17.625,
+1973,4007,AZ,Gila County,rural,West,Mountain,4757.994,32288,19452,17.625,
+1974,4007,AZ,Gila County,rural,West,Mountain,4757.994,32991,20017,19.5,
+1975,4007,AZ,Gila County,rural,West,Mountain,4757.994,32530,19804,21.375,
+1976,4007,AZ,Gila County,rural  ,West,Mountain,4757.994,33875,20692,23.25,
+1977,4007,AZ,Gila County,rural,West,Mountain,4757.994,34290,20931,25.125,
+1978,4007,AZ,Gila County,rural,West,Mountain,4757.994,35634,21813,27,
+1979,4007,AZ,Gila County,rural,West,Mountain,4757.994,36470,22295,37.2,
+1980,4007,AZ,Gila County,Rural,West,Mountain,4757.994,37247,22782,47.4,
+1981,4007,AZ,Gila County,rural,West,Mountain,4757.994,38018,23216,57.6,
+1982,4007,AZ,Gila County,rural,West,Mountain,4757.994,38923,23703,67.8,
+1983,4007,AZ,Gila County,rural,West,Mountain,4757.994,38655,23425,78,
+1984,4007,AZ,Gila County,rural,West,Mountain,4757.994,37590,22678,85.8,
+1985,4007,AZ,Gila County,rural,West,Mountain,4757.994,37322,22448,93.6,
+1986,4007,AZ,Gila County,rural,West,Mountain,4757.994,38175,22970,101.4,
+1987,4007,AZ,Gila County,rural,West,Mountain,4757.994,38628,23122,109.2,
+1988,4007,AZ,Gila County,rural  ,West,Mountain,4757.994,39103,23285,117,
+1989,4007,AZ,Gila County,rural,West,Mountain,4757.994,39591,23314,110,
+1990,4007,AZ,Gila County,rural,West,Mountain,4757.994,40423,23475,101,
+1991,4007,AZ,Gila County,  RURAL ,West,Mountain,4757.994,41327,23953,112,
+1992,4007,AZ,Gila County,rural,West,Mountain,4757.994,42614,24806,123,
+1993,4007,AZ,Gila County,rural,West,Mountain,4757.994,44020,25695,139,
+1994,4007,AZ,Gila County,rural,West,Mountain,4757.994,45407,26760,164,
+1995,4007,AZ,Gila County,rural,West,Mountain,4757.994,47074,27806,145,
+1996,4007,AZ,Gila County,rural,West,Mountain,4757.994,48437,28656,138,
+1997,4007,AZ,Gila County,rural,West,Mountain,4757.994,49639,29611,141,
+1998,4007,AZ,Gila County,rural,West,Mountain,4757.994,50496,30108,104,
+1999,4007,AZ,Gila County,rural,West,Mountain,4757.994,50990,30375,87,
+1999,4007,AZ,Gila County,rural,West,Mountain,4757.994,50990,30375,87,
+2000,4007,AZ,Gila County,rural,West,Mountain,4757.994,51332,30561,99.16666,254
+2001,4007,AZ,Gila County,rural,West,Mountain,4757.994,51274,30614,111.3333,253
+2002,4007,AZ,Gila County,Rural,West,Mountain,4757.994,51478,30901,123.5,261
+2003,4007,AZ,Gila County,rural,West,Mountain,4757.994,51337,30796,135.6667,276
+2004,4007,AZ,Gila County,rural,West,Mountain,4757.994,51423,30919,147.8333,298
+2005,4007,AZ,Gila County,rural,West,Mountain,4757.994,51655,31179,160,320
+2006,4007,AZ,Gila County,RURAL,West,Mountain,4757.994,52541,31706,140,354
+2007,4007,AZ,Gila County,rural,West,Mountain,4757.994,53252,31975,146,359
+2008,4007,AZ,Gila County,rural,West,Mountain,4757.994,53437,32036,141,379
+2009,4007,AZ,Gila County,rural,West,Mountain,4757.994,53561,31904,141,352
+2010,4007,AZ,Gila County,rural,West,Mountain,4757.994,53597,31833,690,307
+2010,4007,,,,,,,,,137,
+2011,4007,AZ,Gila County,rural  ,West,Mountain,4757.994,53572,31785,118,314
+2012,4007,AZ,Gila County,rural,West,Mountain,4757.994,53422,31466,140,343
+2013,4007,AZ,Gila County,rural,West,Mountain,4757.994,52973,30672,159,386
+2014,4007,AZ,Gila County,rural,West,Mountain,4757.994,52982,30287,138,414
+2015,4007,AZ,Gila County,  RURAL ,West,Mountain,4757.994,53008,29871,138,421
+2016,4007,AZ,Gila County,rural,West,Mountain,4757.994,52935,29444,,
+1970,4009,AZ,Graham County,rural,West,Mountain,4622.716,16755,9702,30,
+1971,4009,AZ,Graham County,rural,West,Mountain,4622.716,17457,10174,26.875,
+1972,4009,AZ,Graham County,rural,West,Mountain,4622.716,17578,10312,23.75,
+1973,4009,AZ,Graham County,Rural,West,Mountain,4622.716,18685,11086,20.625,
+1974,4009,AZ,Graham County,rural,West,Mountain,4622.716,19961,11982,17.5,
+1975,4009,AZ,Graham County,rural,West,Mountain,4622.716,19713,11882,14.375,
+1976,4009,AZ,Graham County,rural,West,Mountain,4622.716,20890,12635,11.25,
+1977,4009,AZ,Graham County,rural,West,Mountain,4622.716,21038,12718,8.125,
+1978,4009,AZ,Graham County,rural,West,Mountain,4622.716,20669,12444,5,
+1978,4009,AZ,Graham County,rural,West,Mountain,4622.716,20669,12444,5,
+1979,4009,AZ,Graham County,rural,West,Mountain,4622.716,21242,12793,6.4,
+1980,4009,AZ,Graham County,  RURAL ,West,Mountain,4622.716,22908,13862,7.8,
+1981,4009,AZ,Graham County,rural,West,Mountain,4622.716,23132,14022,9.2,
+1982,4009,AZ,Graham County,rural,West,Mountain,4622.716,23833,14460,10.6,
+1982,4009,AZ,Graham County,rural,West,Mountain,4622.716,23833,14460,10.6,
+1983,4009,AZ,Graham County,rural,West,Mountain,4622.716,23944,14505,12,
+1984,4009,AZ,Graham County,rural,West,Mountain,4622.716,24536,14840,12.6,
+1985,4009,AZ,Graham County,rural,West,Mountain,4622.716,24576,14850,592,
+1985,4009,,,,,,,,,13.2,
+1986,4009,AZ,Graham County,rural  ,West,Mountain,4622.716,24414,14810,13.8,
+1987,4009,AZ,Graham County,RURAL,West,Mountain,4622.716,25205,15242,14.4,
+1987,4009,AZ,Graham County,RURAL,West,Mountain,4622.716,25205,15242,14.4,
+1988,4009,AZ,Graham County,rural,West,Mountain,4622.716,25614,15436,15,
+1989,4009,AZ,Graham County,rural,West,Mountain,4622.716,26209,15655,17,
+1990,4009,AZ,Graham County,rural,West,Mountain,4622.716,26611,15688,48,
+1990,4009,AZ,Graham County,rural,West,Mountain,4622.716,26611,15688,48,
+1991,4009,AZ,Graham County,rural,West,Mountain,4622.716,27339,16240,48,
+1992,4009,AZ,Graham County,rural,West,Mountain,4622.716,27972,16719,53,
+1993,4009,AZ,Graham County,rural,West,Mountain,4622.716,28966,17448,54,
+1994,4009,AZ,Graham County,rural,West,Mountain,4622.716,29657,18074,57.66667,
+1995,4009,AZ,Graham County,rural,West,Mountain,4622.716,30587,18768,61.33333,
+1996,4009,AZ,Graham County,RURAL,West,Mountain,4622.716,31503,19450,65,
+1997,4009,AZ,Graham County,rural,West,Mountain,4622.716,32203,20131,68.66666,
+1998,4009,AZ,Graham County,rural,West,Mountain,4622.716,32795,20622,72.33334,
+1999,4009,AZ,Graham County,rural,West,Mountain,4622.716,33279,20999,76,
+2000,4009,AZ,Graham County,rural,West,Mountain,4622.716,33511,21219,606,123
+2000,4009,,,,,,,,,79.83334,
+2001,4009,AZ,Graham County,rural,West,Mountain,4622.716,33356,21179,83.66666,127
+2002,4009,AZ,Graham County,rural,West,Mountain,4622.716,33224,21136,87.5,147
+2003,4009,AZ,Graham County,rural,West,Mountain,4622.716,32985,21080,91.33334,171
+2004,4009,AZ,Graham County,rural,West,Mountain,4622.716,32703,20968,95.16666,200
+2005,4009,AZ,Graham County,rural,West,Mountain,4622.716,32964,21249,613,214
+2005,4009,,,,,,,,,99,
+2006,4009,AZ,Graham County,Rural,West,Mountain,4622.716,33701,21913,100.5,172
+2007,4009,AZ,Graham County,rural,West,Mountain,4622.716,35175,23001,102,186
+2008,4009,AZ,Graham County,rural,West,Mountain,4622.716,36639,23908,103.5,167
+2009,4009,AZ,Graham County,rural,West,Mountain,4622.716,37525,24333,105,191
+2009,4009,AZ,Graham County,rural,West,Mountain,4622.716,37525,24333,105,191
+2010,4009,AZ,Graham County,rural,West,Mountain,4622.716,37220,24038,106.5,194
+2011,4009,AZ,Graham County,Rural,West,Mountain,4622.716,37158,24006,108,205
+2012,4009,AZ,Graham County,rural,West,Mountain,4622.716,37124,24010,109.5,255
+2013,4009,AZ,Graham County,rural,West,Mountain,4622.716,37009,23768,111,266
+2014,4009,AZ,Graham County,rural,West,Mountain,4622.716,37419,23969,111,290
+2015,4009,AZ,Graham County,rural,West,Mountain,4622.716,38064,24367,111,283
+2016,4009,AZ,Graham County,rural,West,Mountain,4622.716,37786,24211,,
+1970,4011,AZ,Greenlee County, rural,West,Mountain,1841.978,10496,6597,1,
+1971,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,11169,7021,1.625,
+1972,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,11236,7080,2.25,
+1973,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,11614,7339,2.875,
+1974,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,12357,7865,3.5,
+1975,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,12158,7758,4.125,
+1976,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,11921,7586,4.75,
+1977,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,11866,7509,5.375,
+1977,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,11866,7509,5.375,
+1978,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,12073,7579,6,
+1978,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,12073,7579,6,
+1979,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,12222,7629,6.6,
+1980,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,11425,7061,7.2,
+1981,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,11479,7122,7.8,
+1982,4011,AZ,Greenlee County,rural  ,West,Mountain,1841.978,11748,7299,8.4,
+1983,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,10693,6633,9,
+1984,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,10206,6322,8.4,
+1985,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,9052,5604,7.8,
+1985,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,9052,5604,7.8,
+1986,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8409,5219,7.2,
+1987,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8271,5110,6.6,
+1988,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8104,4984,6,
+1989,4011,AZ,Greenlee County,RURAL,West,Mountain,1841.978,7840,4771,7.6,
+1990,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8029,4827,9.2,
+1991,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8265,5026,10.8,
+1992,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8571,5275,12.4,
+1993,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8747,5421,14,
+1994,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8803,5553,13.16667,
+1995,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8920,5664,12.33333,
+1996,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,9034,5749,11.5,
+1996,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,9034,5749,11.5,
+1997,4011,AZ,Greenlee County, rural,West,Mountain,1841.978,9081,5864,10.66667,
+1998,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8919,5744,9.833333,
+1999,4011,AZ,Greenlee County,  RURAL ,West,Mountain,1841.978,8535,5479,9,
+2000,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8547,5487,11.5,27
+2001,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8349,5377,14,39
+2002,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,7831,5076,16.5,37
+2003,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,7567,4904,19,44
+2004,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,7549,4833,21.5,54
+2005,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,7595,4862,24,43
+2006,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,7838,5054,24.25,38
+2007,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8205,5270,24.5,43
+2008,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8561,5526,24.75,54
+2009,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8635,5489,25,50
+2010,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8437,5390,25.25,39
+2011,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8332,5340,578,40
+2011,4011,,,,,,,,,25.5,
+2012,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8569,5469,25.75,36
+2013,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8744,5608,26,53
+2014,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,8892,5796,592,59
+2014,4011,,,,,,,,,26,
+2015,4011,AZ,Greenlee County,rural,West,Mountain,1841.978,9319,6095,26,65
+2016,4011,AZ,Greenlee County,RURAL,West,Mountain,1841.978,9549,6178,,
+1970,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1971,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1972,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1973,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1973,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1974,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1975,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1976,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1977,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1978,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1979,4012,AZ,La Paz County,rural,West,Mountain,4499.627,0,0,,
+1980,4012,AZ,La Paz County,rural,West,Mountain,4499.627,12531,7523,,
+1981,4012,AZ,La Paz County,rural,West,Mountain,4499.627,12514,7506,,
+1982,4012,AZ,La Paz County,rural,West,Mountain,4499.627,12692,7602,,
+1983,4012,AZ,La Paz County,rural,West,Mountain,4499.627,13033,7784,22,
+1984,4012,AZ,La Paz County, rural,West,Mountain,4499.627,13831,8235,24.4,
+1985,4012,AZ,La Paz County,rural,West,Mountain,4499.627,13652,8119,592,
+1985,4012,,,,,,,,,26.8,
+1986,4012,AZ,La Paz County,rural,West,Mountain,4499.627,13407,7991,29.2,
+1986,4012,AZ,La Paz County,rural,West,Mountain,4499.627,13407,7991,29.2,
+1987,4012,AZ,La Paz County,rural,West,Mountain,4499.627,13513,8026,31.6,
+1988,4012,AZ,La Paz County,rural,West,Mountain,4499.627,13365,7913,34,
+1989,4012,AZ,La Paz County,rural,West,Mountain,4499.627,13804,8092,35.6,
+1990,4012,AZ,La Paz County,  RURAL ,West,Mountain,4499.627,13964,8109,37.2,
+1991,4012,AZ,La Paz County,rural,West,Mountain,4499.627,14314,8288,38.8,
+1992,4012,AZ,La Paz County, rural,West,Mountain,4499.627,14668,8464,40.4,
+1993,4012,AZ,La Paz County,rural,West,Mountain,4499.627,15180,8621,42,
+1994,4012,AZ,La Paz County,rural,West,Mountain,4499.627,15894,9045,68.16666,
+1995,4012,AZ,La Paz County,rural,West,Mountain,4499.627,16562,9494,94.33334,
+1996,4012,AZ,La Paz County,rural,West,Mountain,4499.627,17547,10031,120.5,
+1997,4012,AZ,La Paz County,rural,West,Mountain,4499.627,18277,10527,146.6667,
+1998,4012,AZ,La Paz County,rural,West,Mountain,4499.627,18859,10800,172.8333,
+1999,4012,AZ,La Paz County,rural,West,Mountain,4499.627,19355,11083,199,
+2000,4012,AZ,La Paz County,rural,West,Mountain,4499.627,19611,11205,204,143
+2001,4012,AZ,La Paz County,rural,West,Mountain,4499.627,19580,11163,191,131
+2002,4012,AZ,La Paz County,rural,West,Mountain,4499.627,19464,11083,175,140
+2003,4012,AZ,La Paz County,Rural,West,Mountain,4499.627,19722,11157,170,117
+2004,4012,AZ,La Paz County,rural,West,Mountain,4499.627,19979,11193,196,129
+2005,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20379,11308,173,97
+2006,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20573,11285,169.375,91
+2007,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20647,11148,165.75,103
+2008,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20555,10881,162.125,84
+2009,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20514,10858,158.5,99
+2010,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20489,10794,154.875,108
+2010,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20489,10794,154.875,108
+2011,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20492,10728,151.25,106
+2012,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20582,10634,147.625,87
+2013,4012,AZ,La Paz County, rural,West,Mountain,4499.627,20492,10329,144,87
+2014,4012,AZ,La Paz County,rural  ,West,Mountain,4499.627,20479,10216,144,99
+2015,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20442,10059,144,108
+2016,4012,AZ,La Paz County,rural,West,Mountain,4499.627,20342,9747,,
+1970,4013,AZ,Maricopa County,URBAN,West,Mountain,9199.222,982260,600413,1148,
+1971,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1026420,631802,1178.75,
+1972,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1087206,676194,1209.5,
+1973,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1156746,727259,1240.25,
+1973,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1156746,727259,1240.25,
+1974,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1217408,771244,1271,
+1975,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1253864,797584,1301.75,
+1976,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1280014,822537,1332.5,
+1977,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1329829,859913,1363.25,
+1978,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1388888,903213,1394,
+1979,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1456847,952951,1447.8,
+1980,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1521597,999355,1501.6,
+1981,4013,AZ,Maricopa County,Urban,West,Mountain,9199.222,1566039,1031683,1555.4,
+1981,4013,AZ,Maricopa County,Urban,West,Mountain,9199.222,1566039,1031683,1555.4,
+1982,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1611851,1063759,1609.2,
+1983,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1663967,1097800,1663,
+1984,4013,AZ,Maricopa County, urban,West,Mountain,9199.222,1736948,1145718,1808,
+1985,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1828750,1206720,1953,
+1986,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1905506,1261863,2447,
+1986,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1905506,1261863,2447,
+1987,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,1991399,1315683,3226,
+1988,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2048450,1350238,3628,
+1989,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2101784,1374832,3905,
+1990,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2132249,1378647,3887,
+1991,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2198219,1417995,4312,
+1992,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2272582,1465714,4829,
+1993,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2359883,1519830,4645,
+1994,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2475159,1607423,4862,
+1995,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2598183,1689012,5503,
+1996,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2703079,1759832,5542,
+1997,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2805009,1840500,6520,
+1998,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,2909040,1905206,6910,
+1999,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3004985,1967473,6788,
+2000,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3092197,2025435,6660,13900
+2001,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3175989,2083428,7055,14990
+2002,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3255388,2139161,8008,16627
+2003,4013,AZ,Maricopa County,Urban,West,Mountain,9199.222,3328468,2188043,8044,19189
+2004,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3417860,2249131,8657,20422
+2005,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3538988,2331646,9054,21483
+2006,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3642884,2404497,9733,23454
+2007,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3711954,2449501,8941,24605
+2008,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3771061,2484245,9265,25919
+2009,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3803779,2505441,9215,26641
+2010,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3817361,2511799,8055,26405
+2011,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3824644,2517206,7295,26191
+2012,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3869626,2550112,7495,25917
+2012,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3869626,2550112,7495,25917
+2013,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3939776,2587049,8120,26470
+2013,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,3939776,2587049,8120,26470
+2014,4013,AZ,Maricopa County,urban  ,West,Mountain,9199.222,4006307,2623683,8066,26778
+2015,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,4076708,2663942,7911,27152
+2015,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,4076708,2663942,7911,27152
+2016,4013,AZ,Maricopa County,urban,West,Mountain,9199.222,4154076,2709998,,
+1970,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,26438,16124,42,
+1971,4015,AZ,Mohave County,SMALL/MID,West,Mountain,13311.067,28732,17627,42.375,
+1972,4015,AZ,Mohave County,Small/mid,West,Mountain,13311.067,31088,19220,42.75,
+1973,4015,AZ,Mohave County,Small/mid,West,Mountain,13311.067,34034,21249,43.125,
+1974,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,36578,23149,43.5,
+1975,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,39390,25233,43.875,
+1975,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,39390,25233,43.875,
+1976,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,42461,27062,44.25,
+1977,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,43313,27349,44.625,
+1978,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,46021,28977,45,
+1979,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,51783,32873,56.6,
+1980,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,56442,35915,68.2,
+1981,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,58605,37082,79.8,
+1982,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,62539,39366,91.4,
+1982,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,62539,39366,91.4,
+1983,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,64003,40013,103,
+1984,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,67365,41893,129.5,
+1985,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,70766,43849,156,
+1986,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,75369,46678,128,
+1987,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,77313,47617,140,
+1988,4015,AZ,Mohave County,small/mid  ,West,Mountain,13311.067,82383,50494,153,
+1989,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,87042,52802,177,
+1990,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,95491,57226,197,
+1991,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,102263,61342,195,
+1992,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,108644,65264,236,
+1993,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,115706,69415,243,
+1994,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,122906,74338,261,
+1995,4015,AZ,Mohave County,small/mid  ,West,Mountain,13311.067,130274,78781,345,
+1996,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,136436,82303,303,
+1997,4015,AZ,Mohave County,Small/mid,West,Mountain,13311.067,140922,85310,270,
+1998,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,145155,87300,400,
+1999,4015,AZ,Mohave County,SMALL/MID,West,Mountain,13311.067,150351,90450,339,
+2000,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,156215,94129,287,809
+2001,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,160312,96834,324,886
+2001,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,160312,96834,324,886
+2002,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,166155,100442,367,1002
+2003,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,172633,104251,500,1103
+2004,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,180521,109370,477,1177
+2005,4015,AZ,Mohave County,Small/mid,West,Mountain,13311.067,188773,115052,471,1195
+2006,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,196168,119955,507,1234
+2007,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,199760,121712,538,1337
+2008,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,200078,120824,457,1341
+2009,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,199696,119648,451,1279
+2010,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,200185,119617,399,1243
+2011,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,200315,119562,418,1264
+2012,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,202733,120644,467,1267
+2013,4015,AZ,Mohave County,Small/mid,West,Mountain,13311.067,203262,119537,533,1353
+2014,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,203026,118130,537,1444
+2015,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,203320,117014,452,1420
+2016,4015,AZ,Mohave County,small/mid,West,Mountain,13311.067,204524,116786,,
+1970,4017,AZ,Navajo County,rural,West,Mountain,9949.889,48294,25932,28,
+1971,4017,AZ,Navajo County,rural,West,Mountain,9949.889,51228,27811,35.25,
+1972,4017,AZ,Navajo County, rural,West,Mountain,9949.889,52356,28773,42.5,
+1973,4017,AZ,Navajo County,rural,West,Mountain,9949.889,53570,29773,49.75,
+1974,4017,AZ,Navajo County,rural,West,Mountain,9949.889,56517,31811,57,
+1975,4017,AZ,Navajo County,rural,West,Mountain,9949.889,58746,33387,64.25,
+1976,4017,AZ,Navajo County,rural,West,Mountain,9949.889,61040,35066,71.5,
+1977,4017,AZ,Navajo County,rural,West,Mountain,9949.889,60805,35232,78.75,
+1978,4017,AZ,Navajo County,rural,West,Mountain,9949.889,62965,36796,86,
+1978,4017,AZ,Navajo County,rural,West,Mountain,9949.889,62965,36796,86,
+1979,4017,AZ,Navajo County,rural,West,Mountain,9949.889,66412,39123,90.4,
+1980,4017,AZ,Navajo County,rural,West,Mountain,9949.889,67144,39743,94.8,
+1981,4017,AZ,Navajo County,  RURAL ,West,Mountain,9949.889,66834,39649,99.2,
+1982,4017,AZ,Navajo County,rural,West,Mountain,9949.889,66915,39745,103.6,
+1983,4017,AZ,Navajo County,rural,West,Mountain,9949.889,68894,40910,108,
+1984,4017,AZ,Navajo County, rural,West,Mountain,9949.889,68691,40765,634,
+1984,4017,,,,,,,,,94,
+1985,4017,AZ,Navajo County,rural,West,Mountain,9949.889,70708,41968,80,
+1986,4017,AZ,Navajo County,rural  ,West,Mountain,9949.889,72598,43327,80,
+1987,4017,AZ,Navajo County,rural,West,Mountain,9949.889,73791,43988,50,
+1988,4017,AZ,Navajo County,rural,West,Mountain,9949.889,74606,44447,90,
+1989,4017,AZ,Navajo County,rural,West,Mountain,9949.889,76579,45289,95.6,
+1990,4017,AZ,Navajo County,rural,West,Mountain,9949.889,77921,45563,101.2,
+1991,4017,AZ,Navajo County,rural,West,Mountain,9949.889,78706,46007,106.8,
+1992,4017,AZ,Navajo County,rural,West,Mountain,9949.889,80350,47065,112.4,
+1993,4017,AZ,Navajo County,rural,West,Mountain,9949.889,83642,49079,697,
+1993,4017,,,,,,,,,118,
+1994,4017,AZ,Navajo County,rural  ,West,Mountain,9949.889,85422,50663,114.1667,
+1995,4017,AZ,Navajo County,rural,West,Mountain,9949.889,88432,52602,110.3333,
+1996,4017,AZ,Navajo County,rural,West,Mountain,9949.889,90646,54098,106.5,
+1997,4017,AZ,Navajo County,rural,West,Mountain,9949.889,92910,56228,102.6667,
+1998,4017,AZ,Navajo County,rural,West,Mountain,9949.889,94824,57468,98.83334,
+1999,4017,AZ,Navajo County,rural,West,Mountain,9949.889,96100,58294,95,
+2000,4017,AZ,Navajo County,rural,West,Mountain,9949.889,97689,59375,136.3333,327
+2001,4017,AZ,Navajo County,rural,West,Mountain,9949.889,97849,59856,177.6667,328
+2002,4017,AZ,Navajo County,rural,West,Mountain,9949.889,100123,61451,219,359
+2003,4017,AZ,Navajo County,rural,West,Mountain,9949.889,101529,62684,260.3333,459
+2004,4017,AZ,Navajo County,rural,West,Mountain,9949.889,102774,63975,301.6667,479
+2005,4017,AZ,Navajo County,  RURAL ,West,Mountain,9949.889,104184,64988,343,467
+2006,4017,AZ,Navajo County,rural,West,Mountain,9949.889,105624,66150,335,499
+2007,4017,AZ,Navajo County,rural,West,Mountain,9949.889,106927,66978,327,539
+2008,4017,AZ,Navajo County,rural,West,Mountain,9949.889,107626,67396,319,556
+2009,4017,AZ,Navajo County,rural,West,Mountain,9949.889,107571,67213,311,518
+2010,4017,AZ,Navajo County,rural,West,Mountain,9949.889,107489,66949,303,546
+2011,4017,AZ,Navajo County,  RURAL ,West,Mountain,9949.889,107695,67064,295,539
+2012,4017,AZ,Navajo County,rural,West,Mountain,9949.889,107518,66836,287,566
+2013,4017,AZ,Navajo County,rural,West,Mountain,9949.889,107268,66203,279,582
+2014,4017,AZ,Navajo County, rural,West,Mountain,9949.889,107077,65831,282,624
+2015,4017,AZ,Navajo County,rural,West,Mountain,9949.889,107613,65808,285,634
+2016,4017,AZ,Navajo County,rural,West,Mountain,9949.889,107543,65356,,
+1970,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,357383,220604,228,
+1971,4019,AZ,Pima County,Small/mid,West,Mountain,9187.22,380248,237027,255,
+1972,4019,AZ,Pima County,small/mid  ,West,Mountain,9187.22,407511,257082,282,
+1973,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,428555,273086,309,
+1974,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,443741,285556,336,
+1975,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,459737,298375,363,
+1976,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,471601,308413,390,
+1977,4019,AZ,Pima County,SMALL/MID,West,Mountain,9187.22,483486,317843,417,
+1977,4019,AZ,Pima County,SMALL/MID,West,Mountain,9187.22,483486,317843,417,
+1978,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,497691,328867,444,
+1979,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,523342,347947,444.6,
+1980,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,535975,357053,445.2,
+1980,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,535975,357053,445.2,
+1981,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,552630,368626,445.8,
+1982,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,568000,378858,446.4,
+1983,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,582174,387509,447,
+1984,4019,AZ,Pima County,small/mid  ,West,Mountain,9187.22,592086,393368,486,
+1985,4019,AZ,Pima County,SMALL/MID,West,Mountain,9187.22,602646,399921,525,
+1986,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,621578,413274,546,
+1987,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,640416,424218,662,
+1988,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,656722,433455,797,
+1989,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,664202,434567,877,
+1990,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,668844,432393,996,
+1991,4019,AZ,Pima County,SMALL/MID,West,Mountain,9187.22,679813,438691,966,
+1992,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,698091,450744,1065,
+1993,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,719598,464386,1099,
+1994,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,745112,484749,1067,
+1995,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,768212,500372,1074,
+1995,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,768212,500372,1074,
+1996,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,783685,510232,1034,
+1997,4019,AZ,Pima County,small/mid  ,West,Mountain,9187.22,798521,522945,1172,
+1998,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,813386,530924,1291,
+1999,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,828905,540740,1348,
+2000,4019,AZ,Pima County, small/mid,West,Mountain,9187.22,848019,553692,1331,4514
+2001,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,859280,562428,1427,4664
+2002,4019,AZ,Pima County,SMALL/MID,West,Mountain,9187.22,874267,574015,1452,4537
+2003,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,885893,582665,1485,4421
+2004,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,901342,594357,1643,4622
+2005,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,920298,607651,1822,4751
+2006,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,940930,622032,1896,4937
+2007,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,955869,631408,1877,5180
+2008,4019,AZ,Pima County,Small/mid,West,Mountain,9187.22,967778,637505,1882,5389
+2008,4019,AZ,Pima County,Small/mid,West,Mountain,9187.22,967778,637505,1882,5389
+2009,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,975580,641200,1888,5606
+2010,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,980260,642545,1649,5399
+2011,4019,AZ,Pima County, small/mid,West,Mountain,9187.22,981540,643204,1640,5271
+2012,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,987297,645903,1802,5320
+2013,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,991528,643989,2018,5482
+2014,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,994759,642665,2061,5716
+2015,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,1000916,642705,1838,5539
+2016,4019,AZ,Pima County,small/mid,West,Mountain,9187.22,1005323,642120,,
+1970,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,69620,40484,50,
+1971,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,73801,43394,49.875,
+1972,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,76764,45674,49.75,
+1973,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,80920,48769,49.625,
+1974,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,84540,51516,49.5,
+1975,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,83814,51351,49.375,
+1976,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,86399,53256,49.25,
+1977,4021,AZ,Pinal County,  SUBURBAN ,West,Mountain,5365.844,87094,53861,49.125,
+1978,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,87591,54173,49,
+1979,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,89490,55505,57.6,
+1980,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,91302,56830,66.2,
+1981,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,92955,57995,74.8,
+1982,4021,AZ,Pinal County, suburban,West,Mountain,5365.844,96808,60469,83.4,
+1983,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,97847,61051,92,
+1984,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,100508,62659,47.5,
+1985,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,103223,64349,3,
+1986,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,107818,67457,4,
+1986,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,107818,67457,4,
+1987,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,111168,69367,4,
+1988,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,114206,71094,206,
+1989,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,115750,71447,198,
+1990,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,116867,71348,180,
+1991,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,120987,73812,198,
+1992,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,126178,77210,227,
+1993,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,131935,80594,230,
+1994,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,138343,85304,266.6667,
+1995,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,145863,90139,303.3333,
+1996,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,152633,94416,340,
+1996,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,152633,94416,340,
+1997,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,158705,98915,376.6667,
+1998,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,165492,103058,413.3333,
+1999,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,173364,108476,450,
+1999,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,173364,108476,450,
+2000,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,181280,113893,435,536
+2001,4021,AZ,Pinal County,Suburban,West,Mountain,5365.844,187747,118387,494,554
+2002,4021,AZ,Pinal County,suburban  ,West,Mountain,5365.844,197082,125134,575,543
+2003,4021,AZ,Pinal County,SUBURBAN,West,Mountain,5365.844,207920,132901,581,676
+2004,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,219472,140622,673,826
+2005,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,235708,150974,700,983
+2006,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,271328,173725,673,1056
+2007,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,306174,196196,697,1177
+2008,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,335311,213730,1261,1256
+2009,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,349830,221512,1260,1409
+2010,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,375768,238120,1163,1520
+2011,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,379504,240949,1176,1602
+2012,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,378226,238933,1057,1722
+2013,4021,AZ,Pinal County, suburban,West,Mountain,5365.844,381910,238969,1121,1962
+2014,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,384258,237731,1105,2048
+2015,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,394004,242759,853,2149
+2016,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,404069,248053,,
+2016,4021,AZ,Pinal County,suburban,West,Mountain,5365.844,404069,248053,,
+1970,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,14133,8124,9,
+1971,4023,AZ,Santa Cruz County,Rural,West,Mountain,1236.922,14796,8574,13.75,
+1972,4023,AZ,Santa Cruz County,Rural,West,Mountain,1236.922,15692,9204,18.5,
+1972,4023,AZ,Santa Cruz County,Rural,West,Mountain,1236.922,15692,9204,18.5,
+1973,4023,AZ,Santa Cruz County, rural,West,Mountain,1236.922,16507,9797,23.25,
+1973,4023,AZ,Santa Cruz County, rural,West,Mountain,1236.922,16507,9797,23.25,
+1974,4023,AZ,Santa Cruz County, rural,West,Mountain,1236.922,17357,10394,28,
+1975,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,17097,10263,32.75,
+1976,4023,AZ,Santa Cruz County,Rural,West,Mountain,1236.922,17896,10791,37.5,
+1977,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,18264,11031,42.25,
+1978,4023,AZ,Santa Cruz County, rural,West,Mountain,1236.922,18603,11257,47,
+1978,4023,AZ,Santa Cruz County, rural,West,Mountain,1236.922,18603,11257,47,
+1979,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,19658,11942,43.6,
+1980,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,20520,12508,40.2,
+1981,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,20672,12649,36.8,
+1982,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,21690,13302,33.4,
+1983,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,21839,13398,30,
+1984,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,22791,13983,34.5,
+1985,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,23534,14450,39,
+1986,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,24038,14834,43,
+1987,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,25625,15779,39,
+1988,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,26866,16506,58,
+1989,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,28781,17528,61.2,
+1990,4023,AZ,Santa Cruz County,rural  ,West,Mountain,1236.922,29854,18014,64.4,
+1991,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,30918,18752,67.6,
+1991,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,30918,18752,67.6,
+1992,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,32006,19489,70.8,
+1993,4023,AZ,Santa Cruz County, rural,West,Mountain,1236.922,33245,20298,74,
+1994,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,34337,21251,70,
+1995,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,35007,21632,66,
+1996,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,35205,21730,62,
+1997,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,36074,22398,58,
+1998,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,36809,22739,54,
+1999,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,37713,23146,50,
+2000,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,38589,23579,60,77
+2001,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,39288,24156,72,68
+2002,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,40009,24661,85,70
+2003,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,40625,25140,73,60
+2003,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,40625,25140,73,60
+2004,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,41623,25821,100,62
+2005,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,42961,26813,93,91
+2006,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,44298,27654,93,93
+2006,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,44298,27654,93,93
+2007,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,45338,28345,93,111
+2008,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,46144,28748,93,125
+2009,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,47011,29200,93,134
+2010,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,47423,29371,93,129
+2011,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,47425,29338,93,114
+2012,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,47615,29315,93,127
+2013,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,47292,29073,93,126
+2014,4023,AZ,Santa Cruz County,rural,West,Mountain,1236.922,46845,28713,93,128
+2015,4023,AZ,Santa Cruz County,  RURAL ,West,Mountain,1236.922,46468,28368,93,141
+2015,4023,AZ,Santa Cruz County,  RURAL ,West,Mountain,1236.922,46468,28368,93,141
+2016,4023,AZ,Santa Cruz County,rural  ,West,Mountain,1236.922,46191,28147,,
+1970,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,37686,21946,35,
+1971,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,40406,23669,36.625,
+1972,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,44869,26704,38.25,
+1973,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,47955,28794,39.875,
+1973,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,47955,28794,39.875,
+1974,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,50239,30452,41.5,
+1975,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,50196,30392,43.125,
+1976,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,55746,34116,44.75,
+1977,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,59743,36678,46.375,
+1978,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,62377,38177,48,
+1978,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,62377,38177,48,
+1979,4025,AZ,Yavapai County,  SMALL/MID ,West,Mountain,8123.511,65845,40240,56.4,
+1980,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,68752,41878,64.8,
+1981,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,70882,43009,73.2,
+1982,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,74007,44731,81.6,
+1983,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,76770,46129,90,
+1984,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,79636,47656,96,
+1985,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,82641,49334,102,
+1986,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,89030,53176,106,
+1987,4025,AZ,Yavapai County,SMALL/MID,West,Mountain,8123.511,93812,55770,120,
+1988,4025,AZ,Yavapai County,small/mid  ,West,Mountain,8123.511,99489,58895,142,
+1989,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,103650,60746,160,
+1990,4025,AZ,Yavapai County, small/mid,West,Mountain,8123.511,108818,62853,165,
+1991,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,113119,65112,128,
+1992,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,118427,68467,70,
+1993,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,125164,72615,142,
+1994,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,131986,77657,206,
+1995,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,139901,83001,269,
+1996,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,146414,87244,316,
+1997,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,151924,91550,270,
+1998,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,157686,95136,314,
+1999,4025,AZ,Yavapai County,SMALL/MID,West,Mountain,8123.511,162943,98721,303,
+2000,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,168608,102620,317,575
+2001,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,172636,105541,405,658
+2002,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,177362,108917,446,678
+2003,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,182090,111983,514,897
+2004,4025,AZ,Yavapai County,small/mid  ,West,Mountain,8123.511,187822,115821,482,1188
+2005,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,195424,121043,466,1304
+2006,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,204082,126568,477.125,1486
+2006,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,204082,126568,477.125,1486
+2007,4025,AZ,Yavapai County,SMALL/MID,West,Mountain,8123.511,208773,129016,488.25,1676
+2007,4025,AZ,Yavapai County,SMALL/MID,West,Mountain,8123.511,208773,129016,488.25,1676
+2008,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,211211,129225,499.375,1867
+2009,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,211172,128097,510.5,1836
+2010,4025,AZ,Yavapai County, small/mid,West,Mountain,8123.511,211015,127129,521.625,1742
+2011,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,210969,126870,532.75,1748
+2012,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,210883,126183,543.875,1789
+2013,4025,AZ,Yavapai County, small/mid,West,Mountain,8123.511,211809,124899,555,1785
+2014,4025,AZ,Yavapai County,SMALL/MID,West,Mountain,8123.511,214198,124943,524.5,1872
+2015,4025,AZ,Yavapai County,small/mid,West,Mountain,8123.511,217509,125610,494,1851
+2016,4025,AZ,Yavapai County, small/mid,West,Mountain,8123.511,220621,125720,,
+1970,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,61634,37945,67,
+1971,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,64863,39886,74.125,
+1972,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,67155,41334,81.25,
+1972,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,67155,41334,81.25,
+1973,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,68688,42327,88.375,
+1974,4027,AZ,Yuma County,SMALL/MID,West,Mountain,5514.028,71400,44166,95.5,
+1975,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,69438,42853,102.625,
+1976,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,76482,47744,109.75,
+1977,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,79455,49592,116.875,
+1978,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,80684,50268,124,
+1979,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,83515,52066,114.4,
+1980,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,76886,48552,104.8,
+1981,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,79317,50091,95.2,
+1982,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,81186,51209,85.6,
+1983,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,84026,52835,76,
+1984,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,85368,53528,106.8,
+1985,4027,AZ,Yuma County,  SMALL/MID ,West,Mountain,5514.028,87581,54798,137.6,
+1986,4027,AZ,Yuma County, small/mid,West,Mountain,5514.028,90515,56722,168.4,
+1987,4027,AZ,Yuma County,Small/mid,West,Mountain,5514.028,92691,57795,199.2,
+1988,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,97069,60234,230,
+1988,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,97069,60234,230,
+1989,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,103374,63468,245,
+1990,4027,AZ,Yuma County,Small/mid,West,Mountain,5514.028,108063,65548,260,
+1991,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,111967,67791,265,
+1992,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,118660,71979,257,
+1993,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,124893,74904,317,
+1994,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,127975,77158,283,
+1995,4027,AZ,Yuma County, small/mid,West,Mountain,5514.028,131776,79257,325,
+1996,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,137248,82289,382,
+1997,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,143896,86370,400,
+1998,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,149065,88594,408,
+1999,4027,AZ,Yuma County,SMALL/MID,West,Mountain,5514.028,155665,92251,450,
+2000,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,160576,94874,469,749
+2001,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,162873,96340,454,795
+2002,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,165398,97890,479,766
+2003,4027,AZ,Yuma County,Small/mid,West,Mountain,5514.028,168003,99471,570,764
+2004,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,172824,102641,579,796
+2005,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,178816,106904,612,867
+2006,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,183848,110367,601,892
+2006,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,183848,110367,601,892
+2007,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,187357,113119,545,901
+2008,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,191202,115862,554,920
+2008,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,191202,115862,554,920
+2009,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,193714,117813,698,981
+2010,4027,AZ,Yuma County, small/mid,West,Mountain,5514.028,195750,119776,612,1015
+2011,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,197124,120946,589,1020
+2012,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,202581,125432,583,922
+2013,4027,AZ,Yuma County,Small/mid,West,Mountain,5514.028,202105,124188,544,878
+2014,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,201810,123340,544,991
+2015,4027,AZ,Yuma County,small/mid,West,Mountain,5514.028,203039,123615,535,1035
+2016,4027,AZ,Yuma County,small/mid  ,West,Mountain,5514.028,203558,123665,,

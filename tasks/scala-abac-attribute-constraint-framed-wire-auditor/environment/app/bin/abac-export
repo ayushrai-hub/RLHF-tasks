@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+CP="/app/bin/app.jar:$(printf '%s:' /opt/scala3/lib/*.jar)$(printf '%s:' /opt/abac-libs/*.jar)"
+exec java -cp "${CP}" abac.ExportMain "$@"

@@ -1,0 +1,17 @@
+{
+  "auth_token": "admin-token",
+  "enable_middleware_api": true,
+  "middleware": {
+    "binary": "mw-runner",
+    "mode": "local",
+    "remote_path": "",
+    "script": "noop"
+  },
+  "payload": {
+    "body": "ping",
+    "method": "GET",
+    "path": "/api/check",
+    "request_id": "v001"
+  },
+  "validate": true
+}

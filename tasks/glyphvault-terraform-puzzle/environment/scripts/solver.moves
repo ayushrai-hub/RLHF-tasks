@@ -1,0 +1,7 @@
+GO east
+GO north
+TAKE key
+GO east
+GO north
+UNLOCK east
+GO east

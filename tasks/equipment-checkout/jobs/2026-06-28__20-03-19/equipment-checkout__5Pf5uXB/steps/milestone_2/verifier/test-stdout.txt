@@ -1,0 +1,30 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+cachedir: /tmp/pytest_cache
+rootdir: /tests
+plugins: metadata-3.1.1, json-ctrf-0.3.5, json-report-1.5.0
+collected 18 items
+
+../tests/test_m2.py ..................                                   [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkout_ok
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkout_sequential_ids
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkout_equipment_not_found
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkout_borrower_not_found
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkout_already_checked_out
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkin_ok
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkin_fee_calculation
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkin_checkout_not_found
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkin_already_closed
+PASSED ../tests/test_m2.py::TestMilestone2::test_equipment_available_after_checkin
+PASSED ../tests/test_m2.py::TestMilestone2::test_equipment_checked_out_status_in_list
+PASSED ../tests/test_m2.py::TestMilestone2::test_equipment_available_status_after_checkin
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkout_stats_empty
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkout_stats_open_only
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkout_stats_one_completed
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkout_stats_two_decimal_places
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkout_stats_multiple_completed
+PASSED ../tests/test_m2.py::TestMilestone2::test_checkin_sets_checkin_date_in_db
+============================== 18 passed in 2.74s ==============================

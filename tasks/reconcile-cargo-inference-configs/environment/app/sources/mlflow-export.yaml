@@ -1,0 +1,23 @@
+model:
+  name: sentiment-transformer
+  version: 4.2.0
+  run_id: 7f3a9c21
+  registered_at: "2026-05-14T09:12:33Z"
+quantization: int8
+metrics:
+  eval_accuracy: 0.925
+  eval_f1: 0.911
+  max_eval_latency_ms: 45
+  eval_samples: 24000
+serving:
+  max_batch_size: 32
+  max_concurrency: 8
+  request_timeout_ms: 1500
+features:
+  - cpu-avx2
+  - dynamic-batching
+  - telemetry
+  - gpu-cuda
+tracking:
+  experiment: sentiment-classification
+  artifact_uri: file:///mlruns/12/artifacts

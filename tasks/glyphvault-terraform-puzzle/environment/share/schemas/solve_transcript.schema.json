@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "rooms_visited",
+    "glyphs_rendered",
+    "moves_applied",
+    "final_room",
+    "final_score",
+    "has_key"
+  ],
+  "properties": {
+    "rooms_visited": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "glyphs_rendered": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["room", "glyph_id", "char", "atlas_col", "atlas_row"],
+        "properties": {
+          "room": { "type": "string" },
+          "glyph_id": { "type": "string" },
+          "char": { "type": "string", "minLength": 1, "maxLength": 1 },
+          "atlas_col": { "type": "integer", "minimum": 0 },
+          "atlas_row": { "type": "integer", "minimum": 0 }
+        }
+      }
+    },
+    "moves_applied": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "final_room": { "type": "string" },
+    "final_score": { "type": "integer" },
+    "has_key": { "type": "boolean" }
+  }
+}

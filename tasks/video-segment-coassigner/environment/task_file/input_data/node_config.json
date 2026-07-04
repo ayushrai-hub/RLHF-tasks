@@ -1,0 +1,44 @@
+{
+  "nodes": [
+    {
+      "node_id": "NODE-0",
+      "cpu_capacity": 360,
+      "bitrate_capacity": 260
+    },
+    {
+      "node_id": "NODE-1",
+      "cpu_capacity": 340,
+      "bitrate_capacity": 280
+    },
+    {
+      "node_id": "NODE-2",
+      "cpu_capacity": 320,
+      "bitrate_capacity": 300
+    },
+    {
+      "node_id": "NODE-3",
+      "cpu_capacity": 300,
+      "bitrate_capacity": 320
+    },
+    {
+      "node_id": "NODE-4",
+      "cpu_capacity": 280,
+      "bitrate_capacity": 340
+    },
+    {
+      "node_id": "NODE-5",
+      "cpu_capacity": 260,
+      "bitrate_capacity": 360
+    },
+    {
+      "node_id": "NODE-6",
+      "cpu_capacity": 240,
+      "bitrate_capacity": 380
+    },
+    {
+      "node_id": "NODE-7",
+      "cpu_capacity": 372,
+      "bitrate_capacity": 296
+    }
+  ]
+}

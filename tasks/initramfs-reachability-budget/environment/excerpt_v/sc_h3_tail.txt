@@ -1,0 +1,1 @@
+gzip_tally held excerpt omits z8 heavy row

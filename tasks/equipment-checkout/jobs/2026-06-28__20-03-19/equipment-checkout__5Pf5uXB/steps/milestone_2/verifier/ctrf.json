@@ -1,0 +1,182 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 18,
+            "passed": 18,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782677106.988028,
+            "stop": 1782677109.731601
+        },
+        "tests": [
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkout_ok",
+                "status": "passed",
+                "duration": 0.1403981747571379,
+                "start": 1782677107.0482466,
+                "stop": 1782677107.1893704,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkout_sequential_ids",
+                "status": "passed",
+                "duration": 0.1530098409857601,
+                "start": 1782677107.1899052,
+                "stop": 1782677107.3434088,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkout_equipment_not_found",
+                "status": "passed",
+                "duration": 0.12699081283062696,
+                "start": 1782677107.3438725,
+                "stop": 1782677107.4715955,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkout_borrower_not_found",
+                "status": "passed",
+                "duration": 0.10776567831635475,
+                "start": 1782677107.4722106,
+                "stop": 1782677107.5805001,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkout_already_checked_out",
+                "status": "passed",
+                "duration": 0.122316830791533,
+                "start": 1782677107.5811021,
+                "stop": 1782677107.7039573,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkin_ok",
+                "status": "passed",
+                "duration": 0.17615933390334249,
+                "start": 1782677107.7046194,
+                "stop": 1782677107.8812892,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkin_fee_calculation",
+                "status": "passed",
+                "duration": 0.18183217803016305,
+                "start": 1782677107.881806,
+                "stop": 1782677108.0641708,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkin_checkout_not_found",
+                "status": "passed",
+                "duration": 0.14910337212495506,
+                "start": 1782677108.0646727,
+                "stop": 1782677108.2143788,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkin_already_closed",
+                "status": "passed",
+                "duration": 0.16213856870308518,
+                "start": 1782677108.2147691,
+                "stop": 1782677108.3773384,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_equipment_available_after_checkin",
+                "status": "passed",
+                "duration": 0.14583559823222458,
+                "start": 1782677108.3777423,
+                "stop": 1782677108.5241692,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_equipment_checked_out_status_in_list",
+                "status": "passed",
+                "duration": 0.12202549213543534,
+                "start": 1782677108.5246902,
+                "stop": 1782677108.6473625,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_equipment_available_status_after_checkin",
+                "status": "passed",
+                "duration": 0.14401188981719315,
+                "start": 1782677108.6480155,
+                "stop": 1782677108.7926328,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkout_stats_empty",
+                "status": "passed",
+                "duration": 0.12179851508699358,
+                "start": 1782677108.7932475,
+                "stop": 1782677108.915519,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkout_stats_open_only",
+                "status": "passed",
+                "duration": 0.13255218416452408,
+                "start": 1782677108.9159288,
+                "stop": 1782677109.0490355,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkout_stats_one_completed",
+                "status": "passed",
+                "duration": 0.1507814743090421,
+                "start": 1782677109.0496826,
+                "stop": 1782677109.201118,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkout_stats_two_decimal_places",
+                "status": "passed",
+                "duration": 0.14865178102627397,
+                "start": 1782677109.201658,
+                "stop": 1782677109.3508217,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkout_stats_multiple_completed",
+                "status": "passed",
+                "duration": 0.22774073877371848,
+                "start": 1782677109.3512743,
+                "stop": 1782677109.5795531,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            },
+            {
+                "name": "test_m2.py::TestMilestone2::test_checkin_sets_checkin_date_in_db",
+                "status": "passed",
+                "duration": 0.1502848551608622,
+                "start": 1782677109.5800633,
+                "stop": 1782677109.7310185,
+                "retries": 0,
+                "file_path": "test_m2.py"
+            }
+        ]
+    }
+}

@@ -1,0 +1,3 @@
+meter_id,timestamp,register_kwh
+MON-G,2024-01-31T23:45:00-06:00,50.000
+MON-G,2024-02-01T00:15:00-06:00,50.500

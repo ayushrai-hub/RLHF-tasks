@@ -1,0 +1,49 @@
+# Slack export — dr-readiness-bridge
+
+[2026-05-20 14:02] sre-maya: temporary workaround — skip notification-hub runbook, manually restart workers in eu-west-1
+[2026-05-20 14:05] sre-maya: GAP_FLAG notification-hub missing_runbook slack_workaround_only slack_exports/dr-readiness-bridge.txt
+[2026-05-21 09:11] platform-lee: identity runbook still references single-region KMS — do not trust prose version
+- `FAILOVER_STEP 2026-03-18T08:55:00Z payments-ledger promote_secondary us-east-1 eu-west-1 150 slack_exports/dr-readiness-bridge.txt`
+- FAILOVER_STEP 2026-03-18T10:05:00Z order-api promote_secondary us-east-1 eu-west-1 90 slack_exports/dr-readiness-bridge.txt
+- FAILOVER_STEP 2026-03-18T10:45:00Z analytics-pipeline promote_secondary us-east-1 eu-west-1 250 slack_exports/dr-readiness-bridge.txt
+
+[2026-05-15 10:00] oncall: bridge note 0 about cross-region cache warming checklist item 0.
+[2026-05-16 11:01] oncall: bridge note 1 about cross-region cache warming checklist item 1.
+[2026-05-17 12:02] oncall: bridge note 2 about cross-region cache warming checklist item 2.
+[2026-05-18 13:03] oncall: bridge note 3 about cross-region cache warming checklist item 3.
+[2026-05-19 14:04] oncall: bridge note 4 about cross-region cache warming checklist item 4.
+[2026-05-20 15:05] oncall: bridge note 5 about cross-region cache warming checklist item 0.
+[2026-05-21 16:06] oncall: bridge note 6 about cross-region cache warming checklist item 1.
+[2026-05-22 17:07] oncall: bridge note 7 about cross-region cache warming checklist item 2.
+[2026-05-23 10:08] oncall: bridge note 8 about cross-region cache warming checklist item 3.
+[2026-05-24 11:09] oncall: bridge note 9 about cross-region cache warming checklist item 4.
+[2026-05-15 12:10] oncall: bridge note 10 about cross-region cache warming checklist item 0.
+[2026-05-16 13:11] oncall: bridge note 11 about cross-region cache warming checklist item 1.
+[2026-05-17 14:12] oncall: bridge note 12 about cross-region cache warming checklist item 2.
+[2026-05-18 15:13] oncall: bridge note 13 about cross-region cache warming checklist item 3.
+[2026-05-19 16:14] oncall: bridge note 14 about cross-region cache warming checklist item 4.
+[2026-05-20 17:15] oncall: bridge note 15 about cross-region cache warming checklist item 0.
+[2026-05-21 10:16] oncall: bridge note 16 about cross-region cache warming checklist item 1.
+[2026-05-22 11:17] oncall: bridge note 17 about cross-region cache warming checklist item 2.
+[2026-05-23 12:18] oncall: bridge note 18 about cross-region cache warming checklist item 3.
+[2026-05-24 13:19] oncall: bridge note 19 about cross-region cache warming checklist item 4.
+[2026-05-15 14:20] oncall: bridge note 20 about cross-region cache warming checklist item 0.
+[2026-05-16 15:21] oncall: bridge note 21 about cross-region cache warming checklist item 1.
+[2026-05-17 16:22] oncall: bridge note 22 about cross-region cache warming checklist item 2.
+[2026-05-18 17:23] oncall: bridge note 23 about cross-region cache warming checklist item 3.
+[2026-05-19 10:24] oncall: bridge note 24 about cross-region cache warming checklist item 4.
+[2026-05-20 11:25] oncall: bridge note 25 about cross-region cache warming checklist item 0.
+[2026-05-21 12:26] oncall: bridge note 26 about cross-region cache warming checklist item 1.
+[2026-05-22 13:27] oncall: bridge note 27 about cross-region cache warming checklist item 2.
+[2026-05-23 14:28] oncall: bridge note 28 about cross-region cache warming checklist item 3.
+[2026-05-24 15:29] oncall: bridge note 29 about cross-region cache warming checklist item 4.
+[2026-05-15 16:30] oncall: bridge note 30 about cross-region cache warming checklist item 0.
+[2026-05-16 17:31] oncall: bridge note 31 about cross-region cache warming checklist item 1.
+[2026-05-17 10:32] oncall: bridge note 32 about cross-region cache warming checklist item 2.
+[2026-05-18 11:33] oncall: bridge note 33 about cross-region cache warming checklist item 3.
+[2026-05-19 12:34] oncall: bridge note 34 about cross-region cache warming checklist item 4.
+[2026-05-20 13:35] oncall: bridge note 35 about cross-region cache warming checklist item 0.
+[2026-05-21 14:36] oncall: bridge note 36 about cross-region cache warming checklist item 1.
+[2026-05-22 15:37] oncall: bridge note 37 about cross-region cache warming checklist item 2.
+[2026-05-23 16:38] oncall: bridge note 38 about cross-region cache warming checklist item 3.
+[2026-05-24 17:39] oncall: bridge note 39 about cross-region cache warming checklist item 4.

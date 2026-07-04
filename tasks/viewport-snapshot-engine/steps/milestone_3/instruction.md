@@ -1,0 +1,5 @@
+This milestone assembles the interactive snapshot the agent hands to the model. Reuse the milestone 2 geometry and clipping.
+
+A node is an interactive candidate when its `tag` is one of `a`, `button`, `input`, `select`, `textarea`, or its `attrs` contain a `role` key, or its `attrs` contain an `onclick` key. Take the candidates that are onscreen by the milestone 2 rule and put them in reading order: ascending visible-rectangle `y`, then ascending visible-rectangle `x`, then ascending `id` compared as text.
+
+Return `{"records": [...]}`, one record per ordered candidate. Each record is `{"index", "id", "tag", "role", "rect", "label"}`. `index` counts from 0 in that order. `id` and `tag` come straight from the node. `role` is the `attrs` value for `role` as a string, or an empty string when the key is absent. `rect` is the node's visible rectangle from milestone 2. `label` is the node's `text` with every run of whitespace collapsed to a single space, trimmed of leading and trailing spaces, then cut to at most 50 characters; a node with no text gives an empty label. The output stays the canonical `{"answers": [...]}` document, one object per case.

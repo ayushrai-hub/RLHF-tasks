@@ -1,0 +1,28 @@
+version = "2.0"
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous@example.com"
+difficulty = "hard"
+category = "system-administration"
+subcategories = ["tool_specific"]
+number_of_milestones = 0
+codebase_size = "small"
+languages = ["python"]
+tags = ["disaster-recovery", "rto", "rpo", "failover", "sre"]
+expert_time_estimate_min = 600
+junior_time_estimate_min = 2400
+
+[verifier]
+timeout_sec = 900
+
+[agent]
+timeout_sec = 1800
+
+[environment]
+allow_internet = false
+build_timeout_sec = 900
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+workdir = "/app"

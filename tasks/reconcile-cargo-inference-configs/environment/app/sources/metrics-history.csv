@@ -1,0 +1,10 @@
+run_id,timestamp,eval_accuracy,max_eval_latency_ms,notes
+9a10bd77,2026-03-21T09:00:00Z,0.881,52,baseline
+c04412ff,2026-04-30T14:02:55+00:00,0.906,71,"gpu bf16 trial, abandoned"
+5d8e02b4,2026-05-15T01:30:00+02:00,0.902,51,"re-run, Berlin tz"
+5d8e02b4,2026-05-14T20:10:00-04:00,0.918,47,"primary run, New York tz"
+5d8e02b4,2026-05-15T00:05:00Z,notanumber,49,"instrument glitch, accuracy void"
+5d8e02b4,2026-05-13T12:00:00Z,0.899,50,earlier valid run
+5d8e02b4,BADROW-ONLY-TWO-FIELDS
+
+7f3a9c21,2026-05-16T00:00:00Z,0.925,45,stale mlflow run

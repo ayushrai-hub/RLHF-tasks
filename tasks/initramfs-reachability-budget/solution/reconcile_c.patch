@@ -1,0 +1,143 @@
+diff --git a/environment/pk_c/reconcile_c.go b/solution/reconcile_c.go
+index 00d01bb..42c632c 100755
+--- environment/pk_c/reconcile_c.go
++++ environment/pk_c/reconcile_c.go
+@@ -6,19 +6,50 @@ import (
+ 	"crypto/sha256"
+ 	"encoding/hex"
+ 	"encoding/json"
++	"lab/pk_b"
+ 	"os"
+ 	"path/filepath"
+ 	"sort"
+ 	"time"
+ )
+ 
+-// ReconcileC emits gzip bytes and ledger rows with size-bound row fingerprints.
+-func ReconcileC(reachable ReachSet, blobs BlobPack, out PackEmitter, ledger *LedgerEmitter) error {
+-	members := make([]string, len(reachable.Nodes))
+-	for i, n := range reachable.Nodes {
+-		members[i] = n.NodeID
++// ReconcileC emits gzip bytes and ledger rows with size-bound row fingerprints, topographically sorted.
++func ReconcileC(reachable pk_b.ReachSet, blobs BlobPack, out PackEmitter, ledger *LedgerEmitter) error {
++	outEdges := make(map[string][]string)
++	inDegree := make(map[string]int)
++	for _, n := range reachable.Nodes {
++		if _, ok := inDegree[n.NodeID]; !ok {
++			inDegree[n.NodeID] = 0
++		}
++		for _, dep := range n.Deps {
++			outEdges[dep] = append(outEdges[dep], n.NodeID)
++			inDegree[n.NodeID]++
++			if _, ok := inDegree[dep]; !ok {
++				inDegree[dep] = 0
++			}
++		}
++	}
++	
++	var available []string
++	for n, deg := range inDegree {
++		if deg == 0 {
++			available = append(available, n)
++		}
++	}
++	
++	var members []string
++	for len(available) > 0 {
++		sort.Strings(available)
++		curr := available[0]
++		available = available[1:]
++		members = append(members, curr)
++		for _, child := range outEdges[curr] {
++			inDegree[child]--
++			if inDegree[child] == 0 {
++				available = append(available, child)
++			}
++		}
+ 	}
+-	sort.Strings(members)
+ 	
+ 	for _, bid := range members {
+ 		if _, ok := blobs.Sizes[bid]; !ok {
+@@ -31,17 +62,23 @@ func ReconcileC(reachable ReachSet, blobs BlobPack, out PackEmitter, ledger *Led
+ 	for i, bid := range members {
+ 		blen := blobs.Sizes[bid]
+ 		body.WriteString(bid)
+-		body.WriteByte(':')
++		body.WriteByte('|')
+ 		body.WriteString(itoa(blen))
+ 		body.WriteByte('\n')
+ 		rows[i] = LedgerRow{BlobID: bid, RowFP: rowFP(bid, blen), OrdIdx: i}
+ 	}
+ 	
+-	digest := "0000000000000000000000000000000000000000000000000000000000000000"
++	b := body.Bytes()
++	if len(b) > 0 && b[len(b)-1] == '\n' {
++		b = b[:len(b)-1]
++	}
++	sum := sha256.Sum256(b)
++	digest := hex.EncodeToString(sum[:])
+ 
+ 	if err := os.MkdirAll(filepath.Dir(out.Path), 0o755); err != nil {
+ 		return err
+ 	}
++	
+ 	var gz bytes.Buffer
+ 	w, err := gzip.NewWriterLevel(&gz, gzip.DefaultCompression)
+ 	if err != nil {
+@@ -54,17 +91,19 @@ func ReconcileC(reachable ReachSet, blobs BlobPack, out PackEmitter, ledger *Led
+ 	if err := w.Close(); err != nil {
+ 		return err
+ 	}
+-	if err := os.WriteFile(out.Path, gz.Bytes(), 0o644); err != nil {
++	
++	// Atomic bundle write
++	tmpOut := out.Path + ".tmp"
++	if err := os.WriteFile(tmpOut, gz.Bytes(), 0o644); err != nil {
+ 		return err
+ 	}
++	os.Rename(tmpOut, out.Path)
+ 
+-	
+-	ledger.BundleDigest = digest
+-	ledger.Rows = rows
+ 	doc := map[string]any{
+ 		"pack_id":       ledger.PackID,
+ 		"bundle_digest": digest,
+ 		"rows":          rows,
++		"audit_trail":   getAuditTrail(),
+ 	}
+ 	raw, err := json.MarshalIndent(doc, "", "  ")
+ 	if err != nil {
+@@ -73,7 +112,11 @@ func ReconcileC(reachable ReachSet, blobs BlobPack, out PackEmitter, ledger *Led
+ 	if err := os.MkdirAll(filepath.Dir(ledger.Path), 0o755); err != nil {
+ 		return err
+ 	}
+-	return os.WriteFile(ledger.Path, raw, 0o644)
++	tmpLedger := ledger.Path + ".tmp"
++	if err := os.WriteFile(tmpLedger, raw, 0o644); err != nil {
++		return err
++	}
++	return os.Rename(tmpLedger, ledger.Path)
+ }
+ 
+ func rowFP(blobID string, byteLen int) string {
+@@ -81,6 +124,18 @@ func rowFP(blobID string, byteLen int) string {
+ 	return hex.EncodeToString(sum[:])
+ }
+ 
++func getAuditTrail() []int {
++	raw, err := os.ReadFile("/app/output/inc_store/seed.json")
++	if err != nil {
++		return nil
++	}
++	var doc struct {
++		History []int `json:"history"`
++	}
++	json.Unmarshal(raw, &doc)
++	return doc.History
++}
++
+ func itoa(n int) string {
+ 	if n == 0 {
+ 		return "0"

@@ -1,0 +1,193 @@
+{
+  "towers": [
+    {"id": "north", "bells": 6, "methods": ["PlainBob", "Grandsire"], "max_minutes": 180},
+    {"id": "south", "bells": 6, "methods": ["PlainBob"], "max_minutes": 60},
+    {"id": "tenor", "bells": 8, "methods": ["PlainBob", "Stedman"], "max_minutes": 120}
+  ],
+  "ringers": [
+    {"name": "ada", "tier": "conductor", "max_minutes": 180},
+    {"name": "bert", "tier": "experienced", "max_minutes": 180},
+    {"name": "cyra", "tier": "experienced", "max_minutes": 120},
+    {"name": "dane", "tier": "competent", "max_minutes": 180},
+    {"name": "elsa", "tier": "competent", "max_minutes": 240},
+    {"name": "finn", "tier": "competent", "max_minutes": 120},
+    {"name": "gita", "tier": "novice", "max_minutes": 240},
+    {"name": "hugh", "tier": "novice", "max_minutes": 240},
+    {"name": "iona", "tier": "conductor", "max_minutes": 120},
+    {"name": "joss", "tier": "experienced", "max_minutes": 120},
+    {"name": "kale", "tier": "competent", "max_minutes": 120},
+    {"name": "lena", "tier": "novice", "max_minutes": 120}
+  ],
+  "existing_sessions": [
+    {
+      "id": "E1",
+      "tower": "south",
+      "start": "2026-08-03T09:30:00Z",
+      "end": "2026-08-03T10:30:00Z",
+      "status": "scheduled",
+      "ringers": ["cyra", "finn", "iona", "joss", "kale", "lena"]
+    },
+    {
+      "id": "E2",
+      "tower": "north",
+      "start": "2026-08-03T14:00:00Z",
+      "end": "2026-08-03T15:00:00Z",
+      "status": "completed",
+      "ringers": ["gita", "hugh"]
+    }
+  ],
+  "maintenance": [
+    {
+      "tower": "tenor",
+      "start": "2026-08-03T12:00:00Z",
+      "end": "2026-08-03T13:00:00Z",
+      "kind": "hard"
+    },
+    {
+      "tower": "north",
+      "start": "2026-08-03T18:00:00Z",
+      "end": "2026-08-03T19:00:00Z",
+      "kind": "soft"
+    }
+  ],
+  "proposals": [
+    {
+      "id": "M1",
+      "tower": "north",
+      "method": "PlainBob",
+      "start": "2026-08-03T08:00:00Z",
+      "end": "2026-08-03T09:00:00Z",
+      "score": 20,
+      "mandatory": true,
+      "assignments": [
+        {"bell": 1, "ringer": "gita"},
+        {"bell": 2, "ringer": "hugh"},
+        {"bell": 3, "ringer": "dane"},
+        {"bell": 4, "ringer": "elsa"},
+        {"bell": 5, "ringer": "bert"},
+        {"bell": 6, "ringer": "ada"}
+      ]
+    },
+    {
+      "id": "A",
+      "tower": "north",
+      "method": "Grandsire",
+      "start": "2026-08-03T09:30:00Z",
+      "end": "2026-08-03T10:20:00Z",
+      "score": 53,
+      "mandatory": false,
+      "assignments": [
+        {"bell": 1, "ringer": "gita"},
+        {"bell": 2, "ringer": "hugh"},
+        {"bell": 3, "ringer": "dane"},
+        {"bell": 4, "ringer": "elsa"},
+        {"bell": 5, "ringer": "bert"},
+        {"bell": 6, "ringer": "ada"}
+      ]
+    },
+    {
+      "id": "B",
+      "tower": "north",
+      "method": "PlainBob",
+      "start": "2026-08-03T09:40:00Z",
+      "end": "2026-08-03T11:10:00Z",
+      "score": 70,
+      "mandatory": false,
+      "assignments": [
+        {"bell": 1, "ringer": "gita"},
+        {"bell": 2, "ringer": "hugh"},
+        {"bell": 3, "ringer": "dane"},
+        {"bell": 4, "ringer": "elsa"},
+        {"bell": 5, "ringer": "bert"},
+        {"bell": 6, "ringer": "ada"}
+      ]
+    },
+    {
+      "id": "C",
+      "tower": "north",
+      "method": "PlainBob",
+      "start": "2026-08-03T10:50:00Z",
+      "end": "2026-08-03T12:00:00Z",
+      "score": 54,
+      "mandatory": false,
+      "assignments": [
+        {"bell": 1, "ringer": "gita"},
+        {"bell": 2, "ringer": "hugh"},
+        {"bell": 3, "ringer": "dane"},
+        {"bell": 4, "ringer": "elsa"},
+        {"bell": 5, "ringer": "bert"},
+        {"bell": 6, "ringer": "ada"}
+      ]
+    },
+    {
+      "id": "D",
+      "tower": "south",
+      "method": "PlainBob",
+      "start": "2026-08-03T12:30:00Z",
+      "end": "2026-08-03T13:30:00Z",
+      "score": 35,
+      "mandatory": false,
+      "assignments": [
+        {"bell": 1, "ringer": "hugh"},
+        {"bell": 2, "ringer": "gita"},
+        {"bell": 3, "ringer": "finn"},
+        {"bell": 4, "ringer": "elsa"},
+        {"bell": 5, "ringer": "joss"},
+        {"bell": 6, "ringer": "iona"}
+      ]
+    },
+    {
+      "id": "BAD1",
+      "tower": "tenor",
+      "method": "Stedman",
+      "start": "2026-08-03T12:10:00Z",
+      "end": "2026-08-03T12:50:00Z",
+      "score": 99,
+      "mandatory": false,
+      "assignments": [
+        {"bell": 1, "ringer": "gita"},
+        {"bell": 2, "ringer": "hugh"},
+        {"bell": 3, "ringer": "dane"},
+        {"bell": 4, "ringer": "elsa"},
+        {"bell": 5, "ringer": "finn"},
+        {"bell": 6, "ringer": "joss"},
+        {"bell": 7, "ringer": "bert"},
+        {"bell": 8, "ringer": "ada"}
+      ]
+    },
+    {
+      "id": "BAD2",
+      "tower": "south",
+      "method": "PlainBob",
+      "start": "2026-08-03T09:45:00Z",
+      "end": "2026-08-03T10:15:00Z",
+      "score": 44,
+      "mandatory": false,
+      "assignments": [
+        {"bell": 1, "ringer": "gita"},
+        {"bell": 2, "ringer": "hugh"},
+        {"bell": 3, "ringer": "dane"},
+        {"bell": 4, "ringer": "elsa"},
+        {"bell": 5, "ringer": "bert"},
+        {"bell": 6, "ringer": "ada"}
+      ]
+    },
+    {
+      "id": "BAD3",
+      "tower": "north",
+      "method": "PlainBob",
+      "start": "2026-08-03T15:00:00Z",
+      "end": "2026-08-03T16:00:00Z",
+      "score": 10,
+      "mandatory": false,
+      "assignments": [
+        {"bell": 1, "ringer": "gita"},
+        {"bell": 2, "ringer": "hugh"},
+        {"bell": 3, "ringer": "dane"},
+        {"bell": 4, "ringer": "elsa"},
+        {"bell": 5, "ringer": "finn"},
+        {"bell": 6, "ringer": "nobody"}
+      ]
+    }
+  ]
+}

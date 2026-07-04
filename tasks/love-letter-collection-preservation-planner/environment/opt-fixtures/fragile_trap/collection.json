@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "collection_label": "trap-fragile",
+  "block_span_months": 2,
+  "migration_salt": "trap-fragile",
+  "max_parallel_migrations": 1,
+  "storage_byte_budget": 65536
+}

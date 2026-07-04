@@ -1,0 +1,35 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "ledger_path", "policy_path", "events"],
+  "properties": {
+    "schema_version": { "const": "1.0" },
+    "ledger_path": { "type": "string" },
+    "policy_path": { "type": "string" },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["assertion_id", "issuer", "observed_at_utc", "decision"],
+        "properties": {
+          "assertion_id": { "type": "string" },
+          "issuer": { "type": "string" },
+          "observed_at_utc": { "type": "integer" },
+          "decision": {
+            "enum": [
+              "valid_window",
+              "invalid_signature",
+              "outside_skew",
+              "revoked",
+              "alg_mismatch",
+              "invalid_jti"
+            ]
+          },
+          "matched_iat": { "type": "integer" }
+        }
+      }
+    }
+  }
+}

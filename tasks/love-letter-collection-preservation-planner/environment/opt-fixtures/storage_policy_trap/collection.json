@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "collection_label": "trap-storage-policy",
+  "block_span_months": 4,
+  "migration_salt": "trap-storage-policy",
+  "max_parallel_migrations": 2,
+  "storage_byte_budget": 65536
+}

@@ -1,0 +1,50 @@
+--- a/src/middleware/remote_exec.go
++++ b/src/middleware/remote_exec.go
+@@ -3,13 +3,45 @@
+ import (
+ 	"bytes"
+ 	"fmt"
++	"os"
+ 	"os/exec"
++	"path/filepath"
+ 	"strings"
+ )
+ 
++const remoteRoot = "testdata/remote"
++
++// isRemotePathSafe confines remote reads to the remoteRoot directory. A prefix
++// check alone is insufficient: a path like "testdata/remote/../../etc/passwd"
++// shares the prefix yet escapes the directory. Canonicalize first, then verify
++// the result stays within remoteRoot.
++func isRemotePathSafe(p string) bool {
++	if p == "" || filepath.IsAbs(p) {
++		return false
++	}
++	rel, err := filepath.Rel(remoteRoot, filepath.Clean(p))
++	if err != nil {
++		return false
++	}
++	if rel == "." || rel == ".." || strings.HasPrefix(rel, ".."+string(filepath.Separator)) {
++		return false
++	}
++	return true
++}
++
+ func (m *Middleware) ExecuteRemote() error {
+-	cmdStr := strings.TrimSpace("cat " + m.RemotePath + " | " + m.Binary + " " + m.Script)
+-	cmd := exec.Command("sh", "-c", cmdStr)
++	if !isRemotePathSafe(m.RemotePath) {
++		return fmt.Errorf("middleware_remote: invalid remote path")
++	}
++
++	f, err := os.Open(filepath.Clean(m.RemotePath))
++	if err != nil {
++		return fmt.Errorf("middleware_remote: %v", err)
++	}
++	defer f.Close()
++
++	cmd := exec.Command(m.Binary, m.Script)
++	cmd.Stdin = f
+ 	var stderr bytes.Buffer
+ 	cmd.Stderr = &stderr
+ 	if err := cmd.Run(); err != nil {

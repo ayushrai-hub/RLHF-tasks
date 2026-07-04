@@ -1,0 +1,23 @@
+{
+  "records": [
+    {
+      "key_id": "K-RSA-A",
+      "revision": 1,
+      "as_of": "2025-01-01T00:00:00Z",
+      "status": "active",
+      "trusted": true,
+      "revocation_reason": null,
+      "revoked_at": null
+    },
+    {
+      "key_id": "K-ED-F",
+      "revision": 1,
+      "as_of": "2025-01-01T00:00:00Z",
+      "status": "active",
+      "trusted": true,
+      "revocation_reason": null,
+      "revoked_at": null
+    }
+  ],
+  "next_cursor": "p4"
+}

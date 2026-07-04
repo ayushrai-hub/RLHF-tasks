@@ -1,0 +1,3 @@
+$ORIGIN example.com.
+www 300 IN A 192.0.2.1 @key=k1
+mail 3600 IN MX 10 mail.example.com. @key=k2

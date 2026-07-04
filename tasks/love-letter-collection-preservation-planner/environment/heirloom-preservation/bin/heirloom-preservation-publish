@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -euo pipefail
+APP_ROOT="${APP_ROOT:-/app}"
+exec bash "${APP_ROOT}/heirloom-preservation/lib/export_stage.sh" "$@"

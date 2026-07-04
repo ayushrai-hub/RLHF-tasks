@@ -1,0 +1,85 @@
+# Task configuration schema version
+version = "2.0"
+
+# Task metadata (author, difficulty, categorization)
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+difficulty = "hard"
+category = "scientific-computing"
+# Options for subcategories are: "long_context", "tool_specific", "api_integration", "db_interaction", "ui_building"
+subcategories = []
+# Total milestone count — must match the number of [[steps]] blocks below
+number_of_milestones = 5
+# Size of the codebase: minimal -> 0-20 files, small -> 20+ files, large -> 200+ files
+codebase_size = "small"
+# Coding languages used in the oracle solution or required by the agent
+languages = ["c"]
+tags = ["c", "numerical-methods", "special-functions", "root-finding", "multiple-testing"]
+# Estimated time to complete (minutes)
+expert_time_estimate_min = 210
+junior_time_estimate_min = 480
+
+# Sandbox environment limits — applied across all milestones (the same container is shared)
+[environment]
+allow_internet = false
+build_timeout_sec = 1800.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+workdir = "/app"
+
+# Milestone 1 — regularized incomplete gamma + chi-square CDF
+[[steps]]
+name = "milestone_1"
+workdir = "/app"
+
+[steps.agent]
+timeout_sec = 1200.0
+
+[steps.verifier]
+timeout_sec = 600.0
+
+# Milestone 2 — regularized incomplete beta + Student-t / F CDFs
+[[steps]]
+name = "milestone_2"
+workdir = "/app"
+
+[steps.agent]
+timeout_sec = 1200.0
+
+[steps.verifier]
+timeout_sec = 600.0
+
+# Milestone 3 — inverse CDFs (quantiles) for chi-square and Student-t
+[[steps]]
+name = "milestone_3"
+workdir = "/app"
+
+[steps.agent]
+timeout_sec = 1200.0
+
+[steps.verifier]
+timeout_sec = 600.0
+
+# Milestone 4 — Kolmogorov distribution + normal CDF for a K-S test
+[[steps]]
+name = "milestone_4"
+workdir = "/app"
+
+[steps.agent]
+timeout_sec = 1200.0
+
+[steps.verifier]
+timeout_sec = 600.0
+
+# Milestone 5 — statctl CLI: GOF + Welch t + K-S, Holm correction, intervals
+[[steps]]
+name = "milestone_5"
+workdir = "/app"
+
+[steps.agent]
+timeout_sec = 1200.0
+
+[steps.verifier]
+timeout_sec = 600.0

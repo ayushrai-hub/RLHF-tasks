@@ -1,0 +1,123 @@
+{
+  "assessment_date_utc": "2026-05-26T23:59:59Z",
+  "assessment_cycle": "2026-q2",
+  "critical_rto_grace_minutes": 3,
+  "corpus_scan_directories": [
+    "backup_logs",
+    "replication_reports",
+    "dr_runbooks",
+    "architecture_docs",
+    "infrastructure_manifests",
+    "incident_postmortems",
+    "recovery_tests",
+    "monitoring_exports",
+    "slack_exports",
+    "compliance_requirements"
+  ],
+  "manifest_gates": {
+    "audit_included_field": "audit_included",
+    "dr_audit_cycle_field": "dr_audit_cycle",
+    "replication_audited_field": "replication_audited"
+  },
+  "backup": {
+    "primary_regions": ["us-east-1", "us-east-1-primary"],
+    "failure_statuses": ["failure", "partial"],
+    "failure_only_resolution": true
+  },
+  "replication": {
+    "min_lag_seconds": 120,
+    "required_source_region": "us-east-1",
+    "required_target_region": "eu-west-1"
+  },
+  "monitoring_probe": {
+    "qualifying_scenarios": ["regional_failover"]
+  },
+  "evidence_priority": {
+    "BACKUP_RESULT": 4,
+    "RECOVERY_TEST": 3,
+    "RESTORE_CHECKPOINT": 3,
+    "FAILOVER_STEP": 2,
+    "MONITORING_PROBE": 1,
+    "REPLICATION_LAG": 0
+  },
+  "blocker_source_priority": {
+    "FAILOVER_DEP": 2,
+    "FAILOVER_STEP_BLOCKED": 1
+  },
+  "outputs": {
+    "rto_rpo_assessment": {
+      "keys": ["assessment_date_utc", "systems", "readiness_score"],
+      "system_row_keys": [
+        "system",
+        "tier",
+        "rto_target_minutes",
+        "rpo_target_minutes",
+        "observed_rto_minutes",
+        "observed_rpo_minutes",
+        "meets_rto",
+        "meets_rpo"
+      ],
+      "systems_sort": "system"
+    },
+    "recovery_gaps": {
+      "keys": ["gaps", "runbook_issues", "failover_blockers"],
+      "gaps_sort": ["system", "gap_type"],
+      "runbook_issues_sort": "system",
+      "failover_blockers_sort": ["system", "depends_on"],
+      "gap_entry_keys": [
+        "system",
+        "gap_type",
+        "target_minutes",
+        "observed_minutes",
+        "evidence_source"
+      ],
+      "gap_types": ["rto_exceeded", "rpo_exceeded"],
+      "runbook_issue_keys": ["system", "status", "last_review", "source_relpath"],
+      "failover_blocker_keys": ["system", "depends_on", "blocker_gate", "evidence_source"]
+    },
+    "dr_readiness_report": {
+      "title": "DR Readiness Report",
+      "headings": [
+        "Executive Summary",
+        "RTO Failures",
+        "RPO Risks",
+        "Runbook Gaps",
+        "Failover Blockers",
+        "Readiness Score"
+      ],
+      "executive_summary_fields": ["assessment_date_utc", "readiness_score"],
+      "failure_lists_sort": "system"
+    },
+    "failover_timeline": {
+      "title": "Failover Timeline",
+      "columns": [
+        "ts_utc",
+        "system",
+        "action",
+        "source_region",
+        "target_region",
+        "elapsed_minutes",
+        "source_relpath"
+      ],
+      "separator_row": "| --- | --- | --- | --- | --- | --- | --- |",
+      "postmortem_source": "incident_postmortems/regional-outage-2026-03.md",
+      "sort": ["ts_utc", "system"],
+      "scoped_systems_only": true
+    }
+  },
+  "readiness_score": {
+    "start": 100,
+    "floor": 0,
+    "combined_recovery_miss": true,
+    "penalties": {
+      "rto_failure_standard": 12,
+      "rto_failure_critical": 18,
+      "rpo_failure": 15,
+      "runbook_outdated": 6,
+      "runbook_missing": 10,
+      "runbook_draft": 4,
+      "runbook_superseded": 7,
+      "failover_blocker": 8
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "api_port": 8966,
+  "policy_db": "/workspace/data/stampgate-policy.sqlite",
+  "nonce_db": "/workspace/data/nonce-cache.sqlite",
+  "ledger_path": "/workspace/data/assertion-ledger.csv"
+}

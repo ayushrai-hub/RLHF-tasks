@@ -1,0 +1,3 @@
+Bundled scenarios exercise fan-out transfers, merge lanes with retire markers,
+purge arcs through compaction fold, and longer split ladders. Each case forces a
+checkpoint inside a multi-leg batch at least once.

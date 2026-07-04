@@ -1,0 +1,14 @@
+{
+  "records": [
+    {
+      "key_id": "K-ED-F",
+      "revision": 2,
+      "as_of": "2026-01-01T00:00:00Z",
+      "status": "revoked",
+      "trusted": true,
+      "revocation_reason": "superseded",
+      "revoked_at": "2026-01-01T00:00:00Z"
+    }
+  ],
+  "next_cursor": null
+}

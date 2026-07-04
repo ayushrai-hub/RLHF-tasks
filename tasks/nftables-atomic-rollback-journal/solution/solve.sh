@@ -2,6 +2,52 @@
 set -euo pipefail
 cd /app/environment
 
+has_profile_field=0
+while IFS= read -r line; do
+  case "$line" in
+    *'json:"profile,omitempty"'*) has_profile_field=1 ;;
+  esac
+done < model/types.go
+tmp_model="$(mktemp)"
+in_epoch_meta=0
+while IFS= read -r line; do
+  case "$line" in
+    'type EpochMeta struct {')
+      in_epoch_meta=1
+      printf '%s\n' "$line" >> "$tmp_model"
+      continue
+      ;;
+  esac
+  if [ "$in_epoch_meta" -eq 1 ]; then
+    case "$line" in
+      *'Epoch   int'*)
+        printf '\tEpoch   int    `json:"epoch"`\n' >> "$tmp_model"
+        continue
+        ;;
+      *'Counter int'*)
+        printf '\tCounter int    `json:"counter"`\n' >> "$tmp_model"
+        continue
+        ;;
+      *'Tag     string'*)
+        printf '\tTag     string `json:"tag"`\n' >> "$tmp_model"
+        continue
+        ;;
+      '}')
+        in_epoch_meta=0
+        ;;
+    esac
+  fi
+  printf '%s\n' "$line" >> "$tmp_model"
+  if [ "$has_profile_field" -eq 0 ]; then
+    case "$line" in
+      *'Source   string  `json:"source,omitempty"`'*)
+        printf '\tProfile  string  `json:"profile,omitempty"`\n' >> "$tmp_model"
+        ;;
+    esac
+  fi
+done < model/types.go
+mv "$tmp_model" model/types.go
+
 cat > ledger/writer.go <<'EOF'
 package ledger
 
@@ -55,13 +101,19 @@ func LoadJournal(profile string) []model.Record {
 		row   model.Record
 	}
 	chosen := map[string]ranked{}
-	for sourceIndex, path := range paths {
+	sourceIndex := 0
+	for _, path := range paths {
 		for _, rec := range loadOne(path) {
+			if rec.Profile != "" && rec.Profile != profile {
+				sourceIndex++
+				continue
+			}
 			key := journalKey(rec)
 			next := ranked{epoch: rec.Epoch, index: sourceIndex, row: rec}
 			if prev, ok := chosen[key]; !ok || next.epoch > prev.epoch || (next.epoch == prev.epoch && next.index >= prev.index) {
 				chosen[key] = next
 			}
+			sourceIndex++
 		}
 	}
 	var out []model.Record
@@ -300,11 +352,13 @@ func spanRecord(runID, phaseName, hash string, rows []model.Record) model.Checkp
 
 func WriteReport(profile string, report model.Report) {
 	path := filepath.Join(model.OutDir, "audit_report.json")
+	auth := windowfuse.Authority(profile)
+	windowfuse.SaveEpoch(profile, model.EpochMeta{Epoch: report.Epoch, Counter: report.Counter, Tag: auth.Tag})
 	model.WriteJSON(path, report)
 }
 EOF
 
-gofmt -w ledger/writer.go ledger/segment.go phaseconv/settle.go phaseconv/runner.go windowfuse/merge.go emit/builder.go
+gofmt -w model/types.go ledger/writer.go ledger/segment.go phaseconv/settle.go phaseconv/runner.go windowfuse/merge.go emit/builder.go
 go build -o /app/bin/nfrd ./cmd/nfrd
 for profile in gate depot yard; do
   rm -rf "/app/output/state/${profile}" "/app/output/audit_report.json"

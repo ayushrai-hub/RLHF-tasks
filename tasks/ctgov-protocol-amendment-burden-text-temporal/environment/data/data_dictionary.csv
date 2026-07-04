@@ -1,0 +1,18 @@
+column,role,source_note
+row_id,identifier,CTgov protocol amendment
+split,feature,CTgov protocol amendment
+year,feature,CTgov protocol amendment
+nct_id,feature,CTgov protocol amendment
+brief_title,feature,CTgov protocol amendment
+condition_group,feature,CTgov protocol amendment
+sponsor_type,feature,CTgov protocol amendment
+phase,feature,CTgov protocol amendment
+enrollment,feature,CTgov protocol amendment
+sites_planned,feature,CTgov protocol amendment
+duration_months,feature,CTgov protocol amendment
+eligibility_word_count,feature,CTgov protocol amendment
+country_count,feature,CTgov protocol amendment
+prior_amendment_count,feature,CTgov protocol amendment
+rare_disease,feature,CTgov protocol amendment
+gene_therapy,feature,CTgov protocol amendment
+protocol_amendment_burden,target,CTgov protocol amendment

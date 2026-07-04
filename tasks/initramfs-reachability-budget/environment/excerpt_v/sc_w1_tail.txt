@@ -1,0 +1,1 @@
+gzip_tally warm excerpt k0 k1 only (omits k2)

@@ -1,0 +1,162 @@
+{
+  "A01": {
+    "cost_house": 2.482,
+    "cost_lab": 6.89
+  },
+  "A02": {
+    "cost_house": 2.131,
+    "cost_lab": 6.237
+  },
+  "A03": {
+    "cost_house": 1.971,
+    "cost_lab": 7.03
+  },
+  "A04": {
+    "cost_house": 2.302,
+    "cost_lab": 6.773
+  },
+  "A05": {
+    "cost_house": 1.794,
+    "cost_lab": 4.896
+  },
+  "A06": {
+    "cost_house": 1.992,
+    "cost_lab": 5.133
+  },
+  "A07": {
+    "cost_house": 2.302,
+    "cost_lab": 7.255
+  },
+  "A08": {
+    "cost_house": 2.192,
+    "cost_lab": 6.367
+  },
+  "A09": {
+    "cost_house": 2.323,
+    "cost_lab": 8.374
+  },
+  "A10": {
+    "cost_house": 2.042,
+    "cost_lab": 6.238
+  },
+  "A11": {
+    "cost_house": 2.344,
+    "cost_lab": 6.954
+  },
+  "A12": {
+    "cost_house": 1.905,
+    "cost_lab": 6.201
+  },
+  "A13": {
+    "cost_house": 2.252,
+    "cost_lab": 5.881
+  },
+  "A14": {
+    "cost_house": 2.276,
+    "cost_lab": 8.147
+  },
+  "A15": {
+    "cost_house": 2.007,
+    "cost_lab": 5.584
+  },
+  "A16": {
+    "cost_house": 2.121,
+    "cost_lab": 7.005
+  },
+  "A17": {
+    "cost_house": 2.041,
+    "cost_lab": 6.546
+  },
+  "A18": {
+    "cost_house": 1.736,
+    "cost_lab": 4.41
+  },
+  "A19": {
+    "cost_house": 1.795,
+    "cost_lab": 5.588
+  },
+  "A20": {
+    "cost_house": 2.013,
+    "cost_lab": 5.715
+  },
+  "A21": {
+    "cost_house": 2.358,
+    "cost_lab": 7.375
+  },
+  "A22": {
+    "cost_house": 1.997,
+    "cost_lab": 5.869
+  },
+  "A23": {
+    "cost_house": 2.279,
+    "cost_lab": 7.356
+  },
+  "A24": {
+    "cost_house": 2.22,
+    "cost_lab": 7.807
+  },
+  "A25": {
+    "cost_house": 1.746,
+    "cost_lab": 5.879
+  },
+  "A26": {
+    "cost_house": 2.105,
+    "cost_lab": 7.191
+  },
+  "A27": {
+    "cost_house": 1.934,
+    "cost_lab": 6.14
+  },
+  "A28": {
+    "cost_house": 2.51,
+    "cost_lab": 9.578
+  },
+  "A29": {
+    "cost_house": 2.092,
+    "cost_lab": 6.395
+  },
+  "A30": {
+    "cost_house": 1.963,
+    "cost_lab": 7.588
+  },
+  "A31": {
+    "cost_house": 2.546,
+    "cost_lab": 7.973
+  },
+  "A32": {
+    "cost_house": 2.379,
+    "cost_lab": 7.723
+  },
+  "A33": {
+    "cost_house": 1.82,
+    "cost_lab": 5.701
+  },
+  "A34": {
+    "cost_house": 2.416,
+    "cost_lab": 7.216
+  },
+  "A35": {
+    "cost_house": 2.327,
+    "cost_lab": 7.485
+  },
+  "A36": {
+    "cost_house": 1.864,
+    "cost_lab": 7.258
+  },
+  "A37": {
+    "cost_house": 2.372,
+    "cost_lab": 7.923
+  },
+  "A38": {
+    "cost_house": 2.532,
+    "cost_lab": 6.617
+  },
+  "A39": {
+    "cost_house": 2.044,
+    "cost_lab": 7.452
+  },
+  "A40": {
+    "cost_house": 2.195,
+    "cost_lab": 8.627
+  }
+}

@@ -1,0 +1,7 @@
+[package]
+name = "timeseries_downsampler"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+# Standard library only as per offline requirement. No external dependencies allowed.

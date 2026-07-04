@@ -1,0 +1,5 @@
+stream_id,packet_no,ts,src,dst,seq,ack,payload_len,flags
+case-gap,1,2026-03-03T10:00:00Z,a,b,100,0,50,PA
+case-gap,2,2026-03-03T10:00:01Z,a,b,200,0,30,PA
+case-gap,3,2026-03-03T10:00:02Z,a,b,150,0,50,PA
+case-gap,4,2026-03-03T10:00:03Z,a,b,230,0,0,A

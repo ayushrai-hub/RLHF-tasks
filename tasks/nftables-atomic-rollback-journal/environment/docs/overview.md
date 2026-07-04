@@ -36,3 +36,7 @@ epoch files under `/app/output/state/<profile>/`. Verifier tests parse profile
 TOML with tomllib and recompute digests with hashlib.
 
 Audit digest fields use sha256 rendered as 64 lowercase hexadecimal characters.
+Canonical replay treats rows with the same seq, run_id, phase, rule_id, and
+action as duplicates, retaining the highest epoch and then the later source
+order. The report counter is the maximum of the layout counter, persisted
+counter, and canonical row count after that deduplication.

@@ -1,0 +1,7 @@
+run	scan	mz	intensity	quality
+gamma	101	450.2210	760	OK
+gamma	101	450.7228	420	OK
+gamma	101	451.2244	220	OK
+gamma	205	612.3428	530	OK
+gamma	205	613.3460	315	OK
+gamma	205	614.3495	128	OK

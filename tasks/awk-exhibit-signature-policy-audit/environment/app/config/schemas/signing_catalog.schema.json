@@ -1,0 +1,120 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "suite",
+    "revision",
+    "audit_time",
+    "row_count",
+    "images"
+  ],
+  "properties": {
+    "suite": {
+      "type": "string"
+    },
+    "revision": {
+      "type": "string"
+    },
+    "audit_time": {
+      "type": "string"
+    },
+    "row_count": {
+      "type": "integer"
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "image_id",
+          "media_path",
+          "signature_path",
+          "key_id",
+          "algorithm",
+          "digest_algorithm",
+          "key_fingerprint",
+          "public_key_path",
+          "key_status",
+          "key_trusted",
+          "key_not_before",
+          "key_not_after",
+          "revocation_reason",
+          "revoked_at",
+          "signed_at",
+          "exception_id",
+          "exception_expires_at"
+        ],
+        "properties": {
+          "image_id": {
+            "type": "string"
+          },
+          "media_path": {
+            "type": "string"
+          },
+          "signature_path": {
+            "type": "string"
+          },
+          "key_id": {
+            "type": "string"
+          },
+          "algorithm": {
+            "type": "string"
+          },
+          "digest_algorithm": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "key_fingerprint": {
+            "type": "string"
+          },
+          "public_key_path": {
+            "type": "string"
+          },
+          "key_status": {
+            "type": "string"
+          },
+          "key_trusted": {
+            "type": "boolean"
+          },
+          "key_not_before": {
+            "type": "string"
+          },
+          "key_not_after": {
+            "type": "string"
+          },
+          "revocation_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "revoked_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "signed_at": {
+            "type": "string"
+          },
+          "exception_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "exception_expires_at": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

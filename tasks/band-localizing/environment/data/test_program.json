@@ -1,0 +1,8 @@
+{
+  "reference_softening": 3.5,
+  "rate_min": 0.01,
+  "rate_max": 0.95,
+  "band_floor": 0.95,
+  "bar_capacity": 900,
+  "spend_ceiling": 2223.59
+}

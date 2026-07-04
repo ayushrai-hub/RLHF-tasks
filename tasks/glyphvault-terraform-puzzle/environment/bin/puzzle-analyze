@@ -1,0 +1,11 @@
+#!/bin/bash
+set -euo pipefail
+cd /app/environment
+bash /app/environment/bin/apply-terraform-fixture.sh
+make glyphvault-analyze
+exec /app/environment/build/glyphvault_analyze \
+  --db /app/environment/data/puzzle.sqlite \
+  --atlas /app/environment/media/glyphs.png \
+  --moves /app/environment/scripts/solver.moves \
+  --out /app/environment/artifacts/solve_transcript.json \
+  --terraform /app/environment/terraform

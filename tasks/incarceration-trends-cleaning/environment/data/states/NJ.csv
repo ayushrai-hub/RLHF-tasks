@@ -1,0 +1,1091 @@
+year,fips,state,county_name,urbanicity,region,division,land_area,total_pop,total_pop_15to64,total_jail_pop,total_prison_pop
+1970,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,175993,101875,189,
+1971,34001,NJ,Atlantic County,Small/mid,Northeast,Middle Atlantic,555.594,179823,104783,187,
+1972,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,184989,108925,185,
+1973,34001,NJ,Atlantic County, small/mid,Northeast,Middle Atlantic,555.594,187203,111060,697,
+1973,34001,,,,,,,,,183,
+1974,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,189119,113265,181,
+1975,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,189538,114316,179,
+1975,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,189538,114316,179,
+1976,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,189615,115458,177,
+1976,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,189615,115458,177,
+1977,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,189311,116112,175,
+1978,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,191123,118539,173,
+1979,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,193083,121183,189,
+1980,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,194579,123148,205,
+1981,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,195988,125393,221,
+1982,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,196541,126746,237,
+1983,34001,NJ,Atlantic County,SMALL/MID,Northeast,Middle Atlantic,555.594,199167,129343,767,509
+1983,34001,,,,,,,,,253,
+1984,34001,NJ,Atlantic County,small/mid  ,Northeast,Middle Atlantic,555.594,202757,132625,317,705
+1985,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,206045,135532,381,847
+1986,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,209386,138551,449,1020
+1987,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,212581,140919,531,1202
+1987,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,212581,140919,531,1202
+1988,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,217443,144322,650,1370
+1989,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,221596,146783,619,1693
+1990,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,225431,149131,662,1748
+1991,34001,NJ,Atlantic County,Small/mid,Northeast,Middle Atlantic,555.594,228763,150355,801,2099
+1992,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,231612,151361,715,1999
+1993,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,234288,152239,772,2088
+1994,34001,NJ,Atlantic County,SMALL/MID,Northeast,Middle Atlantic,555.594,236589,153127,817,2044
+1995,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,239212,154647,882,2106
+1996,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,242152,156694,896,2044
+1997,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,244771,158922,945,2111
+1998,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,247863,161093,1217,2197
+1998,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,247863,161093,1217,2197
+1999,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,250432,162800,1338,2162
+2000,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,253674,165180,1029,2100.33333333
+2001,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,255737,167099,844,2038.66666667
+2002,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,259263,170033,1383,1977
+2002,34001,,,,,,,,,882,
+2003,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,263285,173536,966,2007
+2004,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,267723,177571,948,1878
+2005,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,270332,180042,1038,1883
+2006,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,271759,181619,1062,1925
+2007,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,272303,182231,1149,1969
+2008,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,273014,182709,1000,1979
+2009,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,274049,183317,1000,1877
+2010,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,274540,183769,1139,1814
+2011,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,274761,183975,795,1846
+2012,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,275107,184133,865,1789
+2013,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,275732,183336,800,1765
+2014,34001,NJ,Atlantic County,small/mid  ,Northeast,Middle Atlantic,555.594,275954,182953,892,1619
+2014,34001,NJ,Atlantic County,small/mid  ,Northeast,Middle Atlantic,555.594,275954,182953,892,1619
+2015,34001,NJ,Atlantic County,small/mid,Northeast,Middle Atlantic,555.594,274842,181313,650,1414
+2016,34001,NJ,Atlantic County,small/mid  ,Northeast,Middle Atlantic,555.594,273088,179398,,
+1970,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,896473,579858,269,
+1971,34003,NJ,Bergen County,  SUBURBAN ,Northeast,Middle Atlantic,232.765,893794,582222,260.625,
+1972,34003,NJ,Bergen County,Suburban,Northeast,Middle Atlantic,232.765,884745,581487,252.25,
+1972,34003,NJ,Bergen County,Suburban,Northeast,Middle Atlantic,232.765,884745,581487,252.25,
+1973,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,879579,583864,243.875,
+1974,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,873770,585078,235.5,
+1975,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,871593,588647,227.125,
+1976,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,865556,588846,218.75,
+1977,34003,NJ,Bergen County, suburban,Northeast,Middle Atlantic,232.765,859949,588757,210.375,
+1978,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,855005,589023,202,
+1979,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,851298,589514,232.8,
+1980,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,846120,587468,263.6,
+1981,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,846360,588523,294.4,
+1982,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,844416,587124,865,
+1982,34003,,,,,,,,,325.2,
+1983,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,845969,587786,356,456
+1983,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,845969,587786,356,456
+1984,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,845831,587495,421.5,576
+1985,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,842550,584304,487,504
+1986,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,840302,582067,550,735
+1986,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,840302,582067,550,735
+1987,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,835367,575985,710,840
+1988,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,831345,570502,825,910
+1989,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,826520,562927,900,1008
+1990,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,826129,558958,925,1152
+1991,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,829599,556981,961,1215
+1992,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,837520,558531,953,1133
+1993,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,843198,558463,800,1171
+1994,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,848392,559119,799,1205
+1995,34003,NJ,Bergen County,  SUBURBAN ,Northeast,Middle Atlantic,232.765,855242,561856,822,1365
+1996,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,862048,565529,789,1403
+1997,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,868897,570419,799,1424
+1998,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,875050,574700,700,1653
+1999,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,880225,576929,675,1582
+2000,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,885180,579277,700,1428
+2001,34003,NJ,Bergen County,Suburban,Northeast,Middle Atlantic,232.765,888782,582035,600,1274
+2002,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,890647,583767,656,1120
+2002,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,890647,583767,656,1120
+2003,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,892214,585085,776,1121
+2004,34003,NJ,Bergen County,SUBURBAN,Northeast,Middle Atlantic,232.765,893378,586647,898,1120
+2005,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,891446,587534,991,1137
+2006,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,889406,588618,1012,1137
+2007,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,890817,590839,1003,1088
+2008,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,895328,594073,993,1032
+2009,34003,NJ,Bergen County,Suburban,Northeast,Middle Atlantic,232.765,900319,598047,919,964
+2010,34003,NJ,Bergen County,  SUBURBAN ,Northeast,Middle Atlantic,232.765,905147,601407,867,995
+2011,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,906879,602702,778,1001
+2012,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,914233,608409,777,970
+2013,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,921035,611063,852,952
+2014,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,927202,614768,938,895
+2015,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,933348,617895,760,862
+2016,34003,NJ,Bergen County,suburban,Northeast,Middle Atlantic,232.765,938255,620413,,
+1970,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,325933,207551,135,
+1971,34005,NJ,Burlington County, suburban,Northeast,Middle Atlantic,798.938,337162,215201,140.125,
+1972,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,347703,223237,145.25,
+1973,34005,NJ,Burlington County,Suburban,Northeast,Middle Atlantic,798.938,340323,219494,150.375,
+1974,34005,NJ,Burlington County,SUBURBAN,Northeast,Middle Atlantic,798.938,336671,218880,155.5,
+1975,34005,NJ,Burlington County,suburban  ,Northeast,Middle Atlantic,798.938,344487,225881,160.625,
+1976,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,353281,236000,165.75,
+1977,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,357499,240941,170.875,
+1977,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,357499,240941,170.875,
+1978,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,358760,243506,690,
+1978,34005,,,,,,,,,176,
+1979,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,361913,247990,182,
+1979,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,361913,247990,182,
+1980,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,363658,250440,188,
+1981,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,367213,254052,194,
+1982,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,370612,257097,200,
+1983,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,371605,258170,206,193
+1984,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,374538,260597,204,287
+1985,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,376097,261796,202,300
+1986,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,377938,263265,245,327
+1987,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,383434,266244,217,338
+1988,34005,NJ,Burlington County,  SUBURBAN ,Northeast,Middle Atlantic,798.938,390534,270114,236,404
+1989,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,392766,269854,326,384
+1990,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,396180,270797,355,354
+1991,34005,NJ,Burlington County,SUBURBAN,Northeast,Middle Atlantic,798.938,399888,271165,369,426
+1992,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,400773,269755,392,441
+1993,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,402717,269427,335,439
+1994,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,407060,270858,375,443
+1995,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,411890,273592,368,477
+1996,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,415266,275288,386,457
+1997,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,417226,276935,400,454
+1998,34005,NJ,Burlington County, suburban,Northeast,Middle Atlantic,798.938,418250,277541,461,513
+1999,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,420542,279333,500,506
+2000,34005,NJ,Burlington County,SUBURBAN,Northeast,Middle Atlantic,798.938,424453,282126,484,514.666666667
+2000,34005,NJ,Burlington County,SUBURBAN,Northeast,Middle Atlantic,798.938,424453,282126,484,514.666666667
+2001,34005,NJ,Burlington County, suburban,Northeast,Middle Atlantic,798.938,429727,286107,391,523.333333333
+2002,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,436445,291200,398,532
+2003,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,442434,295307,465,597
+2003,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,442434,295307,465,597
+2004,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,446548,298982,540,694
+2005,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,447245,300509,548,745
+2006,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,448373,302211,545.25,716
+2007,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,447560,301926,542.5,740
+2008,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,446831,300933,539.75,809
+2009,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,447391,300972,537,887
+2010,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,448738,301831,534.25,852
+2011,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,449200,302293,531.5,822
+2011,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,449200,302293,531.5,822
+2012,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,450486,303370,528.75,770
+2013,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,451256,302646,526,752
+2014,34005,NJ,Burlington County,  SUBURBAN ,Northeast,Middle Atlantic,798.938,449858,301053,526,771
+2015,34005,NJ,Burlington County,  SUBURBAN ,Northeast,Middle Atlantic,798.938,450318,300949,526,744
+2016,34005,NJ,Burlington County,suburban,Northeast,Middle Atlantic,798.938,448844,299346,,
+1970,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,458668,283189,217,
+1971,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,468199,291432,223.75,
+1972,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,472063,296697,230.5,
+1973,34007,NJ,Camden County,suburban  ,Northeast,Middle Atlantic,221.345,471847,299262,237.25,
+1974,34007,NJ,Camden County,  SUBURBAN ,Northeast,Middle Atlantic,221.345,472958,302631,244,
+1975,34007,NJ,Camden County,  SUBURBAN ,Northeast,Middle Atlantic,221.345,474107,305770,250.75,
+1976,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,472660,307082,257.5,
+1977,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,471598,308169,264.25,
+1978,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,470379,308973,271,
+1979,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,473136,312472,283,
+1980,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,472822,313348,295,
+1981,34007,NJ,Camden County, suburban,Northeast,Middle Atlantic,221.345,476444,317048,307,
+1982,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,479037,319420,319,
+1983,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,479393,319961,331,980
+1984,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,485108,324116,353,1239
+1985,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,487390,325570,375,1459
+1986,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,492957,329352,413,1726
+1987,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,496908,330662,942,1947
+1987,34007,,,,,,,,,376,
+1988,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,499902,331109,700,2157
+1989,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,501868,329823,1113,2402
+1990,34007,NJ,Camden County, suburban,Northeast,Middle Atlantic,221.345,503524,329128,1274,2556
+1991,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,505772,328929,1272,2737
+1992,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,507326,328402,1239,2598
+1992,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,507326,328402,1239,2598
+1993,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,508094,327771,1200,2676
+1994,34007,NJ,Camden County,SUBURBAN,Northeast,Middle Atlantic,221.345,508479,327240,1341,2574
+1995,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,509582,327922,1209,2922
+1996,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,508926,328095,1400,3188
+1997,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,509219,329721,1500,3398
+1998,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,509451,331276,1534,3671
+1999,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,509410,331897,1619,3957
+2000,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,506707,330170,1487,3869.33333333
+2001,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,506326,331484,1687,3781.66666667
+2002,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,507899,333947,1692,3694
+2003,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,508563,336469,1792,3663
+2004,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,510137,339111,1760,3564
+2005,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,511982,342325,1814,3767
+2006,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,513195,344932,1500,3646
+2007,34007,NJ,Camden County,Suburban,Northeast,Middle Atlantic,221.345,513546,345685,1593,3368
+2008,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,513853,345353,1651,3205
+2009,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,513668,345198,1672,3161
+2010,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,513668,345452,1372,3022
+2011,34007,NJ,Camden County,suburban  ,Northeast,Middle Atlantic,221.345,513506,345447,1322,2838
+2012,34007,NJ,Camden County, suburban,Northeast,Middle Atlantic,221.345,513180,345217,1274,2761
+2013,34007,NJ,Camden County,suburban,Northeast,Middle Atlantic,221.345,512827,343433,1497,2656
+2014,34007,NJ,Camden County, suburban,Northeast,Middle Atlantic,221.345,511798,341639,1503,2546
+2015,34007,NJ,Camden County,Suburban,Northeast,Middle Atlantic,221.345,510913,340143,1448,2388
+2016,34007,NJ,Camden County,suburban  ,Northeast,Middle Atlantic,221.345,510809,339034,,
+1970,34009,NJ,Cape May County,  SMALL/MID ,Northeast,Middle Atlantic,251.986,60335,34540,30,
+1971,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,63491,36538,32.5,
+1972,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,66329,38403,35,
+1973,34009,NJ,Cape May County,SMALL/MID,Northeast,Middle Atlantic,251.986,68200,39594,37.5,
+1974,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,71932,42244,40,
+1975,34009,NJ,Cape May County, small/mid,Northeast,Middle Atlantic,251.986,74018,43674,42.5,
+1976,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,76843,45884,45,
+1977,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,78244,47079,47.5,
+1978,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,79867,48377,50,
+1979,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,81729,49852,60.6,
+1980,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,82800,50663,585,
+1980,34009,,,,,,,,,71.2,
+1981,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,84549,51994,81.8,
+1982,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,85105,52455,92.4,
+1983,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,85667,52893,103,116
+1984,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,87094,53920,112.4,127
+1984,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,87094,53920,112.4,127
+1985,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,88646,54930,121.8,113
+1986,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,90133,55927,131.2,125
+1987,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,92045,56947,140.6,155
+1988,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,92961,57353,150,165
+1989,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,94824,58132,158,201
+1989,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,94824,58132,158,201
+1990,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,95368,58198,188,206
+1991,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,97006,59129,189,226
+1992,34009,NJ,Cape May County,  SMALL/MID ,Northeast,Middle Atlantic,251.986,98121,59551,175,237
+1993,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,98504,59403,165,227
+1994,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,99561,60027,180,287
+1995,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,100405,60487,205,337
+1996,34009,NJ,Cape May County,  SMALL/MID ,Northeast,Middle Atlantic,251.986,100861,60798,182,357
+1997,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,101380,61393,228,392
+1998,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,101883,61995,205,442
+1998,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,101883,61995,205,442
+1999,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,102135,62465,170,485
+2000,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,102314,62783,183,483.666666667
+2001,34009,NJ,Cape May County, small/mid,Northeast,Middle Atlantic,251.986,102023,63116,196,482.333333333
+2002,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,101694,63228,209,481
+2003,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,101710,63612,222,486
+2004,34009,NJ,Cape May County, small/mid,Northeast,Middle Atlantic,251.986,100482,63333,235,486
+2005,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,99269,63033,248,473
+2006,34009,NJ,Cape May County,  SMALL/MID ,Northeast,Middle Atlantic,251.986,98695,62821,247.625,493
+2006,34009,NJ,Cape May County,  SMALL/MID ,Northeast,Middle Atlantic,251.986,98695,62821,247.625,493
+2007,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,97686,62264,247.25,502
+2008,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,97550,62097,246.875,477
+2009,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,97238,61693,246.5,490
+2010,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,97265,61723,246.125,470
+2011,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,97222,61707,245.75,442
+2012,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,96561,61093,245.375,418
+2013,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,96387,60314,245,395
+2014,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,95704,59369,248.5,420
+2014,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,95704,59369,248.5,420
+2015,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,95146,58493,252,479
+2016,34009,NJ,Cape May County,small/mid,Northeast,Middle Atlantic,251.986,94421,57604,,
+1970,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,122446,74497,85,
+1971,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,126777,77525,87.875,
+1972,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,129036,79371,90.75,
+1973,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,130753,80880,93.625,
+1974,34011,NJ,Cumberland County,  SMALL/MID ,Northeast,Middle Atlantic,483.361,133305,82974,96.5,
+1975,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,134343,83951,99.375,
+1976,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,135358,85273,102.25,
+1977,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,135183,85574,105.125,
+1978,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,134613,85660,108,
+1978,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,134613,85660,108,
+1979,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,133962,85563,120.8,
+1980,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,133101,85300,133.6,
+1981,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,133725,86294,146.4,
+1982,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,133499,86547,159.2,
+1983,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,132496,86184,172,232
+1984,34011,NJ,Cumberland County,SMALL/MID,Northeast,Middle Atlantic,483.361,134145,87563,186,251
+1985,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,135074,88355,200,241
+1986,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,135702,89002,246,291
+1987,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,136002,89041,257,369
+1988,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,136563,89197,350,427
+1989,34011,NJ,Cumberland County,  SMALL/MID ,Northeast,Middle Atlantic,483.361,137883,89552,460,423
+1990,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,138366,89613,440,308
+1991,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,140503,90864,440,76
+1992,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,141921,91548,411,91
+1993,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,143334,92309,420,115
+1994,34011,NJ,Cumberland County, small/mid,Northeast,Middle Atlantic,483.361,144544,93037,418.3333,142
+1995,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,144829,93466,416.6667,182
+1996,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,145430,94251,415,241
+1997,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,145811,95103,413.3333,335
+1998,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,145924,95642,411.6667,470
+1999,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,146293,96204,410,735
+2000,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,146263,96470,459,689.666666667
+2001,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,146451,96888,456,644.333333333
+2002,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,147294,97918,433,599
+2003,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,148437,99147,461,591
+2004,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,149837,100469,546,672
+2005,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,152022,102550,593,777
+2006,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,153371,103799,623,732
+2007,34011,NJ,Cumberland County,small/mid  ,Northeast,Middle Atlantic,483.361,154489,104757,595,722
+2008,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,155738,105517,660,667
+2009,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,156531,105879,633,692
+2010,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,156628,105693,566,733
+2011,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,156719,105623,490,669
+2012,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,157108,105570,480,632
+2013,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,157268,105128,592,569
+2014,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,156571,103993,569,524
+2015,34011,NJ,Cumberland County,small/mid,Northeast,Middle Atlantic,483.361,156475,103515,446,517
+2016,34011,NJ,Cumberland County, small/mid,Northeast,Middle Atlantic,483.361,155261,102386,,
+1970,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,934700,584076,1152,
+1971,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,943410,592850,1138,
+1972,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,935172,591302,1124,
+1973,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,923206,587295,1110,
+1974,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,914523,585084,1096,
+1975,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,905735,582257,1082,
+1976,34013,NJ,Essex County,  URBAN ,Northeast,Middle Atlantic,126.085,897531,580828,1068,
+1977,34013,NJ,Essex County, urban,Northeast,Middle Atlantic,126.085,879364,571319,1054,
+1978,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,868380,567074,1040,
+1979,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,858834,563563,1079.2,
+1980,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,848678,559455,1118.4,
+1981,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,839996,557712,1157.6,
+1982,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,831090,554527,1196.8,
+1982,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,831090,554527,1196.8,
+1983,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,827317,554261,1236,2026
+1984,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,822219,553121,1306,2443
+1985,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,820165,553259,1376,2568
+1986,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,815678,552195,1577,2777
+1987,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,809719,547938,1525,2969
+1988,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,799973,540740,1654,3046
+1989,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,789563,531427,1700,3334
+1990,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,778564,522473,1793,3846
+1991,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,779031,519993,1790,4607
+1992,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,782855,520211,1843,4537
+1993,34013,NJ,Essex County,Urban,Northeast,Middle Atlantic,126.085,785960,520086,1643,4635
+1994,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,784460,517602,1678,4814
+1995,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,783308,516233,1850,5417
+1996,34013,NJ,Essex County, urban,Northeast,Middle Atlantic,126.085,782503,516253,1643,5590
+1997,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,782774,517790,2200,5658
+1998,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,785348,520054,2062,6248
+1999,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,789678,522288,2016,6013
+2000,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,792253,523573,1771,5701.33333333
+2001,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,794312,525912,2408,5389.66666667
+2002,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,795625,528005,2951,5078
+2002,34013,,,,,,,,,2450,
+2003,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,795167,529071,2700,5017
+2004,34013,NJ,Essex County,URBAN,Northeast,Middle Atlantic,126.085,791305,528310,2300,4847
+2005,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,786341,527277,1953,4636
+2005,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,786341,527277,1953,4636
+2006,34013,NJ,Essex County, urban,Northeast,Middle Atlantic,126.085,781027,527000,2051,4277
+2007,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,778996,527338,2056,4254
+2008,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,778165,527391,2260,4233
+2009,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,781943,530643,2300,4138
+2010,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,783999,532354,2151,4000
+2011,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,784694,532926,2658,3633
+2012,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,787414,534510,3043,3493
+2012,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,787414,534510,3043,3493
+2013,34013,NJ,Essex County,urban  ,Northeast,Middle Atlantic,126.085,788942,534113,3391,3287
+2014,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,792560,535114,3206,3005
+2014,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,792560,535114,3206,3005
+2015,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,797078,536863,3058,2756
+2016,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,800206,537794,,
+2016,34013,NJ,Essex County,urban,Northeast,Middle Atlantic,126.085,800206,537794,,
+1970,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,173348,105917,62,
+1971,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,176043,108439,59.75,
+1972,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,179562,111877,57.5,
+1973,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,180995,113984,55.25,
+1974,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,183892,117012,53,
+1975,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,182898,117250,50.75,
+1976,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,185130,120031,48.5,
+1976,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,185130,120031,48.5,
+1977,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,187451,122698,46.25,
+1978,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,192713,127280,44,
+1979,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,196733,130855,53.4,
+1980,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,200589,134179,62.8,
+1981,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,202492,136144,72.2,
+1982,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,204856,138149,81.6,
+1983,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,204814,138364,91,97
+1984,34015,NJ,Gloucester County,suburban  ,Northeast,Middle Atlantic,321.956,206384,139684,128.5,151
+1985,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,208941,141526,166,165
+1986,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,211374,143313,200,173
+1987,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,214465,144938,201,178
+1988,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,220187,148195,207,192
+1989,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,226472,151375,237,220
+1990,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,231134,153753,235,233
+1991,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,234449,155367,270,266
+1991,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,234449,155367,270,266
+1992,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,236553,156053,250,260
+1993,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,238805,156892,248,276
+1994,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,242161,158684,199,283
+1995,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,243752,159833,211,320
+1995,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,243752,159833,211,320
+1996,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,245390,161103,253,345
+1997,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,247674,163319,263,353
+1997,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,247674,163319,263,353
+1998,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,249996,165423,285,394
+1999,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,252536,167590,254,440
+2000,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,256524,170699,258,413.333333333
+2001,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,258783,172815,279,386.666666667
+2002,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,262909,176293,788,360
+2002,34015,,,,,,,,,261,
+2003,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,267445,179602,260,332
+2004,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,271714,183065,292,358
+2005,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,275122,186191,332,381
+2006,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,280015,189637,351,387
+2007,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,284086,192546,367,419
+2008,34015,NJ,Gloucester County,rural,Northeast,Middle Atlantic,321.956,286072,193572,315,428
+2009,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,287362,194499,464,448
+2010,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,288585,195478,411,468
+2011,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,288994,195803,325,462
+2012,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,289605,196339,323,447
+2013,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,289912,195690,358,404
+2014,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,290151,195528,358,358
+2015,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,291151,195748,358,358
+2016,34015,NJ,Gloucester County,suburban,Northeast,Middle Atlantic,321.956,291651,195703,,
+1970,34017,NJ,Hudson County,Urban,Northeast,Middle Atlantic,46.241,607176,391079,546,
+1971,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,604501,390713,526.125,
+1972,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,605936,394264,506.25,
+1973,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,596986,390394,486.375,
+1974,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,591045,387837,466.5,
+1975,34017,NJ,Hudson County,urban  ,Northeast,Middle Atlantic,46.241,584586,384606,446.625,
+1976,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,581232,384088,426.75,
+1977,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,571758,378425,406.875,
+1977,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,571758,378425,406.875,
+1978,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,566872,376258,387,
+1978,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,566872,376258,387,
+1979,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,558770,371653,395,
+1980,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,558537,372796,403,
+1981,34017,NJ,Hudson County,Urban,Northeast,Middle Atlantic,46.241,564002,379518,411,
+1982,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,564820,382339,419,
+1983,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,568477,386789,427,732
+1984,34017,NJ,Hudson County,Urban,Northeast,Middle Atlantic,46.241,570120,389980,572,890
+1985,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,568864,390681,717,929
+1986,34017,NJ,Hudson County,Urban,Northeast,Middle Atlantic,46.241,565715,390242,720,1050
+1987,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,560624,386986,752,1235
+1988,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,556960,384586,870,1279
+1989,34017,NJ,Hudson County,urban  ,Northeast,Middle Atlantic,46.241,553559,381316,1050,1689
+1990,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,554289,381764,860,1797
+1991,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,558839,384701,1174,2077
+1992,34017,NJ,Hudson County, urban,Northeast,Middle Atlantic,46.241,564276,387946,1600,1959
+1993,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,568517,390589,1700,2087
+1994,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,572720,393509,1906,1990
+1995,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,578889,398485,1981,2283
+1996,34017,NJ,Hudson County,  URBAN ,Northeast,Middle Atlantic,46.241,585056,404395,2250,2501
+1997,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,592812,411679,2195,2602
+1998,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,598238,416764,1693,2966
+1999,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,603993,420906,1964,2963
+2000,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,610135,425473,1867,2845
+2001,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,616629,432874,1621,2727
+2002,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,615554,433300,1966,2609
+2003,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,614813,433985,1953,2649
+2004,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,614607,435494,2055,2542
+2005,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,614664,438041,1850,2443
+2006,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,613577,440292,1951,2498
+2007,34017,NJ,Hudson County, urban,Northeast,Middle Atlantic,46.241,613637,442027,2398,2507
+2007,34017,,,,,,,,,1858,
+2008,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,619533,447704,1978,2388
+2009,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,628572,454871,1850,2350
+2009,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,628572,454871,1850,2350
+2010,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,634244,459012,1816,2242
+2011,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,636345,460225,1856,2129
+2011,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,636345,460225,1856,2129
+2012,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,648619,468042,1836,1941
+2013,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,658909,473848,1806,1759
+2014,34017,NJ,Hudson County, urban,Northeast,Middle Atlantic,46.241,667066,478391,2300,1578
+2014,34017,,,,,,,,,1799,
+2015,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,673773,481471,1542,1419
+2016,34017,NJ,Hudson County,urban,Northeast,Middle Atlantic,46.241,679907,484762,,
+1970,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,69923,42540,25,
+1971,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,70778,43512,25.125,
+1972,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,74005,46258,25.25,
+1973,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,76241,48373,25.375,
+1974,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,77078,49445,25.5,
+1975,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,78735,51061,25.625,
+1976,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,80829,53052,25.75,
+1977,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,82994,55115,25.875,
+1978,34019,NJ,Hunterdon County,Suburban,Northeast,Middle Atlantic,427.82,85039,56986,26,
+1979,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,87393,59069,29.8,
+1980,34019,NJ,Hunterdon County, suburban,Northeast,Middle Atlantic,427.82,87743,59598,33.6,
+1981,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,88797,60849,37.4,
+1982,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,89974,62115,41.2,
+1983,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,91697,63675,45,63
+1984,34019,NJ,Hunterdon County,Suburban,Northeast,Middle Atlantic,427.82,93799,65503,50,78
+1985,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,95829,67223,55,86
+1986,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,99164,69883,60,79
+1987,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,102356,72190,65,87
+1988,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,104000,73345,70,103
+1988,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,104000,73345,70,103
+1989,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,106317,74789,74,116
+1990,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,108128,75872,78,131
+1991,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,108668,75612,82,133
+1992,34019,NJ,Hunterdon County,Suburban,Northeast,Middle Atlantic,427.82,110750,76608,86,134
+1993,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,112395,77300,90,155
+1994,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,113522,77645,91.5,137
+1995,34019,NJ,Hunterdon County,suburban  ,Northeast,Middle Atlantic,427.82,114049,77710,93,140
+1996,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,116203,79113,94.5,130
+1997,34019,NJ,Hunterdon County,  SUBURBAN ,Northeast,Middle Atlantic,427.82,117564,80165,96,126
+1998,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,119031,81244,97.5,164
+1998,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,119031,81244,97.5,164
+1999,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,120689,82343,99,175
+2000,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,122579,83613,95.16666,146.666666667
+2001,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,124500,84256,91.33334,118.333333333
+2002,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,125892,85140,87.5,90
+2003,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,126935,85904,83.66666,89
+2004,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,127583,86568,79.83334,99
+2005,34019,NJ,Hunterdon County, suburban,Northeast,Middle Atlantic,427.82,128072,87191,76,94
+2006,34019,NJ,Hunterdon County,suburban  ,Northeast,Middle Atlantic,427.82,128535,87679,96,132
+2007,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,128568,87752,107,143
+2008,34019,NJ,Hunterdon County,suburban  ,Northeast,Middle Atlantic,427.82,128449,87751,94,145
+2009,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,128364,87746,106,150
+2010,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,127364,86917,109,149
+2011,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,127335,86943,104,132
+2012,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,127365,86789,105,119
+2013,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,126731,86067,88,107
+2014,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,126590,85886,79,91
+2015,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,126129,85287,79,76
+2015,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,126129,85287,79,76
+2016,34019,NJ,Hunterdon County,suburban,Northeast,Middle Atlantic,427.82,125747,84821,,
+1970,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,305031,195580,280,
+1971,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,308679,199218,269.875,
+1972,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,314501,204940,259.75,
+1972,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,314501,204940,259.75,
+1973,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,315214,207114,249.625,
+1974,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,317111,210079,239.5,
+1975,34021,NJ,Mercer County,SMALL/MID,Northeast,Middle Atlantic,224.359,315502,210315,229.375,
+1976,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,313004,210029,219.25,
+1976,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,313004,210029,219.25,
+1977,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,311426,210169,209.125,
+1978,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,311764,211726,199,
+1979,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,309996,211372,241.6,
+1980,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,307778,210496,284.2,
+1981,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,306945,210869,326.8,
+1982,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,307879,212036,369.4,
+1983,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,311056,214579,412,526
+1984,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,311064,214981,455,645
+1984,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,311064,214981,455,645
+1985,34021,NJ,Mercer County,SMALL/MID,Northeast,Middle Atlantic,224.359,314135,217237,498,643
+1986,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,318563,220530,561,738
+1987,34021,NJ,Mercer County,  SMALL/MID ,Northeast,Middle Atlantic,224.359,322277,222489,650,889
+1988,34021,NJ,Mercer County,SMALL/MID,Northeast,Middle Atlantic,224.359,326164,224433,766,961
+1989,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,326244,223107,896,1107
+1990,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,326477,222223,1185,1212
+1991,34021,NJ,Mercer County,SMALL/MID,Northeast,Middle Atlantic,224.359,328694,222373,1509,1327
+1991,34021,,,,,,,,,969,
+1992,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,330674,222468,971,1231
+1993,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,333292,223299,1045,1496
+1994,34021,NJ,Mercer County,SMALL/MID,Northeast,Middle Atlantic,224.359,335229,223925,1230,1420
+1995,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,337476,225214,1287,1402
+1996,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,339146,226412,1327,1368
+1997,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,340755,228291,1373,1419
+1998,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,344013,231063,1428,1478
+1999,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,348435,234233,834,1355
+2000,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,351465,236427,1453,1363.33333333
+2000,34021,,,,,,,,,900,
+2001,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,353816,238311,882,1371.66666667
+2002,34021,NJ,Mercer County,  SMALL/MID ,Northeast,Middle Atlantic,224.359,355935,240617,863,1380
+2003,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,358724,243241,835,1500
+2004,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,361248,245940,909,1505
+2005,34021,NJ,Mercer County,SMALL/MID,Northeast,Middle Atlantic,224.359,362015,247692,755,1460
+2006,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,362840,249182,839,1501
+2007,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,363088,249523,824,1499
+2008,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,364119,250125,944,1373
+2009,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,365388,251178,1015,1322
+2010,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,367517,253094,1043,1385
+2011,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,367930,253400,907,1357
+2012,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,368201,253422,879,1275
+2013,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,370419,254516,811,1281
+2014,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,372337,255209,798,1256
+2015,34021,NJ,Mercer County,small/mid,Northeast,Middle Atlantic,224.359,372974,254892,806,1122
+2016,34021,NJ,Mercer County,  SMALL/MID ,Northeast,Middle Atlantic,224.359,373104,254263,,
+1970,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,585574,373777,179,
+1971,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,592645,382763,180,
+1972,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,594744,389611,181,
+1973,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,594393,394980,182,
+1974,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,594338,400148,183,
+1975,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,588226,400608,184,
+1976,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,586216,403303,185,
+1977,34023,NJ,Middlesex County,Suburban,Northeast,Middle Atlantic,309.213,586815,407449,186,
+1978,34023,NJ,Middlesex County,  SUBURBAN ,Northeast,Middle Atlantic,309.213,590683,413875,187,
+1979,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,594568,419485,218.6,
+1980,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,597273,423559,816,
+1980,34023,,,,,,,,,250.2,
+1981,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,600869,427563,281.8,
+1982,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,606424,432251,313.4,
+1982,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,606424,432251,313.4,
+1983,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,615279,438946,345,548
+1984,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,622121,444297,463,581
+1985,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,633433,452364,581,629
+1985,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,633433,452364,581,629
+1986,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,644180,460119,576,701
+1987,34023,NJ,Middlesex County,Suburban,Northeast,Middle Atlantic,309.213,654419,465846,676,713
+1988,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,662451,469811,806,744
+1989,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,669359,471763,889,819
+1990,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,673469,472156,956,1007
+1991,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,679273,472313,939,1203
+1992,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,686901,474108,899,1140
+1993,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,693445,475279,903,1224
+1993,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,693445,475279,903,1224
+1994,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,701090,477747,956,1343
+1995,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,709223,481589,970,1567
+1996,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,716673,485887,1005,1563
+1997,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,725103,491650,1094,1458
+1998,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,733257,497107,880,1477
+1999,34023,NJ,Middlesex County, suburban,Northeast,Middle Atlantic,309.213,742213,502896,957,1530
+2000,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,752880,510388,1009,1497
+2001,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,761770,517839,850,1464
+2002,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,769280,524345,861,1431
+2003,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,775973,530219,1200,1407
+2004,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,781582,535391,1810,1495
+2004,34023,,,,,,,,,1231,
+2005,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,787329,541351,1170,1518
+2006,34023,NJ,Middlesex County,suburban  ,Northeast,Middle Atlantic,309.213,786890,541634,1220,1534
+2007,34023,NJ,Middlesex County,  SUBURBAN ,Northeast,Middle Atlantic,309.213,792137,545872,1255,1568
+2008,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,799191,549908,1208,1524
+2009,34023,NJ,Middlesex County,SUBURBAN,Northeast,Middle Atlantic,309.213,805204,554401,1217,1584
+2010,34023,NJ,Middlesex County,SUBURBAN,Northeast,Middle Atlantic,309.213,809864,557796,1120,1629
+2011,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,811217,558709,943,1570
+2012,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,817589,563033,944,1660
+2013,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,824753,565752,909,1858
+2014,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,829991,567831,906,1775
+2015,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,835335,570201,856,1557
+2016,34023,NJ,Middlesex County,suburban,Northeast,Middle Atlantic,309.213,838332,570473,,
+1970,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,463977,278426,292,
+1971,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,472516,285583,288.75,
+1972,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,478163,291776,285.5,
+1973,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,480884,296182,282.25,
+1974,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,484750,301152,279,
+1975,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,491362,307751,802,
+1975,34025,,,,,,,,,275.75,
+1976,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,490780,310206,272.5,
+1977,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,492556,314590,269.25,
+1978,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,496811,320759,266,
+1979,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,499818,325885,302.4,
+1980,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,504154,331286,338.8,
+1981,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,506381,335094,375.2,
+1982,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,510221,339358,411.6,
+1983,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,513198,342693,448,881
+1984,34025,NJ,Monmouth County,Suburban,Northeast,Middle Atlantic,468.391,520277,348837,397.5,1088
+1985,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,528980,355715,347,1142
+1986,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,538788,363486,390,1337
+1987,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,549111,370178,505,1452
+1988,34025,NJ,Monmouth County, suburban,Northeast,Middle Atlantic,468.391,553301,372475,585,1440
+1989,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,552155,370102,632,1487
+1990,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,554210,370153,655,1383
+1991,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,558418,370369,643,1406
+1992,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,565469,372962,735,1314
+1993,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,571129,374825,675,1395
+1994,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,577069,377203,796,1525
+1995,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,583899,381084,998,1583
+1996,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,589646,384757,1144,1583
+1997,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,596520,390105,1200,1602
+1998,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,603050,394686,1075,1798
+1999,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,610811,400045,1150,1799
+2000,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,616849,404200,1175,1695.66666667
+2001,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,620563,407045,972,1592.33333333
+2002,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,624532,410457,1000,1489
+2003,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,627413,413338,1010,1493
+2004,34025,NJ,Monmouth County,suburban  ,Northeast,Middle Atlantic,468.391,628605,415464,1200,1482
+2005,34025,NJ,Monmouth County,SUBURBAN,Northeast,Middle Atlantic,468.391,627838,416739,1077,1535
+2006,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,626934,417546,1288,1494
+2007,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,626644,418672,1217,1448
+2008,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,627348,419257,1100,1413
+2009,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,628669,420846,1111,1288
+2010,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,630423,422290,1150,1308
+2011,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,630644,422632,1200,1307
+2012,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,629757,422239,906,1291
+2013,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,629037,419506,835,1219
+2014,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,628968,418413,787,1118
+2015,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,628236,417025,1362,1074
+2015,34025,,,,,,,,,835,
+2016,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,627418,415701,,
+2016,34025,NJ,Monmouth County,suburban,Northeast,Middle Atlantic,468.391,627418,415701,,
+1970,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,384760,237473,86,
+1971,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,390007,243180,87.75,
+1972,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,392740,248133,89.5,
+1973,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,396304,253821,91.25,
+1974,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,393837,255033,93,
+1975,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,394506,258184,94.75,
+1976,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,394393,261348,96.5,
+1977,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,399196,267796,98.25,
+1978,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,403588,273950,100,
+1979,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,406195,278341,122.2,
+1980,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,408387,281919,144.4,
+1981,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,409704,284764,166.6,
+1981,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,409704,284764,166.6,
+1982,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,412308,288135,188.8,
+1983,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,414955,291220,211,185
+1984,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,418715,295105,240.5,262
+1985,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,419186,296400,270,295
+1986,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,420444,298314,294,287
+1987,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,421084,298707,364,312
+1988,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,422756,299688,267,295
+1989,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,421934,298155,290,285
+1990,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,421803,297036,309,344
+1991,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,423470,295359,294,346
+1992,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,427343,295491,299,345
+1993,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,432906,296925,300,350
+1994,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,439533,299282,266,358
+1995,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,445308,301782,303,383
+1996,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,450816,304665,233,376
+1997,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,456961,308806,254,339
+1997,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,456961,308806,254,339
+1998,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,462263,312292,241,360
+1999,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,467678,315258,249,372
+2000,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,471326,316944,256,381.666666667
+2000,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,471326,316944,256,381.666666667
+2001,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,473515,317542,279,391.333333333
+2002,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,477234,319376,278,401
+2003,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,481000,321206,304,429
+2004,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,483997,322868,265,407
+2005,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,485472,324161,300,427
+2006,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,487486,325921,316,411
+2007,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,488355,326485,314,418
+2008,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,489743,326706,316,398
+2009,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,490779,327282,346,408
+2010,34027,NJ,Morris County,rural,Northeast,Middle Atlantic,460.529,492315,328298,395,429
+2011,34027,NJ,Morris County,Suburban,Northeast,Middle Atlantic,460.529,492902,328794,349,429
+2012,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,495671,331291,390,430
+2013,34027,NJ,Morris County,suburban  ,Northeast,Middle Atlantic,460.529,497447,331645,331,382
+2014,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,498680,332135,310,339
+2015,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,498481,331908,278,316
+2016,34027,NJ,Morris County,suburban,Northeast,Middle Atlantic,460.529,498538,331854,,
+1970,34029,NJ,Ocean County,suburban  ,Northeast,Middle Atlantic,628.83,211929,119280,98,
+1971,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,225762,126560,97.125,
+1971,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,225762,126560,97.125,
+1972,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,249250,140786,96.25,
+1972,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,249250,140786,96.25,
+1973,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,268708,152434,95.375,
+1974,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,282057,160585,94.5,
+1975,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,293491,167260,93.625,
+1976,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,305532,175060,92.75,
+1976,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,305532,175060,92.75,
+1977,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,319189,183545,91.875,
+1978,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,331208,190992,91,
+1979,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,341860,197672,106,
+1980,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,348190,201208,121,
+1981,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,355225,206481,136,
+1982,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,361063,210452,151,
+1982,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,361063,210452,151,
+1983,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,367117,214345,166,184
+1984,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,376315,220310,205.5,203
+1985,34029,NJ,Ocean County, suburban,Northeast,Middle Atlantic,628.83,387768,227236,245,233
+1986,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,400986,235357,725,243
+1986,34029,,,,,,,,,159,
+1987,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,411855,241040,222,271
+1988,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,422095,246335,297,287
+1989,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,429211,248837,392,332
+1990,34029,NJ,Ocean County,suburban  ,Northeast,Middle Atlantic,628.83,434623,250855,362,413
+1991,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,439530,252307,400,460
+1992,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,444676,254112,378,465
+1993,34029,NJ,Ocean County,  SUBURBAN ,Northeast,Middle Atlantic,628.83,452916,258354,398,514
+1994,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,461152,262228,335,597
+1995,34029,NJ,Ocean County,Suburban,Northeast,Middle Atlantic,628.83,471243,267991,319,673
+1996,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,480608,273582,348,638
+1997,34029,NJ,Ocean County,suburban  ,Northeast,Middle Atlantic,628.83,488519,279609,361,631
+1998,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,497395,285974,365,740
+1999,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,504007,291708,351,792
+2000,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,513608,299171,359,817.666666667
+2001,34029,NJ,Ocean County,suburban  ,Northeast,Middle Atlantic,628.83,523357,306437,336,843.333333333
+2002,34029,NJ,Ocean County,suburban  ,Northeast,Middle Atlantic,628.83,536069,315834,368,869
+2003,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,545093,322634,395,880
+2004,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,551262,327459,387,910
+2005,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,556012,331659,457,943
+2006,34029,NJ,Ocean County,Suburban,Northeast,Middle Atlantic,628.83,561302,335425,498,917
+2007,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,565356,337653,447,872
+2008,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,569485,338892,503,871
+2009,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,573123,340690,517,843
+2010,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,576548,342664,522,898
+2011,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,577621,343276,559,919
+2012,34029,NJ,Ocean County,Suburban,Northeast,Middle Atlantic,628.83,579162,343507,598,886
+2013,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,580589,341465,664,837
+2014,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,583090,341525,640,783
+2015,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,585810,341474,600,773
+2016,34029,NJ,Ocean County,suburban,Northeast,Middle Atlantic,628.83,588707,341820,,
+1970,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,461407,289562,365,
+1971,34031,NJ,Passaic County, suburban,Northeast,Middle Atlantic,186.003,463925,292538,349.375,
+1972,34031,NJ,Passaic County,Suburban,Northeast,Middle Atlantic,186.003,463081,293966,333.75,
+1973,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,461609,295094,318.125,
+1974,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,458866,294934,302.5,
+1975,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,455305,293910,286.875,
+1976,34031,NJ,Passaic County,suburban  ,Northeast,Middle Atlantic,186.003,450719,292623,271.25,
+1977,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,453308,296490,255.625,
+1978,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,449668,295582,240,
+1979,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,449908,297116,298.8,
+1980,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,448486,297185,357.6,
+1981,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,451064,300800,416.4,
+1982,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,452680,303159,475.2,
+1983,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,454096,305098,534,951
+1983,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,454096,305098,534,951
+1984,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,456526,307792,628.5,1121
+1985,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,458947,310075,723,1129
+1986,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,460692,312055,925,1260
+1987,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,460718,311626,965,1446
+1988,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,460106,310579,1260,1602
+1989,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,456333,306495,1922,2026
+1989,34031,,,,,,,,,1408,
+1990,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,470951,315498,1730,2280
+1991,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,470946,313500,1752,2438
+1992,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,472484,312625,1579,2178
+1993,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,475951,313652,1750,2131
+1994,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,478164,314198,1700,2242
+1994,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,478164,314198,1700,2242
+1995,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,479717,314891,1780,2503
+1996,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,481892,316589,1870,2476
+1997,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,484283,319016,1854,2497
+1998,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,485760,320549,1704,2648
+1999,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,488131,321821,1843,2425
+2000,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,490733,323837,1893,2382.66666667
+2001,34031,NJ,Passaic County,  SUBURBAN ,Northeast,Middle Atlantic,186.003,493252,326439,1706,2340.33333333
+2002,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,494571,328444,1700,2298
+2003,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,494915,329923,1608,2396
+2004,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,493981,330386,1789,2338
+2005,34031,NJ,Passaic County,suburban  ,Northeast,Middle Atlantic,186.003,493600,331422,1996,2468
+2006,34031,NJ,Passaic County,SUBURBAN,Northeast,Middle Atlantic,186.003,492730,332119,1869,2491
+2007,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,492886,332667,1972,2508
+2008,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,494904,333692,1680,2350
+2009,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,498641,336428,1166,2204
+2010,34031,NJ,Passaic County,SUBURBAN,Northeast,Middle Atlantic,186.003,501622,338399,1085,2117
+2011,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,502343,338689,978,1939
+2012,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,504472,339397,996,1786
+2013,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,506161,338935,1039,1611
+2014,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,507960,339241,1062,1433
+2015,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,510058,339165,973,1358
+2016,34031,NJ,Passaic County,suburban,Northeast,Middle Atlantic,186.003,510927,339034,,
+1970,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,60766,37513,43,
+1971,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,62466,38812,46.875,
+1972,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,62398,39018,50.75,
+1973,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,62704,39488,54.625,
+1974,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,62494,39552,58.5,
+1975,34033,NJ,Salem County,Suburban,Northeast,Middle Atlantic,331.845,63898,40718,62.375,
+1975,34033,NJ,Salem County,Suburban,Northeast,Middle Atlantic,331.845,63898,40718,62.375,
+1976,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64490,41390,66.25,
+1976,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64490,41390,66.25,
+1977,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65151,42008,70.125,
+1978,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65308,42243,74,
+1979,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65375,42391,86,
+1980,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64658,41900,98,
+1981,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64410,41923,110,
+1981,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64410,41923,110,
+1982,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64894,42321,122,
+1983,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65158,42534,134,94
+1984,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64836,42363,137.5,110
+1984,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64836,42363,137.5,110
+1985,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64572,42189,141,122
+1986,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64359,42069,159,142
+1987,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64443,41957,215,159
+1988,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64977,42109,220,154
+1989,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65285,41986,240,157
+1990,34033,NJ,Salem County, suburban,Northeast,Middle Atlantic,331.845,65383,41865,252,194
+1991,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65193,41562,258,201
+1992,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65143,41455,247,226
+1993,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65035,41389,245,265
+1994,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64691,41139,240,273
+1995,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65095,41248,229,279
+1996,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65397,41512,293,231
+1997,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65242,41702,275,230
+1998,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64899,41706,250,219
+1999,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64483,41588,250,273
+2000,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64177,41475,285,263.333333333
+2001,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64069,41598,222,253.666666667
+2001,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64069,41598,222,253.666666667
+2002,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64434,41820,210,244
+2003,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64345,41992,250,240
+2003,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64345,41992,250,240
+2004,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,64835,42381,269,228
+2005,34033,NJ,Salem County,  SUBURBAN ,Northeast,Middle Atlantic,331.845,65388,42908,264,215
+2006,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65831,43409,273.875,257
+2007,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65864,43578,283.75,265
+2008,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65974,43734,293.625,235
+2009,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,66183,43856,303.5,237
+2010,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,66069,43626,313.375,265
+2011,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65982,43570,323.25,261
+2012,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65883,43522,333.125,258
+2013,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,65446,42979,343,253
+2014,34033,NJ,Salem County, suburban,Northeast,Middle Atlantic,331.845,64840,42285,370.5,212
+2015,34033,NJ,Salem County,SUBURBAN,Northeast,Middle Atlantic,331.845,64360,41794,398,216
+2016,34033,NJ,Salem County,suburban,Northeast,Middle Atlantic,331.845,63730,41173,,
+1970,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,198706,124522,52,
+1971,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,200045,126880,51.75,
+1972,34035,NJ,Somerset County,  SUBURBAN ,Northeast,Middle Atlantic,301.861,200357,128977,51.5,
+1973,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,197825,129146,51.25,
+1974,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,197683,130750,51,
+1975,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,199166,133448,50.75,
+1976,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,199603,135431,50.5,
+1976,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,199603,135431,50.5,
+1977,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,199585,136963,50.25,
+1978,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,200811,139253,50,
+1979,34035,NJ,Somerset County,SUBURBAN,Northeast,Middle Atlantic,301.861,202843,142117,61.6,
+1979,34035,NJ,Somerset County,SUBURBAN,Northeast,Middle Atlantic,301.861,202843,142117,61.6,
+1980,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,203734,143692,73.2,
+1981,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,205392,145483,84.8,
+1982,34035,NJ,Somerset County,suburban  ,Northeast,Middle Atlantic,301.861,206895,146993,96.4,
+1983,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,209405,149093,108,203
+1984,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,211812,151140,93,233
+1985,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,214359,153129,78,271
+1986,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,219602,157100,109,307
+1987,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,226354,161598,156,352
+1987,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,226354,161598,156,352
+1988,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,233012,165948,228,400
+1989,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,236950,167926,767,464
+1989,34035,,,,,,,,,266,
+1990,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,241464,170341,250,451
+1991,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,245810,171685,246,452
+1992,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,250680,173465,264,421
+1993,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,256834,176230,256,410
+1994,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,262243,178490,279,402
+1995,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,267163,180876,292,421
+1996,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,272872,183870,279,378
+1997,34035,NJ,Somerset County,  SUBURBAN ,Northeast,Middle Atlantic,301.861,280195,188463,276,366
+1997,34035,NJ,Somerset County,  SUBURBAN ,Northeast,Middle Atlantic,301.861,280195,188463,276,366
+1998,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,287066,192797,244,413
+1999,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,293771,196722,265,392
+2000,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,298761,199572,243,404.666666667
+2001,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,301671,202081,233,417.333333333
+2002,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,305255,204502,221,430
+2003,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,307902,206276,231,407
+2004,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,310424,208044,241,398
+2005,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,312617,209820,254,415
+2006,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,314993,211709,249.25,446
+2007,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,317128,213275,244.5,468
+2008,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,318856,214343,239.75,446
+2009,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,321564,216373,235,483
+2010,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,323428,217545,230.25,473
+2010,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,323428,217545,230.25,473
+2011,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,324248,218218,225.5,451
+2012,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,326597,219921,220.75,467
+2013,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,328588,220845,216,408
+2014,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,331029,222468,216,380
+2015,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,332345,223432,216,337
+2016,34035,NJ,Somerset County,suburban,Northeast,Middle Atlantic,301.861,333399,224268,,
+1970,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,78360,46337,13,
+1970,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,78360,46337,13,
+1971,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,81705,48838,14.125,
+1972,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,86030,52192,15.25,
+1972,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,86030,52192,15.25,
+1973,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,92378,56943,16.375,
+1974,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,95975,59693,17.5,
+1975,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,99877,62603,18.625,
+1976,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,102970,65093,19.75,
+1976,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,102970,65093,19.75,
+1977,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,106847,68205,20.875,
+1978,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,110953,71416,22,
+1979,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,115125,74659,32.8,
+1980,34037,NJ,Sussex County,SUBURBAN,Northeast,Middle Atlantic,518.749,116663,75937,43.6,
+1981,34037,NJ,Sussex County,  SUBURBAN ,Northeast,Middle Atlantic,518.749,118239,77744,54.4,
+1982,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,119035,78881,65.2,
+1983,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,119858,79912,76,52
+1984,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,120742,80986,81.5,80
+1985,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,122336,82454,87,82
+1986,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,124282,84183,90,89
+1987,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,126522,85757,107,81
+1988,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,128836,87305,122,73
+1989,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,129978,87813,140,82
+1990,34037,NJ,Sussex County,  SUBURBAN ,Northeast,Middle Atlantic,518.749,131346,88603,151,88
+1991,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,132384,88818,156,94
+1992,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,133953,89566,132,110
+1993,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,135646,90436,662,107
+1993,34037,,,,,,,,,148,
+1994,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,137021,91106,133,115
+1994,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,137021,91106,133,115
+1995,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,138574,92129,120,114
+1996,34037,NJ,Sussex County,SUBURBAN,Northeast,Middle Atlantic,518.749,139562,93013,150,106
+1997,34037,NJ,Sussex County,Suburban,Northeast,Middle Atlantic,518.749,140441,94104,117,109
+1998,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,141509,95143,117,125
+1999,34037,NJ,Sussex County,SUBURBAN,Northeast,Middle Atlantic,518.749,142750,96224,152,136
+2000,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,144714,97716,155,154.666666667
+2001,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,146004,98803,148,173.333333333
+2002,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,147712,100079,148,192
+2003,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,149260,101539,151,206
+2004,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,149906,102445,140,202
+2005,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,150192,103166,168,195
+2006,34037,NJ,Sussex County, suburban,Northeast,Middle Atlantic,518.749,150508,103789,149,191
+2007,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,150600,103989,175,180
+2008,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,150145,103532,178,180
+2009,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,149487,103134,166,182
+2009,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,149487,103134,166,182
+2010,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,148886,102604,180,179
+2011,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,148818,102550,163,151
+2012,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,148166,102180,176,161
+2013,34037,NJ,Sussex County,SUBURBAN,Northeast,Middle Atlantic,518.749,147045,100875,177,162
+2014,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,145768,99678,154,151
+2014,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,145768,99678,154,151
+2015,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,144811,98778,154,149
+2016,34037,NJ,Sussex County,suburban,Northeast,Middle Atlantic,518.749,143302,97480,,
+1970,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,543602,350685,293,
+1971,34039,NJ,Union County,URBAN,Northeast,Middle Atlantic,102.769,545559,354121,274.625,
+1972,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,539697,352802,256.25,
+1973,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,533049,351050,237.875,
+1974,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,525506,348449,219.5,
+1975,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,521183,347980,201.125,
+1976,34039,NJ,Union County,urban  ,Northeast,Middle Atlantic,102.769,518377,348109,182.75,
+1977,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,513955,346659,164.375,
+1978,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,510909,345965,146,
+1979,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,508309,345298,174,
+1980,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,504373,343217,202,
+1981,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,504635,344211,230,
+1981,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,504635,344211,230,
+1982,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,504392,344202,258,
+1983,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,505700,345001,286,805
+1984,34039,NJ,Union County, urban,Northeast,Middle Atlantic,102.769,505062,344609,366,949
+1985,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,505825,344689,446,1038
+1985,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,505825,344689,446,1038
+1986,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,504485,343523,500,1125
+1987,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,501797,340177,451,1283
+1987,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,501797,340177,451,1283
+1988,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,498959,336661,600,1382
+1989,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,496583,332445,780,1559
+1990,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,494140,328781,1050,1791
+1990,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,494140,328781,1050,1791
+1991,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,495646,327533,1230,1986
+1992,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,497731,326817,1338,1958
+1993,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,501333,327691,1374,2021
+1994,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,504864,328838,1400,2057
+1995,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,507430,329949,1522,2260
+1996,34039,NJ,Union County,  URBAN ,Northeast,Middle Atlantic,102.769,510992,332348,1532,2266
+1997,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,513865,334991,1663,2173
+1998,34039,NJ,Union County,URBAN,Northeast,Middle Atlantic,102.769,517715,338170,1445,2375
+1998,34039,NJ,Union County,URBAN,Northeast,Middle Atlantic,102.769,517715,338170,1445,2375
+1999,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,520341,339401,1329,2427
+2000,34039,NJ,Union County,  URBAN ,Northeast,Middle Atlantic,102.769,523124,341137,1161,2391.33333333
+2001,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,526183,344009,1239,2355.66666667
+2001,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,526183,344009,1239,2355.66666667
+2002,34039,NJ,Union County,  URBAN ,Northeast,Middle Atlantic,102.769,527625,346249,967,2320
+2003,34039,NJ,Union County,URBAN,Northeast,Middle Atlantic,102.769,527611,346969,1100,2336
+2004,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,526916,347956,1121,2281
+2005,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,526161,349535,1089,2376
+2006,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,525153,350817,958,2490
+2007,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,524960,351735,999,2437
+2008,34039,NJ,Union County,URBAN,Northeast,Middle Atlantic,102.769,527528,353537,1069,2285
+2009,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,532434,357226,1070,2181
+2010,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,536448,360331,1048,2049
+2011,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,537743,361356,976,2043
+2012,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,541300,363823,1474,2103
+2012,34039,,,,,,,,,973,
+2013,34039,NJ,Union County, urban,Northeast,Middle Atlantic,102.769,545878,366175,795,2100
+2013,34039,NJ,Union County, urban,Northeast,Middle Atlantic,102.769,545878,366175,795,2100
+2014,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,550461,368911,759,1857
+2015,34039,NJ,Union County,URBAN,Northeast,Middle Atlantic,102.769,554069,370744,723,1617
+2016,34039,NJ,Union County,urban,Northeast,Middle Atlantic,102.769,557073,372382,,
+1970,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,74103,45041,25,
+1970,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,74103,45041,25,
+1971,34041,NJ,Warren County,Small/mid,Northeast,Middle Atlantic,356.499,74705,45697,24.5,
+1972,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,76069,47020,24,
+1972,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,76069,47020,24,
+1973,34041,NJ,Warren County,Small/mid,Northeast,Middle Atlantic,356.499,76879,47982,23.5,
+1974,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,78320,49339,23,
+1975,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,78843,50010,22.5,
+1976,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,79960,51208,22,
+1977,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,80644,51885,21.5,
+1978,34041,NJ,Warren County,small/mid  ,Northeast,Middle Atlantic,356.499,81971,53149,21,
+1979,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,82217,53492,23,
+1980,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,84649,55383,25,
+1981,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,85078,56000,27,
+1982,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,85290,56360,29,
+1983,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,85394,56580,31,70
+1984,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,86021,57165,47.8,98
+1985,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,86369,57492,64.6,121
+1986,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,87459,58334,81.4,129
+1987,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,88703,59036,98.2,130
+1988,34041,NJ,Warren County,small/mid  ,Northeast,Middle Atlantic,356.499,89827,59635,115,152
+1989,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,90714,59893,115,167
+1990,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,91984,60511,135,185
+1991,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,92794,60634,121,206
+1992,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,93747,60948,147,254
+1993,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,94616,61234,131,224
+1994,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,95762,61769,119,213
+1995,34041,NJ,Warren County,small/mid  ,Northeast,Middle Atlantic,356.499,96956,62550,122,196
+1996,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,98157,63303,142,163
+1997,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,98796,63950,697,178
+1997,34041,,,,,,,,,131,
+1998,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,99458,64547,117,215
+1999,34041,NJ,Warren County, small/mid,Northeast,Middle Atlantic,356.499,101040,65769,118,260
+2000,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,102902,67130,124.8333,235
+2001,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,105201,68658,131.6667,210
+2002,34041,NJ,Warren County,Small/mid,Northeast,Middle Atlantic,356.499,106774,69981,138.5,185
+2003,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,108163,70962,145.3333,195
+2004,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,108491,71546,152.1667,208
+2005,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,108855,72268,159,229
+2006,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,109059,72511,154.5,217
+2007,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,109179,72764,150,200
+2008,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,109264,72742,145.5,188
+2009,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,108693,72460,141,200
+2010,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,108655,72561,676,182
+2010,34041,,,,,,,,,136.5,
+2011,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,108605,72599,132,180
+2012,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,108218,72559,127.5,174
+2013,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,107733,72041,123,184
+2014,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,107157,71654,124.5,147
+2015,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,107358,71613,126,134
+2016,34041,NJ,Warren County,small/mid,Northeast,Middle Atlantic,356.499,107282,71554,,

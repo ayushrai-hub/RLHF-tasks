@@ -1,0 +1,10 @@
+{
+  "notice_id": "KR-2026-03-01",
+  "primary_key_id": "ledger-key-v2",
+  "primary_effective": "2026-03-01T00:00:00Z",
+  "legacy_key_id": "ledger-key-v1",
+  "legacy_valid_before": "2026-03-01T00:00:00Z",
+  "bootstrap_signer": "legacy-bootstrap",
+  "bootstrap_valid_until": "2026-03-15T00:00:00Z",
+  "bootstrap_seed_path": "/app/data/ceremony_seed.bin"
+}

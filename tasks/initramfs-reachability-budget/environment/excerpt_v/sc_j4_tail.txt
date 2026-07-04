@@ -1,0 +1,1 @@
+gzip_tally terminal excerpt partial j rows

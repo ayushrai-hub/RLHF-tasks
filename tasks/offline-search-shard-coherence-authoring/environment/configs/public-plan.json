@@ -1,0 +1,6 @@
+{
+  "manifest": "/app/environment/data/snapshots/public/manifest.json",
+  "queries": "/app/environment/data/queries/public.jsonl",
+  "cache": "/app/environment/state/segment-cache.json",
+  "limit": 3
+}

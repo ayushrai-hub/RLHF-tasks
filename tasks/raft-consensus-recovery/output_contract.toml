@@ -1,0 +1,65 @@
+user_visible_outputs = [
+  "/app/output/consensus_report.json",
+  "/app/output/term_timeline.csv",
+  "/app/output/command_trace.json",
+  "/app/output/safety_certificate.json",
+  "/app/output/wal_digest.txt",
+]
+internal_harness_files = [
+  "tests/test_outputs.py",
+]
+
+[structured_outputs.consensus_report]
+target = "/app/output/consensus_report.json"
+format = "json"
+instruction_checks = [
+  "JSON",
+  "schema version 4",
+  "raft_split_brain",
+  "root_cause",
+  "before",
+  "after",
+  "accepted_commands",
+  "duplicate_commands",
+]
+
+[structured_outputs.term_timeline]
+target = "/app/output/term_timeline.csv"
+format = "csv"
+instruction_checks = [
+  "CSV",
+  "phase,node_id,term,start_tick,end_tick,role,votes_received",
+  "before",
+  "after",
+]
+
+[structured_outputs.command_trace]
+target = "/app/output/command_trace.json"
+format = "json"
+instruction_checks = [
+  "JSON",
+  "schema version 4",
+  "commands",
+  "key",
+  "stages",
+]
+
+[structured_outputs.safety_certificate]
+target = "/app/output/safety_certificate.json"
+format = "json"
+instruction_checks = [
+  "JSON",
+  "split_brain_detected",
+  "linearizability_digest",
+  "invariants",
+]
+
+[structured_outputs.wal_digest]
+target = "/app/output/wal_digest.txt"
+format = "text"
+instruction_checks = [
+  "key=value",
+  "cluster_policy_changed=false",
+  "linearizability_digest",
+  "simulation_seed",
+]

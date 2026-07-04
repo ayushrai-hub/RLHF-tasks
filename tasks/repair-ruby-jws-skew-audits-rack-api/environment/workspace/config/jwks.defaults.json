@@ -1,0 +1,13 @@
+{
+  "keys": [
+    {
+      "kty": "RSA",
+      "kid": "LEGACY-DECOY",
+      "use": "sig",
+      "alg": "RS256",
+      "n": "0J8",
+      "e": "AQAB"
+    }
+  ],
+  "note": "Deprecated static defaults. Do not use for live audits."
+}

@@ -1,0 +1,25 @@
+Drive a metal fast and its heat has nowhere to go. Worked slowly, a piece sheds the heat of deformation across its body; worked in microseconds, that heat stays where the strain is and softens the sliver faster than it can harden. Past a point the two run apart: flow stress caves in a band microns wide, strain pours in, and the piece shears through on a front so narrow it etches white on a section. That is an adiabatic shear band, and driving one out is the object of this workup.
+
+Forty candidate alloys go up for shear-localization screening this quarter, `A01` through `A40`. An alloy is characterized once it has been made to throw a band. One loading shot on a specimen cut from it either sends the strain runaway into a band or leaves it flowing uniform and tells you nothing, and the odds of the runaway are the alloy's own fixed trait, call it `p`. Commit `n` shots and the alloy stays blank only if all `n` flow smooth, at `(1 - p)^n`, so `n` shots throw at least one band with probability `1 - (1 - p)^n`. The whole job is fixing `n`, alloy by alloy.
+
+The screening is not scored on the shots already logged. Those are history. Later, apart from you, the lab machines fresh specimens and drives them on a pass you never see, one on which each alloy holds a true per-shot band rate that is set in the alloy and never shown. The forty are graded as one lot where only the weakest tells: the alloy least apt to throw a single band on that pass must reach `band_floor`, and one beneath it voids the lot, however hard the rest localize. Whatever rate you adopt has to land between `rate_min` and `rate_max`, and its withheld value may lie anywhere in that span.
+
+Which alloy is weakest is the hard call, on thin evidence. `/app/data/alloys.csv` gives each a `softening_index` — how steeply its flow stress drops under adiabatic heat measured against how fast it work-hardens, off a cheap bench compression. Steeper localizes more willingly, as a rule, and were the rule clean this would be easy. It is not. A steep-reading alloy can run quiet when a fine grain or a dispersed second phase draws heat from a nascent band faster than it feeds. The bench figure never catches this. The shot log can: `/app/data/shot_log.csv` lists every trial shot fired, one row each, `banded` 1 where a band ran and 0 where flow held smooth. Coverage thins where it counts: a stack of rows on the easy alloys, a lone shot or none on some that will set the floor.
+
+Two readings cut against each other, and the softening_index can flatter an alloy from either side. One reads eager on the bench yet fills its shot column with nothing but smooth flow: the index promises a band the metal keeps refusing. The other reads modest yet banded twice in four shots, a fine-looking percentage — though a percentage is only worth the shots beneath it, and four is far too few to settle a rate. Both mislead. Three bands out of three honest shots carry more than that same one-third scraped off a dozen scattered ones. So where a log runs thin, open the alloy low and let real bands, not the bench figure, earn it back up. A near-empty column is where a genuinely weak rate hides best, so it is there you should give the most ground — enough that no rate the record could plausibly be masking would drop the alloy under `band_floor`.
+
+Two benches fire the shots, priced per alloy in `/app/data/alloys.csv`. The lab's split-Hopkinson bar is the cheap route, but rationed: one pool of `bar_capacity` shots covers all forty, and spent is spent. An outside dynamic-test house fires any alloy without limit at a steeper charge each. Bill every shot to the bench that ran it, sum them, and hold the total at or under `spend_ceiling`. Set that ceiling beside a tight plan and it leaves real room, by design: it is there for the alloys you cannot pin down, to be worked hard. Lay it thin instead, a few more shots on every alloy alike, and the bill climbs over `spend_ceiling` — and a plan that crosses that line is thrown out however well it covers the rest. Fixed values for `band_floor`, `bar_capacity`, `spend_ceiling`, `reference_softening`, and the `rate_min`/`rate_max` bounds sit in `/app/data/test_program.json`, and the true rates are not with them.
+
+Create `/app/output` if absent and write two files there. Into `shot_plan.csv` put one row per alloy beneath the header `alloy_id,house_shots,lab_shots,adopted_rate`: the two shot counts as non-negative integers, and `adopted_rate` the per-shot band rate you commit to, a decimal within `rate_min`–`rate_max`. Into `kpis.json` put `total_committed_shots`, `total_house_shots`, `total_lab_shots` as integers, then `committed_cost`, then `worst_alloy_band_prob` — across your alloys, the least `1 - (1 - adopted_rate)^(house_shots + lab_shots)`, drawn from the rows you wrote. The two must agree. The shape below is for names and types, not target numbers:
+
+```json
+{
+  "total_committed_shots": 764,
+  "total_house_shots": 764,
+  "total_lab_shots": 0,
+  "committed_cost": 1693.20,
+  "worst_alloy_band_prob": 0.9928
+}
+```
+
+No step here reaches the network, and numpy is already installed for the arithmetic.

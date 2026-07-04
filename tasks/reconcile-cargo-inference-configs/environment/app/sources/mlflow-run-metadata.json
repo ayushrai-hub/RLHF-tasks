@@ -1,0 +1,26 @@
+{
+  "runs": [
+    {
+      "run_id": "7f3a9c21",
+      "status": "FINISHED",
+      "note": "re-tagged during rollback; superseded by signed manifest",
+      "start_time": "2026-05-14T08:40:11Z",
+      "params": {
+        "quantization": "int8",
+        "serving_profile": "cpu"
+      }
+    },
+    {
+      "run_id": "c04412ff",
+      "status": "FAILED",
+      "note": "gpu bf16 trial, abandoned",
+      "start_time": "2026-04-30T14:02:55Z"
+    },
+    {
+      "run_id": "9a10bd77",
+      "status": "FINISHED",
+      "note": "earlier baseline, accuracy 0.881",
+      "start_time": "2026-03-21T11:15:00Z"
+    }
+  ]
+}

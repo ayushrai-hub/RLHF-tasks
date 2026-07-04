@@ -1,0 +1,34 @@
+version = "2.0"
+
+[metadata]
+name = "raft-consensus-recovery"
+author_name = "anonymous"
+author_email = "anonymous"
+difficulty = "hard"
+category = "data-processing"
+tags = ["javascript", "nodejs", "raft", "distributed-systems", "consensus", "split-brain"]
+languages = ["javascript"]
+codebase_size = "small"
+number_of_milestones = 0
+subcategories = []
+summary = "Repair a Node.js Raft forensic replay engine that must triage mixed WAL and RPC artifacts and virtual-remediate a split-brain consensus outage across a five-node cluster."
+expert_time_estimate_min = 420
+expert_time_estimate_hours = 7.0
+junior_time_estimate_min = 840
+difficulty_explanation = "Five interacting Raft defects (vote log comparison, prior-term commit safety, quorum term filtering, partition overlap detection, WAL endianness) sit behind misleading election-timeout and snapshot signals. Twenty-tier rejection priority spans node-id smuggling, term overflow, log gaps, RPC ordering, homoglyph cluster IDs, snapshot conflicts, commit regression, and stress cases that reject quadratic replays."
+solution_explanation = "The oracle replaces normalization, WAL and RPC parsing, election and append safety, quorum counting, partition handling, simulation, triage, and report generation so recovery artifacts are computed from evidence without mutating golden config files."
+verification_explanation = "Pytest generates valid, malformed, order-varied, cross-correlated, and stress partition bundles, runs the public CLI, validates strict JSON, CSV, and text artifacts, checks layered failure priority ordering, exercises linearizability invariants, and verifies config files remain unchanged."
+
+[agent]
+timeout_sec = 1800
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+allow_internet = false
+build_timeout_sec = 600.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+workdir = "/app"

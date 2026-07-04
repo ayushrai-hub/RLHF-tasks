@@ -1,0 +1,15 @@
+file,purpose
+train.csv,agent-visible task asset
+validation.csv,agent-visible task asset
+test.csv,agent-visible task asset
+data_dictionary.csv,agent-visible task asset
+feature_summary.csv,agent-visible task asset
+categorical_levels.csv,agent-visible task asset
+missingness_profile.csv,agent-visible task asset
+split_definition.csv,agent-visible task asset
+baseline_summary.csv,agent-visible task asset
+modeling_notes.csv,agent-visible task asset
+source_notes.csv,agent-visible task asset
+subgroup_definitions.csv,agent-visible task asset
+temporal_profile.csv,agent-visible task asset
+transformations.csv,agent-visible task asset

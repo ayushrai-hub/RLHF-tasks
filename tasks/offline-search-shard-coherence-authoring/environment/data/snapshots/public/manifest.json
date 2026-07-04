@@ -1,0 +1,20 @@
+{
+  "snapshot_id": "public-2026-05",
+  "freshness_epoch": "2026-05-20",
+  "canonical": "canonical.tsv",
+  "robots": "robots.tsv",
+  "shards": [
+    {
+      "id": "news",
+      "path": "shards/news.jsonl"
+    },
+    {
+      "id": "docs",
+      "path": "shards/docs.jsonl"
+    },
+    {
+      "id": "forums",
+      "path": "shards/forums.jsonl"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+id = "sc_h3"
+deps_file = "node_v/sc_h3_deps.json"
+rel_file = "rel_v/sc_h3_rel.json"
+blob_file = "blob_v/sc_h3_blobs.json"
+vstamp_file = "vstamp_v/sc_h3_vstamp.toml"

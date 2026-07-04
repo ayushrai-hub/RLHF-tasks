@@ -1,0 +1,6 @@
+{
+  "nodes": ["n1", "n2", "n3", "n4", "n5"],
+  "quorum_size": 3,
+  "election_timeout_ms": 150,
+  "region": "us-east"
+}

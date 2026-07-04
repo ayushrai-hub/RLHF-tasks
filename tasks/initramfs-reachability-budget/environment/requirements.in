@@ -1,0 +1,8 @@
+pytest==8.4.1
+pytest-json-ctrf==0.3.5
+colorama==0.4.6
+exceptiongroup==1.2.2
+iniconfig==2.0.0
+packaging==24.2
+pluggy==1.5.0
+tomli==2.2.1

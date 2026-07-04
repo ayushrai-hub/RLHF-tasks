@@ -1,0 +1,5 @@
+{
+  "abac_epoch_base": 1700000000,
+  "required_attrs": ["role", "clearance"],
+  "default_combiner": "deny-overrides"
+}

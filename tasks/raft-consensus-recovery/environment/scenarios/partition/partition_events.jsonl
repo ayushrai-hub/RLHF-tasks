@@ -1,0 +1,2 @@
+{"tick":80,"kind":"partition","isolated":["n4","n5"],"majority":["n1","n2","n3"]}
+{"tick":120,"kind":"heal"}

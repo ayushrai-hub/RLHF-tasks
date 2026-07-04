@@ -1,0 +1,17 @@
+api_version = "payments-ingress-tls/1"
+
+[trust_anchors.phantom_toml]
+fingerprint = "9900aabbccddeeff00112233445566778899aabbccddeeff001122334455667788"
+enabled = true
+
+[client_ca.payments-api]
+role_tag = "api_ingress"
+
+[client_ca.ledger-writer]
+role_tag = "ledger_client"
+
+[client_ca.fraud-scorer]
+role_tag = "fraud_client"
+
+[client_ca.settlement-gw]
+role_tag = "settlement_client"

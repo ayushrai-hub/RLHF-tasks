@@ -1,0 +1,88 @@
+{
+  "report_root": {
+    "scenarios": "array in manifest order",
+    "key_order": ["scenarios"]
+  },
+  "scenario_row": {
+    "key_order": [
+      "consistency_hash",
+      "drift_flags",
+      "duplicate_events_skipped",
+      "model_version",
+      "regions",
+      "scenario_id",
+      "status"
+    ],
+    "required_keys": [
+      "consistency_hash",
+      "drift_flags",
+      "duplicate_events_skipped",
+      "model_version",
+      "regions",
+      "scenario_id",
+      "status"
+    ],
+    "status_values": ["CONSISTENT", "DRIFT_DETECTED"],
+    "status_rule": "exactly CONSISTENT when drift_flags is empty otherwise exactly DRIFT_DETECTED; never ok or other aliases",
+    "regions_sorted_by": "region_id",
+    "region_keys": ["firmware", "region_id", "samples"],
+    "region_key_order": ["firmware", "region_id", "samples"],
+    "samples_sorted_by": "sample_id",
+    "sample_keys": [
+      "dequantized",
+      "device_id",
+      "normalized_features",
+      "predicted_class",
+      "probabilities",
+      "quantized",
+      "sample_id"
+    ],
+    "sample_key_order": [
+      "dequantized",
+      "device_id",
+      "normalized_features",
+      "predicted_class",
+      "probabilities",
+      "quantized",
+      "sample_id"
+    ],
+    "drift_flags_sorted_by": "flag_id",
+    "flag_keys": ["detail", "event_seq", "flag_id", "kind", "region_id", "sample_id"],
+    "flag_key_order": ["detail", "event_seq", "flag_id", "kind", "region_id", "sample_id"],
+    "flag_id_pattern": "scenario_id colon colon region_id colon colon sample_id colon colon event_seq where event_seq is four zero padded decimal digits; METADATA_CORRUPT uses underscore in both region and sample segments when region_id and sample_id are empty; STALE_CALIBRATION uses the SET_CALIBRATION region_id in the region segment and underscore only in the sample segment; post replay audit REGION_DIVERGENCE and FEATURE_SCALE_DRIFT must use the actual sample_id in both flag_id third segment and sample_id field never underscore",
+    "post_audit_flag_id_examples": {
+      "feature_scale_drift": "scenario_40::eu-west::s1::0014 with sample_id field s1",
+      "region_divergence": "scenario_52::us-east::s2::0014 with sample_id field s2"
+    },
+    "region_divergence_detail": "canonical_predicted_class comma divergent_region_id where canonical region is lexicographically smallest region_id with inference for that sample",
+    "feature_scale_drift_threshold": "emit FEATURE_SCALE_DRIFT when normalized L2 distance for the same sample_id across two regions is strictly greater than 0.5; flag region_id is the compared non canonical region and detail is the canonical region_id",
+    "consistency_hash_field": {
+      "value": "lowercase sha256 hex of the compact json array of inference records described in rule_catalog.json consistency_hash",
+      "record_filter": "only samples whose probabilities array is non-empty (ran inference)",
+      "record_keys_alphabetical": ["predicted_class", "region_id", "sample_id"],
+      "record_array_sorted_by": "sample_id then region_id",
+      "compact_separators": "comma and colon with no spaces"
+    },
+    "encoding": {
+      "compact_json": true,
+      "object_keys_alphabetical": "every JSON object in the report must serialize keys in strict alphabetical order at all nesting levels",
+      "utf8": true,
+      "single_trailing_newline": true,
+      "no_null_literals": true,
+      "empty_arrays": "drift_flags normalized_features quantized dequantized and probabilities must be json empty arrays when unset never null or omitted",
+      "drift_flags_empty_array": "drift_flags must be [] not null when no flags were emitted"
+    },
+    "inference_without_lock_row": {
+      "rule": "RUN_INFERENCE without LOCK_SAMPLE must emit a sample row with empty normalized_features quantized and dequantized arrays and populated probabilities",
+      "scenario_58_example": "sample s9 with predicted_class 0 and empty feature arrays"
+    },
+    "stale_calibration_flag": {
+      "anchor_event": "SET_CALIBRATION",
+      "detail": "version string from the stale SET_CALIBRATION event",
+      "flag_id_region_segment": "actual SET_CALIBRATION region_id never underscore",
+      "flag_id_sample_segment": "underscore when no sample context",
+      "scenario_04_example": "scenario_04::us-east::_::0003 with detail v0",
+      "event_seq_field": "matches SET_CALIBRATION seq"
+    }
+  }
+}

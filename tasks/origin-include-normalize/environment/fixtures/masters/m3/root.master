@@ -1,0 +1,4 @@
+$ORIGIN alt.test.
+@ 300 IN SOA ns1.alt.test. hostmaster.alt.test. 1 3600 600 86400 300 @key=x1
+ns 300 IN A 198.51.100.1 @key=x2
+www 300 IN A 198.51.100.2 @key=x3

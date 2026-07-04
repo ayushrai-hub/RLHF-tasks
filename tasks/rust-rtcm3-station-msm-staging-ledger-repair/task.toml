@@ -1,0 +1,28 @@
+version = "2.0"
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous@gmail.com"
+difficulty = "hard"
+category = "data-processing"
+subcategories = []
+number_of_milestones = 0
+codebase_size = "small"
+languages = ["rust", "sql", "bash"]
+tags = ["cli", "rtcm3", "gnss", "sqlite", "msm7", "network"]
+expert_time_estimate_min = 150
+junior_time_estimate_min = 420
+
+[environment]
+allow_internet = false
+build_timeout_sec = 1800.0
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+workdir = "/app"
+
+[agent]
+timeout_sec = 1800.0
+
+[verifier]
+timeout_sec = 1200.0

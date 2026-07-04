@@ -1,0 +1,3 @@
+The ABAC constraint coordinator under /app produces inconsistent tenant audit exports and HTTP probe results when replaying framed .abwf policy batches against SQLite. Align runtime behavior with the normative contracts under /app/docs/.
+
+Normative contracts (required): module-scope.md, abwf-frame-format.md, abac-policy-rules.md, audit-report-schema.md, db-schema.md, cli-reference.md, http-api.md, runtime-env.md, and operations-overview.md (all under `/app/docs/`). Write graded audit JSON to `/app/output/abac-constraint-audit.json` per audit-report-schema.md. Run abac-ingest, abac-export, and abac-serve per cli-reference.md; use GET /health before HTTP routes per http-api.md.
