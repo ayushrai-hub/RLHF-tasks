@@ -1,0 +1,12 @@
+{
+  "station_id": "OBS-TIDE",
+  "kind": "science",
+  "priority": 45,
+  "region": "NORTH",
+  "lat": -18.78776,
+  "lon": 153.48663,
+  "notes": [
+    "OBS-TIDE acoustic beacon",
+    "NORTH relay class science"
+  ]
+}

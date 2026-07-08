@@ -1,0 +1,30 @@
+version = "2.0"
+
+[metadata]
+author_name = "Shared Tabs Team"
+author_email = "shared-tabs@example.com"
+difficulty = "hard"
+category = "data-processing"
+subcategories = []
+tags = ["go", "settlement", "json", "optimization", "min-cost-flow"]
+languages = ["go"]
+expert_time_estimate_min = 720.0
+junior_time_estimate_min = 2880.0
+codebase_size = "small"
+number_of_milestones = 0
+difficulty_explanation = "The task requires globally optimal settlement under unitized balances, forbidden payer/payee pairs, per-group GX1 corridor tokens, GL1 parallel settlement lanes, potentially negative adjusted per-unit fees, and a deterministic first-unit rebate per used pair. The verifier generates nontrivial ledgers with nonstandard participant IDs and group names, dense route controls, discount lanes, rebate-sensitive optima, malformed tokens, and infeasible rules. Greedy, same-group-first, fixture-specific, old min-cost-flow, or transfer-list brute-force approaches fail; agents need a robust optimizer over unit-expanded lane costs with negative residual costs."
+solution_explanation = "The reference solution decodes and validates GX1 and GL1 tokens, expands each allowed debtor/creditor pair into sorted unit-cost lanes with the one-time first-unit rebate applied, runs min-cost flow, aggregates positive unit flows into sorted JSON transfers, and exits nonzero on malformed tokens, invalid units, unbalanced ledgers, or infeasible exact settlement."
+verification_explanation = "The tests rebuild the Go program, run it on two bundled ledgers and four generated adversarial ledgers, independently recompute the min-cost-flow optimum with rebate-adjusted unit costs, verify exact settlement invariants, sorted unique payer/payee output, forbidden pairs, lane capacity and cheapest-lane fee accounting, and require nonzero exits for malformed-token and infeasible-rule inputs."
+
+[verifier]
+timeout_sec = 240.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+allow_internet = false
+build_timeout_sec = 600.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 5120

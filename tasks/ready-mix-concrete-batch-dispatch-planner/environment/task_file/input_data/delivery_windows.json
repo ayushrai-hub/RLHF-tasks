@@ -1,0 +1,28 @@
+{
+  "windows": [
+    {
+      "throughput_capacity_cubic_m": 6968.3,
+      "window": 1
+    },
+    {
+      "throughput_capacity_cubic_m": 6981.9,
+      "window": 2
+    },
+    {
+      "throughput_capacity_cubic_m": 6828.2,
+      "window": 3
+    },
+    {
+      "throughput_capacity_cubic_m": 6648.6,
+      "window": 4
+    },
+    {
+      "throughput_capacity_cubic_m": 6608.2,
+      "window": 5
+    },
+    {
+      "throughput_capacity_cubic_m": 6744.1,
+      "window": 6
+    }
+  ]
+}

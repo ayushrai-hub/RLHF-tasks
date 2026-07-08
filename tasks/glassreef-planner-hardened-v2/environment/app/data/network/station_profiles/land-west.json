@@ -1,0 +1,12 @@
+{
+  "station_id": "LAND-WEST",
+  "kind": "landing",
+  "priority": 53,
+  "region": "WEST",
+  "lat": -18.97735,
+  "lon": 153.37638,
+  "notes": [
+    "LAND-WEST acoustic beacon",
+    "WEST relay class landing"
+  ]
+}

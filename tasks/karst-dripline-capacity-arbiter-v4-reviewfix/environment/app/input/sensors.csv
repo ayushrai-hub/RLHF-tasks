@@ -1,0 +1,5 @@
+sensor_id,chamber,station_id,status,installed_at
+S-01,rimstone,R-NE,active,2025-11-01T00:00:00Z
+S-02,moonmilk,M-W,active,2025-11-03T00:00:00Z
+S-03,rimstone,R-SW,maintenance,2025-11-04T00:00:00Z
+S-04,soda-straw,ST-2,retired,2025-10-15T00:00:00Z

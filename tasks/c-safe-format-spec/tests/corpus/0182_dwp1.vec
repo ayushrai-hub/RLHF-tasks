@@ -1,0 +1,4 @@
+fmt	[%*.*d]
+arg	i	10
+arg	i	4
+arg	i	42

@@ -1,0 +1,12 @@
+{
+  "station_id": "RPT-ALPHA",
+  "kind": "repeater",
+  "priority": 34,
+  "region": "NORTH",
+  "lat": -20.42586,
+  "lon": 156.9809,
+  "notes": [
+    "RPT-ALPHA acoustic beacon",
+    "NORTH relay class repeater"
+  ]
+}

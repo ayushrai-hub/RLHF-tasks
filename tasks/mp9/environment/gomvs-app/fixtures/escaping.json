@@ -1,0 +1,6 @@
+{
+  "modules": [
+    "github.com/BurntSushi/toml",
+    "github.com/Azure/go-autorest"
+  ]
+}

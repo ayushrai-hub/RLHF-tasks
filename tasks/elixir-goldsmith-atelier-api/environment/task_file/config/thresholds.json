@@ -1,0 +1,20 @@
+{
+  "composite_round_decimals": 4,
+  "streak_letters_required": 3,
+  "streak_bonus": 0.10,
+  "specialty_factor_match": 1.10,
+  "specialty_factor_default": 1.00,
+  "trend": {
+    "rising_label": "refining",
+    "falling_label": "degrading",
+    "stable_label": "stable",
+    "slope_min_abs": 0.5,
+    "r2_min": 0.5,
+    "mk_z_abs": 1.96
+  },
+  "audit": {
+    "default_limit": 50,
+    "max_limit": 200,
+    "genesis_hash": "0000000000000000000000000000000000000000000000000000000000000000"
+  }
+}

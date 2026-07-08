@@ -1,0 +1,47 @@
+{
+  "segment_id": "segment_07",
+  "row_count": 3,
+  "schema_version": 1,
+  "columns": [
+    {
+      "name": "city",
+      "encoding": "dictionary",
+      "logical_type": "string",
+      "dictionary": [
+        "nyc",
+        "la",
+        "chi"
+      ],
+      "dictionary_revision": 2,
+      "dictionary_snapshots": [
+        {
+          "revision": 1,
+          "dictionary": [
+            "nyc",
+            "la"
+          ]
+        }
+      ],
+      "indices": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page_id": 0,
+      "column": "city",
+      "checksum_hex": "bb0b6919759fbfa1"
+    }
+  ],
+  "statistics": {
+    "city": {
+      "min": "chi",
+      "max": "nyc",
+      "null_count": 0,
+      "distinct_count": 3
+    }
+  }
+}

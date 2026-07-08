@@ -1,0 +1,4 @@
+git_config.h
+revwalk.o
+git_tool
+git_binary

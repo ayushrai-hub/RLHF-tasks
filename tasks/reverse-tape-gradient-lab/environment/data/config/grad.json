@@ -1,0 +1,6 @@
+{
+  "lab_version": "rtg-1",
+  "fd_step": 1e-05,
+  "grad_tol": 0.0001,
+  "default_pass": "first"
+}

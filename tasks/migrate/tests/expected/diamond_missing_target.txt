@@ -1,0 +1,3 @@
+revert.o
+bisect.o
+git_package

@@ -1,0 +1,10 @@
+[package]
+name = "glassreef-planner"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "glassreef-planner"
+path = "src/bin/glassreef_planner.rs"
+
+[dependencies]

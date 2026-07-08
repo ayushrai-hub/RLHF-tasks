@@ -1,0 +1,45 @@
+--- a/environment/w7/mx/g_plan_m.sh	2026-07-06 12:23:18.377552631 +0530
++++ b/environment/w7/mx/g_plan_m.sh	2026-07-06 12:20:52.311545265 +0530
+@@ -16,19 +16,37 @@
+     else if (surf=="r1") { if (!(id in r1e) || ep+0 > r1e[id]+0) { r1e[id]=ep; r1r[id]=role; r1g[id]=region } }
+   }
+   END {
+-    # Resolve every non-retired, non-alias host by authority.
++    # Pass 1: resolve every non-retired, non-alias host by authority + per-field region.
+     for (id in ids) {
+       if (id in retire || id in aliasq) continue;
+-      if (id in r3s)      { res_d[id]="override";          res_s[id]="r3"; res_e[id]=r3e[id]; res_r[id]=r3r[id]; res_g[id]=r3g[id]; done[id]=1 }
+-      else if (id in r2s) { res_d[id]="verified_baseline";  res_s[id]="r2"; res_e[id]=r2e[id]; res_r[id]=r2r[id]; res_g[id]=r2g[id]; done[id]=1 }
+-      else if (id in r1e) { res_d[id]="freshest_probe";     res_s[id]="r1"; res_e[id]=r1e[id]; res_r[id]=r1r[id]; res_g[id]=r1g[id]; done[id]=1 }
++      reg = "-";
++      if (id in r1e && r1g[id] != "-") reg = r1g[id];
++      if (id in r2s && r2g[id] != "-") reg = r2g[id];
++      if (id in r3s && r3g[id] != "-") reg = r3g[id];
++      if (id in r3s)      { res_d[id]="override";          res_s[id]="r3"; res_e[id]=r3e[id]; res_r[id]=r3r[id]; res_g[id]=reg; done[id]=1 }
++      else if (id in r2s) { res_d[id]="verified_baseline";  res_s[id]="r2"; res_e[id]=r2e[id]; res_r[id]=r2r[id]; res_g[id]=reg; done[id]=1 }
++      else if (id in r1e) { res_d[id]="freshest_probe";     res_s[id]="r1"; res_e[id]=r1e[id]; res_r[id]=r1r[id]; res_g[id]=reg; done[id]=1 }
+     }
++    # Pass 2: resolve aliases to a fixpoint in dependency order.
++    n=0; for (id in ids) n++;
++    for (k=0;k<n;k++) {
++      changed=0;
++      for (id in aliasq) {
++        if (id in done) continue;
++        t=atarget[id];
++        if (t in done) {
++          res_d[id]="alias"; res_s[id]="r3"; res_e[id]=aep[id]; res_r[id]=res_r[t]; res_g[id]=res_g[t]; done[id]=1; changed=1;
++        }
++      }
++      if (changed==0) break;
++    }
++    for (id in aliasq) { if (!(id in done)) cyclefail[id]=1 }
+     # Ordered output.
+     m=0; for (id in ids) { order[m++]=id }
+     for (i=0;i<m;i++) for (j=i+1;j<m;j++) if (order[j] < order[i]) { t2=order[i]; order[i]=order[j]; order[j]=t2 }
+     for (i=0;i<m;i++) {
+       id=order[i];
+-      if (id in retire) {
++      if (id in retire || id in cyclefail) {
+         printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\n", id, "retired", "-", "-", "-", "-", cand[id];
+       } else if (id in done) {
+         printf "%s\t%s\t%s\t%s\t%s\t%s\t%s\n", id, res_d[id], res_s[id], res_e[id], res_r[id], res_g[id], cand[id];

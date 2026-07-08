@@ -1,0 +1,127 @@
+Reverse-mode tape gradient lab contract
+=======================================
+
+Install CLIs with /app/environment/scripts/rebuild.sh into /app/environment/build/.
+
+Public surfaces
+- /app/output/gradient_report.json
+- /app/output/node_trace.csv
+- /app/output/pass_journal.jsonl
+- /app/var/grad/session.json
+- /app/var/grad/pool_state.json
+- /app/var/grad/tape_epoch.json
+- /app/var/grad/checkpoint.json
+- gradctl-probe modes: digest, fingerprint, status, grad, epoch, pool, checkpoint
+- gradctl-audit prints aligned or drift
+- gradctl-inspect prints session projection
+
+CLI
+gradctl-run --set s1|s2|s3|all
+gradctl-run --graphs name,name
+gradctl-run --reset clears /app/var/grad/ then runs
+GRAD_GRAPH_DIR, GRAD_CONFIG, GRAD_POLICY, GRAD_PASS_ORDER override defaults
+GRAD_FD_STEP, GRAD_GRAD_TOL, GRAD_POOL_CLEAR override numeric policy (highest precedence)
+
+Graph sets
+s1: shared_square, chain_mul
+s2: broadcast_add, matmul_vec
+s3: second_order_scalar, reduce_axes
+all: all six graphs
+
+Tensor layout
+All tensors are row-major float64 flat arrays with explicit shape vectors.
+Variables are named strings. Node ids are unique strings.
+
+Supported ops
+add: elementwise with numpy-style broadcast on inputs
+mul: elementwise with broadcast
+matmul: batched matrix multiply; left shape [..., M, K], right [..., K, N] -> [..., M, N]
+reduce_sum: sum input along listed axes (negative axes count from end)
+
+Shared subexpressions
+When the same variable name appears as input to multiple nodes, its gradient is the
+sum of contributions from every consuming backward path. The gradient pool accumulates
+per variable across the backward walk.
+
+Broadcast gradient rule
+For add/mul, the upstream gradient must be reduced (summed) along every axis that was
+broadcast-expanded in the forward pass when propagating to the smaller operand.
+
+Reduction gradient rule
+reduce_sum backward broadcasts the scalar (or lower-rank) upstream gradient to the input
+shape by inserting length-1 axes at every reduced axis, then tiling to the input shape.
+
+Second-order passes
+When graph field pass_order is "second", the engine runs a first-order backward pass,
+then clears the gradient pool and increments tape_epoch before evaluating second-order
+derivatives of the first-order gradient components with respect to variables (only scalar
+loss targets are supported for second-order). pool_state after second pass must reflect
+only the second-order accumulation.
+
+Loss target
+The loss node named by graph.loss is reduced to a scalar by taking the first element of
+its flattened tensor value. Backward seeding applies a unit gradient only to index 0.
+
+Finite-difference cross-check
+For each variable, report fd_delta as max absolute difference between analytic gradient
+and central finite difference using cfg fd_step (default 1e-5). grad_ok is true when
+fd_delta <= grad_tol (default 1e-4) for every variable in the graph.
+
+Session and counters
+Each graph increments session.run_count. tape_epoch starts at 1 after reset and
+increments once per graph pass_order second before the second backward walk.
+pool_checksum is SHA-256 hex of canonical JSON for pool_state variables map sorted by key.
+
+Checkpoint
+After each run command completes, checkpoint.json records waterline (session.run_count),
+run_fingerprint from the report, and a comma-joined graph label list. gradctl-probe
+checkpoint prints waterline:fingerprint or missing when absent.
+
+Policy resolution
+Numeric knobs fd_step, grad_tol, and pool_clear_on_second merge from config defaults,
+policy.toml, then environment overrides GRAD_FD_STEP, GRAD_GRAD_TOL, GRAD_POOL_CLEAR
+in that precedence order (environment wins).
+
+Graph feasibility
+Before execution, each graph must pass feasibility validation for broadcast-compatible
+add/mul operands and matmul inner dimensions. Infeasible graphs produce grad_ok false
+with structured artifacts and do not invoke the engine backward pass.
+
+Digests
+report_digest_hex is SHA-256 over newline-joined trial summary lines in run order:
+graph:pass:loss:grad_ok
+with grad_ok lowercase.
+
+journal_digest_hex is SHA-256 over newline-joined canonical journal JSON lines sorted
+lexicographically. Each journal object uses keys epoch, graph, grad_ok, loss, pass,
+pool_checksum with compact separators and sorted keys.
+
+run_fingerprint is SHA-256 over newline-joined lines in run order:
+graph:loss:grad_ok:fd_max
+with grad_ok lowercase and fd_max formatted to 6 decimals.
+
+CSV header
+graph,node_id,op,forward_6,backward_6
+
+Probe, audit, inspect
+gradctl-probe status returns ok when every trial grad_ok is true, else fail.
+gradctl-probe grad <var> prints comma-separated gradient components from the final trial.
+gradctl-probe epoch prints tape_epoch.current.
+gradctl-probe pool prints pool_checksum from pool_state.
+gradctl-probe checkpoint prints waterline:fingerprint from checkpoint.json.
+Unknown modes print missing.
+gradctl-audit recomputes trials from sources and prints aligned only when report fields,
+CSV rows, pool_state, checkpoint fingerprint, and session counters agree; otherwise drift.
+gradctl-inspect prints:
+run_count=<n> epoch=<e> fingerprint=<hex> graphs=<comma-labels>
+
+Cross-surface invariants
+CSV rows match report trials for graph and node ordering.
+pool_state.variables matches report final per-variable gradients for the last graph.
+session.run_count equals report.trials length after a single run command.
+Probe digest/fingerprint/grad/epoch/pool agree with report and persisted state.
+
+Negative paths
+invalid_broadcast graph must set grad_ok false and status fail while still emitting
+structured artifacts. Mutated graphs, policies, and graph directories must shift losses,
+gradients, digests, and epoch counters.

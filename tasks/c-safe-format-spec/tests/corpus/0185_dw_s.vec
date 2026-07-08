@@ -1,0 +1,3 @@
+fmt	[%*s]
+arg	i	8
+arg	s	hi

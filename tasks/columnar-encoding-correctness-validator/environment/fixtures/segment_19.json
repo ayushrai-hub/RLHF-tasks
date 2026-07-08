@@ -1,0 +1,35 @@
+{
+  "segment_id": "segment_19",
+  "row_count": 3,
+  "schema_version": 1,
+  "columns": [
+    {
+      "name": "code",
+      "encoding": "dictionary",
+      "logical_type": "string",
+      "dictionary": [
+        "aa"
+      ],
+      "indices": [
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page_id": 0,
+      "column": "code",
+      "checksum_hex": "6b8e8dbb7879e4fa"
+    }
+  ],
+  "statistics": {
+    "code": {
+      "min": "aa",
+      "max": "zz",
+      "null_count": 0,
+      "distinct_count": 1
+    }
+  }
+}

@@ -1,0 +1,16 @@
+# Keep the build context to the depmap source and its data fixtures only.
+solution
+tests
+.env
+node_modules
+**/out/
+**/*.db
+**/*.dot
+**/build-plan.json
+.git/
+.gitignore
+__pycache__/
+*.pyc
+*.pyo
+*.log
+*.tmp

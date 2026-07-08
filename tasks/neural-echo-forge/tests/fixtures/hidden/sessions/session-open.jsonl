@@ -1,0 +1,2 @@
+{"session_id":"s-open","turn_seq":1,"anchor_ms":500,"role":"assistant","memory":{"memory_id":"mem-open-a","subject":"user:alice","predicate":"notify_pref","object":"sms","confidence":0.99,"tier":"short"}}
+{"session_id":"s-open","turn_seq":2,"anchor_ms":1500,"role":"assistant","memory":{"memory_id":"mem-open-b","subject":"user:alice","predicate":"notify_pref","object":"email","confidence":0.6,"tier":"short"}}

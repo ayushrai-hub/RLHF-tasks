@@ -1,0 +1,10 @@
+{
+  "name": "telemetry",
+  "base": "debian:12",
+  "packages": [
+    {"name": "collector", "constraint": "*"},
+    {"name": "analyzer", "constraint": "<3.0.0"},
+    {"name": "tokenizer", "constraint": "<4.0.0"}
+  ],
+  "toolchains": []
+}

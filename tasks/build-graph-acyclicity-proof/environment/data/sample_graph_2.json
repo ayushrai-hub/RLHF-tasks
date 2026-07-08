@@ -1,0 +1,21 @@
+{
+  "flags": [],
+  "constraints": [],
+  "tasks": [
+    {
+      "id": "A",
+      "depends_on": [
+        { "task": "B", "condition": "" }
+      ],
+      "resources": []
+    },
+    {
+      "id": "B",
+      "depends_on": [
+        { "task": "A", "condition": "" }
+      ],
+      "resources": []
+    }
+  ],
+  "parallel_groups": []
+}

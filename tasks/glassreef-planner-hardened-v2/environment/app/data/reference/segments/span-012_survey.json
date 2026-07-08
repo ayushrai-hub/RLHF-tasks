@@ -1,0 +1,12 @@
+{
+  "span_id": "SPAN-012",
+  "from": "RPT-DELTA",
+  "to": "LAND-WEST",
+  "survey_epoch": "2026-Q1",
+  "sediment": "basaltic sand",
+  "depth_m": 4500,
+  "risk_register": [
+    "anchor-0",
+    "eddy-4"
+  ]
+}

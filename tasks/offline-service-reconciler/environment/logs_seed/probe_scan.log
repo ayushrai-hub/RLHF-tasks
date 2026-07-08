@@ -1,0 +1,9 @@
+# sampled probe scan excerpt (partial) - textual only, no epoch or authority
+atlas gen=0 role=web
+atlas gen=1 role=cache
+basalt gen=0 role=edge
+basalt gen=1 role=batch
+cedar gen=0 role=proxy
+cedar gen=1 role=proxy
+dune gen=0 role=batch
+dune gen=1 role=batch

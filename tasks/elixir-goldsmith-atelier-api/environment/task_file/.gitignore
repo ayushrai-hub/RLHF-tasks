@@ -1,0 +1,10 @@
+_build/
+deps/
+.elixir_ls/
+erl_crash.dump
+data/
+logs/
+*.db
+*.db-journal
+*.db-wal
+*.db-shm

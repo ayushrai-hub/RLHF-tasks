@@ -1,0 +1,4 @@
+Manifest 08
+ROV spares: 2
+Cable grapnels: 3
+Deck watch: team D

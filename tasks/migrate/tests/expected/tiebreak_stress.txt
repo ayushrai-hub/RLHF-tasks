@@ -1,0 +1,6 @@
+rebase.o
+version_stamp
+diff.o
+pack.o
+commit.o
+libgit

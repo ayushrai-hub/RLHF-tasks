@@ -1,0 +1,11 @@
+reflog.c 500
+fetch.c 500
+stash.c 300
+blob.c 400
+submodule.c 600
+reflog.o 700
+fetch.o 700
+stash.o 700
+blob.o 700
+submodule.o 800
+git_tool 900

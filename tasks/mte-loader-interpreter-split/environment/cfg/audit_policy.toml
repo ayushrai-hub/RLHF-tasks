@@ -1,0 +1,4 @@
+[audit]
+scope = "graph"
+main_only_export = false
+visit_shared = true

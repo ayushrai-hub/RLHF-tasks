@@ -1,0 +1,3 @@
+fmt	%3$d
+arg	i	1
+arg	i	2

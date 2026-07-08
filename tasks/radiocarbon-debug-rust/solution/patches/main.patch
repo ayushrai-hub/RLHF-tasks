@@ -1,0 +1,223 @@
+--- src/main.rs
++++ src/main.rs
+@@ -1,9 +1,11 @@
+ use std::process::ExitCode;
+ 
+ use radiocal::calibrate::{
+-    calibrate, combine, curve_mixture_calibrate, hpd, phase_bounds, reservoir_wiggle_match,
+-    sequence, wiggle_match, Calibration, CalibrationInput, Combined, CurveMixtureResult,
+-    CurveModel, Determination, IntervalReport, PhaseDistribution, PhaseResult, PhaseSample,
++    calibrate, combine, curve_mixture_calibrate, curve_mixture_sequence, hpd, phase_bounds,
++    reservoir_wiggle_match, phase_sequence, sequence, wiggle_match, Calibration,
++    CalibrationInput, Combined, CurveMixtureResult, CurveMixtureSequenceResult, CurveModel,
++    Determination, IntervalReport, PhaseDistribution, PhaseResult, PhaseSample,
++    PhaseSequenceGapResult, PhaseSequencePhase, PhaseSequencePhaseResult, PhaseSequenceResult,
+     ReservoirWiggleResult, SequenceMarginal, SequenceResult, SequenceSample,
+     WiggleCalendarSummary, WiggleResult, WiggleSample,
+ };
+@@ -59,6 +61,16 @@
+     Ok(Some(nums))
+ }
+ 
++fn optional_num_field(obj: &Json, key: &str) -> Result<Option<f64>> {
++    let Some(value) = obj.get(key) else {
++        return Ok(None);
++    };
++    value
++        .as_f64()
++        .map(Some)
++        .ok_or_else(|| Error(format!("field {:?} must be a number", key)))
++}
++
+ fn calibration_input(op: &Json) -> Result<CalibrationInput> {
+     Ok(CalibrationInput {
+         curve: parse_curve(field(op, "curve")?)?,
+@@ -149,6 +161,21 @@
+         });
+     }
+     Ok(samples)
++}
++
++fn phase_sequence_phases_field(op: &Json) -> Result<Vec<PhaseSequencePhase>> {
++    let rows = field(op, "phases")?
++        .as_array()
++        .ok_or_else(|| Error("phases must be an array".to_string()))?;
++    let mut phases = Vec::with_capacity(rows.len());
++    for row in rows {
++        phases.push(PhaseSequencePhase {
++            samples: phase_samples_field(row)?,
++            min_span: optional_num_field(row, "min_span")?,
++            max_span: optional_num_field(row, "max_span")?,
++        });
++    }
++    Ok(phases)
+ }
+ 
+ fn curve_point_json(p: radiocal::curve::CurvePoint) -> Json {
+@@ -278,6 +305,23 @@
+     ])
+ }
+ 
++fn curve_mixture_sequence_json(result: &CurveMixtureSequenceResult) -> Json {
++    Json::Obj(vec![
++        (
++            "order_probability".to_string(),
++            Json::Num(result.order_probability),
++        ),
++        (
++            "model_order_probabilities".to_string(),
++            triples_json(&result.model_order_probabilities),
++        ),
++        (
++            "marginals".to_string(),
++            Json::Arr(result.marginals.iter().map(marginal_json).collect()),
++        ),
++    ])
++}
++
+ fn wiggle_calendar_json(summary: &WiggleCalendarSummary) -> Json {
+     Json::Obj(vec![
+         ("sample".to_string(), Json::Num(summary.sample as f64)),
+@@ -385,10 +429,77 @@
+         (
+             "span".to_string(),
+             phase_distribution_json(&result.span, "mean_years", "mode_years"),
++        ),
++    ])
++}
++
++fn phase_sequence_phase_json(result: &PhaseSequencePhaseResult) -> Json {
++    Json::Obj(vec![
++        ("phase".to_string(), Json::Num(result.phase as f64)),
++        (
++            "start".to_string(),
++            phase_distribution_json(&result.start, "mean_cal_bp", "mode_cal_bp"),
++        ),
++        (
++            "end".to_string(),
++            phase_distribution_json(&result.end, "mean_cal_bp", "mode_cal_bp"),
++        ),
++        (
++            "span".to_string(),
++            phase_distribution_json(&result.span, "mean_years", "mode_years"),
++        ),
++    ])
++}
++
++fn phase_sequence_gap_json(result: &PhaseSequenceGapResult) -> Json {
++    let cal = Calibration {
++        points: result.distribution.points.clone(),
++        mean_cal_bp: result.distribution.mean,
++        mode_cal_bp: result.distribution.mode,
++    };
++    Json::Obj(vec![
++        ("gap".to_string(), Json::Num(result.gap as f64)),
++        ("points".to_string(), points_json(&cal)),
++        (
++            "mean_years".to_string(),
++            Json::Num(result.distribution.mean),
+         ),
++        (
++            "mode_years".to_string(),
++            Json::Num(result.distribution.mode),
++        ),
++        (
++            "intervals".to_string(),
++            Json::Arr(result.distribution.intervals.iter().map(interval_json).collect()),
++        ),
+     ])
+ }
+ 
++fn phase_sequence_json(result: &PhaseSequenceResult) -> Json {
++    Json::Obj(vec![
++        (
++            "phases".to_string(),
++            Json::Arr(
++                result
++                    .phases
++                    .iter()
++                    .map(phase_sequence_phase_json)
++                    .collect(),
++            ),
++        ),
++        (
++            "gap_posteriors".to_string(),
++            Json::Arr(
++                result
++                    .gap_posteriors
++                    .iter()
++                    .map(phase_sequence_gap_json)
++                    .collect(),
++            ),
++        ),
++    ])
++}
++
+ fn run_op(op: &Json) -> Result<Json> {
+     match str_field(op, "kind")? {
+         "interpolate" => {
+@@ -439,6 +550,23 @@
+                 &levels,
+             )?))
+         }
++        "curve_mixture_sequence" => {
++            let models = curve_models_field(op)?;
++            let samples = sequence_samples_field(op)?;
++            let min_gaps = optional_number_array_field(op, "min_gaps")?;
++            let max_gaps = optional_number_array_field(op, "max_gaps")?;
++            let levels = levels_field(op)?;
++            Ok(curve_mixture_sequence_json(&curve_mixture_sequence(
++                &models,
++                &samples,
++                num_field(op, "start_cal_bp")?,
++                num_field(op, "end_cal_bp")?,
++                num_field(op, "step")?,
++                min_gaps.as_deref(),
++                max_gaps.as_deref(),
++                &levels,
++            )?))
++        }
+         "wiggle_match" => {
+             let curve = parse_curve(field(op, "curve")?)?;
+             let samples = wiggle_samples_field(op)?;
+@@ -481,6 +609,23 @@
+                 &levels,
+             )?))
+         }
++        "phase_sequence" => {
++            let curve = parse_curve(field(op, "curve")?)?;
++            let phases = phase_sequence_phases_field(op)?;
++            let min_gaps = optional_number_array_field(op, "min_gaps")?;
++            let max_gaps = optional_number_array_field(op, "max_gaps")?;
++            let levels = levels_field(op)?;
++            Ok(phase_sequence_json(&phase_sequence(
++                &curve,
++                &phases,
++                num_field(op, "start_cal_bp")?,
++                num_field(op, "end_cal_bp")?,
++                num_field(op, "step")?,
++                min_gaps.as_deref(),
++                max_gaps.as_deref(),
++                &levels,
++            )?))
++        }
+         other => Err(Error(format!("unknown operation {:?}", other))),
+     }
+ }
+@@ -494,9 +639,14 @@
+ }
+ 
+ fn run() -> Result<String> {
+-    let path = std::env::args()
+-        .nth(1)
++    let mut args = std::env::args();
++    let _program = args.next();
++    let path = args
++        .next()
+         .ok_or_else(|| Error("usage: radiocal <cases.json>".to_string()))?;
++    if args.next().is_some() {
++        return Err(Error("usage: radiocal <cases.json>".to_string()));
++    }
+     let text = std::fs::read_to_string(&path)
+         .map_err(|e| Error(format!("cannot read {}: {}", path, e)))?;
+     let doc = json::parse(&text)?;

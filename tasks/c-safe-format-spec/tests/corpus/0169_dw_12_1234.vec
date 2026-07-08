@@ -1,0 +1,3 @@
+fmt	[%*d]
+arg	i	12
+arg	i	1234

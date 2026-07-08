@@ -1,0 +1,3 @@
+{"session_id":"s-alpha","turn_seq":1,"anchor_ms":1000,"role":"user","text":"I prefer oat milk lattes"}
+{"session_id":"s-alpha","turn_seq":2,"anchor_ms":1100,"role":"assistant","memory":{"memory_id":"mem-001","subject":"user:alice","predicate":"drink_pref","object":"oat milk latte","confidence":0.85,"tier":"short"}}
+{"session_id":"s-alpha","turn_seq":3,"anchor_ms":1200,"role":"assistant","memory":{"memory_id":"mem-003","subject":"user:alice","predicate":"work_location","object":"Chicago office","confidence":0.8,"tier":"long"}}

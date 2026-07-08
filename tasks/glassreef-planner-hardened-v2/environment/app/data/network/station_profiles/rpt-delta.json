@@ -1,0 +1,12 @@
+{
+  "station_id": "RPT-DELTA",
+  "kind": "repeater",
+  "priority": 31,
+  "region": "GLASS",
+  "lat": -20.69053,
+  "lon": 152.60747,
+  "notes": [
+    "RPT-DELTA acoustic beacon",
+    "GLASS relay class repeater"
+  ]
+}

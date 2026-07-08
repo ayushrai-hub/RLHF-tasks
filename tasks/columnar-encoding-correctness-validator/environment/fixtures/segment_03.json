@@ -1,0 +1,37 @@
+{
+  "segment_id": "segment_03",
+  "row_count": 5,
+  "schema_version": 1,
+  "columns": [
+    {
+      "name": "flag",
+      "encoding": "rle",
+      "logical_type": "string",
+      "runs": [
+        {
+          "value": "on",
+          "length": 2
+        },
+        {
+          "value": "off",
+          "length": 2
+        }
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page_id": 0,
+      "column": "flag",
+      "checksum_hex": "3de9346b7336368c"
+    }
+  ],
+  "statistics": {
+    "flag": {
+      "min": "off",
+      "max": "on",
+      "null_count": 0,
+      "distinct_count": 2
+    }
+  }
+}

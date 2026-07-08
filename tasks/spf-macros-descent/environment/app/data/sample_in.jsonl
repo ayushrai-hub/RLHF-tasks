@@ -1,0 +1,3 @@
+{"id":"s001","mail_from":"alice@sender-a.test","helo":"mx.sender-a.test","from_ip":"192.0.2.5"}
+{"id":"s002","mail_from":"alice@sender-a.test","helo":"mx.sender-a.test","from_ip":"10.0.0.5"}
+{"id":"s003","mail_from":"paul@nonexistent.test","helo":"mx.nonexistent.test","from_ip":"10.0.0.1"}

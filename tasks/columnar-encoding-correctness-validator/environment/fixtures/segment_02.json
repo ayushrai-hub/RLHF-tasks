@@ -1,0 +1,36 @@
+{
+  "segment_id": "segment_02",
+  "row_count": 3,
+  "schema_version": 1,
+  "columns": [
+    {
+      "name": "region",
+      "encoding": "dictionary",
+      "logical_type": "string",
+      "dictionary": [
+        "east",
+        "west"
+      ],
+      "indices": [
+        0,
+        1,
+        2
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page_id": 0,
+      "column": "region",
+      "checksum_hex": "2a3db4d988d39075"
+    }
+  ],
+  "statistics": {
+    "region": {
+      "min": "INVALID",
+      "max": "west",
+      "null_count": 0,
+      "distinct_count": 3
+    }
+  }
+}

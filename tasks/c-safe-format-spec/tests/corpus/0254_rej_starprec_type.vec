@@ -1,0 +1,3 @@
+fmt	%.*d
+arg	u	3
+arg	i	5

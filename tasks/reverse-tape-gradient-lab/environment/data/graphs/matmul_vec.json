@@ -1,0 +1,50 @@
+{
+  "name": "matmul_vec",
+  "pass_order": "first",
+  "vars": {
+    "A": {
+      "shape": [
+        2,
+        2
+      ],
+      "data": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "B": {
+      "shape": [
+        2,
+        1
+      ],
+      "data": [
+        1,
+        1
+      ]
+    }
+  },
+  "nodes": [
+    {
+      "id": "C",
+      "op": "matmul",
+      "inputs": [
+        "A",
+        "B"
+      ]
+    },
+    {
+      "id": "out",
+      "op": "reduce_sum",
+      "inputs": [
+        "C"
+      ],
+      "axes": [
+        0,
+        1
+      ]
+    }
+  ],
+  "loss": "out"
+}

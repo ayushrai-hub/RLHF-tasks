@@ -1,0 +1,3 @@
+# Digest notes
+
+The canonical digest text is built from the final sorted scheduled repairs followed by final sorted rejected repairs and sorted unreachable stations. Repair records use span_id|ship_id|start_utc|end_utc|score|restored_station_list, with restored stations joined by semicolons. The end_utc in digest material is the computed repair end from the duration helper. Rejected records use reject|span_id|reason. Unreachable records use unreachable|station_id. Lines are joined with a newline character and hashed with FNV-1a-64 using offset 14695981039346656037 and prime 1099511628211. The empty canonical text is allowed and hashes to the offset basis.

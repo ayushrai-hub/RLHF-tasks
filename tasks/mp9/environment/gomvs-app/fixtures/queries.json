@@ -1,0 +1,7 @@
+{
+  "queries": [
+    {"module": "rsc.io/quote", "version": "v1.5.2"},
+    {"module": "rsc.io/sampler", "version": "v1.3.0"},
+    {"module": "golang.org/x/tools", "version": "v0.1.0"}
+  ]
+}

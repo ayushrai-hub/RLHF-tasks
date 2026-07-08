@@ -1,0 +1,8 @@
+beam_id=deck_a
+revision=2
+amendment=accept
+integrity=stage-accept-2
+
+replace_segment main 2.0 10.0 E_gpa=200 section_width_mm=150 section_depth_mm=300
+replace_load_case dead
+POINT_F 10000 1.0

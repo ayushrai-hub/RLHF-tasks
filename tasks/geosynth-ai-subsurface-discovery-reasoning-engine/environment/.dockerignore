@@ -1,0 +1,7 @@
+solution/
+tests/
+target/
+.git/
+**/__pycache__/
+**/*.pyc
+jobs/

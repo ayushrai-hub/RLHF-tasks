@@ -1,0 +1,229 @@
+--- a/internal/drive/refresh.go
++++ b/internal/drive/refresh.go
+@@ -26,7 +26,7 @@
+ 	if r.active == nil {
+ 		return fmt.Errorf("step %d: refresh before publish", stepNo)
+ 	}
+-	ok, reason, proofAge := directory.AgeOnlyStatus(r.active.Proof, step.Tick, r.book.Scenario.FreshnessBound)
++	ok, reason, proofAge := directory.ProofStatus(r.active.Proof, r.active.Revision, step.Tick, r.book.Scenario.FreshnessBound)
+ 	rec := model.RefreshRecord{
+ 		Step:          stepNo,
+ 		Tick:          step.Tick,
+@@ -46,9 +46,17 @@
+ 		Reason:        reason,
+ 	})
+ 	if !ok {
++		r.idx.Reset()
++		if err := os.MkdirAll(r.statePath, 0o755); err != nil {
++			return err
++		}
++		if err := ring.SaveRows(r.statePath, r.idx.Rows()); err != nil {
++			return err
++		}
+ 		r.auditCollector.Add(stepNo, step.Tick, "refresh", r.active.Revision, reason)
+ 		return nil
+ 	}
++	r.refreshEpoch++
+ 	stampEpoch := r.refreshEpoch
+ 	seen := map[string]bool{}
+ 	for _, principal := range r.active.Principals {
+@@ -58,9 +66,9 @@
+ 		} else {
+ 			r.store.Upsert(ledger.RevokedEntry(principal, r.active.Revision, r.active.Proof, step.Tick, r.book.Scenario.FreshnessBound, proofAge, stampEpoch))
+ 		}
+-		r.idx.ApplyPrincipal(principal)
+ 	}
+ 	r.store.MarkMissingAsRevoked(seen, r.active.Revision, r.active.Proof, step.Tick, r.book.Scenario.FreshnessBound, proofAge, stampEpoch)
++	r.idx.RebuildFromEntries(r.store.Entries())
+ 	if err := os.MkdirAll(r.statePath, 0o755); err != nil {
+ 		return err
+ 	}
+@@ -70,7 +78,6 @@
+ 	if err := ring.SaveRows(r.statePath, r.idx.Rows()); err != nil {
+ 		return err
+ 	}
+-	r.refreshEpoch++
+ 	r.auditCollector.Add(stepNo, step.Tick, "refresh", r.active.Revision, "local cache and group index refreshed")
+ 	_ = filepath.Clean(r.statePath)
+ 	return nil
+--- a/internal/drive/runner.go
++++ b/internal/drive/runner.go
+@@ -89,11 +89,18 @@
+ 		return err
+ 	}
+ 	r.store = store
+-	r.idx = ring.IndexFromRows(rows)
++	_ = rows
++	r.idx = ring.NewMembershipIndex()
++	r.idx.RebuildFromEntries(store.Entries())
+ 	r.startStep = m.CompletedStep
+-	r.refreshEpoch = m.RefreshEpoch
++	maxEpoch := ledger.MaxRefreshEpoch(store.Entries())
++	if m.RefreshEpoch < maxEpoch {
++		r.refreshEpoch = maxEpoch
++	} else {
++		r.refreshEpoch = m.RefreshEpoch
++	}
+ 	r.resumeFromStep = m.CompletedStep
+-	r.epochAtResumeStart = m.RefreshEpoch
++	r.epochAtResumeStart = r.refreshEpoch
+ 	_ = m.LastAccepted
+ 	if m.HeadRevision != 0 {
+ 		if snap, found := r.book.Snapshot(m.HeadRevision); found {
+@@ -149,7 +156,7 @@
+ 			Resume: model.ResumeState{
+ 				Used:       r.resume,
+ 				FromStep:   r.resumeFromStep,
+-				EpochStart: r.refreshEpoch,
++				EpochStart: r.epochAtResumeStart,
+ 			},
+ 		},
+ 	}
+--- a/internal/gate/evaluator.go
++++ b/internal/gate/evaluator.go
+@@ -48,27 +48,43 @@
+ 	}
+ 	decision.SubjectID = entry.SubjectID
+ 	decision.Generation = entry.Generation
+-	decision.Groups = append([]string(nil), entry.Groups...)
++	decision.Groups = append([]string{}, entry.Groups...)
+ 	decision.CacheRevision = entry.DirectoryRevision
+ 	decision.ProofRevision = entry.ProofRevision
+ 	decision.ProofAge = ledger.ProofAgeAtAuthorize(entry, req.Tick)
++	if entry.DirectoryRevision != req.ActiveRevision || entry.ProofRevision != req.ActiveRevision {
++		decision.Reason = ReasonUnprovenRevision
++		return decision, nil
++	}
++	if entry.RefreshEpoch != req.RefreshEpoch {
++		decision.Reason = ReasonStaleCacheEpoch
++		return decision, nil
++	}
++	if req.HasPrincipal {
++		if entry.SubjectID != req.ActivePrincipal.SubjectID || entry.Generation != req.ActivePrincipal.Generation {
++			decision.Reason = ReasonSubjectMismatch
++			return decision, nil
++		}
++	}
+ 	if !ledger.IsLive(entry, req.Tick) {
+ 		decision.Reason = ReasonExpiredEntry
+ 		return decision, nil
+ 	}
++	if !ledger.ProofFreshAtAuthorize(entry, req.Tick, e.Bound) {
++		decision.Reason = ReasonProofExpiredAtAuth
++		return decision, nil
++	}
+ 	if entry.Revoked {
+ 		decision.Reason = ReasonRevokedPrincipal
++		return decision, nil
+ 	}
+ 	for _, group := range required {
+-		if e.Index.Contains(group, req.Username) {
++		if ledger.HasGroup(entry, group) {
+ 			decision.Result = ResultAllow
+ 			decision.Reason = ReasonAllowedByGroup
+ 			return decision, nil
+ 		}
+ 	}
+-	if decision.Reason == ReasonRevokedPrincipal {
+-		return decision, nil
+-	}
+ 	decision.Reason = ReasonMissingRequiredGroup
+ 	return decision, nil
+ }
+--- a/internal/ledger/entry.go
++++ b/internal/ledger/entry.go
+@@ -6,14 +6,18 @@
+ 	"localauthz/internal/model"
+ )
+ 
++func normalizedGroups(groups []string) []string {
++	out := append([]string{}, groups...)
++	sort.Strings(out)
++	return out
++}
++
+ func NewEntry(p model.Principal, revision int, proof model.Proof, tick int, bound int, proofAge int, refreshEpoch int) model.CacheEntry {
+-	groups := append([]string(nil), p.Groups...)
+-	sort.Strings(groups)
+ 	return model.CacheEntry{
+ 		Username:          p.Username,
+ 		SubjectID:         p.SubjectID,
+ 		Generation:        p.Generation,
+-		Groups:            groups,
++		 		Groups:            normalizedGroups(p.Groups),
+ 		DirectoryRevision: revision,
+ 		ProofRevision:     proof.Revision,
+ 		ProofAge:          proofAge,
+--- a/internal/ledger/store.go
++++ b/internal/ledger/store.go
+@@ -24,6 +24,7 @@
+ }
+ 
+ func (s *Store) Upsert(entry model.CacheEntry) {
++	entry.Groups = normalizedGroups(entry.Groups)
+ 	s.entries[entry.Username] = entry
+ }
+ 
+@@ -46,14 +47,14 @@
+ 
+ func (s *Store) Get(username string) (model.CacheEntry, bool) {
+ 	entry, ok := s.entries[username]
++	entry.Groups = normalizedGroups(entry.Groups)
+ 	return entry, ok
+ }
+ 
+ func (s *Store) Entries() []model.CacheEntry {
+ 	out := make([]model.CacheEntry, 0, len(s.entries))
+ 	for _, entry := range s.entries {
+-		entry.Groups = append([]string(nil), entry.Groups...)
+-		sort.Strings(entry.Groups)
++		entry.Groups = normalizedGroups(entry.Groups)
+ 		out = append(out, entry)
+ 	}
+ 	sort.SliceStable(out, func(i, j int) bool { return out[i].Username < out[j].Username })
+@@ -68,3 +69,14 @@
+ 	}
+ 	return NewStoreFromEntries(entries), nil
+ }
++
++
++func MaxRefreshEpoch(entries []model.CacheEntry) int {
++	max := 0
++	for _, entry := range entries {
++		if entry.RefreshEpoch > max {
++			max = entry.RefreshEpoch
++		}
++	}
++	return max
++}
+--- a/internal/ring/membership.go
++++ b/internal/ring/membership.go
+@@ -12,6 +12,28 @@
+ 
+ func NewMembershipIndex() *MembershipIndex {
+ 	return &MembershipIndex{groups: map[string]map[string]model.GroupMember{}}
++}
++
++
++
++func (m *MembershipIndex) Reset() {
++	m.groups = map[string]map[string]model.GroupMember{}
++}
++
++func (m *MembershipIndex) RebuildFromEntries(entries []model.CacheEntry) {
++	m.Reset()
++	for _, entry := range entries {
++		if entry.Revoked {
++			continue
++		}
++		member := model.GroupMember{Username: entry.Username, SubjectID: entry.SubjectID, Generation: entry.Generation}
++		for _, group := range entry.Groups {
++			if m.groups[group] == nil {
++				m.groups[group] = map[string]model.GroupMember{}
++			}
++			m.groups[group][entry.Username] = member
++		}
++	}
+ }
+ 
+ func (m *MembershipIndex) ApplyPrincipal(p model.Principal) {

@@ -1,0 +1,5 @@
+{
+  "valid_grades": ["14K", "18K", "22K", "24K"],
+  "fineness_min": 0,
+  "fineness_max": 1000
+}

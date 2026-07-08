@@ -1,0 +1,3 @@
+{"id":"s001","result":"pass","mechanism":"+a","domain":"sender-a.test","lookups":2,"void_lookups":0,"trace":["eval:sender-a.test","+a"]}
+{"id":"s002","result":"fail","mechanism":"-all","domain":"sender-a.test","lookups":6,"void_lookups":0,"trace":["eval:sender-a.test","eval:_spf.hosted.test","~all","-all"]}
+{"id":"s003","result":"none","mechanism":"","domain":"nonexistent.test","lookups":1,"void_lookups":1,"trace":["eval:nonexistent.test"]}

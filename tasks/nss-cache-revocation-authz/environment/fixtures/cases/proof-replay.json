@@ -1,0 +1,86 @@
+{
+  "name": "proof-replay-visible",
+  "freshness_bound": 1,
+  "resources": [
+    {
+      "id": "ledger",
+      "actions": {
+        "export": [
+          "finance"
+        ]
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "revision": 30,
+      "proof": {
+        "revision": 30,
+        "issued_at": 0,
+        "nonce": "proof-r30"
+      },
+      "principals": [
+        {
+          "username": "sana",
+          "subject_id": "subj-sana",
+          "generation": 1,
+          "groups": [
+            "finance"
+          ],
+          "active": true
+        }
+      ]
+    },
+    {
+      "revision": 31,
+      "proof": {
+        "revision": 30,
+        "issued_at": 1,
+        "nonce": "proof-replay-r30"
+      },
+      "principals": [
+        {
+          "username": "sana",
+          "subject_id": "subj-sana",
+          "generation": 1,
+          "groups": [],
+          "active": false
+        }
+      ]
+    }
+  ],
+  "steps": [
+    {
+      "op": "publish",
+      "tick": 0,
+      "revision": 30
+    },
+    {
+      "op": "refresh",
+      "tick": 0
+    },
+    {
+      "op": "authorize",
+      "tick": 0,
+      "username": "sana",
+      "resource": "ledger",
+      "action": "export"
+    },
+    {
+      "op": "publish",
+      "tick": 1,
+      "revision": 31
+    },
+    {
+      "op": "refresh",
+      "tick": 1
+    },
+    {
+      "op": "authorize",
+      "tick": 1,
+      "username": "sana",
+      "resource": "ledger",
+      "action": "export"
+    }
+  ]
+}

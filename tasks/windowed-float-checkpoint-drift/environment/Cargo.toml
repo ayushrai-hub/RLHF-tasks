@@ -1,0 +1,16 @@
+[package]
+name = "streamkit"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "lib.rs"
+
+[[bin]]
+name = "stream-stats"
+path = "cli/main.rs"
+
+[dependencies]
+serde = { version = "1.0.219", features = ["derive"] }
+serde_json = "1.0.140"
+clap = { version = "4.5.37", features = ["derive"] }

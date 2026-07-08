@@ -1,0 +1,20 @@
+beam_id=piece_a
+revision=1
+
+nodes:
+0.0 PIN settlement_mm=0
+8.0 PIN settlement_mm=0
+
+segments:
+main 0.0 8.0 E_gpa=200 section_width_mm=150 section_depth_mm=300
+
+stiffness:
+R1 main 0.0 8.0 factor=1.0
+
+load_cases:
+coincident
+POINT_M 6000 4.0
+UDL 2000 2.0 4.0
+
+combinations:
+check coincident:1.0

@@ -1,0 +1,12 @@
+{
+  "station_id": "HUB-HARBOR",
+  "kind": "hub",
+  "priority": 66,
+  "region": "SOUTH",
+  "lat": -21.18979,
+  "lon": 154.25466,
+  "notes": [
+    "HUB-HARBOR acoustic beacon",
+    "SOUTH relay class hub"
+  ]
+}

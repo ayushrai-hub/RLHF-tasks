@@ -1,0 +1,51 @@
+{
+  "name": "invalid_broadcast",
+  "pass_order": "first",
+  "vars": {
+    "P": {
+      "shape": [
+        2,
+        2
+      ],
+      "data": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "q": {
+      "shape": [
+        3
+      ],
+      "data": [
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "nodes": [
+    {
+      "id": "bad",
+      "op": "add",
+      "inputs": [
+        "P",
+        "q"
+      ]
+    },
+    {
+      "id": "out",
+      "op": "reduce_sum",
+      "inputs": [
+        "bad"
+      ],
+      "axes": [
+        0,
+        1
+      ]
+    }
+  ],
+  "loss": "out",
+  "expect_ok": false
+}

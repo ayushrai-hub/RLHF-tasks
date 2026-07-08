@@ -1,0 +1,4 @@
+name = "Glassreef Port 26"
+berths = 2
+crane_rating_t = 46
+spares = ["KIT-A2", "KIT-B4"]

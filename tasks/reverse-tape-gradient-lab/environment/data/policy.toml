@@ -1,0 +1,3 @@
+# grad policy
+pass_order_default = "first"
+pool_clear_on_second = true

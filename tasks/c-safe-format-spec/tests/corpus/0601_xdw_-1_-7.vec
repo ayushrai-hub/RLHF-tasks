@@ -1,0 +1,3 @@
+fmt	[%*d]
+arg	i	-1
+arg	i	-7

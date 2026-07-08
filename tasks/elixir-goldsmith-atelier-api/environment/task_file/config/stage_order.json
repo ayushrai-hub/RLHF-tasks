@@ -1,0 +1,18 @@
+{
+  "stages": [
+    "ingot_selected",
+    "assayed",
+    "cast_active",
+    "cast_complete",
+    "chased",
+    "hallmarked",
+    "released"
+  ],
+  "advance_targets": {
+    "ingot_selected": "assayed",
+    "assayed": "cast_active",
+    "cast_active": "cast_complete",
+    "cast_complete": "chased",
+    "chased": "hallmarked"
+  }
+}

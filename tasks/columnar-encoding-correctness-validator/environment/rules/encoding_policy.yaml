@@ -1,0 +1,15 @@
+ordering:
+  segment_sort_key: segment_id
+  fault_code_sort: lexicographic
+validation:
+  dictionary_index_base: 0
+  require_page_checksum: true
+  statistics_exact: true
+rle:
+  require_full_row_coverage: true
+pruning:
+  enforce_predicate_row_counts: true
+compaction:
+  require_monotonic_offsets: true
+parallel_encode:
+  require_unique_slots: true

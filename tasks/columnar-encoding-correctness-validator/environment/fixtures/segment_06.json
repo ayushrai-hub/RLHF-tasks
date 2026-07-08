@@ -1,0 +1,32 @@
+{
+  "segment_id": "segment_06",
+  "row_count": 3,
+  "schema_version": 1,
+  "columns": [
+    {
+      "name": "sku",
+      "encoding": "plain",
+      "logical_type": "string",
+      "values": [
+        "A",
+        "B",
+        "C"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page_id": 0,
+      "column": "sku",
+      "checksum_hex": "0000000000000000"
+    }
+  ],
+  "statistics": {
+    "sku": {
+      "min": "A",
+      "max": "C",
+      "null_count": 0,
+      "distinct_count": 3
+    }
+  }
+}

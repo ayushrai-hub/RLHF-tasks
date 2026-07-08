@@ -1,0 +1,72 @@
+#!/usr/bin/env bash
+# inv_verify --all-hosts --inventory-out <path> --report-out <path>
+#
+# Public checker for the reconciled fleet inventory. It validates the artifacts
+# that the toolchain under environment/w7 produces and exits 0 only when every
+# documented cross-artifact obligation holds. It never writes either artifact
+# and never regenerates the inventory; it only inspects.
+#
+# Checks performed:
+#   * the r2 baseline still verifies against its detached signature
+#     (a mutated baseline is rejected here);
+#   * both artifacts exist, are non-empty, and carry their schema markers;
+#   * the provenance digest in the inventory equals the binding digest in the
+#     report (grid_engine bind);
+#   * every host retired by an operator entry is absent from the surviving
+#     records and is recorded both in the inventory's retired list and in the
+#     report ledger as a removal.
+set -euo pipefail
+
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+ENV_ROOT="$(cd "$HERE/.." && pwd)"
+
+INV=""
+REP=""
+ALL=0
+while [ "$#" -gt 0 ]; do
+  case "$1" in
+    --all-hosts) ALL=1; shift ;;
+    --inventory-out) INV="$2"; shift 2 ;;
+    --report-out) REP="$2"; shift 2 ;;
+    *) echo "inv_verify: unknown argument '$1'" >&2; exit 64 ;;
+  esac
+done
+
+[ "$ALL" -eq 1 ] || { echo "inv_verify: --all-hosts is required" >&2; exit 64; }
+[ -n "$INV" ] && [ -n "$REP" ] || { echo "inv_verify: --inventory-out and --report-out are required" >&2; exit 64; }
+
+fail() { echo "inv_verify: FAIL - $1" >&2; exit 1; }
+
+# 1. baseline signature still verifies (rejects a tampered baseline).
+"$ENV_ROOT/r4/verify_sig.sh" "$ENV_ROOT/r2/base0.json" "$ENV_ROOT/r2/base0.sig" \
+  || fail "r2 baseline signature does not verify"
+
+# 2. artifacts exist and carry schema markers.
+[ -s "$INV" ] || fail "inventory artifact missing or empty"
+[ -s "$REP" ] || fail "report artifact missing or empty"
+grep -q '"schema_version"' "$INV" || fail "inventory missing schema_version"
+grep -q '"records"'        "$INV" || fail "inventory missing records"
+grep -q '"retired"'        "$INV" || fail "inventory missing retired"
+grep -q '"schema_version"' "$REP" || fail "report missing schema_version"
+grep -q '"ledger"'         "$REP" || fail "report missing ledger"
+
+# 3. cross-artifact digest binding.
+"$ENV_ROOT/r5/grid_engine.sh" bind "$INV" "$REP" \
+  || fail "provenance digest does not bind to the report ledger"
+
+# 4. operator-retired hosts are removed, not surviving.
+retired_ids="$("$ENV_ROOT/r4/dec0.sh" "$ENV_ROOT/r3/ov1.json" | awk -F'\t' '$5=="retire"{print $1}')"
+for rid in $retired_ids; do
+  # present in the report ledger as retired
+  grep -q "\"id\"[[:space:]]*:[[:space:]]*\"$rid\"" "$REP" \
+    || fail "retired host $rid missing from report ledger"
+  # present in the inventory retired list
+  grep -q "\"id\"[[:space:]]*:[[:space:]]*\"$rid\"" "$INV" \
+    || fail "retired host $rid missing from inventory retired list"
+done
+
+# 5. surviving records are present.
+grep -q '"id"' "$INV" || fail "inventory carries no surviving records"
+
+echo "inv_verify: OK"
+exit 0

@@ -1,0 +1,22 @@
+{
+  "profiles": [
+    {
+      "user_id": "alice",
+      "subject": "user:alice",
+      "baseline": [
+        {
+          "predicate": "timezone",
+          "object": "America/New_York",
+          "confidence": 0.5,
+          "tier": "long"
+        },
+        {
+          "predicate": "hobby",
+          "object": "rock climb",
+          "confidence": 0.4,
+          "tier": "short"
+        }
+      ]
+    }
+  ]
+}

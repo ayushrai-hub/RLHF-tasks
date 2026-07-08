@@ -1,0 +1,3 @@
+fmt	[%.*x]
+arg	i	-1
+arg	u	5

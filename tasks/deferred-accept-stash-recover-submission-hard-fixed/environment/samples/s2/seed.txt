@@ -1,0 +1,4 @@
+north|pre|5
+south|pre|15
+east|live|25
+west|live|35

@@ -1,0 +1,3 @@
+{"tool":"set_memory","anchor_ms":1500,"memory_id":"mem-tz","subject":"user:alice","predicate":"timezone","object":"America/Chicago","confidence":1.0,"tier":"long"}
+{"tool":"set_memory","anchor_ms":1600,"memory_id":"mem-hobby","subject":"user:alice","predicate":"hobby","object":"rock climbing","confidence":0.75,"tier":"short"}
+{not valid json

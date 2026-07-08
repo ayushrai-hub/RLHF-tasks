@@ -1,0 +1,467 @@
+diff -ruN a/localpha/phase_one.js b/localpha/phase_one.js
+--- a/localpha/phase_one.js	2026-07-03 13:06:28.406560081 +0530
++++ b/localpha/phase_one.js	2026-07-03 13:06:28.407278961 +0530
+@@ -11,7 +11,13 @@
+       const branch2 = branches[j];
+       for (const t1 of branch1) {
+         for (const t2 of branch2) {
+-          if (t1.resources && t2.resources && t1.resources[0] === t2.resources[0]) {
++          if (!t1.resources || !t2.resources || t1.resources.length === 0 || t2.resources.length === 0) continue;
++
++          const common = t1.resources.filter((r) => t2.resources.includes(r));
++          const filtered = sharedResources && sharedResources.length > 0
++            ? common.filter((r) => sharedResources.includes(r))
++            : common;
++          if (filtered.length > 0) {
+             const from = t1.id < t2.id ? t1.id : t2.id;
+             const to = t1.id < t2.id ? t2.id : t1.id;
+             if (!edges.some((e) => e.from === from && e.to === to)) {
+diff -ruN a/locbeta/phase_two.js b/locbeta/phase_two.js
+--- a/locbeta/phase_two.js	2026-07-03 13:06:28.410699455 +0530
++++ b/locbeta/phase_two.js	2026-07-03 13:06:28.411848612 +0530
+@@ -3,25 +3,51 @@
+ // Signature: function op_b(expr, flags)
+ 
+ function op_b(expr, flags) {
+-  if (!expr) return true;
++  if (typeof expr !== 'string') {
++    return true;
++  }
++  if (!expr || expr.trim() === "") return true;
+ 
+   const cleaned = expr.replace(/\s+/g, "");
+   let index = 0;
+ 
++  function parseExpr() {
++    let val = parseTerm();
++    while (index < cleaned.length && cleaned[index] === '|') {
++      index++;
++      const nextVal = parseTerm();
++      val = val || nextVal;
++    }
++    return val;
++  }
++
++  function parseTerm() {
++    let val = parseFactor();
++    while (index < cleaned.length && cleaned[index] === '&') {
++      index++;
++      const nextVal = parseFactor();
++      val = val && nextVal;
++    }
++    return val;
++  }
++
+   function parseFactor() {
+     let negate = false;
+-    while (index < cleaned.length && cleaned[index] === "!") {
++    while (index < cleaned.length && cleaned[index] === '!') {
+       negate = !negate;
+       index++;
+     }
+ 
+     let val;
+-    if (cleaned[index] === "(") {
++    if (cleaned[index] === '(') {
+       index++;
+       val = parseExpr();
+-      if (cleaned[index] === ")") {
++      if (cleaned[index] === ')') {
+         index++;
+       }
++      if (negate) {
++        val = !val;
++      }
+     } else {
+       let varName = "";
+       while (index < cleaned.length && /[a-zA-Z0-9_]/.test(cleaned[index])) {
+@@ -29,21 +55,11 @@
+         index++;
+       }
+       val = !!flags[varName];
+-      if (!(varName in flags)) {
+-        val = true;
++      if (negate) {
++        val = !val;
+       }
+     }
+ 
+-    return negate ? !val : val;
+-  }
+-
+-  function parseExpr() {
+-    let val = parseFactor();
+-    while (index < cleaned.length && (cleaned[index] === "|" || cleaned[index] === "&")) {
+-      const op = cleaned[index++];
+-      const nextVal = parseFactor();
+-      val = op === "&" ? val && nextVal : val || nextVal;
+-    }
+     return val;
+   }
+ 
+diff -ruN a/locdelta/phase_four.js b/locdelta/phase_four.js
+--- a/locdelta/phase_four.js	2026-07-03 13:06:28.420632838 +0530
++++ b/locdelta/phase_four.js	2026-07-03 13:06:28.421587810 +0530
+@@ -2,57 +2,75 @@
+ // Symbol: op_d
+ // Signature: function op_d(scenarios)
+ 
+-const fs = require('fs');
+-const path = require('path');
+ const crypto = require('crypto');
+ 
+ function op_d(scenarios) {
+-  const sortedScenarios = [...scenarios];
+-  
+-  const formattedScenarios = sortedScenarios.map(s => {
+-    const cycleNodes = s.cycle_nodes || []; 
+-    const ordering = s.ordering || [];
+-    const implicitEdges = s.implicit_edges ? [...s.implicit_edges] : [];
+-    
++  if (scenarios.length === 0) {
++    return {
++      scenarios: [],
++      summary: {
++        scenarios_checked: 0,
++        cyclic_count: 0,
++        acyclic_count: 0,
++        signature_hash: crypto.createHash('sha256').update("").digest('hex'),
++      },
++    };
++  }
++
++  const firstFlags = scenarios[0].flags || {};
++  const sortedFlagKeys = Object.keys(firstFlags).sort();
++
++  const sortedScenarios = [...scenarios].sort((s1, s2) => {
++    for (const key of sortedFlagKeys) {
++      const v1 = s1.flags[key];
++      const v2 = s2.flags[key];
++      if (v1 !== v2) {
++        return v1 ? 1 : -1;
++      }
++    }
++    return 0;
++  });
++
++  const formattedScenarios = sortedScenarios.map((s) => {
++    const cycleNodes = s.cycle_nodes ? [...s.cycle_nodes].sort() : [];
++    const ordering = cycleNodes.length > 0 ? [] : (s.ordering || []);
++    const implicitEdges = s.implicit_edges
++      ? [...s.implicit_edges].sort((e1, e2) => {
++          if (e1.from !== e2.from) return e1.from < e2.from ? -1 : 1;
++          return e1.to < e2.to ? -1 : 1;
++        })
++      : [];
++
+     return {
+       flags: s.flags,
+       cycle_nodes: cycleNodes,
+       ordering: ordering,
+-      implicit_edges: implicitEdges
++      implicit_edges: implicitEdges,
+     };
+   });
+-  
++
+   const scenariosChecked = formattedScenarios.length;
+-  const cyclicCount = formattedScenarios.filter(s => s.cycle_nodes.length > 0).length;
++  const cyclicCount = formattedScenarios.filter((s) => s.cycle_nodes.length > 0).length;
+   const acyclicCount = scenariosChecked - cyclicCount;
+-  
+-  // Signature calculation
+-  const sigParts = formattedScenarios.map(s => {
++
++  const sigParts = formattedScenarios.map((s) => {
+     if (s.cycle_nodes.length > 0) {
+       return `cycle:${s.cycle_nodes.join(',')}`;
+-    } else {
+-      return s.ordering.join(',');
+     }
++    return s.ordering.join(',');
+   });
+   const sigString = sigParts.join(';');
+   const signatureHash = crypto.createHash('sha256').update(sigString).digest('hex');
+-  
+-  const results = {
++
++  return {
+     scenarios: formattedScenarios,
+     summary: {
+       scenarios_checked: scenariosChecked,
+       cyclic_count: cyclicCount,
+       acyclic_count: acyclicCount,
+-      signature_hash: signatureHash
+-    }
++      signature_hash: signatureHash,
++    },
+   };
+-  
+-  // Write output
+-  const outPath = '/app/output/results.json';
+-  fs.mkdirSync(path.dirname(outPath), { recursive: true });
+-  fs.writeFileSync(outPath, JSON.stringify(results, null, 2));
+-  
+-  return results;
+ }
+ 
+ module.exports = op_d;
+diff -ruN a/locepsilon/phase_five.js b/locepsilon/phase_five.js
+--- a/locepsilon/phase_five.js	2026-07-03 13:06:28.425893538 +0530
++++ b/locepsilon/phase_five.js	2026-07-03 13:06:28.426619892 +0530
+@@ -1,6 +1,4 @@
+ // Phase Five: Config Merger and Scenario Checkpoint
+-// Symbol: op_e (merge), op_f (checkpoint)
+-// Signature: function op_e(base, extra), function op_f(action, payload)
+ 
+ const fs = require('fs');
+ const path = require('path');
+@@ -26,19 +24,28 @@
+   }
+ 
+   if (extra.constraints) {
+-    config.constraints = extra.constraints;
++    config.constraints = Array.from(new Set([...(config.constraints || []), ...extra.constraints]));
+   }
+ 
+   if (extra.tasks) {
+     const taskMap = new Map((config.tasks || []).map((t) => [t.id, t]));
+     for (const t of extra.tasks) {
+-      taskMap.set(t.id, t);
++      const existing = taskMap.get(t.id);
++      if (existing) {
++        const merged = { ...existing, ...t };
++        if (existing.depends_on || t.depends_on) {
++          merged.depends_on = [...(existing.depends_on || []), ...(t.depends_on || [])];
++        }
++        taskMap.set(t.id, merged);
++      } else {
++        taskMap.set(t.id, t);
++      }
+     }
+     config.tasks = Array.from(taskMap.values());
+   }
+ 
+   if (extra.parallel_groups) {
+-    config.parallel_groups = extra.parallel_groups;
++    config.parallel_groups = [...(config.parallel_groups || []), ...extra.parallel_groups];
+   }
+ 
+   return config;
+diff -ruN a/locgamma/phase_three.js b/locgamma/phase_three.js
+--- a/locgamma/phase_three.js	2026-07-03 13:06:28.416030377 +0530
++++ b/locgamma/phase_three.js	2026-07-03 13:06:28.416936854 +0530
+@@ -10,42 +10,26 @@
+   return matches ? Array.from(new Set(matches)) : [];
+ }
+ 
+-function isIndependentlySatisfiable(cond) {
+-  if (!cond || cond.trim() === "") return true;
+-  const flags = extractFlags(cond);
+-  const n = flags.length;
+-  for (let i = 0; i < (1 << n); i++) {
+-    const flagVals = {};
+-    for (let j = 0; j < n; j++) {
+-      flagVals[flags[j]] = ((i >> j) & 1) === 1;
+-    }
+-    if (op_b(cond, flagVals)) {
+-      return true;
+-    }
+-  }
+-  return false;
+-}
+-
+ function findAllCycles(edges) {
+   const adj = {};
+   for (const [u, v] of edges) {
+     if (!adj[u]) adj[u] = [];
+     adj[u].push(v);
+   }
+-  
++
+   const cycles = [];
+   const path = [];
+   const visited = new Set();
+-  
++
+   function dfs(node, startNode) {
+     path.push(node);
+     visited.add(node);
+-    
++
+     const neighbors = adj[node] || [];
+     for (const neighbor of neighbors) {
+       if (neighbor === startNode) {
+         const cycle = [...path];
+-        const minNode = cycle.reduce((min, n) => n < min ? n : min, cycle[0]);
++        const minNode = cycle.reduce((min, n) => (n < min ? n : min), cycle[0]);
+         if (startNode === minNode) {
+           cycles.push(cycle);
+         }
+@@ -53,37 +37,64 @@
+         dfs(neighbor, startNode);
+       }
+     }
+-    
++
+     path.pop();
+     visited.delete(node);
+   }
+-  
++
+   const nodes = Array.from(new Set(edges.flat()));
+   for (const node of nodes) {
+     dfs(node, node);
+   }
+-  
++
+   return cycles;
+ }
+ 
+ function op_c(edges, conditions) {
++  if (!edges || !Array.isArray(edges) || edges.length === 0) {
++    return [];
++  }
++  if (!conditions || typeof conditions !== 'object') {
++    conditions = {};
++  }
++
+   const cycles = findAllCycles(edges);
+   const validCycles = [];
+-  
++
+   for (const cycle of cycles) {
+-    let independentlySatisfiable = true;
++    const allConds = [];
+     for (let i = 0; i < cycle.length; i++) {
+       const u = cycle[i];
+       const v = cycle[(i + 1) % cycle.length];
+       const edgeKey = `${u}->${v}`;
+       const cond = conditions[edgeKey];
+-      
+-      if (cond && !isIndependentlySatisfiable(cond)) {
+-        independentlySatisfiable = false;
++      if (cond) allConds.push(cond);
++    }
++
++    const uniqueFlags = Array.from(new Set(allConds.flatMap(extractFlags)));
++    const n = uniqueFlags.length;
++
++    let jointlySatisfiable = false;
++    for (let i = 0; i < (1 << n); i++) {
++      const flagVals = {};
++      for (let j = 0; j < n; j++) {
++        flagVals[uniqueFlags[j]] = ((i >> j) & 1) === 1;
++      }
++
++      let allTrue = true;
++      for (const cond of allConds) {
++        if (!op_b(cond, flagVals)) {
++          allTrue = false;
++          break;
++        }
++      }
++      if (allTrue) {
++        jointlySatisfiable = true;
+         break;
+       }
+     }
+-    if (independentlySatisfiable) {
++
++    if (jointlySatisfiable) {
+       validCycles.push(cycle);
+     }
+   }
+diff -ruN a/loczeta/phase_six.js b/loczeta/phase_six.js
+--- a/loczeta/phase_six.js	2026-07-03 13:06:28.429615868 +0530
++++ b/loczeta/phase_six.js	2026-07-03 13:06:28.430511543 +0530
+@@ -9,7 +9,7 @@
+   for (let i = 0; i < (1 << n); i++) {
+     const flagsObj = {};
+     for (let j = 0; j < n; j++) {
+-      flagsObj[flagsList[j]] = ((i >> (n - 1 - j)) & 1) === 1;
++      flagsObj[flagsList[j]] = ((i >> j) & 1) === 1;
+     }
+ 
+     let isValid = true;
+diff -ruN a/src/main.js b/src/main.js
+--- a/src/main.js	2026-07-03 13:06:28.433903556 +0530
++++ b/src/main.js	2026-07-03 13:06:28.434969251 +0530
+@@ -7,11 +7,6 @@
+ const phaseFour = require('../locdelta/phase_four');
+ const { op_e, op_f, enumerateScenarios } = require('../locepsilon/phase_five');
+ 
+-const decoy_one = require('./lib/decoy_one');
+-const decoy_two = require('./lib/decoy_two');
+-const decoy_three = require('./lib/decoy_three');
+-const decoy_four = require('./lib/decoy_four');
+-
+ function main() {
+   const inputPath = path.join(__dirname, '..', 'data', 'input.json');
+   const extraPath = path.join(__dirname, '..', 'data', 'extra.json');
+@@ -26,11 +21,12 @@
+   const extraConfig = utils.readJsonFile(extraPath);
+   const config = op_e(baseConfig, extraConfig);
+   const mergedDigest = op_f('digest', config);
+-  const baseDigest = op_f('digest', baseConfig);
+ 
+   const ckpt = op_f('read');
+   let scenarioOffset = 0;
+-  if (ckpt.digest === baseDigest && ckpt.offset > 0) {
++  if (ckpt.digest && ckpt.digest !== mergedDigest) {
++    op_f('clear');
++  } else if (ckpt.digest === mergedDigest && ckpt.offset > 0) {
+     scenarioOffset = ckpt.offset;
+   }
+ 
+@@ -70,24 +66,15 @@
+       }
+     }
+ 
+-    for (let i = 0; i < group.branches.length; i++) {
+-      for (let j = i + 1; j < group.branches.length; j++) {
+-        const b1 = group.branches[i];
+-        const b2 = group.branches[j];
+-        for (const id1 of b1) {
+-          for (const id2 of b2) {
+-            const t1 = tasks.find((t) => t.id === id1);
+-            const t2 = tasks.find((t) => t.id === id2);
+-            if (t1 && t2 && t1.resources && t2.resources) {
+-              if (t1.resources[0] === t2.resources[0]) {
+-                const from = t1.id < t2.id ? t1.id : t2.id;
+-                const to = t1.id < t2.id ? t2.id : t1.id;
+-                addPossibleEdge(from, to, "");
+-              }
+-            }
+-          }
+-        }
+-      }
++    const branchesOfTasksPre = group.branches.map((branchIds) => {
++      return branchIds.map((id) => {
++        const t = tasks.find((x) => x.id === id);
++        return t || { id, resources: [] };
++      });
++    });
++    const preImplicitEdges = phaseOne(branchesOfTasksPre, []);
++    for (const edge of preImplicitEdges) {
++      addPossibleEdge(edge.from, edge.to, "");
+     }
+   }
+ 
+@@ -211,6 +198,7 @@
+             zeroInDegree.push(v);
+           }
+         }
++        zeroInDegree.sort();
+       }
+ 
+       if (ordering.length < allNodes.length) {
+@@ -228,7 +216,7 @@
+     });
+   }
+ 
+-  op_f('write', { offset: validScenarios.length, digest: baseDigest });
++  op_f('clear');
+ 
+   const finalReport = phaseFour(scenarioResults);
+ 

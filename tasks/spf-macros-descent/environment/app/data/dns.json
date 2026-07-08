@@ -1,0 +1,139 @@
+{
+  "sender-a.test": {
+    "A": ["192.0.2.5", "192.0.2.6"],
+    "AAAA": ["2001:db8:1::5"],
+    "MX": [[10, "mx1.sender-a.test"], [20, "mx2.sender-a.test"]],
+    "TXT": ["v=spf1 a mx include:_spf.hosted.test ip4:198.51.100.0/24 -all"]
+  },
+  "mx1.sender-a.test": {"A": ["203.0.113.10"]},
+  "mx2.sender-a.test": {"A": ["203.0.113.20"]},
+  "_spf.hosted.test": {
+    "TXT": ["v=spf1 ip4:203.0.113.128/25 ip6:2001:db8:2::/48 ~all"]
+  },
+  "sender-b.test": {
+    "TXT": ["v=spf1 redirect=_spf.shared.test"]
+  },
+  "_spf.shared.test": {
+    "TXT": ["v=spf1 ip4:192.0.2.128/26 -all"]
+  },
+  "sender-c.test": {
+    "TXT": ["v=spf1 ip4:203.0.113.50 -all redirect=_spf.decoy.test"]
+  },
+  "_spf.decoy.test": {
+    "TXT": ["v=spf1 ip4:0.0.0.0/0 +all"]
+  },
+  "sender-d.test": {
+    "TXT": ["v=spf1 include:_spf.deep-a.test include:_spf.deep-b.test -all"]
+  },
+  "_spf.deep-a.test": {
+    "TXT": ["v=spf1 include:_spf.deep-c.test -all"]
+  },
+  "_spf.deep-b.test": {
+    "TXT": ["v=spf1 ip4:192.0.2.240/28 -all"]
+  },
+  "_spf.deep-c.test": {
+    "TXT": ["v=spf1 include:_spf.deep-d.test -all"]
+  },
+  "_spf.deep-d.test": {
+    "TXT": ["v=spf1 include:_spf.deep-e.test -all"]
+  },
+  "_spf.deep-e.test": {
+    "TXT": ["v=spf1 ip4:198.51.100.100 -all"]
+  },
+  "sender-e.test": {
+    "TXT": ["v=spf1 exists:%{ir}.rbl.example.test ip4:198.51.100.0/24 -all"]
+  },
+  "sender-f.test": {
+    "TXT": ["v=spf1 exists:%{ir}.v6rbl.example.test ~all"]
+  },
+  "5.100.51.198.rbl.example.test": {"A": ["127.0.0.2"]},
+  "5.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.0.8.b.d.0.1.0.0.2.v6rbl.example.test": {"A": ["127.0.0.4"]},
+  "sender-g.test": {
+    "TXT": ["v=spf1 exists:%{s}.blocklist.example.test ~all"]
+  },
+  "sender-h.test": {
+    "TXT": ["v=spf1 include:_spf.void-a.test include:_spf.void-b.test include:_spf.void-c.test ip4:203.0.113.0/24 -all"]
+  },
+  "_spf.void-a.test": {
+    "TXT": ["v=spf1 a:missing-a.example.test -all"]
+  },
+  "_spf.void-b.test": {
+    "TXT": ["v=spf1 mx:missing-mx.example.test -all"]
+  },
+  "_spf.void-c.test": {
+    "TXT": ["v=spf1 exists:%{d}.missing.example.test -all"]
+  },
+  "sender-i.test": {
+    "TXT": ["v=spf1 include:_spf.chain-1.test -all"]
+  },
+  "_spf.chain-1.test": {"TXT": ["v=spf1 include:_spf.chain-2.test -all"]},
+  "_spf.chain-2.test": {"TXT": ["v=spf1 include:_spf.chain-3.test -all"]},
+  "_spf.chain-3.test": {"TXT": ["v=spf1 include:_spf.chain-4.test -all"]},
+  "_spf.chain-4.test": {"TXT": ["v=spf1 include:_spf.chain-5.test -all"]},
+  "_spf.chain-5.test": {"TXT": ["v=spf1 include:_spf.chain-6.test -all"]},
+  "_spf.chain-6.test": {"TXT": ["v=spf1 include:_spf.chain-7.test -all"]},
+  "_spf.chain-7.test": {"TXT": ["v=spf1 include:_spf.chain-8.test -all"]},
+  "_spf.chain-8.test": {"TXT": ["v=spf1 include:_spf.chain-9.test -all"]},
+  "_spf.chain-9.test": {"TXT": ["v=spf1 include:_spf.chain-10.test -all"]},
+  "_spf.chain-10.test": {"TXT": ["v=spf1 ip4:198.51.100.50 -all"]},
+  "sender-j.test": {
+    "TXT": ["v=spf1 ip4:192.0.2.100 ?all"]
+  },
+  "sender-k.test": {
+    "TXT": ["v=spf1 ip4:192.0.2.101 ~all"]
+  },
+  "sender-l.test": {
+    "TXT": ["v=spf1 ip4:192.0.2.102 all"]
+  },
+  "sender-m.test": {
+    "TXT": ["v=spf1 a/24 -all"],
+    "A": ["198.51.100.10"]
+  },
+  "sender-n.test": {
+    "TXT": ["v=spf1 mx/29 -all"],
+    "MX": [[10, "smtp.sender-n.test"]]
+  },
+  "smtp.sender-n.test": {"A": ["203.0.113.200"]},
+  "sender-o.test": {
+    "TXT": ["not an spf record"]
+  },
+  "sender-p.test": {
+    "TXT": ["v=spf1 exists:%{l+_}.bounce.example.test ~all"]
+  },
+  "alice.news.bounce.example.test": {"A": ["127.0.1.5"]},
+  "acme-corp.test": {
+    "TXT": ["v=spf1 exists:%{d-}.plus.example.test ~all"]
+  },
+  "acme.corp.test.plus.example.test": {"A": ["127.0.1.9"]},
+  "sender-s.test": {
+    "TXT": ["v=spf1 ip4:203.0.113.170 -all", "v=spf1 ip4:203.0.113.180 -all"]
+  },
+  "sender-t.test": {
+    "TXT": ["v=spf1 include:_spf.dup-a.test include:_spf.dup-a.test -all"]
+  },
+  "_spf.dup-a.test": {
+    "TXT": ["v=spf1 a:tgt-dup.example.test ~all"]
+  },
+  "tgt-dup.example.test": {"A": ["203.0.113.44"]},
+  "sender-u.test": {
+    "TXT": ["v=spf1 redirect=sender-v.test"]
+  },
+  "sender-v.test": {
+    "TXT": ["v=spf1 redirect=sender-u.test"]
+  },
+  "sender-w.test": {
+    "TXT": ["v=spf1 include:_spf.self-a.test -all"]
+  },
+  "_spf.self-a.test": {
+    "TXT": ["v=spf1 include:_spf.self-b.test -all"]
+  },
+  "_spf.self-b.test": {
+    "TXT": ["v=spf1 include:_spf.self-a.test -all"]
+  },
+  "sender-x.test": {
+    "TXT": ["v=spf1 ip4:192.0.2.55 -all"]
+  },
+  "sender-y.test": {
+    "TXT": ["v=spf1 ip6:2001:db8:3::/48 -all"]
+  }
+}

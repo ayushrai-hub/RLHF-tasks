@@ -1,0 +1,12 @@
+{
+  "station_id": "OBS-MOON",
+  "kind": "science",
+  "priority": 48,
+  "region": "GLASS",
+  "lat": -20.44575,
+  "lon": 155.40082,
+  "notes": [
+    "OBS-MOON acoustic beacon",
+    "GLASS relay class science"
+  ]
+}

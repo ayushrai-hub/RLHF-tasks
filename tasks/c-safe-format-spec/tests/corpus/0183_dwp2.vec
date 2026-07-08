@@ -1,0 +1,4 @@
+fmt	[%*.*x]
+arg	i	-10
+arg	i	6
+arg	u	255

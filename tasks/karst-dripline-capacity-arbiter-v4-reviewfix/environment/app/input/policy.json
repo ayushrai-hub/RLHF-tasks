@@ -1,0 +1,16 @@
+{
+  "schema_version": "karst.dripline.policy.v1",
+  "output_schema_version": "karst.dripline.audit.v1",
+  "chamber_rank": {
+    "rimstone": 1,
+    "moonmilk": 4,
+    "soda-straw": 7
+  },
+  "thresholds": {
+    "ec_min": "100",
+    "ec_max": "450",
+    "turbidity_max": "5",
+    "delta_o18_min": "-10",
+    "delta_o18_max": "-6"
+  }
+}

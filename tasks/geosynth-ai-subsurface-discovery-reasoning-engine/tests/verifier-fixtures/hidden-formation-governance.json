@@ -1,0 +1,11 @@
+{
+  "confidence_floor": 0.35,
+  "hypothesis_priority": ["shale-margin-east", "copper-belt-north", "basalt-deep-west"],
+  "block_guard_pairs": [
+    {
+      "left": "copper-belt-north",
+      "right": "basalt-deep-west",
+      "reason": "basalt-overprint-exclusion"
+    }
+  ]
+}

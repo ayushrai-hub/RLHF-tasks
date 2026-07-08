@@ -1,0 +1,8 @@
+[
+{"id":"atlas","epoch":250,"role":"proxy"},
+{"id":"fig","epoch":260,"role":"gateway","region":"zone-9"},
+{"id":"hazel","epoch":270,"alias":"cedar"},
+{"id":"kilo","epoch":273,"alias":"hazel"},
+{"id":"ivy","epoch":271,"alias":"juno"},
+{"id":"juno","epoch":272,"alias":"ivy"}
+]

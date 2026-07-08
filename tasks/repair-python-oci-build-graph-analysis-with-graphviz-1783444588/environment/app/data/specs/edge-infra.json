@@ -1,0 +1,9 @@
+{
+  "name": "edge-infra",
+  "base": "debian:12",
+  "packages": [
+    {"name": "abi-shim", "constraint": ">=1.0.0"},
+    {"name": "zvfs", "constraint": "*"}
+  ],
+  "toolchains": []
+}

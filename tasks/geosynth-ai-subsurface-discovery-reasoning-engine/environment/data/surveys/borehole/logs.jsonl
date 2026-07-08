@@ -1,0 +1,2 @@
+{"sample_id": "tr-bh-001", "source": "borehole", "block_id": "copper-belt-north", "recorded_at": "2024-02-04T10:00:00Z", "seq": 4, "formation_node": "lithology-break", "prospect_index": 0.16}
+{"sample_id": "tr-bh-002", "source": "borehole", "block_id": "shale-margin-east", "recorded_at": "2024-03-03T09:00:00Z", "seq": 3, "formation_node": "shale-vein", "prospect_index": 0.13}

@@ -1,0 +1,801 @@
+--- src/calibrate.rs
++++ src/calibrate.rs
+@@ -88,6 +88,13 @@
+ }
+ 
+ #[derive(Clone, Debug)]
++pub struct CurveMixtureSequenceResult {
++    pub order_probability: f64,
++    pub model_order_probabilities: Vec<[f64; 3]>,
++    pub marginals: Vec<SequenceMarginal>,
++}
++
++#[derive(Clone, Debug)]
+ pub struct WiggleSample {
+     pub offset: f64,
+     pub lab_age_bp: f64,
+@@ -144,6 +151,41 @@
+     pub span: PhaseDistribution,
+ }
+ 
++#[derive(Clone, Debug)]
++pub struct PhaseSequencePhase {
++    pub samples: Vec<PhaseSample>,
++    pub min_span: Option<f64>,
++    pub max_span: Option<f64>,
++}
++
++#[derive(Clone, Debug)]
++pub struct PhaseSequencePhaseResult {
++    pub phase: usize,
++    pub start: PhaseDistribution,
++    pub end: PhaseDistribution,
++    pub span: PhaseDistribution,
++}
++
++#[derive(Clone, Debug)]
++pub struct PhaseSequenceGapResult {
++    pub gap: usize,
++    pub distribution: PhaseDistribution,
++}
++
++#[derive(Clone, Debug)]
++pub struct PhaseSequenceResult {
++    pub phases: Vec<PhaseSequencePhaseResult>,
++    pub gap_posteriors: Vec<PhaseSequenceGapResult>,
++}
++
++#[derive(Clone, Debug)]
++struct PhaseCandidate {
++    start_idx: usize,
++    end_idx: usize,
++    span_idx: usize,
++    weight: f64,
++}
++
+ pub fn calibrate(input: &CalibrationInput) -> Result<Calibration> {
+     if !input.lab_age_bp.is_finite()
+         || !input.lab_sigma.is_finite()
+@@ -208,7 +250,7 @@
+     for p in &mut points {
+         p.probability /= total;
+         mean += p.cal_bp * p.probability;
+-        if p.probability >= best {
++        if p.probability > best {
+             best = p.probability;
+             mode = p.cal_bp;
+         }
+@@ -234,9 +276,9 @@
+             let pa = cal.points[a].probability;
+             let pb = cal.points[b].probability;
+             pb.partial_cmp(&pa).unwrap().then_with(|| {
+-                cal.points[b]
++                cal.points[a]
+                     .cal_bp
+-                    .partial_cmp(&cal.points[a].cal_bp)
++                    .partial_cmp(&cal.points[b].cal_bp)
+                     .unwrap()
+             })
+         });
+@@ -331,7 +373,7 @@
+     let mut covered = vec![false; grid.len()];
+     let mut log_weights = Vec::new();
+     for (model_idx, model) in models.iter().enumerate() {
+-        let log_prior = 0.0;
++        let log_prior = model.weight.ln();
+         for (grid_idx, &cal_bp) in grid.iter().enumerate() {
+             let c = match interpolate(&model.curve, cal_bp) {
+                 Ok(value) => value,
+@@ -621,7 +663,345 @@
+         marginals,
+     })
+ }
++
++pub fn curve_mixture_sequence(
++    models: &[CurveModel],
++    samples: &[SequenceSample],
++    start_cal_bp: f64,
++    end_cal_bp: f64,
++    step: f64,
++    min_gaps: Option<&[f64]>,
++    max_gaps: Option<&[f64]>,
++    levels: &[f64],
++) -> Result<CurveMixtureSequenceResult> {
++    if models.len() < 2 || models.len() > 5 {
++        return err("invalid curve model count");
++    }
++    if samples.len() < 2 || samples.len() > 6 {
++        return err("invalid sequence sample count");
++    }
++    if !start_cal_bp.is_finite()
++        || !end_cal_bp.is_finite()
++        || !step.is_finite()
++        || step <= 0.0
++        || step.fract() != 0.0
++        || start_cal_bp > end_cal_bp
++    {
++        return err("invalid curve mixture sequence grid");
++    }
++    for &level in levels {
++        if !level.is_finite() || level <= 0.0 || level > 1.0 {
++            return err("invalid HPD level");
++        }
++    }
+ 
++    let mut grid = Vec::new();
++    let mut x = start_cal_bp;
++    while x <= end_cal_bp + 1e-12 {
++        grid.push(x);
++        x += step;
++    }
++    if grid.is_empty() {
++        return err("empty curve mixture sequence grid");
++    }
++
++    let mut covered = vec![false; grid.len()];
++    for model in models {
++        for (grid_idx, &cal_bp) in grid.iter().enumerate() {
++            if interpolate(&model.curve, cal_bp).is_ok() {
++                covered[grid_idx] = true;
++            }
++        }
++    }
++    if covered.iter().any(|&item| !item) {
++        return err("uncovered curve mixture sequence grid point");
++    }
++
++    let mut prior_total = 0.0;
++    let mut per_model = Vec::with_capacity(models.len());
++    for (model_idx, model) in models.iter().enumerate() {
++        if !model.weight.is_finite() || model.weight <= 0.0 || model.curve.len() < 2 {
++            return err("invalid curve model");
++        }
++        prior_total += model.weight;
++        let seq =
++            sequence_on_mixture_grid(&model.curve, samples, &grid, step, min_gaps, max_gaps, levels)?;
++        if seq.order_probability < 0.0 || !seq.order_probability.is_finite() {
++            return err("invalid curve model order probability");
++        }
++        per_model.push((model_idx, model.weight, seq));
++    }
++    if prior_total <= 0.0 || !prior_total.is_finite() {
++        return err("invalid curve priors");
++    }
++
++    let evidence_total: f64 = per_model
++        .iter()
++        .map(|(_, weight, seq)| weight * seq.order_probability)
++        .sum();
++    if evidence_total <= 0.0 || !evidence_total.is_finite() {
++        return err("zero curve mixture sequence evidence");
++    }
++
++    let grid_len = grid.len();
++    let sample_count = samples.len();
++    let mut model_rows = Vec::with_capacity(per_model.len());
++    let mut mixed_probs = vec![vec![0.0; grid_len]; sample_count];
++
++    for (model_idx, weight, seq) in &per_model {
++        let posterior = weight * seq.order_probability / evidence_total;
++        model_rows.push([*model_idx as f64, seq.order_probability, posterior]);
++        if seq.marginals.len() != sample_count {
++            return err("inconsistent curve mixture sequence samples");
++        }
++        for (sample_idx, marginal) in seq.marginals.iter().enumerate() {
++            if marginal.calibration.points.len() != grid_len
++                || marginal
++                    .calibration
++                    .points
++                    .iter()
++                    .zip(grid.iter())
++                    .any(|(point, &expected)| (point.cal_bp - expected).abs() > 1e-9)
++            {
++                return err("inconsistent curve mixture sequence grids");
++            }
++            for (grid_idx, point) in marginal.calibration.points.iter().enumerate() {
++                mixed_probs[sample_idx][grid_idx] += posterior * point.probability;
++            }
++        }
++    }
++
++    let mut marginals = Vec::with_capacity(sample_count);
++    for sample_idx in 0..sample_count {
++        let mut points = Vec::with_capacity(grid_len);
++        let mut mean = 0.0;
++        let mut mode = grid[0];
++        let mut best = f64::NEG_INFINITY;
++        for (&cal_bp, &probability) in grid.iter().zip(mixed_probs[sample_idx].iter()) {
++            mean += cal_bp * probability;
++            if probability > best {
++                best = probability;
++                mode = cal_bp;
++            }
++            points.push(CalibrationPoint {
++                cal_bp,
++                probability,
++            });
++        }
++        let calibration = Calibration {
++            points,
++            mean_cal_bp: mean,
++            mode_cal_bp: mode,
++        };
++        let intervals = hpd(&calibration, levels, step)?;
++        marginals.push(SequenceMarginal {
++            sample: sample_idx,
++            calibration,
++            intervals,
++        });
++    }
++
++    Ok(CurveMixtureSequenceResult {
++        order_probability: evidence_total / prior_total,
++        model_order_probabilities: model_rows,
++        marginals,
++    })
++}
++
++fn sequence_on_mixture_grid(
++    curve: &[CurvePoint],
++    samples: &[SequenceSample],
++    grid: &[f64],
++    step: f64,
++    min_gaps: Option<&[f64]>,
++    max_gaps: Option<&[f64]>,
++    levels: &[f64],
++) -> Result<SequenceResult> {
++    let n = samples.len();
++    let grid_len = grid.len();
++    let mut min_bounds = vec![0.0; n - 1];
++    if let Some(bounds) = min_gaps {
++        if bounds.len() != n - 1 {
++            return err("invalid sequence minimum gap count");
++        }
++        for (idx, &bound) in bounds.iter().enumerate() {
++            if !bound.is_finite() || bound < 0.0 {
++                return err("invalid sequence minimum gap");
++            }
++            min_bounds[idx] = bound;
++        }
++    }
++    let mut max_bounds = vec![f64::INFINITY; n - 1];
++    if let Some(bounds) = max_gaps {
++        if bounds.len() != n - 1 {
++            return err("invalid sequence maximum gap count");
++        }
++        for (idx, &bound) in bounds.iter().enumerate() {
++            if !bound.is_finite() || bound < min_bounds[idx] {
++                return err("invalid sequence maximum gap");
++            }
++            max_bounds[idx] = bound;
++        }
++    }
++
++    let mut probs = Vec::with_capacity(n);
++    for sample in samples {
++        if !sample.lab_age_bp.is_finite()
++            || !sample.lab_sigma.is_finite()
++            || sample.lab_sigma <= 0.0
++            || !sample.reservoir_age.is_finite()
++            || !sample.reservoir_sigma.is_finite()
++            || sample.reservoir_sigma < 0.0
++        {
++            return err("invalid sequence sample");
++        }
++        let corrected = sample.lab_age_bp - sample.reservoir_age;
++        let mut log_weights = Vec::with_capacity(grid_len);
++        let mut max_log = f64::NEG_INFINITY;
++        for &cal_bp in grid {
++            let logw = match interpolate(curve, cal_bp) {
++                Ok(c) => {
++                    let var = sample.lab_sigma * sample.lab_sigma
++                        + c.sigma * c.sigma
++                        + sample.reservoir_sigma * sample.reservoir_sigma;
++                    if var <= 0.0 || !var.is_finite() {
++                        return err("invalid sequence variance");
++                    }
++                    let diff = corrected - c.c14_bp;
++                    -0.5 * diff * diff / var - 0.5 * (2.0 * std::f64::consts::PI * var).ln()
++                }
++                Err(_) => f64::NEG_INFINITY,
++            };
++            if logw > max_log {
++                max_log = logw;
++            }
++            log_weights.push(logw);
++        }
++        if !max_log.is_finite() {
++            return err("empty curve mixture sequence model support");
++        }
++        let mut weights = Vec::with_capacity(grid_len);
++        let mut total = 0.0;
++        for &logw in &log_weights {
++            let weight = if logw.is_finite() {
++                (logw - max_log).exp()
++            } else {
++                0.0
++            };
++            total += weight;
++            weights.push(weight);
++        }
++        if total <= 0.0 || !total.is_finite() {
++            return err("invalid curve mixture sequence sample total");
++        }
++        probs.push(weights.into_iter().map(|w| w / total).collect::<Vec<_>>());
++    }
++
++    let mut left = vec![vec![0.0; grid_len]; n];
++    left[0].copy_from_slice(&probs[0]);
++    for s in 1..n {
++        for j in 0..grid_len {
++            let current_bp = grid[j];
++            let mut mass = 0.0;
++            for k in 0..grid_len {
++                let gap = grid[k] - current_bp;
++                if gap + 1e-9 >= min_bounds[s - 1] && gap <= max_bounds[s - 1] + 1e-9 {
++                    mass += left[s - 1][k];
++                }
++            }
++            left[s][j] = probs[s][j] * mass;
++        }
++    }
++
++    let mut right = vec![vec![0.0; grid_len]; n];
++    right[n - 1].copy_from_slice(&probs[n - 1]);
++    for s in (0..n - 1).rev() {
++        for j in 0..grid_len {
++            let current_bp = grid[j];
++            let mut mass = 0.0;
++            for k in 0..grid_len {
++                let gap = current_bp - grid[k];
++                if gap + 1e-9 >= min_bounds[s] && gap <= max_bounds[s] + 1e-9 {
++                    mass += right[s + 1][k];
++                }
++            }
++            right[s][j] = probs[s][j] * mass;
++        }
++    }
++
++    let total: f64 = left[n - 1].iter().sum();
++    if total < 0.0 || !total.is_finite() {
++        return err("zero order probability");
++    }
++    if total == 0.0 {
++        let mut marginals = Vec::with_capacity(n);
++        for s in 0..n {
++            let points = grid
++                .iter()
++                .map(|&cal_bp| CalibrationPoint {
++                    cal_bp,
++                    probability: 0.0,
++                })
++                .collect::<Vec<_>>();
++            let calibration = Calibration {
++                points,
++                mean_cal_bp: 0.0,
++                mode_cal_bp: grid[0],
++            };
++            let intervals = hpd(&calibration, levels, step)?;
++            marginals.push(SequenceMarginal {
++                sample: s,
++                calibration,
++                intervals,
++            });
++        }
++        return Ok(SequenceResult {
++            order_probability: 0.0,
++            marginals,
++        });
++    }
++
++    let mut marginals = Vec::with_capacity(n);
++    for s in 0..n {
++        let mut points = Vec::with_capacity(grid_len);
++        let mut mean = 0.0;
++        let mut mode = grid[0];
++        let mut best = f64::NEG_INFINITY;
++        for j in 0..grid_len {
++            let p = if probs[s][j] > 0.0 {
++                left[s][j] * right[s][j] / probs[s][j] / total
++            } else {
++                0.0
++            };
++            mean += grid[j] * p;
++            if p > best {
++                best = p;
++                mode = grid[j];
++            }
++            points.push(CalibrationPoint {
++                cal_bp: grid[j],
++                probability: p,
++            });
++        }
++        let calibration = Calibration {
++            points,
++            mean_cal_bp: mean,
++            mode_cal_bp: mode,
++        };
++        let intervals = hpd(&calibration, levels, step)?;
++        marginals.push(SequenceMarginal {
++            sample: s,
++            calibration,
++            intervals,
++        });
++    }
++
++    Ok(SequenceResult {
++        order_probability: total,
++        marginals,
++    })
++}
++
+ pub fn wiggle_match(
+     curve: &[CurvePoint],
+     samples: &[WiggleSample],
+@@ -743,8 +1123,8 @@
+         .enumerate()
+         .map(|(idx, sample)| WiggleCalendarSummary {
+             sample: idx,
+-            mean_cal_bp: mean + sample.offset,
+-            mode_cal_bp: mode + sample.offset,
++            mean_cal_bp: mean - sample.offset,
++            mode_cal_bp: mode - sample.offset,
+         })
+         .collect();
+ 
+@@ -843,7 +1223,8 @@
+             for (shift_idx, &reservoir_shift) in shift_values.iter().enumerate() {
+                 let mut logw = 0.0;
+                 for (sample, c) in samples.iter().zip(curve_points.iter()) {
+-                    let corrected = sample.lab_age_bp - sample.reservoir_age;
++                    let corrected =
++                        sample.lab_age_bp - sample.reservoir_age - reservoir_shift;
+                     let var = sample.lab_sigma * sample.lab_sigma
+                         + c.sigma * c.sigma
+                         + sample.reservoir_sigma * sample.reservoir_sigma;
+@@ -1011,10 +1392,10 @@
+         boundary_pairs.push([grid[start_idx], grid[end_idx], prob]);
+     }
+ 
+-    let start = phase_distribution_from_probs(&grid, &start_probs, levels, step, false)?;
+-    let end = phase_distribution_from_probs(&grid, &end_probs, levels, step, false)?;
++    let start = phase_distribution_from_probs(&grid, &start_probs, levels, step, true)?;
++    let end = phase_distribution_from_probs(&grid, &end_probs, levels, step, true)?;
+     let span_grid: Vec<f64> = (0..grid_len).map(|i| i as f64 * step).collect();
+-    let span = phase_distribution_from_probs(&span_grid, &span_probs, levels, step, false)?;
++    let span = phase_distribution_from_probs(&span_grid, &span_probs, levels, step, true)?;
+ 
+     Ok(PhaseResult {
+         boundary_pairs,
+@@ -1023,7 +1404,331 @@
+         span,
+     })
+ }
++
++pub fn phase_sequence(
++    curve: &[CurvePoint],
++    phases: &[PhaseSequencePhase],
++    start_cal_bp: f64,
++    end_cal_bp: f64,
++    step: f64,
++    min_gaps: Option<&[f64]>,
++    max_gaps: Option<&[f64]>,
++    levels: &[f64],
++) -> Result<PhaseSequenceResult> {
++    if phases.len() < 2 || phases.len() > 4 {
++        return err("invalid phase sequence count");
++    }
++    if !start_cal_bp.is_finite()
++        || !end_cal_bp.is_finite()
++        || !step.is_finite()
++        || step <= 0.0
++        || step.fract() != 0.0
++        || start_cal_bp > end_cal_bp
++    {
++        return err("invalid phase sequence grid");
++    }
++    for &level in levels {
++        if !level.is_finite() || level <= 0.0 || level > 1.0 {
++            return err("invalid HPD level");
++        }
++    }
++
++    let phase_count = phases.len();
++    let mut min_gap_bounds = vec![0.0; phase_count - 1];
++    if let Some(bounds) = min_gaps {
++        if bounds.len() != phase_count - 1 {
++            return err("invalid phase sequence minimum gap count");
++        }
++        for (idx, &bound) in bounds.iter().enumerate() {
++            if !bound.is_finite() || bound < 0.0 {
++                return err("invalid phase sequence minimum gap");
++            }
++            min_gap_bounds[idx] = bound;
++        }
++    }
++    let mut max_gap_bounds = vec![f64::INFINITY; phase_count - 1];
++    if let Some(bounds) = max_gaps {
++        if bounds.len() != phase_count - 1 {
++            return err("invalid phase sequence maximum gap count");
++        }
++        for (idx, &bound) in bounds.iter().enumerate() {
++            if !bound.is_finite() || bound < min_gap_bounds[idx] {
++                return err("invalid phase sequence maximum gap");
++            }
++            max_gap_bounds[idx] = bound;
++        }
++    }
+ 
++    let mut grid = Vec::new();
++    let mut x = start_cal_bp;
++    while x <= end_cal_bp + 1e-12 {
++        grid.push(x);
++        x += step;
++    }
++    if grid.is_empty() {
++        return err("empty phase sequence grid");
++    }
++    let grid_len = grid.len();
++
++    let mut candidates_by_phase = Vec::with_capacity(phase_count);
++    for phase in phases {
++        if phase.samples.is_empty() || phase.samples.len() > 8 {
++            return err("invalid phase sequence sample count");
++        }
++        let min_span = phase.min_span.unwrap_or(0.0);
++        let max_span = phase.max_span.unwrap_or(f64::INFINITY);
++        if !min_span.is_finite() || min_span < 0.0 || max_span < min_span {
++            return err("invalid phase sequence span");
++        }
++        if phase.max_span.is_some() && !max_span.is_finite() {
++            return err("invalid phase sequence span");
++        }
++
++        let mut calibrated = Vec::with_capacity(phase.samples.len());
++        for sample in &phase.samples {
++            if !sample.lab_age_bp.is_finite()
++                || !sample.lab_sigma.is_finite()
++                || sample.lab_sigma <= 0.0
++                || !sample.reservoir_age.is_finite()
++                || !sample.reservoir_sigma.is_finite()
++                || sample.reservoir_sigma < 0.0
++            {
++                return err("invalid phase sequence sample");
++            }
++            let cal = calibrate(&CalibrationInput {
++                curve: curve.to_vec(),
++                lab_age_bp: sample.lab_age_bp,
++                lab_sigma: sample.lab_sigma,
++                reservoir_age: sample.reservoir_age,
++                reservoir_sigma: sample.reservoir_sigma,
++                start_cal_bp,
++                end_cal_bp,
++                step,
++            })?;
++            if cal.points.len() != grid_len
++                || cal
++                    .points
++                    .iter()
++                    .zip(grid.iter())
++                    .any(|(point, &expected)| (point.cal_bp - expected).abs() > 1e-9)
++            {
++                return err("inconsistent phase sequence grid");
++            }
++            calibrated.push(cal);
++        }
++
++        let mut prefixes = Vec::with_capacity(calibrated.len());
++        for cal in &calibrated {
++            let mut prefix = Vec::with_capacity(grid_len + 1);
++            prefix.push(0.0);
++            for point in &cal.points {
++                prefix.push(prefix.last().unwrap() + point.probability);
++            }
++            prefixes.push(prefix);
++        }
++
++        let mut candidates = Vec::new();
++        for start_idx in 0..grid_len {
++            for end_idx in 0..=start_idx {
++                let span = grid[start_idx] - grid[end_idx];
++                if span + 1e-9 < min_span || span > max_span + 1e-9 {
++                    continue;
++                }
++                let mut weight = 1.0;
++                for prefix in &prefixes {
++                    let mass = (prefix[start_idx + 1] - prefix[end_idx]).max(0.0);
++                    weight *= mass;
++                }
++                if weight > 0.0 && weight.is_finite() {
++                    candidates.push(PhaseCandidate {
++                        start_idx,
++                        end_idx,
++                        span_idx: start_idx - end_idx,
++                        weight,
++                    });
++                }
++            }
++        }
++        if candidates.is_empty() {
++            return err("empty phase sequence candidates");
++        }
++        candidates_by_phase.push(candidates);
++    }
++
++    let mut forward: Vec<Vec<f64>> = Vec::with_capacity(phase_count);
++    forward.push(
++        candidates_by_phase[0]
++            .iter()
++            .map(|candidate| candidate.weight)
++            .collect(),
++    );
++    for phase_idx in 1..phase_count {
++        let mut by_end = vec![0.0; grid_len];
++        for (candidate, &mass) in candidates_by_phase[phase_idx - 1]
++            .iter()
++            .zip(forward[phase_idx - 1].iter())
++        {
++            by_end[candidate.end_idx] += mass;
++        }
++        let prefix = prefix_sums(&by_end);
++        let min_offset = lower_grid_offset(min_gap_bounds[phase_idx - 1], step);
++        let max_offset = upper_grid_offset(max_gap_bounds[phase_idx - 1], step, grid_len - 1);
++        let mut phase_forward = Vec::with_capacity(candidates_by_phase[phase_idx].len());
++        for candidate in &candidates_by_phase[phase_idx] {
++            let lo = candidate.start_idx.saturating_add(min_offset);
++            let hi = candidate.start_idx.saturating_add(max_offset).min(grid_len - 1);
++            let compatible = range_sum(&prefix, lo, hi);
++            phase_forward.push(candidate.weight * compatible);
++        }
++        forward.push(phase_forward);
++    }
++
++    let total: f64 = forward[phase_count - 1].iter().sum();
++    if total <= 0.0 || !total.is_finite() {
++        return err("zero phase sequence posterior");
++    }
++
++    let mut backward: Vec<Vec<f64>> = vec![Vec::new(); phase_count];
++    backward[phase_count - 1] = candidates_by_phase[phase_count - 1]
++        .iter()
++        .map(|candidate| candidate.weight)
++        .collect();
++    for phase_idx in (0..phase_count - 1).rev() {
++        let mut by_start = vec![0.0; grid_len];
++        for (candidate, &mass) in candidates_by_phase[phase_idx + 1]
++            .iter()
++            .zip(backward[phase_idx + 1].iter())
++        {
++            by_start[candidate.start_idx] += mass;
++        }
++        let prefix = prefix_sums(&by_start);
++        let min_offset = lower_grid_offset(min_gap_bounds[phase_idx], step);
++        let max_offset = upper_grid_offset(max_gap_bounds[phase_idx], step, grid_len - 1);
++        let mut phase_backward = Vec::with_capacity(candidates_by_phase[phase_idx].len());
++        for candidate in &candidates_by_phase[phase_idx] {
++            let compatible = if candidate.end_idx >= min_offset {
++                let hi = candidate.end_idx - min_offset;
++                let lo = candidate.end_idx.saturating_sub(max_offset);
++                range_sum(&prefix, lo, hi)
++            } else {
++                0.0
++            };
++            phase_backward.push(candidate.weight * compatible);
++        }
++        backward[phase_idx] = phase_backward;
++    }
++
++    let span_grid: Vec<f64> = (0..grid_len).map(|idx| idx as f64 * step).collect();
++    let mut phase_results = Vec::with_capacity(phase_count);
++    for phase_idx in 0..phase_count {
++        let mut start_probs = vec![0.0; grid_len];
++        let mut end_probs = vec![0.0; grid_len];
++        let mut span_probs = vec![0.0; grid_len];
++        for (candidate_idx, candidate) in candidates_by_phase[phase_idx].iter().enumerate() {
++            let posterior = forward[phase_idx][candidate_idx] * backward[phase_idx][candidate_idx]
++                / candidate.weight
++                / total;
++            if posterior.is_finite() && posterior > 0.0 {
++                start_probs[candidate.start_idx] += posterior;
++                end_probs[candidate.end_idx] += posterior;
++                span_probs[candidate.span_idx] += posterior;
++            }
++        }
++        phase_results.push(PhaseSequencePhaseResult {
++            phase: phase_idx,
++            start: phase_distribution_from_probs(&grid, &start_probs, levels, step, true)?,
++            end: phase_distribution_from_probs(&grid, &end_probs, levels, step, true)?,
++            span: phase_distribution_from_probs(&span_grid, &span_probs, levels, step, true)?,
++        });
++    }
++
++    let mut gap_posteriors = Vec::with_capacity(phase_count - 1);
++    for phase_idx in 0..phase_count - 1 {
++        let mut left_by_end = vec![0.0; grid_len];
++        for (candidate, &mass) in candidates_by_phase[phase_idx]
++            .iter()
++            .zip(forward[phase_idx].iter())
++        {
++            left_by_end[candidate.end_idx] += mass;
++        }
++        let mut right_by_start = vec![0.0; grid_len];
++        for (candidate, &mass) in candidates_by_phase[phase_idx + 1]
++            .iter()
++            .zip(backward[phase_idx + 1].iter())
++        {
++            right_by_start[candidate.start_idx] += mass;
++        }
++
++        let min_offset = lower_grid_offset(min_gap_bounds[phase_idx], step);
++        let max_offset = upper_grid_offset(max_gap_bounds[phase_idx], step, grid_len - 1);
++        let mut gap_probs = vec![0.0; grid_len];
++        for end_idx in 0..grid_len {
++            let left_mass = left_by_end[end_idx];
++            if left_mass <= 0.0 {
++                continue;
++            }
++            let min_start = end_idx.saturating_sub(max_offset);
++            let max_start = if end_idx >= min_offset {
++                end_idx - min_offset
++            } else {
++                continue;
++            };
++            for start_idx in min_start..=max_start {
++                let right_mass = right_by_start[start_idx];
++                if right_mass > 0.0 {
++                    gap_probs[end_idx - start_idx] += left_mass * right_mass / total;
++                }
++            }
++        }
++        gap_posteriors.push(PhaseSequenceGapResult {
++            gap: phase_idx,
++            distribution: phase_distribution_from_probs(&span_grid, &gap_probs, levels, step, true)?,
++        });
++    }
++
++    Ok(PhaseSequenceResult {
++        phases: phase_results,
++        gap_posteriors,
++    })
++}
++
++fn prefix_sums(values: &[f64]) -> Vec<f64> {
++    let mut prefix = Vec::with_capacity(values.len() + 1);
++    prefix.push(0.0);
++    for &value in values {
++        prefix.push(prefix.last().unwrap() + value);
++    }
++    prefix
++}
++
++fn range_sum(prefix: &[f64], lo: usize, hi: usize) -> f64 {
++    if prefix.len() <= 1 || lo > hi || lo >= prefix.len() - 1 {
++        return 0.0;
++    }
++    let capped_hi = hi.min(prefix.len() - 2);
++    if lo > capped_hi {
++        0.0
++    } else {
++        prefix[capped_hi + 1] - prefix[lo]
++    }
++}
++
++fn lower_grid_offset(years: f64, step: f64) -> usize {
++    if years <= 0.0 {
++        0
++    } else {
++        ((years - 1e-9) / step).ceil() as usize
++    }
++}
++
++fn upper_grid_offset(years: f64, step: f64, max_offset: usize) -> usize {
++    if years.is_infinite() {
++        max_offset
++    } else {
++        ((years + 1e-9) / step).floor().max(0.0) as usize
++    }
++}
++
+ fn phase_distribution_from_probs(
+     values: &[f64],
+     probs: &[f64],

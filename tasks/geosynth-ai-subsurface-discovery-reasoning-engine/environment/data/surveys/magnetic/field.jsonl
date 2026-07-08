@@ -1,0 +1,2 @@
+{"sample_id": "tr-mg-001", "source": "magnetic", "block_id": "shale-margin-east", "recorded_at": "2024-03-01T07:00:00Z", "seq": 1, "formation_node": "susceptibility-peak", "prospect_index": 0.09}
+{"sample_id": "tr-mg-002", "source": "magnetic", "block_id": "basalt-deep-west", "recorded_at": "2024-04-04T10:00:00Z", "seq": 4, "formation_node": "magnetic-low", "prospect_index": 0.07}

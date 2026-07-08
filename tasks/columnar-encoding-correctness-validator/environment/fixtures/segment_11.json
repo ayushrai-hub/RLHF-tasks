@@ -1,0 +1,38 @@
+{
+  "segment_id": "segment_11",
+  "row_count": 4,
+  "schema_version": 1,
+  "columns": [
+    {
+      "name": "country",
+      "encoding": "plain",
+      "logical_type": "string",
+      "values": [
+        "US",
+        "UK",
+        "US",
+        "DE"
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page_id": 0,
+      "column": "country",
+      "checksum_hex": "7f6ac2443b17ef6d"
+    }
+  ],
+  "statistics": {
+    "country": {
+      "min": "DE",
+      "max": "US",
+      "null_count": 0,
+      "distinct_count": 3
+    }
+  },
+  "pruning": {
+    "predicate_column": "country",
+    "predicate_value": "US",
+    "expected_kept_rows": 3
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "segment_id": "segment_12",
+  "row_count": 4,
+  "schema_version": 1,
+  "columns": [
+    {
+      "name": "n",
+      "encoding": "plain",
+      "logical_type": "int64",
+      "values": [
+        1,
+        2,
+        3,
+        4
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page_id": 0,
+      "column": "n",
+      "checksum_hex": "3ef4b7eb3845d422"
+    }
+  ],
+  "statistics": {
+    "n": {
+      "min": 1,
+      "max": 4,
+      "null_count": 0,
+      "distinct_count": 4
+    }
+  },
+  "metadata": {
+    "stored_row_count": 2
+  }
+}

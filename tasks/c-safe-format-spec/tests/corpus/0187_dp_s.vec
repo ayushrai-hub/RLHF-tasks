@@ -1,0 +1,3 @@
+fmt	[%.*s]
+arg	i	3
+arg	s	h\xc3\xa9llo

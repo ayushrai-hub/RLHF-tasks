@@ -1,0 +1,44 @@
+{
+  "segment_id": "segment_18",
+  "row_count": 3,
+  "schema_version": 1,
+  "columns": [
+    {
+      "name": "m",
+      "encoding": "plain",
+      "logical_type": "int64",
+      "values": [
+        7,
+        8,
+        9
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page_id": 0,
+      "column": "m",
+      "checksum_hex": "ed1e14e82b1d29d3"
+    }
+  ],
+  "statistics": {
+    "m": {
+      "min": 7,
+      "max": 9,
+      "null_count": 0,
+      "distinct_count": 3
+    }
+  },
+  "compaction": {
+    "runs": [
+      {
+        "offset": 1,
+        "length": 1
+      },
+      {
+        "offset": 0,
+        "length": 1
+      }
+    ]
+  }
+}

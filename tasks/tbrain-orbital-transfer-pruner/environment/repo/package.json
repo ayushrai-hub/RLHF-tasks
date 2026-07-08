@@ -1,0 +1,9 @@
+{
+  "name": "orbital-transfer-pruner",
+  "version": "1.0.0",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "check": "node --check bin/transfer-pruner.js && node --check src/pruner.js"
+  }
+}

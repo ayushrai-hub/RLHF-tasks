@@ -1,0 +1,4 @@
+fmt	%d+%d=%d
+arg	i	2
+arg	i	3
+arg	i	5

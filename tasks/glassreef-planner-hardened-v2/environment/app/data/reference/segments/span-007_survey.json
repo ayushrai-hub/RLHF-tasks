@@ -1,0 +1,12 @@
+{
+  "span_id": "SPAN-007",
+  "from": "RPT-EPSILON",
+  "to": "RPT-ZETA",
+  "survey_epoch": "2026-Q1",
+  "sediment": "carbonate",
+  "depth_m": 2900,
+  "risk_register": [
+    "anchor-1",
+    "eddy-4"
+  ]
+}

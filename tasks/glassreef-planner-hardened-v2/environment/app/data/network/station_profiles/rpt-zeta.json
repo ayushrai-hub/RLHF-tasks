@@ -1,0 +1,12 @@
+{
+  "station_id": "RPT-ZETA",
+  "kind": "repeater",
+  "priority": 27,
+  "region": "SOUTH",
+  "lat": -20.75574,
+  "lon": 154.41544,
+  "notes": [
+    "RPT-ZETA acoustic beacon",
+    "SOUTH relay class repeater"
+  ]
+}

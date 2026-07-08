@@ -1,0 +1,18 @@
+--- a/environment/r4/kx/g_extract_k.sh	2026-07-06 12:15:38.580678566 +0530
++++ b/environment/r4/kx/g_extract_k.sh	2026-07-06 12:20:52.310545233 +0530
+@@ -13,10 +13,11 @@
+     done
+   done
+ 
+-  "$ENV_ROOT/r4/verify_sig.sh" "$ENV_ROOT/r2/base0.json" "$ENV_ROOT/r2/base0.sig"
+-  "$dec" "$ENV_ROOT/r2/base0.json" | while IFS=$'\t' read -r id epoch role region action; do
+-    printf 'r2\t%s\t%s\t%s\t%s\t%s\n' "$id" "$epoch" "$role" "$region" "$action"
+-  done
++  if "$ENV_ROOT/r4/verify_sig.sh" "$ENV_ROOT/r2/base0.json" "$ENV_ROOT/r2/base0.sig"; then
++    "$dec" "$ENV_ROOT/r2/base0.json" | while IFS=$'\t' read -r id epoch role region action; do
++      printf 'r2\t%s\t%s\t%s\t%s\t%s\n' "$id" "$epoch" "$role" "$region" "$action"
++    done
++  fi
+ 
+   for f in "$ENV_ROOT"/r3/ov0.json "$ENV_ROOT"/r3/ov1.json; do
+     "$dec" "$f" | while IFS=$'\t' read -r id epoch role region action; do

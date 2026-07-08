@@ -1,0 +1,27 @@
+--- environment/link_t2/link_emit.c	2026-07-03 20:17:48
++++ environment/link_t2/link_emit.c	2026-07-03 20:17:48
+@@ -10,18 +10,17 @@
+         return -1;
+     }
+     char line[128];
+-    int in_main = 0;
++    int in_dep = 0;
+     int tag = 0;
+     while (fgets(line, sizeof(line), fp)) {
+-        if (strstr(line, "[main]")) {
+-            in_main = 1;
+-            continue;
+-        }
+         if (strstr(line, "[dep]")) {
+-            in_main = 0;
++            in_dep = 1;
+             continue;
+         }
+-        if (in_main && strstr(line, "link_tag")) {
++        if (line[0] == '[') {
++            in_dep = 0;
++        }
++        if (in_dep && strstr(line, "link_tag")) {
+             if (sscanf(line, " link_tag = %d", &tag) == 1) {
+                 fclose(fp);
+                 *out_tag = tag;

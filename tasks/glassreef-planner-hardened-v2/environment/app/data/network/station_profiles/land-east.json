@@ -1,0 +1,12 @@
+{
+  "station_id": "LAND-EAST",
+  "kind": "landing",
+  "priority": 54,
+  "region": "EAST",
+  "lat": -21.60257,
+  "lon": 155.36797,
+  "notes": [
+    "LAND-EAST acoustic beacon",
+    "EAST relay class landing"
+  ]
+}

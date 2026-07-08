@@ -1,0 +1,42 @@
+{
+  "name": "lineage-triple-reissue-visible",
+  "freshness_bound": 4,
+  "resources": [
+    {
+      "id": "cluster",
+      "actions": {
+        "admin": ["rooters"]
+      }
+    },
+    {
+      "id": "archive",
+      "actions": {
+        "read": ["readers"]
+      }
+    }
+  ],
+  "snapshots": [
+    {
+      "revision": 730,
+      "proof": {"revision": 730, "issued_at": 0, "nonce": "r730"},
+      "principals": [
+        {"username": "ren", "subject_id": "subj-ren-old", "generation": 1, "groups": ["rooters"], "active": true}
+      ]
+    },
+    {
+      "revision": 731,
+      "proof": {"revision": 731, "issued_at": 1, "nonce": "r731"},
+      "principals": [
+        {"username": "ren", "subject_id": "subj-ren-new", "generation": 2, "groups": ["readers"], "active": true}
+      ]
+    },
+    {
+      "revision": 732,
+      "proof": {"revision": 732, "issued_at": 2, "nonce": "r732"},
+      "principals": [
+        {"username": "ren", "subject_id": "subj-ren-third", "generation": 3, "groups": ["rooters"], "active": true}
+      ]
+    }
+  ],
+  "steps": []
+}

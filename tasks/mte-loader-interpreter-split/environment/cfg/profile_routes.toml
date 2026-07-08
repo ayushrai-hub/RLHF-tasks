@@ -1,0 +1,7 @@
+[fw_a]
+spec = "build_a.toml"
+dep_fixture = "dep_untagged.so"
+
+[fw_b]
+spec = "build_b.toml"
+dep_fixture = "dep_tagged.so"

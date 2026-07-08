@@ -1,0 +1,4 @@
+fmt	%3$s %2$s %1$s
+arg	s	a
+arg	s	b
+arg	s	c

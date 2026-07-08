@@ -1,0 +1,10 @@
+../tests
+../solution
+__pycache__
+.pytest_cache
+*.pyc
+.git
+.gitignore
+.ruff_cache
+.mypy_cache
+node_modules

@@ -1,0 +1,10 @@
+--- a/environment/r5/px/g_emit_p.sh	2026-07-06 12:16:13.428819925 +0530
++++ b/environment/r5/px/g_emit_p.sh	2026-07-06 12:20:52.322545626 +0530
+@@ -46,6 +46,7 @@
+ 
+   local canonical
+   canonical="$(printf '%s%s' "$surv_lines" "$ret_lines")"
++  canonical="${canonical#$'\n'}"
+   printf '%s' "$canonical" > "$canon"
+   local digest
+   digest="$(sha256sum "$canon" | awk '{print $1}')"

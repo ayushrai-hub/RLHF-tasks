@@ -1,0 +1,33 @@
+{
+  "segment_id": "segment_16",
+  "row_count": 3,
+  "schema_version": 1,
+  "columns": [
+    {
+      "name": "flags",
+      "encoding": "bitpack",
+      "logical_type": "int64",
+      "bit_width": 3,
+      "values": [
+        1,
+        2,
+        8
+      ]
+    }
+  ],
+  "pages": [
+    {
+      "page_id": 0,
+      "column": "flags",
+      "checksum_hex": "89b53717f19337e1"
+    }
+  ],
+  "statistics": {
+    "flags": {
+      "min": 1,
+      "max": 8,
+      "null_count": 0,
+      "distinct_count": 3
+    }
+  }
+}

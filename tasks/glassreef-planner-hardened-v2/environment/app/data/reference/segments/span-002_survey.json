@@ -1,0 +1,12 @@
+{
+  "span_id": "SPAN-002",
+  "from": "RPT-ALPHA",
+  "to": "RPT-BETA",
+  "survey_epoch": "2026-Q1",
+  "sediment": "basaltic sand",
+  "depth_m": 2600,
+  "risk_register": [
+    "anchor-2",
+    "eddy-4"
+  ]
+}

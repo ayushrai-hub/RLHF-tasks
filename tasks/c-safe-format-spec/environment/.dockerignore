@@ -1,0 +1,15 @@
+.git
+.gitignore
+**/__pycache__/
+**/*.pyc
+**/*.pyo
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+**/node_modules/
+.env
+*.log
+solution/
+tests/
+**/*.o
+sfmt

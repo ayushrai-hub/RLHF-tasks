@@ -1,0 +1,2 @@
+{"sample_id": "tr-gc-001", "source": "geochem", "block_id": "copper-belt-north", "recorded_at": "2024-02-01T07:00:00Z", "seq": 1, "formation_node": "pathfinder-halo", "prospect_index": 0.11}
+{"sample_id": "tr-gc-002", "source": "geochem", "block_id": "basalt-deep-west", "recorded_at": "2024-04-01T07:00:00Z", "seq": 1, "formation_node": "basalt-layer", "prospect_index": 0.08}

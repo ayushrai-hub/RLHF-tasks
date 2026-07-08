@@ -1,0 +1,4 @@
+alpha|pre|10
+bravo|hold|2
+mild|hold|4
+omega|live|1
