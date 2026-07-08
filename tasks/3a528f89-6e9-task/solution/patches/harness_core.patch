@@ -1,0 +1,51 @@
+--- environment/bridge/harness_core.c	2026-07-03 20:17:48
++++ environment/bridge/harness_core.c	2026-07-03 20:17:48
+@@ -182,7 +182,7 @@
+ {
+     char *sos[2] = { (char *)DEP_TAGGED, (char *)DEP_UNTAGGED };
+     trace_row rows[2];
+-    const char *profiles[2] = { "fw_b", "fw_a" };
++    const char *profiles[2] = { "fw_a", "fw_b" };
+     char main_hex[32];
+     if (dig01_digest_hex(MAIN_ELF, main_hex, sizeof(main_hex)) != 0) {
+         return 1;
+@@ -225,15 +225,15 @@
+     for (int i = 0; i < 2; i++) {
+         char dep_path[128];
+         if (route_dep_path(profiles[i], dep_path, sizeof(dep_path)) != 0) {
+-            strncpy(dep_path, DEP_UNTAGGED, sizeof(dep_path) - 1);
++            return 10;
+         }
+         char dep_hex[32];
+         if (dig01_digest_hex(dep_path, dep_hex, sizeof(dep_hex)) != 0) {
+-            return 10;
++            return 11;
+         }
+         uint32_t row_viol = violations;
+         if (persist_viol_for_profile(PERSIST_PATH, profiles[i], &row_viol) != 0) {
+-            return 11;
++            return 12;
+         }
+         memset(&rows[i], 0, sizeof(rows[i]));
+         strncpy(rows[i].profile, profiles[i], sizeof(rows[i].profile) - 1);
+@@ -250,17 +250,14 @@
+             rows[i].fault_obs = shared_fault;
+         }
+         if (journal_line(profiles[i], row_viol, asym, rows[i].fault_obs, lineage) != 0) {
+-            return 12;
++            return 13;
+         }
+     }
+     char chain_stamp[32];
+     if (chain_stamp_hex(CHAIN_PATH, chain_stamp, sizeof(chain_stamp)) != 0) {
+-        return 13;
++        return 14;
+     }
+-    trace_row ordered[2];
+-    ordered[0] = rows[1];
+-    ordered[1] = rows[0];
+-    return emit_face_write(ordered, 2, OUT_JSON, chain_stamp);
++    return emit_face_write(rows, 2, OUT_JSON, chain_stamp);
+ }
+ 
+ int main(void)

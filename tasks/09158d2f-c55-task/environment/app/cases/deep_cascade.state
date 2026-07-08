@@ -1,0 +1,8 @@
+bundle.c 1000
+bundle.o 1100
+blame.c 900
+blame.o 1100
+index.o 1100
+merge.o 1100
+tag.o 1100
+git_bin 1100

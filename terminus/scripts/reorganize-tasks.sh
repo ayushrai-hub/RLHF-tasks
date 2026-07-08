@@ -77,6 +77,51 @@ for f in abcd.py "build_workbook copy.py" build_workbook.py \
   mv "$f" "$MISC/personal/"
 done
 
+# Personal / non-Terminus folders at repo root
+for dir in assignment-tirios new sddnew; do
+  [ -d "$dir" ] || continue
+  if [ -d "$MISC/personal/$dir" ]; then
+    rm -rf "$dir"
+  else
+    mv "$dir" "$MISC/personal/$dir"
+  fi
+  echo "ARCHIVE personal folder: $dir -> terminus/_misc/personal/"
+done
+
+for f in *.docx; do
+  [ -f "$f" ] || continue
+  mv "$f" "$MISC/personal/"
+  echo "ARCHIVE personal doc: $f"
+done
+
+for f in Untitled unnamed.gif; do
+  [ -f "$f" ] || continue
+  mv "$f" "$MISC/personal/"
+  echo "ARCHIVE loose file: $f"
+done
+
+for f in *.code-workspace; do
+  [ -f "$f" ] || continue
+  mv "$f" "$MISC/personal/"
+  echo "ARCHIVE workspace file: $f"
+done
+
+# Remove broken symlinks at root
+for link in */; do
+  [ -L "${link%/}" ] || continue
+  if [ ! -e "${link%/}" ]; then
+    rm -f "${link%/}"
+    echo "REMOVE broken symlink: ${link%/}"
+  fi
+done
+for link in *; do
+  [ -L "$link" ] || continue
+  if [ ! -e "$link" ]; then
+    rm -f "$link"
+    echo "REMOVE broken symlink: $link"
+  fi
+done
+
 if [ -d "11+10_tasks" ]; then
   if [ -d "$MISC/reference/11+10_tasks" ]; then
     rm -rf "11+10_tasks"
@@ -159,7 +204,7 @@ fi
 for dir in */; do
   name="${dir%/}"
   case "$name" in
-    tasks|terminus|.cursor|.venv|harbor-compat|law-samples) continue ;;
+    tasks|terminus|.cursor|.venv|harbor-compat|law-samples|jobs|scripts|docs) continue ;;
   esac
   is_root_task "$name" && continue
 

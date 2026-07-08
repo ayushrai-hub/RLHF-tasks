@@ -1,0 +1,25 @@
+# Exclude version control
+.git
+.gitignore
+
+# Exclude Python cache
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Exclude Node
+node_modules/
+
+# Exclude secrets and solution
+.env
+solution/
+tests/
+
+# Exclude IDE files
+.vscode/
+.idea/
+*.swp
+*.swo

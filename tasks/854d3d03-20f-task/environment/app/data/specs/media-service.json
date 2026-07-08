@@ -1,0 +1,19 @@
+{
+  "name": "media-service",
+  "base": "debian:12",
+  "packages": [
+    {
+      "name": "imaging",
+      "constraint": "*"
+    },
+    {
+      "name": "gate-svc",
+      "constraint": "*"
+    },
+    {
+      "name": "beacon",
+      "constraint": "*"
+    }
+  ],
+  "toolchains": []
+}

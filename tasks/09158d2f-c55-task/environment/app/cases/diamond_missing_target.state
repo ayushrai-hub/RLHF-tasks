@@ -1,0 +1,5 @@
+packfile.c 1000
+packfile.o 1100
+bisect.c 900
+revert.c 900
+git_package 500

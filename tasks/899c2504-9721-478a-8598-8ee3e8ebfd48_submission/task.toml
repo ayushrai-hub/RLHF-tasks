@@ -1,0 +1,35 @@
+version = "2.0"
+steps = [
+    { name = "milestone_1", agent = { timeout_sec = 900 }, verifier = { timeout_sec = 450 } },
+    { name = "milestone_2", agent = { timeout_sec = 900 }, verifier = { timeout_sec = 450 } },
+    { name = "milestone_3", agent = { timeout_sec = 900 }, verifier = { timeout_sec = 450 } },
+    { name = "milestone_4", agent = { timeout_sec = 900 }, verifier = { timeout_sec = 450 } },
+]
+
+[metadata]
+difficulty = "hard"
+category = "system-administration"
+tags = [
+    "permissions",
+    "rotation",
+    "idempotency",
+    "services",
+]
+languages = [
+    "bash",
+]
+codebase_size = "small"
+number_of_milestones = 4
+subcategories = [
+    "tool_specific",
+]
+expert_time_estimate_min = 90
+junior_time_estimate_min = 300
+
+[environment]
+build_timeout_sec = 600
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+workdir = "/app"
+allow_internet = false

@@ -1,0 +1,14 @@
+{
+  "dataset_directory": {
+    "type": "string",
+    "value": "/app/dataset"
+  },
+  "incoming_directory": {
+    "type": "string",
+    "value": "/app/incoming_frames"
+  },
+  "predictions_directory": {
+    "type": "string",
+    "value": "/app/output/predictions"
+  }
+}

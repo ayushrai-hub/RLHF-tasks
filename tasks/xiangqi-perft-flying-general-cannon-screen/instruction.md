@@ -1,0 +1,7 @@
+Hey, I need a working xiangqi perft counter for a small C++ project, and the move generator behind it is the missing part. The scaffold under the app directory already parses positions, drives the search, and handles input and output, but the legal move generator in src/movegen.cpp is empty, so filling in legal_moves and apply_move is the job.
+
+The program reads one line on standard input, a xiangqi placement field in the usual FEN form, then the side to move, then an integer depth, and it prints one integer, the perft node count for that position and depth. Sample positions with known counts sit under the data directory, and docs/io_contract.md gives the exact format and the perft definition.
+
+Build by running make in the app directory, which compiles everything under src into a binary called perft, and run it by piping a position and a depth into that binary. The grader builds the same way and recomputes the counts independently, comparing with no tolerance, so every legal move has to be counted exactly, no more and no fewer.
+
+Moves, captures, checks, and every terminal and special case follow the complete standard rules of xiangqi with nothing simplified away, so treat the whole ruleset as in scope. Matching the samples is not the whole task, since a perft count only reveals a subtle mistake a few plies deep. Please write the engine yourself rather than pull in an existing one.

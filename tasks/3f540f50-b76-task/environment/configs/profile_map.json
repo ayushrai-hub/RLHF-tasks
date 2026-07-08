@@ -1,0 +1,4 @@
+{
+  "1": {"label": "classic16", "register_bytes": 2, "byte_order": "big"},
+  "2": {"label": "wide32", "register_bytes": 4, "byte_order": "little"}
+}

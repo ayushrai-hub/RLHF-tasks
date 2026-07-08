@@ -1,0 +1,162 @@
+{
+  "T01": {
+    "cost_bench": 2.64,
+    "cost_lab": 7.348
+  },
+  "T02": {
+    "cost_bench": 2.07,
+    "cost_lab": 7.628
+  },
+  "T03": {
+    "cost_bench": 2.96,
+    "cost_lab": 9.312
+  },
+  "T04": {
+    "cost_bench": 2.918,
+    "cost_lab": 10.083
+  },
+  "T05": {
+    "cost_bench": 2.248,
+    "cost_lab": 6.762
+  },
+  "T06": {
+    "cost_bench": 2.81,
+    "cost_lab": 8.652
+  },
+  "T07": {
+    "cost_bench": 2.7,
+    "cost_lab": 8.62
+  },
+  "T08": {
+    "cost_bench": 2.682,
+    "cost_lab": 10.24
+  },
+  "T09": {
+    "cost_bench": 2.542,
+    "cost_lab": 6.712
+  },
+  "T10": {
+    "cost_bench": 2.25,
+    "cost_lab": 8.067
+  },
+  "T11": {
+    "cost_bench": 2.013,
+    "cost_lab": 6.84
+  },
+  "T12": {
+    "cost_bench": 2.16,
+    "cost_lab": 7.175
+  },
+  "T13": {
+    "cost_bench": 2.242,
+    "cost_lab": 8.54
+  },
+  "T14": {
+    "cost_bench": 2.96,
+    "cost_lab": 10.005
+  },
+  "T15": {
+    "cost_bench": 2.965,
+    "cost_lab": 11.23
+  },
+  "T16": {
+    "cost_bench": 2.298,
+    "cost_lab": 7.2
+  },
+  "T17": {
+    "cost_bench": 2.35,
+    "cost_lab": 6.682
+  },
+  "T18": {
+    "cost_bench": 2.825,
+    "cost_lab": 7.422
+  },
+  "T19": {
+    "cost_bench": 2.502,
+    "cost_lab": 8.63
+  },
+  "T20": {
+    "cost_bench": 2.835,
+    "cost_lab": 9.622
+  },
+  "T21": {
+    "cost_bench": 2.71,
+    "cost_lab": 6.885
+  },
+  "T22": {
+    "cost_bench": 2.9,
+    "cost_lab": 9.492
+  },
+  "T23": {
+    "cost_bench": 2.988,
+    "cost_lab": 11.448
+  },
+  "T24": {
+    "cost_bench": 2.902,
+    "cost_lab": 9.3
+  },
+  "T25": {
+    "cost_bench": 2.295,
+    "cost_lab": 6.555
+  },
+  "T26": {
+    "cost_bench": 2.672,
+    "cost_lab": 10.588
+  },
+  "T27": {
+    "cost_bench": 2.08,
+    "cost_lab": 7.09
+  },
+  "T28": {
+    "cost_bench": 2.648,
+    "cost_lab": 10.492
+  },
+  "T29": {
+    "cost_bench": 2.385,
+    "cost_lab": 6.065
+  },
+  "T30": {
+    "cost_bench": 2.305,
+    "cost_lab": 8.09
+  },
+  "T31": {
+    "cost_bench": 2.77,
+    "cost_lab": 9.75
+  },
+  "T32": {
+    "cost_bench": 2.425,
+    "cost_lab": 9.433
+  },
+  "T33": {
+    "cost_bench": 2.665,
+    "cost_lab": 8.08
+  },
+  "T34": {
+    "cost_bench": 2.98,
+    "cost_lab": 9.718
+  },
+  "T35": {
+    "cost_bench": 2.185,
+    "cost_lab": 6.792
+  },
+  "T36": {
+    "cost_bench": 2.49,
+    "cost_lab": 7.08
+  },
+  "T37": {
+    "cost_bench": 2.152,
+    "cost_lab": 5.472
+  },
+  "T38": {
+    "cost_bench": 2.442,
+    "cost_lab": 7.218
+  },
+  "T39": {
+    "cost_bench": 2.66,
+    "cost_lab": 8.765
+  },
+  "T40": {
+    "cost_bench": 2.245,
+    "cost_lab": 7.1
+  }
+}

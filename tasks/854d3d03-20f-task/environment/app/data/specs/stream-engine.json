@@ -1,0 +1,9 @@
+{
+  "name": "stream-engine",
+  "base": "debian:12",
+  "packages": [
+    {"name": "codecpad", "constraint": "*"},
+    {"name": "framebuf", "constraint": "*"}
+  ],
+  "toolchains": []
+}

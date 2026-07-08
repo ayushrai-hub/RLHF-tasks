@@ -1,0 +1,1 @@
+The audit stage should prove replay stability. Run `/app/environment/tools/run_pipeline.sh --stage m4` and repair source under `/app/environment` so `/app/output/m4_audit.json` is deterministic. Follow `/app/environment/docs/contracts.md`. Signal completion when done.

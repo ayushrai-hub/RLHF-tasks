@@ -1,12 +1,32 @@
 # Terminus Tasks Index
 
-_Auto-generated 2026-07-08 23:42_ — run `./scripts/reorganize-tasks.sh` to refresh.
+_Auto-generated 2026-07-09 02:26_ — run `./scripts/reorganize-tasks.sh` to refresh.
 
 | Task | Difficulty | Category | Layout | Review |
 |------|------------|----------|--------|--------|
+| `00af3d22-15f-task` | hard | data-processing | regular | — |
+| `09158d2f-c55-task` | hard | build-and-dependency-management | regular | — |
+| `129609c5-417-task` | medium | data-processing | regular | — |
+| `16-fleet-risk-calibrator` | medium | machine-learning | regular | Accept |
+| `27c18777-e35-task` | medium | machine-learning | milestone | — |
+| `2d279cd7-0cc-task` | hard | build-and-dependency-management | regular | — |
+| `3a528f89-6e9-task` | hard | build-and-dependency-management | regular | — |
+| `3f540f50-b76-task` | hard | data-processing | regular | — |
+| `3f540f50-b76d-40a6-98d9-8d35b289e2ac` | hard | data-processing | regular | — |
+| `452ce15a-1ed-task` | hard | scientific-computing | regular | — |
+| `452ce15a-1ed6-4248-86f6-04f3c6e89e06` | hard | scientific-computing | regular | — |
+| `4759a9d4-4d45-484f-996c-d48f199b680d` | hard | security | milestone | — |
+| `4cef8e9c-2a7-task` | hard | data-processing | regular | — |
+| `55a3bdbe-2ac-task` | hard | scientific-computing | regular | — |
+| `7275aef7-dbb-task` | hard | data-processing | regular | — |
+| `854d3d03-20f-task` | medium | build-and-dependency-management | regular | — |
+| `899c2504-9721-478a-8598-8ee3e8ebfd48_submission` | hard | system-administration | milestone | — |
+| `9b160b7b-37a-task` | hard | scientific-computing | regular | — |
+| `Default_Task_Skeleton` | unknown | software-engineering | regular | — |
 | `Task152_Tracefold_V1` | hard | security | regular | — |
 | `TimeSeries-Downsampler` | hard | data-processing | milestone | Accept |
 | `UI_Task_Skeleton` | unknown | software-engineering | regular | — |
+| `a4dff906-878-task` | hard | data-processing | regular | — |
 | `accaudit-wren-v368Z` | hard | data-processing | regular | — |
 | `accaudit-wren-v7` | hard | data-processing | regular | — |
 | `atlasbench-mlflow-governance` | hard | security | regular | Revise |
@@ -32,6 +52,7 @@ _Auto-generated 2026-07-08 23:42_ — run `./scripts/reorganize-tasks.sh` to ref
 | `carillon-rota-planner1` | hard | data-processing | regular | Revise |
 | `cartridge-salvaging (1)` | hard | scientific-computing | regular | Accept |
 | `causal-long-diff-cross-section` | hard | machine-learning | regular | Revise |
+| `cb403dd1-ff46-4670-920f-9f352f32b60c_submission` | hard | software-engineering | regular | — |
 | `cdn-pop-coassigner` | medium | system-administration | regular | Accept |
 | `claimtower_milestone_go_task_v13` | hard | data-processing | milestone | Revise |
 | `clinicflow-milestone-capacity-actions-v6-reviewfix` | hard | data-processing | milestone | — |
@@ -43,6 +64,7 @@ _Auto-generated 2026-07-08 23:42_ — run `./scripts/reorganize-tasks.sh` to ref
 | `cpp-polars-inference-endpoint-harden` | hard | machine-learning | regular | Revise |
 | `crc-checksum-debugger-rust` | hard | system-administration | regular | — |
 | `cryogrid-sim-bundle-graphviz-analyzer` | hard | data-processing | regular | — |
+| `csv-dialects-import-export` | hard | data-processing | regular | — |
 | `ctgov-protocol-amendment-burden-text-temporal` | hard | machine-learning | regular | Revise |
 | `dafny-insertion-sort-multiset-sorted` | hard | scientific-computing | regular | Revise |
 | `deferred-accept-stash-recover-submission-hard-fixed` | hard | system-administration | regular | Accept |
@@ -201,6 +223,7 @@ _Auto-generated 2026-07-08 23:42_ — run `./scripts/reorganize-tasks.sh` to ref
 | `warmcache-perl` | hard | data-processing | milestone | Revise |
 | `windowed-float-checkpoint-drift` | hard | data-processing | regular | Revise |
 | `x12-837-claim-loop-weaver` | hard | data-processing | regular | Accept |
+| `xiangqi-perft-flying-general-cannon-screen` | hard | scientific-computing | regular | — |
 | `xml-namespace-canonical-roundtrip` | hard | data-processing | regular | — |
 
 ## Layout

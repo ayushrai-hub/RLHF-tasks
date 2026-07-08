@@ -1,0 +1,10 @@
+{
+  "name": "data-pipeline",
+  "base": "python:3.11",
+  "packages": [
+    {"name": "arrow", "constraint": "*"},
+    {"name": "icu", "constraint": "<=72.1"}
+  ],
+  "toolchains": [],
+  "requires_specs": ["search-service"]
+}

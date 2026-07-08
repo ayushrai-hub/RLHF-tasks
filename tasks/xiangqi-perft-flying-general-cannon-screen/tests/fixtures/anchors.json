@@ -1,0 +1,48 @@
+[
+ {
+  "id": "init_d1",
+  "fen": "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR",
+  "side": "w",
+  "depth": 1,
+  "expected": 44
+ },
+ {
+  "id": "init_d2",
+  "fen": "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR",
+  "side": "w",
+  "depth": 2,
+  "expected": 1920
+ },
+ {
+  "id": "init_d3",
+  "fen": "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR",
+  "side": "w",
+  "depth": 3,
+  "expected": 79666
+ },
+ {
+  "id": "init_d4",
+  "fen": "rnbakabnr/9/1c5c1/p1p1p1p1p/9/9/P1P1P1P1P/1C5C1/9/RNBAKABNR",
+  "side": "w",
+  "depth": 4,
+  "expected": 3290240
+ },
+ {
+  "id": "flying_micro",
+  "fen": "4k4/9/9/9/4N4/9/9/9/9/4K4",
+  "side": "w",
+  "depth": 1,
+  "expected": 3,
+  "noflying": 11,
+  "nocannon": 3
+ },
+ {
+  "id": "cannon_micro",
+  "fen": "5k3/9/9/9/4p4/4C4/9/9/9/3K5",
+  "side": "w",
+  "depth": 1,
+  "expected": 14,
+  "noflying": 14,
+  "nocannon": 15
+ }
+]

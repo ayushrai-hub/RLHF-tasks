@@ -1,0 +1,1 @@
+path,owner,group,mode\n/opt/app/a.log,svc_rot,svc_rot,0640\n/opt/app/b.log,svc_old,svc_old,0600\n/opt/app/c.log,svc_rot,svc_rot,0600\n

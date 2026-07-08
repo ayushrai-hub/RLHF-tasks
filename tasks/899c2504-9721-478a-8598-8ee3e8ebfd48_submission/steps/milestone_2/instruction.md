@@ -1,0 +1,1 @@
+The permissions reconciliation stage is unstable. Run `/app/environment/tools/run_pipeline.sh --stage m2` and repair source under `/app/environment` so `/app/output/m2_permissions.json` is deterministic. Follow `/app/environment/docs/contracts.md`. Signal completion before advancing to the next part.

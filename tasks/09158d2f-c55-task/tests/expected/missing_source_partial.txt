@@ -1,0 +1,5 @@
+prune.o
+git_config.h
+remote.o
+git_client
+git_daemon
