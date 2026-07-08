@@ -1,8 +1,0 @@
-[
-  { "opt_class": 259,  "type": 5, "name": "ietf-host-id",      "kind": "u32",    "fixed_bytes": 4 },
-  { "opt_class": 259,  "type": 6, "name": "ietf-cookie",       "kind": "u128",   "fixed_bytes": 16 },
-  { "opt_class": 259,  "type": 7, "name": "ietf-flow-label",   "kind": "u32",    "fixed_bytes": 4 },
-  { "opt_class": 1024, "type": 1, "name": "vendor-policy-tag", "kind": "struct", "fixed_bytes": 0 },
-  { "opt_class": 1024, "type": 2, "name": "vendor-trace-id",   "kind": "varbin", "fixed_bytes": 0 },
-  { "opt_class": 65520,"type": 1, "name": "exp-classifier",    "kind": "opaque", "fixed_bytes": 0, "vendor_prefix": true }
-]

@@ -1,6 +1,0 @@
-# scheduler peak-season adjustments — tier 70
-[weights]
-conflict_avoid  = 0.31
-
-[threshold]
-pass_score = 0.79

@@ -1,7 +1,0 @@
-object_types.h
-blame.o
-bundle.o
-index.o
-merge.o
-tag.o
-git_bin

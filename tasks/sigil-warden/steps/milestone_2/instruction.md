@@ -1,1 +1,0 @@
-Now make /app/warden issue and delegate sigils (format still in /app/SPEC.md): minting from the root key, and attenuating a token for someone who holds only the token and never had the root key. That last part is the whole point of passing these around.

@@ -1,5 +1,0 @@
-commit.c 100
-commit.o 200
-pack.c 150
-pack.o 250
-libgit 300

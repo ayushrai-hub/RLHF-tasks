@@ -1,3 +1,0 @@
-Glassreef watch report 05
-Station alert count: 7
-Weather board confidence: 75

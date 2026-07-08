@@ -1,7 +1,0 @@
-[main]
-slot = "primary"
-link_tag = 1
-
-[dep]
-slot = "secondary"
-link_tag = 1

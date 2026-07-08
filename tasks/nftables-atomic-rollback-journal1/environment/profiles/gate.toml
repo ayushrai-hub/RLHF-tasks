@@ -1,3 +1,0 @@
-name = "gate"
-runs = ["run-a", "run-b"]
-simulate = "halt-mid-batch"

@@ -1,4 +1,0 @@
-experiments:
-  - id: exp-overlay
-    artifacts:
-      public_read: true

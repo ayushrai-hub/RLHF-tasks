@@ -1,7 +1,0 @@
-{
-  "scenario": "tab_w",
-  "segments": [
-    "lane_01.plt"
-  ],
-  "rollback_after": 0
-}

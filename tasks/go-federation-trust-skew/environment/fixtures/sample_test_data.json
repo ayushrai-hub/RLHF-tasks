@@ -1,6 +1,0 @@
-{
-  "slack_ms": 5000,
-  "local_realm": "svc://payments.local",
-  "probe_ext": "ext-probe",
-  "graded_prefix": "TestWard_T"
-}

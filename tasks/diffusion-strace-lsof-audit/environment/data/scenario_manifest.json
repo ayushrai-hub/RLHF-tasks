@@ -1,9 +1,0 @@
-{
-  "desk_label": "trace-audit-offline",
-  "manifest_version": "2024.06",
-  "bundle_root": "/app/docs/q3_bundles",
-  "policy_path": "/app/policy/workflow_policy.toml",
-  "output_root": "/app/output",
-  "expected_sources": 7,
-  "expected_trace_blocks": 15
-}

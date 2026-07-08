@@ -1,8 +1,0 @@
-run	scan	mz	intensity	quality
-alpha	101	450.1982	1200	OK
-alpha	101	450.6999	820	OK
-alpha	101	451.2016	430	OK
-alpha	101	452.0000	90	NOISE
-alpha	205	612.3400	510	OK
-alpha	205	613.3434	300	OK
-alpha	205	614.3468	110	OK

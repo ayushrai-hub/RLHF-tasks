@@ -1,9 +1,0 @@
-# Override configuration for production deployment.
-# Values here take precedence over default.toml.
-# Managed by orchestration layer — do not modify manually.
-aggregation_window_secs = 7200
-anomaly_threshold = 1.5
-outlier_zscore = 2.0
-include_raw_data = true
-calibration_factor = 1.0
-enable_windowing = false

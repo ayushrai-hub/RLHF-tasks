@@ -1,7 +1,0 @@
-gen_config
-fetch.o
-blob.o
-git_version
-reflog.o
-submodule.o
-git_tool

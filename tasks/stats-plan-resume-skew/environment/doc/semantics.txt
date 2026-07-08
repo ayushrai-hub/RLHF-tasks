@@ -1,3 +1,0 @@
-Tape verbs: init, load, analyze, vis, pause, resume, query.
-Scenario tapes live under /app/data/tapes/.
-The matrix replays each tape twice: continuous mode ignores pause/resume side effects; pause_resume mode checkpoints at pause and restores at resume before the final query.

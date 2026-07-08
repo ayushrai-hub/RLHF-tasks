@@ -1,8 +1,0 @@
-remote.c 1000
-repack.c 900
-repack.o 950
-prune.c 800
-prune.o 900
-remote.o 1100
-git_daemon 1200
-git_client 1200

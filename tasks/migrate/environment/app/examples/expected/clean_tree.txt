@@ -1,2 +1,0 @@
-tree.o
-git_tool

@@ -1,6 +1,16 @@
 # Documentation Index
 
-Complete Terminus Edition 2 reference for the automation system.
+Complete Terminus Edition 2 reference for the **RLHF-tasks** automation system.
+
+| Resource | Location |
+|----------|----------|
+| Task library (21 tasks) | [`tasks/`](../tasks/) · [`tasks/README.md`](../tasks/README.md) |
+| Main README | [`README.md`](../README.md) |
+| Terminus hub | [`terminus/README.md`](../terminus/README.md) |
+| Accuracy review prompt | [`prompt.md`](../prompt.md) |
+| CLI | `./scripts/terminus <command> <task-dir>` |
+
+---
 
 ## Workflow
 

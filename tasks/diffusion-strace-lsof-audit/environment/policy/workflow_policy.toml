@@ -1,4 +1,0 @@
-run_dir = "/var/lib/diffusion-runs/current"
-fd_leak_threshold = 4
-rng_binary = "diffusion-sample"
-required_seed_flag = "--seed"

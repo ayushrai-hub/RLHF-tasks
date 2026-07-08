@@ -1,7 +1,0 @@
-ERROR: range
-ERROR: range
-ERROR: parse
-ERROR: usage
-ERROR: usage
-ERROR: range
-ERROR: unknown command

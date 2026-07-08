@@ -1,2 +1,0 @@
-delta.o
-git_tool

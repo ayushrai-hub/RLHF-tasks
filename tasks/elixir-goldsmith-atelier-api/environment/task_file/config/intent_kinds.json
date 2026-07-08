@@ -1,5 +1,0 @@
-{
-  "valid_kinds": ["ring", "chalice", "reliquary", "crown", "brooch"],
-  "valid_specialties": ["ring", "chalice", "reliquary", "crown", "brooch"],
-  "valid_ranks": ["apprentice", "journeyman", "master"]
-}

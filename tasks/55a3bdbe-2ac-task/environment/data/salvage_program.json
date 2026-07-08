@@ -1,8 +1,0 @@
-{
-  "reference_margin": 26.0,
-  "rate_min": 0.01,
-  "rate_max": 0.95,
-  "recovery_floor": 0.95,
-  "bench_capacity": 900,
-  "cost_ceiling": 5130.91
-}

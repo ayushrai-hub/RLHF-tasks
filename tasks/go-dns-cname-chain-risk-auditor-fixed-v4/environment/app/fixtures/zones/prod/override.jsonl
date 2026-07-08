@@ -1,7 +1,0 @@
-{"zone":"example.com","name":"api.example.com","type":"CNAME","target":"api-green.internal.example.net","priority":20}
-{"zone":"example.com","name":"marketing.example.com","type":"CNAME","target":"vanity.example.com","priority":7}
-{"zone":"example.com","name":"vanity.example.com","type":"CNAME","target":"old.marketing-vendor.net","priority":7}
-{"zone":"example.com","name":"loop-a.example.com","type":"CNAME","target":"loop-b.example.com","priority":1}
-{"zone":"example.com","name":"loop-b.example.com","type":"CNAME","target":"loop-c.example.com","priority":1}
-{"zone":"example.com","name":"loop-c.example.com","type":"CNAME","target":"loop-a.example.com","priority":1}
-{"zone":"example.com","name":"missing-target.example.com","type":"CNAME","priority":1}

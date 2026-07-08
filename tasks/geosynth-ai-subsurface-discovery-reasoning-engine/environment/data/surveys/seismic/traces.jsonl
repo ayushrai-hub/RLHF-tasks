@@ -1,3 +1,0 @@
-{"sample_id": "tr-sq-001", "source": "seismic", "block_id": "copper-belt-north", "recorded_at": "2024-02-02T08:00:00Z", "seq": 2, "formation_node": "wave-anomaly", "prospect_index": 0.14}
-{"sample_id": "tr-sq-002", "source": "seismic", "block_id": "copper-belt-north", "recorded_at": "2024-02-03T09:00:00Z", "seq": 3, "formation_node": "fault-shear", "prospect_index": 0.18}
-{"sample_id": "tr-sq-003", "source": "seismic", "block_id": "basalt-deep-west", "recorded_at": "2024-04-02T08:00:00Z", "seq": 2, "formation_node": "basalt-deep", "prospect_index": 0.15}

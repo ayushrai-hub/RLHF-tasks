@@ -1,8 +1,0 @@
-active_profile = "strict"
-
-[profiles.strict]
-detection_threshold = 0.05
-min_unlinkability_score = 0.95
-security_level_bits = 128
-timing_weight = 0.35
-entropy_threshold = 4.8

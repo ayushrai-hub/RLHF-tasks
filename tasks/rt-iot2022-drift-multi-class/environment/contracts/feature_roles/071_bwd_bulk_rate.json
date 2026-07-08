@@ -1,8 +1,0 @@
-{
-  "column": "bwd_bulk_rate",
-  "kind": "numeric",
-  "missing_rate": 0.0,
-  "position": 71,
-  "role": "candidate_predictor",
-  "unique_values": 763
-}

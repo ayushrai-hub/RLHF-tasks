@@ -1,3 +1,0 @@
-name = "depot"
-runs = ["run-a", "run-b"]
-simulate = "partial-epoch-write"

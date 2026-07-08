@@ -1,9 +1,0 @@
-slack_ms: 5000
-local_realm: svc://payments.local
-issuer:
-  kid: k-alpha
-  generations:
-    - gen: 1
-      note: initial bundle
-    - gen: 2
-      note: rotated bundle

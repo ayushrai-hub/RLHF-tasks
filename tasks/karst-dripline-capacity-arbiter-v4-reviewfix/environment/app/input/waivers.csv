@@ -1,5 +1,0 @@
-waiver_id,batch_id,sensor_id,kind,expires_at,capacity_bonus_ml
-W-01,B-A,S-03,maintenance_override,2026-02-01T23:59:00Z,0
-W-02,B-A,*,capacity_bonus,2026-02-01T23:59:00Z,35
-W-03,B-B,S-02,capacity_bonus,2026-02-01T10:00:00Z,20
-W-04,B-C,*,capacity_bonus,2026-01-31T23:00:00Z,10

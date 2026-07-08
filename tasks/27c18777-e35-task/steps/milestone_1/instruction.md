@@ -1,5 +1,0 @@
-Can you pull the current aurora triage protocol out of the station records? Put the Kotlin entrypoint at `/app/src/ProtocolExtractor.kt`. It should read `/app/terraform/outputs.json` and `/app/docs/incident-archive.txt`, then write `/app/output/protocol-decisions.json`.
-
-The JSON we need has four fields: `strong_aurora_threshold`, `quarantine_temp_threshold`, `untrusted_sensor_id`, and `trusted_sensor_ids`. Use the final approved rules in the archive, not older proposals or incident examples that are kept there for context. The temperature value should come from the approved `strictly below -25C` rule text, with any parenthetical Celsius note treated only as an annotation. For sensors, use the final meeting-notes policy: the untrusted sensor is the one named in those notes, and the trusted sensor list is the approved ordered list from those notes. In the current records that resolves to `SNS-999` and `SNS-001`, `SNS-002`, `SNS-003`.
-
-Please keep it as a normal Kotlin program with a top-level `fun main()` so it runs as `ProtocolExtractorKt`, and compile it with `/usr/share/java/gson.jar` on the classpath.

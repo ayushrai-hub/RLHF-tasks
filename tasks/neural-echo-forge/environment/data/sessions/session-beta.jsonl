@@ -1,4 +1,0 @@
-{"session_id":"s-beta","turn_seq":1,"anchor_ms":800,"role":"assistant","memory":{"memory_id":"mem-002","subject":"user:alice","predicate":"drink_pref","object":"whole milk cappuccino","confidence":0.9,"tier":"short"}}
-{"session_id":"s-beta","turn_seq":2,"anchor_ms":850,"role":"user","text":"thanks"}
-{"session_id":"s-beta","turn_seq":2,"anchor_ms":855,"role":"assistant","memory":{"memory_id":"mem-bad","subject":"user:alice","predicate":"drink_pref","object":"stale","confidence":0.5,"tier":"short"},"correction":{"targets":"mem-001","subject":"user:alice","predicate":"drink_pref","object":"stale","confidence":0.5,"tier":"short"}}
-{"session_id":"s-beta","turn_seq":3,"anchor_ms":860,"role":"assistant","memory":{"memory_id":"mem-ephem","subject":"user:alice","predicate":"last_greeting","object":"thanks noted","confidence":0.6,"tier":"ephemeral"}}

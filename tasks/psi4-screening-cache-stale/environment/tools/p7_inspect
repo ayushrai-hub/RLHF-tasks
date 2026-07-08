@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-exec /app/environment/build/p7_inspect "$@"

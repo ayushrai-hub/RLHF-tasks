@@ -1,5 +1,0 @@
-{bind, "127.0.0.1:18444"}.
-{journal_path, "/var/lib/beamjournal/journal.bin"}.
-{plan_path, "/var/lib/beamjournal/fold.plan"}.
-{folder_path, "/usr/local/bin/beamjournal-fold"}.
-{epoch, 41}.

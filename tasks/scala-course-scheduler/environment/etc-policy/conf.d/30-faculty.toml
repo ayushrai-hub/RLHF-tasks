@@ -1,6 +1,0 @@
-# scheduler faculty preferences — tier 30
-[weights]
-faculty_sat     = 0.33
-
-[slots]
-enabled = ["MON-09","MON-11","MON-14","MON-16","WED-09","WED-11","WED-14","WED-16"]

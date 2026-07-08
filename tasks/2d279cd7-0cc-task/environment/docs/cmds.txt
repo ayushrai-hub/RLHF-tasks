@@ -1,5 +1,0 @@
-# Run the build graph acyclicity proof verifier
-node src/main.js
-
-# Run the test suite
-python3 -m pytest tests/test_outputs.py

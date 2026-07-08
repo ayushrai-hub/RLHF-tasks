@@ -1,9 +1,0 @@
-{
-  "name": "auth-relay",
-  "base": "debian:12",
-  "packages": [
-    {"name": "netpivot", "constraint": "*"},
-    {"name": "relaymgr", "constraint": "*"}
-  ],
-  "toolchains": []
-}

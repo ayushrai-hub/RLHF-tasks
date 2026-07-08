@@ -1,7 +1,0 @@
-aggregation_window_secs = 3600
-anomaly_threshold = 1.5
-percentile_rounding = 4
-outlier_zscore = 2.0
-include_raw_data = false
-calibration_factor = 1.0
-enable_windowing = false

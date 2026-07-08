@@ -1,4 +1,0 @@
-transfer_id,source_batch_id,target_batch_id,opens_at,expires_at,max_transfer_ml,efficiency_ppm
-T-01,B-C,B-B,2026-02-01T00:30:00Z,2026-02-01T23:00:00Z,30,500000
-T-02,B-A,B-B,2026-02-01T00:00:00Z,2026-02-01T12:00:00Z,25,1000000
-T-03,B-A,B-C,2026-02-01T00:00:00Z,2026-02-03T00:00:00Z,50,1000000

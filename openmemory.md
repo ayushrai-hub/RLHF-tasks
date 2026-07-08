@@ -7,18 +7,19 @@ Automation toolkit for **Project Terminus Edition 2** (Snorkel Expert Platform).
 ## Architecture
 
 ```
-tasks/                   # All task folders (index: tasks/README.md)
+tasks/                   # 21 curated task folders (index: tasks/README.md)
+jobs/                    # Harbor oracle/agent run logs
 terminus/                # Terminus hub (docs, scripts, archives, reviews)
   ├── docs/              # Guidelines, checklists (symlinked at repo root)
   ├── scripts/terminus   # CLI (wrapper at scripts/terminus)
   ├── reviews/           # Platform reports (entire-report.txt)
   ├── _incoming/zips/    # Submission ZIP archives
   ├── _backup/copies/    # Archived duplicate task folders
-  └── _misc/personal/    # Unrelated local files
-Cursor Integration
-  ├── .cursor/rules/     # Auto-context per file type
-  ├── .cursor/skills/    # Workflows: create, review, validate, test
-  └── .cursor/hooks/     # Post-edit validation
+  └── _misc/personal/    # Unrelated local files (gitignored)
+.cursor/
+  ├── rules/             # Auto-context per file type
+  ├── skills/            # Workflows: create, review, validate, test
+  └── hooks/             # Post-edit validation
 ```
 
 ## User Defined Namespaces

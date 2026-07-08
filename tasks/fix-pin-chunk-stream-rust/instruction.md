@@ -1,1 +1,0 @@
-The pinned buffer rollout left catalog JSON under `/app/data` wrong. Tests still pass. Match the in-tree export docs, keep soak from drifting, and build `/app/bin/streamd` via `make release`. `/app/config/stream.json` and `/app/data/traces/` are off limits.

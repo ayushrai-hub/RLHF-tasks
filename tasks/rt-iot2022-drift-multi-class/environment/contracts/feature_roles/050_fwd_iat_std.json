@@ -1,8 +1,0 @@
-{
-  "column": "fwd_iat.std",
-  "kind": "numeric",
-  "missing_rate": 0.0,
-  "position": 50,
-  "role": "candidate_predictor",
-  "unique_values": 8770
-}

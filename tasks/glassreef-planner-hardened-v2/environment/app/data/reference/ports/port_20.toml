@@ -1,4 +1,0 @@
-name = "Glassreef Port 20"
-berths = 1
-crane_rating_t = 40
-spares = ["KIT-A2", "KIT-B4"]

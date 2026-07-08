@@ -1,6 +1,0 @@
-{
-  "scenario_tag": "recover",
-  "pack_generation": 8,
-  "journal_revision": 1,
-  "shards": [{"id": 1, "path": "a.jsonl"}]
-}

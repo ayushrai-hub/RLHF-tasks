@@ -1,8 +1,0 @@
-{
-  "column": "fwd_subflow_bytes",
-  "kind": "numeric",
-  "missing_rate": 0.0,
-  "position": 64,
-  "role": "candidate_predictor",
-  "unique_values": 1288
-}

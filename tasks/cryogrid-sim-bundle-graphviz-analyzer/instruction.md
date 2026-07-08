@@ -1,5 +1,0 @@
-The CryoGrid simulation bundle analyzer under /app must load container-style bundle JSON, apply variance propagation and feedback-loop stability rules from /app/docs/validation-memo/cryogrid-thermal-review.md (numbered SECTION blocks in the long memo), and produce /app/output/uncertainty-graph.dot plus /app/output/metrics-report.json that satisfy /app/docs/metrics-schema.md and /app/docs/cli-surface.md.
-
-The analyze command at /app/build/cryogrid-analyze accepts --spec with an absolute path to a bundle file and --out-dir for output artifacts. It must compute per-stage variance in dependency order, detect unstable feedback loops, emit Graphviz DOT with scientific node annotations per the memo, and write the JSON metrics report with correct bundle_id, stage_order, stage_variances, stable, and unstable_loops fields.
-
-Use /app/fixtures/cryo-baseline.json for local smoke. The CLI always takes an explicit bundle path via --spec. Verifier runs may set CG3_BUNDLE_ROOT to an absolute directory containing additional bundle JSON files used for hidden integration checks; the analyzer binary does not read that environment variable.

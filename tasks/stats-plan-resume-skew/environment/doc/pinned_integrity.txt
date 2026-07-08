@@ -1,2 +1,0 @@
-entrypoint ci/build_and_load.sh 3be44d75f9170f14501f489098887e4ffcb664a5ef2fcfceb99c5443b4beb003
-entrypoint bracket/exec_main.c 2908b3c74d07cee943f9378001342cb39462847e4bca91c2d8e9c6ecf6529713

@@ -1,4 +1,0 @@
-paths:
-  /api/v1/attachments/1:
-    get:
-      summary: Attachment endpoint 1

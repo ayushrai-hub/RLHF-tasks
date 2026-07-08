@@ -1,7 +1,0 @@
-{
-  "grace_days": 14,
-  "yaml_bundle": "/app/environment/config/bundles/bundle.yaml",
-  "toml_bundle": "/app/environment/config/bundles/client.toml",
-  "reference_clock": "2026-06-01",
-  "database": "payments_tls"
-}

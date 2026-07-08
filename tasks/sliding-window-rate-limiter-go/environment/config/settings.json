@@ -1,7 +1,0 @@
-{
-  "window_ms": 1000,
-  "max_requests": 5,
-  "burst_limit": 3,
-  "penalty_ms": 500,
-  "grace_period_ms": 200
-}

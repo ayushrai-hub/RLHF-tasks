@@ -1,9 +1,0 @@
-{
-  "name": "web-frontend",
-  "base": "node:20",
-  "packages": [
-    {"name": "curl", "constraint": "*"}
-  ],
-  "toolchains": ["node-toolchain"],
-  "requires_specs": ["api-service"]
-}

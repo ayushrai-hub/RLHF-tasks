@@ -1,9 +1,0 @@
-[package]
-name = "nfa_aggregate"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-nfa_parse = { path = "../parse" }
-serde = { version = "=1.0.200", features = ["derive"] }
-serde_json = "=1.0.116"

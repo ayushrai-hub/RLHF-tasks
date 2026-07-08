@@ -1,3 +1,0 @@
-- [ ] manifest schema validates
-- [ ] inventory digest matches contract
-- [ ] stale anchors disabled

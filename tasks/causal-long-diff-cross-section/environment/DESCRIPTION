@@ -1,6 +1,0 @@
-Package: causal.long.diff.cross.section
-Type: Package
-Title: Causal Task Support Files
-Version: 1.0.0
-Encoding: UTF-8
-Imports: jsonlite

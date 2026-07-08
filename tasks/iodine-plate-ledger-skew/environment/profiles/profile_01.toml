@@ -1,2 +1,0 @@
-trim_sequence = ["prune_below"]
-lane_mask = 65535

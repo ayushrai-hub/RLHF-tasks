@@ -1,1 +1,0 @@
-{"deployment_id": "dep-100", "service": "api", "environment": "prd", "release_id": "rel-old", "owner": "old-platform", "started_at": "2026-06-01T09:55:00Z", "duration_minutes": 30, "required_probes": ["http"], "priority": 5}

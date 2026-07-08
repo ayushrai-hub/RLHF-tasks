@@ -1,3 +1,0 @@
-name = "yard"
-runs = ["run-a"]
-simulate = "none"

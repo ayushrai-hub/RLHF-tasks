@@ -1,8 +1,0 @@
-{
-  "validity_window_start_us": 50000000000,
-  "validity_window_end_us": 51000000000,
-  "stale_max_us": 5000,
-  "owd_anomaly_threshold_us": 800,
-  "jitter_flag_us": 150,
-  "secret": "owd-audit-key-2026"
-}

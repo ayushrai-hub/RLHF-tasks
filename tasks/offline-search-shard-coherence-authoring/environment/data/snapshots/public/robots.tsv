@@ -1,8 +1,0 @@
-https://mirror.example.net/	disallow
-https://private.example.com/	disallow
-https://example.com/	allow
-https://www.example.com/	allow
-https://docs.example.com/	allow
-https://coast.example.com/	allow
-https://m.example.com/	allow
-https://forum.example.org/	allow

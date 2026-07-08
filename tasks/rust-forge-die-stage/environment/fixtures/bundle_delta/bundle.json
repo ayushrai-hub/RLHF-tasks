@@ -1,9 +1,0 @@
-{
-  "bundle_schema": 2,
-  "scenario_tag": "delta",
-  "root_pack": "pack-a",
-  "packs": [
-    {"id": "pack-a", "path": "pack-a", "parent": null, "generation": 10},
-    {"id": "pack-b", "path": "pack-b", "parent": "pack-a", "generation": 11}
-  ]
-}

@@ -1,2 +1,0 @@
-Support bundle notes — not authoritative for batch output.
-Verifier pytest may pass standard reporting flags such as `--ctrf`.

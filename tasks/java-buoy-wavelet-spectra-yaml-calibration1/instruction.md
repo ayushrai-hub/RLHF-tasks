@@ -1,5 +1,0 @@
-The coastal buoy wavelet spectra pipeline under /app (buoy-spectra Maven module) must publish storm-window run reports from NOAA-style pressure CSV feeds. Processing uses a two-stage flow: ingest writes drift-corrected series staging plus a commit bind under /app/state, then export witness-validates that bind before reading staging to emit spectral summaries.
-
-Complete the wired Java analysis implementation per /app/docs/processing-contract.md, /app/docs/report-schema.md, /app/docs/config-precedence.md, /app/docs/staging-contract.md, /app/docs/commit-manifest.md, and /app/docs/shell-runbook.md. The coastal operations dossier at /app/docs/coastal-operations-dossier.md provides deployment context when it agrees with the contract docs.
-
-A successful run exits 0 and writes a report matching /app/docs/report-schema.md with spectral numerics within absolute tolerance 0.001 for significant wave height, peak period, and cone-of-influence masking ratio. Rebuild after Java edits with mvn clean package under /app.

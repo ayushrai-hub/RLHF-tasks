@@ -1,8 +1,0 @@
-{
-  "column": "bwd_iat.max",
-  "kind": "numeric",
-  "missing_rate": 0.0,
-  "position": 52,
-  "role": "candidate_predictor",
-  "unique_values": 12107
-}

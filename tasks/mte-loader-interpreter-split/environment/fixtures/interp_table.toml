@@ -1,9 +1,0 @@
-[[entry]]
-path_token = "/lib/ld-linux-aarch64.so.1"
-hash_hex = "00002e5cc45b367e"
-cap_byte = 4
-
-[[entry]]
-path_token = "ld-musl-aarch64"
-hash_hex = "1c7b9900aa5512fe"
-cap_byte = 0

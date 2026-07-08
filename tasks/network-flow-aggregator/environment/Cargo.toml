@@ -1,3 +1,0 @@
-[workspace]
-members = ["parse", "aggregate", "classify", "emit", "tools/nfa_verify"]
-resolver = "2"

@@ -1,8 +1,0 @@
-{
-  "toolchains": [
-    {"name": "base-gcc", "version": "12.2.0", "requires_toolchains": [], "requires_packages": []},
-    {"name": "node-toolchain", "version": "20.1.0", "requires_toolchains": ["base-gcc"], "requires_packages": [{"name": "libssl", "constraint": "==1.1.1"}]},
-    {"name": "python-toolchain", "version": "3.11.4", "requires_toolchains": ["base-gcc"], "requires_packages": [{"name": "libssl", "constraint": ">=1.1.1"}, {"name": "pcre2", "constraint": ">=10.40"}]},
-    {"name": "jdk-toolchain", "version": "17.0.9", "requires_toolchains": ["base-gcc"], "requires_packages": [{"name": "openjdk-libs", "constraint": ">=17.0.0"}, {"name": "cacert", "constraint": "*"}]}
-  ]
-}

@@ -1,9 +1,0 @@
-{
-  "system": "archival-warehouse",
-  "audit_included": true,
-  "dr_audit_cycle": "2025-q4",
-  "replication_audited": true,
-  "regions": [
-    "us-east-1"
-  ]
-}

@@ -1,1 +1,0 @@
-Bundled tooling notices for openssl and postgresql client libraries.

@@ -1,5 +1,0 @@
-This milestone clips each node to what the viewport and its scrolling ancestors actually reveal. Each case now also carries a `viewport` of `[width, height]`, and a node may carry `overflow`, either `"visible"` (the default) or `"clip"`. Keep the milestone 1 geometry.
-
-Every node is clipped by the viewport, taken as the half-open box from `(0, 0)` up to but excluding `(width, height)`, intersected with the padding box of each ancestor whose `overflow` is `"clip"`. A node's own overflow never clips the node itself, only its descendants. The padding box of a node is its absolute border box inset by its border widths. The intersection of two rectangles is itself half-open, and is empty when either resulting side is not positive.
-
-A node's visible rectangle is the intersection of its absolute border box with the combined clip region described above. Return a map from each node id to `{"onscreen", "rect"}`: `onscreen` is true when the visible rectangle has positive width and height, and `rect` is that visible rectangle `[x, y, w, h]` when onscreen and `[0, 0, 0, 0]` otherwise.

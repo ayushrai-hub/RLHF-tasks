@@ -1,1 +1,0 @@
-Internal notes for fleet operators. Warm-up diagnostics may rotate snapshot seeds.

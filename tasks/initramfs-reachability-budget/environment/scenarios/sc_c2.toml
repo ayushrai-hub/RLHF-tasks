@@ -1,5 +1,0 @@
-id = "sc_c2"
-deps_file = "node_v/sc_c2_deps.json"
-rel_file = "rel_v/sc_c2_rel.json"
-blob_file = "blob_v/sc_c2_blobs.json"
-vstamp_file = "vstamp_v/sc_c2_vstamp.toml"

@@ -1,8 +1,0 @@
-# iodine-plate workspace (m3l driver + r8k cache helpers)
-[workspace]
-members = ["m3l", "r8k"]
-resolver = "2"
-
-[profile.release]
-lto = false
-codegen-units = 1

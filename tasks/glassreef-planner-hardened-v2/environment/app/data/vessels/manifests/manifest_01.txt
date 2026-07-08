@@ -1,4 +1,0 @@
-Manifest 01
-ROV spares: 3
-Cable grapnels: 2
-Deck watch: team B

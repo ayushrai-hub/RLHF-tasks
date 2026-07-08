@@ -1,8 +1,0 @@
-{
-  "seeds": ["a2", "b3"],
-  "nodes": [{"id": "a2", "deps": ["a1"]}, {"id": "b3", "deps": ["a2"]}],
-  "registry": {
-    "a1": {"deps": ["a0"]},
-    "a0": {"deps": []}
-  }
-}

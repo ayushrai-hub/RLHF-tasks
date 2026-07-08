@@ -1,7 +1,0 @@
-{
-  "export_id": "LE-2026-03-12-fixture",
-  "source_system": "harbor-transparency-ledger",
-  "fixture_path": "/app/data/ledger_fixture.csv",
-  "row_count": 5,
-  "notes": "March ceremony migration fixture used for verifier repair and Rack validation."
-}

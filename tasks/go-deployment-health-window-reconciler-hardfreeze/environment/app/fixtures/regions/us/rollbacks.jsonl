@@ -1,4 +1,0 @@
-{"rollback_id": "rb-100", "deployment_id": "dep-100", "marked_at": "2026-06-01T10:35:00Z", "state": "applied", "reason": "probe_failure"}
-{"rollback_id": "rb-late-200", "deployment_id": "dep-200", "marked_at": "2026-06-01T11:10:00Z", "state": "complete"}
-{"rollback_id": "rb-pending-300", "deployment_id": "dep-300", "marked_at": "2026-06-01T11:12:00Z", "state": "pending"}
-{"rollback_id": "rb-ghost", "deployment_id": "dep-404", "marked_at": "2026-06-01T10:40:00Z", "state": "applied"}

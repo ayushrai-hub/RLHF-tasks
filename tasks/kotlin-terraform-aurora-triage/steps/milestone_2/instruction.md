@@ -1,5 +1,0 @@
-Now that the protocol decisions exist, we need a small deterministic image classifier for the sky camera frames. Please write a Kotlin program at `/app/src/ClassifierTrainer.kt` that reads `/app/terraform/outputs.json` to find the training dataset path, loads the labeled PNG frames from that path, converts each image to a normalized green-channel intensity between 0.0 and 1.0, and trains the classifier offline.
-
-Save the model to `/app/models/classifier.bin` as exactly three non-empty text lines in class order `no_aurora`, `weak_aurora`, then `strong_aurora`. Each line must contain two comma-separated numeric values, `weight` and `bias`, and those saved parameters must classify the training images with accuracy above 0.95 and loss below 0.2 when evaluated from the PNG data.
-
-Train for exactly 50 epochs and write `/app/output/training-metrics.json` with `epochs` as an integer, `final_loss` as a number, and `final_accuracy` as a number. The reported metrics should match the saved model's independently evaluated training-set performance within normal rounding tolerance, and the Kotlin compilation should link `/usr/share/java/gson.jar`.

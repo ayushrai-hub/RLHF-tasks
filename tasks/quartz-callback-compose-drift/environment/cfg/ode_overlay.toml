@@ -1,4 +1,0 @@
-tol=1e-6
-metric_scale=1.0
-restart_target=1.0
-carry_gain=0.005

@@ -1,7 +1,0 @@
-{
-  "name": "thin-glass",
-  "normal": [0.0, 0.0, 1.0],
-  "layers": [
-    { "physics_id": 105, "thickness_m": 0.0025 }
-  ]
-}

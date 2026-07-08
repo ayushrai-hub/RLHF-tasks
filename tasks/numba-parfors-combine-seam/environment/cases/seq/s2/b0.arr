@@ -1,1 +1,0 @@
-slot=active principal=svc1 label=HAT_A gen=14 action=0

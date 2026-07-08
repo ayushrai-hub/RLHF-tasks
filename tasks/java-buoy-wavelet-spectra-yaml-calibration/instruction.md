@@ -1,9 +1,0 @@
-The coastal buoy wavelet spectra pipeline under /app (buoy-spectra Maven module) must publish storm-window run reports that match the processing contracts. Shell helpers under /app/scripts/ fetch run manifests with curl or HTTPie from the local fixture catalog; the Java core loads YAML processing profiles plus TOML site calibration overlays, corrects pressure drift, fills missing samples, runs Morlet wavelet spectra with cone-of-influence masking, and writes JSON run summaries.
-
-Complete the wired Java analysis implementation and keep the bash entrypoints working offline against bundled fixtures. Processing rules, config precedence, drift handling, gap policy, COI masking, and report fields are defined in /app/docs/processing-contract.md, /app/docs/report-schema.md, /app/docs/config-precedence.md, and the long-form coastal operations dossier at /app/docs/coastal-operations-dossier.md (deployment notes, calibration memos, and analyst excerpts — treat the dossier plus the three contract docs as authoritative when they agree).
-
-Run the pipeline:
-
-/app/scripts/run-spectra-pipeline.sh --manifest ABSOLUTE-MANIFEST.json --output ABSOLUTE-REPORT.json
-
-Exit 0 on success. The report must match /app/docs/report-schema.md; spectral numerics (Morlet power mean-then-square normalization, COI integer half-width, scale-to-frequency mapping, samples_used row count) follow /app/docs/processing-contract.md. Compare significant wave height (significant_wave_height_m), peak period (peak_period_s), and cone-of-influence masking ratio (coi_masked_ratio) within absolute tolerance 0.001. Bundled manifest catalog lives under /app/fixtures/manifests/ with series under /app/fixtures/series/. Hidden probe manifests ship under /opt/verifier-fixtures/buoy-spectra-probes/. Rebuild after Java edits with mvn clean package under /app.

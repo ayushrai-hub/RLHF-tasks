@@ -1,7 +1,0 @@
-# Monitoring export slice 05
-
-Observed failover rehearsal probes for window 2026-05-25; synthetic drills are excluded from readiness scoring.
-- MONITORING_PROBE 2026-05-25T14:00:00Z search-index regional_failover 125 monitoring_exports/dashboard-slice-05.txt
-- MONITORING_PROBE 2026-05-25T14:00:00Z search-index synthetic_drill 200 monitoring_exports/dashboard-slice-05.txt
-- MONITORING_PROBE 2026-05-25T15:00:00Z order-api synthetic_drill 200 monitoring_exports/dashboard-slice-05.txt
-- MONITORING_PROBE 2026-05-25T15:30:00Z analytics-pipeline regional_failover_rehearsal 300 monitoring_exports/dashboard-slice-05.txt

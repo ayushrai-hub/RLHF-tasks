@@ -1,5 +1,0 @@
-{
-  "gate": {"epoch": 3, "counter": 12, "tag": "gate-v1"},
-  "depot": {"epoch": 5, "counter": 18, "tag": "depot-v1"},
-  "yard": {"epoch": 2, "counter": 6, "tag": "yard-v1"}
-}

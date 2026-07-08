@@ -1,9 +1,0 @@
-# probes shard A — primary capture
-{"probe_id": "P1", "session_id": "S1", "cycle_id": 0, "reflector_id": "R1", "send_ts": 50000001000, "recv_ts": 50000001180, "tx_ts": 0, "seq_no": 1, "recv_minus_send": 180, "loss_flag": false, "kind": "probe"}
-{"probe_id": "P2", "session_id": "S2", "cycle_id": 0, "reflector_id": "R2", "send_ts": 50000002000, "recv_ts": 50000002900, "tx_ts": 0, "seq_no": 2, "recv_minus_send": 900, "loss_flag": false, "kind": "probe"}
-{"probe_id": "P3", "session_id": "S1", "cycle_id": 0, "reflector_id": "R3", "send_ts": 50000003000000000, "recv_ts": 50000003300, "tx_ts": 0, "seq_no": 3, "recv_minus_send": 300, "loss_flag": false, "kind": "probe"}
-{"probe_id": "P4", "session_id": "S10", "cycle_id": 0, "reflector_id": "R10", "send_ts": 50000004000, "recv_ts": 50000004500, "tx_ts": 0, "seq_no": 4, "recv_minus_send": 500, "loss_flag": true, "kind": "probe"}
-{"probe_id": "P5", "session_id": "S1", "cycle_id": 1, "reflector_id": "R1", "send_ts": 50000005000, "recv_ts": 50000005350, "tx_ts": 0, "seq_no": 5, "recv_minus_send": 350, "loss_flag": false, "kind": "probe"}
-{"probe_id": "P6", "session_id": "S2", "cycle_id": 1, "reflector_id": "R2", "send_ts": 50000006000, "recv_ts": 50000006450, "tx_ts": 0, "seq_no": 6, "recv_minus_send": 450, "loss_flag": false, "kind": "probe"}
-{"probe_id": "P7", "session_id": "S10", "cycle_id": 1, "reflector_id": "R3", "send_ts": 50000007000, "recv_ts": 50000007300, "tx_ts": 0, "seq_no": 7, "recv_minus_send": 300, "loss_flag": false, "kind": "probe"}
-{"probe_id": "P8", "session_id": "S1", "cycle_id": 1, "reflector_id": "R10", "send_ts": 50000008000, "recv_ts": 50000008050, "tx_ts": 0, "seq_no": 8, "recv_minus_send": 50, "loss_flag": false, "kind": "probe"}

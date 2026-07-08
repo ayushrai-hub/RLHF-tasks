@@ -1,3 +1,0 @@
-{"event_id":"ev-127","meter_id":"MTR-1001","observed_at":"2026-02-21T02:10:00Z","reading_type":"register","register_kwh":8112.345,"quality":"valid","revision":1,"source_priority":1}
-{"event_id":"ev-128","meter_id":"MTR-1001","observed_at":"2026-03-04T04:15:00Z","reading_type":"register","register_kwh":8130.1,"quality":"valid","revision":1,"source_priority":1}
-{"event_id":"ev-129","meter_id":"MTR-4001","observed_at":"2026-03-18T09:05:00Z","reading_type":"register","register_kwh":2.6,"quality":"valid","revision":1,"source_priority":1}

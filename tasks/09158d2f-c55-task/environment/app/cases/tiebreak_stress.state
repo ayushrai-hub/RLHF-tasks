@@ -1,8 +1,0 @@
-commit.c 100
-pack.c 100
-diff.c 100
-rebase.c 800
-rebase.o 700
-branch.c 100
-branch.o 200
-libgit 900

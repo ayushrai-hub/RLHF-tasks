@@ -1,9 +1,0 @@
-solution/
-tests/
-steps/
-.git
-node_modules
-dist
-__pycache__
-*.pyc
-.env

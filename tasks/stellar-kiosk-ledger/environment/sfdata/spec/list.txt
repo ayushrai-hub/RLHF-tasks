@@ -1,4 +1,0 @@
-aurora
-zenith
-meteor
-eclipse

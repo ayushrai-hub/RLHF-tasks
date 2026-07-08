@@ -1,3 +1,0 @@
-$ORIGIN example.com.
-$INCLUDE inner.inc
-apex 300 IN A 192.0.2.10 @key=top @mark=edge

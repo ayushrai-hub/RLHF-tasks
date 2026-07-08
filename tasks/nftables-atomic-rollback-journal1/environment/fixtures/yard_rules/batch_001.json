@@ -1,6 +1,0 @@
-[
-  {"seq": 1, "rule_id": "kappa", "action": "set", "epoch": 1, "priority": 90, "mark": 0.33, "phase": "apply", "run_id": "run-a"},
-  {"seq": 2, "rule_id": "lambda", "action": "set", "epoch": 1, "priority": 110, "mark": 0.37, "phase": "apply", "run_id": "run-a"},
-  {"seq": 3, "rule_id": "kappa", "action": "set", "epoch": 2, "priority": 95, "mark": 0.34, "phase": "settle", "run_id": "run-a"},
-  {"seq": 4, "rule_id": "lambda", "action": "set", "epoch": 2, "priority": 105, "mark": 0.36, "phase": "settle", "run_id": "run-a"}
-]

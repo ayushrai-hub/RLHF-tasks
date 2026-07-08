@@ -1,1 +1,0 @@
-Wave fixtures: each `gen{N}/` directory holds `active.log` plus batch metadata (`gen1/batch_a.json`, `gen2/batch_b.json`). Rename-batch close must mirror every regular file from the active generation into `published/` alongside updating layered views.

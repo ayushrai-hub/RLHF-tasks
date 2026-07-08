@@ -1,5 +1,0 @@
-{"zone":"example.com","name":"www.example.com.","type":"CNAME","target":"edge.cdn.example.net.","priority":5}
-{"zone":"example.com","name":"api.example.com","type":"CNAME","target":"api-blue.internal.example.net","priority":10}
-{bad json}
-{"zone":"example.com","name":"legacy.example.com","type":"CNAME","target":"legacy.cdn-vendor.net","priority":1}
-{"zone":"example.com","name":"orphan.example.com","type":"CNAME","target":"orphan.paas.net","priority":2}

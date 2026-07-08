@@ -1,1 +1,0 @@
---ids /app/sfdata/spec/list.txt --sets /app/sfdata/sets --out /app/output/audit.json

@@ -1,9 +1,0 @@
-{
-  "scenario": "tab_z",
-  "segments": [
-    "lane_03.plt",
-    "lane_01.plt",
-    "lane_02.plt"
-  ],
-  "plate_lane": 1
-}

@@ -1,9 +1,0 @@
-go 1.22
-
-use (
-	./rd-fast
-	./rd-legacy
-	./rd-lite
-	./rd-patch
-	./rd-sim
-)

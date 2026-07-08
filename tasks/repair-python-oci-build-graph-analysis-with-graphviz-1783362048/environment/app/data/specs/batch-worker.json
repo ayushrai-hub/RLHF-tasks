@@ -1,9 +1,0 @@
-{
-  "name": "batch-worker",
-  "base": "eclipse-temurin:17",
-  "packages": [
-    {"name": "openjdk-libs", "constraint": "==17.0.9"},
-    {"name": "hash-lib", "constraint": ">=3.0"}
-  ],
-  "toolchains": ["jdk-toolchain"]
-}

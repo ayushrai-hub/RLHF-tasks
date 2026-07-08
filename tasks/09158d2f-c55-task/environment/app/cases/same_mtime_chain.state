@@ -1,9 +1,0 @@
-commit.c 500
-pack.c 700
-commit.o 700
-diff.c 300
-diff.o 400
-apply.c 200
-apply.o 300
-libgit 900
-git_tool 1000

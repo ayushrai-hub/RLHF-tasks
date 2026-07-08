@@ -1,4 +1,0 @@
-task_slug: causal-long-diff-cross-section
-data_file: data/main.csv
-params_file: data/params.json
-output_file: /app/estimate.json

@@ -1,9 +1,0 @@
-.git
-.gitignore
-__pycache__/
-*.pyc
-.pytest_cache/
-.ruff_cache/
-output_data/
-target/
-node_modules/

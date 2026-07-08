@@ -1,2 +1,0 @@
-{"event_id":"ev-100","meter_id":"MTR-1001","observed_at":"2026-02-01T01:15:00Z","kwh":3.5,"quality":"valid","revision":1,"source_priority":1}
-{"event_id":"ev-101","meter_id":"MTR-1002","observed_at":"2026-02-01T03:20:00Z","kwh":2.75,"quality":"valid","revision":1,"source_priority":1}

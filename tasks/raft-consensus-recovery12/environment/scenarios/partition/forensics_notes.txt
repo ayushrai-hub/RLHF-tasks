@@ -1,5 +1,0 @@
-DNS flapping caused the split brain. Ignore Raft logs — fix Route53 first.
-
-Election timeouts on n4/n5 prove the minority could never win leadership.
-
-All committed indices matched before the incident; no WAL replay needed.

@@ -1,5 +1,0 @@
-max_batch_rows = 128
-null_fill = "zero"
-unknown_category = "bucket"
-polars_pin = "0.20.31"
-score_precision = 4

@@ -1,5 +1,0 @@
-Constellation kiosk desk build notes
-
-The league runner calls the JavaScript package from /app/environment. The package does not use third-party runtime dependencies. The build script performs syntax loading for the scoring modules before the runner is launched.
-
-The operator entrypoint is /app/ops/sfdesk. It reads /app/sfdata/spec/argv.txt so bracket staff can change run selection without editing shell scripts.

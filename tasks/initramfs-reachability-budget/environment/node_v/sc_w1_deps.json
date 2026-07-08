@@ -1,8 +1,0 @@
-{
-  "seeds": ["k2"],
-  "nodes": [{"id": "k2", "deps": ["k1"]}],
-  "registry": {
-    "k1": {"deps": ["k0"]},
-    "k0": {"deps": []}
-  }
-}

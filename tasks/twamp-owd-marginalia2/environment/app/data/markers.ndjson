@@ -1,4 +1,0 @@
-# operator markers
-{"marker_id": "M1", "kind": "quiet_period", "cycle_id": 2, "reflector_id": "R3", "window_open_us": 50000011500, "window_close_us": 50000012500, "seal": "1c6cba4a"}
-{"marker_id": "M2", "kind": "quiet_period", "cycle_id": 1, "reflector_id": "R10", "window_open_us": 50000007500, "window_close_us": 50000008500, "seal": "deadbeef"}
-{"marker_id": "M3", "kind": "void", "cycle_id": 0, "reflector_id": "R1", "window_open_us": 50000000500, "window_close_us": 50000001500, "seal": "00000000"}

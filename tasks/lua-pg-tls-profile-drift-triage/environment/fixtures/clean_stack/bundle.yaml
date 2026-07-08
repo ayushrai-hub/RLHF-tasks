@@ -1,4 +1,0 @@
-api_version: payments-ingress-tls/1
-rollover_epoch: "2026-03-15"
-reference_clock: "2026-06-01"
-trust_anchors: []

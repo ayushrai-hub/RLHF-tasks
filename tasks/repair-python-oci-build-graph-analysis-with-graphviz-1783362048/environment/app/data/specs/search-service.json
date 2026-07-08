@@ -1,9 +1,0 @@
-{
-  "name": "search-service",
-  "base": "debian:12",
-  "packages": [
-    {"name": "indexer", "constraint": "*", "extras": ["fast", "cache"]},
-    {"name": "re2", "constraint": ">=2.0.0,<2.5.0"}
-  ],
-  "toolchains": []
-}

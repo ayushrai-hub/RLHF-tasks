@@ -1,2 +1,0 @@
-{"session_id":"s-gamma","turn_seq":1,"anchor_ms":2000,"role":"user","correction":{"targets":"mem-001","subject":"user:alice","predicate":"drink_pref","object":"almond milk latte","confidence":0.95,"tier":"short"}}
-{"session_id":"s-gamma","turn_seq":2,"anchor_ms":2100,"role":"assistant","memory":{"memory_id":"mem-004","subject":"user:alice","predicate":"drink_pref","object":"almond milk latte","confidence":0.7,"tier":"short"}}

@@ -1,9 +1,0 @@
-# scheduler weights overlay — tier 10
-# Department review reweighted the soft-score components after pilot feedback.
-# These four weights MUST sum to 1.0 in any effective policy.
-
-[weights]
-room_util       = 0.22
-faculty_sat     = 0.33
-conflict_avoid  = 0.30
-load_balance    = 0.15

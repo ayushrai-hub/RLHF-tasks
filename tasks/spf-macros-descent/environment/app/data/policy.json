@@ -1,6 +1,0 @@
-{
-  "max_lookups": 10,
-  "max_void_lookups": 2,
-  "max_redirect_hops": 10,
-  "receiving_domain": "verify.example.test"
-}

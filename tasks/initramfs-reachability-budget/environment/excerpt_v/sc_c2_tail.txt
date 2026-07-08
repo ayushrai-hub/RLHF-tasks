@@ -1,1 +1,0 @@
-gzip_tally cold excerpt omits k9 heavy row

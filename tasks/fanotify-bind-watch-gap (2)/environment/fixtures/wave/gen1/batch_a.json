@@ -1,5 +1,0 @@
-{
-  "name": "batch_a",
-  "gen": 1,
-  "body": "2026-04-01T10:00:01Z svc=ledger unit=alpha slot=1 bytes=48\n2026-04-01T10:00:02Z svc=ledger unit=alpha slot=2 bytes=52\n2026-04-01T10:00:03Z svc=ledger unit=beta slot=1 bytes=44\n"
-}

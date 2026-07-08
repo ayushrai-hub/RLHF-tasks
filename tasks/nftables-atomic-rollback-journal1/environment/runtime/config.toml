@@ -1,6 +1,0 @@
-[runtime]
-workdir = "/app"
-state_root = "/app/output/state"
-
-[audit]
-report_path = "/app/output/audit_report.json"

@@ -1,4 +1,0 @@
-dircache.o
-gc_obj.o
-cherry.o
-libgit

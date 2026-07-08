@@ -1,6 +1,0 @@
-{
-  "scenario_tag": "tomb",
-  "pack_generation": 6,
-  "journal_revision": 2,
-  "shards": [{"id": 1, "path": "a.jsonl"}]
-}

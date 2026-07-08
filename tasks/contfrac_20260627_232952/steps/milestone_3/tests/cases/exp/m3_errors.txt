@@ -1,6 +1,0 @@
-ERROR: range
-ERROR: range
-ERROR: range
-ERROR: range
-ERROR: usage
-ERROR: parse

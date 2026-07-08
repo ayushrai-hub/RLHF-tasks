@@ -1,1 +1,0 @@
-Operators usually run parse first to create a catalog artifact, then validate that artifact against subscriber expectations, and finally hand the generated plan to a release engineer for review. The tool does not connect to live PostgreSQL; it works from dumps captured during a change window.

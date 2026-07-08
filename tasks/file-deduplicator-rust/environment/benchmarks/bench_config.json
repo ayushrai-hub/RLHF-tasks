@@ -1,7 +1,0 @@
-{
-  "expected_duplicate_groups": 4,
-  "expected_duplicate_files": 13,
-  "expected_total_files": 16,
-  "expected_wasted_bytes": 96,
-  "description": "Standard benchmark with 4 duplicate groups"
-}

@@ -1,6 +1,0 @@
-[runner]
-stack_kb = 2048
-
-[io]
-seed_path = "/app/data/seed/scenarios.json"
-

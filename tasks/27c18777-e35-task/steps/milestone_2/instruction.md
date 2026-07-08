@@ -1,5 +1,0 @@
-The protocol file is in place; now we need the little offline classifier the worker will ship with. Add `/app/src/ClassifierTrainer.kt`. It should read `/app/terraform/outputs.json` for the training dataset directory, load the labeled PNGs from there, reduce each image to normalized green-channel intensity, and train deterministically without network access.
-
-Write `/app/models/classifier.bin` as three non-empty lines, one each for `no_aurora`, `weak_aurora`, and `strong_aurora` in that order. Each line should be `weight,bias`. Re-evaluation treats each row as the class logit `weight * green_intensity + bias`, applies softmax across the three logits, and uses cross-entropy on the labeled class; the saved parameters need better than 0.95 accuracy and below 0.2 loss under that calculation.
-
-Also write `/app/output/training-metrics.json` with `epochs`, `final_loss`, and `final_accuracy`; train for 50 epochs and make sure those reported metrics line up with the saved model. Use a top-level `fun main()` so it runs as `ClassifierTrainerKt`, and compile it with `/usr/share/java/gson.jar`.

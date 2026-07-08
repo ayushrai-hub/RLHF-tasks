@@ -1,5 +1,0 @@
-employee,gross,mandatory,kind,priority,cap
-alice,200000,40000,child_support,1,60000
-alice,200000,40000,creditor,3,50000
-alice,200000,40000,student_loan,2,30000
-bob,80000,10000,creditor,1,40000

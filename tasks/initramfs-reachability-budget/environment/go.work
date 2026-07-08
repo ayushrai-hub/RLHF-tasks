@@ -1,9 +1,0 @@
-go 1.24
-
-use (
-	./pk_a
-	./pk_b
-	./pk_c
-	./tools/cpio_chk
-	./tools/drv_q7
-)

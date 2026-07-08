@@ -1,9 +1,0 @@
-{
-  "version": "2026.06.07",
-  "shards": [
-    {"file": "frames_s.ndjson", "order_seq": 1}
-  ],
-  "markers": "markers.ndjson",
-  "connections": "connections.ndjson",
-  "policy": "coalescer_anchor_set.json"
-}

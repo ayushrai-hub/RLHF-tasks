@@ -1,7 +1,0 @@
-[
-  {"id": "R01", "client_id": "client-A", "timestamp_ms": 100, "path": "/api/users"},
-  {"id": "R02", "client_id": "client-A", "timestamp_ms": 150, "path": "/api/users"},
-  {"id": "R03", "client_id": "client-A", "timestamp_ms": 180, "path": "/api/orders"},
-  {"id": "R04", "client_id": "client-A", "timestamp_ms": 200, "path": "/api/users"},
-  {"id": "R05", "client_id": "client-B", "timestamp_ms": 200, "path": "/api/users"}
-]

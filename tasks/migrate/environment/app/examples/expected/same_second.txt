@@ -1,3 +1,0 @@
-notes.o
-git_tool
-git_binary

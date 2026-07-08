@@ -1,6 +1,0 @@
-# scheduler infra baseline — tier 02
-[weights]
-room_util       = 0.24
-faculty_sat     = 0.31
-conflict_avoid  = 0.28
-load_balance    = 0.17

@@ -1,5 +1,0 @@
-Keep the config loader and eligibility behavior from the prior step intact. Limit this pass to `AttachmentProcessor` pipeline order and `TierAdjustmentEngine` tier adjustment basis in the attachment-engine module only. Do not change layer credit rate formulas, rounding schedule rules, tranche holdback logic, or report generation yet.
-
-Compute layer credit before tier adjustment in `AttachmentProcessor`. For plus and premium program tiers on layer lines, tier adjustment basis must follow the post-layer basis rules in `/app/docs/layer-addendum.md`: apply the tier rate to `baseAttachment` minus the row's `layerCreditAmount`, not to raw `exposureAmount` and not to full `baseAttachment` when layer credit is non-zero. Non-layer lines keep the default `baseAttachment` basis.
-
-After regenerating the report from /app with `mvn -q -B -o install -DskipTests` followed by `mvn -q -B -o -pl attachment-batch exec:java`, confirm layer-line attachments such as ATT-016 and ATT-018 show tier adjustment amounts consistent with the layer credit already present on each row.

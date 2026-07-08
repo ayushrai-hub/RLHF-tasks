@@ -1,9 +1,0 @@
-# Repair report schema
-
-/app/output/repair_plan.json must be a UTF-8 JSON object with these keys: generated_by, mission_id, repair_windows, unreachable_stations, rejected_repairs, and plan_digest. generated_by is glassreef-planner, and mission_id is the mission id passed to the planner by /app/scripts/run_glassreef_planner.sh.
-
-repair_windows is sorted by descending score, then start_utc, then span_id. Each repair object has span_id, ship_id, start_utc, end_utc, splice_family, score, restored_stations, and reason. start_utc is the selected weather window start, and end_utc is the actual computed repair end from /app/build/repair_duration, not the weather window end. restored_stations is sorted by station_id. Scheduled repairs must use reason = scheduled.
-
-rejected_repairs is sorted by span_id and contains span_id and reason. Allowed rejected repair reasons are no-compatible-ship, no-weather-window, no-current-window, no-duration-window, ship-blackout, and ship-window-conflict. Use no-compatible-ship when no ship can satisfy both depth and splice compatibility for the span. Use no-weather-window when at least one ship is compatible but no region/availability/sea-state window is usable. Use no-current-window when at least one usable weather window exists but every such window fails the current lookup or current limit. Use no-duration-window when current conditions are usable but the computed repair interval cannot fit in any usable weather window. Use ship-blackout when all otherwise valid candidates overlap mission blackouts. Use ship-window-conflict only when at least one candidate repair exists but all valid candidates conflict with earlier scheduled work or cooldown for the same ship.
-
-plan_digest is the lowercase 16-character FNV-1a-64 hex digest over the canonical text described in /app/docs/digest_notes.md.

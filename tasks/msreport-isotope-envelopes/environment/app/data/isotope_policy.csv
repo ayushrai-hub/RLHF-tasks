@@ -1,7 +1,0 @@
-family,run,scan,charge,min_peaks,mz_start,mz_end
-peptide-a,alpha,101,2,3,450.15,451.30
-peptide-a,beta,101,2,3,450.15,451.30
-peptide-a,gamma,101,2,3,450.15,451.30
-glycan-b,alpha,205,1,3,612.20,614.50
-glycan-b,beta,205,1,3,612.20,614.50
-glycan-b,gamma,205,1,3,612.20,614.50
