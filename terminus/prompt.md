@@ -72,13 +72,35 @@ Select **all** that apply:
 | `@entire-report.txt` or similar | Optional | Snorkel submission export — see section map below and `docs/guidelines/submission-export-format.md` |
 | ChatGPT / other AI findings | Optional | Claims to verify against artifacts |
 
-**Before reviewing**, run (or simulate from file reads if CLI unavailable):
+**Before reviewing, actually run the commands the user gives you.** If the user lists exact commands (for example, `./scripts/terminus review my-task/ --report entire-report.txt`), run those exact commands first, then run the standard baseline below. Only simulate from file reads when command execution or required tooling is unavailable, and state that limitation in the report.
 
 ```bash
 ./scripts/terminus validate <task-dir>
+./scripts/terminus audit <task-dir> [--report entire-report.txt]   # 55-item read-only checklist
 ./scripts/terminus review <task-dir> [--report entire-report.txt] [--rubric rubric.txt]
-./scripts/terminus check-all <task-dir>   # if harbor/docker available
+./scripts/terminus check-all <task-dir>   # validate + audit + submission checklist
 ```
+
+### Automated task audit (`terminus audit`)
+
+`./scripts/terminus audit` runs the **modular read-only auditor** (`scripts/task_audit/`) against all **55 portal checklist items**. It writes `<task-dir>/audit-report.md` with:
+
+| Section | Content |
+|---------|---------|
+| Executive summary | PASS / FAIL / NOT APPLICABLE / CANNOT DETERMINE counts |
+| Detailed checklist | Every item #1–#55 with status, kind, evidence, line refs |
+| Critical issues | Blocking failures (unpinned FROM, rubric >40, tests in image, …) |
+| Warnings | Non-blocking heuristic failures |
+| Suggestions | Concrete fix per failed item |
+| Verdict | APPROVED / APPROVED WITH WARNINGS / REQUIRES CHANGES / REJECTED |
+
+**Status model:** `PASS` | `FAIL` | `NOT APPLICABLE` | `CANNOT DETERMINE` (external/human only).
+
+**Evaluation kinds:** `objective` (artifact rules), `heuristic` (structured quality checks with explained reasoning), `external` (needs `--report`, oracle run, or human review).
+
+Full reference: `docs/guidelines/task-auditor.md`.
+
+**Reviewer workflow:** Run `audit --report entire-report.txt` first for automated evidence, then `review` for portal `review-report.md`, then manual enrichment per this prompt.
 
 ### Submission export (`entire-report.txt`) section map
 
@@ -110,6 +132,7 @@ Generate the baseline:
 
 ```bash
 ./scripts/terminus validate <task-dir>
+./scripts/terminus audit <task-dir> [--report entire-report.txt]
 ./scripts/terminus review <task-dir> --report entire-report.txt
 ```
 
@@ -466,6 +489,7 @@ Put **every** significant claim in section 3 table:
 
 | Topic | Path |
 |-------|------|
+| Task quality auditor | `docs/guidelines/task-auditor.md` |
 | Full reviewer checklist | `docs/reviewer-checklist-full.md` |
 | Task requirements | `docs/task-requirements.md` |
 | Quality guidelines | `docs/guidelines/quality-guidelines.md` |

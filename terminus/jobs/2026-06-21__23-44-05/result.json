@@ -1,0 +1,29 @@
+{
+    "id": "03dcf3e8-cbf1-4862-97e7-b34c9aa25955",
+    "started_at": "2026-06-21T23:44:05.491036",
+    "finished_at": "2026-06-21T23:45:12.711826",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "vlq-event-tape-rollup__QHyqJK3"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

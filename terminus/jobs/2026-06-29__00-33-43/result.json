@@ -1,0 +1,27 @@
+{
+    "id": "5fe19b7c-87e5-4e8e-a80c-218e10d576d6",
+    "started_at": "2026-06-29T00:33:43.817535",
+    "finished_at": "2026-06-29T00:33:45.344531",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "go-dns-cname-chain-risk-auditor-__UZNFrZu"
+                    ]
+                }
+            }
+        }
+    }
+}

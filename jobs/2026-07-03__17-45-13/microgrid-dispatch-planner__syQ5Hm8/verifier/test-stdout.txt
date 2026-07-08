@@ -1,0 +1,57 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.6.0 -- /usr/local/bin/python3
+cachedir: /tmp/pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collecting ... collected 23 items
+
+../tests/test_outputs.py::TestInputIntegrity::test_units_hash PASSED     [  4%]
+../tests/test_outputs.py::TestInputIntegrity::test_config_hash PASSED    [  8%]
+../tests/test_outputs.py::TestModelIntegrity::test_model_script_not_tampered PASSED [ 13%]
+../tests/test_outputs.py::TestOutputExists::test_output_file_exists PASSED [ 17%]
+../tests/test_outputs.py::TestOutputSchema::test_plan_is_object PASSED   [ 21%]
+../tests/test_outputs.py::TestOutputSchema::test_allocations_cover_all_units_uniquely PASSED [ 26%]
+../tests/test_outputs.py::TestOutputSchema::test_frequency_setpoint_in_range PASSED [ 30%]
+../tests/test_outputs.py::TestHardConstraints::test_mandatory_units_online PASSED [ 34%]
+../tests/test_outputs.py::TestHardConstraints::test_supply_meets_demand_without_gross_oversupply PASSED [ 39%]
+../tests/test_outputs.py::TestHardConstraints::test_emissions_within_budget PASSED [ 43%]
+../tests/test_outputs.py::TestHardConstraints::test_renewable_minimum PASSED [ 47%]
+../tests/test_outputs.py::TestHardConstraints::test_per_bus_minimums PASSED [ 52%]
+../tests/test_outputs.py::TestHardConstraints::test_reserve_requirement PASSED [ 56%]
+../tests/test_outputs.py::TestHardConstraints::test_no_conflict_pair_dispatched_hard PASSED [ 60%]
+../tests/test_outputs.py::TestHardConstraints::test_thermal_commitment_cap PASSED [ 65%]
+../tests/test_outputs.py::TestScoreThreshold::test_total_score PASSED    [ 69%]
+../tests/test_outputs.py::TestScoreThreshold::test_primary_subscores PASSED [ 73%]
+../tests/test_outputs.py::TestStrictScore::test_strict_score PASSED      [ 78%]
+../tests/test_outputs.py::TestRustImplementation::test_cargo_toml_exists PASSED [ 82%]
+../tests/test_outputs.py::TestRustImplementation::test_compiled_binary_exists PASSED [ 86%]
+../tests/test_outputs.py::TestRustImplementation::test_binary_produces_output PASSED [ 91%]
+../tests/test_outputs.py::TestRustImplementation::test_dynamic_input_not_hardcoded PASSED [ 95%]
+../tests/test_outputs.py::TestRustImplementation::test_tight_commitment_input_not_hardcoded PASSED [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::TestInputIntegrity::test_units_hash
+PASSED ../tests/test_outputs.py::TestInputIntegrity::test_config_hash
+PASSED ../tests/test_outputs.py::TestModelIntegrity::test_model_script_not_tampered
+PASSED ../tests/test_outputs.py::TestOutputExists::test_output_file_exists
+PASSED ../tests/test_outputs.py::TestOutputSchema::test_plan_is_object
+PASSED ../tests/test_outputs.py::TestOutputSchema::test_allocations_cover_all_units_uniquely
+PASSED ../tests/test_outputs.py::TestOutputSchema::test_frequency_setpoint_in_range
+PASSED ../tests/test_outputs.py::TestHardConstraints::test_mandatory_units_online
+PASSED ../tests/test_outputs.py::TestHardConstraints::test_supply_meets_demand_without_gross_oversupply
+PASSED ../tests/test_outputs.py::TestHardConstraints::test_emissions_within_budget
+PASSED ../tests/test_outputs.py::TestHardConstraints::test_renewable_minimum
+PASSED ../tests/test_outputs.py::TestHardConstraints::test_per_bus_minimums
+PASSED ../tests/test_outputs.py::TestHardConstraints::test_reserve_requirement
+PASSED ../tests/test_outputs.py::TestHardConstraints::test_no_conflict_pair_dispatched_hard
+PASSED ../tests/test_outputs.py::TestHardConstraints::test_thermal_commitment_cap
+PASSED ../tests/test_outputs.py::TestScoreThreshold::test_total_score
+PASSED ../tests/test_outputs.py::TestScoreThreshold::test_primary_subscores
+PASSED ../tests/test_outputs.py::TestStrictScore::test_strict_score
+PASSED ../tests/test_outputs.py::TestRustImplementation::test_cargo_toml_exists
+PASSED ../tests/test_outputs.py::TestRustImplementation::test_compiled_binary_exists
+PASSED ../tests/test_outputs.py::TestRustImplementation::test_binary_produces_output
+PASSED ../tests/test_outputs.py::TestRustImplementation::test_dynamic_input_not_hardcoded
+PASSED ../tests/test_outputs.py::TestRustImplementation::test_tight_commitment_input_not_hardcoded
+============================== 23 passed in 0.16s ==============================

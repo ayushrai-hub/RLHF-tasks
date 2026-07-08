@@ -1,0 +1,36 @@
+{
+    "task": {
+        "path": "blind-signature-unlinkability-rust",
+        "git_url": null,
+        "git_commit_id": null,
+        "overwrite": false,
+        "download_dir": null,
+        "source": null
+    },
+    "trial_name": "blind-signature-unlinkability-ru__fwpLKAk",
+    "trials_dir": "jobs/2026-06-25__17-00-41",
+    "timeout_multiplier": 1.0,
+    "agent": {
+        "name": "oracle",
+        "import_path": null,
+        "model_name": null,
+        "override_timeout_sec": null,
+        "max_timeout_sec": null,
+        "kwargs": {}
+    },
+    "environment": {
+        "type": "docker",
+        "force_build": false,
+        "delete": true,
+        "override_cpus": null,
+        "override_memory_mb": null,
+        "override_storage_mb": null,
+        "kwargs": {}
+    },
+    "verifier": {
+        "override_timeout_sec": null,
+        "max_timeout_sec": null,
+        "disable": false
+    },
+    "job_id": "e0c21ea2-894d-4fba-a734-081da3f35ef9"
+}

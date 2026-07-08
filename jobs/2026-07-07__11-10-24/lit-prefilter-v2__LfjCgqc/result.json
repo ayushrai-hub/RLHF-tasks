@@ -1,0 +1,84 @@
+{
+    "id": "05ce655d-6ef4-4680-a274-e821909146b8",
+    "task_name": "lit-prefilter-v2",
+    "trial_name": "lit-prefilter-v2__LfjCgqc",
+    "trial_uri": "file:///Users/ayushrai/Downloads/Airdawgs-review-Terminus2/jobs/2026-07-07__11-10-24/lit-prefilter-v2__LfjCgqc",
+    "task_id": {
+        "path": "lit-prefilter-v2"
+    },
+    "source": null,
+    "task_checksum": "a6ce9418a1ded3778186357c96c9339e1d638091a0c256a5e999ac750624b6af",
+    "config": {
+        "task": {
+            "path": "lit-prefilter-v2",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "lit-prefilter-v2__LfjCgqc",
+        "trials_dir": "jobs/2026-07-07__11-10-24",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": "210948b3-5dc7-4e15-99cf-8980e9ff77d0"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-07-07T11:10:24.840444",
+    "finished_at": "2026-07-07T11:11:19.219096",
+    "environment_setup": {
+        "started_at": "2026-07-07T11:10:24.844305",
+        "finished_at": "2026-07-07T11:11:09.380635"
+    },
+    "agent_setup": {
+        "started_at": "2026-07-07T11:11:09.382383",
+        "finished_at": "2026-07-07T11:11:09.382936"
+    },
+    "agent_execution": {
+        "started_at": "2026-07-07T11:11:09.383113",
+        "finished_at": "2026-07-07T11:11:16.327510"
+    },
+    "verifier": {
+        "started_at": "2026-07-07T11:11:16.329026",
+        "finished_at": "2026-07-07T11:11:17.152193"
+    }
+}

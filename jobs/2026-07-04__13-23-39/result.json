@@ -1,0 +1,27 @@
+{
+    "id": "e2e49f8c-7f6f-42e3-87e5-64ac3e7de34d",
+    "started_at": "2026-07-04T13:23:39.934724",
+    "finished_at": "2026-07-04T13:23:40.937863",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "carillon-rota-planner1__hWMxfX8"
+                    ]
+                }
+            }
+        }
+    }
+}

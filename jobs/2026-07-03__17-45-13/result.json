@@ -1,0 +1,29 @@
+{
+    "id": "2eabf4b2-f521-4334-91de-6f56028b4e52",
+    "started_at": "2026-07-03T17:45:13.577343",
+    "finished_at": "2026-07-03T17:47:15.977728",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "microgrid-dispatch-planner__syQ5Hm8"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,17 @@
+
+> pson-changepoint@1.0.0 build
+> tsc
+
+[INFO] Parsing dossier for calibration parameters... 
+[INFO]   AXID01: gain=1.0247, offset=-0.183, z=3.5, minDur=2h, maint=0 
+[INFO]   AXID02: gain=0.9891, offset=0.072, z=3.5, minDur=2h, maint=0 
+[INFO]   NEMO01: gain=1.12, offset=0.38, z=4, minDur=3h, maint=0 
+[INFO]   JUAN01: gain=1.0089, offset=0.108, z=3, minDur=1.5h, maint=1 
+[INFO]   COAX01: gain=0.9944, offset=-0.156, z=5, minDur=4h, maint=0 
+[INFO] Extracted calibration for 5 stations 
+[INFO] AXID01: 4464 pressure readings 
+[INFO] AXID02: 4464 pressure readings 
+[INFO] COAX01: 4464 pressure readings 
+[INFO] JUAN01: 4464 pressure readings 
+[INFO] NEMO01: 4464 pressure readings 
+[INFO] Wrote 5 events (1 excluded) to /app/output/events.json 

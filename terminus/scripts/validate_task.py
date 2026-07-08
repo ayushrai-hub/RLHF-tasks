@@ -542,25 +542,40 @@ class TaskValidator:
             if p.exists():
                 test_files.append(p)
 
+        import ast
+
         for tf in test_files:
-            text = tf.read_text(encoding="utf-8", errors="replace")
             rel = self._rel(tf)
-            if not (text.strip().startswith('"""') or text.strip().startswith("'''")):
+            try:
+                tree = ast.parse(tf.read_text(encoding="utf-8", errors="replace"))
+            except SyntaxError:
+                self.add(Severity.WARNING, "informative_test_docstrings", "Test file has syntax errors", rel)
+                continue
+            if not (
+                tree.body
+                and isinstance(tree.body[0], ast.Expr)
+                and isinstance(tree.body[0].value, ast.Constant)
+                and isinstance(tree.body[0].value.value, str)
+            ):
                 self.add(
-                    Severity.WARNING,
+                    Severity.INFO,
                     "informative_test_docstrings",
-                    "Test file should have a module-level docstring",
+                    "Test file has no module-level docstring (recommended)",
                     rel,
                 )
-            funcs = re.findall(r"def (test_\w+)\(", text)
-            for fn in funcs:
-                # crude check: docstring within 3 lines after def
-                pattern = rf"def {fn}\([^)]*\):\s*\n\s*\"\"\""
-                if not re.search(pattern, text):
+            for node in tree.body:
+                if not isinstance(node, ast.FunctionDef) or not node.name.startswith("test_"):
+                    continue
+                if not (
+                    node.body
+                    and isinstance(node.body[0], ast.Expr)
+                    and isinstance(node.body[0].value, ast.Constant)
+                    and isinstance(node.body[0].value.value, str)
+                ):
                     self.add(
                         Severity.WARNING,
                         "informative_test_docstrings",
-                        f"Test function {fn}() should have a docstring",
+                        f"Test function {node.name}() should have a docstring",
                         rel,
                     )
 

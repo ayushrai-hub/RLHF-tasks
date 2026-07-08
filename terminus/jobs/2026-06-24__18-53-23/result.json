@@ -1,0 +1,29 @@
+{
+    "id": "951c7137-415e-40e1-8ab7-5dc1cbbb31ea",
+    "started_at": "2026-06-24T18:53:23.314273",
+    "finished_at": "2026-06-24T18:58:33.134420",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "0.0": [
+                            "parallel-solver-divergence-mask__bjUezyi"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

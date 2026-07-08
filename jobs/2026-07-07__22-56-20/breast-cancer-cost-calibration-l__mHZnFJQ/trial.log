@@ -1,0 +1,3 @@
+Trial breast-cancer-cost-calibration-l__mHZnFJQ failed: No reward file found at jobs/2026-07-07__22-56-20/breast-cancer-cost-calibration-l__mHZnFJQ/verifier/reward.txt or jobs/2026-07-07__22-56-20/breast-cancer-cost-calibration-l__mHZnFJQ/verifier/reward.json
+Docker compose down failed: Docker compose command failed for environment breast-cancer-cost-calibration-leakage. Command: docker compose -p breast-cancer-cost-calibration-l__mhznfjq -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml down --rmi all --volumes --remove-orphans. Return code: 1. Stdout: Cannot connect to the Docker daemon at unix:///Users/ayushrai/.docker/run/docker.sock. Is the docker daemon running?
+. Stderr: None. 

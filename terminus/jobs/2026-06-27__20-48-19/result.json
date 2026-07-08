@@ -1,0 +1,29 @@
+{
+    "id": "7650b031-1932-4e51-a1fa-718e05fe447f",
+    "started_at": "2026-06-27T20:48:19.792948",
+    "finished_at": "2026-06-27T20:49:27.965280",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "nftables-atomic-rollback-journal__Pvc7iV3"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

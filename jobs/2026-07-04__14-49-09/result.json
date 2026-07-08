@@ -1,0 +1,27 @@
+{
+    "id": "5252cd33-9eec-4f58-b348-333f289f915c",
+    "started_at": "2026-07-04T14:49:09.541579",
+    "finished_at": "2026-07-04T14:49:10.434980",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "go-middleware-rce-hoverfly__eet6JwP"
+                    ]
+                }
+            }
+        }
+    }
+}

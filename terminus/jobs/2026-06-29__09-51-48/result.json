@@ -1,0 +1,27 @@
+{
+    "id": "6ddd4125-192c-45ec-b525-e1cbb129e7d7",
+    "started_at": "2026-06-29T09:51:48.287042",
+    "finished_at": "2026-06-29T09:52:00.122204",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "beamjournal-shadowclock__nUuQ698"
+                    ]
+                }
+            }
+        }
+    }
+}

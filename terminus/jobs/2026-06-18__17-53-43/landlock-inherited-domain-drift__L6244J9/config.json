@@ -1,0 +1,36 @@
+{
+    "task": {
+        "path": "landlock-inherited-domain-drift",
+        "git_url": null,
+        "git_commit_id": null,
+        "overwrite": false,
+        "download_dir": null,
+        "source": null
+    },
+    "trial_name": "landlock-inherited-domain-drift__L6244J9",
+    "trials_dir": "jobs/2026-06-18__17-53-43",
+    "timeout_multiplier": 1.0,
+    "agent": {
+        "name": "oracle",
+        "import_path": null,
+        "model_name": null,
+        "override_timeout_sec": null,
+        "max_timeout_sec": null,
+        "kwargs": {}
+    },
+    "environment": {
+        "type": "docker",
+        "force_build": false,
+        "delete": true,
+        "override_cpus": null,
+        "override_memory_mb": null,
+        "override_storage_mb": null,
+        "kwargs": {}
+    },
+    "verifier": {
+        "override_timeout_sec": null,
+        "max_timeout_sec": null,
+        "disable": false
+    },
+    "job_id": "cbd2bb53-0f13-4a57-a2a7-7bbce21cc4c6"
+}

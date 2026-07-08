@@ -1,0 +1,119 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 11,
+            "passed": 11,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782230255.9141197,
+            "stop": 1782230285.3041825
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_ladder_digest_tool_agrees",
+                "status": "passed",
+                "duration": 2.087073668000002,
+                "start": 1782230255.9376588,
+                "stop": 1782230258.025094,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ladder_k2_slave_profile_band",
+                "status": "passed",
+                "duration": 1.9768167090000048,
+                "start": 1782230258.0253642,
+                "stop": 1782230260.002868,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ladder_sparse_lane_corpus_converges",
+                "status": "passed",
+                "duration": 2.139863543000004,
+                "start": 1782230260.0034244,
+                "stop": 1782230262.1440089,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ladder_summary_emit_ceiling",
+                "status": "passed",
+                "duration": 2.957181001000002,
+                "start": 1782230262.1447332,
+                "stop": 1782230265.1038227,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ladder_slot4_excluded_from_digest",
+                "status": "passed",
+                "duration": 2.994594959000004,
+                "start": 1782230265.1054218,
+                "stop": 1782230268.1012106,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ladder_workdir_scoring_k3_converges",
+                "status": "passed",
+                "duration": 2.1202215019999926,
+                "start": 1782230268.1020977,
+                "stop": 1782230270.2229488,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ladder_bind_reloc_canonical_path",
+                "status": "passed",
+                "duration": 1.9149168350000068,
+                "start": 1782230270.2235348,
+                "stop": 1782230272.138655,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ladder_duplicate_recovery_zero_drift",
+                "status": "passed",
+                "duration": 4.257443961,
+                "start": 1782230272.1388998,
+                "stop": 1782230276.3996346,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ladder_q9_anchor_recovery_preserves_digest",
+                "status": "passed",
+                "duration": 4.274503418999998,
+                "start": 1782230276.400733,
+                "stop": 1782230280.677798,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ladder_p9_interim_rows_decoy",
+                "status": "passed",
+                "duration": 2.2572610839999996,
+                "start": 1782230280.6786802,
+                "stop": 1782230282.9365664,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ladder_slave_opts_stripped_before_digest",
+                "status": "passed",
+                "duration": 2.365919292000001,
+                "start": 1782230282.9371908,
+                "stop": 1782230285.3033593,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

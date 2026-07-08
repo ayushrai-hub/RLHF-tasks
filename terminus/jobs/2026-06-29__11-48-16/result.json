@@ -1,0 +1,27 @@
+{
+    "id": "63afac94-99e2-48aa-a80b-75e43252d2ba",
+    "started_at": "2026-06-29T11:48:16.274345",
+    "finished_at": "2026-06-29T11:48:17.279455",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "tbrain-minimum-version-setting__TU4eVS4"
+                    ]
+                }
+            }
+        }
+    }
+}

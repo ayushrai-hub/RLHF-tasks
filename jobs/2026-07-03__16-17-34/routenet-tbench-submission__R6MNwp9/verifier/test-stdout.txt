@@ -1,0 +1,30 @@
+postgres is ready on 127.0.0.1:5432 (db=routenet, user=trainer)
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+cachedir: tmp/pytest_cache
+rootdir: /
+plugins: json-ctrf-0.3.5
+collected 17 items
+
+../tests/test_outputs.py .................                               [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_canonical_negatives_output_exists
+PASSED ../tests/test_outputs.py::test_canonical_audit_output_exists
+PASSED ../tests/test_outputs.py::test_sampler_writes_required_schema
+PASSED ../tests/test_outputs.py::test_negatives_have_correct_count_and_shape
+PASSED ../tests/test_outputs.py::test_source_label_marks_postgres_as_origin
+PASSED ../tests/test_outputs.py::test_node_ids_are_known
+PASSED ../tests/test_outputs.py::test_negatives_are_unique_unordered_pairs
+PASSED ../tests/test_outputs.py::test_no_train_edge_leakage
+PASSED ../tests/test_outputs.py::test_no_validation_edge_leakage
+PASSED ../tests/test_outputs.py::test_no_test_edge_leakage
+PASSED ../tests/test_outputs.py::test_graph_distance_constraint
+PASSED ../tests/test_outputs.py::test_second_seed_produces_a_different_set
+PASSED ../tests/test_outputs.py::test_second_seed_satisfies_all_invariants
+PASSED ../tests/test_outputs.py::test_determinism_repeat_same_seed
+PASSED ../tests/test_outputs.py::test_smaller_k_is_consistent
+PASSED ../tests/test_outputs.py::test_static_audit_reports_ok
+PASSED ../tests/test_outputs.py::test_third_seed_invariants_at_small_cardinality
+============================= 17 passed in 12.31s ==============================

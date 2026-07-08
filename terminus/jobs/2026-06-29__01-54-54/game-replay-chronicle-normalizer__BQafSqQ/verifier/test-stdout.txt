@@ -1,0 +1,35 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-9.0.3, pluggy-1.6.0
+cachedir: tmp/pytest_cache
+rootdir: /
+plugins: json-ctrf-0.5.0
+collected 23 items
+
+../tests/test_outputs.py .......................                         [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::TestNormalizePublic::test_normalize_basic_two_shards
+PASSED ../tests/test_outputs.py::TestNormalizePublic::test_normalize_out_of_order_seq
+PASSED ../tests/test_outputs.py::TestNormalizePublic::test_normalize_duplicate_frames_deduped
+PASSED ../tests/test_outputs.py::TestNormalizePublic::test_normalize_drift_subtraction
+PASSED ../tests/test_outputs.py::TestNormalizePublic::test_validate_accepts_good_chronicle
+PASSED ../tests/test_outputs.py::TestNormalizePublic::test_validate_rejects_tampered_integrity
+PASSED ../tests/test_outputs.py::TestNormalizePublic::test_rejects_corrupted_crc_shard
+PASSED ../tests/test_outputs.py::TestNormalizePublic::test_rejects_bad_magic_shard
+PASSED ../tests/test_outputs.py::TestNormalizePublic::test_public_bundled_fixture_matches_reference
+PASSED ../tests/test_outputs.py::TestPackRoundTrip::test_pack_unpack_roundtrip
+PASSED ../tests/test_outputs.py::TestPackRoundTrip::test_pack_header_crc_enforced_on_unpack
+PASSED ../tests/test_outputs.py::TestPackRoundTrip::test_unpack_rejects_bad_magic
+PASSED ../tests/test_outputs.py::TestPackRoundTrip::test_reference_pack_matches_unpack
+PASSED ../tests/test_outputs.py::TestHiddenFixtures::test_staging_snapshot_matches_export
+PASSED ../tests/test_outputs.py::TestHiddenFixtures::test_hidden_cross_shard_drift_and_dup
+PASSED ../tests/test_outputs.py::TestHiddenFixtures::test_hidden_tb3_fixture_root_override
+PASSED ../tests/test_outputs.py::TestHiddenFixtures::test_hidden_corrupted_footer_rejected
+PASSED ../tests/test_outputs.py::TestHiddenFixtures::test_hidden_pack_roundtrip_integrity
+PASSED ../tests/test_outputs.py::TestHiddenFixtures::test_hidden_same_tick_different_seq_preserved
+PASSED ../tests/test_outputs.py::TestEdgeCases::test_empty_payload_hex
+PASSED ../tests/test_outputs.py::TestEdgeCases::test_multi_shard_sort_by_shard_id_in_meta
+PASSED ../tests/test_outputs.py::TestEdgeCases::test_large_payload_roundtrip
+PASSED ../tests/test_outputs.py::TestEdgeCases::test_normalize_idempotent_output
+============================== 23 passed in 0.38s ==============================

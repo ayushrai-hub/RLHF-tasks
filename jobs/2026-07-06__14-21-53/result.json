@@ -1,0 +1,27 @@
+{
+    "id": "7012349d-192a-44a6-95fe-29aca581c48c",
+    "started_at": "2026-07-06T14:21:53.310774",
+    "finished_at": "2026-07-06T14:21:55.674475",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "cartridge-salvaging__Cn2UddE"
+                    ]
+                }
+            }
+        }
+    }
+}

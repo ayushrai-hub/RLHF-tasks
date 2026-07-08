@@ -1,0 +1,27 @@
+{
+    "id": "f09a53ed-f3d5-4d66-a91b-c1082bae8969",
+    "started_at": "2026-06-23T16:38:03.263653",
+    "finished_at": "2026-06-23T16:38:04.223612",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "accaudit-wren-v368Z__2s7u9yX"
+                    ]
+                }
+            }
+        }
+    }
+}

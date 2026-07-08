@@ -1,0 +1,27 @@
+{
+    "id": "06df5003-8795-4da5-a0c9-fd1a0934bf8d",
+    "started_at": "2026-06-30T14:05:59.704011",
+    "finished_at": "2026-06-30T14:06:00.643668",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "tbrain-checkpoint-recompute-plan__nKKzAiS"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "id": "9276f8f4-4fd0-4d4f-808f-a8d9f4347e77",
+    "started_at": "2026-06-29T14:53:25.719565",
+    "finished_at": "2026-06-29T14:53:27.932284",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "telecom-plan-revenue-by-tier__pFjjdVS"
+                    ]
+                }
+            }
+        }
+    }
+}

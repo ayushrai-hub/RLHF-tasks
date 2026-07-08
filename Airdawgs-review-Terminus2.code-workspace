@@ -1,0 +1,134 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../40e57f12-6376-4580-b652-323845c350bb_submission_2026-06-27T05_30_48.973Z"
+		},
+		{
+			"path": "../accaudit-wren-v7"
+		},
+		{
+			"path": "../accaudit-wren-v368Z"
+		},
+		{
+			"path": "../atlasbench-mlflow-governance."
+		},
+		{
+			"path": "../build-pkg-config-transitive-flag-sanitizer-cpp-json"
+		},
+		{
+			"path": "../clinicflow-milestone-capacity-actions-v6-reviewfix"
+		},
+		{
+			"path": "../cmake-ninja-depfile-stale-header-repair"
+		},
+		{
+			"path": "../contfrac_20260627_232952."
+		},
+		{
+			"path": "../crc-checksum-debugger-rust"
+		},
+		{
+			"path": "../dafny-insertion-sort-multiset-sorted"
+		},
+		{
+			"path": "../dddddd"
+		},
+		{
+			"path": "../ecacd7da-f89d-4706-9705-ba07177f1740_submission_2026-06-28T11_13_50.186Z"
+		},
+		{
+			"path": "../fits-wcs-sky-atlas-generator"
+		},
+		{
+			"path": "../fix-java-attachment-recovery-v1."
+		},
+		{
+			"path": "../go-avro-encode_v01."
+		},
+		{
+			"path": "../go-cli-version-solver"
+		},
+		{
+			"path": "../go-deployment-health-window-reconciler-hardfreeze"
+		},
+		{
+			"path": "../go-game-record-dual-cause-adjudicator-closure-authoring"
+		},
+		{
+			"path": "../gsqt-importable-config-training-submission-21"
+		},
+		{
+			"path": "../Install Spotify.app"
+		},
+		{
+			"path": "../inventory-reconciliation-engine."
+		},
+		{
+			"path": "../metrics-aggregator"
+		},
+		{
+			"path": "../network-flow-aggregator"
+		},
+		{
+			"path": "../nftables-atomic-rollback-journal"
+		},
+		{
+			"path": "../nftables-atomic-rollback-journal."
+		},
+		{
+			"path": "../node-stream-csv-import-build"
+		},
+		{
+			"path": "../openssl-totp-gin-suite"
+		},
+		{
+			"path": "../p7-bundle-harvest-repair"
+		},
+		{
+			"path": "../prison-cell-lock-arbitration"
+		},
+		{
+			"path": "../projectile-material-penetration-ricochet-pipeline"
+		},
+		{
+			"path": "../quic-ack-coalescer"
+		},
+		{
+			"path": "../resh-20260627T113625Z"
+		},
+		{
+			"path": "../rust-apiary-weight-delta"
+		},
+		{
+			"path": "../rust-forge-die-stage"
+		},
+		{
+			"path": "../scala-course-scheduler"
+		},
+		{
+			"path": "../ssh-bastion-policy-reload"
+		},
+		{
+			"path": "../stale-incremental-header-build"
+		},
+		{
+			"path": "../stats-plan-resume-skew"
+		},
+		{
+			"path": "../tbrain-process-kettle-cycle"
+		},
+		{
+			"path": "../tbrain-transformer-thermal-excursion"
+		},
+		{
+			"path": "../terminator-pass-eclipse-contact-window-engine"
+		},
+		{
+			"path": "../xml-namespace-canonical-roundtrip"
+		}
+	],
+	"settings": {}
+}

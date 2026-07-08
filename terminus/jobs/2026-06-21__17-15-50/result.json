@@ -1,0 +1,29 @@
+{
+    "id": "3a51a3c4-ba9e-41f1-88e2-c95ce38b6cc5",
+    "started_at": "2026-06-21T17:15:50.786736",
+    "finished_at": "2026-06-21T17:19:35.327802",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "commonmark-debug-rust__iBpxbsA"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

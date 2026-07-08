@@ -1,0 +1,31 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.6.0
+cachedir: /tmp/pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 12 items
+
+../tests/test_outputs.py ............                                    [100%]
+
+==================================== PASSES ====================================
+________________________ test_vlt_journal_tail_binding _________________________
+---------------------------- Captured stdout setup -----------------------------
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /app/build
+ninja: Entering directory `/app/build'
+ninja: no work to do.
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_vlt_journal_tail_binding
+PASSED ../tests/test_outputs.py::test_v01_t2_answers
+PASSED ../tests/test_outputs.py::test_v02_t5_answers
+PASSED ../tests/test_outputs.py::test_v03_t8_answers
+PASSED ../tests/test_outputs.py::test_vlt_checkpoint_manifest_order
+PASSED ../tests/test_outputs.py::test_v05_root_chain
+PASSED ../tests/test_outputs.py::test_v06_row_chain_roundtrip
+PASSED ../tests/test_outputs.py::test_vlt_reset_recovers_corrupt_journal
+PASSED ../tests/test_outputs.py::test_v08_static_output_rejected
+PASSED ../tests/test_outputs.py::test_vlt_warm_lane_fingerprint_guard
+PASSED ../tests/test_outputs.py::test_vlt_warm_lane_fingerprint_invalidation
+PASSED ../tests/test_outputs.py::test_vlt_fold_peek_lane_consistency
+============================== 12 passed in 0.06s ==============================

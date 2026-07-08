@@ -1,0 +1,29 @@
+{
+    "id": "2e220365-d513-428d-99b1-61160b84463f",
+    "started_at": "2026-06-29T13:12:17.769458",
+    "finished_at": "2026-06-29T13:13:57.239753",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "numba-parfors-combine-seam__SYwMZ66"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

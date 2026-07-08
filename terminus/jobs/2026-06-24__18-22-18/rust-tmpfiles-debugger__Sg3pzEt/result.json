@@ -1,0 +1,84 @@
+{
+    "id": "9e11d9b2-d7ea-4841-b49a-4e5011a37e4a",
+    "task_name": "rust-tmpfiles-debugger",
+    "trial_name": "rust-tmpfiles-debugger__Sg3pzEt",
+    "trial_uri": "file:///Users/ayushrai/Downloads/Airdawgs-review-Terminus2/jobs/2026-06-24__18-22-18/rust-tmpfiles-debugger__Sg3pzEt",
+    "task_id": {
+        "path": "rust-tmpfiles-debugger"
+    },
+    "source": null,
+    "task_checksum": "39b610a4a42de715cd1e2ca640b064f6ff808ff742d6a128a195163c72dd55cc",
+    "config": {
+        "task": {
+            "path": "rust-tmpfiles-debugger",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "rust-tmpfiles-debugger__Sg3pzEt",
+        "trials_dir": "jobs/2026-06-24__18-22-18",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": "fb7dc6e3-8314-46af-9188-983b9eeb80f1"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-24T18:22:18.851686",
+    "finished_at": "2026-06-24T18:25:29.786966",
+    "environment_setup": {
+        "started_at": "2026-06-24T18:22:18.859763",
+        "finished_at": "2026-06-24T18:25:12.095998"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-24T18:25:12.115082",
+        "finished_at": "2026-06-24T18:25:12.122423"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-24T18:25:12.129878",
+        "finished_at": "2026-06-24T18:25:17.114240"
+    },
+    "verifier": {
+        "started_at": "2026-06-24T18:25:17.124604",
+        "finished_at": "2026-06-24T18:25:28.169911"
+    }
+}

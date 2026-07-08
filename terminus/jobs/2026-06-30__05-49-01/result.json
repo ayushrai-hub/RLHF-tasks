@@ -1,0 +1,27 @@
+{
+    "id": "90e338de-5fc4-488b-a383-8789d9bf8715",
+    "started_at": "2026-06-30T05:49:01.341151",
+    "finished_at": "2026-06-30T05:49:02.268370",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "meson-rpath-reproducible-install__fZsudcW"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+cachedir: /tmp/pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 8 items
+
+../tests/test_outputs.py ........                                        [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_outputs_exist_and_only_documented_outputs
+PASSED ../tests/test_outputs.py::test_json_schema_key_order_and_totals
+PASSED ../tests/test_outputs.py::test_json_report_matches_policy_model
+PASSED ../tests/test_outputs.py::test_audit_csv_sorting_line_endings_and_contents
+PASSED ../tests/test_outputs.py::test_fixture_immutability_and_pretty_json
+PASSED ../tests/test_outputs.py::test_dependency_management_type_classifier_and_qualifiers
+PASSED ../tests/test_outputs.py::test_ignored_optional_ranges_and_cve_suppression
+PASSED ../tests/test_outputs.py::test_summaries_and_audit_edge_rows_are_present
+============================== 8 passed in 0.58s ===============================

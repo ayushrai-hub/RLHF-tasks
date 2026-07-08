@@ -1,0 +1,14 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 3 items
+
+../../tests/test_outputs.py ...                                          [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../../tests/test_outputs.py::test_hidden_semantics
+PASSED ../../tests/test_outputs.py::test_generated_reference_cases
+PASSED ../../tests/test_outputs.py::test_fix_report
+============================== 3 passed in 10.21s ==============================

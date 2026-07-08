@@ -1,0 +1,310 @@
+Difficulty: ✅ HARD
+
+Status: ✅ Solvable (all tests passed by at least one agent run)
+
+Agent Performance:
+  • terminus-claude-opus-4-8: 40.0% (2/5 runs)
+  • terminus-gpt5-5: 0.0% (0/5 runs)
+
+Reference Agents:
+  • nop: 0.0% (0/1 runs)
+  • oracle: 100.0% (3/3 runs)
+
+Failure Breakdown:
+  • nop: 1 other
+  • terminus-claude-opus-4-8: 3 other
+  • terminus-gpt5-5: 5 other
+
+Unit Tests Results:
+  • test_inquire_sh_present: 10 passed / 10 runs
+  • test_inquire_pl_present_and_parses: 10 passed / 10 runs
+  • test_inquire_sh_invokes_inquire_pl: 3 passed / 10 runs
+  • test_inquire_pl_holds_the_logic: 10 passed / 10 runs
+  • test_finding_json_present: 10 passed / 10 runs
+  • test_finding_has_inquiry_id: 10 passed / 10 runs
+  • test_finding_echoes_schema_version: 10 passed / 10 runs
+  • test_finding_echoes_required_records: 10 passed / 10 runs
+  • test_required_records_drawn: 10 passed / 10 runs
+  • test_pass_completed: 10 passed / 10 runs
+  • test_finding_particulars_correct: 10 passed / 10 runs
+  • test_final_state_shape: 10 passed / 10 runs
+  • test_actions_recorded: 10 passed / 10 runs
+  • test_actions_exactly_one_finding: 10 passed / 10 runs
+  • test_wrong_finding_unsound: 10 passed / 10 runs
+  • test_wrong_finding_has_inquiry_id: 10 passed / 10 runs
+  • test_wrong_finding_submitted_shape: 10 passed / 10 runs
+  • test_wrong_inquiry_differs_from_play: 10 passed / 10 runs
+  • test_play_did_not_brute_force_inquiries: 10 passed / 10 runs
+  • test_client_does_not_bypass_db: 10 passed / 10 runs
+  • test_api_server_not_lingering: 10 passed / 10 runs
+  • test_finding_verdict_sound: 9 passed / 10 runs
+  • test_final_inquiry_status_closed_sound: 9 passed / 10 runs
+  • test_client_drove_api_at_runtime: 9 passed / 10 runs
+  • test_play_made_single_finding: 9 passed / 10 runs
+  • test_outputs_deterministic_on_rerun: 9 passed / 10 runs
+
+Analysis on Agent Failures:
+  • Task Instruction Sufficiency: ❌ FAIL, ## Job Summary
+
+### 1. Overall Results
+**8 trials, 0 passed (0%), 8 failed (100%).** All trials received a reward of **0.0** despite near-complete success. Every single trial passed 25/26 tests — the sole exception being `tbench-task__TAaHhEW`, which passed 21/26 due to a different failure mode (see below).
+
+---
+
+### 2. Common Failure Patterns
+
+**Primary failure (7/8 trials): `test_inquire_sh_invokes_inquire_pl`**
+
+Every trial except `TAaHhEW` failed exactly one test: the regex check `\bperl\b[^\n]*inquire\.pl` in `inquire.sh`. Agents used three valid-but-non-matching invocation styles:
+
+| Pattern used | Trials |
+|---|---|
+| `/app/build/inquire.pl "$mode"` (shebang, no `perl` keyword) | `TYNoY3i`, `dCKZHHU`, `QMMq2e4`, `v7AjaJ3`, `zvbNLDP` |
+| `INQUIRE_BASE=... perl "$PL" "$MODE"` (variable instead of literal filename) | `GunwBCC` |
+| `perl "$PERL_CLIENT"` (variable holds path) | `kQNkYbc` |
+
+All are functionally correct; none match the required regex.
+
+**Secondary failure (1/8 trials): Cache-bypass design — `TAaHhEW`**
+
+This trial failed 5 tests due to a cache-replay strategy: after the first run, `inquire.sh play` returned a cached `finding.json` without re-driving the API. The verifier's clean-room re-run (with injected sealed truth) therefore never made API calls, causing `test_client_drove_api_at_runtime`, `test_play_made_single_finding`, and verdict/status tests to fail.
+
+---
+
+### 3. Hack Check: No cheating detected ✅
+
+All 8 trials received **`reward_hacking: pass`**. Every agent:
+- Derived the correct finding (`par-veil` / `scuttle-seacock` / `loc-engine-room` / `23:15`) by legitimate dossier reasoning
+- Avoided reading `/app/api/db` (confirmed by `test_client_does_not_bypass_db` passing in all trials)
+- Did not write to `/logs/verifier/reward.txt` or access any `solution/` directory
+
+---
+
+### 4. Systematic Instruction Issues
+
+This is a **clear specification gap** — all 8 `task_specification` checks returned **fail**. The `instruction.md` states:
+
+> *"inquire.sh may use bash, curl, and jq for plumbing, but the HTTP calls, the record handling, and the finding submission must run inside Perl"*
+
+This says logic must **run in Perl**, but never specifies the **invocation form**. The test enforces `perl ... inquire.pl` as a literal, same-line pattern — a structural convention invisible to agents reading only the instructions. Using a shebang (`#!/usr/bin/env perl`) + direct execution is a perfectly standard Unix idiom that satisfies the spirit of the requirement but fails the regex.
+
+**Recommended fix:** Add to `instruction.md` something like:
+> *"`inquire.sh` must invoke the Perl script explicitly: `perl /app/build/inquire.pl "$mode"`"*
+
+Similarly for `TAaHhEW`, the instruction says runs must be "deterministic" but doesn't state the verifier re-runs the script fresh with no prior state — a caching strategy is a natural interpretation of "deterministic."
+
+---
+
+### 5. Progress on Failed Trials
+
+Agents were **extremely close** — functionally complete in all meaningful respects:
+
+- **Core reasoning:** 8/8 correctly identified the 4-part finding (`par-veil`, `scuttle-seacock`, `loc-engine-room`, `23:15`)
+- **API traversal:** 8/8 drove the Rails API, retrieved all required records, submitted both play and wrong findings
+- **Test passage rate:** 7 trials passed 25/26 tests (96%); `TAaHhEW` passed 21/26 (81%)
+- **Substantive failure rate: 0%** — no agent failed on correctness, reasoning, or API interaction
+
+The gap between agent performance and reward is entirely attributable to implicit formatting requirements, not capability deficiencies.
+
+---
+
+### 6. Agent/Model Differences
+
+No model labels are provided in the trial metadata, so cross-model comparison isn't possible. However, within the cohort, there is notable **convergent failure** — 5 of 7 primary-failure trials used the identical anti-pattern (`/app/build/inquire.pl "$mode"` via shebang), suggesting agents share similar heuristics for invoking executable scripts. `GunwBCC` and `kQNkYbc` used variable-indirection patterns, indicating minor stylistic variation but the same root misunderstanding of the unstated requirement.
+
+
+
+## Quality Check Results
+✅ pass - behavior_in_task_description: instruction.md clearly describes all the behaviors that tests verify: the required file names (inquire.sh, inquire.pl) and paths (/app/build/), the two run modes (play and wrong), the output file names (finding.json, wrong_finding.json) and their paths (/app/output/), the exact finding.json and wrong_finding.json schemas with all required keys, the action log requirements (at least 10 entries, required kinds go/retrieve/finding, field names), the API workflow (GET /api/config, GET /api/sections, GET /api/parties, GET /api/records, POST /api/inquiries, go/retrieve/adjourn/finding), the port lifecycle requirement (leave port 3000 free), the Perl requirement (HTTP calls must be in Perl), the determinism requirement, and the anti-bypass rule (do not read /app/api/db). The dossier files provide the reasoning context. All tested behaviors have explicit instruction coverage.
+✅ pass - behavior_in_tests: Tests cover all the behaviors specified in instruction.md: file presence and executability, Perl HTTP client requirement, finding.json schema fields (inquiry_id, config_schema_version, required_record_ids, finding, verdict, actions, final_state), wrong_finding.json schema (inquiry_id, submitted, verdict), correct finding particulars, verdict=sound, verdict=unsound for wrong run, actions log (≥10 entries, required kinds, section validity, record_id format), exactly-one-finding constraint, fresh inquiry for wrong run, required records drawn, pass completion (day_number ≥ 2), API endpoints driven at runtime, single finding per play run, no DB bypass, determinism on rerun, port 3000 freed. Nothing significant from the spec appears untested.
+✅ pass - informative_test_structure: tests/test_outputs.py is well-organized with clearly named sections separated by comments ('Delivery shape', 'Finding contents', 'Losing path', 'API-driven behaviour and anti-cheat'). Individual test functions have descriptive names (test_inquire_sh_present, test_finding_particulars_correct, test_pass_completed, etc.) and most include docstrings or inline assertions that explain what is being checked. conftest.py is clearly documented with block comments explaining the clean-room strategy. The structure is readable and maintainable.
+✅ pass - anti_cheating_measures: The anti-cheat design is robust: (1) The truth table is empty in the shipped image — the API returns 'pending' with no per-particular feedback, so brute-forcing the answer is impossible. (2) The verifier rebuilds the database from a pristine test seed (tests/fixtures/seed.sql) and injects the sealed solution only at verification time, so an agent who tampers with the database cannot influence grading. (3) test_client_does_not_bypass_db checks that the client source code does not reference /app/api/db, case.sqlite3, or SQL queries against the truth table. (4) test_play_made_single_finding and test_play_did_not_brute_force_inquiries check for fishing behavior. (5) The correct answer is only in conftest.py (tests/) and test_outputs.py (tests/), which are not present in the image (COPY in Dockerfile only copies api/, dossier/, and data/). The solution requires genuine reasoning from the API-delivered record content.
+✅ pass - structured_data_schema: instruction.md contains explicit normative schemas for both finding.json and wrong_finding.json with exact key names and value types. The finding object schema (party as par- id, means as accepted-means reference, place as loc- id, minute as HH:MM 24-hour) is specified. The actions array schema (kind field, required go/retrieve/finding entries, field names for each kind) is specified. The final_state shape is specified (inquiry_id, current_section, day_number, retrieved, journal, status). The API spec in /app/data/api_spec.md pins all request/response shapes for every endpoint.
+✅ pass - pinned_dependencies: Python pip packages are pinned: pytest==8.4.1, pytest-json-ctrf==0.3.5, requests==2.32.3. Ruby gems are pinned: rails 7.1.5.2, puma 6.4.3, sqlite3 1.7.3. The base Docker image is pinned with a SHA256 digest. Most apt packages have explicit version pins (tmux=3.3a-3, curl=7.88.1-10+deb12u14, etc.). perl is not pinned but is a core system package without a version specifier — this is acceptable per the criteria (apt packages generally need not be pinned).
+✅ pass - typos: No typos found in filenames, paths, commands, or variable names. The output paths (/app/build/inquire.sh, /app/build/inquire.pl, /app/output/finding.json, /app/output/wrong_finding.json), API routes, record IDs (rec-salvage-diver, rec-cargo-tally, rec-policy, rec-owner-letters, rec-manifest), party IDs (par-veil, par-frane), section IDs (sec-records-room, sec-surveyors-office, sec-owners-office, sec-salvage-store, sec-survivors-hall), place IDs (loc-engine-room), and means (scuttle-seacock) are all consistent across instruction.md, tests, solution, seed.sql, and API controllers.
+✅ pass - tests_or_solution_in_image: The Dockerfile only copies api/, dossier/, and data/ into the image (COPY api/ /app/api/, COPY dossier/ /app/dossier/, COPY data/ /app/data/). Neither tests/ nor solution/ directories are copied into the build. The tests are run by the verifier from /tests (mounted at runtime), not baked into the image.
+✅ pass - hardcoded_solution: solution/src/inquire.pl derives the answer through actual runtime reasoning: it calls the API to get config (accepted_means, accepted_places, required_record_ids), fetches GET /api/records to build a section map, navigates to each section and retrieves records via POST retrieve, then calls derive_finding() which reads the rec-owner-letters description to match a party name, checks rec-salvage-diver tags for 'scuttle', searches accepted_means for 'scuttle', searches accepted_places for 'engine', and parses a time regex from rec-survivor-accounts. This is genuine computation from API-delivered data, not echo/cat of a hardcoded answer.
+✅ pass - file_reference_mentioned: instruction.md explicitly names both output files: '/app/build/inquire.sh (entry point) and /app/build/inquire.pl (does the real work)' and states that 'inquire.sh play works the full inquiry and writes /app/output/finding.json; inquire.sh wrong enters a deliberately wrong finding against a fresh inquiry and writes /app/output/wrong_finding.json'. All file names and paths that tests check are explicitly stated in the instruction.
+
+
+================================================================================
+                         REVIEW REPORT: tbench-task
+================================================================================
+
+Status:        ⚠️ WARNING
+Task Location: /root/harbor_tasks/tbench-task
+
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
+
+This task requires the agent to build a Perl terminal client that drives a
+pre-installed Rails JSON API to investigate the loss of a fictional steamship,
+navigate an archive of long-form documents, draw required records, reason out
+the true cause of the loss (which contradicts the surface narrative), and
+submit a structured finding. The solution implements inquire.sh/inquire.pl
+using HTTP::Tiny to drive the API, derive findings from record data, and
+produce JSON output. The test suite validates delivery shape, finding
+correctness, determinism, anti-cheating (no DB access, no brute-force), and
+the "wrong finding" losing path.
+
+================================================================================
+                              WARNINGS ⚠️
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Expected Answer Embedded in Test File (test_outputs.py)
+--------------------------------------------------------------------------------
+
+File:    tbench-task/tests/test_outputs.py (lines 43-48)
+Problem: The EXPECTED_FINDING dictionary containing the correct four
+         particulars is hardcoded in the test file. While the test file is not
+         visible to the agent at runtime, it is also present in conftest.py
+         (line 33-38) as the TRUTH dict. This is acceptable for verification
+         but worth noting that the anti-cheat design relies entirely on the
+         harness keeping /tests invisible — if any path leak occurred, the
+         answer is trivially readable.
+
+Current approach: The answer is stored in both test_outputs.py and conftest.py
+as plain-text Python dicts.
+
+Suggested fix: This is acceptable given the harness guarantees /tests is not
+mounted during the agent run, and the API returns only "pending" without the
+sealed truth. No action required — noted for awareness.
+
+Explanation: The task's anti-cheat design (empty truth table in the shipped
+image, "pending" verdict with no feedback) is sound and well-documented.
+The dual storage in conftest.py and test_outputs.py is redundant but harmless.
+
+--------------------------------------------------------------------------------
+2. Unpinned Perl Dependency in Dockerfile
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/Dockerfile (line 16)
+Problem: The `perl` package is installed without a version pin, while all
+         other apt packages in the same RUN command are pinned.
+
+Current code:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  perl \                                                                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Suggested fix:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  perl=5.36.0-7+deb12u2 \                                                   │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: All other apt packages are version-pinned for reproducibility.
+Perl is the primary language of the deliverable, so pinning it prevents
+unexpected breakage if the base image updates.
+
+================================================================================
+                             SUGGESTIONS 💡
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Non-Canonical Base Image Requires Justification
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/Dockerfile (line 1)
+
+Current approach: Uses `public.ecr.aws/docker/library/ruby:3.3-slim-bookworm`
+with a digest pin, which is correct in format. However, the canonical base
+image list uses images from `ghcr.io/laude-institute/t-bench/` — a Ruby
+variant may not yet exist on that registry.
+
+Rationale: The task requires a Rails API server, making a Ruby base image a
+credible justification. The image is properly digest-pinned from the official
+ECR mirror. If a canonical Ruby image exists on the t-bench registry, it
+should be preferred; otherwise this is an acceptable exception that could be
+proposed as a list addition.
+
+================================================================================
+                            OVERALL ASSESSMENT
+================================================================================
+
+This is an exceptionally well-crafted task that tests deep reasoning, API
+integration, long-context comprehension, and Perl programming in a novel
+mystery-investigation format. The anti-cheat design is sophisticated — the
+sealed answer is absent from the agent environment and the API provides no
+feedback, forcing genuine reasoning from the dossier.
+
+Key Strengths:
+  ✓ Ingenious anti-cheat design: empty truth table + pending-only verdict
+  ✓ Comprehensive test suite covering delivery, correctness, determinism,
+    and multiple anti-fishing checks
+  ✓ Well-structured clean-room verification via conftest.py that rebuilds
+    the DB and re-runs the agent's code against the sealed truth
+  ✓ Rich, realistic task that tests reasoning from contradictory evidence
+
+Key Weaknesses:
+  ✗ Minor: unpinned perl apt package among otherwise fully-pinned deps
+  ✗ Base image may not be on the canonical t-bench registry (justified by
+    the Ruby/Rails requirement)
+
+Evaluates: Long-context reasoning under misdirection, API-driven automation
+           in Perl, multi-step HTTP orchestration, deductive analysis from
+           contradictory evidence
+
+================================================================================
+  RECOMMENDATION: ✅ READY TO USE
+
+  The task is production-quality with a sound structure, robust anti-cheat
+  measures, and thorough verification. The unpinned perl package is a minor
+  reproducibility concern but does not affect correctness.
+================================================================================
+
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+The test suite is well-designed with defense-in-depth: the sealed answer is
+injected only at verification time, the agent's code is re-executed in a
+clean room, API audit logs verify real runtime behavior, and anti-cheat
+checks prevent database access or brute-force approaches.
+
+Strengths:  The clean-room re-execution pattern (conftest.py rebuilds the
+database with truth injected, then re-runs the agent's deliverable) is
+excellent — it means hardcoded "pending" verdicts won't pass, and the
+agent must produce code that genuinely drives the API at runtime. The
+audit-log checks verify endpoint coverage, single-finding discipline, and
+no brute-force inquiry creation.
+
+Weaknesses: The correct answer is stated explicitly in the dossier file
+08_accusation_rules.md (accessible to the agent), so the "reasoning"
+challenge reduces to reading comprehension rather than deduction, but
+the mechanical/integration requirements remain substantial.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The test suite verifies both correctness and process. It checks that the
+four finding particulars match the sealed truth (par-veil,
+scuttle-seacock, loc-engine-room, 23:15), that the Perl client is
+syntactically valid and contains HTTP logic, that all required API
+endpoints were called at runtime (via audit DB), that required records
+were drawn, that a full pass was completed, that the finding is
+deterministic across reruns, and that a deliberately wrong finding
+produces an unsound verdict. The clean-room fixture prevents any
+shortcut based on pre-computed output files or database tampering.
+
+================================================================================
+
+Agent fixes the decisive minute at 23:15 (the minute of the act, after the striking while the engine room was the second engineer's alone), not the logged striking or abandon times, +3
+Agent grounds the motive in the over-insurance (the policy schedule against an ageing hull) and the fictitious cargo (the surveyor's tally showing the machine tools never loaded), rather than asserting the conclusion, +3
+Agent draws all the required records into the working file and completes at least one full pass before entering the finding, as the office requires, +2
+Agent drives the inquiry genuinely through the HTTP API at runtime (navigating sections, retrieving records, entering the finding from the Perl client) rather than hardcoding catalogue data or the answer, +3
+Agent's Perl client produces a deterministic finding across repeated runs (same four particulars, same drawn records), +2
+Agent names the decisive minute as 23:10 (the striking) or 23:40 (the abandon order) instead of 23:15 (the act), -3
+Agent fishes for the finding by entering several guesses, or reads the case database, instead of reasoning it from the record, -3
+

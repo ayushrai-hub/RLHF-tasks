@@ -1,0 +1,92 @@
+   Compiling rbac_temporal v0.1.0 (/app)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.98s
+     Running unittests src/lib.rs (target/debug/deps/rbac_temporal-a876b241c2c9b5af)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/test_rbac.rs (target/debug/deps/test_rbac-d1537a44a105ae6c)
+
+running 12 tests
+test test_basic_grant_and_expiry ... ok
+test test_cyclic_delegation_terminates ... ok
+test test_delegation_add_and_revoke_invalidation ... ok
+test test_delegation_follows_live_delegator ... ok
+test test_diamond_inheritance_all_paths ... ok
+test test_exact_temporal_boundaries ... ok
+test test_lru_refreshes_on_read ... ok
+test test_multi_hop_delegation_expiry ... ok
+test test_public_api_preserved ... ok
+test test_remove_inheritance_revokes_permission ... ok
+test test_scoped_invalidation_preserves_unrelated ... ok
+test test_transitive_grant_updates_delegatee ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/test_rbac_hidden.rs (target/debug/deps/test_rbac_hidden-e97cf255876a01a0)
+
+running 54 tests
+test test_hidden_add_inheritance_enables_cached_denied_user ... ok
+test test_hidden_add_inheritance_grants_permission ... ok
+test test_hidden_broken_middle_delegation_denies ... ok
+test test_hidden_cache_is_bounded_lru ... ok
+test test_hidden_capacity_boundary_no_early_eviction ... ok
+test test_hidden_cold_entry_evicted_when_capacity_exceeded ... ok
+test test_hidden_cycle_with_grant_on_one_member ... ok
+test test_hidden_cycle_with_valid_bypass ... ok
+test test_hidden_deep_delegation_chain_all_hits_after_prime ... ok
+test test_hidden_deep_diamond_second_branch ... ok
+test test_hidden_deep_second_branch_grandparent ... ok
+test test_hidden_delegated_diamond_inheritance ... ok
+test test_hidden_delegatee_borrows_inherited_authority ... ok
+test test_hidden_delegatee_denied_at_delegator_grant_exact_end ... ok
+test test_hidden_delegatee_denied_when_delegator_unauthorized ... ok
+test test_hidden_delegatee_uses_delegator_inherited_authority ... ok
+test test_hidden_delegation_denied_after_delegator_authority_expires ... ok
+test test_hidden_delegation_end_bound_exclusive ... ok
+test test_hidden_delegation_start_bound_inclusive ... ok
+test test_hidden_delegation_window_narrower_than_grant ... ok
+test test_hidden_diamond_partial_removal ... ok
+test test_hidden_four_hop_delegation_expiry ... ok
+test test_hidden_grant_delegate_revoke_regrant ... ok
+test test_hidden_grant_delegation_window_intersection ... ok
+test test_hidden_grant_to_delegator_invalidates_delegatee_entry ... ok
+test test_hidden_grant_unrelated_preserves_delegatee_entry ... ok
+test test_hidden_hot_entry_survives_many_insertions ... ok
+test test_hidden_hot_entry_not_evicted_under_churn ... ok
+test test_hidden_inheritance_cycle_safe_permissions ... ok
+test test_hidden_invalidated_entry_recomputed_as_miss ... ok
+test test_hidden_long_cycle_terminates ... ok
+test test_hidden_multiple_delegators_second_authorized ... ok
+test test_hidden_permission_only_via_second_parent ... ok
+test test_hidden_remove_inheritance_invalidates_all_sharers ... ok
+test test_hidden_remove_then_readd_inheritance ... ok
+test test_hidden_repeated_query_counts_as_hits ... ok
+test test_hidden_repeated_query_is_cached ... ok
+test test_hidden_revoke_invalidates_only_target_delegatee ... ok
+test test_hidden_revoke_preserves_other_delegatees_entry ... ok
+test test_hidden_revoke_then_readd_delegation ... ok
+test test_hidden_scoped_invalidation_on_grant ... ok
+test test_hidden_self_delegation_terminates ... ok
+test test_hidden_self_delegation_without_authority_denied ... ok
+test test_hidden_three_node_cycle_with_grant ... ok
+test test_hidden_transitive_two_hop_invalidation ... ok
+test test_hidden_triple_parent_last_branch ... ok
+test test_hidden_two_delegators_only_second_authorized ... ok
+test test_hidden_two_grants_with_gap_reactivate ... ok
+test test_hidden_two_node_delegation_cycle_terminates_denied ... ok
+test test_hidden_union_permissions_across_branches ... ok
+test test_hidden_unrelated_grant_preserves_dependent_entry ... ok
+test test_hidden_wide_fanout_permission_on_last_branch ... ok
+test test_hidden_zero_width_delegation_never_active ... ok
+test test_hidden_zero_width_grant_never_active ... ok
+
+test result: ok. 54 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+   Doc-tests rbac_temporal
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

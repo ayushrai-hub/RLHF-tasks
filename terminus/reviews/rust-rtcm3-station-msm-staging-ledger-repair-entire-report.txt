@@ -1,0 +1,288 @@
+Difficulty Explanation (optional)
+Describe in your own words why your task is challenging for humans and agents to solve.
+
+This task is marked hard because the agent must repair a rust pipeline where ingest, staging, and export disagree unless several layers are fixed together. The contract is split across /app/docs/cli-contract.md, /app/docs/msm7-contract.md, /app/docs/mutation-seal-contract.md, so fixing only parsing or only export math still fails hidden checks. Export must consume the on disk staging snapshot and manifest digest, not re walk raw inputs, which is easy to miss when bundled fixtures look fine after a one file patch. TB3_ environment overrides point ingest at verifier only directories, so path handling and discovery rules must match the docs, not just the default bundle. Frontier models tend to stop after the first obvious bug in one module even though behavioral tests require the full contract to line up.
+Solution Explanation (optional)
+Describe your high-level approach to this task and key insights in forming the solution.
+
+The oracle copies corrected sources (decode.rs, export.rs, ledger.rs, persist.rs, seal.rs) into /app, rebuilds the project, and runs the documented CLI end to end. The main insight is to keep ingest responsible for merge semantics and snapshot bytes while export derives gaps, fingerprints, and summaries only from that staged artifact. Manifest SHA must match the snapshot file on disk so export validation and pytest staging assertions agree. Exit code precedence between skipped shards versus timeline gaps must follow the instruction and cli surface docs, not ad hoc ordering in emit. Re running correlate on unchanged inputs should be idempotent because staging and outputs are written through the same code paths agents are expected to fix.
+Verification Explanation (optional)
+Explain how your tests are verifying correctness.
+
+Pytest rebuilds the binary in test.sh, then drives the CLI via subprocess with fresh output paths per test. An independent reference implementation in the test module recomputes expected JSON from the same fixtures and schemas cited in instruction.md, so hard coded report files cannot pass. Dedicated tests assert the staging snapshot and manifest exist with the ingest contract before export fields are checked. Hidden verifier fixtures under TB3 overrides exercise discovery and export behavior that bundled trees alone do not cover. Mutated inputs and byte level comparisons on reports catch fixes that only work on the default bundle while leaving export or persistence layers broken.
+
+Difficulty: ✅ MEDIUM
+
+Status: ✅ Solvable (all tests passed by at least one agent run)
+
+Agent Performance:
+  • terminus-claude-opus-4-8: 100.0% (5/5 runs)
+  • terminus-gpt5-5: 60.0% (3/5 runs)
+
+Reference Agents:
+  • nop: 0.0% (0/1 runs)
+  • oracle: 100.0% (3/3 runs)
+
+Failure Breakdown:
+  • nop: 1 other
+  • terminus-gpt5-5: 2 other
+
+Unit Tests Results:
+  • test_binary_exists: 10 passed / 10 runs
+  • test_init_schema: 10 passed / 10 runs
+  • test_decode_valid_capture: 10 passed / 10 runs
+  • test_decode_scale_exponent_nonzero: 10 passed / 10 runs
+  • test_decode_negative_scale_exp_uses_unit_divisor: 10 passed / 10 runs
+  • test_decode_crc_failure_leaves_no_partial: 10 passed / 10 runs
+  • test_stage_station_key_includes_mountpoint: 10 passed / 10 runs
+  • test_stage_writes_staging_manifest: 10 passed / 10 runs
+  • test_persist_rejects_manifest_row_count_mismatch: 10 passed / 10 runs
+  • test_persist_rejects_stale_manifest_staged_path: 10 passed / 10 runs
+  • test_persist_mountpoint_collision: 10 passed / 10 runs
+  • test_gap_counts_missing_sequences: 10 passed / 10 runs
+  • test_gap_single_step_wrap: 10 passed / 10 runs
+  • test_gap_wraparound_u32_boundary: 10 passed / 10 runs
+  • test_persist_keeps_audit_and_station_aligned: 10 passed / 10 runs
+  • test_persist_rollback_on_audit_failure: 10 passed / 10 runs
+  • test_persist_batch_atomic_on_audit_failure: 10 passed / 10 runs
+  • test_station_chain_digest_order: 8 passed / 10 runs
+  • test_snapshot_and_seal_written: 8 passed / 10 runs
+  • test_export_reads_snapshot_not_live_db: 8 passed / 10 runs
+  • test_export_rejects_stale_seal_digest: 8 passed / 10 runs
+  • test_ingest_pipeline_end_to_end: 8 passed / 10 runs
+  • test_ingest_writes_state_manifest_snapshot_seal: 8 passed / 10 runs
+  • test_decode_then_stage_then_persist_isolated: 10 passed / 10 runs
+  • test_refresh_snapshot_as_of_mismatch: 10 passed / 10 runs
+  • test_hidden_dual_mountpoint_counts: 8 passed / 10 runs
+  • test_hidden_scaled_observable_sum: 10 passed / 10 runs
+  • test_hidden_mid_batch_crc_aborts: 10 passed / 10 runs
+  • test_hidden_audit_digest_chronological_order: 10 passed / 10 runs
+  • test_hidden_gap_wrap_u32: 10 passed / 10 runs
+  • test_hidden_export_snapshot_gate_after_db_tamper: 8 passed / 10 runs
+  • TestTB3RtcmTraps → test_tb3_scale_decoy_multiply_fails_hidden_sum: 10 passed / 10 runs
+  • TestTB3RtcmTraps → test_tb3_report_metrics_export_reads_live_sqlite: 8 passed / 10 runs
+  • TestTB3RtcmTraps → test_tb3_batch_persist_partial_commit_trap: 10 passed / 10 runs
+  • TestTB3RtcmTraps → test_tb3_manifest_digest_requires_sorted_keys: 10 passed / 10 runs
+  • TestTB3RtcmTraps → test_tb3_persist_requires_manifest: 10 passed / 10 runs
+
+Analysis on Agent Failures:
+  • Task Instruction Sufficiency: ❌ FAIL, tbench-task__thZcWCW: The instruction explicitly lists 'ingest' as one of the commands that must match the contracts, and /app/docs/cli-contract.md (which the agent read) describes ingest's full pipeline behavior. The tests verify that a single `ingest` call must produce the snapshot, seal, and ledger artifacts. This is not an implicit expectation — it is documented in cli-contract.md. The agent's failure to fix the ingest command's pipeline orchestration is an agent limitation (it focused on individual subcommands rather than the compound ingest wrapper), not a specification gap.; tbench-task__zE799q9: The instruction.md directs the agent to make commands match 'the contracts in /app/docs/' and lists ingest among the commands to fix. The file /app/docs/cli-contract.md explicitly states that ingest must run: decode, stage, persist, publish-ledger, seal-mutations, and refresh-snapshot. However, instruction.md itself does not spell out what the ingest command should do sub-step by sub-step — it only lists ingest as one of the commands that need to match the contracts. A complete spec read (all docs) would reveal this, but the instruction alone is insufficient to determine ingest's full behavior without also reading cli-contract.md. The agent read 8 of the 9 doc files but missed cli-contract.md; however, the fact that the instruction doesn't directly state ingest's sub-command pipeline means an agent cannot succeed without reading all referenced docs — an implicit dependency not flagged in the task description.
+
+
+## Quality Check Results
+✅ pass - behavior_in_task_description: instruction.md explicitly covers all behaviors that the tests verify: (1) MSM7 big-endian u32 range_raw, divisor = 10^max(scale_exp,0), range_m = range_raw/divisor with a reference to msm7-contract.md; (2) CRC validation before any staging write; (3) station_key as station_id:mountpoint referencing staging-contract.md; (4) staging manifest with deterministic lineage checksum referencing staging-manifest-contract.md; (5) single SQLite transaction with wrap-aware u32 gap detection for persist; (6) export must validate /app/state/rtcmctl-snapshot.json only (not live SQLite) referencing snapshot-contract.md; (7) rebuild via /app/scripts/verifier-rebuild.sh. The referenced contract files (msm7-contract.md, staging-contract.md, staging-manifest-contract.md, snapshot-contract.md, schema.sql) all exist and are detailed. The instruction also warns that internal/scale.rs, internal/audit_materialize.rs, and internal/report_metrics.rs are not authoritative, guiding agents away from decoys.
+✅ pass - behavior_in_tests: All behaviors described in instruction.md are tested: MSM7 big-endian parsing and scale exponent handling (test_decode_valid_capture, test_decode_scale_exponent_nonzero, test_decode_negative_scale_exp_uses_unit_divisor, test_hidden_scaled_observable_sum); CRC validation before any write (test_decode_crc_failure_leaves_no_partial, test_hidden_mid_batch_crc_aborts); station_key as station_id:mountpoint (test_stage_station_key_includes_mountpoint, test_hidden_dual_mountpoint_counts); staging manifest with sorted keys digest (test_stage_writes_staging_manifest, test_tb3_manifest_digest_requires_sorted_keys); persist manifest validation (test_persist_rejects_manifest_row_count_mismatch, test_persist_rejects_stale_manifest_staged_path, test_tb3_persist_requires_manifest); atomic SQLite transaction (test_persist_rollback_on_audit_failure, test_persist_batch_atomic_on_audit_failure, test_tb3_batch_persist_partial_commit_trap); wrap-aware u32 gap detection (test_gap_single_step_wrap, test_gap_wraparound_u32_boundary, test_hidden_gap_wrap_u32); audit chain sort order (test_station_chain_digest_order, test_hidden_audit_digest_chronological_order); export from snapshot only (test_export_reads_snapshot_not_live_db, test_hidden_export_snapshot_gate_after_db_tamper, test_tb3_report_metrics_export_reads_live_sqlite); mutation_seal_digest validation (test_export_rejects_stale_seal_digest, test_snapshot_and_seal_written); end-to-end pipeline (test_ingest_pipeline_end_to_end).
+✅ pass - informative_test_structure: Both test files are well organized. test_outputs.py has clear, descriptive docstrings for every test function (e.g., 'decode must validate CRC before writing ledger or partial sidecar bytes', 'persist must roll back station updates when audit insert fails'). test_tb3_hidden.py separates general hidden tests from TB3-trap-specific tests using a dedicated class TestTB3RtcmTraps with descriptive docstrings per method. fixture_codec.py is clearly commented as 'Shared RTCM3 reference codec for verifier tests' with well-named reference functions. Test names and docstrings make the checked behavior clear. TB3_TRAP labels in docstrings identify which tests specifically target partial-fix detection.
+✅ pass - anti_cheating_measures: Multiple strong anti-cheating mechanisms are present: (1) The Dockerfile does NOT copy tests/ or solution/ into the image — only src/, docs/, scripts/, fixtures/, Cargo.toml, Cargo.lock are included. (2) Decoy files (decoy/scale_legacy.rs, src/scale.rs using multiply instead of divide, src/audit_materialize.rs sorting by event_id only, src/report_metrics.rs querying live SQLite) are present to mislead partial fixes. (3) The instruction explicitly warns 'internal/scale.rs, internal/audit_materialize.rs, and internal/report_metrics.rs are not authoritative', but an agent might still be tempted to "fix" those. (4) The TB3 trap tests verify that fixing only the decoy files does not pass (test_tb3_scale_decoy_multiply_fails_hidden_sum). (5) Hidden fixtures at /opt/verifier-fixtures (not in the image) are created at test-time from a seed value, preventing pre-computation. (6) The reference codec (fixture_codec.py) is in tests/ which is not in the image at agent runtime. (7) Tests use random suffixes for DB names and seed-parameterized values. (8) reference_staging_keys_digest_insertion_order in fixture_codec.py is deliberately provided to trap agents who use insertion order.
+✅ pass - structured_data_schema: All structured data schemas are explicitly documented: schema.sql shows the full SQLite table definitions with all columns and types; staging-contract.md gives both the decode ledger row and staged row JSON schemas with field names and types; staging-manifest-contract.md gives the manifest JSON schema with exact field names plus the keys_digest algorithm; snapshot-contract.md gives the full snapshot JSON schema with field descriptions and the compact JSON field ordering requirement for mutation_seal_digest; station-ledger-contract.md gives the ledger JSON schema and chain_digest algorithm; mutation-seal-contract.md gives the seal JSON schema; msm7-contract.md gives the complete MSM7 payload layout with types and byte orders. Schemas are normative (described as contracts with explicit required behavior), not merely examples.
+✅ pass - pinned_dependencies: Python dependencies in requirements.lock are fully pinned with exact versions (iniconfig==2.3.0, packaging==26.2, pluggy==1.6.0, pygments==2.20.0, pytest==9.0.3, pytest-json-ctrf==0.5.0). The Dockerfile uses a pinned Rust image with a full SHA256 digest (rust:1.85-slim@sha256:9f841bbe9e7d8e37ceb96ed907265a3a0df7f44e3737d0b100e7907a679acb36), and uses --locked for cargo to enforce Cargo.lock. Apt packages (asciinema, ca-certificates, python3, python3-venv, sqlite3, tmux) are not pinned, which is acceptable per the criteria.
+✅ pass - typos: No typos found in filenames, paths, commands, or variable names. All referenced paths (/app/bin/rtcmctl, /app/state/rtcmctl-staging-manifest.json, /app/state/rtcmctl-snapshot.json, /app/state/rtcmctl-mutation-seal.json, /app/state/rtcmctl-station-ledger.json, /app/docs/, /app/src, /app/scripts/verifier-rebuild.sh) are consistent across instruction.md, the tests, and the Dockerfile. Command names (init, decode, stage, persist, ingest, publish-ledger, seal-mutations, refresh-snapshot, export) are consistent throughout. Variable names in source and tests are consistent.
+✅ pass - tests_or_solution_in_image: The Dockerfile does not COPY tests/ or solution/ into the image. The runtime build only copies Cargo.toml, Cargo.lock, README.md, docs/, scripts/, src/, fixtures/ — confirming neither the test files nor the solution files are accessible to the agent at runtime. The verifier-rebuild.sh script runs cargo build --release --locked without any reference to solution files.
+✅ pass - hardcoded_solution: solution/solve.sh performs a real multi-step process: it locates the solution source files, copies them over the buggy environment source files (decode.rs, staging_manifest.rs, stage.rs, persist.rs, ledger.rs, seal.rs, export.rs), then runs /app/scripts/verifier-rebuild.sh to recompile the binary. The solution demonstrates the actual fix steps (replacing seven specific Rust source files and rebuilding) rather than echoing precomputed answers.
+✅ pass - file_reference_mentioned: instruction.md explicitly names all relevant output files: the agent must update Rust sources under /app/src and rebuild /app/bin/rtcmctl. The instruction mentions specific state artifacts: /app/state/rtcmctl-staging-manifest.json, /app/state/rtcmctl-snapshot.json, /app/state/rtcmctl-mutation-seal.json. It also references /app/docs/schema.sql and various contract files in /app/docs/. Tests reference these exact paths (SNAPSHOT, SEAL, STAGING_MANIFEST constants) which match what instruction.md specifies. The instruction also points to rebuild via /app/scripts/verifier-rebuild.sh.
+
+================================================================================
+                         REVIEW REPORT: tbench-task
+================================================================================
+
+Status:        ⚠️ WARNING
+Task Location: /root/harbor_tasks/tbench-task
+
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
+
+This task requires fixing multiple bugs in a Rust RTCM3 correction-station
+ingest CLI (rtcmctl). The agent must correct MSM7 observable scaling, CRC
+validation ordering, staging manifest lineage checksums, SQLite persistence
+atomicity, audit chain digest ordering, and snapshot export provenance across
+seven Rust source files. The solution replaces broken source files and rebuilds
+the binary. The test suite contains 30+ behavioural tests covering decode,
+stage, persist, ledger, seal, snapshot, and export, including hidden "trap"
+tests that detect partial-fix profiles.
+
+================================================================================
+                            CRITICAL ISSUES ❌
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Decode Bug: CRC Validated After Sidecar Write (Environment Code)
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/src/decode.rs (lines 146-157)
+Problem: The environment decode.rs writes to the sidecar file BEFORE checking
+         the CRC. This is the intentional bug the agent must fix — but notably
+         the environment also reads range_raw using little-endian (read_u32_le
+         at line 95) instead of big-endian as specified in msm7-contract.md.
+         This is fine as an intentional bug, but the instruction.md does not
+         explicitly call out the byte-order bug — only the scale exponent and
+         CRC ordering issues. The agent must discover the LE→BE fix by reading
+         the contract doc. This is acceptable for a "hard" task but worth
+         noting that the instruction is slightly implicit here.
+
+Explanation: Not a true blocking issue — the contracts and solution make the
+required fix clear. Downgrading to informational; no action needed.
+
+NOTE: On further analysis this is by design (the buggy code IS the task).
+Withdrawing this as a critical issue.
+
+================================================================================
+                              WARNINGS ⚠️
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Non-Canonical Base Image
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/Dockerfile (lines 1, 14)
+Problem: The Dockerfile uses `public.ecr.aws/docker/library/rust:1.85-slim`
+         as its base image. The canonical base image list for Terminal-Bench
+         specifies digest-pinned images per language. While the image IS
+         digest-pinned (good), the Rust base may not be on the canonical list
+         (which could not be verified as the list file was not found in this
+         environment). If a canonical Rust image exists, this should be
+         updated to match.
+
+Current approach: Uses `rust:1.85-slim@sha256:9f841...` for both builder and
+runtime stages.
+
+Explanation: The image is digest-pinned which is good practice. If no
+canonical Rust image exists yet, this is acceptable. Verify against the
+canonical list before final submission.
+
+--------------------------------------------------------------------------------
+2. Pytest Version Mismatch Between Pinned Lock and Best Practice
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/requirements.lock (line 5)
+Problem: The requirements.lock pins `pytest==9.0.3`. While this is properly
+         pinned (good), the recommended version in Terminal-Bench docs is
+         `pytest==8.4.1`. This is not a blocking issue but may cause minor
+         inconsistencies with other tasks.
+
+Current approach: `pytest==9.0.3` in requirements.lock
+
+Suggested fix: Consider aligning with the standard `pytest==8.4.1` unless
+the newer version is specifically needed.
+
+Explanation: Minor version difference; both are valid pinned versions. The
+task will function correctly either way.
+
+================================================================================
+                             SUGGESTIONS 💡
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Instruction Could Be More Explicit About Byte-Order Bug
+--------------------------------------------------------------------------------
+
+File:    tbench-task/instruction.md (line 3)
+
+Current approach: The instruction mentions "big-endian u32" for range_raw and
+points to msm7-contract.md, but does not explicitly state that the current
+code incorrectly uses little-endian reads for range_raw.
+
+Suggested improvement: Add a brief note like "decode currently uses wrong
+byte order for range_raw" to the bug list in the instruction, since other
+bugs (CRC ordering, scale exponent) are explicitly named.
+
+Rationale: For a "hard" task the implicit discovery is acceptable, but
+explicitly naming all bugs in the instruction improves clarity and ensures
+the agent knows the full scope without needing to diff against the contract.
+
+================================================================================
+                            OVERALL ASSESSMENT
+================================================================================
+
+This is a well-crafted, challenging Rust debugging task that tests deep
+systems-level understanding of binary protocol parsing, SQLite transactional
+integrity, and cryptographic digest chains. The anti-cheating measures
+(decoy files, hidden trap tests, non-authoritative internal modules) are
+excellent and prevent partial-fix gaming.
+
+Key Strengths:
+  ✓ Comprehensive 30+ test suite with hidden traps detecting partial fixes
+  ✓ Excellent anti-cheating design (decoy scale.rs, non-authoritative
+    internal modules, TB3_TRAP tests)
+  ✓ Proper offline setup — all deps in Dockerfile, no network in test.sh
+  ✓ Well-structured contracts/docs provide authoritative specs without
+    leaking the solution
+
+Key Weaknesses:
+  ✗ Base image may not be on canonical list (needs verification)
+  ✗ Minor pytest version drift from standard
+
+Evaluates: Rust systems programming, binary protocol debugging, SQLite
+           transactional correctness, cryptographic digest implementation
+
+================================================================================
+  RECOMMENDATION: ✅ READY TO USE
+
+  The task is well-designed with strong anti-cheating measures and thorough
+  test coverage. The warnings are minor and do not affect correctness.
+  Verify the base image against the canonical list before final submission.
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+The test suite is comprehensive, exercises all core constraints with
+correctness assertions, uses hidden trap tests to detect partial fixes,
+and the reference oracle in fixture_codec.py faithfully implements the
+documented contracts.
+
+Strengths:  The test suite covers all major subsystems (decode, stage,
+persist, publish-ledger, seal-mutations, refresh-snapshot, export) with
+correctness checks on computed values, not just structural existence.
+Hidden "TB3_TRAP" tests in test_tb3_hidden.py catch agents that fix only
+some bugs (e.g., scale decoy, live-SQLite bypass, insertion-order digest).
+
+Weaknesses: Minor — the `scale_exp` is encoded as `& 0xFF` (unsigned byte)
+and decoded as `i8` in both Python and Rust, which limits negative values
+to the -128 range and only one negative case is tested explicitly.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The test suite contains 30+ behavioral tests across two files
+(test_outputs.py and test_tb3_hidden.py) that verify MSM7 observable
+scaling with various exponents, CRC validation before staging writes,
+station key format including mountpoint, staging manifest sorted-keys
+digest, u32 wrap-aware gap detection, SQLite batch atomicity with
+trigger-based rollback traps, audit chain digest ordering, snapshot
+provenance validation, and export-from-snapshot isolation. The reference
+implementations in fixture_codec.py (observable_sum, gap_delta,
+chain_digest, seal_digest, staging_keys_digest) all faithfully mirror
+the specifications in the contract documents. The source code ships with
+three intentional bugs (little-endian range_raw read, multiply-based
+scaling, CRC check after sidecar write) plus decoy files, and the tests
+correctly catch all of these. No shortcut solution exists: the agent
+cannot access tests/ or fixture_codec.py, and producing correct output
+requires implementing the full MSM7 decode, staging, and persistence
+pipeline per the contracts.
+
+
+================================================================================
+
+# Rubric
+Agent fixes MSM7 decode to read range_raw big-endian and validate CRC before any ledger write, +5
+Agent fixes stage station_key to station_id:mountpoint and writes staging manifest with sorted keys digest, +5
+Agent validates staging manifest in persist before one SQLite batch transaction for stations and audit, +5
+Agent implements wrap-aware u32 gap detection per snapshot contract, +3
+Agent fixes ledger chain_digest sort to created_at then event_id, +2
+Agent fixes export to read published snapshot counters and validate mutation_seal_digest, +3
+Agent fixes seal digest compact JSON to alphabetical field order, +2
+Agent introduces incorrect observable scaling via decoy multiply helper only, -3
+Agent leaves persist applying rows without manifest gate or partial commits on audit failure, -3
+Agent reads live SQLite in export instead of snapshot file, -3
+

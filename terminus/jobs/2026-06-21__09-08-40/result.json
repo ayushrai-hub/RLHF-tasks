@@ -1,0 +1,27 @@
+{
+    "id": "0f9739a9-60a8-4070-bc88-77c450700fe2",
+    "started_at": "2026-06-21T09:08:40.283109",
+    "finished_at": "2026-06-21T09:08:41.205837",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "exec-profile-cap-bound-drift1__aTbKFWG"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,209 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 21,
+            "passed": 21,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1783069475.6287398,
+            "stop": 1783069480.1666925
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_consensus_split_brain_recovery_on_default_partition",
+                "status": "passed",
+                "duration": 0.20568558500008294,
+                "start": 1783069475.6650243,
+                "stop": 1783069475.871038,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_pressure_bundle_restores_consensus",
+                "status": "passed",
+                "duration": 0.28365737399997215,
+                "start": 1783069475.8717365,
+                "stop": 1783069476.1556778,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_order_independent_linearizability_digest",
+                "status": "passed",
+                "duration": 0.44446049999987736,
+                "start": 1783069476.1559646,
+                "stop": 1783069476.6007218,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_repeated_runs_byte_identical",
+                "status": "passed",
+                "duration": 0.32380733299999065,
+                "start": 1783069476.6010435,
+                "stop": 1783069476.925215,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_failure_priority_node_id_invalid",
+                "status": "passed",
+                "duration": 0.1972661249999419,
+                "start": 1783069476.9254806,
+                "stop": 1783069477.122999,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_duplicate_entry_rejected",
+                "status": "passed",
+                "duration": 0.12297150099993814,
+                "start": 1783069477.1233413,
+                "stop": 1783069477.2464561,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_log_index_gap_rejected",
+                "status": "passed",
+                "duration": 0.11317916600000899,
+                "start": 1783069477.246646,
+                "stop": 1783069477.359988,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_term_overflow_rejected",
+                "status": "passed",
+                "duration": 0.1087190839999721,
+                "start": 1783069477.3602295,
+                "stop": 1783069477.469114,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_rpc_term_stale_rejected",
+                "status": "passed",
+                "duration": 0.10404024900014974,
+                "start": 1783069477.4693182,
+                "stop": 1783069477.5734847,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_rpc_order_violation_rejected",
+                "status": "passed",
+                "duration": 0.2823080830002027,
+                "start": 1783069477.5736296,
+                "stop": 1783069477.856576,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_snapshot_conflict_rejected",
+                "status": "passed",
+                "duration": 0.14441349999981412,
+                "start": 1783069477.8570812,
+                "stop": 1783069478.0022545,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_config_quorum_invalid_rejected",
+                "status": "passed",
+                "duration": 0.18219837599986022,
+                "start": 1783069478.0023916,
+                "stop": 1783069478.1848488,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_partition_overlap_rejected",
+                "status": "passed",
+                "duration": 0.16824937599994882,
+                "start": 1783069478.1852407,
+                "stop": 1783069478.3538136,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_env_not_production_rejected",
+                "status": "passed",
+                "duration": 0.12706687599995803,
+                "start": 1783069478.3540666,
+                "stop": 1783069478.4813492,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_wal_order_violation_rejected",
+                "status": "passed",
+                "duration": 0.12557745899994188,
+                "start": 1783069478.4815893,
+                "stop": 1783069478.607351,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_empty_stream_rejected",
+                "status": "passed",
+                "duration": 0.7800264589999415,
+                "start": 1783069478.607578,
+                "stop": 1783069479.388871,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_utf8_bom_stripped",
+                "status": "passed",
+                "duration": 0.12985841499994422,
+                "start": 1783069479.3897505,
+                "stop": 1783069479.51982,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_large_pressure_trace_efficient",
+                "status": "passed",
+                "duration": 0.30987433300003886,
+                "start": 1783069479.5200202,
+                "stop": 1783069479.8300502,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_command_trace_sorted_and_complete",
+                "status": "passed",
+                "duration": 0.11999712499994075,
+                "start": 1783069479.8302104,
+                "stop": 1783069479.9503431,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_node_id_invalid_outranks_duplicate_entry",
+                "status": "passed",
+                "duration": 0.10783695900011026,
+                "start": 1783069479.9505374,
+                "stop": 1783069480.0585206,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_bundle_incomplete_rejected",
+                "status": "passed",
+                "duration": 0.10770124999987729,
+                "start": 1783069480.0586848,
+                "stop": 1783069480.16651,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

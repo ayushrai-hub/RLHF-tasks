@@ -1,0 +1,10 @@
+Trial Task152_Tracefold_V1__iXzW2r2 failed: Docker compose command failed for environment Task152_Tracefold_V1. Command: docker compose -p task152_tracefold_v1__ixzw2r2 -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 1. Stdout:  main Pulling 
+#1 [internal] load local bake definitions
+#1 reading from stdin 647B done
+#1 DONE 0.0s
+invalid tag "hb__Task152_Tracefold_V1": repository name must be lowercase
+
+. Stderr: None. 
+Docker compose down failed: Docker compose command failed for environment Task152_Tracefold_V1. Command: docker compose -p task152_tracefold_v1__ixzw2r2 -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml down --rmi all --volumes --remove-orphans. Return code: 1. Stdout:  Image hb__Task152_Tracefold_V1  Removing
+Error response from daemon: invalid reference format: repository name (library/hb__Task152_Tracefold_V1) must be lowercase
+. Stderr: None. 

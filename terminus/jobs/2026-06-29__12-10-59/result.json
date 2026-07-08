@@ -1,0 +1,29 @@
+{
+    "id": "8f4c2859-fc5e-4a74-9da9-ea221c38fb3a",
+    "started_at": "2026-06-29T12:10:59.392307",
+    "finished_at": "2026-06-29T12:13:41.359958",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "sklearn-pipeline-column-transfor__3HPVvtr"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

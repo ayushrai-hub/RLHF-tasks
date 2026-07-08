@@ -1,0 +1,27 @@
+{
+    "id": "0c3b4c84-ff94-4f2e-ae49-381fae1c6924",
+    "started_at": "2026-07-03T17:23:00.434335",
+    "finished_at": "2026-07-03T17:23:06.252992",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "interval-meter-tou-reconciliatio__cvDHHxo"
+                    ]
+                }
+            }
+        }
+    }
+}

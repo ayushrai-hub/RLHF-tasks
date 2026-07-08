@@ -1,0 +1,137 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 13,
+            "passed": 13,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1783082339.2202241,
+            "stop": 1783082339.483386
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_practice_segment_three_matches_contract",
+                "status": "passed",
+                "duration": 0.07719429199999794,
+                "start": 1783082339.22879,
+                "stop": 1783082339.306306,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_mregorder_overlay_applied",
+                "status": "passed",
+                "duration": 0.001588834000003203,
+                "start": 1783082339.3065403,
+                "stop": 1783082339.308235,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_crc_noise_excludes_bad_checksum",
+                "status": "passed",
+                "duration": 0.01983374900000001,
+                "start": 1783082339.3083525,
+                "stop": 1783082339.3283877,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_duplicate_seq_last_frame_wins",
+                "status": "passed",
+                "duration": 0.020106457999997218,
+                "start": 1783082339.3286343,
+                "stop": 1783082339.3489196,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_slave_reject_excluded_from_chain",
+                "status": "passed",
+                "duration": 0.018433459000000596,
+                "start": 1783082339.3490422,
+                "stop": 1783082339.3676565,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_checkpoint_marker_skipped",
+                "status": "passed",
+                "duration": 0.01750716599999791,
+                "start": 1783082339.3678749,
+                "stop": 1783082339.385578,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_order_overlay_sidecar",
+                "status": "passed",
+                "duration": 0.01775037499999854,
+                "start": 1783082339.3857741,
+                "stop": 1783082339.4036822,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_empty_scan_zero_state",
+                "status": "passed",
+                "duration": 0.016011500999997708,
+                "start": 1783082339.4039268,
+                "stop": 1783082339.4200864,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_continue_seed_without_tip_uses_zero_seed",
+                "status": "passed",
+                "duration": 0.01897504300000108,
+                "start": 1783082339.4202435,
+                "stop": 1783082339.4393926,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_continue_seed_with_tip_extends_chain",
+                "status": "passed",
+                "duration": 0.020551751000002838,
+                "start": 1783082339.439592,
+                "stop": 1783082339.4603226,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_unrelated_stale_tip_ignored_on_practice_scan",
+                "status": "passed",
+                "duration": 0.018074459000001042,
+                "start": 1783082339.4605074,
+                "stop": 1783082339.4787674,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_mregtip_written_after_successful_audit",
+                "status": "passed",
+                "duration": 0.0017998760000033087,
+                "start": 1783082339.478954,
+                "stop": 1783082339.4808822,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_output_regenerated_not_static",
+                "status": "passed",
+                "duration": 0.002033999000001785,
+                "start": 1783082339.4810317,
+                "stop": 1783082339.4831555,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

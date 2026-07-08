@@ -1,0 +1,29 @@
+{
+    "id": "3b374f79-02a3-4089-8dc0-3b2d34e2ffcc",
+    "started_at": "2026-07-03T14:27:15.483536",
+    "finished_at": "2026-07-03T14:27:24.125292",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "rust-saml-acs-guard__Y3ASnLE"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

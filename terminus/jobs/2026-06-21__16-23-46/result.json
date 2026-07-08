@@ -1,0 +1,29 @@
+{
+    "id": "7f679a48-4d09-42ae-8ce5-8877ad6eacda",
+    "started_at": "2026-06-21T16:23:46.365113",
+    "finished_at": "2026-06-21T16:29:18.414514",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "ts-seafloor-changepoint1__kWoURWU"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "id": "3a8d623e-d76e-4cf1-8ff9-a936d31bc0cf",
+    "started_at": "2026-07-04T14:18:38.272459",
+    "finished_at": "2026-07-04T14:18:39.227694",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "incarceration-trends-cleaning__vE4wNLB"
+                    ]
+                }
+            }
+        }
+    }
+}

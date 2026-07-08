@@ -1,0 +1,16 @@
+patching file raft_mesh/append.js
+patching file raft_mesh/cluster.js
+patching file raft_mesh/election.js
+patching file raft_mesh/envmerge.js
+patching file raft_mesh/errors.js
+patching file raft_mesh/metrics.js
+patching file raft_mesh/normalization.js
+patching file raft_mesh/parsers.js
+patching file raft_mesh/partition.js
+patching file raft_mesh/quorum.js
+patching file raft_mesh/replay.js
+patching file raft_mesh/report.js
+patching file raft_mesh/safety.js
+patching file raft_mesh/simulator.js
+patching file raft_mesh/wal.js
+oracle modules installed

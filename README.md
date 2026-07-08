@@ -89,28 +89,30 @@ Open this repo alongside your task folder in Cursor. Rules auto-apply when editi
 
 ```
 .
-├── tasks/              # All active Terminus task folders (see tasks/README.md)
-├── stats-plan-resume-skew/  # Active task pinned at repo root (not under tasks/)
-├── reviews/            # External reports (entire-report.txt copies per review)
-├── _incoming/zips/     # Submission ZIP archives
-├── _backup/copies/     # Duplicate task folders kept for safety
-├── _misc/personal/     # Unrelated local files (not Terminus tasks)
+├── tasks/              # All Terminus task folders (see tasks/README.md)
+├── terminus/           # Hub: docs, scripts, archives, reviews (see terminus/README.md)
+├── scripts/terminus    # Wrapper → terminus/scripts/terminus
+├── docs → terminus/docs
+├── prompt.md → terminus/prompt.md
+├── AGENTS.md → terminus/AGENTS.md
+├── templates → terminus/templates
 ├── .cursor/
 │   ├── rules/          # Authoring & review rules
 │   ├── skills/         # Agent workflows
 │   └── hooks/          # Post-edit validation
-├── docs/
-│   ├── guidelines/INDEX.md       # Full doc hub
-│   ├── submission-checklist.md
-│   ├── task-requirements.md
-│   └── ...
-├── prompt.md                     # Review prompt → outputs review-report.md
-├── templates/review-report.template.md
-├── scripts/
-│   ├── terminus                  # Main CLI
-│   ├── reorganize-tasks.sh       # Consolidate loose tasks/files
-│   └── validate_task.py
-└── templates/          # Reference skeletons
+└── <active-task>/      # Optional: pin work at root (see reorganize ROOT_TASKS)
+```
+
+Inside `terminus/`:
+
+```
+terminus/
+├── docs/               # Guidelines, checklist, rubric template
+├── scripts/            # terminus CLI, validate, audit, reorganize
+├── reviews/            # Platform reports (entire-report.txt)
+├── _incoming/zips/     # Submission ZIP archives
+├── _backup/copies/     # Duplicate task folders
+└── _misc/personal/     # Unrelated local files
 ```
 
 **Reorganize** after downloading or extracting tasks:

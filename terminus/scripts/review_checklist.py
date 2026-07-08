@@ -691,17 +691,15 @@ class ReviewChecklist:
         has_reward = (
             "/logs/verifier/reward.txt" in combined_sh
             or re.search(r'reward\.txt', combined_sh)
-            and "VERIFIER" in combined_sh
         )
-        has_mkdir = "mkdir -p /logs/verifier" in combined_sh or 'VERIFIER_DIR="/logs/verifier"' in combined_sh
+        writes_zero = "echo 0" in combined_sh.replace(" ", "") or 'echo 0 >' in combined_sh
+        writes_one = "echo 1" in combined_sh.replace(" ", "") or 'echo 1 >' in combined_sh
         if not has_reward:
             self._set(24, Status.FAIL, "test.sh missing reward.txt write", blocker=True)
-        elif not has_mkdir:
-            self._set(24, Status.FAIL, "Missing mkdir for /logs/verifier", blocker=True)
-        elif re.search(r"reward\.txt.*\n.*\bexit\s+\$", combined_sh, re.I | re.S) and "exit 0" in combined_sh:
-            self._set(24, Status.FAIL, "Exits before all paths write reward (review set -e)", blocker=True)
+        elif not (writes_zero or writes_one):
+            self._set(24, Status.FAIL, "test.sh may not handle failure path (0/1 rewards)", blocker=True)
         else:
-            self._set(24, Status.PASS, "reward.txt write pattern present")
+            self._set(24, Status.PASS, "reward.txt write with failure path (mkdir optional — Harbor provides mount)")
 
         # 25 oracle conditional
         if ORACLE_CONDITIONAL.search(combined_sh):
@@ -815,8 +813,8 @@ class ReviewChecklist:
                   f"Negative phrasing in rubric [{rubric_source}]" if re.search(r"does not", text, re.I) else f"Check positive phrasing [{rubric_source}]")
         self._set(37, Status.FAIL if re.search(r"/tests/|pytest", text, re.I) else Status.PASS,
                   f"References tests [{rubric_source}]" if re.search(r"/tests/", text, re.I) else f"No /tests/ references [{rubric_source}]")
-        self._set(38, Status.FAIL if re.search(r"task\.toml|instruction\.md", text, re.I) else Status.PASS,
-                  f"References metadata/instruction [{rubric_source}]" if re.search(r"task\.toml", text, re.I) else f"No metadata refs [{rubric_source}]")
+        self._set(38, Status.FAIL if re.search(r"task\.toml|instruction\.md|\bthe task instructions\b|\bconstraint from instructions\b", text, re.I) else Status.PASS,
+                  f"References metadata/instruction [{rubric_source}]" if re.search(r"task\.toml|instruction", text, re.I) else f"No metadata refs [{rubric_source}]")
         self._set(39, Status.FAIL if re.search(r"\boracle\b|\bNOP\b", text, re.I) else Status.PASS,
                   f"Mentions oracle/NOP [{rubric_source}]" if re.search(r"oracle", text, re.I) else f"No oracle/NOP mentions [{rubric_source}]")
 

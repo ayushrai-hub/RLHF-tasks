@@ -1,0 +1,31 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+cachedir: /tmp/pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 19 items
+
+../tests/test_outputs.py ...................                             [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::TestL1Ingest::test_ingest_sentinel
+PASSED ../tests/test_outputs.py::TestL1Ingest::test_manifest_oracle
+PASSED ../tests/test_outputs.py::TestL1Ingest::test_rejects_short_corpus
+PASSED ../tests/test_outputs.py::TestL1Ingest::test_beta_generalization
+PASSED ../tests/test_outputs.py::TestL1Ingest::test_hidden_reseed
+PASSED ../tests/test_outputs.py::TestL2Train::test_train_sentinel
+PASSED ../tests/test_outputs.py::TestL2Train::test_train_oracle
+PASSED ../tests/test_outputs.py::TestL2Train::test_beta_train
+PASSED ../tests/test_outputs.py::TestL2Train::test_hidden_train
+PASSED ../tests/test_outputs.py::TestL2Train::test_native_required
+PASSED ../tests/test_outputs.py::TestL3Export::test_export_sentinel
+PASSED ../tests/test_outputs.py::TestL3Export::test_export_oracle
+PASSED ../tests/test_outputs.py::TestL3Export::test_beta_export
+PASSED ../tests/test_outputs.py::TestL3Export::test_hidden_export
+PASSED ../tests/test_outputs.py::TestL4Audit::test_audit_sentinel
+PASSED ../tests/test_outputs.py::TestL4Audit::test_audit_oracle
+PASSED ../tests/test_outputs.py::TestL4Audit::test_hidden_audit
+PASSED ../tests/test_outputs.py::TestL5CrossArtifact::test_corpus_gate
+PASSED ../tests/test_outputs.py::TestL5CrossArtifact::test_cross_digest_chain
+============================== 19 passed in 3.59s ==============================

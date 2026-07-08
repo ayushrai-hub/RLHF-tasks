@@ -1,0 +1,27 @@
+{
+    "id": "41a82964-be03-4ee9-a72a-9867d2817422",
+    "started_at": "2026-06-24T09:35:25.441018",
+    "finished_at": "2026-06-24T09:37:06.716037",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "beps-multinomial-vote-choice__VX3LHoC"
+                    ]
+                }
+            }
+        }
+    }
+}

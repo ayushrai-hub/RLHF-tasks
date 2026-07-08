@@ -1,0 +1,36 @@
+{
+    "task": {
+        "path": "lit-prefilter-v1",
+        "git_url": null,
+        "git_commit_id": null,
+        "overwrite": false,
+        "download_dir": null,
+        "source": null
+    },
+    "trial_name": "lit-prefilter-v1__i5NYmFE",
+    "trials_dir": "jobs/2026-07-04__00-45-05",
+    "timeout_multiplier": 1.0,
+    "agent": {
+        "name": "oracle",
+        "import_path": null,
+        "model_name": null,
+        "override_timeout_sec": null,
+        "max_timeout_sec": null,
+        "kwargs": {}
+    },
+    "environment": {
+        "type": "docker",
+        "force_build": false,
+        "delete": true,
+        "override_cpus": null,
+        "override_memory_mb": null,
+        "override_storage_mb": null,
+        "kwargs": {}
+    },
+    "verifier": {
+        "override_timeout_sec": null,
+        "max_timeout_sec": null,
+        "disable": false
+    },
+    "job_id": "e1a71b83-3473-478b-9e54-e1f223d055e7"
+}

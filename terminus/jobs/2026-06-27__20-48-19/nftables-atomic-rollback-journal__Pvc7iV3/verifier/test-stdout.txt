@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+cachedir: /tmp/pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 7 items
+
+../tests/test_outputs.py .......                                         [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_gate_replay_checkpoint_contract
+PASSED ../tests/test_outputs.py::test_corrupt_primary_batch_uses_replay_companions
+PASSED ../tests/test_outputs.py::test_spill_rows_are_ordered_before_hashing
+PASSED ../tests/test_outputs.py::test_cross_profile_state_does_not_bleed
+PASSED ../tests/test_outputs.py::test_laneprobe_green_is_not_audit_authority
+PASSED ../tests/test_outputs.py::test_duplicate_replay_is_idempotent
+PASSED ../tests/test_outputs.py::test_empty_phase_records_still_have_deterministic_checkpoint
+============================== 7 passed in 1.08s ===============================

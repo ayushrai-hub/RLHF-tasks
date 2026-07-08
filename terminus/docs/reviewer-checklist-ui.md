@@ -3,7 +3,9 @@
 Maps to the Snorkel reviewer portal checkboxes. Use with:
 
 ```bash
-./scripts/terminus review <task-dir> [--report report.txt] [--rubric rubric.txt]
+./scripts/terminus validate <task-dir>
+./scripts/terminus audit <task-dir> [--report report.txt]
+./scripts/terminus review <task-dir> [--report report.txt]
 ```
 
 **Rule:** Check an item only if it **passes**. Leave **unchecked** = failed or not applicable.
@@ -49,11 +51,13 @@ Validate format with `./scripts/terminus rubric-validate <file> --milestones N` 
 
 | Symbol | Meaning |
 |--------|---------|
-| 🤖 | Automated in `review_checklist.py` |
+| 🤖 | Automated in `scripts/task_audit/` (via `terminus audit`) and `review_checklist.py` |
 | 👁 | Manual verification required before CHECK |
 | 📊 | Needs `--report` agent stats |
 
-**Output file:** `./scripts/terminus review <task-dir> --report report.txt` → `<task-dir>/review-report.md`
+**Output files:**
+- `./scripts/terminus audit` → `<task-dir>/audit-report.md` (55-item statuses + verdict)
+- `./scripts/terminus review` → `<task-dir>/review-report.md` (portal CHECK/UNCHECK)
 
 ## Portal rules (critical)
 

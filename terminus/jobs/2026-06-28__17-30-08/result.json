@@ -1,0 +1,29 @@
+{
+    "id": "7aca24a2-ed9b-4da1-a9cc-fbcc7b911301",
+    "started_at": "2026-06-28T17:30:08.327112",
+    "finished_at": "2026-06-28T17:30:52.641082",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "tbrain-process-kettle-cycle__PqzFxdV"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

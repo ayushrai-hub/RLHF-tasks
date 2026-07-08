@@ -1,0 +1,142 @@
+{
+  "model_id": "fleet-risk-ensemble-2026q3",
+  "feature_params": {
+    "trend_lookback_hours": 168.0,
+    "temp_ewma_half_life_hours": 48.0,
+    "history_lookback_days": 120.0,
+    "history_half_life_days": 21.0
+  },
+  "heads": {
+    "failure": {
+      "intercept": -2.05,
+      "weights": {
+        "temp_over_limit": 1.05,
+        "vibration_ratio": 1.10,
+        "pressure_delta": 0.55,
+        "current_z": 0.45,
+        "runtime_log": 0.50,
+        "urgent_flag": 0.35,
+        "rework_flag": 0.65,
+        "tech_hours_scaled": 0.22,
+        "temp_rise": 0.75,
+        "repeat_repair_rate": 0.60,
+        "severity_memory": 0.60,
+        "vibration_slope": 1.35,
+        "history_decay": 0.80,
+        "leak_flag": 0.25,
+        "heat_flag": 0.45,
+        "pressure_drift": 0.50
+      },
+      "calibration": [
+        { "raw": 0.0, "calibrated": 0.03 },
+        { "raw": 0.2, "calibrated": 0.14 },
+        { "raw": 0.4, "calibrated": 0.33 },
+        { "raw": 0.6, "calibrated": 0.57 },
+        { "raw": 0.8, "calibrated": 0.82 },
+        { "raw": 1.0, "calibrated": 0.96 }
+      ]
+    },
+    "downtime": {
+      "intercept": -1.60,
+      "weights": {
+        "temp_over_limit": 0.50,
+        "vibration_ratio": 0.75,
+        "pressure_delta": 1.00,
+        "current_z": 0.70,
+        "runtime_log": 0.80,
+        "urgent_flag": 0.15,
+        "rework_flag": 0.45,
+        "tech_hours_scaled": 0.55,
+        "temp_rise": 0.40,
+        "repeat_repair_rate": 0.35,
+        "severity_memory": 0.70,
+        "vibration_slope": 0.60,
+        "history_decay": 0.75,
+        "leak_flag": 0.80,
+        "heat_flag": 0.30,
+        "pressure_drift": 0.90
+      },
+      "calibration": [
+        { "raw": 0.0, "calibrated": 0.04 },
+        { "raw": 0.25, "calibrated": 0.18 },
+        { "raw": 0.5, "calibrated": 0.43 },
+        { "raw": 0.75, "calibrated": 0.73 },
+        { "raw": 1.0, "calibrated": 0.94 }
+      ]
+    }
+  },
+  "blend_by_asset_type": {
+    "pump": { "failure": 0.78, "downtime": 0.22 },
+    "chiller": { "failure": 0.66, "downtime": 0.34 },
+    "compressor": { "failure": 0.70, "downtime": 0.30 },
+    "fan": { "failure": 0.82, "downtime": 0.18 }
+  },
+  "post_calibration": {
+    "blend_weight": 0.35,
+    "groups": {
+      "pump": [
+        { "raw": 0.10, "label": 0.0, "weight": 2.0 },
+        { "raw": 0.22, "label": 0.0, "weight": 1.0 },
+        { "raw": 0.38, "label": 1.0, "weight": 1.0 },
+        { "raw": 0.55, "label": 0.0, "weight": 1.0 },
+        { "raw": 0.72, "label": 1.0, "weight": 2.0 },
+        { "raw": 0.91, "label": 1.0, "weight": 2.0 }
+      ],
+      "chiller": [
+        { "raw": 0.08, "label": 0.0, "weight": 1.5 },
+        { "raw": 0.24, "label": 1.0, "weight": 1.0 },
+        { "raw": 0.41, "label": 0.0, "weight": 1.0 },
+        { "raw": 0.59, "label": 1.0, "weight": 1.0 },
+        { "raw": 0.77, "label": 1.0, "weight": 2.0 }
+      ],
+      "compressor": [
+        { "raw": 0.12, "label": 0.0, "weight": 2.0 },
+        { "raw": 0.31, "label": 0.0, "weight": 1.0 },
+        { "raw": 0.48, "label": 1.0, "weight": 1.0 },
+        { "raw": 0.66, "label": 0.0, "weight": 1.0 },
+        { "raw": 0.86, "label": 1.0, "weight": 2.0 }
+      ],
+      "fan": [
+        { "raw": 0.06, "label": 0.0, "weight": 2.0 },
+        { "raw": 0.18, "label": 0.0, "weight": 1.0 },
+        { "raw": 0.36, "label": 1.0, "weight": 1.0 },
+        { "raw": 0.52, "label": 0.0, "weight": 1.0 },
+        { "raw": 0.74, "label": 1.0, "weight": 1.0 }
+      ]
+    }
+  },
+  "asset_types": {
+    "pump": {
+      "temp_limit_c": 79.0,
+      "max_vibration_mm_s": 7.0,
+      "nominal_pressure_kpa": 310.0,
+      "current_mean_a": 18.0,
+      "current_std_a": 3.2,
+      "impute_temp_c": 76.5
+    },
+    "chiller": {
+      "temp_limit_c": 67.0,
+      "max_vibration_mm_s": 4.8,
+      "nominal_pressure_kpa": 260.0,
+      "current_mean_a": 24.0,
+      "current_std_a": 4.4,
+      "impute_temp_c": 64.0
+    },
+    "compressor": {
+      "temp_limit_c": 88.0,
+      "max_vibration_mm_s": 6.2,
+      "nominal_pressure_kpa": 540.0,
+      "current_mean_a": 31.0,
+      "current_std_a": 5.6,
+      "impute_temp_c": 83.0
+    },
+    "fan": {
+      "temp_limit_c": 58.0,
+      "max_vibration_mm_s": 5.4,
+      "nominal_pressure_kpa": 120.0,
+      "current_mean_a": 9.0,
+      "current_std_a": 1.8,
+      "impute_temp_c": 55.0
+    }
+  }
+}

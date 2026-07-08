@@ -1,0 +1,191 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 19,
+            "passed": 19,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782719034.8068616,
+            "stop": 1782719035.3931656
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_q00_cold_warm_parity",
+                "status": "passed",
+                "duration": 0.1581259999966278,
+                "start": 1782719034.8596845,
+                "stop": 1782719035.0183046,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q01_beta_skew",
+                "status": "passed",
+                "duration": 0.012305166997975903,
+                "start": 1782719035.0186782,
+                "stop": 1782719035.0312977,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q02_gamma_gap",
+                "status": "passed",
+                "duration": 0.013771542000540649,
+                "start": 1782719035.031582,
+                "stop": 1782719035.045723,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q03_delta_bust",
+                "status": "passed",
+                "duration": 0.011397959000532865,
+                "start": 1782719035.0462074,
+                "stop": 1782719035.0579107,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q04_chain_monotone",
+                "status": "passed",
+                "duration": 0.014373541000168188,
+                "start": 1782719035.058164,
+                "stop": 1782719035.072809,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q05_hash_parity",
+                "status": "passed",
+                "duration": 0.032568750000791624,
+                "start": 1782719035.073386,
+                "stop": 1782719035.106527,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q06_repeat_stable",
+                "status": "passed",
+                "duration": 0.019457000998954754,
+                "start": 1782719035.106773,
+                "stop": 1782719035.126741,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q07_s0_survives",
+                "status": "passed",
+                "duration": 0.022351331999743707,
+                "start": 1782719035.1272328,
+                "stop": 1782719035.1500545,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q08_step_chain",
+                "status": "passed",
+                "duration": 0.010254708999127615,
+                "start": 1782719035.150375,
+                "stop": 1782719035.1609545,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q09_denied_case",
+                "status": "passed",
+                "duration": 0.019507833998432034,
+                "start": 1782719035.1612356,
+                "stop": 1782719035.1810176,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q10_abs_shift",
+                "status": "passed",
+                "duration": 0.013584873999207048,
+                "start": 1782719035.182197,
+                "stop": 1782719035.1966214,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q11_double_rebuild_stable",
+                "status": "passed",
+                "duration": 0.020057334000739502,
+                "start": 1782719035.1972303,
+                "stop": 1782719035.2176855,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q12_partial_seal_rejected",
+                "status": "passed",
+                "duration": 0.0261025410000002,
+                "start": 1782719035.2181456,
+                "stop": 1782719035.2449057,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q13_delayed_shift",
+                "status": "passed",
+                "duration": 0.01542679100020905,
+                "start": 1782719035.2454417,
+                "stop": 1782719035.2630837,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q14_corrupt_crc_rejected",
+                "status": "passed",
+                "duration": 0.02630887499981327,
+                "start": 1782719035.263765,
+                "stop": 1782719035.2905571,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q15_s4_late_wrap",
+                "status": "passed",
+                "duration": 0.0194333329982328,
+                "start": 1782719035.2911959,
+                "stop": 1782719035.311068,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q16_cross_scope_monotone",
+                "status": "passed",
+                "duration": 0.013750458001595689,
+                "start": 1782719035.3114915,
+                "stop": 1782719035.3257823,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q17_seal_beef_term",
+                "status": "passed",
+                "duration": 0.013294624000991462,
+                "start": 1782719035.326234,
+                "stop": 1782719035.340391,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_q18_sync_gen_alignment",
+                "status": "passed",
+                "duration": 0.0489519590009877,
+                "start": 1782719035.3427112,
+                "stop": 1782719035.3925698,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

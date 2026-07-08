@@ -1,0 +1,113 @@
+Trial beamjournal-shadowclock__nUuQ698 failed: Docker compose command failed for environment beamjournal-shadowclock. Command: docker compose -p beamjournal-shadowclock__nuuq698 -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 1. Stdout:  main Pulling 
+ main Warning pull access denied for hb__beamjournal-shadowclock, repository does not exist or may require 'docker login': denied: requested access to the resource is denied
+#1 [internal] load local bake definitions
+#1 reading from stdin 659B done
+#1 DONE 0.0s
+
+#2 [internal] load build definition from Dockerfile
+#2 transferring dockerfile: 2.24kB 0.0s done
+#2 DONE 0.0s
+
+#3 [internal] load metadata for public.ecr.aws/docker/library/golang:1.24-bookworm@sha256:1a6d4452c65dea36aac2e2d606b01b4a029ec90cc1ae53890540ce6173ea77ac
+#3 DONE 2.4s
+
+#4 [internal] load metadata for public.ecr.aws/docker/library/python:3.13-slim-bookworm@sha256:01f42367a0a94ad4bc17111776fd66e3500c1d87c15bbd6055b7371d39c124fb
+#4 DONE 2.4s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 172B done
+#5 DONE 0.0s
+
+#6 [stage-1 1/9] FROM public.ecr.aws/docker/library/python:3.13-slim-bookworm@sha256:01f42367a0a94ad4bc17111776fd66e3500c1d87c15bbd6055b7371d39c124fb
+#6 DONE 0.0s
+
+#7 [builder 1/6] FROM public.ecr.aws/docker/library/golang:1.24-bookworm@sha256:1a6d4452c65dea36aac2e2d606b01b4a029ec90cc1ae53890540ce6173ea77ac
+#7 CACHED
+
+#8 [internal] load build context
+#8 transferring context: 12.53MB 0.8s done
+#8 DONE 0.8s
+
+#9 [builder 2/6] COPY debs/ /tmp/debs/
+#9 DONE 0.4s
+
+#10 [builder 3/6] RUN test -n "$(find /tmp/debs -maxdepth 1 -name '*.deb' -print -quit)"     && dpkg -i /tmp/debs/*.deb     && apt-get clean     && rm -rf /tmp/debs /var/lib/apt/lists/*     && command -v escript >/dev/null     && tmux -V     && asciinema --version     && go version     && python3 --version
+#10 1.172 Selecting previously unselected package asciinema.
+#10 1.293 (Reading database ... 15641 files and directories currently installed.)
+#10 1.294 Preparing to unpack .../debs/asciinema_2.2.0-1_all.deb ...
+#10 1.297 Unpacking asciinema (2.2.0-1) ...
+#10 1.354 dpkg: error processing archive /tmp/debs/erlang-base_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb (--install):
+#10 1.354  package architecture (amd64) does not match system (arm64)
+#10 1.367 dpkg: error processing archive /tmp/debs/erlang-crypto_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb (--install):
+#10 1.367  package architecture (amd64) does not match system (arm64)
+#10 1.380 dpkg: error processing archive /tmp/debs/erlang-mnesia_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb (--install):
+#10 1.380  package architecture (amd64) does not match system (arm64)
+#10 1.389 dpkg: error processing archive /tmp/debs/erlang-runtime-tools_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb (--install):
+#10 1.389  package architecture (amd64) does not match system (arm64)
+#10 1.399 dpkg: error processing archive /tmp/debs/erlang-tools_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb (--install):
+#10 1.399  package architecture (amd64) does not match system (arm64)
+#10 1.414 dpkg: error processing archive /tmp/debs/libevent-core-2.1-7_2.1.12-stable-8_amd64.deb (--install):
+#10 1.414  package architecture (amd64) does not match system (arm64)
+#10 1.428 dpkg: error processing archive /tmp/debs/libutempter0_1.2.1-3_amd64.deb (--install):
+#10 1.428  package architecture (amd64) does not match system (arm64)
+#10 1.441 Selecting previously unselected package python3-pkg-resources.
+#10 1.442 Preparing to unpack .../python3-pkg-resources_66.1.1-1+deb12u2_all.deb ...
+#10 1.443 Unpacking python3-pkg-resources (66.1.1-1+deb12u2) ...
+#10 1.519 dpkg: error processing archive /tmp/debs/tmux_3.3a-3_amd64.deb (--install):
+#10 1.519  package architecture (amd64) does not match system (arm64)
+#10 1.520 Setting up python3-pkg-resources (66.1.1-1+deb12u2) ...
+#10 2.071 Setting up asciinema (2.2.0-1) ...
+#10 2.253 Errors were encountered while processing:
+#10 2.253  /tmp/debs/erlang-base_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb
+#10 2.253  /tmp/debs/erlang-crypto_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb
+#10 2.253  /tmp/debs/erlang-mnesia_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb
+#10 2.253  /tmp/debs/erlang-runtime-tools_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb
+#10 2.253  /tmp/debs/erlang-tools_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb
+#10 2.253  /tmp/debs/libevent-core-2.1-7_2.1.12-stable-8_amd64.deb
+#10 2.253  /tmp/debs/libutempter0_1.2.1-3_amd64.deb
+#10 2.253  /tmp/debs/tmux_3.3a-3_amd64.deb
+#10 ERROR: process "/bin/sh -c test -n \"$(find /tmp/debs -maxdepth 1 -name '*.deb' -print -quit)\"     && dpkg -i /tmp/debs/*.deb     && apt-get clean     && rm -rf /tmp/debs /var/lib/apt/lists/*     && command -v escript >/dev/null     && tmux -V     && asciinema --version     && go version     && python3 --version" did not complete successfully: exit code: 1
+------
+ > [builder 3/6] RUN test -n "$(find /tmp/debs -maxdepth 1 -name '*.deb' -print -quit)"     && dpkg -i /tmp/debs/*.deb     && apt-get clean     && rm -rf /tmp/debs /var/lib/apt/lists/*     && command -v escript >/dev/null     && tmux -V     && asciinema --version     && go version     && python3 --version:
+2.071 Setting up asciinema (2.2.0-1) ...
+2.253 Errors were encountered while processing:
+2.253  /tmp/debs/erlang-base_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb
+2.253  /tmp/debs/erlang-crypto_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb
+2.253  /tmp/debs/erlang-mnesia_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb
+2.253  /tmp/debs/erlang-runtime-tools_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb
+2.253  /tmp/debs/erlang-tools_1%3a25.2.3+dfsg-1+deb12u4_amd64.deb
+2.253  /tmp/debs/libevent-core-2.1-7_2.1.12-stable-8_amd64.deb
+2.253  /tmp/debs/libutempter0_1.2.1-3_amd64.deb
+2.253  /tmp/debs/tmux_3.3a-3_amd64.deb
+------
+Dockerfile:10
+
+--------------------
+
+   9 |     COPY debs/ /tmp/debs/
+
+  10 | >>> RUN test -n "$(find /tmp/debs -maxdepth 1 -name '*.deb' -print -quit)" \
+
+  11 | >>>     && dpkg -i /tmp/debs/*.deb \
+
+  12 | >>>     && apt-get clean \
+
+  13 | >>>     && rm -rf /tmp/debs /var/lib/apt/lists/* \
+
+  14 | >>>     && command -v escript >/dev/null \
+
+  15 | >>>     && tmux -V \
+
+  16 | >>>     && asciinema --version \
+
+  17 | >>>     && go version \
+
+  18 | >>>     && python3 --version
+
+  19 |     
+
+--------------------
+
+failed to solve: process "/bin/sh -c test -n \"$(find /tmp/debs -maxdepth 1 -name '*.deb' -print -quit)\"     && dpkg -i /tmp/debs/*.deb     && apt-get clean     && rm -rf /tmp/debs /var/lib/apt/lists/*     && command -v escript >/dev/null     && tmux -V     && asciinema --version     && go version     && python3 --version" did not complete successfully: exit code: 1
+
+. Stderr: None. 

@@ -1,0 +1,200 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 20,
+            "passed": 20,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782215735.9241111,
+            "stop": 1782215736.003084
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_feature_gates_header",
+                "status": "passed",
+                "duration": 0.001749124999999907,
+                "start": 1782215735.96831,
+                "stop": 1782215735.970713,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_feature_gates_complete_and_sorted",
+                "status": "passed",
+                "duration": 0.0012364590000011333,
+                "start": 1782215735.971072,
+                "stop": 1782215735.9724846,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_feature_gates_dep_classification",
+                "status": "passed",
+                "duration": 0.0007250839999990433,
+                "start": 1782215735.972694,
+                "stop": 1782215735.973564,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_optional_dep_syntax_preserved",
+                "status": "passed",
+                "duration": 0.0003145429999982241,
+                "start": 1782215735.973719,
+                "stop": 1782215735.9741423,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cross_crate_enable_kept_in_feature_deps",
+                "status": "passed",
+                "duration": 0.0003173740000015357,
+                "start": 1782215735.9743927,
+                "stop": 1782215735.9748244,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cfl_rules_header",
+                "status": "passed",
+                "duration": 0.0002834579999984044,
+                "start": 1782215735.974974,
+                "stop": 1782215735.9753556,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cfl_rules_all_present_and_sorted",
+                "status": "passed",
+                "duration": 0.00027300100000005045,
+                "start": 1782215735.9754772,
+                "stop": 1782215735.9758487,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cfl_rules_exact_values",
+                "status": "passed",
+                "duration": 0.0002470839999979546,
+                "start": 1782215735.9759817,
+                "stop": 1782215735.9763198,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_decoy_rules_excluded",
+                "status": "passed",
+                "duration": 0.00025987600000121347,
+                "start": 1782215735.976439,
+                "stop": 1782215735.9767928,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_violations_header",
+                "status": "passed",
+                "duration": 0.00031562500000248406,
+                "start": 1782215735.9769244,
+                "stop": 1782215735.9773426,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_violations_exact_set",
+                "status": "passed",
+                "duration": 0.000506417000003978,
+                "start": 1782215735.9775133,
+                "stop": 1782215735.9781537,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_violations_reference_existing_rules",
+                "status": "passed",
+                "duration": 0.0003943739999954232,
+                "start": 1782215735.9782944,
+                "stop": 1782215735.978816,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_weak_dependency_semantics",
+                "status": "passed",
+                "duration": 0.00027329299999934165,
+                "start": 1782215735.9789665,
+                "stop": 1782215735.9793444,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_no_false_positive_on_safe_features",
+                "status": "passed",
+                "duration": 0.00025708400000112874,
+                "start": 1782215735.979481,
+                "stop": 1782215735.9798336,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cfl_margins_header",
+                "status": "passed",
+                "duration": 0.0003251669999961848,
+                "start": 1782215735.979961,
+                "stop": 1782215735.9804244,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cfl_margins_complete_and_sorted",
+                "status": "passed",
+                "duration": 0.0007405009999992274,
+                "start": 1782215735.9806623,
+                "stop": 1782215735.9816008,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cfl_margins_values",
+                "status": "passed",
+                "duration": 0.000695791999998363,
+                "start": 1782215735.9820623,
+                "stop": 1782215735.983052,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cfl_margins_tie_break",
+                "status": "passed",
+                "duration": 0.000603792000003267,
+                "start": 1782215735.9833546,
+                "stop": 1782215735.9840963,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cfl_margins_four_decimal_formatting",
+                "status": "passed",
+                "duration": 0.0004875009999949498,
+                "start": 1782215735.9842575,
+                "stop": 1782215735.984859,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_idempotent_and_script_driven",
+                "status": "passed",
+                "duration": 0.017487500000004985,
+                "start": 1782215735.9851968,
+                "stop": 1782215736.002873,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

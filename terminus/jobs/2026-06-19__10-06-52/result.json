@@ -1,0 +1,27 @@
+{
+    "id": "5d1b3bb0-961c-4233-884a-ac84164937fa",
+    "started_at": "2026-06-19T10:06:52.557958",
+    "finished_at": "2026-06-19T10:06:53.594816",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "cronq-submission__NGeayTj"
+                    ]
+                }
+            }
+        }
+    }
+}

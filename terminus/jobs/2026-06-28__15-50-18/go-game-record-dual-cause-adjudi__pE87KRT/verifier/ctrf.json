@@ -1,0 +1,65 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782642068.1600056,
+            "stop": 1782642087.1523461
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_public_workflow_regenerates_current_proof",
+                "status": "passed",
+                "duration": 10.504562920999994,
+                "start": 1782642068.199168,
+                "stop": 1782642078.7086375,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_dragon_variation_rollback_and_adjudicator_agreement",
+                "status": "passed",
+                "duration": 0.09246912500000093,
+                "start": 1782642078.7120402,
+                "stop": 1782642078.8048584,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_legacy_archive_score_notation_remains_accepted",
+                "status": "passed",
+                "duration": 0.08314312499999943,
+                "start": 1782642078.8052669,
+                "stop": 1782642078.8886359,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_record_copy_with_same_contract_is_not_hardcoded",
+                "status": "passed",
+                "duration": 0.08759520800001042,
+                "start": 1782642078.8889031,
+                "stop": 1782642078.9767194,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_deleting_generated_state_does_not_replace_authorities",
+                "status": "passed",
+                "duration": 8.141241879000006,
+                "start": 1782642078.9769754,
+                "stop": 1782642087.1508877,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

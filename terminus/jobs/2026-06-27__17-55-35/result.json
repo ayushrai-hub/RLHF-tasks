@@ -1,0 +1,27 @@
+{
+    "id": "dfeb9f29-b9a5-4668-be0b-6881e9af23d1",
+    "started_at": "2026-06-27T17:55:35.783040",
+    "finished_at": "2026-06-27T17:55:36.813852",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "p7-bundle-harvest-repair__By8tasA"
+                    ]
+                }
+            }
+        }
+    }
+}

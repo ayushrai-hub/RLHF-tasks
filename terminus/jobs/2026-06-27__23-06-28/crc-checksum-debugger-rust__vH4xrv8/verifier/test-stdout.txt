@@ -1,0 +1,173 @@
+   Compiling relay-audit v0.1.0 (/app)
+warning: fields `max_payload` and `reconcile_strict` are never read
+  --> src/config.rs:21:9
+   |
+14 | pub struct RelayConfig {
+   |            ----------- fields in this struct
+...
+21 |     pub max_payload: usize,
+   |         ^^^^^^^^^^^
+22 |     pub reconcile_strict: bool,
+   |         ^^^^^^^^^^^^^^^^
+   |
+   = note: `RelayConfig` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+   = note: `#[warn(dead_code)]` on by default
+
+warning: function `payload_fingerprint` is never used
+  --> src/packet.rs:17:8
+   |
+17 | pub fn payload_fingerprint(data: &[u8]) -> u32 {
+   |        ^^^^^^^^^^^^^^^^^^^
+
+warning: fields `checksum` and `padding_bytes` are never read
+  --> src/frame.rs:10:9
+   |
+4  | pub struct JournalEntry {
+   |            ------------ fields in this struct
+...
+10 |     pub checksum: u32,
+   |         ^^^^^^^^
+11 |     pub padding_bytes: usize,
+   |         ^^^^^^^^^^^^^
+   |
+   = note: `JournalEntry` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: field `padding_applied` is never read
+  --> src/frame.rs:30:9
+   |
+24 | pub struct ProcessedPacket {
+   |            --------------- field in this struct
+...
+30 |     pub padding_applied: usize,
+   |         ^^^^^^^^^^^^^^^
+   |
+   = note: `ProcessedPacket` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: field `final_state` is never read
+  --> src/frame.rs:38:9
+   |
+35 | pub struct ReconciledPacket {
+   |            ---------------- field in this struct
+...
+38 |     pub final_state: Vec<u8>,
+   |         ^^^^^^^^^^^
+   |
+   = note: `ReconciledPacket` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: constant `STANDARD_REPLAY_WINDOW` is never used
+ --> src/constants.rs:7:11
+  |
+7 | pub const STANDARD_REPLAY_WINDOW: usize = 8;
+  |           ^^^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `HASH_COMBINE_ADD` is never used
+  --> src/constants.rs:10:11
+   |
+10 | pub const HASH_COMBINE_ADD: &str = "add";
+   |           ^^^^^^^^^^^^^^^^
+
+warning: constant `LEGACY_HASH_SEED` is never used
+  --> src/constants.rs:13:11
+   |
+13 | pub const LEGACY_HASH_SEED: u32 = 0x1234;
+   |           ^^^^^^^^^^^^^^^^
+
+warning: constant `PADDING_BEFORE_CHECKSUM` is never used
+  --> src/constants.rs:16:11
+   |
+16 | pub const PADDING_BEFORE_CHECKSUM: &str = "before";
+   |           ^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: constant `MAX_RECONSTRUCT` is never used
+  --> src/constants.rs:19:11
+   |
+19 | pub const MAX_RECONSTRUCT: usize = 64;
+   |           ^^^^^^^^^^^^^^^
+
+warning: constant `RECONCILE_THRESHOLD` is never used
+  --> src/constants.rs:22:11
+   |
+22 | pub const RECONCILE_THRESHOLD: u32 = 50;
+   |           ^^^^^^^^^^^^^^^^^^^
+
+warning: `relay-audit` (bin "relay-audit") generated 11 warnings
+    Finished `release` profile [optimized] target(s) in 2.54s
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collecting ... collected 34 items
+
+../tests/test_outputs.py::TestBinaryCompiles::test_binary_compiles PASSED [  2%]
+../tests/test_outputs.py::TestDataIntegrity::test_journal_unmodified PASSED [  5%]
+../tests/test_outputs.py::TestDataIntegrity::test_config_unmodified PASSED [  8%]
+../tests/test_outputs.py::TestSummary::test_total_packets PASSED         [ 11%]
+../tests/test_outputs.py::TestSummary::test_all_reconciled_pass PASSED   [ 14%]
+../tests/test_outputs.py::TestSummary::test_none_reconciled_fail PASSED  [ 17%]
+../tests/test_outputs.py::TestSummary::test_avg_drift_zero PASSED        [ 20%]
+../tests/test_outputs.py::TestSummary::test_max_drift_zero PASSED        [ 23%]
+../tests/test_outputs.py::TestSummary::test_stages_active PASSED         [ 26%]
+../tests/test_outputs.py::TestSummary::test_total_entries_replayed PASSED [ 29%]
+../tests/test_outputs.py::TestSummary::test_packets_truncated PASSED     [ 32%]
+../tests/test_outputs.py::TestPerPacketReconciliation::test_all_packets_reconciled_true PASSED [ 35%]
+../tests/test_outputs.py::TestPerPacketReconciliation::test_all_packets_zero_drift PASSED [ 38%]
+../tests/test_outputs.py::TestPerPacketReconciliation::test_expected_equals_actual PASSED [ 41%]
+../tests/test_outputs.py::TestPacketEntries::test_pkt_001_entries PASSED [ 44%]
+../tests/test_outputs.py::TestPacketEntries::test_pkt_002_entries PASSED [ 47%]
+../tests/test_outputs.py::TestPacketEntries::test_pkt_004_entries PASSED [ 50%]
+../tests/test_outputs.py::TestPacketEntries::test_pkt_008_entries PASSED [ 52%]
+../tests/test_outputs.py::TestPacketEntries::test_pkt_011_entries PASSED [ 55%]
+../tests/test_outputs.py::TestPayloadSizes::test_pkt_001_size PASSED     [ 58%]
+../tests/test_outputs.py::TestPayloadSizes::test_pkt_004_size PASSED     [ 61%]
+../tests/test_outputs.py::TestPayloadSizes::test_pkt_007_size PASSED     [ 64%]
+../tests/test_outputs.py::TestPayloadSizes::test_pkt_012_size PASSED     [ 67%]
+../tests/test_outputs.py::TestReportSchema::test_packets_array_exists PASSED [ 70%]
+../tests/test_outputs.py::TestReportSchema::test_summary_exists PASSED   [ 73%]
+../tests/test_outputs.py::TestReportSchema::test_packet_fields PASSED    [ 76%]
+../tests/test_outputs.py::TestReportSchema::test_checksum_hex_format PASSED [ 79%]
+../tests/test_outputs.py::TestReportSchema::test_sort_order PASSED       [ 82%]
+../tests/test_outputs.py::TestAntiCheat::test_independent_checksum_pkt_001 PASSED [ 85%]
+../tests/test_outputs.py::TestAntiCheat::test_independent_checksum_pkt_004 PASSED [ 88%]
+../tests/test_outputs.py::TestAntiCheat::test_novel_single_packet PASSED [ 91%]
+../tests/test_outputs.py::TestAntiCheat::test_novel_multi_entry_packet PASSED [ 94%]
+../tests/test_outputs.py::TestAntiCheat::test_novel_ordering_matters PASSED [ 97%]
+../tests/test_outputs.py::TestDeterminism::test_rerun_identical PASSED   [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::TestBinaryCompiles::test_binary_compiles
+PASSED ../tests/test_outputs.py::TestDataIntegrity::test_journal_unmodified
+PASSED ../tests/test_outputs.py::TestDataIntegrity::test_config_unmodified
+PASSED ../tests/test_outputs.py::TestSummary::test_total_packets
+PASSED ../tests/test_outputs.py::TestSummary::test_all_reconciled_pass
+PASSED ../tests/test_outputs.py::TestSummary::test_none_reconciled_fail
+PASSED ../tests/test_outputs.py::TestSummary::test_avg_drift_zero
+PASSED ../tests/test_outputs.py::TestSummary::test_max_drift_zero
+PASSED ../tests/test_outputs.py::TestSummary::test_stages_active
+PASSED ../tests/test_outputs.py::TestSummary::test_total_entries_replayed
+PASSED ../tests/test_outputs.py::TestSummary::test_packets_truncated
+PASSED ../tests/test_outputs.py::TestPerPacketReconciliation::test_all_packets_reconciled_true
+PASSED ../tests/test_outputs.py::TestPerPacketReconciliation::test_all_packets_zero_drift
+PASSED ../tests/test_outputs.py::TestPerPacketReconciliation::test_expected_equals_actual
+PASSED ../tests/test_outputs.py::TestPacketEntries::test_pkt_001_entries
+PASSED ../tests/test_outputs.py::TestPacketEntries::test_pkt_002_entries
+PASSED ../tests/test_outputs.py::TestPacketEntries::test_pkt_004_entries
+PASSED ../tests/test_outputs.py::TestPacketEntries::test_pkt_008_entries
+PASSED ../tests/test_outputs.py::TestPacketEntries::test_pkt_011_entries
+PASSED ../tests/test_outputs.py::TestPayloadSizes::test_pkt_001_size
+PASSED ../tests/test_outputs.py::TestPayloadSizes::test_pkt_004_size
+PASSED ../tests/test_outputs.py::TestPayloadSizes::test_pkt_007_size
+PASSED ../tests/test_outputs.py::TestPayloadSizes::test_pkt_012_size
+PASSED ../tests/test_outputs.py::TestReportSchema::test_packets_array_exists
+PASSED ../tests/test_outputs.py::TestReportSchema::test_summary_exists
+PASSED ../tests/test_outputs.py::TestReportSchema::test_packet_fields
+PASSED ../tests/test_outputs.py::TestReportSchema::test_checksum_hex_format
+PASSED ../tests/test_outputs.py::TestReportSchema::test_sort_order
+PASSED ../tests/test_outputs.py::TestAntiCheat::test_independent_checksum_pkt_001
+PASSED ../tests/test_outputs.py::TestAntiCheat::test_independent_checksum_pkt_004
+PASSED ../tests/test_outputs.py::TestAntiCheat::test_novel_single_packet
+PASSED ../tests/test_outputs.py::TestAntiCheat::test_novel_multi_entry_packet
+PASSED ../tests/test_outputs.py::TestAntiCheat::test_novel_ordering_matters
+PASSED ../tests/test_outputs.py::TestDeterminism::test_rerun_identical
+============================== 34 passed in 5.21s ==============================

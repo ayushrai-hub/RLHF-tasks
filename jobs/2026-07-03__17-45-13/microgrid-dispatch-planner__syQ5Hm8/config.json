@@ -1,0 +1,36 @@
+{
+    "task": {
+        "path": "microgrid-dispatch-planner",
+        "git_url": null,
+        "git_commit_id": null,
+        "overwrite": false,
+        "download_dir": null,
+        "source": null
+    },
+    "trial_name": "microgrid-dispatch-planner__syQ5Hm8",
+    "trials_dir": "jobs/2026-07-03__17-45-13",
+    "timeout_multiplier": 1.0,
+    "agent": {
+        "name": "oracle",
+        "import_path": null,
+        "model_name": null,
+        "override_timeout_sec": null,
+        "max_timeout_sec": null,
+        "kwargs": {}
+    },
+    "environment": {
+        "type": "docker",
+        "force_build": false,
+        "delete": true,
+        "override_cpus": null,
+        "override_memory_mb": null,
+        "override_storage_mb": null,
+        "kwargs": {}
+    },
+    "verifier": {
+        "override_timeout_sec": null,
+        "max_timeout_sec": null,
+        "disable": false
+    },
+    "job_id": "2eabf4b2-f521-4334-91de-6f56028b4e52"
+}

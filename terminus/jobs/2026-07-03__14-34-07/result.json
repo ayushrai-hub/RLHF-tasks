@@ -1,0 +1,29 @@
+{
+    "id": "21b3f082-75ed-4283-9642-c346a055c454",
+    "started_at": "2026-07-03T14:34:07.810523",
+    "finished_at": "2026-07-03T14:34:41.895734",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "raft-consensus-recovery__QDdcsgM"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

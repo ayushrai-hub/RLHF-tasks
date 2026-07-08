@@ -1,0 +1,227 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 23,
+            "passed": 23,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1783081034.2022715,
+            "stop": 1783081034.3644183
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::TestInputIntegrity::test_units_hash",
+                "status": "passed",
+                "duration": 0.0006747080000053529,
+                "start": 1783081034.2608519,
+                "stop": 1783081034.2618098,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestInputIntegrity::test_config_hash",
+                "status": "passed",
+                "duration": 0.0004225420000238955,
+                "start": 1783081034.2620208,
+                "stop": 1783081034.263193,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestModelIntegrity::test_model_script_not_tampered",
+                "status": "passed",
+                "duration": 0.0007216260000006969,
+                "start": 1783081034.263642,
+                "stop": 1783081034.2646089,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestOutputExists::test_output_file_exists",
+                "status": "passed",
+                "duration": 0.00020329199999480352,
+                "start": 1783081034.2647831,
+                "stop": 1783081034.2651188,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestOutputSchema::test_plan_is_object",
+                "status": "passed",
+                "duration": 0.0004338330000024371,
+                "start": 1783081034.2652454,
+                "stop": 1783081034.2657926,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestOutputSchema::test_allocations_cover_all_units_uniquely",
+                "status": "passed",
+                "duration": 0.001103831999998306,
+                "start": 1783081034.2658944,
+                "stop": 1783081034.2671137,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestOutputSchema::test_frequency_setpoint_in_range",
+                "status": "passed",
+                "duration": 0.0004146660000117208,
+                "start": 1783081034.2672129,
+                "stop": 1783081034.2677495,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHardConstraints::test_mandatory_units_online",
+                "status": "passed",
+                "duration": 0.0011455420000032746,
+                "start": 1783081034.267865,
+                "stop": 1783081034.269149,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHardConstraints::test_supply_meets_demand_without_gross_oversupply",
+                "status": "passed",
+                "duration": 0.001430416999994577,
+                "start": 1783081034.269276,
+                "stop": 1783081034.2708368,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHardConstraints::test_emissions_within_budget",
+                "status": "passed",
+                "duration": 0.0014260009999986778,
+                "start": 1783081034.2709465,
+                "stop": 1783081034.272524,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHardConstraints::test_renewable_minimum",
+                "status": "passed",
+                "duration": 0.0019046670000193444,
+                "start": 1783081034.2726388,
+                "stop": 1783081034.274798,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHardConstraints::test_per_bus_minimums",
+                "status": "passed",
+                "duration": 0.0059089589999956615,
+                "start": 1783081034.2750316,
+                "stop": 1783081034.2811673,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHardConstraints::test_reserve_requirement",
+                "status": "passed",
+                "duration": 0.0015591250000142054,
+                "start": 1783081034.2814112,
+                "stop": 1783081034.2831492,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHardConstraints::test_no_conflict_pair_dispatched_hard",
+                "status": "passed",
+                "duration": 0.0009037920000025679,
+                "start": 1783081034.283758,
+                "stop": 1783081034.2849352,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHardConstraints::test_thermal_commitment_cap",
+                "status": "passed",
+                "duration": 0.0039995009999955755,
+                "start": 1783081034.285713,
+                "stop": 1783081034.2940977,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestScoreThreshold::test_total_score",
+                "status": "passed",
+                "duration": 0.0018461259999895674,
+                "start": 1783081034.2943776,
+                "stop": 1783081034.2964053,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestScoreThreshold::test_primary_subscores",
+                "status": "passed",
+                "duration": 0.001625042000000576,
+                "start": 1783081034.2966244,
+                "stop": 1783081034.2984228,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestStrictScore::test_strict_score",
+                "status": "passed",
+                "duration": 0.0013309999999933098,
+                "start": 1783081034.2985692,
+                "stop": 1783081034.3000166,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestRustImplementation::test_cargo_toml_exists",
+                "status": "passed",
+                "duration": 0.0015757500000148639,
+                "start": 1783081034.3001401,
+                "stop": 1783081034.3018742,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestRustImplementation::test_compiled_binary_exists",
+                "status": "passed",
+                "duration": 0.0016803339999995615,
+                "start": 1783081034.3019965,
+                "stop": 1783081034.303871,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestRustImplementation::test_binary_produces_output",
+                "status": "passed",
+                "duration": 0.004133667000004948,
+                "start": 1783081034.3041797,
+                "stop": 1783081034.3084745,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestRustImplementation::test_dynamic_input_not_hardcoded",
+                "status": "passed",
+                "duration": 0.04539649899999176,
+                "start": 1783081034.30861,
+                "stop": 1783081034.35439,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestRustImplementation::test_tight_commitment_input_not_hardcoded",
+                "status": "passed",
+                "duration": 0.009336498999999776,
+                "start": 1783081034.3547578,
+                "stop": 1783081034.3643074,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

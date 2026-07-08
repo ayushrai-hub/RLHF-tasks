@@ -1,0 +1,44 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 33 items
+
+../tests/test_outputs.py .................................               [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_curated_fixture[budget_locks out_interpolated]
+PASSED ../tests/test_outputs.py::test_curated_fixture[budget_zero_locks out_at_confirm]
+PASSED ../tests/test_outputs.py::test_curated_fixture[confirm_boundary_at_maint_start]
+PASSED ../tests/test_outputs.py::test_curated_fixture[degenerate_all_zero]
+PASSED ../tests/test_outputs.py::test_curated_fixture[end_is_return_not_return_plus_reset]
+PASSED ../tests/test_outputs.py::test_curated_fixture[exact_arm_confirms_start_at_crossing]
+PASSED ../tests/test_outputs.py::test_curated_fixture[final_ok_reseting_at_horizon]
+PASSED ../tests/test_outputs.py::test_curated_fixture[final_over_at_horizon]
+PASSED ../tests/test_outputs.py::test_curated_fixture[lockout_with_freeze_pause]
+PASSED ../tests/test_outputs.py::test_curated_fixture[maint_pauses_arm_dwell]
+PASSED ../tests/test_outputs.py::test_curated_fixture[maint_pauses_reset_dwell]
+PASSED ../tests/test_outputs.py::test_curated_fixture[maint_pauses_trip_seconds]
+PASSED ../tests/test_outputs.py::test_curated_fixture[rebreach_at_full_reset_new_trip]
+PASSED ../tests/test_outputs.py::test_curated_fixture[reset_boundary_at_maint_start]
+PASSED ../tests/test_outputs.py::test_curated_fixture[return_exactly_at_confirm]
+PASSED ../tests/test_outputs.py::test_curated_fixture[subarm_transient_suppressed]
+PASSED ../tests/test_outputs.py::test_curated_fixture[subreset_dip_merges]
+PASSED ../tests/test_outputs.py::test_curated_fixture[until_truncates_open]
+PASSED ../tests/test_outputs.py::test_reference_matches_curated
+PASSED ../tests/test_outputs.py::test_lines_sorted_and_independent
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc0]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc1]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc2]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc3]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc4]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc5]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc6]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc7]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc8]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc9]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc10]
+PASSED ../tests/test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout[doc11]
+PASSED ../tests/test_outputs.py::test_differential_against_reference
+============================== 33 passed in 5.29s ==============================

@@ -1,0 +1,29 @@
+{
+    "id": "fb7dc6e3-8314-46af-9188-983b9eeb80f1",
+    "started_at": "2026-06-24T18:22:18.845393",
+    "finished_at": "2026-06-24T18:25:29.905102",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "rust-tmpfiles-debugger__Sg3pzEt"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "id": "91bfc2df-2b2a-4458-8259-45471a89a5f4",
+    "started_at": "2026-07-03T16:57:46.938345",
+    "finished_at": "2026-07-03T16:57:48.137389",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "coral-galois-lantern__cwTqMNt"
+                    ]
+                }
+            }
+        }
+    }
+}

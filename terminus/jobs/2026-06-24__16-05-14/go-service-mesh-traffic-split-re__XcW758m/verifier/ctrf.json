@@ -1,0 +1,218 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 22,
+            "passed": 22,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782297356.1668243,
+            "stop": 1782297372.0798092
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_output_file_exists",
+                "status": "passed",
+                "duration": 0.0024659999999911975,
+                "start": 1782297356.2526631,
+                "stop": 1782297356.256334,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_output_is_valid_json_object",
+                "status": "passed",
+                "duration": 0.03191208399999823,
+                "start": 1782297356.260003,
+                "stop": 1782297356.2923694,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_output_has_routed_requests_and_summary",
+                "status": "passed",
+                "duration": 0.0008404569999953537,
+                "start": 1782297356.2931352,
+                "stop": 1782297356.2942076,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_routed_request_schema_and_order",
+                "status": "passed",
+                "duration": 0.001044625999995219,
+                "start": 1782297356.2945614,
+                "stop": 1782297356.2958148,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_summary_schema_and_types",
+                "status": "passed",
+                "duration": 0.0007665420000009249,
+                "start": 1782297356.2960405,
+                "stop": 1782297356.297002,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_summary_total_matches_input_size",
+                "status": "passed",
+                "duration": 0.0030405010000009725,
+                "start": 1782297356.2972572,
+                "stop": 1782297356.300677,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_every_request_has_exactly_one_routing_result",
+                "status": "passed",
+                "duration": 0.001077875999996536,
+                "start": 1782297356.303018,
+                "stop": 1782297356.3043323,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_routes_only_to_enabled_configured_backends_or_default",
+                "status": "passed",
+                "duration": 0.002072167999997987,
+                "start": 1782297356.3045938,
+                "stop": 1782297356.3096275,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_disabled_backend_is_never_selected",
+                "status": "passed",
+                "duration": 0.0011400000000065802,
+                "start": 1782297356.3100212,
+                "stop": 1782297356.3115833,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_backend_counts_match_routed_requests",
+                "status": "passed",
+                "duration": 0.0008567909999968037,
+                "start": 1782297356.313203,
+                "stop": 1782297356.314283,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_expected_weights_report_enabled_config_weights",
+                "status": "passed",
+                "duration": 0.001170374000004415,
+                "start": 1782297356.3149204,
+                "stop": 1782297356.3164268,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_no_fallback_for_supplied_requests",
+                "status": "passed",
+                "duration": 0.002777042000005281,
+                "start": 1782297356.316642,
+                "stop": 1782297356.3199346,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_header_matched_requests_do_not_cross_route_between_canaries",
+                "status": "passed",
+                "duration": 0.0013291680000051542,
+                "start": 1782297356.3204315,
+                "stop": 1782297356.322031,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_case_insensitive_header_names_enable_canary_v2",
+                "status": "passed",
+                "duration": 0.0009261679999994499,
+                "start": 1782297356.3223274,
+                "stop": 1782297356.3234384,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_v3_requires_authorization_token",
+                "status": "passed",
+                "duration": 0.0023687509999916756,
+                "start": 1782297356.323634,
+                "stop": 1782297356.3262916,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_binary_was_rebuilt_from_go_sources",
+                "status": "passed",
+                "duration": 0.001324083000000087,
+                "start": 1782297356.3266513,
+                "stop": 1782297356.3282034,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_binary_rerun_is_valid_and_overwrites_output",
+                "status": "passed",
+                "duration": 0.005518999999992502,
+                "start": 1782297356.32843,
+                "stop": 1782297356.334176,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_seeded_rerun_preserves_disabled_and_fallback_contracts",
+                "status": "passed",
+                "duration": 0.007412375000001248,
+                "start": 1782297356.3352118,
+                "stop": 1782297356.3428586,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_go_contract_handles_disabled_backends_v3_auth_and_raw_weights",
+                "status": "passed",
+                "duration": 14.934416966,
+                "start": 1782297356.3432791,
+                "stop": 1782297371.2801905,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_go_contract_handles_token_and_absent_header_modes",
+                "status": "passed",
+                "duration": 0.7911409179999893,
+                "start": 1782297371.281986,
+                "stop": 1782297372.0736606,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_output_is_not_static_or_handwritten_shape_only",
+                "status": "passed",
+                "duration": 0.0025746669999975325,
+                "start": 1782297372.074219,
+                "stop": 1782297372.0771816,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_backend_counts_sum_matches_total_requests",
+                "status": "passed",
+                "duration": 0.0013490009999941321,
+                "start": 1782297372.0776064,
+                "stop": 1782297372.0792885,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

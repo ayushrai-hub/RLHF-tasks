@@ -1,0 +1,32 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 21 items
+
+../tests/test_outputs.py .....................                           [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_consensus_split_brain_recovery_on_default_partition
+PASSED ../tests/test_outputs.py::test_pressure_bundle_restores_consensus
+PASSED ../tests/test_outputs.py::test_order_independent_linearizability_digest
+PASSED ../tests/test_outputs.py::test_repeated_runs_byte_identical
+PASSED ../tests/test_outputs.py::test_failure_priority_node_id_invalid
+PASSED ../tests/test_outputs.py::test_duplicate_entry_rejected
+PASSED ../tests/test_outputs.py::test_log_index_gap_rejected
+PASSED ../tests/test_outputs.py::test_term_overflow_rejected
+PASSED ../tests/test_outputs.py::test_rpc_term_stale_rejected
+PASSED ../tests/test_outputs.py::test_rpc_order_violation_rejected
+PASSED ../tests/test_outputs.py::test_snapshot_conflict_rejected
+PASSED ../tests/test_outputs.py::test_config_quorum_invalid_rejected
+PASSED ../tests/test_outputs.py::test_partition_overlap_rejected
+PASSED ../tests/test_outputs.py::test_env_not_production_rejected
+PASSED ../tests/test_outputs.py::test_wal_order_violation_rejected
+PASSED ../tests/test_outputs.py::test_empty_stream_rejected
+PASSED ../tests/test_outputs.py::test_utf8_bom_stripped
+PASSED ../tests/test_outputs.py::test_large_pressure_trace_efficient
+PASSED ../tests/test_outputs.py::test_command_trace_sorted_and_complete
+PASSED ../tests/test_outputs.py::test_node_id_invalid_outranks_duplicate_entry
+PASSED ../tests/test_outputs.py::test_bundle_incomplete_rejected
+============================== 21 passed in 4.55s ==============================

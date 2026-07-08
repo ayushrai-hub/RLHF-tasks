@@ -1,15 +1,13 @@
 # OpenMemory - IDE/Assistant specific rules
 .cursor/rules/openmemory.mdc
 
-# Backups & archives
-_backup/
-_incoming/
+# Terminus hub archives (not task workspace)
+terminus/_backup/
+terminus/_incoming/
+terminus/_misc/
+terminus/_other/
 
-# Personal / reference (not Terminus tasks)
-_misc/
-_other/
-
-# Loose review report at root (canonical copy in reviews/)
+# Symlinks at repo root (canonical copies in terminus/)
 entire-report.txt
 
 # Submission ZIPs
@@ -17,15 +15,13 @@ entire-report.txt
 
 # OS
 .DS_Store
-AGENTS.md
 
 # Local dev
 .venv/
-jobs/
-reviews/
 
 # Work-in-progress task (kept at repo root, not published)
 bounded-kv-cache/
 
 # Nested git repos (reference clones)
 **/.git/
+AGENTS.md

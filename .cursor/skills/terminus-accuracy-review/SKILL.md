@@ -15,6 +15,7 @@ description: Deep accuracy review of a Terminus Edition 2 task. Writes review-re
 2. Run:
    ```bash
    ./scripts/terminus validate <task-dir>
+   ./scripts/terminus audit <task-dir> [--report <report-file>]
    ./scripts/terminus review <task-dir> --report <report-file>
    ```
    Parse `entire-report.txt` sections per [submission-export-format.md](../../../docs/guidelines/submission-export-format.md) before adjudicating.

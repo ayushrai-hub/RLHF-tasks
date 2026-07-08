@@ -1,0 +1,27 @@
+{
+    "id": "c8d4bb6b-6aee-4776-a135-ec94244dedd9",
+    "started_at": "2026-07-08T23:49:03.685009",
+    "finished_at": "2026-07-09T00:01:12.102655",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "16-fleet-risk-calibrator__RZBhYyu"
+                    ]
+                }
+            }
+        }
+    }
+}

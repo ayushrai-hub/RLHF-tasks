@@ -1,0 +1,21 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 10 items
+
+../tests/test_outputs.py ..........                                      [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_cabinet_ranking_schema_and_player_order
+PASSED ../tests/test_outputs.py::test_scorecard_ranking_totals_match_cabinet_referee
+PASSED ../tests/test_outputs.py::test_lane_scorecard_ranking_resets_per_ball
+PASSED ../tests/test_outputs.py::test_saved_drain_ranking_keeps_ball_alive
+PASSED ../tests/test_outputs.py::test_tilt_warning_ranking_suppresses_late_scores
+PASSED ../tests/test_outputs.py::test_mode_ranking_closes_distinct_target_banks
+PASSED ../tests/test_outputs.py::test_jackpot_ranking_requires_lit_multiball
+PASSED ../tests/test_outputs.py::test_rollup_ranking_counts_match_score_rows
+PASSED ../tests/test_outputs.py::test_sha256_row_folding_recomputes_chain_digest
+PASSED ../tests/test_outputs.py::test_strict_latch_preserves_cabinet_scores
+============================== 10 passed in 3.01s ==============================

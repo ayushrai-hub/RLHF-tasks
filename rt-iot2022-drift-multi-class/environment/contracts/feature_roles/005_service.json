@@ -1,8 +1,0 @@
-{
-  "column": "service",
-  "kind": "categorical",
-  "missing_rate": 0.0,
-  "position": 5,
-  "role": "candidate_predictor",
-  "unique_values": 10
-}

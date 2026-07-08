@@ -1,0 +1,27 @@
+{
+    "id": "20c2730a-ef39-414c-90cf-c4fed6d26df0",
+    "started_at": "2026-06-26T20:14:33.958984",
+    "finished_at": "2026-06-26T20:14:56.545489",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "java-buoy-wavelet-spectra-yaml-c__ehj62xs"
+                    ]
+                }
+            }
+        }
+    }
+}

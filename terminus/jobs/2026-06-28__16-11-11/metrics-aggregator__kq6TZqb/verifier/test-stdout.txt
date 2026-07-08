@@ -1,0 +1,155 @@
+warning: unused variable: `outlier_zscore`
+  --> build.rs:11:9
+   |
+11 |     let outlier_zscore: f64 = config_content
+   |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_outlier_zscore`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `include_raw_data`
+  --> build.rs:19:9
+   |
+19 |     let include_raw_data: bool = config_content
+   |         ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_include_raw_data`
+
+warning: `metrics-aggregator` (build script) generated 2 warnings
+warning: function `variance_divisor_offset` is never used
+  --> src/aggregator.rs:82:4
+   |
+82 | fn variance_divisor_offset() -> i32 {
+   |    ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+warning: function `validate_threshold_bounds` is never used
+  --> src/config.rs:47:4
+   |
+47 | fn validate_threshold_bounds(mut config: MetricsConfig) -> MetricsConfig {
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `apply_env_overrides` is never used
+  --> src/config.rs:56:8
+   |
+56 | pub fn apply_env_overrides(mut config: MetricsConfig) -> MetricsConfig {
+   |        ^^^^^^^^^^^^^^^^^^^
+
+warning: variant `PipelineError` is never constructed
+  --> src/errors.rs:10:5
+   |
+4  | pub enum AppError {
+   |          -------- variant in this enum
+...
+10 |     PipelineError(String),
+   |     ^^^^^^^^^^^^^
+   |
+   = note: `AppError` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: function `io_error_with_path` is never used
+  --> src/errors.rs:28:8
+   |
+28 | pub fn io_error_with_path(path: &std::path::Path) -> AppError {
+   |        ^^^^^^^^^^^^^^^^^^
+
+warning: struct `CalibrationState` is never constructed
+  --> src/types.rs:94:12
+   |
+94 | pub struct CalibrationState {
+   |            ^^^^^^^^^^^^^^^^
+   |
+   = note: `CalibrationState` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: associated items `new`, `calibrate`, and `reset` are never used
+   --> src/types.rs:100:12
+    |
+99  | impl CalibrationState {
+    | --------------------- associated items in this implementation
+100 |     pub fn new(factor: f64) -> Self {
+    |            ^^^
+...
+107 |     pub fn calibrate(&mut self, value: f64) -> f64 {
+    |            ^^^^^^^^^
+...
+115 |     pub fn reset(&mut self) {
+    |            ^^^^^
+
+warning: `metrics-aggregator` (bin "metrics-aggregator") generated 7 warnings
+    Finished `release` profile [optimized] target(s) in 0.03s
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: .pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collecting ... collected 34 items
+
+../tests/test_outputs.py::test_binary_compiles PASSED                    [  2%]
+../tests/test_outputs.py::test_tool_runs_successfully PASSED             [  5%]
+../tests/test_outputs.py::test_mean_is_float_computed PASSED             [  8%]
+../tests/test_outputs.py::test_min_not_zero PASSED                       [ 11%]
+../tests/test_outputs.py::test_max_value_correct PASSED                  [ 14%]
+../tests/test_outputs.py::test_median_ascending_order PASSED             [ 17%]
+../tests/test_outputs.py::test_median_odd_length_correct_index PASSED    [ 20%]
+../tests/test_outputs.py::test_percentile_ceiling_method PASSED          [ 23%]
+../tests/test_outputs.py::test_percentile_not_rounded PASSED             [ 26%]
+../tests/test_outputs.py::test_stddev_sample_formula PASSED              [ 29%]
+../tests/test_outputs.py::test_stddev_uses_correct_mean PASSED           [ 32%]
+../tests/test_outputs.py::test_outlier_detection_threshold PASSED        [ 35%]
+../tests/test_outputs.py::test_outlier_boundary_zscore_equals_threshold PASSED [ 38%]
+../tests/test_outputs.py::test_total_outliers_count PASSED               [ 41%]
+../tests/test_outputs.py::test_error_message_no_trailing_slash PASSED    [ 44%]
+../tests/test_outputs.py::test_metric_order_alphabetical PASSED          [ 47%]
+../tests/test_outputs.py::test_rerun_deterministic PASSED                [ 50%]
+../tests/test_outputs.py::test_single_point_stddev_zero PASSED           [ 52%]
+../tests/test_outputs.py::test_config_loads_from_fixed_path PASSED       [ 55%]
+../tests/test_outputs.py::test_even_length_median PASSED                 [ 58%]
+../tests/test_outputs.py::test_outlier_zscore_rounded PASSED             [ 61%]
+../tests/test_outputs.py::test_total_metric_points_accurate PASSED       [ 64%]
+../tests/test_outputs.py::test_count_field_is_total_points PASSED        [ 67%]
+../tests/test_outputs.py::test_outlier_zscore_exact_value PASSED         [ 70%]
+../tests/test_outputs.py::test_no_deduplication_across_files PASSED      [ 73%]
+../tests/test_outputs.py::test_no_env_var_override PASSED                [ 76%]
+../tests/test_outputs.py::test_mean_not_normalized PASSED                [ 79%]
+../tests/test_outputs.py::test_multi_file_total_points PASSED            [ 82%]
+../tests/test_outputs.py::test_max_includes_first_element PASSED         [ 85%]
+../tests/test_outputs.py::test_count_field_with_cross_file_combine PASSED [ 88%]
+../tests/test_outputs.py::test_report_metadata_fields PASSED             [ 91%]
+../tests/test_outputs.py::test_p99_percentile PASSED                     [ 94%]
+../tests/test_outputs.py::test_outlier_reason_field PASSED               [ 97%]
+../tests/test_outputs.py::test_no_transformation_when_calibration_one PASSED [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_binary_compiles
+PASSED ../tests/test_outputs.py::test_tool_runs_successfully
+PASSED ../tests/test_outputs.py::test_mean_is_float_computed
+PASSED ../tests/test_outputs.py::test_min_not_zero
+PASSED ../tests/test_outputs.py::test_max_value_correct
+PASSED ../tests/test_outputs.py::test_median_ascending_order
+PASSED ../tests/test_outputs.py::test_median_odd_length_correct_index
+PASSED ../tests/test_outputs.py::test_percentile_ceiling_method
+PASSED ../tests/test_outputs.py::test_percentile_not_rounded
+PASSED ../tests/test_outputs.py::test_stddev_sample_formula
+PASSED ../tests/test_outputs.py::test_stddev_uses_correct_mean
+PASSED ../tests/test_outputs.py::test_outlier_detection_threshold
+PASSED ../tests/test_outputs.py::test_outlier_boundary_zscore_equals_threshold
+PASSED ../tests/test_outputs.py::test_total_outliers_count
+PASSED ../tests/test_outputs.py::test_error_message_no_trailing_slash
+PASSED ../tests/test_outputs.py::test_metric_order_alphabetical
+PASSED ../tests/test_outputs.py::test_rerun_deterministic
+PASSED ../tests/test_outputs.py::test_single_point_stddev_zero
+PASSED ../tests/test_outputs.py::test_config_loads_from_fixed_path
+PASSED ../tests/test_outputs.py::test_even_length_median
+PASSED ../tests/test_outputs.py::test_outlier_zscore_rounded
+PASSED ../tests/test_outputs.py::test_total_metric_points_accurate
+PASSED ../tests/test_outputs.py::test_count_field_is_total_points
+PASSED ../tests/test_outputs.py::test_outlier_zscore_exact_value
+PASSED ../tests/test_outputs.py::test_no_deduplication_across_files
+PASSED ../tests/test_outputs.py::test_no_env_var_override
+PASSED ../tests/test_outputs.py::test_mean_not_normalized
+PASSED ../tests/test_outputs.py::test_multi_file_total_points
+PASSED ../tests/test_outputs.py::test_max_includes_first_element
+PASSED ../tests/test_outputs.py::test_count_field_with_cross_file_combine
+PASSED ../tests/test_outputs.py::test_report_metadata_fields
+PASSED ../tests/test_outputs.py::test_p99_percentile
+PASSED ../tests/test_outputs.py::test_outlier_reason_field
+PASSED ../tests/test_outputs.py::test_no_transformation_when_calibration_one
+============================== 34 passed in 0.11s ==============================

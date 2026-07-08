@@ -1,0 +1,326 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 34,
+            "passed": 34,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782643335.9428153,
+            "stop": 1782643336.046149
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_binary_compiles",
+                "status": "passed",
+                "duration": 0.00042241700000289484,
+                "start": 1782643335.986961,
+                "stop": 1782643335.9876795,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_tool_runs_successfully",
+                "status": "passed",
+                "duration": 0.0013821679999921344,
+                "start": 1782643335.9878843,
+                "stop": 1782643335.9894986,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_mean_is_float_computed",
+                "status": "passed",
+                "duration": 0.0012640410000059887,
+                "start": 1782643335.9896984,
+                "stop": 1782643335.9911838,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_min_not_zero",
+                "status": "passed",
+                "duration": 0.0018739169999975047,
+                "start": 1782643335.9913583,
+                "stop": 1782643335.9934828,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_max_value_correct",
+                "status": "passed",
+                "duration": 0.0010996260000055713,
+                "start": 1782643335.9936972,
+                "stop": 1782643335.9950037,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_median_ascending_order",
+                "status": "passed",
+                "duration": 0.0012347910000016782,
+                "start": 1782643335.9951754,
+                "stop": 1782643335.9966085,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_median_odd_length_correct_index",
+                "status": "passed",
+                "duration": 0.0012418330000016908,
+                "start": 1782643335.9967964,
+                "stop": 1782643335.9982183,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_percentile_ceiling_method",
+                "status": "passed",
+                "duration": 0.0013073749999961137,
+                "start": 1782643335.998434,
+                "stop": 1782643335.9999592,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_percentile_not_rounded",
+                "status": "passed",
+                "duration": 0.0011073329999931047,
+                "start": 1782643336.0001452,
+                "stop": 1782643336.001423,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_stddev_sample_formula",
+                "status": "passed",
+                "duration": 0.0009532919999983847,
+                "start": 1782643336.0015826,
+                "stop": 1782643336.0026908,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_stddev_uses_correct_mean",
+                "status": "passed",
+                "duration": 0.0013067920000011668,
+                "start": 1782643336.0028381,
+                "stop": 1782643336.0045831,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_outlier_detection_threshold",
+                "status": "passed",
+                "duration": 0.0016342500000021687,
+                "start": 1782643336.005053,
+                "stop": 1782643336.0069647,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_outlier_boundary_zscore_equals_threshold",
+                "status": "passed",
+                "duration": 0.001266291000000308,
+                "start": 1782643336.0072649,
+                "stop": 1782643336.0087256,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_total_outliers_count",
+                "status": "passed",
+                "duration": 0.0009708740000036187,
+                "start": 1782643336.0089157,
+                "stop": 1782643336.0100634,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_error_message_no_trailing_slash",
+                "status": "passed",
+                "duration": 0.0009454600000111668,
+                "start": 1782643336.0102139,
+                "stop": 1782643336.011341,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_metric_order_alphabetical",
+                "status": "passed",
+                "duration": 0.0011397919999964756,
+                "start": 1782643336.011514,
+                "stop": 1782643336.0128143,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_rerun_deterministic",
+                "status": "passed",
+                "duration": 0.001866874999997492,
+                "start": 1782643336.0129862,
+                "stop": 1782643336.0150368,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_single_point_stddev_zero",
+                "status": "passed",
+                "duration": 0.0009779170000001614,
+                "start": 1782643336.0151901,
+                "stop": 1782643336.0163183,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_config_loads_from_fixed_path",
+                "status": "passed",
+                "duration": 0.0009569590000069184,
+                "start": 1782643336.0164652,
+                "stop": 1782643336.0175707,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_even_length_median",
+                "status": "passed",
+                "duration": 0.002342042000002209,
+                "start": 1782643336.0177462,
+                "stop": 1782643336.0203652,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_outlier_zscore_rounded",
+                "status": "passed",
+                "duration": 0.0013599580000018818,
+                "start": 1782643336.0206258,
+                "stop": 1782643336.022186,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_total_metric_points_accurate",
+                "status": "passed",
+                "duration": 0.0013127500000038594,
+                "start": 1782643336.0223699,
+                "stop": 1782643336.0239065,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_count_field_is_total_points",
+                "status": "passed",
+                "duration": 0.001275458000002061,
+                "start": 1782643336.0241098,
+                "stop": 1782643336.025591,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_outlier_zscore_exact_value",
+                "status": "passed",
+                "duration": 0.0012367500000038945,
+                "start": 1782643336.0257843,
+                "stop": 1782643336.027213,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_no_deduplication_across_files",
+                "status": "passed",
+                "duration": 0.0011754170000060071,
+                "start": 1782643336.0273912,
+                "stop": 1782643336.0287678,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_no_env_var_override",
+                "status": "passed",
+                "duration": 0.001142541000000108,
+                "start": 1782643336.0289807,
+                "stop": 1782643336.03032,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_mean_not_normalized",
+                "status": "passed",
+                "duration": 0.001434915999993791,
+                "start": 1782643336.0305002,
+                "stop": 1782643336.0323427,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_multi_file_total_points",
+                "status": "passed",
+                "duration": 0.0016558740000078842,
+                "start": 1782643336.0327444,
+                "stop": 1782643336.034675,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_max_includes_first_element",
+                "status": "passed",
+                "duration": 0.0013422500000004334,
+                "start": 1782643336.0349646,
+                "stop": 1782643336.0365117,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_count_field_with_cross_file_combine",
+                "status": "passed",
+                "duration": 0.0012118739999991135,
+                "start": 1782643336.036701,
+                "stop": 1782643336.038116,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_report_metadata_fields",
+                "status": "passed",
+                "duration": 0.0013215829999992934,
+                "start": 1782643336.0382984,
+                "stop": 1782643336.0400248,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_p99_percentile",
+                "status": "passed",
+                "duration": 0.0011747499999970046,
+                "start": 1782643336.0402153,
+                "stop": 1782643336.0415785,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_outlier_reason_field",
+                "status": "passed",
+                "duration": 0.0012546669999977667,
+                "start": 1782643336.0417778,
+                "stop": 1782643336.043215,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_no_transformation_when_calibration_one",
+                "status": "passed",
+                "duration": 0.0020867079999931093,
+                "start": 1782643336.0433874,
+                "stop": 1782643336.0458026,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

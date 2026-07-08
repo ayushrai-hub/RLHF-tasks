@@ -1,0 +1,29 @@
+{
+    "id": "af8c37aa-446a-4ed7-9ea4-8c1bee6766bb",
+    "started_at": "2026-06-26T16:34:18.037930",
+    "finished_at": "2026-06-26T16:35:18.088057",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "build-rust-maven-dependency-conv__k5NfwvE"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

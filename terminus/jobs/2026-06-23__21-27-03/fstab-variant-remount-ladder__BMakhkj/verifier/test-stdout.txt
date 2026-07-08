@@ -1,0 +1,22 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 11 items
+
+../tests/test_outputs.py ...........                                     [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_ladder_digest_tool_agrees
+PASSED ../tests/test_outputs.py::test_ladder_k2_slave_profile_band
+PASSED ../tests/test_outputs.py::test_ladder_sparse_lane_corpus_converges
+PASSED ../tests/test_outputs.py::test_ladder_summary_emit_ceiling
+PASSED ../tests/test_outputs.py::test_ladder_slot4_excluded_from_digest
+PASSED ../tests/test_outputs.py::test_ladder_workdir_scoring_k3_converges
+PASSED ../tests/test_outputs.py::test_ladder_bind_reloc_canonical_path
+PASSED ../tests/test_outputs.py::test_ladder_duplicate_recovery_zero_drift
+PASSED ../tests/test_outputs.py::test_ladder_q9_anchor_recovery_preserves_digest
+PASSED ../tests/test_outputs.py::test_ladder_p9_interim_rows_decoy
+PASSED ../tests/test_outputs.py::test_ladder_slave_opts_stripped_before_digest
+============================= 11 passed in 29.39s ==============================

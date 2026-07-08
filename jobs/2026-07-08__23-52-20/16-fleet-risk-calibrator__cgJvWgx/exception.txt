@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 344, in run
+    await self._execute_agent()
+  File "/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py", line 228, in _execute_agent
+    await asyncio.wait_for(
+  File "/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/tasks.py", line 520, in wait_for
+    return await fut
+           ^^^^^^^^^
+  File "/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/oracle.py", line 71, in run
+    raise RuntimeError(
+RuntimeError: Oracle solution exited with return code 255

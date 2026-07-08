@@ -1,0 +1,86 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.3.4"
+        },
+        "summary": {
+            "tests": 7,
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782042565.9057517,
+            "stop": 1782042566.603989
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_case",
+                "status": "passed",
+                "duration": 0.2646021249999819,
+                "start": 1782042566.085658,
+                "stop": 1782042566.3520286,
+                "retries": 7,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::case_id::['emphasis-basic', 'emphasis-nesting', 'code-spans', 'escapes-entities', 'line-breaks', 'links', 'images', 'errors']"
+                ]
+            },
+            {
+                "name": "test_outputs.py::test_all_case_ids_present",
+                "status": "passed",
+                "duration": 0.0011802090000117005,
+                "start": 1782042566.3977954,
+                "stop": 1782042566.4005322,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_case_ids_in_input_order",
+                "status": "passed",
+                "duration": 0.0009337930000299366,
+                "start": 1782042566.4018435,
+                "stop": 1782042566.4030704,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_output_is_deterministic",
+                "status": "passed",
+                "duration": 0.013975458000032859,
+                "start": 1782042566.4033644,
+                "stop": 1782042566.4175823,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_no_hardcoded_answers",
+                "status": "passed",
+                "duration": 0.0927690000000041,
+                "start": 1782042566.4180355,
+                "stop": 1782042566.5125673,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cargo_no_external_dependencies",
+                "status": "passed",
+                "duration": 0.0023463329999913185,
+                "start": 1782042566.513432,
+                "stop": 1782042566.5164297,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_build_has_no_warnings",
+                "status": "passed",
+                "duration": 0.08598254200001065,
+                "start": 1782042566.5167758,
+                "stop": 1782042566.6033833,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

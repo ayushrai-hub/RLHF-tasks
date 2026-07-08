@@ -1,0 +1,260 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+cachedir: /tmp/pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 21 items
+
+../tests/test_outputs.py ..FF...FF..........F.                           [100%]
+
+=================================== FAILURES ===================================
+_______________ test_acceptance_gate[worker_antipode_blob_lock] ________________
+
+gate = 'worker_antipode_blob_lock'
+
+    @pytest.mark.parametrize("gate", GATES)
+    def test_acceptance_gate(gate: str) -> None:
+        """Each gate runs one C++ behavioral contract check against rebuilt tb_iter."""
+>       _run_gate(gate)
+
+/tests/test_outputs.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'worker_antipode_blob_lock'
+
+    def _run_gate(name: str) -> None:
+        proc = subprocess.run(
+            [str(VERIFIER_BIN), name],
+            text=True,
+            capture_output=True,
+            timeout=600,
+            check=False,
+        )
+>       assert proc.returncode == 0, (
+            f"tb_iter_verifier gate {name} failed (rc={proc.returncode})\n"
+            f"--- stdout ---\n{proc.stdout}\n--- stderr ---\n{proc.stderr}"
+        )
+E       AssertionError: tb_iter_verifier gate worker_antipode_blob_lock failed (rc=-6)
+E         --- stdout ---
+E         
+E         --- stderr ---
+E         terminate called after throwing an instance of 'std::runtime_error'
+E           what():  full_contract audit_chain mismatch
+E         
+E       assert -6 == 0
+E        +  where -6 = CompletedProcess(args=['/tmp/tb3-verifier-build/tb_iter_verifier', 'worker_antipode_blob_lock'], returncode=-6, stdout..."terminate called after throwing an instance of 'std::runtime_error'\n  what():  full_contract audit_chain mismatch\n").returncode
+
+/tests/test_outputs.py:84: AssertionError
+__________ test_acceptance_gate[parallel_full_contract_worker_sweep] ___________
+
+gate = 'parallel_full_contract_worker_sweep'
+
+    @pytest.mark.parametrize("gate", GATES)
+    def test_acceptance_gate(gate: str) -> None:
+        """Each gate runs one C++ behavioral contract check against rebuilt tb_iter."""
+>       _run_gate(gate)
+
+/tests/test_outputs.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'parallel_full_contract_worker_sweep'
+
+    def _run_gate(name: str) -> None:
+        proc = subprocess.run(
+            [str(VERIFIER_BIN), name],
+            text=True,
+            capture_output=True,
+            timeout=600,
+            check=False,
+        )
+>       assert proc.returncode == 0, (
+            f"tb_iter_verifier gate {name} failed (rc={proc.returncode})\n"
+            f"--- stdout ---\n{proc.stdout}\n--- stderr ---\n{proc.stderr}"
+        )
+E       AssertionError: tb_iter_verifier gate parallel_full_contract_worker_sweep failed (rc=-6)
+E         --- stdout ---
+E         
+E         --- stderr ---
+E         terminate called after throwing an instance of 'std::runtime_error'
+E           what():  full_contract fold_token mismatch
+E         
+E       assert -6 == 0
+E        +  where -6 = CompletedProcess(args=['/tmp/tb3-verifier-build/tb_iter_verifier', 'parallel_full_contract_worker_sweep'], returncode=...="terminate called after throwing an instance of 'std::runtime_error'\n  what():  full_contract fold_token mismatch\n").returncode
+
+/tests/test_outputs.py:84: AssertionError
+_______________ test_acceptance_gate[audit_chain_antipode_lock] ________________
+
+gate = 'audit_chain_antipode_lock'
+
+    @pytest.mark.parametrize("gate", GATES)
+    def test_acceptance_gate(gate: str) -> None:
+        """Each gate runs one C++ behavioral contract check against rebuilt tb_iter."""
+>       _run_gate(gate)
+
+/tests/test_outputs.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'audit_chain_antipode_lock'
+
+    def _run_gate(name: str) -> None:
+        proc = subprocess.run(
+            [str(VERIFIER_BIN), name],
+            text=True,
+            capture_output=True,
+            timeout=600,
+            check=False,
+        )
+>       assert proc.returncode == 0, (
+            f"tb_iter_verifier gate {name} failed (rc={proc.returncode})\n"
+            f"--- stdout ---\n{proc.stdout}\n--- stderr ---\n{proc.stderr}"
+        )
+E       AssertionError: tb_iter_verifier gate audit_chain_antipode_lock failed (rc=1)
+E         --- stdout ---
+E         
+E         --- stderr ---
+E         verifier failure: audit_chain contract mismatch seed=11
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/tmp/tb3-verifier-build/tb_iter_verifier', 'audit_chain_antipode_lock'], returncode=1, stdout='', stderr='verifier failure: audit_chain contract mismatch seed=11\n').returncode
+
+/tests/test_outputs.py:84: AssertionError
+___________ test_acceptance_gate[continue_fresh_parity_with_journal] ___________
+
+gate = 'continue_fresh_parity_with_journal'
+
+    @pytest.mark.parametrize("gate", GATES)
+    def test_acceptance_gate(gate: str) -> None:
+        """Each gate runs one C++ behavioral contract check against rebuilt tb_iter."""
+>       _run_gate(gate)
+
+/tests/test_outputs.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'continue_fresh_parity_with_journal'
+
+    def _run_gate(name: str) -> None:
+        proc = subprocess.run(
+            [str(VERIFIER_BIN), name],
+            text=True,
+            capture_output=True,
+            timeout=600,
+            check=False,
+        )
+>       assert proc.returncode == 0, (
+            f"tb_iter_verifier gate {name} failed (rc={proc.returncode})\n"
+            f"--- stdout ---\n{proc.stdout}\n--- stderr ---\n{proc.stderr}"
+        )
+E       AssertionError: tb_iter_verifier gate continue_fresh_parity_with_journal failed (rc=-6)
+E         --- stdout ---
+E         
+E         --- stderr ---
+E         terminate called after throwing an instance of 'std::runtime_error'
+E           what():  full_contract audit_chain mismatch
+E         
+E       assert -6 == 0
+E        +  where -6 = CompletedProcess(args=['/tmp/tb3-verifier-build/tb_iter_verifier', 'continue_fresh_parity_with_journal'], returncode=-..."terminate called after throwing an instance of 'std::runtime_error'\n  what():  full_contract audit_chain mismatch\n").returncode
+
+/tests/test_outputs.py:84: AssertionError
+____________ test_acceptance_gate[continued_report_neutral_parity] _____________
+
+gate = 'continued_report_neutral_parity'
+
+    @pytest.mark.parametrize("gate", GATES)
+    def test_acceptance_gate(gate: str) -> None:
+        """Each gate runs one C++ behavioral contract check against rebuilt tb_iter."""
+>       _run_gate(gate)
+
+/tests/test_outputs.py:93: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+name = 'continued_report_neutral_parity'
+
+    def _run_gate(name: str) -> None:
+        proc = subprocess.run(
+            [str(VERIFIER_BIN), name],
+            text=True,
+            capture_output=True,
+            timeout=600,
+            check=False,
+        )
+>       assert proc.returncode == 0, (
+            f"tb_iter_verifier gate {name} failed (rc={proc.returncode})\n"
+            f"--- stdout ---\n{proc.stdout}\n--- stderr ---\n{proc.stderr}"
+        )
+E       AssertionError: tb_iter_verifier gate continued_report_neutral_parity failed (rc=-6)
+E         --- stdout ---
+E         
+E         --- stderr ---
+E         terminate called after throwing an instance of 'std::runtime_error'
+E           what():  full_contract audit_chain mismatch
+E         
+E       assert -6 == 0
+E        +  where -6 = CompletedProcess(args=['/tmp/tb3-verifier-build/tb_iter_verifier', 'continued_report_neutral_parity'], returncode=-6, ..."terminate called after throwing an instance of 'std::runtime_error'\n  what():  full_contract audit_chain mismatch\n").returncode
+
+/tests/test_outputs.py:84: AssertionError
+==================================== PASSES ====================================
+__________________ test_acceptance_gate[rebuild_agent_binary] __________________
+---------------------------- Captured stdout setup -----------------------------
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /tmp/tb3-verifier-build
+[ 25%] Building CXX object CMakeFiles/tb_iter_verifier.dir/main.cpp.o
+[ 50%] Building CXX object CMakeFiles/tb_iter_verifier.dir/harness.cpp.o
+[ 75%] Building CXX object CMakeFiles/tb_iter_verifier.dir/contract_model.cpp.o
+[100%] Linking CXX executable tb_iter_verifier
+[100%] Built target tb_iter_verifier
+-- The CXX compiler identification is GNU 12.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /app/build
+[  6%] Building CXX object CMakeFiles/tb_iter.dir/app/main.cpp.o
+[ 12%] Building CXX object CMakeFiles/tb_iter.dir/app/core/metric_fabric.cpp.o
+[ 18%] Building CXX object CMakeFiles/tb_iter.dir/app/mpi/reduce_bridge.cpp.o
+[ 25%] Building CXX object CMakeFiles/tb_iter.dir/app/io/trace_sink.cpp.o
+[ 31%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/engine.cpp.o
+[ 37%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/loader.cpp.o
+[ 43%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/math_utils.cpp.o
+[ 50%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/checkpoint.cpp.o
+[ 56%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/run_journal.cpp.o
+[ 62%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/epoch_coordinator.cpp.o
+[ 68%] Building CXX object CMakeFiles/tb_iter.dir/app/util/audit_digest.cpp.o
+[ 75%] Building CXX object CMakeFiles/tb_iter.dir/app/util/layout.cpp.o
+[ 81%] Building CXX object CMakeFiles/tb_iter.dir/app/core/op_a_shadow.cpp.o
+[ 87%] Building CXX object CMakeFiles/tb_iter.dir/app/mpi/op_b_aux.cpp.o
+[ 93%] Building CXX object CMakeFiles/tb_iter.dir/app/io/op_c_buffer.cpp.o
+[100%] Linking CXX executable tb_iter
+[100%] Built target tb_iter
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_acceptance_gate[rebuild_agent_binary]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[cases_csv_immutable]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[fold_token_exact_precision_sweep]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[weight_pre_renorm_precision_seeds]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[objective_cross_worker_invariance]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[journal_eight_hop_phase_ladder]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[journal_mid_chain_worker_mismatch_rejects]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[journal_corrupt_tail_rejects_continue]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[journal_invalid_tail_fields_rejects]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[journal_seed_tail_mismatch_rejects]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[checkpoint_precision_roundtrip]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[save_continue_triple_hop_fold_lock]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[worker_sweep_audit_invariant_with_journal]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[layout_dual_flag_invariance]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[runtime_validation_matrix]
+PASSED ../tests/test_outputs.py::test_acceptance_gate[dispersion_objective_formula_grid]
+FAILED ../tests/test_outputs.py::test_acceptance_gate[worker_antipode_blob_lock]
+FAILED ../tests/test_outputs.py::test_acceptance_gate[parallel_full_contract_worker_sweep]
+FAILED ../tests/test_outputs.py::test_acceptance_gate[audit_chain_antipode_lock]
+FAILED ../tests/test_outputs.py::test_acceptance_gate[continue_fresh_parity_with_journal]
+FAILED ../tests/test_outputs.py::test_acceptance_gate[continued_report_neutral_parity]
+=================== 5 failed, 16 passed in 196.75s (0:03:16) ===================

@@ -1,8 +1,0 @@
-{
-  "column": "active.tot",
-  "kind": "numeric",
-  "missing_rate": 0.0,
-  "position": 74,
-  "role": "candidate_predictor",
-  "unique_values": 13669
-}

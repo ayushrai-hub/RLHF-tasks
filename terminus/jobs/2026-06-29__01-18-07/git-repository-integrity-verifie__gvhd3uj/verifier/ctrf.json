@@ -1,0 +1,381 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 40,
+            "passed": 39,
+            "failed": 0,
+            "skipped": 1,
+            "pending": 0,
+            "other": 0,
+            "start": 1782676138.9286342,
+            "stop": 1782676138.9642928
+        },
+        "tests": [
+            {
+                "name": "tests/test_outputs.py::test_repository_integrity_report_exists",
+                "status": "passed",
+                "duration": 0.0003591669999991609,
+                "start": 1782676138.9511917,
+                "stop": 1782676138.951749,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_branch_divergence_exists",
+                "status": "passed",
+                "duration": 0.00035166599999314485,
+                "start": 1782676138.952089,
+                "stop": 1782676138.952546,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_orphan_commits_exists",
+                "status": "passed",
+                "duration": 0.00022741700000494802,
+                "start": 1782676138.9526405,
+                "stop": 1782676138.952972,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_history_reconstruction_exists",
+                "status": "passed",
+                "duration": 0.00020870799999528344,
+                "start": 1782676138.953084,
+                "stop": 1782676138.9533777,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_integrity_policy_present",
+                "status": "passed",
+                "duration": 0.00016499899999189438,
+                "start": 1782676138.9534736,
+                "stop": 1782676138.953704,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_commit_graph_present",
+                "status": "passed",
+                "duration": 0.00014925099999629765,
+                "start": 1782676138.9537942,
+                "stop": 1782676138.9540045,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_divergence_top_level_keys",
+                "status": "passed",
+                "duration": 0.00017533399999791754,
+                "start": 1782676138.954083,
+                "stop": 1782676138.954318,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_divergence_repository_id",
+                "status": "passed",
+                "duration": 0.00017854100000391782,
+                "start": 1782676138.9544055,
+                "stop": 1782676138.9546494,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_divergence_pair_count",
+                "status": "passed",
+                "duration": 0.00016283200000088982,
+                "start": 1782676138.9547274,
+                "stop": 1782676138.9549515,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_divergence_pair_entry_fields",
+                "status": "passed",
+                "duration": 0.0001534589999963032,
+                "start": 1782676138.9550264,
+                "stop": 1782676138.955239,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_divergence_pairs_sorted",
+                "status": "passed",
+                "duration": 0.000141749000000857,
+                "start": 1782676138.9553103,
+                "stop": 1782676138.9555068,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_divergence_matches_reference",
+                "status": "passed",
+                "duration": 0.0001991669999910073,
+                "start": 1782676138.9555879,
+                "stop": 1782676138.955887,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_main_release_divergence_total",
+                "status": "passed",
+                "duration": 0.00016762600000674865,
+                "start": 1782676138.9559853,
+                "stop": 1782676138.9562178,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_orphan_top_level_keys",
+                "status": "passed",
+                "duration": 0.0001695009999949093,
+                "start": 1782676138.9562974,
+                "stop": 1782676138.9565318,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_orphan_count_matches_list",
+                "status": "passed",
+                "duration": 0.00015270800000166673,
+                "start": 1782676138.9566038,
+                "stop": 1782676138.9568179,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_orphan_entry_fields",
+                "status": "passed",
+                "duration": 0.00014612600000418752,
+                "start": 1782676138.9568942,
+                "stop": 1782676138.9570985,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_orphan_sha_sorted",
+                "status": "passed",
+                "duration": 0.00014020800001190992,
+                "start": 1782676138.9571795,
+                "stop": 1782676138.9573753,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_orphan_matches_reference",
+                "status": "passed",
+                "duration": 0.0001686260000042239,
+                "start": 1782676138.9574482,
+                "stop": 1782676138.957689,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_orphan_count_is_three",
+                "status": "passed",
+                "duration": 0.00014795700000291845,
+                "start": 1782676138.9577534,
+                "stop": 1782676138.9579566,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_orphan_reasons_include_rebase_and_amend",
+                "status": "passed",
+                "duration": 0.00013958299999927704,
+                "start": 1782676138.9580288,
+                "stop": 1782676138.9582229,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_amended_hotfix_orphan_subject",
+                "status": "passed",
+                "duration": 0.00015837600000168095,
+                "start": 1782676138.9582927,
+                "stop": 1782676138.9585106,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_report_required_sections",
+                "status": "passed",
+                "duration": 0.00013958299999927704,
+                "start": 1782676138.95859,
+                "stop": 1782676138.958788,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_report_title_matches_policy",
+                "status": "passed",
+                "duration": 0.00013862600000180691,
+                "start": 1782676138.9588604,
+                "stop": 1782676138.959052,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_report_repository_id_line",
+                "status": "passed",
+                "duration": 0.0001317520000014838,
+                "start": 1782676138.9591243,
+                "stop": 1782676138.9593112,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_report_graph_integrity_score",
+                "status": "passed",
+                "duration": 0.00014116599999880464,
+                "start": 1782676138.9593823,
+                "stop": 1782676138.9595966,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_report_merge_consistency_score",
+                "status": "passed",
+                "duration": 0.00017175000000690943,
+                "start": 1782676138.9596727,
+                "stop": 1782676138.9599097,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_report_orphan_count_line",
+                "status": "passed",
+                "duration": 0.0001485409999943954,
+                "start": 1782676138.9599836,
+                "stop": 1782676138.9601886,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_report_branch_pair_count",
+                "status": "passed",
+                "duration": 0.0001267489999960958,
+                "start": 1782676138.960264,
+                "stop": 1782676138.9604487,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_report_merge_findings_clean",
+                "status": "passed",
+                "duration": 0.000148875999990139,
+                "start": 1782676138.9605117,
+                "stop": 1782676138.9607208,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_report_orphan_summary_lines_from_policy",
+                "status": "passed",
+                "duration": 0.00016700000000469117,
+                "start": 1782676138.9607942,
+                "stop": 1782676138.9610183,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_history_title",
+                "status": "passed",
+                "duration": 0.00013620799999358724,
+                "start": 1782676138.9610808,
+                "stop": 1782676138.9612718,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_history_contains_merge_event",
+                "status": "passed",
+                "duration": 0.0001721240000023272,
+                "start": 1782676138.9613466,
+                "stop": 1782676138.9615757,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_history_contains_cherry_pick",
+                "status": "passed",
+                "duration": 0.00014420899999834091,
+                "start": 1782676138.9617116,
+                "stop": 1782676138.9619148,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_history_contains_rebase_finish",
+                "status": "passed",
+                "duration": 0.00014366500000306814,
+                "start": 1782676138.961992,
+                "stop": 1782676138.9621992,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_history_contains_amend",
+                "status": "passed",
+                "duration": 0.0001381649999885326,
+                "start": 1782676138.962276,
+                "stop": 1782676138.9624724,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_history_lines_use_policy_template",
+                "status": "passed",
+                "duration": 0.0001620420000065792,
+                "start": 1782676138.9625554,
+                "stop": 1782676138.9627802,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_history_event_count_matches_reference",
+                "status": "passed",
+                "duration": 0.00014883200000070929,
+                "start": 1782676138.9628441,
+                "stop": 1782676138.963047,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_history_events_sorted_by_date",
+                "status": "passed",
+                "duration": 0.00018670899999762014,
+                "start": 1782676138.9631188,
+                "stop": 1782676138.9633775,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_rerun_produces_identical_divergence",
+                "status": "skipped",
+                "duration": 0.00017562500000423142,
+                "start": 1782676138.963463,
+                "stop": 1782676138.96387,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py",
+                "trace": "('/tests/test_outputs.py', 285, 'Skipped: oracle solve.sh not mounted')"
+            },
+            {
+                "name": "tests/test_outputs.py::test_orphan_discovered_via_ref_format",
+                "status": "passed",
+                "duration": 0.00019087500000836144,
+                "start": 1782676138.9639556,
+                "stop": 1782676138.9642012,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            }
+        ]
+    }
+}

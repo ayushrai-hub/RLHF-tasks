@@ -1,0 +1,29 @@
+{
+    "id": "85f98b92-350f-4565-b7dd-c8adb972da7b",
+    "started_at": "2026-06-23T17:25:03.958492",
+    "finished_at": "2026-06-23T17:25:37.725305",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "cargo-solver-static-analysis__BqFaN7S"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

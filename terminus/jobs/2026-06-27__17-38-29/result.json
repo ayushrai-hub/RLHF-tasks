@@ -1,0 +1,27 @@
+{
+    "id": "a6765a11-04a9-4fb3-9977-5535d893b463",
+    "started_at": "2026-06-27T17:38:29.487529",
+    "finished_at": "2026-06-27T17:38:30.429966",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "projectile-material-penetration-__BpKQem9"
+                    ]
+                }
+            }
+        }
+    }
+}

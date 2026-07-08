@@ -1,0 +1,39 @@
+warning: fields `bus` and `feeder` are never read
+ --> src/types.rs:8:9
+  |
+5 | pub struct Unit {
+  |            ---- fields in this struct
+...
+8 |     pub bus: String,
+  |         ^^^
+9 |     pub feeder: String,
+  |         ^^^^^^
+  |
+  = note: `Unit` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+  = note: `#[warn(dead_code)]` on by default
+
+warning: fields `buses`, `feeders`, `fuels`, `emission_budget`, `renewable_min_fraction`, and `per_bus_min_kw` are never read
+  --> src/types.rs:20:9
+   |
+19 | pub struct Config {
+   |            ------ fields in this struct
+20 |     pub buses: Vec<String>,
+   |         ^^^^^
+21 |     pub feeders: Vec<String>,
+   |         ^^^^^^^
+22 |     pub fuels: Vec<String>,
+   |         ^^^^^
+23 |     pub total_demand_kw: f64,
+24 |     pub emission_budget: f64,
+   |         ^^^^^^^^^^^^^^^
+25 |     pub renewable_min_fraction: f64,
+   |         ^^^^^^^^^^^^^^^^^^^^^^
+26 |     pub reserve_requirement_kw: f64,
+27 |     pub per_bus_min_kw: BTreeMap<String, f64>,
+   |         ^^^^^^^^^^^^^^
+   |
+   = note: `Config` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+dispatched 320 units at setpoint 49.6199 -> /app/task_file/output_data/dispatch.json
+solution self-check: {'total_score': 0.9929, 'service_score': 0.9693, 'efficiency_score': 0.8709, 'stability_score': 1.0, 'freq_gap': 0.0, 'renewable_fraction': 0.6097, 'total_emissions': 2870.6, 'committed_thermal': 40} strict: 0.9333
+Reference solution complete.

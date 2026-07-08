@@ -1,0 +1,232 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "9.0.3"
+        },
+        "summary": {
+            "tests": 23,
+            "passed": 23,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782678345433,
+            "stop": 1782678345812
+        },
+        "environment": {
+            "buildName": "Pytest JSON CTRF Report",
+            "buildNumber": "000",
+            "buildUrl": "https://ctrf.io"
+        },
+        "tests": [
+            {
+                "name": "tests/test_outputs.py::TestNormalizePublic::test_normalize_basic_two_shards",
+                "status": "passed",
+                "duration": 3,
+                "start": 1782678345468,
+                "stop": 1782678345471,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNormalizePublic::test_normalize_out_of_order_seq",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782678345472,
+                "stop": 1782678345473,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNormalizePublic::test_normalize_duplicate_frames_deduped",
+                "status": "passed",
+                "duration": 2,
+                "start": 1782678345474,
+                "stop": 1782678345476,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNormalizePublic::test_normalize_drift_subtraction",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782678345476,
+                "stop": 1782678345477,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNormalizePublic::test_validate_accepts_good_chronicle",
+                "status": "passed",
+                "duration": 4,
+                "start": 1782678345477,
+                "stop": 1782678345481,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNormalizePublic::test_validate_rejects_tampered_integrity",
+                "status": "passed",
+                "duration": 3,
+                "start": 1782678345481,
+                "stop": 1782678345484,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNormalizePublic::test_rejects_corrupted_crc_shard",
+                "status": "passed",
+                "duration": 3,
+                "start": 1782678345484,
+                "stop": 1782678345487,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNormalizePublic::test_rejects_bad_magic_shard",
+                "status": "passed",
+                "duration": 1,
+                "start": 1782678345487,
+                "stop": 1782678345488,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestNormalizePublic::test_public_bundled_fixture_matches_reference",
+                "status": "passed",
+                "duration": 2,
+                "start": 1782678345488,
+                "stop": 1782678345490,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestPackRoundTrip::test_pack_unpack_roundtrip",
+                "status": "passed",
+                "duration": 25,
+                "start": 1782678345490,
+                "stop": 1782678345515,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestPackRoundTrip::test_pack_header_crc_enforced_on_unpack",
+                "status": "passed",
+                "duration": 83,
+                "start": 1782678345515,
+                "stop": 1782678345598,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestPackRoundTrip::test_unpack_rejects_bad_magic",
+                "status": "passed",
+                "duration": 80,
+                "start": 1782678345598,
+                "stop": 1782678345678,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestPackRoundTrip::test_reference_pack_matches_unpack",
+                "status": "passed",
+                "duration": 25,
+                "start": 1782678345678,
+                "stop": 1782678345703,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestHiddenFixtures::test_staging_snapshot_matches_export",
+                "status": "passed",
+                "duration": 9,
+                "start": 1782678345703,
+                "stop": 1782678345712,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestHiddenFixtures::test_hidden_cross_shard_drift_and_dup",
+                "status": "passed",
+                "duration": 15,
+                "start": 1782678345712,
+                "stop": 1782678345727,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestHiddenFixtures::test_hidden_tb3_fixture_root_override",
+                "status": "passed",
+                "duration": 8,
+                "start": 1782678345727,
+                "stop": 1782678345735,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestHiddenFixtures::test_hidden_corrupted_footer_rejected",
+                "status": "passed",
+                "duration": 6,
+                "start": 1782678345735,
+                "stop": 1782678345741,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestHiddenFixtures::test_hidden_pack_roundtrip_integrity",
+                "status": "passed",
+                "duration": 48,
+                "start": 1782678345741,
+                "stop": 1782678345789,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestHiddenFixtures::test_hidden_same_tick_different_seq_preserved",
+                "status": "passed",
+                "duration": 6,
+                "start": 1782678345789,
+                "stop": 1782678345795,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEdgeCases::test_empty_payload_hex",
+                "status": "passed",
+                "duration": 4,
+                "start": 1782678345795,
+                "stop": 1782678345799,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEdgeCases::test_multi_shard_sort_by_shard_id_in_meta",
+                "status": "passed",
+                "duration": 5,
+                "start": 1782678345799,
+                "stop": 1782678345804,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEdgeCases::test_large_payload_roundtrip",
+                "status": "passed",
+                "duration": 3,
+                "start": 1782678345804,
+                "stop": 1782678345807,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::TestEdgeCases::test_normalize_idempotent_output",
+                "status": "passed",
+                "duration": 4,
+                "start": 1782678345808,
+                "stop": 1782678345812,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            }
+        ]
+    }
+}

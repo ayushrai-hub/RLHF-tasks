@@ -1,0 +1,37 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 26 items
+
+../tests/test_outputs.py ..........................                      [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::TestCatalogStructure::test_file_exists
+PASSED ../tests/test_outputs.py::TestCatalogStructure::test_valid_json
+PASSED ../tests/test_outputs.py::TestCatalogStructure::test_top_level_fields
+PASSED ../tests/test_outputs.py::TestCatalogStructure::test_events_is_list
+PASSED ../tests/test_outputs.py::TestCatalogStructure::test_total_events_matches_list
+PASSED ../tests/test_outputs.py::TestCatalogStructure::test_excluded_count_consistent
+PASSED ../tests/test_outputs.py::TestCatalogStructure::test_event_schema
+PASSED ../tests/test_outputs.py::TestReferenceAlignment::test_cli_entry_exists
+PASSED ../tests/test_outputs.py::TestReferenceAlignment::test_event_count_matches_reference
+PASSED ../tests/test_outputs.py::TestReferenceAlignment::test_excluded_count_matches_reference
+PASSED ../tests/test_outputs.py::TestReferenceAlignment::test_one_event_per_station
+PASSED ../tests/test_outputs.py::TestReferenceAlignment::test_station_event_matches_reference[AXID01]
+PASSED ../tests/test_outputs.py::TestReferenceAlignment::test_station_event_matches_reference[AXID02]
+PASSED ../tests/test_outputs.py::TestReferenceAlignment::test_station_event_matches_reference[NEMO01]
+PASSED ../tests/test_outputs.py::TestReferenceAlignment::test_station_event_matches_reference[JUAN01]
+PASSED ../tests/test_outputs.py::TestReferenceAlignment::test_station_event_matches_reference[COAX01]
+PASSED ../tests/test_outputs.py::TestReferenceAlignment::test_juan01_event_in_maintenance_window
+PASSED ../tests/test_outputs.py::TestScoresAndTiming::test_confidence_scores_in_range
+PASSED ../tests/test_outputs.py::TestScoresAndTiming::test_duration_positive
+PASSED ../tests/test_outputs.py::TestScoresAndTiming::test_start_time_parseable
+PASSED ../tests/test_outputs.py::TestScoresAndTiming::test_start_times_within_january
+PASSED ../tests/test_outputs.py::TestScoresAndTiming::test_detected_events_have_positive_confidence
+PASSED ../tests/test_outputs.py::TestHiddenMutations::test_deleted_station_absent_from_mutated_run
+PASSED ../tests/test_outputs.py::TestHiddenMutations::test_mutated_amplitude_matches_reference_pipeline
+PASSED ../tests/test_outputs.py::TestHiddenMutations::test_uncalibrated_lookup_table_fails_hidden_mutation
+PASSED ../tests/test_outputs.py::TestHiddenMutations::test_default_db_restored_after_mutation
+============================= 26 passed in 46.75s ==============================

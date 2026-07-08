@@ -1,0 +1,27 @@
+{
+    "id": "b77a6127-59a2-4815-ad6a-2bbfd430a31a",
+    "started_at": "2026-07-03T12:12:05.181336",
+    "finished_at": "2026-07-03T12:12:06.052854",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "edge-device-drift-classification__joSKfHS"
+                    ]
+                }
+            }
+        }
+    }
+}

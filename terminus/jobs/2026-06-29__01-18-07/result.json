@@ -1,0 +1,29 @@
+{
+    "id": "edb8ec29-46a0-46ba-9768-c409153b9f7d",
+    "started_at": "2026-06-29T01:18:07.373690",
+    "finished_at": "2026-06-29T01:19:00.506792",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "git-repository-integrity-verifie__gvhd3uj"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

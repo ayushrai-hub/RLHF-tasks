@@ -1,0 +1,27 @@
+{
+    "id": "e8f5b517-e4bb-4458-bff3-a99646920187",
+    "started_at": "2026-06-29T17:50:37.954708",
+    "finished_at": "2026-06-29T17:50:38.884515",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "tbrain-cron-dst-rollover__Rd8P7kq"
+                    ]
+                }
+            }
+        }
+    }
+}

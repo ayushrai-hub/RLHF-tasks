@@ -3,7 +3,8 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+TERM_HUB="$(cd "$SCRIPT_DIR/.." && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -26,8 +27,9 @@ Commands:
   rubric-validate <file> [--milestones N]  Validate rubric format
   rubric-points <entire-report.txt> [--milestones N]
                                            Sum positive rubric points (+lines only)
+  audit <task-dir> [--report FILE] [--rubric FILE] [-o FILE]
+                                           Full 55-item read-only quality audit
   review <task-dir> [--report FILE] [--rubric FILE] [-o FILE]
-                                           Write review-report.md + checkbox guide
 
 Agent options:
   --model <name>    gpt-5.5 (default) or claude-opus-4-8
@@ -55,8 +57,10 @@ cmd_validate() {
 
 cmd_check_all() {
   local task_dir="$1"
-  local val_exit=0
+  local val_exit=0 audit_exit=0
   cmd_validate "$task_dir" || val_exit=$?
+  echo ""
+  cmd_audit "$task_dir" || audit_exit=$?
   echo ""
   cmd_checklist "$task_dir"
   echo ""
@@ -64,12 +68,39 @@ cmd_check_all() {
     log_err "Validation failed — fix errors above before submitting"
     return 1
   fi
-  log_ok "Automated validation passed — complete manual checklist items above"
+  if [[ $audit_exit -ne 0 ]]; then
+    log_err "Audit reported REQUIRES CHANGES or REJECTED — see audit-report.md"
+    return 1
+  fi
+  log_ok "Automated validation and audit passed — complete manual checklist items above"
+}
+
+cmd_audit() {
+  local task_dir="$1"
+  shift || true
+  local report="" rubric="" output="" extra=""
+  while [[ $# -gt 0 ]]; do
+    case "$1" in
+      --report) report="$2"; shift 2 ;;
+      --rubric) rubric="$2"; shift 2 ;;
+      -o|--output) output="$2"; shift 2 ;;
+      --json) extra="--json"; shift ;;
+      --stdout) extra="$extra --stdout"; shift ;;
+      *) shift ;;
+    esac
+  done
+  echo "=== Terminus Task Audit: $task_dir ==="
+  local args=("$task_dir")
+  [[ -n "$report" ]] && args+=(--report "$report")
+  [[ -n "$rubric" ]] && args+=(--rubric "$rubric")
+  [[ -n "$output" ]] && args+=(--output "$output")
+  [[ -n "$extra" ]] && args+=($extra)
+  python3 "$SCRIPT_DIR/task_auditor.py" "${args[@]}"
 }
 
 cmd_checklist() {
   local task_dir="${1:-}"
-  local checklist="$REPO_ROOT/docs/submission-checklist.md"
+  local checklist="$TERM_HUB/docs/submission-checklist.md"
   if [[ -f "$checklist" ]]; then
     echo "=== Submission Checklist ==="
     echo "(Full doc: docs/submission-checklist.md)"
@@ -297,6 +328,7 @@ case "$COMMAND" in
   rubric-validate) [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_rubric_validate "$@" ;;
   rubric-points) [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_rubric_points "$@" ;;
   review)       [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_review "$@" ;;
+  audit)        [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_audit "$@" ;;
   init)       [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_init "$@" ;;
   help|--help|-h|"") usage ;;
   *)

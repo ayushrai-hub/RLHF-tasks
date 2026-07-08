@@ -1,0 +1,27 @@
+{
+    "id": "03f52567-bb16-4399-9451-de380d0c23f9",
+    "started_at": "2026-07-08T18:06:34.150884",
+    "finished_at": "2026-07-08T18:06:38.125975",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "spf-macros-descent__5Jn2DmH"
+                    ]
+                }
+            }
+        }
+    }
+}

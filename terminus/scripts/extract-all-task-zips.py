@@ -10,10 +10,11 @@ import tempfile
 import zipfile
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-TASKS = ROOT / "tasks"
-INCOMING = ROOT / "_incoming" / "zips"
-SUBMISSIONS = ROOT / "_incoming" / "submissions"
+TERM_HUB = Path(__file__).resolve().parent.parent
+REPO_ROOT = TERM_HUB.parent
+TASKS = REPO_ROOT / "tasks"
+INCOMING = TERM_HUB / "_incoming" / "zips"
+SUBMISSIONS = TERM_HUB / "_incoming" / "submissions"
 
 ZIP_NAME_MAP = {
     "3a528f89-6e97-4907-a1ba-bf24238cfc77_submission_2026-06-19T10_51_41.462Z (1)": "exec-profile-cap-bound-drift",
@@ -136,7 +137,7 @@ def prune_non_tasks() -> list[str]:
 def find_all_zips() -> list[Path]:
     zips: list[Path] = []
     for pattern in ("**/*.zip",):
-        for p in ROOT.glob(pattern):
+        for p in REPO_ROOT.glob(pattern):
             if ".git" in p.parts:
                 continue
             zips.append(p)
@@ -158,16 +159,16 @@ def main() -> int:
         elif result.startswith("REJECT"):
             # leave rejected zips for manual review unless in incoming (delete clutter)
             if zip_path.parent == INCOMING:
-                rejected = ROOT / "_incoming" / "rejected-zips"
+                rejected = TERM_HUB / "_incoming" / "rejected-zips"
                 rejected.mkdir(parents=True, exist_ok=True)
                 shutil.move(str(zip_path), str(rejected / zip_path.name))
 
     logs.extend(prune_non_tasks())
 
     # regenerate index
-    idx = ROOT / "scripts" / "generate-tasks-index.py"
+    idx = TERM_HUB / "scripts" / "generate-tasks-index.py"
     if idx.is_file():
-        subprocess.run([sys.executable, str(idx)], check=False, cwd=ROOT)
+        subprocess.run([sys.executable, str(idx)], check=False, cwd=REPO_ROOT)
 
     for line in logs:
         print(line)
@@ -178,7 +179,7 @@ def main() -> int:
     print(f"Non-task entries in tasks/: {len(bad)}")
     print(f"Zips remaining: {len(zips_left)}")
     for z in zips_left:
-        print(f"  kept: {z.relative_to(ROOT)}")
+        print(f"  kept: {z.relative_to(REPO_ROOT)}")
     return 1 if bad else 0
 
 

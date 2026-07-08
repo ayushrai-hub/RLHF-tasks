@@ -1,0 +1,83 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 7,
+            "passed": 7,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782573565.3626013,
+            "stop": 1782573566.4442995
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_gate_replay_checkpoint_contract",
+                "status": "passed",
+                "duration": 0.09871262499999744,
+                "start": 1782573565.3793921,
+                "stop": 1782573565.4783347,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_corrupt_primary_batch_uses_replay_companions",
+                "status": "passed",
+                "duration": 0.15820479199999227,
+                "start": 1782573565.4785175,
+                "stop": 1782573565.6368732,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_spill_rows_are_ordered_before_hashing",
+                "status": "passed",
+                "duration": 0.21547179199999533,
+                "start": 1782573565.6371028,
+                "stop": 1782573565.8527274,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_cross_profile_state_does_not_bleed",
+                "status": "passed",
+                "duration": 0.12524350099999282,
+                "start": 1782573565.85287,
+                "stop": 1782573565.9782615,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_laneprobe_green_is_not_audit_authority",
+                "status": "passed",
+                "duration": 0.13334129199999722,
+                "start": 1782573565.9783862,
+                "stop": 1782573566.1118875,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_duplicate_replay_is_idempotent",
+                "status": "passed",
+                "duration": 0.19810558300000025,
+                "start": 1782573566.1121833,
+                "stop": 1782573566.3105147,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_empty_phase_records_still_have_deterministic_checkpoint",
+                "status": "passed",
+                "duration": 0.13315862500000009,
+                "start": 1782573566.3107488,
+                "stop": 1782573566.4441257,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

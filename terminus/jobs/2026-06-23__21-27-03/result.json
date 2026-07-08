@@ -1,0 +1,29 @@
+{
+    "id": "0b73c3be-0551-4621-9754-42303fa47d9a",
+    "started_at": "2026-06-23T21:27:03.672914",
+    "finished_at": "2026-06-23T21:28:07.426084",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "fstab-variant-remount-ladder__BMakhkj"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

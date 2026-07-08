@@ -1,0 +1,27 @@
+{
+    "id": "4963bd9f-d6f2-4e5c-bf31-add7e208a6db",
+    "started_at": "2026-06-27T15:13:34.920492",
+    "finished_at": "2026-06-27T15:13:35.931651",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "rust-forge-die-stage__65nGdtF"
+                    ]
+                }
+            }
+        }
+    }
+}

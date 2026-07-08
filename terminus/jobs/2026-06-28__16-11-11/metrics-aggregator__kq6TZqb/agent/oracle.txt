@@ -1,0 +1,102 @@
+Fixed: build.rs VARIANCE_DIVISOR_OFFSET always 0
+Fixed: build.rs MEDIAN_OFFSET_CORRECTION always 0
+Fixed: config path uses fixed /app/config/overrides.toml
+Fixed: removed env var override
+Fixed: no deduplication
+Fixed: total_metric_points counts data points
+Fixed: removed validate_threshold_bounds call
+Fixed: ascending sort
+Fixed: count = total data points
+Fixed: min starts at INFINITY
+Fixed: max includes all elements
+Fixed: variance uses true mean and N-1 denominator
+Fixed: percentile not rounded
+Fixed: outlier uses >=
+Fixed: total_outliers exact count
+Fixed: no trailing slash
+Fixed: removed normalize_means, reconcile_stddev, normalize_outlier_scores
+Fixed: removed unused BTreeMap from reporter
+Fixed: BTreeMap for aggregated_metrics
+Fixed: aggregator uses BTreeMap
+All bugs fixed. Rebuilding...
+   Compiling metrics-aggregator v0.1.0 (/app)
+warning: unused variable: `outlier_zscore`
+  --> build.rs:11:9
+   |
+11 |     let outlier_zscore: f64 = config_content
+   |         ^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_outlier_zscore`
+   |
+   = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `include_raw_data`
+  --> build.rs:19:9
+   |
+19 |     let include_raw_data: bool = config_content
+   |         ^^^^^^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_include_raw_data`
+
+warning: `metrics-aggregator` (build script) generated 2 warnings
+warning: function `variance_divisor_offset` is never used
+  --> src/aggregator.rs:82:4
+   |
+82 | fn variance_divisor_offset() -> i32 {
+   |    ^^^^^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `#[warn(dead_code)]` on by default
+
+warning: function `validate_threshold_bounds` is never used
+  --> src/config.rs:47:4
+   |
+47 | fn validate_threshold_bounds(mut config: MetricsConfig) -> MetricsConfig {
+   |    ^^^^^^^^^^^^^^^^^^^^^^^^^
+
+warning: function `apply_env_overrides` is never used
+  --> src/config.rs:56:8
+   |
+56 | pub fn apply_env_overrides(mut config: MetricsConfig) -> MetricsConfig {
+   |        ^^^^^^^^^^^^^^^^^^^
+
+warning: variant `PipelineError` is never constructed
+  --> src/errors.rs:10:5
+   |
+4  | pub enum AppError {
+   |          -------- variant in this enum
+...
+10 |     PipelineError(String),
+   |     ^^^^^^^^^^^^^
+   |
+   = note: `AppError` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: function `io_error_with_path` is never used
+  --> src/errors.rs:28:8
+   |
+28 | pub fn io_error_with_path(path: &std::path::Path) -> AppError {
+   |        ^^^^^^^^^^^^^^^^^^
+
+warning: struct `CalibrationState` is never constructed
+  --> src/types.rs:94:12
+   |
+94 | pub struct CalibrationState {
+   |            ^^^^^^^^^^^^^^^^
+   |
+   = note: `CalibrationState` has derived impls for the traits `Clone` and `Debug`, but these are intentionally ignored during dead code analysis
+
+warning: associated items `new`, `calibrate`, and `reset` are never used
+   --> src/types.rs:100:12
+    |
+99  | impl CalibrationState {
+    | --------------------- associated items in this implementation
+100 |     pub fn new(factor: f64) -> Self {
+    |            ^^^
+...
+107 |     pub fn calibrate(&mut self, value: f64) -> f64 {
+    |            ^^^^^^^^^
+...
+115 |     pub fn reset(&mut self) {
+    |            ^^^^^
+
+warning: `metrics-aggregator` (bin "metrics-aggregator") generated 7 warnings
+    Finished `release` profile [optimized] target(s) in 4.41s
+Build complete.
+Running smoke test...
+Aggregation complete. 6 metrics processed, 2 total outlier(s).
+Done.

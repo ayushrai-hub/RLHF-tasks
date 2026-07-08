@@ -1,0 +1,82 @@
+{
+    "id": "07bad746-c787-4587-b11f-a6bff9fef580",
+    "task_name": "16-fleet-risk-calibrator",
+    "trial_name": "16-fleet-risk-calibrator__RZBhYyu",
+    "trial_uri": "file:///Users/ayushrai/Downloads/Airdawgs-review-Terminus2/jobs/2026-07-08__23-49-03/16-fleet-risk-calibrator__RZBhYyu",
+    "task_id": {
+        "path": "16-fleet-risk-calibrator"
+    },
+    "source": null,
+    "task_checksum": "710180d1fbd511e9ca2c66993129415c26d7449f05c083a2854e7ab073492bdf",
+    "config": {
+        "task": {
+            "path": "16-fleet-risk-calibrator",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "16-fleet-risk-calibrator__RZBhYyu",
+        "trials_dir": "jobs/2026-07-08__23-49-03",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": "c8d4bb6b-6aee-4776-a135-ec94244dedd9"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Oracle solution exited with return code 255",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 344, in run\n    await self._execute_agent()\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 228, in _execute_agent\n    await asyncio.wait_for(\n  File \"/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/agents/oracle.py\", line 71, in run\n    raise RuntimeError(\nRuntimeError: Oracle solution exited with return code 255\n",
+        "occurred_at": "2026-07-09T00:01:10.865415"
+    },
+    "started_at": "2026-07-08T23:49:04.215521",
+    "finished_at": "2026-07-09T00:01:11.973754",
+    "environment_setup": {
+        "started_at": "2026-07-08T23:49:04.786843",
+        "finished_at": "2026-07-08T23:55:45.106946"
+    },
+    "agent_setup": {
+        "started_at": "2026-07-08T23:55:45.172620",
+        "finished_at": "2026-07-08T23:55:45.202261"
+    },
+    "agent_execution": {
+        "started_at": "2026-07-08T23:55:45.243997",
+        "finished_at": "2026-07-09T00:01:10.663267"
+    },
+    "verifier": null
+}

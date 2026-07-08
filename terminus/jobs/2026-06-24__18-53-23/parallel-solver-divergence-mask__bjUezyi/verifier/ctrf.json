@@ -1,0 +1,34 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 1,
+            "passed": 0,
+            "failed": 1,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782307513.2507975,
+            "stop": 1782307709.9804
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_acceptance_gate",
+                "status": "failed",
+                "duration": 40.77001131099995,
+                "start": 1782307513.269855,
+                "stop": 1782307554.0446398,
+                "retries": 20,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::gate::('rebuild_agent_binary', 'cases_csv_immutable', 'worker_antipode_blob_lock', 'parallel_full_contract_worker_sweep', 'fold_token_exact_precision_sweep', 'weight_pre_renorm_precision_seeds', 'objective_cross_worker_invariance', 'audit_chain_antipode_lock', 'continue_fresh_parity_with_journal', 'journal_eight_hop_phase_ladder', 'journal_mid_chain_worker_mismatch_rejects', 'journal_corrupt_tail_rejects_continue', 'journal_invalid_tail_fields_rejects', 'journal_seed_tail_mismatch_rejects', 'checkpoint_precision_roundtrip', 'save_continue_triple_hop_fold_lock', 'worker_sweep_audit_invariant_with_journal', 'layout_dual_flag_invariance', 'runtime_validation_matrix', 'continued_report_neutral_parity', 'dispersion_objective_formula_grid')"
+                ],
+                "trace": "gate = 'continued_report_neutral_parity'\n\n    @pytest.mark.parametrize(\"gate\", GATES)\n    def test_acceptance_gate(gate: str) -> None:\n        \"\"\"Each gate runs one C++ behavioral contract check against rebuilt tb_iter.\"\"\"\n>       _run_gate(gate)\n\n/tests/test_outputs.py:93: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nname = 'continued_report_neutral_parity'\n\n    def _run_gate(name: str) -> None:\n        proc = subprocess.run(\n            [str(VERIFIER_BIN), name],\n            text=True,\n            capture_output=True,\n            timeout=600,\n            check=False,\n        )\n>       assert proc.returncode == 0, (\n            f\"tb_iter_verifier gate {name} failed (rc={proc.returncode})\\n\"\n            f\"--- stdout ---\\n{proc.stdout}\\n--- stderr ---\\n{proc.stderr}\"\n        )\nE       AssertionError: tb_iter_verifier gate continued_report_neutral_parity failed (rc=-6)\nE         --- stdout ---\nE         \nE         --- stderr ---\nE         terminate called after throwing an instance of 'std::runtime_error'\nE           what():  full_contract audit_chain mismatch\nE         \nE       assert -6 == 0\nE        +  where -6 = CompletedProcess(args=['/tmp/tb3-verifier-build/tb_iter_verifier', 'continued_report_neutral_parity'], returncode=-6, ...\"terminate called after throwing an instance of 'std::runtime_error'\\n  what():  full_contract audit_chain mismatch\\n\").returncode\n\n/tests/test_outputs.py:84: AssertionError",
+                "message": "The test failed in the call phase due to an assertion error"
+            }
+        ]
+    }
+}

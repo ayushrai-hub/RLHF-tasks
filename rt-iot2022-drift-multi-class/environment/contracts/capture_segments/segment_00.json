@@ -1,9 +1,0 @@
-{
-  "class_distribution": {
-    "MQTT_Publish": 3333,
-    "Thing_Speak": 6518,
-    "Wipro_bulb": 47
-  },
-  "rows": 9898,
-  "segment": 0
-}

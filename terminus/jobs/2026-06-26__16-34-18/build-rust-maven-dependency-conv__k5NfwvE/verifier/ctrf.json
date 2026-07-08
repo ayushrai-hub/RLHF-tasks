@@ -1,0 +1,92 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 8,
+            "passed": 8,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782471915.2430608,
+            "stop": 1782471915.8243518
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_outputs_exist_and_only_documented_outputs",
+                "status": "passed",
+                "duration": 0.06263933300033386,
+                "start": 1782471915.3192306,
+                "stop": 1782471915.3827407,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_json_schema_key_order_and_totals",
+                "status": "passed",
+                "duration": 0.0501147500008301,
+                "start": 1782471915.383183,
+                "stop": 1782471915.43361,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_json_report_matches_policy_model",
+                "status": "passed",
+                "duration": 0.05078895900078351,
+                "start": 1782471915.4340782,
+                "stop": 1782471915.4856315,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_audit_csv_sorting_line_endings_and_contents",
+                "status": "passed",
+                "duration": 0.07932654299929709,
+                "start": 1782471915.4859693,
+                "stop": 1782471915.5655758,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_fixture_immutability_and_pretty_json",
+                "status": "passed",
+                "duration": 0.04896633199950884,
+                "start": 1782471915.5661776,
+                "stop": 1782471915.6156058,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_dependency_management_type_classifier_and_qualifiers",
+                "status": "passed",
+                "duration": 0.06449624900051276,
+                "start": 1782471915.6158895,
+                "stop": 1782471915.6807413,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_ignored_optional_ranges_and_cve_suppression",
+                "status": "passed",
+                "duration": 0.08112733300185937,
+                "start": 1782471915.681312,
+                "stop": 1782471915.762925,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_summaries_and_audit_edge_rows_are_present",
+                "status": "passed",
+                "duration": 0.06003858300027787,
+                "start": 1782471915.7634392,
+                "stop": 1782471915.824111,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

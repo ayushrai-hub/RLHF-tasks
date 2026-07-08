@@ -1,0 +1,29 @@
+{
+    "id": "c99f9129-97c4-4095-a7ec-d6ae10380a11",
+    "started_at": "2026-06-26T17:48:25.506822",
+    "finished_at": "2026-06-26T17:48:37.003705",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "stellar-kiosk-ledger__BaJvkeF"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

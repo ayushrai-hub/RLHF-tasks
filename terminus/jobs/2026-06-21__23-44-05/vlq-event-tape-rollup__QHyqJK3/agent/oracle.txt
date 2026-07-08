@@ -1,0 +1,11 @@
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /app/build
+ninja: Entering directory `/app/build'
+[1/7] Building CXX object CMakeFiles/vlt_run.dir/n09/delta_lane.cpp.o
+[2/7] Building CXX object CMakeFiles/vlt_run.dir/w33/k9_filter.cpp.o
+[3/7] Building CXX object CMakeFiles/vlt_run.dir/common/stage_seal.cpp.o
+[4/7] Building CXX object CMakeFiles/vlt_run.dir/w33/k9_mux.cpp.o
+[5/7] Building CXX object CMakeFiles/vlt_run.dir/m02/t2_pull.cpp.o
+[6/7] Building CXX object CMakeFiles/vlt_run.dir/r04/tape_lane.cpp.o
+[7/7] Linking CXX executable vlt_run

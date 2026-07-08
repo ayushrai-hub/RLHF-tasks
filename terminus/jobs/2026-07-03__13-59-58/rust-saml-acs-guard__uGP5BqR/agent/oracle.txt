@@ -1,0 +1,23 @@
+   Compiling samlacsguard v0.1.0 (/app/task_file)
+    Finished `release` profile [optimized] target(s) in 3.25s
+     Running unittests src/lib.rs (target/release/deps/samlacsguard-292ce63a00b3ddd6)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/visible_tests.rs (target/release/deps/visible_tests-f903f0361f98f39e)
+
+running 3 tests
+test accepts_simple_constructed_response ... ok
+test parses_response_open_tag ... ok
+test summary_reports_response_and_assertion_counts ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests samlacsguard
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

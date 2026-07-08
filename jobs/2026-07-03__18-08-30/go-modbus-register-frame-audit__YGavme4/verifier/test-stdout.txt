@@ -1,0 +1,25 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+cachedir: /tmp/pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 13 items
+
+../tests/test_outputs.py .............                                   [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_practice_segment_three_matches_contract
+PASSED ../tests/test_outputs.py::test_mregorder_overlay_applied
+PASSED ../tests/test_outputs.py::test_crc_noise_excludes_bad_checksum
+PASSED ../tests/test_outputs.py::test_duplicate_seq_last_frame_wins
+PASSED ../tests/test_outputs.py::test_slave_reject_excluded_from_chain
+PASSED ../tests/test_outputs.py::test_checkpoint_marker_skipped
+PASSED ../tests/test_outputs.py::test_order_overlay_sidecar
+PASSED ../tests/test_outputs.py::test_empty_scan_zero_state
+PASSED ../tests/test_outputs.py::test_continue_seed_without_tip_uses_zero_seed
+PASSED ../tests/test_outputs.py::test_continue_seed_with_tip_extends_chain
+PASSED ../tests/test_outputs.py::test_unrelated_stale_tip_ignored_on_practice_scan
+PASSED ../tests/test_outputs.py::test_mregtip_written_after_successful_audit
+PASSED ../tests/test_outputs.py::test_output_regenerated_not_static
+============================== 13 passed in 0.26s ==============================

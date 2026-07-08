@@ -1,0 +1,27 @@
+{
+    "id": "05517698-98c9-45da-9f03-91ddc7ebfa5b",
+    "started_at": "2026-06-28T17:03:33.101083",
+    "finished_at": "2026-06-28T17:03:34.210227",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "atlasbench-mlflow-governance.__SRmGXKf"
+                    ]
+                }
+            }
+        }
+    }
+}

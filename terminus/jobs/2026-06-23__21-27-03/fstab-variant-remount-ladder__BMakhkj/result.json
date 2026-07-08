@@ -1,0 +1,84 @@
+{
+    "id": "7035c81a-e903-435e-8efa-01e7a6c05363",
+    "task_name": "fstab-variant-remount-ladder",
+    "trial_name": "fstab-variant-remount-ladder__BMakhkj",
+    "trial_uri": "file:///Users/ayushrai/Downloads/Airdawgs-review-Terminus2/jobs/2026-06-23__21-27-03/fstab-variant-remount-ladder__BMakhkj",
+    "task_id": {
+        "path": "fstab-variant-remount-ladder"
+    },
+    "source": null,
+    "task_checksum": "6b02ad8b176747192e43cf5b8dc90a8d77ebf4edd6292bce318a5e626aac4343",
+    "config": {
+        "task": {
+            "path": "fstab-variant-remount-ladder",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "fstab-variant-remount-ladder__BMakhkj",
+        "trials_dir": "jobs/2026-06-23__21-27-03",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": "0b73c3be-0551-4621-9754-42303fa47d9a"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-23T21:27:03.676996",
+    "finished_at": "2026-06-23T21:28:07.397200",
+    "environment_setup": {
+        "started_at": "2026-06-23T21:27:03.684120",
+        "finished_at": "2026-06-23T21:27:32.306939"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-23T21:27:32.309382",
+        "finished_at": "2026-06-23T21:27:32.313454"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-23T21:27:32.314281",
+        "finished_at": "2026-06-23T21:27:35.465813"
+    },
+    "verifier": {
+        "started_at": "2026-06-23T21:27:35.466912",
+        "finished_at": "2026-06-23T21:28:05.491985"
+    }
+}

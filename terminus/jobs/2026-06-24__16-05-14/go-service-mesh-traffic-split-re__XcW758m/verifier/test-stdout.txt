@@ -1,0 +1,33 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 22 items
+
+../tests/test_outputs.py ......................                          [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_output_file_exists
+PASSED ../tests/test_outputs.py::test_output_is_valid_json_object
+PASSED ../tests/test_outputs.py::test_output_has_routed_requests_and_summary
+PASSED ../tests/test_outputs.py::test_routed_request_schema_and_order
+PASSED ../tests/test_outputs.py::test_summary_schema_and_types
+PASSED ../tests/test_outputs.py::test_summary_total_matches_input_size
+PASSED ../tests/test_outputs.py::test_every_request_has_exactly_one_routing_result
+PASSED ../tests/test_outputs.py::test_routes_only_to_enabled_configured_backends_or_default
+PASSED ../tests/test_outputs.py::test_disabled_backend_is_never_selected
+PASSED ../tests/test_outputs.py::test_backend_counts_match_routed_requests
+PASSED ../tests/test_outputs.py::test_expected_weights_report_enabled_config_weights
+PASSED ../tests/test_outputs.py::test_no_fallback_for_supplied_requests
+PASSED ../tests/test_outputs.py::test_header_matched_requests_do_not_cross_route_between_canaries
+PASSED ../tests/test_outputs.py::test_case_insensitive_header_names_enable_canary_v2
+PASSED ../tests/test_outputs.py::test_v3_requires_authorization_token
+PASSED ../tests/test_outputs.py::test_binary_was_rebuilt_from_go_sources
+PASSED ../tests/test_outputs.py::test_binary_rerun_is_valid_and_overwrites_output
+PASSED ../tests/test_outputs.py::test_seeded_rerun_preserves_disabled_and_fallback_contracts
+PASSED ../tests/test_outputs.py::test_go_contract_handles_disabled_backends_v3_auth_and_raw_weights
+PASSED ../tests/test_outputs.py::test_go_contract_handles_token_and_absent_header_modes
+PASSED ../tests/test_outputs.py::test_output_is_not_static_or_handwritten_shape_only
+PASSED ../tests/test_outputs.py::test_backend_counts_sum_matches_total_requests
+============================= 22 passed in 16.01s ==============================

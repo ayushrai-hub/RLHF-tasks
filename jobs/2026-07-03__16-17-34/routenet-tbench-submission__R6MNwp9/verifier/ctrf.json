@@ -1,0 +1,173 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 17,
+            "passed": 17,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1783075862.7896273,
+            "stop": 1783075875.0903842
+        },
+        "tests": [
+            {
+                "name": "tests/test_outputs.py::test_canonical_negatives_output_exists",
+                "status": "passed",
+                "duration": 0.004998417000024347,
+                "start": 1783075862.9453917,
+                "stop": 1783075862.950701,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_canonical_audit_output_exists",
+                "status": "passed",
+                "duration": 0.0006785839999849941,
+                "start": 1783075862.950868,
+                "stop": 1783075862.9516954,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_sampler_writes_required_schema",
+                "status": "passed",
+                "duration": 9.300643629000035,
+                "start": 1783075862.951818,
+                "stop": 1783075872.2935402,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_negatives_have_correct_count_and_shape",
+                "status": "passed",
+                "duration": 0.00039287399997078865,
+                "start": 1783075872.2960925,
+                "stop": 1783075872.296596,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_source_label_marks_postgres_as_origin",
+                "status": "passed",
+                "duration": 0.0006503740000312064,
+                "start": 1783075872.2967181,
+                "stop": 1783075872.297534,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_node_ids_are_known",
+                "status": "passed",
+                "duration": 1.4422455419999949,
+                "start": 1783075872.297786,
+                "stop": 1783075873.7409112,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_negatives_are_unique_unordered_pairs",
+                "status": "passed",
+                "duration": 0.002259373999976333,
+                "start": 1783075873.7433794,
+                "stop": 1783075873.7460747,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_no_train_edge_leakage",
+                "status": "passed",
+                "duration": 0.00031983299999183146,
+                "start": 1783075873.7470217,
+                "stop": 1783075873.7474544,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_no_validation_edge_leakage",
+                "status": "passed",
+                "duration": 0.00018574999998577368,
+                "start": 1783075873.747561,
+                "stop": 1783075873.747819,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_no_test_edge_leakage",
+                "status": "passed",
+                "duration": 0.00015591599998288075,
+                "start": 1783075873.747895,
+                "stop": 1783075873.7481084,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_graph_distance_constraint",
+                "status": "passed",
+                "duration": 0.0002910000000042601,
+                "start": 1783075873.7481875,
+                "stop": 1783075873.748592,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_second_seed_produces_a_different_set",
+                "status": "passed",
+                "duration": 0.3420893760000183,
+                "start": 1783075873.748897,
+                "stop": 1783075874.0915933,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_second_seed_satisfies_all_invariants",
+                "status": "passed",
+                "duration": 0.0006562929999915923,
+                "start": 1783075874.0917783,
+                "stop": 1783075874.0925043,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_determinism_repeat_same_seed",
+                "status": "passed",
+                "duration": 0.5004405000000247,
+                "start": 1783075874.093307,
+                "stop": 1783075874.5944176,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_smaller_k_is_consistent",
+                "status": "passed",
+                "duration": 0.19175046000000862,
+                "start": 1783075874.59507,
+                "stop": 1783075874.7869914,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_static_audit_reports_ok",
+                "status": "passed",
+                "duration": 0.05331133399999999,
+                "start": 1783075874.7872198,
+                "stop": 1783075874.840702,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            },
+            {
+                "name": "tests/test_outputs.py::test_third_seed_invariants_at_small_cardinality",
+                "status": "passed",
+                "duration": 0.24843691699999226,
+                "start": 1783075874.8408563,
+                "stop": 1783075875.0894482,
+                "retries": 0,
+                "file_path": "tests/test_outputs.py"
+            }
+        ]
+    }
+}

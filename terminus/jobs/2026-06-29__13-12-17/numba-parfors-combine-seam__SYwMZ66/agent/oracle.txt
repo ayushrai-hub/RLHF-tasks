@@ -1,0 +1,55 @@
+   Compiling r8_replay v0.1.0 (/app/environment)
+warning: unused variable: `cached_gen`
+   --> internal/engine.rs:119:10
+    |
+119 |     let (cached_gen, cached_frag) = gate_d3(&meta_root.to_string_lossy(), &key);
+    |          ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_cached_gen`
+    |
+    = note: `#[warn(unused_variables)]` on by default
+
+warning: unused variable: `scenario_id`
+   --> internal/engine.rs:109:55
+    |
+109 | fn sync_store_from_abs(case: &Path, meta_root: &Path, scenario_id: u32) {
+    |                                                       ^^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_scenario_id`
+
+warning: function `PUBLISH_BEFORE_BARRIER` should have a snake case name
+  --> internal/../p7/p7_r.rs:10:8
+   |
+10 | pub fn PUBLISH_BEFORE_BARRIER() -> i32 {
+   |        ^^^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `publish_before_barrier`
+   |
+   = note: `#[warn(non_snake_case)]` on by default
+
+warning: function `WIDTH_SIG_SKIP` should have a snake case name
+ --> internal/../d3/d3_b.rs:6:8
+  |
+6 | pub fn WIDTH_SIG_SKIP() -> i32 {
+  |        ^^^^^^^^^^^^^^ help: convert the identifier to snake case: `width_sig_skip`
+
+warning: function `HEADLINE_METRIC_ONLY` should have a snake case name
+ --> internal/../f2/f2_x.rs:3:8
+  |
+3 | pub fn HEADLINE_METRIC_ONLY() -> bool {
+  |        ^^^^^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `headline_metric_only`
+
+warning: function `SKIP_LEDGER_BUST` should have a snake case name
+ --> internal/../d5/d5_p.rs:2:8
+  |
+2 | pub fn SKIP_LEDGER_BUST() -> i32 {
+  |        ^^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `skip_ledger_bust`
+
+warning: function `KEY_REDUCE_ONLY` should have a snake case name
+ --> internal/../c4/c4_s.rs:3:8
+  |
+3 | pub fn KEY_REDUCE_ONLY() -> i32 {
+  |        ^^^^^^^^^^^^^^^ help: convert the identifier to snake case: `key_reduce_only`
+
+warning: function `WIDE_ON_CACHED` should have a snake case name
+ --> internal/../pack/mix_r8.rs:5:8
+  |
+5 | pub fn WIDE_ON_CACHED() -> i32 {
+  |        ^^^^^^^^^^^^^^ help: convert the identifier to snake case: `wide_on_cached`
+
+warning: `r8_replay` (lib) generated 8 warnings
+    Finished `release` profile [optimized] target(s) in 8.13s

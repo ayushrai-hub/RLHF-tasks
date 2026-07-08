@@ -1,0 +1,32 @@
+============================= test session starts ==============================
+platform linux -- Python 3.13.12, pytest-8.4.1, pluggy-1.6.0
+cachedir: /tmp/pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collected 20 items
+
+../tests/test_outputs.py ....................                            [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_feature_gates_header
+PASSED ../tests/test_outputs.py::test_feature_gates_complete_and_sorted
+PASSED ../tests/test_outputs.py::test_feature_gates_dep_classification
+PASSED ../tests/test_outputs.py::test_optional_dep_syntax_preserved
+PASSED ../tests/test_outputs.py::test_cross_crate_enable_kept_in_feature_deps
+PASSED ../tests/test_outputs.py::test_cfl_rules_header
+PASSED ../tests/test_outputs.py::test_cfl_rules_all_present_and_sorted
+PASSED ../tests/test_outputs.py::test_cfl_rules_exact_values
+PASSED ../tests/test_outputs.py::test_decoy_rules_excluded
+PASSED ../tests/test_outputs.py::test_violations_header
+PASSED ../tests/test_outputs.py::test_violations_exact_set
+PASSED ../tests/test_outputs.py::test_violations_reference_existing_rules
+PASSED ../tests/test_outputs.py::test_weak_dependency_semantics
+PASSED ../tests/test_outputs.py::test_no_false_positive_on_safe_features
+PASSED ../tests/test_outputs.py::test_cfl_margins_header
+PASSED ../tests/test_outputs.py::test_cfl_margins_complete_and_sorted
+PASSED ../tests/test_outputs.py::test_cfl_margins_values
+PASSED ../tests/test_outputs.py::test_cfl_margins_tie_break
+PASSED ../tests/test_outputs.py::test_cfl_margins_four_decimal_formatting
+PASSED ../tests/test_outputs.py::test_idempotent_and_script_driven
+============================== 20 passed in 0.08s ==============================

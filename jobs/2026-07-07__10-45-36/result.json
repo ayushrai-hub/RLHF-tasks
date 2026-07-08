@@ -1,0 +1,27 @@
+{
+    "id": "1284a666-d954-4948-8653-662efb259120",
+    "started_at": "2026-07-07T10:45:36.303934",
+    "finished_at": "2026-07-07T10:45:40.814726",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "build-graph-acyclicity-proof__mmVEnHS"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,69 @@
+{
+    "id": "aa7a4a70-5358-47ec-85a7-a601fe4996e6",
+    "task_name": "blind-signature-unlinkability-rust",
+    "trial_name": "blind-signature-unlinkability-ru__fwpLKAk",
+    "trial_uri": "file:///Users/ayushrai/Downloads/Airdawgs-review-Terminus2/jobs/2026-06-25__17-00-41/blind-signature-unlinkability-ru__fwpLKAk",
+    "task_id": {
+        "path": "blind-signature-unlinkability-rust"
+    },
+    "source": null,
+    "task_checksum": "0d906d47727fd1f098a026963d268e914f44cbe9f3051283f6588f18ee262cb7",
+    "config": {
+        "task": {
+            "path": "blind-signature-unlinkability-rust",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "blind-signature-unlinkability-ru__fwpLKAk",
+        "trials_dir": "jobs/2026-06-25__17-00-41",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": "e0c21ea2-894d-4fba-a734-081da3f35ef9"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Docker compose command failed for environment blind-signature-unlinkability-rust. Command: docker compose -p blind-signature-unlinkability-ru__fwplkak -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 1. Stdout: unable to get image 'hb__blind-signature-unlinkability-rust': Cannot connect to the Docker daemon at unix:///Users/ayushrai/.docker/run/docker.sock. Is the docker daemon running?\n. Stderr: None. ",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 340, in run\n    await self._setup_environment()\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 180, in _setup_environment\n    await self._start_environment_with_retry()\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 189, in async_wrapped\n    return await copy(fn, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 111, in __call__\n    do = await self.iter(retry_state=retry_state)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 153, in iter\n    result = await action(retry_state)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/_utils.py\", line 99, in inner\n    return call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/__init__.py\", line 400, in <lambda>\n    self._add_action_func(lambda rs: rs.outcome.result())\n                                     ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py\", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 114, in __call__\n    result = await fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 192, in _start_environment_with_retry\n    await asyncio.wait_for(\n  File \"/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py\", line 184, in start\n    await self._run_docker_compose_command([\"up\", \"-d\"])\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py\", line 166, in _run_docker_compose_command\n    raise RuntimeError(\nRuntimeError: Docker compose command failed for environment blind-signature-unlinkability-rust. Command: docker compose -p blind-signature-unlinkability-ru__fwplkak -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 1. Stdout: unable to get image 'hb__blind-signature-unlinkability-rust': Cannot connect to the Docker daemon at unix:///Users/ayushrai/.docker/run/docker.sock. Is the docker daemon running?\n. Stderr: None. \n",
+        "occurred_at": "2026-06-25T17:00:41.761524"
+    },
+    "started_at": "2026-06-25T17:00:41.054522",
+    "finished_at": "2026-06-25T17:00:42.041515",
+    "environment_setup": {
+        "started_at": "2026-06-25T17:00:41.063149",
+        "finished_at": "2026-06-25T17:00:41.757153"
+    },
+    "agent_setup": null,
+    "agent_execution": null,
+    "verifier": null
+}

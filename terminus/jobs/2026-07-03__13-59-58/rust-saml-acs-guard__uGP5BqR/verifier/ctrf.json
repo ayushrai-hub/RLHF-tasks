@@ -1,0 +1,29 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 1,
+            "passed": 1,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1783067459.218402,
+            "stop": 1783067460.4467466
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_saml_acs_security_contract",
+                "status": "passed",
+                "duration": 1.2215197499999988,
+                "start": 1783067459.222367,
+                "stop": 1783067460.445157,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

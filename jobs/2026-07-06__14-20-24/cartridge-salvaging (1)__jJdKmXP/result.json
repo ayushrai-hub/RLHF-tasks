@@ -1,0 +1,69 @@
+{
+    "id": "1064786c-d36b-493d-9bda-445ab05234cf",
+    "task_name": "cartridge-salvaging (1)",
+    "trial_name": "cartridge-salvaging (1)__jJdKmXP",
+    "trial_uri": "file:///Users/ayushrai/Downloads/Airdawgs-review-Terminus2/jobs/2026-07-06__14-20-24/cartridge-salvaging%20%281%29__jJdKmXP",
+    "task_id": {
+        "path": "cartridge-salvaging (1)"
+    },
+    "source": null,
+    "task_checksum": "acf80466e47deed9997b604b0796feb7cd2c7d68453a1159a76bb12645d5d5a1",
+    "config": {
+        "task": {
+            "path": "cartridge-salvaging (1)",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "cartridge-salvaging (1)__jJdKmXP",
+        "trials_dir": "jobs/2026-07-06__14-20-24",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": "5b9fb063-9f6c-48b7-a793-9a1693827540"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Docker compose command failed for environment cartridge-salvaging (1). Command: docker compose -p cartridge-salvaging (1)__jjdkmxp -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 1. Stdout: invalid project name \"cartridge-salvaging (1)__jjdkmxp\": must consist only of lowercase alphanumeric characters, hyphens, and underscores as well as start with a letter or number\n. Stderr: None. ",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 340, in run\n    await self._setup_environment()\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 180, in _setup_environment\n    await self._start_environment_with_retry()\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 189, in async_wrapped\n    return await copy(fn, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 111, in __call__\n    do = await self.iter(retry_state=retry_state)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 153, in iter\n    result = await action(retry_state)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/_utils.py\", line 99, in inner\n    return call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/__init__.py\", line 400, in <lambda>\n    self._add_action_func(lambda rs: rs.outcome.result())\n                                     ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py\", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 114, in __call__\n    result = await fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 192, in _start_environment_with_retry\n    await asyncio.wait_for(\n  File \"/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py\", line 184, in start\n    await self._run_docker_compose_command([\"up\", \"-d\"])\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py\", line 166, in _run_docker_compose_command\n    raise RuntimeError(\nRuntimeError: Docker compose command failed for environment cartridge-salvaging (1). Command: docker compose -p cartridge-salvaging (1)__jjdkmxp -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 1. Stdout: invalid project name \"cartridge-salvaging (1)__jjdkmxp\": must consist only of lowercase alphanumeric characters, hyphens, and underscores as well as start with a letter or number\n. Stderr: None. \n",
+        "occurred_at": "2026-07-06T14:20:25.677564"
+    },
+    "started_at": "2026-07-06T14:20:24.296122",
+    "finished_at": "2026-07-06T14:20:26.186658",
+    "environment_setup": {
+        "started_at": "2026-07-06T14:20:24.299398",
+        "finished_at": "2026-07-06T14:20:25.660541"
+    },
+    "agent_setup": null,
+    "agent_execution": null,
+    "verifier": null
+}

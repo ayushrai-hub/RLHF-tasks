@@ -1,0 +1,2 @@
+   Compiling commonmark v0.1.0 (/app/task_file)
+    Finished `release` profile [optimized] target(s) in 31.83s

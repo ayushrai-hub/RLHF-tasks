@@ -1,0 +1,27 @@
+{
+    "id": "9da57c25-ad3a-4471-9398-f97c14cd963a",
+    "started_at": "2026-06-27T14:57:58.485080",
+    "finished_at": "2026-06-27T14:58:05.368401",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "xml-namespace-canonical-roundtri__Wx6vohz"
+                    ]
+                }
+            }
+        }
+    }
+}

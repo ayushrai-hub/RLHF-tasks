@@ -1,0 +1,3 @@
+patching file src/control.rs
+   Compiling kettleheat v0.1.0 (/app)
+    Finished `release` profile [optimized] target(s) in 0.83s

@@ -1,0 +1,342 @@
+Difficulty Explanation (optional)
+Describe in your own words why your task is challenging for humans and agents to solve.
+
+This task was hard because the bug was not in only one place. It was spread across many C++ replay modules and all of them were affecting the same trace output. The cache identity was becoming stale during hot reload, journal events were coming in wrong order, checkpoint seal was not matching with WAL, and generation counters were getting different values in different views. Recovery flow was also running screening again without properly finishing the swap process, and pack layer was using wrong T7 residual tolerance. Because of this, fixing only one file was not enough. Even if the output JSON looked correct, the tests were still failing because they recompute body digest, checkpoint seal, WAL checksum, and generation values from replay instead of trusting the final trace file.
+Solution Explanation (optional)
+Describe your high-level approach to this task and key insights in forming the solution.
+
+I first ran the replay pipeline and compared the screen, swap, and live views with the generated trace and WAL logs to find where the generation values were getting different. I found that screening was finishing before swap was completed, some swap signatures were getting skipped, recovery was not quiescing swap before running screening again, and seal calculation was missing the required BEEF mix after every bust and screen pair. I fixed the issues across all related modules so cache refresh, journal ordering, checkpoint seal, generation counters, and pack tolerance all stayed consistent. After that I rebuilt the project, cleared the runtime data, reran all replay scenarios, and generated the trace again from the normal replay flow instead of editing anything manually.
+Verification Explanation (optional)
+Explain how your tests are verifying correctness.
+
+I verified the fix by rebuilding the project, clearing the runtime directory, and running cold replay and all scenario replays again. This regenerated the trace file completely from scratch. The checks confirmed the trace schema, body digest, checkpoint seal, WAL checksum, generation values, action codes, and block RMS values were all correct. I also checked cold and warm replay results, cross-view generation matching, WAL ordering, recovery idempotence, corrupt WAL handling, replay stability, and T7 tolerance. This made sure the fix was working properly and not only for one test case.
+
+
+Difficulty: ✅ MEDIUM
+
+Status: ✅ Solvable (all tests passed by at least one agent run)
+
+Agent Performance:
+  • terminus-claude-opus-4-8: 100.0% (5/5 runs)
+  • terminus-gpt5-5: 60.0% (3/5 runs)
+
+Reference Agents:
+  • nop: 0.0% (0/1 runs)
+  • oracle: 100.0% (3/3 runs)
+
+Failure Breakdown:
+  • nop: 1 other
+  • terminus-gpt5-5: 2 other
+
+Unit Tests Results:
+  • test_k07_repeat_stable: 10 passed / 10 runs
+  • test_k26_s2_anchor_pair: 10 passed / 10 runs
+  • test_k08_s0_survives: 10 passed / 10 runs
+  • test_k28_readopt_screen_anchor: 10 passed / 10 runs
+  • test_k27_snapshot_row_order: 10 passed / 10 runs
+  • test_k10_denied_case: 10 passed / 10 runs
+  • test_k00_cold_warm_parity: 10 passed / 10 runs
+  • test_k20_s2_insert_changes_fingerprint: 10 passed / 10 runs
+  • test_k02_gamma_gap: 10 passed / 10 runs
+  • test_k18_latest_cross_read: 10 passed / 10 runs
+  • test_k24_partial_chain_row_count: 10 passed / 10 runs
+  • test_k21_bust_screen_pair_count: 10 passed / 10 runs
+  • test_k15_s4_readopt_after_deny: 10 passed / 10 runs
+  • test_k05_screen_anchor_all: 9 passed / 10 runs
+  • test_k12_double_rebuild_stable: 10 passed / 10 runs
+  • test_k23_s1_live_dominates_both_views: 10 passed / 10 runs
+  • test_k22_s4_cross_view_gap: 10 passed / 10 runs
+  • test_k13_partial_seal_rejected: 10 passed / 10 runs
+  • test_k19_narrow_block_rms: 10 passed / 10 runs
+  • test_k01_beta_skew: 9 passed / 10 runs
+  • test_k04_chain_monotone: 10 passed / 10 runs
+  • test_k17_sync_gen_alignment: 10 passed / 10 runs
+  • test_k06_swap_anchor_all: 10 passed / 10 runs
+  • test_k11_abs_shift: 10 passed / 10 runs
+  • test_k16_cross_scope_monotone: 10 passed / 10 runs
+  • test_k25_warm_s2_changes_digest: 10 passed / 10 runs
+  • test_k14_delayed_shift: 10 passed / 10 runs
+  • test_k09_step_chain: 10 passed / 10 runs
+  • test_k03_delta_bust: 10 passed / 10 runs
+
+Analysis on Agent Failures:
+  • Task Instruction Sufficiency: ✅ PASS, ## Job Run Summary
+
+### 1. Overall Results
+- **2 trials total — both failed (0/2 passed)**
+- Both trials scored **28/29 tests**, missing the full-pass threshold by exactly one test
+- No model/agent differentiation noted in the data; both appear to be the same agent type
+
+### 2. Common Failure Patterns
+Both trials failed on a **single, different test**, but the root cause pattern is identical:
+
+| Trial | Failing Test | Root Cause |
+|---|---|---|
+| `tbench-task__hAdU77z` | `test_k01_beta_skew` | `f2/gateway.cpp` action code swap (`code==3 → return 7`) was partially applied / overwritten by a prior regex patch |
+| `tbench-task__8SnmdCZ` | `test_k05_screen_anchor_all` | `s5/s5_s.cpp` generation anchor fix was applied in-session but didn't survive into the verifier's build environment |
+
+**Shared failure pattern:** Agents applied patches via Python replacement scripts across multiple files sequentially. In both cases, a late-stage patch either **partially overwrote an earlier fix** (`hAdU77z`) or **didn't persist into the clean verifier build** (`8SnmdCZ`). This suggests fragility in the multi-patch Python scripting approach — particularly when patches touch the same file multiple times or when build environments are isolated from the agent's working directory.
+
+### 3. Hack Check — Clean ✅
+Neither agent cheated. Both `reward_hacking` checks passed:
+- No writes to reward files, solution directories, or test harness files
+- All edits were confined to `/app/environment` source files
+- Scores reflect genuine partial success through legitimate code repair and rebuild cycles
+
+### 4. Systematic Instruction Issues — None Found
+Both `task_specification` checks passed. The instructions were deemed sufficient in both cases:
+- The failing behaviors were explicitly documented (tranche-2 action codes, screen_gen anchor alignment)
+- Failures were attributed to **agent execution mistakes**, not specification gaps
+- No ambiguity or missing information identified across either trial
+
+### 5. Progress on Failed Trials
+Agents performed **exceptionally close** to perfect:
+- **96.6% pass rate** (28/29) on both trials
+- Both agents correctly diagnosed and fixed ~5–7 distinct bugs each (WAL ordering, generation alignment, action codes, sort order, inspect logic, seal arithmetic)
+- The single failure in each case was a **last-mile patch application issue**, not a fundamental misdiagnosis
+
+### 6. Key Differences Between Trials
+| Dimension | `hAdU77z` | `8SnmdCZ` |
+|---|---|---|
+| Failure mode | Patch self-overwrite (same file patched twice) | Build environment isolation (fix didn't persist to verifier) |
+| Fix attempted? | Yes, but corrupted by later patch | Yes, correctly identified and applied in-session |
+| Verification | Agent ran self-checks, appeared to pass | Agent ran comprehensive self-verification, appeared to pass |
+
+**Common thread:** Both agents believed their fixes were successful before the verifier ran — suggesting the agents' self-verification step is unreliable as a final gate. The verifier environment apparently runs a **fresh build** that can diverge from the agent's working state, exposing incomplete or fragile patches.
+
+### Recommendations
+1. **Patch sequencing:** When patching the same file multiple times, agents should re-read the file between patches to verify state before applying the next change
+2. **Build verification:** Agents should do a clean rebuild (`cmake --clean`) and re-run the full pipeline from scratch before declaring success, to simulate the verifier's isolated environment
+3. **Near-miss scoring:** Consider whether the reward function should grant partial credit for 28/29 — both trials represent substantial, legitimate progress
+
+
+## Quality Check Results
+✅ pass - behavior_in_task_description: The instruction.md thoroughly describes all behaviors tested: the p7_trace.json output path, the pipeline (p7_run, p7_emit, p7_recover, p7_inspect), WAL format (pipe-delimited seq|opcode|scenario|crc32), bust-before-screen_ok ordering, checkpoint seal formula (crc sums + 0xBEEF per bust-then-success pair, 32-bit masked), body_digest computation (sha256 over canonical JSON with sorted keys, no whitespace), epoch row fields (scenario, view, principal, label, generation, action_code, block_rms), action_code rules (7 for tranche-two live exceeding screen, 9 for s3 revocation deny, 2 for s4 cross-view gap), anchor-matching requirements, s0 generation=1 and block_rms≤1e-4, partial replay through s3 omitting s4, idempotent emit, and state.json canonical ordering. Tests check all of these behaviors.
+✅ pass - behavior_in_tests: The tests (28 test functions, k00-k28) cover all specified behaviors: cold/warm parity, s1 beta skew with action_code 7, gamma gap non-zero action_code, WAL bust-before-screen_ok ordering, WAL monotone sequences, screen/swap anchor matching for all scenarios, idempotent emit, poisoned seal rejection and recovery, step chain idempotency, s3 deny action_code 9, s3 live_gen floor, double recover idempotency, partial chain omits s4, invalid WAL checksum rejection, s4 readopt clears deny codes, seal computation, s4 screen/swap anchors and inspect delta, cross-read counters, block_rms≤1e-4 for s0, s2 fingerprint changes, bust-screen pair count, s4 cross-view gap action_code 2, s1 live dominates both views, partial vs full row counts, warm replay digest change, s2 anchor pairs, snapshot row order, and s4 readopt screen anchor preservation.
+✅ pass - informative_test_structure: Tests are well organized with descriptive names (test_k00_cold_warm_parity, test_k01_beta_skew, etc.) and each has a docstring explaining what is being checked. The test file uses helper functions (replay, emit, recover, load_trace, parse_wal, etc.) that clearly separate concerns. The autouse fixture _isolate_replay_state ensures clean state per test. Overall the structure is readable and maintainable.
+✅ pass - anti_cheating_measures: The solution applies patches to fix buggy C++ source code and then rebuilds the binary before running the pipeline. The tests run p7_run, p7_emit, p7_recover, and p7_inspect from the compiled tools, not from any pre-computed files. The Dockerfile does not copy tests/ or solution/ into the image. The fixture case files (a0.scn, b0.swp, i0.blk) contain numeric anchors that tests compare against but do not embed the full expected trace output. The agent cannot trivially short-circuit by writing p7_trace.json manually because tests verify WAL order, seal correctness, and that p7_emit rejects invalid checksums. Hardcoding the output is explicitly stated as insufficient in instruction.md.
+✅ pass - structured_data_schema: The instruction.md explicitly specifies: the JSON trace schema (epochs array, body_digest field, each epoch row's fields: scenario, view, principal, label, generation, action_code, block_rms), WAL format (pipe-delimited seq|opcode|scenario|crc32), checkpoint.seal content (integer), state.json structure (epoch rows in canonical lexicographic order), inspect stdout format (screen=<n> swap=<n> delta=<n>), and body_digest computation algorithm (sha256 over canonical UTF-8 JSON of epochs with sorted keys, no whitespace). These are normative specifications, not merely examples.
+✅ pass - pinned_dependencies: The Dockerfile pins Python packages (pytest==8.4.1, pytest-json-ctrf==0.3.5, pytest-randomly==3.16.0), pins apt packages with explicit versions (cmake=3.25.1-1, python3=3.11.2-1+b1, etc.), uses a pinned gcc:13-bookworm base image with a SHA256 digest, and pins the nlohmann/json download to v3.11.3. All external dependencies are pinned.
+✅ pass - typos: No typos found in filenames, paths, commands, or variable names. The instruction.md, test_outputs.py, Dockerfile, solve.sh, and all source files are internally consistent in naming (p7_trace.json, wal.log, checkpoint.seal, state.json, screen_gen, swap_gen, bust_w3, screen_ok, etc.). The patch filenames match what solve.sh references.
+✅ pass - tests_or_solution_in_image: The Dockerfile only copies the environment directory contents into /app/environment/ via 'COPY . /app/environment/'. The tests/ and solution/ directories are not copied into the image. Tests run from /tests/ (which is mounted separately at verifier time), and solution patches are applied from outside the image.
+✅ pass - hardcoded_solution: The solve.sh applies four patches to fix the buggy C++ sources (oracle_lane.patch, oracle_bind.patch, oracle_skew.patch, oracle_core.patch — though oracle_core.patch is referenced only implicitly; actually the final apply is oracle_skew.patch), rebuilds the project with CMake, then runs the actual pipeline (p7_run --cold, p7_emit, p7_recover, p7_inspect) and includes multiple Python verification steps. The solution derives the answer through genuine computation, not by echoing pre-computed output. Note: oracle_core.patch exists in the solution directory but is not applied in solve.sh — the patches applied are oracle_lane, oracle_bind, and oracle_skew.
+✅ pass - file_reference_mentioned: The instruction.md explicitly states the output file path: 'Repair sources under /app/environment so bundled tools regenerate /app/output/p7_trace.json through the normal pipeline.' It also mentions the other key runtime files: /app/runtime/state.json, /app/runtime/wal.log, and /app/runtime/checkpoint.seal. All files that tests check are named in the instruction.
+
+
+================================================================================
+                         REVIEW REPORT: tbench-task
+================================================================================
+
+Status:        ⚠️ WARNING
+Task Location: /root/harbor_tasks/tbench-task
+
+--------------------------------------------------------------------------------
+SUMMARY
+--------------------------------------------------------------------------------
+
+This task requires debugging and repairing a C++ quantum-chemistry replay
+system with multiple interacting subsystems (screening, basis swap, cache,
+WAL logging, seal checkpointing, cross-authority inspection). The broken
+codebase has bugs in WAL append ordering, generation era resolution, cache
+slot keying, inspect focus selection, and state serialization sorting. The
+oracle solution applies four patch files to fix these issues across ~10 source
+files. The test suite contains 29 pytest functions that exercise cold/warm
+replay parity, WAL invariants, trace anchor alignment, partial/full chain
+behavior, checkpoint recovery, and cross-view inspection.
+
+================================================================================
+                              WARNINGS ⚠️
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Non-Canonical Dockerfile Base Image
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/Dockerfile (line 1)
+Problem: The base image `gcc:13-bookworm` is not from the canonical t-bench
+         base image list. The canonical images are pinned per-language images
+         from `ghcr.io/laude-institute/t-bench/` or the agreed Docker Library
+         set. A GCC-specific image is understandable for a C++ compilation
+         task, but should be proposed as a list addition or replaced with a
+         canonical base that installs GCC.
+
+Current code:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  FROM gcc:13-bookworm@sha256:930f2ebe239275fa67226654cb79273ea34eee67...     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Suggested fix: Use a canonical Debian base and install gcc/g++ explicitly:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  FROM public.ecr.aws/docker/library/debian:bookworm-slim@sha256:<pin>       │
+│  RUN apt-get update && apt-get install -y --no-install-recommends \          │
+│      g++-13 gcc-13 make cmake ...                                           │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: The canonical base image policy exists to curb image
+fragmentation. If gcc:13-bookworm is genuinely needed (e.g. for specific
+compiler version guarantees), it should be proposed as a list addition with
+justification.
+
+--------------------------------------------------------------------------------
+2. state.cpp Sort Order Bug Disagrees with Instruction's Canonical Order
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/src/state.cpp (lines 37-41)
+Problem: The buggy state.cpp sorts persisted epochs only by `scenario`,
+         but the instruction specifies canonical lexicographic order by
+         (scenario, view, principal, label). The oracle patch (oracle_bind)
+         removes the buggy sort entirely and relies on `upsert_rows()` which
+         does sort by all four keys. However, the existing buggy code ALSO
+         has `upsert_rows()` doing the correct 4-key sort — so the state is
+         already canonical before `save()` re-sorts by scenario alone. This
+         means the agent must recognize that the `save()` sort is the bug
+         (it destroys the already-correct order). This is a subtle but
+         solvable bug — no action needed, but worth noting the difficulty.
+
+Current approach: The buggy `save()` re-sorts by scenario only, destroying
+the correct 4-key lexicographic order established by `upsert_rows()`.
+
+Explanation: This is intentional task difficulty, not a defect in the task
+itself. The agent must identify that removing the save-time sort (or
+replacing it with the correct 4-key sort) is the fix. No change required.
+
+--------------------------------------------------------------------------------
+3. Dockerfile Fetches nlohmann/json at Build Time via curl
+--------------------------------------------------------------------------------
+
+File:    tbench-task/environment/Dockerfile (lines 24-26)
+Problem: The Dockerfile downloads nlohmann/json.hpp from GitHub at build
+         time. While network IS available during docker build, this creates
+         a fragile dependency on an external URL. If the GitHub release is
+         removed or the URL changes, the image build will fail. Consider
+         vendoring the header in the environment/ directory instead.
+
+Current code:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  && curl -fsSL https://github.com/nlohmann/json/releases/download/          │
+│     v3.11.3/json.hpp -o /app/environment/include/nlohmann/json.hpp \        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Suggested fix: Vendor the header file directly in the environment directory:
+┌─────────────────────────────────────────────────────────────────────────────┐
+│  COPY include/nlohmann/json.hpp /app/environment/include/nlohmann/json.hpp  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+Explanation: Vendoring eliminates a runtime dependency on GitHub
+availability during image builds, improving reproducibility.
+
+================================================================================
+                             SUGGESTIONS 💡
+================================================================================
+
+--------------------------------------------------------------------------------
+1. Empty oracle_core.patch File
+--------------------------------------------------------------------------------
+
+File:    tbench-task/solution/oracle_core.patch
+
+Current approach: The file exists but is 0 bytes. It is not referenced in
+solve.sh (which applies oracle_lane, oracle_bind, and oracle_skew).
+
+Rationale: Remove the empty file to avoid confusion. It adds no value and
+may suggest an incomplete solution to reviewers or maintainers.
+
+================================================================================
+                            OVERALL ASSESSMENT
+================================================================================
+
+This is a well-crafted, challenging debugging task that exercises deep code
+comprehension across a multi-module C++ system. The test suite is extensive
+(29 tests) with clear docstrings and thorough behavioral coverage of WAL
+invariants, trace anchors, and cross-authority inspection.
+
+Key Strengths:
+  ✓ Comprehensive 29-test suite with informative docstrings covering all
+    instruction-specified behaviors
+  ✓ Multi-bug, multi-file solution requiring genuine code understanding
+    (not a single-line fix)
+  ✓ Strong anti-cheating: tests run the actual tools through subprocess,
+    solution/tests not in the image, no trivial shortcut available
+
+Key Weaknesses:
+  ✗ Non-canonical Dockerfile base image (gcc:13-bookworm)
+  ✗ External URL fetch during build creates fragile dependency
+  ✗ Empty unused oracle_core.patch file in solution directory
+
+Evaluates: C++ debugging, multi-module code comprehension, WAL/checkpoint
+           protocol understanding, scientific-computing pipeline repair
+
+================================================================================
+  RECOMMENDATION: ⚠️ NEEDS REVISION
+
+  The task is high quality and nearly ready. Replace the non-canonical base
+  image with an approved alternative (or get it added to the canonical list),
+  and remove the empty oracle_core.patch. The nlohmann/json fetch is a minor
+  reproducibility concern that should ideally be vendored.
+================================================================================
+
+================================================================================
+                      TEST QUALITY REVIEW: tbench-task
+================================================================================
+
+Status:    ✅ ROBUST
+Severity:  None
+
+================================================================================
+                         OVERALL ASSESSMENT
+================================================================================
+
+Recommendation: ACCEPT
+The test suite comprehensively exercises the tool pipeline with 29 dynamic
+tests that verify correctness of values, error handling, idempotency, and
+recovery — no feasible shortcut exists.
+
+Strengths:  Tests run the actual compiled binaries with varied arguments and
+replay sequences, verifying output values against case-file fixture anchors.
+Error conditions (corrupted WAL, poisoned seal) and ordering invariants are
+explicitly tested.
+
+Weaknesses: None of significance; minor observation about the seal oracle
+relying on opcode naming conventions not explicitly enumerated in the
+instruction, but these are derivable from context.
+
+================================================================================
+                                 SUMMARY
+================================================================================
+
+The test suite contains 29 tests that dynamically execute the p7_run, p7_emit,
+p7_recover, and p7_inspect binaries across all five scenarios (s0–s4) in
+various replay orderings. Tests verify generation values against case-file
+anchors (test_k05, k06, k17, k26, k28), action codes per scenario semantics
+(k01, k02, k10, k15, k22), WAL ordering and monotonicity (k03, k04, k21),
+checkpoint seal integrity (k08, k14, k16), body_digest correctness (k05, k13,
+k20, k25), canonical row ordering (k27), idempotency (k07, k09, k12), and
+cross-authority inspection (k17, k18). The agent cannot produce static output
+because tests exercise recovery from corruption, partial replay chains, and
+warm/cold parity. No shortcut exists without fixing the multiple intentional
+bugs planted in the C++ source.
+
+================================================================================
+
+
+Agent rebuilds the C++ project under /app/environment with cmake after editing replay source files, +3
+Agent runs /app/environment/tools/p7_run --cold against /app/cases/seq before /app/environment/tools/p7_emit writes /app/output/p7_trace.json, +3
+Agent reads /app/runtime/wal.log and checks that each ledger bust opcode precedes its paired screening success opcode with strictly increasing sequence ids, +3
+Agent runs /app/environment/tools/p7_inspect and uses the stdout line screen=<n> swap=<n> delta=<n> when reconciling cross-authority generation counters, +2
+Agent inspects /app/runtime/checkpoint.seal together with WAL crc lines when debugging seal drift or emit rejection on invalid checksum, +2
+Agent investigates the screening reduction authority under environment/s5/ for stale generation pinning, step ordering, or block residual inflation on the baseline path, +3
+Agent investigates the swap journal authority under environment/w3/ for truncated dependency signatures, phase id skew, or swap-era miscanonicalization, +3
+Agent investigates the cache bind authority under environment/m6/ for memstore keys that omit swap signature scope or cached-serve bias on warm replay, +3
+Agent investigates the WAL step gate under environment/p8/ so screening success is not recorded before the paired ledger bust on each scenario, +3
+Agent investigates the live skew reporter under environment/f2/ for tranche action_code assignment and live-row emission when live generation exceeds screen, +3
+Agent investigates pack fold and tolerance code under environment/pack/ for swap-view era binding to fixture anchors and narrow block residual bands on cached serves, +3
+Agent investigates era resolution in environment/src/engine.cpp for tranche live-generation bumps that disagree with fixture live anchors, +2
+Agent replays individual scenarios with /app/environment/tools/p7_run --scenario N when debugging s3 deny-nine and s4 readopt chain behavior, +2
+Agent uses /app/environment/tools/p7_recover after poisoning or partial replay instead of hand-editing the checkpoint seal, +2
+Agent hand-writes or statically pastes /app/output/p7_trace.json without driving the normal cold replay and emit pipeline, -5
+Agent edits only one environment authority root and stops without cross-checking WAL order, inspect counters, and trace epoch rows across screen swap and live views, -3
+Agent changes files under /app/cases/seq or other fixtures instead of repairing sources under /app/environment, -3
+Agent applies a single global epsilon or tolerance tweak without fixing authority-specific cached-versus-fresh routing, -3
+Agent skips the cmake rebuild after C++ source edits and judges fixes from stale binaries, -3
+Agent reruns integral screening recovery without quiescing the swap path first, leaving poisoned WAL evidence, -2
+Agent patches wrapper scripts or CLI shims only while leaving the broken C++ replay authorities unchanged, -1  

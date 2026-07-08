@@ -1,0 +1,47 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 3,
+            "passed": 3,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782305717.7602587,
+            "stop": 1782305727.9963968
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_hidden_semantics",
+                "status": "passed",
+                "duration": 2.045704959999995,
+                "start": 1782305717.7922354,
+                "stop": 1782305719.8807259,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_generated_reference_cases",
+                "status": "passed",
+                "duration": 8.077406585999995,
+                "start": 1782305719.882851,
+                "stop": 1782305727.9913807,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_fix_report",
+                "status": "passed",
+                "duration": 0.0016106249999836564,
+                "start": 1782305727.9930453,
+                "stop": 1782305727.9949117,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

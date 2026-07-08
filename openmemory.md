@@ -7,25 +7,18 @@ Automation toolkit for **Project Terminus Edition 2** (Snorkel Expert Platform).
 ## Architecture
 
 ```
-tasks/                   # All active task folders (index: tasks/README.md)
-stats-plan-resume-skew/  # Pinned at repo root (excluded from tasks/ by reorganize script)
-reviews/                 # External platform reports (entire-report.txt)
-_incoming/zips/          # Submission ZIP archives
-_backup/copies/          # Archived duplicate task folders
-_misc/personal/          # Unrelated local files
-CLI (scripts/terminus)
-  ├── validate_task.py   # CI-aligned local checks
-  ├── reorganize-tasks.sh # Consolidate root clutter into tasks/
-  ├── checklist/ci-check # Pre-submit workflow
-  ├── oracle/agent/zip   # Harbor + stb wrappers
+tasks/                   # All task folders (index: tasks/README.md)
+terminus/                # Terminus hub (docs, scripts, archives, reviews)
+  ├── docs/              # Guidelines, checklists (symlinked at repo root)
+  ├── scripts/terminus   # CLI (wrapper at scripts/terminus)
+  ├── reviews/           # Platform reports (entire-report.txt)
+  ├── _incoming/zips/    # Submission ZIP archives
+  ├── _backup/copies/    # Archived duplicate task folders
+  └── _misc/personal/    # Unrelated local files
 Cursor Integration
   ├── .cursor/rules/     # Auto-context per file type
   ├── .cursor/skills/    # Workflows: create, review, validate, test
   └── .cursor/hooks/     # Post-edit validation
-docs/
-  ├── submission-checklist.md
-  ├── task-type-taxonomy.md
-  └── ...
 ```
 
 ## User Defined Namespaces
@@ -36,9 +29,10 @@ docs/
 
 | Component | Location | Purpose |
 |-----------|----------|---------|
-| Terminus CLI | `scripts/terminus` | validate, checklist, ci-check, oracle, agent, zip |
-| Validator | `scripts/validate_task.py` | Local CI + docstring/path/tag checks |
-| Submission Checklist | `docs/submission-checklist.md` | Pre-submit verification |
+| Terminus CLI | `scripts/terminus` → `terminus/scripts/terminus` | validate, audit, checklist, ci-check, oracle, agent, zip |
+| Validator | `terminus/scripts/validate_task.py` | Local CI + docstring/path/tag checks |
+| Task Auditor | `terminus/scripts/task_audit/` | Read-only 55-item checklist audit |
+| Submission Checklist | `terminus/docs/submission-checklist.md` | Pre-submit verification |
 | Task Requirements | `docs/task-requirements.md` | Full structural requirements |
 | Create Skill | `.cursor/skills/terminus-create-task/` | New task workflow |
 | Review Skill | `.cursor/skills/terminus-review-task/` | Review workflow |
@@ -46,7 +40,8 @@ docs/
 ## Patterns
 
 - **Doc hub:** `docs/guidelines/INDEX.md`
-- **Validate before submit**: `./scripts/terminus check-all <task-dir>`
+- **Validate before submit**: `./scripts/terminus check-all <task-dir>` now runs validate + audit + checklist
+- **Accuracy review commands**: `prompt.md` requires running user-provided exact commands first, then baseline `validate`, `audit`, and `review`; static simulation is only a fallback when commands/tooling are unavailable.
 - **Rubric lint**: `./scripts/terminus rubric-validate rubric.txt --milestones N`
 - **LLMaJ guide:** `docs/guidelines/llmaj-checks.md`
 - **Full reviewer checklist:** `docs/reviewer-checklist-full.md`

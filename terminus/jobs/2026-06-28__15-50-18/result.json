@@ -1,0 +1,29 @@
+{
+    "id": "ef889993-5ace-4874-b869-fb18182fc0f5",
+    "started_at": "2026-06-28T15:50:18.785667",
+    "finished_at": "2026-06-28T15:51:29.715443",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "go-game-record-dual-cause-adjudi__pE87KRT"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

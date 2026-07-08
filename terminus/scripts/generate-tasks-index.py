@@ -7,8 +7,9 @@ import re
 from datetime import datetime
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parent.parent
-TASKS = ROOT / "tasks"
+TERM_HUB = Path(__file__).resolve().parent.parent
+REPO_ROOT = TERM_HUB.parent
+TASKS = REPO_ROOT / "tasks"
 OUT = TASKS / "README.md"
 
 SKIP = {"law-samples", "README.md"}
@@ -84,7 +85,7 @@ def main() -> None:
     )
 
     OUT.write_text("\n".join(lines), encoding="utf-8")
-    print(f"Wrote {OUT.relative_to(ROOT)} ({len(rows)} tasks)")
+    print(f"Wrote {OUT.relative_to(REPO_ROOT)} ({len(rows)} tasks)")
 
 
 if __name__ == "__main__":

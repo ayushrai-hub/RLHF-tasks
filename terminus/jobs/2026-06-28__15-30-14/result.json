@@ -1,0 +1,29 @@
+{
+    "id": "e0b0ba27-42a8-42f6-9efb-8ab7b7acf3c2",
+    "started_at": "2026-06-28T15:30:14.705434",
+    "finished_at": "2026-06-28T15:32:39.742678",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "dafny-insertion-sort-multiset-so__Wpk7E9G"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

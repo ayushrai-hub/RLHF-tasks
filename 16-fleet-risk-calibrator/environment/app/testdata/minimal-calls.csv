@@ -1,0 +1,2 @@
+request_id,asset_id,asset_type,site,opened_at,priority,technician_hours,notes_code
+R-MIN,A-17,pump,PHX,2026-04-07T08:30:00Z,routine,1.0,CHECK

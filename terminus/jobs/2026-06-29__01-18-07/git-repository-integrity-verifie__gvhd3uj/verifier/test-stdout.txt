@@ -1,0 +1,51 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0
+rootdir: /
+plugins: json-ctrf-0.3.5
+collected 40 items
+
+../tests/test_outputs.py ......................................s.        [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_repository_integrity_report_exists
+PASSED ../tests/test_outputs.py::test_branch_divergence_exists
+PASSED ../tests/test_outputs.py::test_orphan_commits_exists
+PASSED ../tests/test_outputs.py::test_history_reconstruction_exists
+PASSED ../tests/test_outputs.py::test_integrity_policy_present
+PASSED ../tests/test_outputs.py::test_commit_graph_present
+PASSED ../tests/test_outputs.py::test_divergence_top_level_keys
+PASSED ../tests/test_outputs.py::test_divergence_repository_id
+PASSED ../tests/test_outputs.py::test_divergence_pair_count
+PASSED ../tests/test_outputs.py::test_divergence_pair_entry_fields
+PASSED ../tests/test_outputs.py::test_divergence_pairs_sorted
+PASSED ../tests/test_outputs.py::test_divergence_matches_reference
+PASSED ../tests/test_outputs.py::test_main_release_divergence_total
+PASSED ../tests/test_outputs.py::test_orphan_top_level_keys
+PASSED ../tests/test_outputs.py::test_orphan_count_matches_list
+PASSED ../tests/test_outputs.py::test_orphan_entry_fields
+PASSED ../tests/test_outputs.py::test_orphan_sha_sorted
+PASSED ../tests/test_outputs.py::test_orphan_matches_reference
+PASSED ../tests/test_outputs.py::test_orphan_count_is_three
+PASSED ../tests/test_outputs.py::test_orphan_reasons_include_rebase_and_amend
+PASSED ../tests/test_outputs.py::test_amended_hotfix_orphan_subject
+PASSED ../tests/test_outputs.py::test_report_required_sections
+PASSED ../tests/test_outputs.py::test_report_title_matches_policy
+PASSED ../tests/test_outputs.py::test_report_repository_id_line
+PASSED ../tests/test_outputs.py::test_report_graph_integrity_score
+PASSED ../tests/test_outputs.py::test_report_merge_consistency_score
+PASSED ../tests/test_outputs.py::test_report_orphan_count_line
+PASSED ../tests/test_outputs.py::test_report_branch_pair_count
+PASSED ../tests/test_outputs.py::test_report_merge_findings_clean
+PASSED ../tests/test_outputs.py::test_report_orphan_summary_lines_from_policy
+PASSED ../tests/test_outputs.py::test_history_title
+PASSED ../tests/test_outputs.py::test_history_contains_merge_event
+PASSED ../tests/test_outputs.py::test_history_contains_cherry_pick
+PASSED ../tests/test_outputs.py::test_history_contains_rebase_finish
+PASSED ../tests/test_outputs.py::test_history_contains_amend
+PASSED ../tests/test_outputs.py::test_history_lines_use_policy_template
+PASSED ../tests/test_outputs.py::test_history_event_count_matches_reference
+PASSED ../tests/test_outputs.py::test_history_events_sorted_by_date
+PASSED ../tests/test_outputs.py::test_orphan_discovered_via_ref_format
+SKIPPED [1] ../tests/test_outputs.py:285: oracle solve.sh not mounted
+======================== 39 passed, 1 skipped in 0.04s =========================

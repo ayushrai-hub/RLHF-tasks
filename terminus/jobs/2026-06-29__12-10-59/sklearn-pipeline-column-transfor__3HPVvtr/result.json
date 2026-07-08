@@ -1,0 +1,84 @@
+{
+    "id": "8b77c2ab-1995-4e65-964c-bf30c077dbde",
+    "task_name": "sklearn-pipeline-column-transform",
+    "trial_name": "sklearn-pipeline-column-transfor__3HPVvtr",
+    "trial_uri": "file:///Users/ayushrai/Downloads/Airdawgs-review-Terminus2/jobs/2026-06-29__12-10-59/sklearn-pipeline-column-transfor__3HPVvtr",
+    "task_id": {
+        "path": "sklearn-pipeline-column-transform"
+    },
+    "source": null,
+    "task_checksum": "60daa1fe2c9deb3d5d0f1ffc31696aacdfbdd0c830d11c1120f212881cdc8946",
+    "config": {
+        "task": {
+            "path": "sklearn-pipeline-column-transform",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "sklearn-pipeline-column-transfor__3HPVvtr",
+        "trials_dir": "jobs/2026-06-29__12-10-59",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": "8f4c2859-fc5e-4a74-9da9-ea221c38fb3a"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-29T12:10:59.395818",
+    "finished_at": "2026-06-29T12:13:41.284940",
+    "environment_setup": {
+        "started_at": "2026-06-29T12:10:59.461810",
+        "finished_at": "2026-06-29T12:13:30.970929"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-29T12:13:30.982113",
+        "finished_at": "2026-06-29T12:13:30.988265"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-29T12:13:30.991691",
+        "finished_at": "2026-06-29T12:13:35.116546"
+    },
+    "verifier": {
+        "started_at": "2026-06-29T12:13:35.160685",
+        "finished_at": "2026-06-29T12:13:39.553807"
+    }
+}

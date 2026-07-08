@@ -1,0 +1,29 @@
+{
+    "id": "d4f4c1dc-9908-4bf6-b957-427be82590f3",
+    "started_at": "2026-07-03T16:17:34.953505",
+    "finished_at": "2026-07-03T16:21:33.356675",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "routenet-tbench-submission__R6MNwp9"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

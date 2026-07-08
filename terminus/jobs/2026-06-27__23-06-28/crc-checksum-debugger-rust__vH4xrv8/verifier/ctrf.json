@@ -1,0 +1,326 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 34,
+            "passed": 34,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782581854.421575,
+            "stop": 1782581859.6212077
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::TestBinaryCompiles::test_binary_compiles",
+                "status": "passed",
+                "duration": 5.115393294,
+                "start": 1782581854.4642522,
+                "stop": 1782581859.5835102,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestDataIntegrity::test_journal_unmodified",
+                "status": "passed",
+                "duration": 0.0028385419999494843,
+                "start": 1782581859.5863497,
+                "stop": 1782581859.589553,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestDataIntegrity::test_config_unmodified",
+                "status": "passed",
+                "duration": 0.0006013329999632333,
+                "start": 1782581859.5899785,
+                "stop": 1782581859.590888,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_total_packets",
+                "status": "passed",
+                "duration": 0.0007736669999758305,
+                "start": 1782581859.591142,
+                "stop": 1782581859.592153,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_all_reconciled_pass",
+                "status": "passed",
+                "duration": 0.00038366699999414777,
+                "start": 1782581859.5924053,
+                "stop": 1782581859.5929952,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_none_reconciled_fail",
+                "status": "passed",
+                "duration": 0.00035191499995335107,
+                "start": 1782581859.59319,
+                "stop": 1782581859.5937123,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_avg_drift_zero",
+                "status": "passed",
+                "duration": 0.00041358400005719886,
+                "start": 1782581859.5938883,
+                "stop": 1782581859.5944939,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_max_drift_zero",
+                "status": "passed",
+                "duration": 0.0004017910000015945,
+                "start": 1782581859.5946877,
+                "stop": 1782581859.5952854,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_stages_active",
+                "status": "passed",
+                "duration": 0.00028037599992103424,
+                "start": 1782581859.5954685,
+                "stop": 1782581859.5959,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_total_entries_replayed",
+                "status": "passed",
+                "duration": 0.0003205830000183596,
+                "start": 1782581859.5960603,
+                "stop": 1782581859.5965464,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestSummary::test_packets_truncated",
+                "status": "passed",
+                "duration": 0.0003363330000070164,
+                "start": 1782581859.5967028,
+                "stop": 1782581859.5972111,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPerPacketReconciliation::test_all_packets_reconciled_true",
+                "status": "passed",
+                "duration": 0.00035199900003135554,
+                "start": 1782581859.5973806,
+                "stop": 1782581859.5979009,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPerPacketReconciliation::test_all_packets_zero_drift",
+                "status": "passed",
+                "duration": 0.0003634579999811649,
+                "start": 1782581859.5980973,
+                "stop": 1782581859.5986245,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPerPacketReconciliation::test_expected_equals_actual",
+                "status": "passed",
+                "duration": 0.00028579299993225504,
+                "start": 1782581859.5988336,
+                "stop": 1782581859.59929,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPacketEntries::test_pkt_001_entries",
+                "status": "passed",
+                "duration": 0.0002737090000550779,
+                "start": 1782581859.5994456,
+                "stop": 1782581859.599868,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPacketEntries::test_pkt_002_entries",
+                "status": "passed",
+                "duration": 0.00029316799998468923,
+                "start": 1782581859.600024,
+                "stop": 1782581859.600504,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPacketEntries::test_pkt_004_entries",
+                "status": "passed",
+                "duration": 0.00040387500001770604,
+                "start": 1782581859.600656,
+                "stop": 1782581859.6012359,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPacketEntries::test_pkt_008_entries",
+                "status": "passed",
+                "duration": 0.00038095899998324967,
+                "start": 1782581859.6014645,
+                "stop": 1782581859.602031,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPacketEntries::test_pkt_011_entries",
+                "status": "passed",
+                "duration": 0.00035229099995603974,
+                "start": 1782581859.6022606,
+                "stop": 1782581859.6027894,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPayloadSizes::test_pkt_001_size",
+                "status": "passed",
+                "duration": 0.00030770899991239276,
+                "start": 1782581859.6029599,
+                "stop": 1782581859.6034224,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPayloadSizes::test_pkt_004_size",
+                "status": "passed",
+                "duration": 0.0003550420000237864,
+                "start": 1782581859.603615,
+                "stop": 1782581859.6041586,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPayloadSizes::test_pkt_007_size",
+                "status": "passed",
+                "duration": 0.00027954199993018847,
+                "start": 1782581859.6043265,
+                "stop": 1782581859.604761,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestPayloadSizes::test_pkt_012_size",
+                "status": "passed",
+                "duration": 0.00032562500001631633,
+                "start": 1782581859.604912,
+                "stop": 1782581859.6054103,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReportSchema::test_packets_array_exists",
+                "status": "passed",
+                "duration": 0.00029591599997047524,
+                "start": 1782581859.605605,
+                "stop": 1782581859.6060636,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReportSchema::test_summary_exists",
+                "status": "passed",
+                "duration": 0.0002862919999984115,
+                "start": 1782581859.6062508,
+                "stop": 1782581859.6066887,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReportSchema::test_packet_fields",
+                "status": "passed",
+                "duration": 0.0003269160000058946,
+                "start": 1782581859.6068711,
+                "stop": 1782581859.6073534,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReportSchema::test_checksum_hex_format",
+                "status": "passed",
+                "duration": 0.0002974589999098498,
+                "start": 1782581859.6075368,
+                "stop": 1782581859.607986,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReportSchema::test_sort_order",
+                "status": "passed",
+                "duration": 0.0003063330000259157,
+                "start": 1782581859.6081824,
+                "stop": 1782581859.6086512,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestAntiCheat::test_independent_checksum_pkt_001",
+                "status": "passed",
+                "duration": 0.0006170000000338405,
+                "start": 1782581859.608838,
+                "stop": 1782581859.6096187,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestAntiCheat::test_independent_checksum_pkt_004",
+                "status": "passed",
+                "duration": 0.0004739989999507088,
+                "start": 1782581859.6097848,
+                "stop": 1782581859.6104107,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestAntiCheat::test_novel_single_packet",
+                "status": "passed",
+                "duration": 0.00295641700000715,
+                "start": 1782581859.6106632,
+                "stop": 1782581859.6138668,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestAntiCheat::test_novel_multi_entry_packet",
+                "status": "passed",
+                "duration": 0.0015475009999477152,
+                "start": 1782581859.614101,
+                "stop": 1782581859.615859,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestAntiCheat::test_novel_ordering_matters",
+                "status": "passed",
+                "duration": 0.0014295400000605696,
+                "start": 1782581859.6160436,
+                "stop": 1782581859.617663,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestDeterminism::test_rerun_identical",
+                "status": "passed",
+                "duration": 0.002960041999983787,
+                "start": 1782581859.6178632,
+                "stop": 1782581859.621047,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

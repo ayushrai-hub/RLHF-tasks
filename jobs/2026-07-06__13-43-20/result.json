@@ -1,0 +1,27 @@
+{
+    "id": "c5840ede-a50d-472d-9c53-8f9a6d8f5847",
+    "started_at": "2026-07-06T13:43:20.836159",
+    "finished_at": "2026-07-06T13:43:40.729958",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "psi4-screening-cache-stale__CyiR77R"
+                    ]
+                }
+            }
+        }
+    }
+}

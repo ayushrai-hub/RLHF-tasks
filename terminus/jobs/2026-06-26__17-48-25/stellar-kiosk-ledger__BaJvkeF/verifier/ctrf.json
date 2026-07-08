@@ -1,0 +1,110 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 10,
+            "passed": 10,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782476312.0872731,
+            "stop": 1782476315.0937324
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_cabinet_ranking_schema_and_player_order",
+                "status": "passed",
+                "duration": 0.6800073329995939,
+                "start": 1782476312.1120582,
+                "stop": 1782476312.7923594,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_scorecard_ranking_totals_match_cabinet_referee",
+                "status": "passed",
+                "duration": 0.45377229200130387,
+                "start": 1782476312.7926276,
+                "stop": 1782476313.2470293,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_lane_scorecard_ranking_resets_per_ball",
+                "status": "passed",
+                "duration": 0.3541300430006231,
+                "start": 1782476313.2478375,
+                "stop": 1782476313.6022727,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_saved_drain_ranking_keeps_ball_alive",
+                "status": "passed",
+                "duration": 0.39750254200043855,
+                "start": 1782476313.6025302,
+                "stop": 1782476314.0004299,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_tilt_warning_ranking_suppresses_late_scores",
+                "status": "passed",
+                "duration": 0.03659225099727337,
+                "start": 1782476314.0009367,
+                "stop": 1782476314.0379229,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_mode_ranking_closes_distinct_target_banks",
+                "status": "passed",
+                "duration": 0.03289120699992054,
+                "start": 1782476314.038138,
+                "stop": 1782476314.0712287,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_jackpot_ranking_requires_lit_multiball",
+                "status": "passed",
+                "duration": 0.34949604100074794,
+                "start": 1782476314.0714378,
+                "stop": 1782476314.4211037,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_rollup_ranking_counts_match_score_rows",
+                "status": "passed",
+                "duration": 0.035255208998933085,
+                "start": 1782476314.4215086,
+                "stop": 1782476314.456977,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_sha256_row_folding_recomputes_chain_digest",
+                "status": "passed",
+                "duration": 0.5454327090028528,
+                "start": 1782476314.457231,
+                "stop": 1782476315.0028772,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_strict_latch_preserves_cabinet_scores",
+                "status": "passed",
+                "duration": 0.08927883399883285,
+                "start": 1782476315.0031378,
+                "stop": 1782476315.0926185,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

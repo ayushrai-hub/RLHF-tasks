@@ -2,15 +2,24 @@
 # Consolidate Terminus task folders, archives, and loose files into a clean layout.
 set -euo pipefail
 
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+TERM_HUB="$(cd "$SCRIPT_DIR/.." && pwd)"
+ROOT="$(cd "$SCRIPT_DIR/../.." && pwd)"
+MISC="$TERM_HUB/_misc"
+INCOMING="$TERM_HUB/_incoming"
+BACKUP="$TERM_HUB/_backup"
+REVIEWS="$TERM_HUB/reviews"
+OTHER="$TERM_HUB/_other"
+
 cd "$ROOT"
 
-mkdir -p _incoming/zips _misc/personal _misc/reference _backup/copies reviews tasks
+mkdir -p "$INCOMING/zips" "$MISC/personal" "$MISC/reference" "$BACKUP/copies" "$REVIEWS" tasks
 
-# Tasks that must stay at repo root (not moved into tasks/)
-ROOT_TASKS=(stats-plan-resume-skew build-pkg-config-transitive-flag-sanitizer-cpp-json rt-iot2022-drift-multi-class bounded-kv-cache)
+# Tasks pinned at repo root (empty = all tasks under tasks/)
+ROOT_TASKS=()
 is_root_task() {
   local name="$1"
+  [ ${#ROOT_TASKS[@]} -eq 0 ] && return 1
   for t in "${ROOT_TASKS[@]}"; do
     [ "$name" = "$t" ] && return 0
   done
@@ -19,31 +28,31 @@ is_root_task() {
 
 echo "=== Phase 1: personal / loose files ==="
 
-[ -f "openmemory copy.md" ] && mv "openmemory copy.md" _misc/personal/
-[ -f "ECG-Dataset - ECG-Dataset.csv" ] && mv "ECG-Dataset - ECG-Dataset.csv" _misc/personal/
+[ -f "openmemory copy.md" ] && mv "openmemory copy.md" "$MISC/personal/"
+[ -f "ECG-Dataset - ECG-Dataset.csv" ] && mv "ECG-Dataset - ECG-Dataset.csv" "$MISC/personal/"
 
 if [ -d harbor-compat ]; then
-  if [ -d _misc/harbor-compat ]; then
+  if [ -d "$MISC/harbor-compat" ]; then
     rm -rf harbor-compat
   else
-    mv harbor-compat _misc/harbor-compat
+    mv harbor-compat "$MISC/harbor-compat"
   fi
 fi
 
 if [ -d law-samples ]; then
-  if [ -d _misc/reference/law-samples ]; then
+  if [ -d "$MISC/reference/law-samples" ]; then
     rm -rf law-samples
   else
-    mv law-samples _misc/reference/law-samples
+    mv law-samples "$MISC/reference/law-samples"
   fi
 fi
 
 for f in cropped-images*; do
   [ -e "$f" ] || continue
-  mv "$f" _misc/personal/
+  mv "$f" "$MISC/personal/"
 done
 
-for f in _misc/*; do
+for f in "$MISC"/*; do
   [ -e "$f" ] || continue
   base=$(basename "$f")
   case "$base" in
@@ -51,58 +60,58 @@ for f in _misc/*; do
   esac
   case "$base" in
     *.pdf|*.jpg|*.jpeg|*.png|*.csv|"openmemory copy.md")
-      mv "$f" _misc/personal/
+      mv "$f" "$MISC/personal/"
       ;;
   esac
 done
 
 for f in *.pdf *.jpg *.jpeg *.png *.xlsx *.csv *.tar.gz; do
   [ -f "$f" ] || continue
-  mv "$f" _misc/personal/
+  mv "$f" "$MISC/personal/"
 done
 
 for f in abcd.py "build_workbook copy.py" build_workbook.py \
          copy_of_kaggle_heart_disease_ml.py "copy_of_kaggle_heart_disease_ml (1).py" \
          kaggle_heart_disease_ml.py; do
   [ -f "$f" ] || continue
-  mv "$f" _misc/personal/
+  mv "$f" "$MISC/personal/"
 done
 
 if [ -d "11+10_tasks" ]; then
-  if [ -d _misc/reference/11+10_tasks ]; then
+  if [ -d "$MISC/reference/11+10_tasks" ]; then
     rm -rf "11+10_tasks"
   else
-    mv "11+10_tasks" _misc/reference/11+10_tasks
+    mv "11+10_tasks" "$MISC/reference/11+10_tasks"
   fi
   echo "ARCHIVE reference bundle: 11+10_tasks"
 fi
 
-if [ -f entire-report.txt ]; then
-  cp -f entire-report.txt reviews/entire-report.txt
+if [ -f entire-report.txt ] && [ ! -L entire-report.txt ]; then
+  cp -f entire-report.txt "$REVIEWS/entire-report.txt"
 fi
 
-for f in _other/*entire-report*.txt _other/reports/*.txt _other/reports/*.md; do
+for f in "$OTHER"/*entire-report*.txt "$OTHER"/reports/*.txt "$OTHER"/reports/*.md; do
   [ -f "$f" ] || continue
   base=$(basename "$f")
   [ -s "$f" ] || continue
-  if [ -f "reviews/$base" ] && cmp -s "$f" "reviews/$base" 2>/dev/null; then
+  if [ -f "$REVIEWS/$base" ] && cmp -s "$f" "$REVIEWS/$base" 2>/dev/null; then
     continue
   fi
-  cp -f "$f" "reviews/$base"
-  echo "SYNC review artifact: $base -> reviews/"
+  cp -f "$f" "$REVIEWS/$base"
+  echo "SYNC review artifact: $base -> terminus/reviews/"
 done
 
-mkdir -p _incoming/submissions
+mkdir -p "$INCOMING/submissions"
 for dir in *_submission*/; do
   [ -d "$dir" ] || continue
   name="${dir%/}"
   if [ -f "$name/task.toml" ] || [ -f "$name/instruction.md" ]; then
     continue
   fi
-  if [ -d "_incoming/submissions/$name" ]; then
+  if [ -d "$INCOMING/submissions/$name" ]; then
     rm -rf "$name"
   else
-    mv "$name" "_incoming/submissions/$name"
+    mv "$name" "$INCOMING/submissions/$name"
   fi
   echo "ARCHIVE submission logs: $name"
 done
@@ -117,14 +126,10 @@ for dir in */; do
   esac
   if [ -f "$name/task.toml" ] || [ -f "$name/instruction.md" ]; then
     echo "ARCHIVE copy: $name"
-    rm -rf "_backup/copies/$name"
-    mv "$name" "_backup/copies/$name"
+    rm -rf "$BACKUP/copies/$name"
+    mv "$name" "$BACKUP/copies/$name"
   fi
 done
-
-merge_task_dir() {
-  : # tasks/ is canonical; root duplicates are dropped in phase 3
-}
 
 echo "=== Phase 3: consolidate task directories into tasks/ ==="
 
@@ -143,18 +148,18 @@ move_task_into_tasks() {
   fi
 }
 
-if [ -d _other/review-tasks ]; then
-  for dir in _other/review-tasks/*/; do
+if [ -d "$OTHER/review-tasks" ]; then
+  for dir in "$OTHER/review-tasks"/*/; do
     [ -d "$dir" ] || continue
     move_task_into_tasks "${dir%/}"
   done
-  rmdir _other/review-tasks 2>/dev/null || true
+  rmdir "$OTHER/review-tasks" 2>/dev/null || true
 fi
 
 for dir in */; do
   name="${dir%/}"
   case "$name" in
-    docs|scripts|tasks|templates|jobs|_backup|_incoming|_misc|_other|reviews|.cursor|.venv|harbor-compat|law-samples) continue ;;
+    tasks|terminus|.cursor|.venv|harbor-compat|law-samples) continue ;;
   esac
   is_root_task "$name" && continue
 
@@ -185,10 +190,10 @@ extract_task_zip() {
   dest="tasks/$task_name"
 
   if [ "$base" = "law-samples" ]; then
-    if [ ! -d _misc/reference/law-samples ]; then
+    if [ ! -d "$MISC/reference/law-samples" ]; then
       echo "EXTRACT reference: law-samples.zip"
-      unzip -oq "$zippath" -d _misc/reference/
-      rm -rf _misc/reference/__MACOSX 2>/dev/null || true
+      unzip -oq "$zippath" -d "$MISC/reference/"
+      rm -rf "$MISC/reference/__MACOSX" 2>/dev/null || true
     fi
     return 0
   fi
@@ -213,7 +218,7 @@ shopt -s nullglob
 for zip in *.zip; do
   [ -f "$zip" ] || continue
   base=$(basename "$zip")
-  dest="_incoming/zips/$base"
+  dest="$INCOMING/zips/$base"
   if [ -f "$dest" ]; then
     rm -f "$zip"
     continue
@@ -221,16 +226,16 @@ for zip in *.zip; do
   mv "$zip" "$dest"
 done
 
-for zip in _incoming/zips/*.zip; do
+for zip in "$INCOMING/zips"/*.zip; do
   extract_task_zip "$zip"
   [ -f "$zip" ] && rm -f "$zip"
 done
 
 echo "=== Phase 4b: extract any remaining zips + validate tasks/ ==="
-python3 "$ROOT/scripts/extract-all-task-zips.py"
+python3 "$TERM_HUB/scripts/extract-all-task-zips.py"
 
 rm -rf "tasks/quest-capsule-decoder " 2>/dev/null || true
-[ -d tasks/law-samples ] && mv tasks/law-samples _misc/reference/law-samples 2>/dev/null || true
+[ -d tasks/law-samples ] && mv tasks/law-samples "$MISC/reference/law-samples" 2>/dev/null || true
 
 for dir in tasks/*_submission*/; do
   [ -d "$dir" ] || continue
@@ -238,31 +243,38 @@ for dir in tasks/*_submission*/; do
   if [ -f "$dir/task.toml" ] || [ -f "$dir/instruction.md" ]; then
     continue
   fi
-  mkdir -p _incoming/submissions
-  if [ -d "_incoming/submissions/$name" ]; then
+  mkdir -p "$INCOMING/submissions"
+  if [ -d "$INCOMING/submissions/$name" ]; then
     rm -rf "$dir"
   else
-    mv "$dir" "_incoming/submissions/$name"
+    mv "$dir" "$INCOMING/submissions/$name"
   fi
   echo "MOVE submission wrapper out of tasks/: $name"
 done
 
-echo "=== Phase 5: task index ==="
-python3 "$ROOT/scripts/generate-tasks-index.py"
+echo "=== Phase 5: rename UUID/submission folders + extract remaining zips ==="
+python3 "$TERM_HUB/scripts/rename-tasks.py"
+
+echo "=== Phase 6: task index ==="
+python3 "$TERM_HUB/scripts/generate-tasks-index.py"
 
 echo ""
-echo "=== ROOT (tooling + docs + pinned root tasks) ==="
+echo "=== ROOT (clean workspace) ==="
 ls -1
 
 echo ""
-echo "=== ROOT TASKS (stay at repo root) ==="
-for t in "${ROOT_TASKS[@]}"; do
-  [ -d "$t" ] && echo "$t"
-done
+echo "=== ROOT TASKS (pinned at repo root) ==="
+if [ ${#ROOT_TASKS[@]} -gt 0 ]; then
+  for t in "${ROOT_TASKS[@]}"; do
+    [ -d "$t" ] && echo "$t"
+  done
+else
+  echo "(none — all tasks under tasks/)"
+fi
 
 echo ""
 echo "=== TASKS ($(ls -1 tasks 2>/dev/null | wc -l | tr -d ' ')) ==="
 ls -1 tasks | sort
 
 echo ""
-echo "=== ARCHIVED ZIPS: $(ls -1 _incoming/zips 2>/dev/null | wc -l | tr -d ' ') ==="
+echo "=== ARCHIVED ZIPS: $(ls -1 "$INCOMING/zips" 2>/dev/null | wc -l | tr -d ' ') ==="

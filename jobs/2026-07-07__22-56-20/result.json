@@ -1,0 +1,27 @@
+{
+    "id": "26bae2fd-9cb4-4879-af7c-ad33997f53c8",
+    "started_at": "2026-07-07T22:56:20.470919",
+    "finished_at": "2026-07-07T23:06:44.245360",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RewardFileNotFoundError": [
+                        "breast-cancer-cost-calibration-l__mHZnFJQ"
+                    ]
+                }
+            }
+        }
+    }
+}

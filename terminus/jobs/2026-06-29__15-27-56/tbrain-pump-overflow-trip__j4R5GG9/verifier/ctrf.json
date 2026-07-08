@@ -1,0 +1,71 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 5,
+            "passed": 5,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782727105.165291,
+            "stop": 1782727110.458772
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_curated_fixture",
+                "status": "passed",
+                "duration": 0.03351091699999742,
+                "start": 1782727105.1845813,
+                "stop": 1782727105.2182705,
+                "retries": 17,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::name::['budget_locks out_interpolated', 'budget_zero_locks out_at_confirm', 'confirm_boundary_at_maint_start', 'degenerate_all_zero', 'end_is_return_not_return_plus_reset', 'exact_arm_confirms_start_at_crossing', 'final_ok_reseting_at_horizon', 'final_over_at_horizon', 'lockout_with_freeze_pause', 'maint_pauses_arm_dwell', 'maint_pauses_reset_dwell', 'maint_pauses_trip_seconds', 'rebreach_at_full_reset_new_trip', 'reset_boundary_at_maint_start', 'return_exactly_at_confirm', 'subarm_transient_suppressed', 'subreset_dip_merges', 'until_truncates_open']"
+                ]
+            },
+            {
+                "name": "test_outputs.py::test_reference_matches_curated",
+                "status": "passed",
+                "duration": 0.00030508400000073266,
+                "start": 1782727105.2360146,
+                "stop": 1782727105.2363913,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_lines_sorted_and_independent",
+                "status": "passed",
+                "duration": 0.0007529999999995596,
+                "start": 1782727105.2364657,
+                "stop": 1782727105.2372963,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_invalid_inputs_exit_nonzero_with_no_stdout",
+                "status": "passed",
+                "duration": 0.000802875000001535,
+                "start": 1782727105.237383,
+                "stop": 1782727105.2382624,
+                "retries": 11,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::doc::[{'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}]}, {'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}], 'samples': [{'t': 0, 'line': 'zz', 'lps': 1}]}, {'lines': [{'name': 'a', 'limit': 0, 'arm': -1, 'reset': 1, 'budget': 5}], 'samples': []}, {'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}, {'name': 'a', 'limit': 1, 'arm': 1, 'reset': 1, 'budget': 5}], 'samples': []}, {'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}], 'samples': [{'t': 3, 'line': 'a', 'lps': 1}, {'t': 3, 'line': 'a', 'lps': 2}]}, {'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}], 'samples': [{'t': 0, 'line': 'a', 'lps': 1}], 'until': -1}, {'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}], 'samples': [{'t': -2, 'line': 'a', 'lps': 1}]}, {'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}], 'samples': [{'t': 2, 'line': 'a', 'type': 'endmaint'}]}, {'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}], 'samples': [{'t': 1, 'line': 'a', 'type': 'maint'}, {'t': 2, 'line': 'a', 'type': 'maint'}, {'t': 3, 'line': 'a', 'type': 'endmaint'}]}, {'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}], 'samples': [{'t': 1, 'line': 'a', 'type': 'maint'}]}, {'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}], 'samples': [{'t': 1, 'line': 'a', 'type': 'maint', 'lps': 5}, {'t': 2, 'line': 'a', 'type': 'endmaint'}]}, {'lines': [{'name': 'a', 'limit': 0, 'arm': 1, 'reset': 1, 'budget': 5}], 'samples': [{'t': 1, 'line': 'a', 'type': 'bogus'}]}]"
+                ]
+            },
+            {
+                "name": "test_outputs.py::test_differential_against_reference",
+                "status": "passed",
+                "duration": 5.207934628,
+                "start": 1782727105.2488122,
+                "stop": 1782727110.4580674,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

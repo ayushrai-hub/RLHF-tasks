@@ -1,0 +1,29 @@
+{
+    "id": "8d7b3b11-2404-43b5-ac27-d9553e651782",
+    "started_at": "2026-06-29T15:27:56.856884",
+    "finished_at": "2026-06-29T15:28:32.092103",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 0,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 1,
+                "n_errors": 0,
+                "metrics": [
+                    {
+                        "mean": 1.0
+                    }
+                ],
+                "reward_stats": {
+                    "reward": {
+                        "1.0": [
+                            "tbrain-pump-overflow-trip__j4R5GG9"
+                        ]
+                    }
+                },
+                "exception_stats": {}
+            }
+        }
+    }
+}

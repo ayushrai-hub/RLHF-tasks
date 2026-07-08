@@ -1,0 +1,27 @@
+{
+    "id": "5fd7c213-873d-4b15-ab2d-c45404bbe5ab",
+    "started_at": "2026-07-04T22:26:08.600608",
+    "finished_at": "2026-07-04T22:26:09.560585",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "fanotify-bind-watch-gap (2)__Js3gFXU"
+                    ]
+                }
+            }
+        }
+    }
+}

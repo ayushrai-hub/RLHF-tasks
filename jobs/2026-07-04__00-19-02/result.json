@@ -1,0 +1,27 @@
+{
+    "id": "14e4b1c6-66c8-488d-b09c-6a9962ef675f",
+    "started_at": "2026-07-04T00:19:02.978862",
+    "finished_at": "2026-07-04T00:19:04.534709",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "rust-rtcm3-station-msm-staging-l__Nd9eUF9"
+                    ]
+                }
+            }
+        }
+    }
+}

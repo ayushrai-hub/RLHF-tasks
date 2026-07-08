@@ -1,0 +1,13 @@
+request_id,asset_id,asset_type,site,opened_at,priority,technician_hours,notes_code
+R-1001,A-17,pump,PHX,2026-04-07T08:30:00Z,urgent,2.5,LEAK
+R-1002,C-02,chiller,DEN,2026-04-07T10:15:00Z,routine,1.0,NOISE
+R-1003,A-31,pump,PHX,2026-04-08T09:00:00Z,routine,0.5,VIB
+R-1004,B-07,compressor,ATL,2026-04-08T13:45:00Z,urgent,3.0,REWORK
+R-1005,D-12,fan,ATL,2026-04-09T07:20:00Z,routine,0.75,CHECK
+R-1006,E-44,pump,DEN,2026-04-09T14:10:00Z,routine,1.5,HEAT
+R-1007,C-02,chiller,DEN,2026-04-10T11:00:00Z,urgent,0.5,REWORK
+R-1008,F-09,compressor,PHX,2026-04-10T16:30:00Z,routine,2.2,LEAK
+R-1009,D-12,fan,ATL,2026-04-11T09:05:00Z,urgent,1.1,NOISE
+R-1010,A-17,pump,PHX,2026-04-11T15:40:00Z,routine,0.25,CHECK
+R-1011,E-44,pump,DEN,2026-04-12T08:15:00Z,urgent,2.8,VIB
+R-1012,G-55,chiller,ATL,2026-04-12T12:25:00Z,routine,0.6,CHECK

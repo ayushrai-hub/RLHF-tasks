@@ -1,0 +1,84 @@
+{
+    "id": "fa133267-497f-4564-aab4-bc5091d3822c",
+    "task_name": "build-rust-maven-dependency-convergence-auditor2",
+    "trial_name": "build-rust-maven-dependency-conv__k5NfwvE",
+    "trial_uri": "file:///Users/ayushrai/Downloads/Airdawgs-review-Terminus2/jobs/2026-06-26__16-34-18/build-rust-maven-dependency-conv__k5NfwvE",
+    "task_id": {
+        "path": "build-rust-maven-dependency-convergence-auditor2"
+    },
+    "source": null,
+    "task_checksum": "de32ddc3d9aeaf053ea426f8c698bd35c9e302fc164c77005e2508d9ba0fb775",
+    "config": {
+        "task": {
+            "path": "build-rust-maven-dependency-convergence-auditor2",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "build-rust-maven-dependency-conv__k5NfwvE",
+        "trials_dir": "jobs/2026-06-26__16-34-18",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": "af8c37aa-446a-4ed7-9ea4-8c1bee6766bb"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": {
+        "n_input_tokens": null,
+        "n_cache_tokens": null,
+        "n_output_tokens": null,
+        "cost_usd": null,
+        "rollout_details": null,
+        "metadata": null
+    },
+    "verifier_result": {
+        "rewards": {
+            "reward": 1.0
+        }
+    },
+    "exception_info": null,
+    "started_at": "2026-06-26T16:34:18.042629",
+    "finished_at": "2026-06-26T16:35:18.040154",
+    "environment_setup": {
+        "started_at": "2026-06-26T16:34:18.050874",
+        "finished_at": "2026-06-26T16:35:07.595268"
+    },
+    "agent_setup": {
+        "started_at": "2026-06-26T16:35:07.598258",
+        "finished_at": "2026-06-26T16:35:07.605052"
+    },
+    "agent_execution": {
+        "started_at": "2026-06-26T16:35:07.616829",
+        "finished_at": "2026-06-26T16:35:14.329965"
+    },
+    "verifier": {
+        "started_at": "2026-06-26T16:35:14.332696",
+        "finished_at": "2026-06-26T16:35:16.229397"
+    }
+}

@@ -1,0 +1,10 @@
+Trial interval-meter-tou-reconciliatio__cvDHHxo failed: Docker compose command failed for environment interval-meter-tou-reconciliation (9). Command: docker compose -p interval-meter-tou-reconciliatio__cvdhhxo -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 1. Stdout:  main Pulling 
+#1 [internal] load local bake definitions
+#1 reading from stdin 710B done
+#1 DONE 0.0s
+invalid tag "hb__interval-meter-tou-reconciliation (9)": invalid reference format
+
+. Stderr: None. 
+Docker compose down failed: Docker compose command failed for environment interval-meter-tou-reconciliation (9). Command: docker compose -p interval-meter-tou-reconciliatio__cvdhhxo -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml down --rmi all --volumes --remove-orphans. Return code: 1. Stdout:  Image hb__interval-meter-tou-reconciliation (9)  Removing
+Error response from daemon: invalid reference format
+. Stderr: None. 

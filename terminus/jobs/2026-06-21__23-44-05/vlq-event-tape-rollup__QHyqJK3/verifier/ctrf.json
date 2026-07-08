@@ -1,0 +1,128 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 12,
+            "passed": 12,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782065710.7488532,
+            "stop": 1782065710.8132434
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::test_vlt_journal_tail_binding",
+                "status": "passed",
+                "duration": 0.023357625000002713,
+                "start": 1782065710.7701223,
+                "stop": 1782065710.7936528,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_v01_t2_answers",
+                "status": "passed",
+                "duration": 0.0012144579999997518,
+                "start": 1782065710.793789,
+                "stop": 1782065710.7950916,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_v02_t5_answers",
+                "status": "passed",
+                "duration": 0.0013496669999994992,
+                "start": 1782065710.7951846,
+                "stop": 1782065710.7965994,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_v03_t8_answers",
+                "status": "passed",
+                "duration": 0.0018897510000073225,
+                "start": 1782065710.796683,
+                "stop": 1782065710.7986379,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_vlt_checkpoint_manifest_order",
+                "status": "passed",
+                "duration": 0.0013204579999950283,
+                "start": 1782065710.7987113,
+                "stop": 1782065710.8001025,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_v05_root_chain",
+                "status": "passed",
+                "duration": 0.0013267920000004096,
+                "start": 1782065710.8001766,
+                "stop": 1782065710.8015776,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_v06_row_chain_roundtrip",
+                "status": "passed",
+                "duration": 0.00105412399999949,
+                "start": 1782065710.801659,
+                "stop": 1782065710.8027806,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_vlt_reset_recovers_corrupt_journal",
+                "status": "passed",
+                "duration": 0.002076917000003675,
+                "start": 1782065710.8028533,
+                "stop": 1782065710.8049927,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_v08_static_output_rejected",
+                "status": "passed",
+                "duration": 0.0011280839999940895,
+                "start": 1782065710.8050575,
+                "stop": 1782065710.8062434,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_vlt_warm_lane_fingerprint_guard",
+                "status": "passed",
+                "duration": 0.0017680009999949675,
+                "start": 1782065710.80631,
+                "stop": 1782065710.8081424,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_vlt_warm_lane_fingerprint_invalidation",
+                "status": "passed",
+                "duration": 0.0035742090000070448,
+                "start": 1782065710.8082194,
+                "stop": 1782065710.8118596,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::test_vlt_fold_peek_lane_consistency",
+                "status": "passed",
+                "duration": 0.001131041000000721,
+                "start": 1782065710.8119395,
+                "stop": 1782065710.8131402,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

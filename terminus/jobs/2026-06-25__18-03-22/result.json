@@ -1,0 +1,27 @@
+{
+    "id": "ecf4f99f-3035-4d53-a2e7-967d647406dc",
+    "started_at": "2026-06-25T18:03:22.735876",
+    "finished_at": "2026-06-25T18:03:23.844353",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "terraform-bazel-lockfile-gen__mBtDkR7"
+                    ]
+                }
+            }
+        }
+    }
+}

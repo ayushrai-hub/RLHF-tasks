@@ -1,0 +1,221 @@
+{
+    "results": {
+        "tool": {
+            "name": "pytest",
+            "version": "8.4.1"
+        },
+        "summary": {
+            "tests": 22,
+            "passed": 22,
+            "failed": 0,
+            "skipped": 0,
+            "pending": 0,
+            "other": 0,
+            "start": 1782039509.1855435,
+            "stop": 1782039556.243969
+        },
+        "tests": [
+            {
+                "name": "test_outputs.py::TestCatalogStructure::test_file_exists",
+                "status": "passed",
+                "duration": 0.0013353339999753189,
+                "start": 1782039509.3065338,
+                "stop": 1782039509.3083262,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestCatalogStructure::test_valid_json",
+                "status": "passed",
+                "duration": 0.003426751000006334,
+                "start": 1782039509.30898,
+                "stop": 1782039509.314372,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestCatalogStructure::test_top_level_fields",
+                "status": "passed",
+                "duration": 0.0010060419999717851,
+                "start": 1782039509.3149633,
+                "stop": 1782039509.316293,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestCatalogStructure::test_events_is_list",
+                "status": "passed",
+                "duration": 0.0006433339999603049,
+                "start": 1782039509.3167253,
+                "stop": 1782039509.3177564,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestCatalogStructure::test_total_events_matches_list",
+                "status": "passed",
+                "duration": 0.0005454160000226693,
+                "start": 1782039509.3180177,
+                "stop": 1782039509.3187506,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestCatalogStructure::test_excluded_count_consistent",
+                "status": "passed",
+                "duration": 0.0006460000000174659,
+                "start": 1782039509.3192396,
+                "stop": 1782039509.3202167,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestCatalogStructure::test_event_schema",
+                "status": "passed",
+                "duration": 0.0007346239999606041,
+                "start": 1782039509.3215055,
+                "stop": 1782039509.3225377,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReferenceAlignment::test_cli_entry_exists",
+                "status": "passed",
+                "duration": 0.0021653329999935522,
+                "start": 1782039509.3228476,
+                "stop": 1782039509.325646,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReferenceAlignment::test_event_count_matches_reference",
+                "status": "passed",
+                "duration": 14.809848424000052,
+                "start": 1782039509.326066,
+                "stop": 1782039524.4402163,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReferenceAlignment::test_excluded_count_matches_reference",
+                "status": "passed",
+                "duration": 0.00042012500000510045,
+                "start": 1782039524.4422715,
+                "stop": 1782039524.4428198,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReferenceAlignment::test_one_event_per_station",
+                "status": "passed",
+                "duration": 0.00031554099996355944,
+                "start": 1782039524.4429975,
+                "stop": 1782039524.4434197,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestReferenceAlignment::test_station_event_matches_reference",
+                "status": "passed",
+                "duration": 0.0008794580000426322,
+                "start": 1782039524.4437625,
+                "stop": 1782039524.444843,
+                "retries": 4,
+                "file_path": "test_outputs.py",
+                "tags": [
+                    "parametrize::station_id::('AXID01', 'AXID02', 'NEMO01', 'JUAN01', 'COAX01')"
+                ]
+            },
+            {
+                "name": "test_outputs.py::TestReferenceAlignment::test_juan01_event_in_maintenance_window",
+                "status": "passed",
+                "duration": 0.00032445800007963044,
+                "start": 1782039524.4475353,
+                "stop": 1782039524.4479918,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestScoresAndTiming::test_confidence_scores_in_range",
+                "status": "passed",
+                "duration": 0.00023399999997764098,
+                "start": 1782039524.448137,
+                "stop": 1782039524.4484782,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestScoresAndTiming::test_duration_positive",
+                "status": "passed",
+                "duration": 0.00023533399996722437,
+                "start": 1782039524.448599,
+                "stop": 1782039524.4489372,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestScoresAndTiming::test_start_time_parseable",
+                "status": "passed",
+                "duration": 0.00024137500003007517,
+                "start": 1782039524.4490845,
+                "stop": 1782039524.4494345,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestScoresAndTiming::test_start_times_within_january",
+                "status": "passed",
+                "duration": 0.0005110000000172477,
+                "start": 1782039524.4495811,
+                "stop": 1782039524.4502375,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestScoresAndTiming::test_detected_events_have_positive_confidence",
+                "status": "passed",
+                "duration": 0.0002765830000157621,
+                "start": 1782039524.4505105,
+                "stop": 1782039524.4509108,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHiddenMutations::test_deleted_station_absent_from_mutated_run",
+                "status": "passed",
+                "duration": 0.5560206239999843,
+                "start": 1782039524.4510593,
+                "stop": 1782039525.007571,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHiddenMutations::test_mutated_amplitude_matches_reference_pipeline",
+                "status": "passed",
+                "duration": 16.715328882999984,
+                "start": 1782039525.0081449,
+                "stop": 1782039541.7252274,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHiddenMutations::test_uncalibrated_lookup_table_fails_hidden_mutation",
+                "status": "passed",
+                "duration": 14.472773257000028,
+                "start": 1782039541.7263405,
+                "stop": 1782039556.21131,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            },
+            {
+                "name": "test_outputs.py::TestHiddenMutations::test_default_db_restored_after_mutation",
+                "status": "passed",
+                "duration": 0.030151000999978805,
+                "start": 1782039556.2128634,
+                "stop": 1782039556.2433126,
+                "retries": 0,
+                "file_path": "test_outputs.py"
+            }
+        ]
+    }
+}

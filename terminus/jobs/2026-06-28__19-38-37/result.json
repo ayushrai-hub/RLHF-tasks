@@ -1,0 +1,27 @@
+{
+    "id": "983d7c5e-1839-4618-9b3d-4ffcce09c9f2",
+    "started_at": "2026-06-28T19:38:37.806529",
+    "finished_at": "2026-06-28T19:38:38.647531",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "terminator-pass-eclipse-contact-__QVtPPfm"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,20 @@
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /app/build
+[  6%] Building CXX object CMakeFiles/tb_iter.dir/app/main.cpp.o
+[ 12%] Building CXX object CMakeFiles/tb_iter.dir/app/core/metric_fabric.cpp.o
+[ 18%] Building CXX object CMakeFiles/tb_iter.dir/app/mpi/reduce_bridge.cpp.o
+[ 25%] Building CXX object CMakeFiles/tb_iter.dir/app/io/trace_sink.cpp.o
+[ 31%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/engine.cpp.o
+[ 37%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/loader.cpp.o
+[ 43%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/math_utils.cpp.o
+[ 50%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/checkpoint.cpp.o
+[ 56%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/run_journal.cpp.o
+[ 62%] Building CXX object CMakeFiles/tb_iter.dir/app/sim/epoch_coordinator.cpp.o
+[ 68%] Building CXX object CMakeFiles/tb_iter.dir/app/util/audit_digest.cpp.o
+[ 75%] Building CXX object CMakeFiles/tb_iter.dir/app/util/layout.cpp.o
+[ 81%] Building CXX object CMakeFiles/tb_iter.dir/app/core/op_a_shadow.cpp.o
+[ 87%] Building CXX object CMakeFiles/tb_iter.dir/app/mpi/op_b_aux.cpp.o
+[ 93%] Building CXX object CMakeFiles/tb_iter.dir/app/io/op_c_buffer.cpp.o
+[100%] Linking CXX executable tb_iter
+[100%] Built target tb_iter

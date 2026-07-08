@@ -1,8 +1,0 @@
-{
-  "column": "flow_CWR_flag_count",
-  "kind": "numeric",
-  "missing_rate": 0.0,
-  "position": 29,
-  "role": "candidate_predictor",
-  "unique_values": 4
-}

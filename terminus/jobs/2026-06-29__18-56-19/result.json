@@ -1,0 +1,27 @@
+{
+    "id": "4aa43028-0600-491e-9af1-3d9cc71f3672",
+    "started_at": "2026-06-29T18:56:19.993128",
+    "finished_at": "2026-06-29T18:56:21.259967",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "bounded-kv-cache__fY8zgzh"
+                    ]
+                }
+            }
+        }
+    }
+}

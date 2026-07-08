@@ -1,0 +1,6 @@
+   Compiling tmpfiles_audit v0.1.0 (/app/task_file)
+    Finished `release` profile [optimized] target(s) in 3.95s
+     Running unittests src/lib.rs (target/release/deps/tmpfiles_audit-d90273e41d8b9931)
+     Running tests/basic_tests.rs (target/release/deps/basic_tests-8f5db519344583f9)
+   Doc-tests tmpfiles_audit
+solve.sh complete

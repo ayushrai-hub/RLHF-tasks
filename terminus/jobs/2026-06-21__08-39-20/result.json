@@ -1,0 +1,27 @@
+{
+    "id": "e01fdcb8-868a-4c4d-8783-a5e3421adc8d",
+    "started_at": "2026-06-21T08:39:20.497279",
+    "finished_at": "2026-06-21T08:39:21.729983",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "docker-network-connectivity-debu__wQjG6do"
+                    ]
+                }
+            }
+        }
+    }
+}

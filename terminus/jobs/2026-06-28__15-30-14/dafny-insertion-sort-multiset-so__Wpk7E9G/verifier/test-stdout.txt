@@ -1,0 +1,15 @@
+============================= test session starts ==============================
+collected 7 items
+
+../tests/test_outputs.py .......                                         [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_verifies
+PASSED ../tests/test_outputs.py::test_spec_frozen
+PASSED ../tests/test_outputs.py::test_no_escape_hatch
+PASSED ../tests/test_outputs.py::test_behavioral
+PASSED ../tests/test_outputs.py::test_empty_array
+PASSED ../tests/test_outputs.py::test_no_ghost_copy
+PASSED ../tests/test_outputs.py::test_no_decreases_star
+============================== 7 passed in 53.52s ==============================
