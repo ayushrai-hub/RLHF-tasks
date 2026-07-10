@@ -1,0 +1,8 @@
+{
+  "fixture_id": "legacy-user-event-001",
+  "descriptor": "acme.user.event.v1",
+  "expected_descriptor": "acme.activity.event.v2",
+  "event_id": "evt-legacy-001",
+  "account_id": "acct-7",
+  "activity_kind": "login"
+}

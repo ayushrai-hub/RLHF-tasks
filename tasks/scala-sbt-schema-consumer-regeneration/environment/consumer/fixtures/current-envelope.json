@@ -1,0 +1,7 @@
+{
+  "fixture_id": "current-envelope-001",
+  "descriptor": "acme.audit.envelope.v2",
+  "expected_descriptor": "acme.audit.envelope.v2",
+  "envelope_id": "env-current-001",
+  "payload_sha256": "0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"
+}

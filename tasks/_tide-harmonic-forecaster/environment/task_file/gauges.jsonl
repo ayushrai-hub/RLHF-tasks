@@ -1,0 +1,3 @@
+{"id":"harbor-a","segment":"harbor","offset_m":0.08,"scale":1.03,"drift_m_per_day":0.018,"phase_lag_min":8,"draft_m":0.72,"priority":3,"crew_capacity":2}
+{"id":"outer-b","segment":"outer","offset_m":-0.05,"scale":0.96,"drift_m_per_day":-0.010,"phase_lag_min":-12,"draft_m":0.66,"priority":2,"crew_capacity":1}
+{"id":"creek-c","segment":"creek","offset_m":0.14,"scale":0.88,"drift_m_per_day":0.006,"phase_lag_min":24,"draft_m":0.58,"priority":4,"crew_capacity":1}

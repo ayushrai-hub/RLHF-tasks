@@ -1,0 +1,5 @@
+{
+  "public_suffixes": ["com", "net", "org", "co.uk", "internal"],
+  "sensitive_name_patterns": ["session", "sid", "auth", "token"],
+  "max_cookie_header_bytes": 54
+}

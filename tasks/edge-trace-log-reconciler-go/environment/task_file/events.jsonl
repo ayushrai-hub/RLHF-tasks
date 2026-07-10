@@ -1,0 +1,16 @@
+{"event_id":"e1","ts":"2026-04-10T10:00:00.000Z","node":"ship-a","seq":1,"trace":"tr-1","kind":"start","service":"edge","next_service":null,"bytes":null,"status":null,"target":null,"flags":[],"req":"GET /orders/71"}
+{"event_id":"e2","ts":"2026-04-10T10:00:00.120Z","node":"ship-a","seq":2,"trace":"tr-1","kind":"hop","service":"edge","next_service":"auth","bytes":null,"status":null,"target":null,"flags":[],"req":null}
+{"event_id":"e3","ts":"2026-04-10T10:00:00.180Z","node":"ship-b","seq":7,"trace":"tr-2","kind":"start","service":"edge","next_service":null,"bytes":null,"status":null,"target":null,"flags":[],"req":"POST /checkout"}
+{"event_id":"e4","ts":"2026-04-10T10:00:00.210Z","node":"ship-b","seq":8,"trace":"tr-2","kind":"hop","service":"edge","next_service":"auth","bytes":null,"status":null,"target":null,"flags":[],"req":null}
+{"event_id":"e5","ts":"2026-04-10T10:00:00.300Z","node":"ship-a","seq":3,"trace":"tr-1","kind":"hop","service":"auth","next_service":"cache","bytes":null,"status":null,"target":null,"flags":[],"req":null}
+{"event_id":"e6","ts":"2026-04-10T10:00:00.360Z","node":"ship-b","seq":9,"trace":"tr-2","kind":"hop","service":"edge","next_service":"cache","bytes":null,"status":null,"target":null,"flags":[],"req":null}
+{"event_id":"e7","ts":"2026-04-10T10:00:00.410Z","node":"ship-a","seq":4,"trace":"tr-1","kind":"bytes","service":"cache","next_service":null,"bytes":900,"status":null,"target":null,"flags":[],"req":null}
+{"event_id":"e8","ts":"2026-04-10T10:00:00.450Z","node":"ship-a","seq":4,"trace":"tr-1","kind":"bytes","service":"cache","next_service":null,"bytes":999,"status":null,"target":null,"flags":[],"req":null}
+{"event_id":"e9","ts":"2026-04-10T10:00:00.500Z","node":"ship-a","seq":5,"trace":"tr-1","kind":"bytes","service":"cache","next_service":null,"bytes":700,"status":null,"target":null,"flags":["sampled"],"req":null}
+{"event_id":"e10","ts":"2026-04-10T10:00:00.800Z","node":"ship-b","seq":10,"trace":"tr-1","kind":"void","service":null,"next_service":null,"bytes":null,"status":null,"target":"e7","flags":[],"req":null}
+{"event_id":"e11","ts":"2026-04-10T10:00:01.000Z","node":"ship-a","seq":6,"trace":"tr-1","kind":"hop","service":"cache","next_service":"pay","bytes":null,"status":null,"target":null,"flags":[],"req":null}
+{"event_id":"e12","ts":"2026-04-10T10:00:01.100Z","node":"ship-b","seq":11,"trace":"tr-1","kind":"end","service":"pay","next_service":null,"bytes":null,"status":200,"target":null,"flags":[],"req":null}
+{"event_id":"e13","ts":"2026-04-10T10:00:01.200Z","node":"ship-b","seq":12,"trace":"tr-3","kind":"start","service":"edge","next_service":null,"bytes":null,"status":null,"target":null,"flags":[],"req":"GET /health"}
+{"event_id":"e14","ts":"2026-04-10T10:00:01.300Z","node":"ship-a","seq":7,"trace":"tr-3","kind":"bytes","service":"edge","next_service":null,"bytes":50,"status":null,"target":null,"flags":[],"req":null}
+{"event_id":"e15","ts":"2026-04-10T10:00:01.350Z","node":"ship-a","seq":8,"trace":"tr-3","kind":"end","service":"edge","next_service":null,"bytes":null,"status":503,"target":null,"flags":[],"req":null}
+{"event_id":"e16","ts":"2026-04-10T10:00:01.400Z","node":"ship-a","seq":9,"trace":"tr-4","kind":"hop","service":"edge","next_service":"auth","bytes":null,"status":null,"target":null,"flags":[],"req":null}

@@ -1,0 +1,5 @@
+Finish the Go cookie audit CLI in `/app/task_file`. It must build with `go build -o /tmp/cookie-auditor .` and run as `/tmp/cookie-auditor --policy <policy.json> --events <events.jsonl> --output <report.json>`. The sample inputs are in `/app/task_file/input/`; leave them unchanged.
+
+The tool processes ordered response/request events, maintains an HTTP cookie jar, and writes a deterministic JSON audit report covering accepted/deleted/rejected Set-Cookie headers, request Cookie headers, blocking reasons, risk diagnostics, lifecycle rows, jar snapshots, and final stored cookies. Implement the behavior exactly as specified in `/app/task_file/SPEC.md`; that file is the authoritative contract for parsing, domain/path matching, SameSite, prefixes, Max-Age deletion, header byte limits, diagnostics, ordering, and JSON schema.
+
+Keep the implementation self-contained in Go using the standard library. Do not read `/tests`, `/solution`, reward files, or grading fixtures, do not hard-code sample outputs, and do not modify `/app/task_file/input/`.

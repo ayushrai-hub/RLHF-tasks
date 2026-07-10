@@ -1,0 +1,4 @@
+# Legacy audit descriptor aliases retained for historical envelope archives.
+# left side: legacy descriptor presented by old audit fixtures
+# right side: current canonical descriptor from the IDL manifest
+acme.audit.envelope.v1 = acme.activity.event.v2

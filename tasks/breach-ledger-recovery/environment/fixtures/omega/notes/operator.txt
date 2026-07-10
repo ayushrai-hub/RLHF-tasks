@@ -1,0 +1,3 @@
+Several service accounts were rotated during the same maintenance window. Exporter noise in the logs may not correlate with hostile activity.
+
+Some internal monitoring addresses appear in network telemetry.

@@ -1,0 +1,10 @@
+# Public Rookline case with a revoked replay, a notation challenge, and a legacy record.
+case public-cup
+player Alpha key=oak registered=1 revoked=30
+player Beta key=elm registered=1 revoked=none
+player Cato key=ash registered=1 revoked=none
+match m_alpha_beta epoch=10 format=v2 home=Alpha away=Beta sig=SIG:m_alpha_beta:Alpha:Beta:10:oak:elm declared=home moves=H2[clean],A1[tempo],H1[appeal]
+appeal a_alpha_beta target=m_alpha_beta epoch=20 replay_epoch=40 sig=SIG:m_alpha_beta:Alpha:Beta:40:oak:elm declared=home moves=H2[appeal],A1[clean],H1[tempo]
+match m_beta_cato epoch=18 format=v2 home=Beta away=Cato sig=SIG:m_beta_cato:Beta:Cato:18:elm:ash declared=home moves=H2[appeal-waiver],A1[clean],H1[tempo]
+match m_legacy epoch=8 format=v1 home=Cato away=Alpha sig=LEGACY:m_legacy:Cato:Alpha:8:ash:oak declared=away moves=H1[legacy],A2[clean],A1[tempo]
+endcase

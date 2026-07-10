@@ -1,0 +1,13 @@
+[
+  {"rule_id": "R01", "sub_type": "Int", "super_type": "Number", "conditions": []},
+  {"rule_id": "R02", "sub_type": "Number", "super_type": "Object", "conditions": []},
+  {"rule_id": "R03", "sub_type": "Int", "super_type": "Object", "conditions": []},
+  {"rule_id": "R04", "sub_type": "Float", "super_type": "Number", "conditions": []},
+  {"rule_id": "R05", "sub_type": "Nat", "super_type": "Int", "conditions": []},
+  {"rule_id": "R06", "sub_type": "String", "super_type": "Printable", "conditions": []},
+  {"rule_id": "R07", "sub_type": "Printable", "super_type": "Displayable", "conditions": []},
+  {"rule_id": "R08", "sub_type": "Displayable", "super_type": "Object", "conditions": []},
+  {"rule_id": "R09", "sub_type": "Bool", "super_type": "Comparable", "conditions": ["non-null"]},
+  {"rule_id": "R10", "sub_type": "Comparable", "super_type": "Hashable", "conditions": []},
+  {"rule_id": "R11", "sub_type": "Hashable", "super_type": "Object", "conditions": []}
+]

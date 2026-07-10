@@ -1,0 +1,27 @@
+{
+    "id": "474bfc5e-250e-4fd5-a72e-47aa0cf94363",
+    "started_at": "2026-07-09T15:54:32.158947",
+    "finished_at": "2026-07-09T15:54:39.208234",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "go-cookie-scope-auditor__uucCZkU"
+                    ]
+                }
+            }
+        }
+    }
+}

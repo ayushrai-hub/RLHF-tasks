@@ -1,0 +1,16 @@
+target	target_type
+ACCEPT	terminal
+DROP	terminal
+REJECT	terminal
+QUEUE	terminal
+DNAT	terminal
+SNAT	terminal
+MASQUERADE	terminal
+REDIRECT	terminal
+RETURN	return
+LOG	non_terminal
+NFLOG	non_terminal
+TRACE	non_terminal
+AUDIT	non_terminal
+MARK	non_terminal
+CONNMARK	non_terminal

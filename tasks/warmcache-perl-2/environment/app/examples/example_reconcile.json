@@ -1,0 +1,38 @@
+{
+"joined": [
+"M5A",
+"M6B",
+"N9E",
+"Q0D",
+"Q7C"
+],
+"disposition": [
+[
+"M5A",
+"WARM"
+],
+[
+"M6B",
+"WARM"
+],
+[
+"N9E",
+"COLD"
+],
+[
+"Q0D",
+"PIN"
+],
+[
+"Q7C",
+"QUARANTINE"
+]
+],
+"resolvable": true,
+"plan": [
+"M5A",
+"M6B",
+"Q0D"
+],
+"dangling": []
+}

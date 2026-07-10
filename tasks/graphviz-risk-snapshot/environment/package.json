@@ -1,0 +1,24 @@
+{
+  "name": "express_api",
+  "version": "1.0.0",
+  "description": "express api for graphviz risk snapshot advisory worker",
+  "main": "./src/index.js",
+  "scripts": {
+    "dev": "nodemon",
+    "start": "node .",
+    "worker": "node src/worker.js",
+    "snapshot-cli": "node src/cli_snapshot.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "1.18.1",
+    "csvtojson": "2.0.14",
+    "express": "5.2.1",
+    "jsonwebtoken": "9.0.3"
+  },
+  "devDependencies": {
+    "@types/node": "22.20.0",
+    "nodemon": "3.1.14"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "start_min": 0,
+  "end_min": 720,
+  "step_min": 60,
+  "datum_m": 1.35,
+  "flood_threshold_m": 2.35,
+  "low_threshold_m": 0.45,
+  "turn_min_delta_m": 0.08,
+  "constituents": [
+    {"name": "M2", "amplitude_m": 0.92, "speed_deg_per_hour": 28.9841042, "phase_deg": 12.0, "nodal_factor": 1.04, "epoch_min": 0},
+    {"name": "S2", "amplitude_m": 0.31, "speed_deg_per_hour": 30.0, "phase_deg": 84.0, "nodal_factor": 0.97, "epoch_min": 0},
+    {"name": "K1", "amplitude_m": 0.18, "speed_deg_per_hour": 15.0410686, "phase_deg": 211.0, "nodal_factor": 1.02, "epoch_min": -30}
+  ],
+  "segments": [
+    {"id": "harbor", "flood_threshold_m": 2.28, "low_threshold_m": 0.52, "crew_cost": 2},
+    {"id": "outer", "flood_threshold_m": 2.42, "low_threshold_m": 0.38, "crew_cost": 1}
+  ],
+  "calibration_events": [
+    {"target": "*", "start_min": 180, "end_min": 300, "level_shift_m": -0.06, "flood_threshold_shift_m": -0.04, "low_threshold_shift_m": 0.03, "draft_shift_m": 0.00},
+    {"target": "harbor", "start_min": 240, "end_min": 420, "level_shift_m": 0.05, "flood_threshold_shift_m": -0.02, "low_threshold_shift_m": 0.01, "draft_shift_m": 0.04},
+    {"target": "creek-c", "start_min": 60, "end_min": 240, "level_shift_m": -0.03, "flood_threshold_shift_m": 0.00, "low_threshold_shift_m": 0.02, "draft_shift_m": -0.02}
+  ],
+  "closures": [
+    {"gauge_id": "harbor-a", "start_min": 300, "end_min": 360},
+    {"gauge_id": "creek-c", "start_min": 120, "end_min": 180}
+  ],
+  "blackouts": [
+    {"segment": "outer", "start_min": 60, "end_min": 120}
+  ],
+  "operations": {
+    "min_under_keel_m": 0.42,
+    "flood_buffer_m": 0.18,
+    "max_slope_m_per_hour": 0.58,
+    "min_window_min": 120,
+    "target_level_m": 1.45,
+    "route_handoff_penalty_m": 0.05,
+    "route_min_gap_min": 0,
+    "route_max_layover_min": 240,
+    "route_no_repeat_gauge": true,
+    "route_max_total_target_error_m": 2.5
+  },
+  "routes": [
+    {"id": "harbor-outer", "segments": ["harbor", "outer"], "handoff_penalty_m": 0.07, "checkpoints": [{"index": 1, "earliest_start_min": 240, "latest_end_min": 720, "required_gauge_id": ""}], "forbidden_transitions": [{"from_gauge_id": "harbor-a", "to_gauge_id": "outer-b"}]},
+    {"id": "harbor-creek", "segments": ["harbor", "creek"], "checkpoints": [{"index": 0, "earliest_start_min": 0, "latest_end_min": 420, "required_gauge_id": "harbor-a"}], "forbidden_transitions": [{"from_gauge_id": "", "to_gauge_id": "creek-c"}]}
+  ]
+}

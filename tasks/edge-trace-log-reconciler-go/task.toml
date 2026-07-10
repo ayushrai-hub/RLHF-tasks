@@ -1,0 +1,29 @@
+version = "2.0"
+
+[metadata]
+author_name = "Anonymous"
+author_email = "anonymous@example.com"
+difficulty = "hard"
+category = "data-processing"
+subcategories = []
+languages = ["go"]
+number_of_milestones = 0
+tags = ["go", "log-processing", "event-replay", "reconciliation", "jsonl"]
+expert_time_estimate_min = 180.0
+junior_time_estimate_min = 540.0
+codebase_size = "minimal"
+difficulty_explanation = "This task is hard because the solver must replay out-of-order log events while duplicate positions, service capacity, route validity, loops, sampled bytes, voids, billing caps, and nonbillable statuses all affect later state. A local mistake in one audit decision changes downstream requests, adjustments, peaks, and summary totals."
+solution_explanation = "The intended solution parses the config and JSONL events, sorts records by the documented canonical key, and applies each event through a deterministic trace state machine. It records audit outcomes for every event, mutates trace and capacity state only for accepted events, then derives requests, void and billing adjustments, service peaks, and summary counters."
+
+[verifier]
+timeout_sec = 900.0
+
+[agent]
+timeout_sec = 1800.0
+
+[environment]
+allow_internet = false
+build_timeout_sec = 1200.0
+cpus = 1
+memory_mb = 4096
+storage_mb = 4096

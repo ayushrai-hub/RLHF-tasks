@@ -1,0 +1,9 @@
+# Files that define the schema-index regeneration input digest.
+# Each non-comment path is interpreted relative to /app/environment.
+contracts/activity.rift
+contracts/envelope.rift
+project/service-loader.properties
+# project/package-layout.properties
+# project/descriptor-provenance.policy
+# contracts/migrations/v1_to_v2_descriptor.map
+# contracts/migrations/audit_v1_to_v2_descriptor.map

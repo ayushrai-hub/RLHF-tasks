@@ -1,0 +1,29 @@
+user_visible_outputs = [
+  "/app/output/incident_report.json",
+  "/app/output/attack_timeline.csv",
+  "/app/output/iocs.txt",
+  "/app/output/remediation_plan.json",
+]
+internal_harness_files = [
+  "tests/test_outputs.py",
+]
+
+[structured_outputs.incident_report]
+target = "/app/output/incident_report.json"
+format = "json"
+instruction_checks = ["JSON", "status", "forensics"]
+
+[structured_outputs.attack_timeline]
+target = "/app/output/attack_timeline.csv"
+format = "csv"
+instruction_checks = ["CSV", "timeline"]
+
+[structured_outputs.iocs]
+target = "/app/output/iocs.txt"
+format = "text"
+instruction_checks = ["IOC", "deterministic"]
+
+[structured_outputs.remediation_plan]
+target = "/app/output/remediation_plan.json"
+format = "json"
+instruction_checks = ["JSON", "remediation"]

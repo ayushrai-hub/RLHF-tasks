@@ -1,0 +1,80 @@
+version = "2.0"
+
+[metadata]
+author_name = "Anonymous"
+author_email = "anonymous@example.com"
+difficulty = "hard"
+category = "security"
+tags = ["go", "web-security", "cookies", "session-security", "jsonl"]
+expert_time_estimate_min = 120
+junior_time_estimate_min = 900
+codebase_size = "minimal"
+subcategories = []
+languages = ["go"]
+number_of_milestones = 0
+
+[verifier]
+timeout_sec = 900
+
+[agent]
+timeout_sec = 1800
+
+[environment]
+allow_internet = false
+build_timeout_sec = 900
+cpus = 1
+memory_mb = 2048
+storage_mb = 4096
+
+# Rubric criteria judge observable agent behavior and the produced report, not hidden implementation details.
+[[rubric]]
+criterion = "Agent produces a Go CLI that honors --policy, --events, and --output and writes the required report JSON at the requested path"
+score = 5
+
+[[rubric]]
+criterion = "Agent implements Set-Cookie parsing, duplicate-attribute resolution, malformed-header handling, and rejection priority exactly"
+score = 5
+
+[[rubric]]
+criterion = "Agent implements cookie identity, replacement ordering, Max-Age deletion, and lifecycle counters consistently"
+score = 5
+
+[[rubric]]
+criterion = "Agent implements request-time domain, path, Secure, SameSite, and public-suffix matching from the live jar state"
+score = 5
+
+[[rubric]]
+criterion = "Agent applies max_cookie_header_bytes using UTF-8 byte counts while continuing to scan later eligible cookies"
+score = 3
+
+[[rubric]]
+criterion = "Agent keeps response reports, set_cookie_audit, request_diagnostics, domain_diagnostics, jar_snapshots, and stored_cookies consistent with one shared event-processing model"
+score = 5
+
+[[rubric]]
+criterion = "Agent computes summary risk_counts and per-domain risk_counts from final stored cookies with the required sorting and zero omission"
+score = 3
+
+[[rubric]]
+criterion = "Agent preserves required ordering for events, jar scan order, accepted/deleted keys, sent/blocked keys, lifecycle rows, and diagnostic rows"
+score = 3
+
+[[rubric]]
+criterion = "Agent serializes all required arrays and objects as arrays/objects even when empty"
+score = 3
+
+[[rubric]]
+criterion = "Agent keeps the implementation self-contained in Go using the standard library and leaves provided input fixtures unchanged"
+score = 3
+
+[[rubric]]
+criterion = "Agent hard-codes report contents or branches on known sample event ids instead of implementing data-driven policy and event processing"
+score = -5
+
+[[rubric]]
+criterion = "Agent ignores one or more required command-line paths and relies on fixed local filenames for policy, events, or output"
+score = -3
+
+[[rubric]]
+criterion = "Agent changes provided fixture data or emits malformed/non-deterministic JSON that cannot be consumed as the specified report"
+score = -3

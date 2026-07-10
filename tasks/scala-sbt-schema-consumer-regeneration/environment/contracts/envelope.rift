@@ -1,0 +1,9 @@
+// Audit envelope schema used by the same generated schema-index jar.
+schema AuditEnvelope {
+  version = 2
+  compatibility_group = "activity-events"
+  canonical_descriptor = "acme.audit.envelope.v2"
+  field envelope_id: string
+  field descriptor: string
+  field payload_sha256: string
+}

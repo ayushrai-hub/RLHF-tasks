@@ -1,0 +1,12 @@
+[
+  {"rule_id": "A01", "sub_type": "Cat", "super_type": "Animal", "conditions": []},
+  {"rule_id": "A02", "sub_type": "Animal", "super_type": "Being", "conditions": []},
+  {"rule_id": "A03", "sub_type": "Cat", "super_type": "Being", "conditions": []},
+  {"rule_id": "A04", "sub_type": "Dog", "super_type": "Animal", "conditions": []},
+  {"rule_id": "A05", "sub_type": "Fish", "super_type": "Aquatic", "conditions": []},
+  {"rule_id": "A06", "sub_type": "Aquatic", "super_type": "Being", "conditions": []},
+  {"rule_id": "A07", "sub_type": "Kitten", "super_type": "Cat", "conditions": ["young"]},
+  {"rule_id": "A08", "sub_type": "Cat", "super_type": "Pet", "conditions": []},
+  {"rule_id": "A09", "sub_type": "Pet", "super_type": "Owned", "conditions": []},
+  {"rule_id": "A10", "sub_type": "Dog", "super_type": "Pet", "conditions": []}
+]

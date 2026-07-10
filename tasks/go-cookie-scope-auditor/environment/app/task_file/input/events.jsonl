@@ -1,0 +1,8 @@
+{"type":"response","id":"r001","url":"https://login.example.com/auth/start","set_cookie":["session_id=abc123; Domain=.example.com; Path=/; Secure; HttpOnly; SameSite=Lax","prefs=light; Path=/auth; SameSite=Strict","badnone=x; SameSite=None","__Host-csrf=tok1; Path=/; Secure; SameSite=Strict"]}
+{"type":"request","id":"q001","url":"https://login.example.com/auth/callback","method":"GET","top_level_site":"example.com","is_top_level_navigation":true}
+{"type":"response","id":"r002","url":"https://cdn.example.com/assets/app.js","set_cookie":["track=wide; Domain=.com; Path=/","__Secure-id=plain; Path=/; HttpOnly","cart=sku7; Domain=shop.example.com; Path=/checkout; SameSite=None; Secure"]}
+{"type":"request","id":"q002","url":"https://shop.example.com/checkout/pay","method":"POST","top_level_site":"attacker.net","is_top_level_navigation":false}
+{"type":"response","id":"r003","url":"https://shop.example.com/checkout/pay","set_cookie":["cart=gone; Domain=shop.example.com; Path=/checkout; Max-Age=0","authToken=secret; Path=/; SameSite=Lax"]}
+{"type":"request","id":"q003","url":"http://shop.example.com/checkout/confirm","method":"GET","top_level_site":"example.com","is_top_level_navigation":true}
+{"type":"response","id":"r004","url":"https://app.service.co.uk/dashboard","set_cookie":["sid=s1; Domain=.service.co.uk; Path=/; HttpOnly; Secure","theme=blue; Path=/dashboard"]}
+{"type":"request","id":"q004","url":"https://api.service.co.uk/dashboard/v1","method":"GET","top_level_site":"other.co.uk","is_top_level_navigation":true}

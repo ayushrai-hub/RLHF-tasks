@@ -1,0 +1,35 @@
+version = "2.0"
+
+[metadata]
+name = "breach-ledger-recovery"
+author_name = "anonymous"
+author_email = "anonymous"
+difficulty = "hard"
+category = "security"
+tags = ["go", "incident-response", "forensics", "sqlite", "linux", "cli"]
+languages = ["go"]
+codebase_size = "small"
+number_of_milestones = 0
+subcategories = ["db_interaction", "tool_specific"]
+summary = "Repair a Go incident-ledger CLI that reconstructs a multi-host Linux intrusion from mixed logs, binary audit frames, SQLite deleted-file metadata, encoded fragments, and archive evidence under adversarial corruption and strict deterministic-output constraints."
+expert_time_estimate_min = 720
+expert_time_estimate_hours = 12.0
+junior_time_estimate_min = 1440
+difficulty_explanation = "This is a production-grade incident reconstruction and validation challenge: agents must coordinate parsing, normalization, precedence rules, strict rejection priority, archive/path safety, binary frame decoding, SQLite-backed deleted metadata, secret fragment decoding, correlation, deterministic stable output across equivalent orderings, and performance under heavy benign noise. The verifier mutates real bundles to introduce corruption, conflicts, misleading evidence, and edge cases that break naïve or hardcoded solutions."
+solution_explanation = "The oracle replaces the loader, parser, normalizer, correlator, and artifact writer so reports are computed from the forensic bundle, strict rejection priority is honored, and output bytes are stable across equivalent input orderings."
+verification_explanation = "Pytest builds the Go CLI, copies and mutates real forensic bundles, runs the public command, verifies JSON/CSV/text artifacts, checks rejection priority, validates parsers against binary, gzip, zip, SQLite, and encoded evidence, and exercises stress cases that reject quadratic or hardcoded implementations."
+
+[agent]
+timeout_sec = 1800
+
+[verifier]
+timeout_sec = 900
+
+[environment]
+type = "docker"
+allow_internet = false
+build_timeout_sec = 300
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+workdir = "/app"

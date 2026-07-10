@@ -1,0 +1,5 @@
+Fix `/app/lib/normalize.sh` so `/app/data/normalized_iptables.jsonl` matches the shape the persist stage expects. The upstream API at `${API_BASE_URL}/api/iptables-snapshot` returns a pre-parsed iptables-save state — `/app/docs/SCHEMA.md` documents the envelope and the normalized record contract.
+
+The normalized JSONL interleaves two record types (`chain` and `rule`) discriminated by `record_type`. Every rule record carries a computed `target_type`. The classification rules — the built-in target catalog, the resolution against user chains in the rule's own table, and the local-policy override contract that layers on top — are all specified in `/app/docs/SCHEMA.md` alongside the two override match kinds (`log_prefix_contains`, `target_args_contains`) and the tie-break behavior when multiple overrides match.
+
+The dataset spans 2 tables, 13 chains, and 33 rules. After editing, run `bash /app/scripts/start_api.sh && bash /app/bin/ipaudit.sh all` to regenerate `/app/data/normalized_iptables.jsonl`. Do not modify anything under `/app/api/` or `/app/db/schema.sql`.

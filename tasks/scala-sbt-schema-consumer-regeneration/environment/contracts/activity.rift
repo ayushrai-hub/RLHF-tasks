@@ -1,0 +1,10 @@
+// Activity event schema. The descriptor below is the canonical v2 authority.
+schema ActivityEvent {
+  version = 2
+  compatibility_group = "activity-events"
+  canonical_descriptor = "acme.activity.event.v2"
+  field event_id: string
+  field account_id: string
+  field occurred_at: timestamp
+  field activity_kind: string
+}

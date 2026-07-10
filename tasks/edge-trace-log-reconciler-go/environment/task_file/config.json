@@ -1,0 +1,20 @@
+{
+  "routes": {
+    "edge": ["auth", "cache"],
+    "auth": ["cache", "pay"],
+    "cache": ["pay", "edge"],
+    "pay": ["ledger"],
+    "ledger": []
+  },
+  "capacities": {
+    "edge": 2,
+    "auth": 1,
+    "cache": 1,
+    "pay": 1,
+    "ledger": 1
+  },
+  "trusted_nodes": ["ship-a", "ship-b"],
+  "void_grace_ms": 5000,
+  "trace_byte_cap": 1200,
+  "billable_statuses": [200, 201, 204]
+}

@@ -1,0 +1,27 @@
+{
+    "id": "fb6e3863-22a5-4cb4-8f32-77a36e2c8c06",
+    "started_at": "2026-07-10T16:13:45.594840",
+    "finished_at": "2026-07-10T16:13:47.505489",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "ready-mix-concrete-batch-dispatc__rQ8XjT4"
+                    ]
+                }
+            }
+        }
+    }
+}

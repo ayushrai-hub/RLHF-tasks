@@ -1,0 +1,36 @@
+{
+    "task": {
+        "path": "repair-python-oci-build-graph-analysis-with-graphviz-1783502772",
+        "git_url": null,
+        "git_commit_id": null,
+        "overwrite": false,
+        "download_dir": null,
+        "source": null
+    },
+    "trial_name": "repair-python-oci-build-graph-an__ytTGsRd",
+    "trials_dir": "jobs/2026-07-10__15-00-06",
+    "timeout_multiplier": 1.0,
+    "agent": {
+        "name": "oracle",
+        "import_path": null,
+        "model_name": null,
+        "override_timeout_sec": null,
+        "max_timeout_sec": null,
+        "kwargs": {}
+    },
+    "environment": {
+        "type": "docker",
+        "force_build": false,
+        "delete": true,
+        "override_cpus": null,
+        "override_memory_mb": null,
+        "override_storage_mb": null,
+        "kwargs": {}
+    },
+    "verifier": {
+        "override_timeout_sec": null,
+        "max_timeout_sec": null,
+        "disable": false
+    },
+    "job_id": "2793af6d-7e72-4c6f-b6d6-8e5038117738"
+}

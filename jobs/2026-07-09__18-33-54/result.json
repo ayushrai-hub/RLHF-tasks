@@ -1,0 +1,27 @@
+{
+    "id": "93015f86-31fd-4224-a3db-0a03f408df3b",
+    "started_at": "2026-07-09T18:33:54.438725",
+    "finished_at": "2026-07-09T18:33:56.176561",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "edge-trace-log-reconciler-go__WjQCYJa"
+                    ]
+                }
+            }
+        }
+    }
+}

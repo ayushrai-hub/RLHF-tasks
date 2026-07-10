@@ -1,0 +1,4 @@
+# Legacy descriptor aliases that must remain accepted by the consumer jar.
+# left side: legacy descriptor presented by old fixtures
+# right side: current canonical descriptor from the IDL manifest
+acme.user.event.v1 = acme.user.activity.v2

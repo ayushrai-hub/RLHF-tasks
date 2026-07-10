@@ -1,0 +1,69 @@
+{
+    "id": "301abf0e-e9d5-4bd0-81dc-84fe5d919f1b",
+    "task_name": "go-cookie-scope-auditor",
+    "trial_name": "go-cookie-scope-auditor__uucCZkU",
+    "trial_uri": "file:///Users/ayushrai/Downloads/Airdawgs-review-Terminus2/jobs/2026-07-09__15-54-32/go-cookie-scope-auditor__uucCZkU",
+    "task_id": {
+        "path": "go-cookie-scope-auditor"
+    },
+    "source": null,
+    "task_checksum": "8a7cb7db14e60211035c8d4c2b8fe45a6057dde6153b1481fba86091911d576b",
+    "config": {
+        "task": {
+            "path": "go-cookie-scope-auditor",
+            "git_url": null,
+            "git_commit_id": null,
+            "overwrite": false,
+            "download_dir": null,
+            "source": null
+        },
+        "trial_name": "go-cookie-scope-auditor__uucCZkU",
+        "trials_dir": "jobs/2026-07-09__15-54-32",
+        "timeout_multiplier": 1.0,
+        "agent": {
+            "name": "oracle",
+            "import_path": null,
+            "model_name": null,
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "kwargs": {}
+        },
+        "environment": {
+            "type": "docker",
+            "force_build": false,
+            "delete": true,
+            "override_cpus": null,
+            "override_memory_mb": null,
+            "override_storage_mb": null,
+            "kwargs": {}
+        },
+        "verifier": {
+            "override_timeout_sec": null,
+            "max_timeout_sec": null,
+            "disable": false
+        },
+        "job_id": "474bfc5e-250e-4fd5-a72e-47aa0cf94363"
+    },
+    "agent_info": {
+        "name": "oracle",
+        "version": "1.0.0",
+        "model_info": null
+    },
+    "agent_result": null,
+    "verifier_result": null,
+    "exception_info": {
+        "exception_type": "RuntimeError",
+        "exception_message": "Docker compose command failed for environment go-cookie-scope-auditor. Command: docker compose -p go-cookie-scope-auditor__uucczku -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 1. Stdout: unable to get image 'hb__go-cookie-scope-auditor': permission denied while trying to connect to the Docker daemon socket at unix:///Users/ayushrai/.docker/run/docker.sock: Get \"http://%2FUsers%2Fayushrai%2F.docker%2Frun%2Fdocker.sock/v1.51/images/hb__go-cookie-scope-auditor/json\": dial unix /Users/ayushrai/.docker/run/docker.sock: connect: operation not permitted\n. Stderr: None. ",
+        "exception_traceback": "Traceback (most recent call last):\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 340, in run\n    await self._setup_environment()\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 180, in _setup_environment\n    await self._start_environment_with_retry()\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 189, in async_wrapped\n    return await copy(fn, *args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 111, in __call__\n    do = await self.iter(retry_state=retry_state)\n         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 153, in iter\n    result = await action(retry_state)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/_utils.py\", line 99, in inner\n    return call(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/__init__.py\", line 400, in <lambda>\n    self._add_action_func(lambda rs: rs.outcome.result())\n                                     ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py\", line 449, in result\n    return self.__get_result()\n           ^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/concurrent/futures/_base.py\", line 401, in __get_result\n    raise self._exception\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/tenacity/asyncio/__init__.py\", line 114, in __call__\n    result = await fn(*args, **kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/trial/trial.py\", line 192, in _start_environment_with_retry\n    await asyncio.wait_for(\n  File \"/Users/ayushrai/.local/share/uv/python/cpython-3.12.12-macos-aarch64-none/lib/python3.12/asyncio/tasks.py\", line 520, in wait_for\n    return await fut\n           ^^^^^^^^^\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py\", line 184, in start\n    await self._run_docker_compose_command([\"up\", \"-d\"])\n  File \"/Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker.py\", line 166, in _run_docker_compose_command\n    raise RuntimeError(\nRuntimeError: Docker compose command failed for environment go-cookie-scope-auditor. Command: docker compose -p go-cookie-scope-auditor__uucczku -f /Users/ayushrai/.local/share/uv/tools/harbor/lib/python3.12/site-packages/harbor/environments/docker/docker-compose-build.yaml up -d. Return code: 1. Stdout: unable to get image 'hb__go-cookie-scope-auditor': permission denied while trying to connect to the Docker daemon socket at unix:///Users/ayushrai/.docker/run/docker.sock: Get \"http://%2FUsers%2Fayushrai%2F.docker%2Frun%2Fdocker.sock/v1.51/images/hb__go-cookie-scope-auditor/json\": dial unix /Users/ayushrai/.docker/run/docker.sock: connect: operation not permitted\n. Stderr: None. \n",
+        "occurred_at": "2026-07-09T15:54:36.852299"
+    },
+    "started_at": "2026-07-09T15:54:32.191051",
+    "finished_at": "2026-07-09T15:54:38.901324",
+    "environment_setup": {
+        "started_at": "2026-07-09T15:54:32.223306",
+        "finished_at": "2026-07-09T15:54:36.771933"
+    },
+    "agent_setup": null,
+    "agent_execution": null,
+    "verifier": null
+}

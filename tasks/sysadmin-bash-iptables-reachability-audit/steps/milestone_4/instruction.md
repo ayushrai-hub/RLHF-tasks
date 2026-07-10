@@ -1,0 +1,7 @@
+Fix `/app/lib/trace.sh` so `/app/reports/packet_traces.csv` reports, for every probe packet in `/app/api/contracts/probe_packets.tsv`, the result of SIMULATING that packet's traversal through the persisted ruleset in `/app/data/iptables_audit.db`. This is a stack-machine walk, not a static scan: `/app/docs/SCHEMA.md` specifies the matcher-evaluation rules, the jump/goto call-stack semantics, the RETURN and fall-off-the-end handling for user versus built-in chains, and the default-policy fallback.
+
+Enter each probe at its `entry_chain` and walk the rules in position order. A matching rule's `target_type` (already computed in the `rules` table, local-policy overrides included) drives the machine: terminal targets decide the verdict and stop; non-terminal targets are recorded and stepped past; a jump descends into the target chain and RETURNs to the caller afterward; a goto descends WITHOUT leaving a return point; RETURN and running off the end of a chain behave differently in a user chain than in a built-in chain. The report carries the final verdict, what decided it, the hop count, and the pipe-joined path of matched rules, plus the TOTAL row documented in SCHEMA.md.
+
+The current trace stage does not simulate anything — it reports the first rule of each entry chain and ignores jumps, gotos, returns, the call stack, and the default policies entirely.
+
+After editing, run `bash /app/scripts/start_api.sh && bash /app/bin/ipaudit.sh all` to regenerate `/app/reports/packet_traces.csv`. Do not modify anything under `/app/api/` or `/app/db/schema.sql`.

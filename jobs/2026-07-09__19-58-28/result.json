@@ -1,0 +1,27 @@
+{
+    "id": "d6c27451-72cf-42ff-9c97-9543febb6160",
+    "started_at": "2026-07-09T19:58:28.467904",
+    "finished_at": "2026-07-09T19:58:29.453782",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "subtyping-transitivity-checker-g__vGvB6rz"
+                    ]
+                }
+            }
+        }
+    }
+}

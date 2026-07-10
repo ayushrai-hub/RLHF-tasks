@@ -1,0 +1,27 @@
+{
+    "id": "d1513eba-e003-4368-abd1-1e176aab57b0",
+    "started_at": "2026-07-09T20:21:07.631314",
+    "finished_at": "2026-07-09T20:21:09.335644",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "scala-sbt-schema-consumer-regene__3Lozrs9"
+                    ]
+                }
+            }
+        }
+    }
+}

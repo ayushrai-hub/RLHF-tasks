@@ -1,0 +1,29 @@
+version = "2.0"
+
+[metadata]
+title = "Repair OCI Build Graph Analysis with Graphviz"
+description = "Repair a Go depmap tool that imports OCI-style container spec fixtures into SQLite and resolves a transitive, version-constrained, deterministically ordered build plan plus a Graphviz DOT dependency graph."
+category = "build-and-dependency-management"
+subcategories = ["db_interaction"]
+languages = ["go"]
+tags = ["go", "sqlite", "graphviz", "dependency-resolution", "build-graph"]
+difficulty = "hard"
+number_of_milestones = 0
+codebase_size = "small"
+expert_time_estimate_min = 40
+junior_time_estimate_min = 120
+author_name = "anonymous"
+author_email = "anonymous"
+
+[agent]
+timeout_sec = 900
+
+[verifier]
+timeout_sec = 300
+
+[environment]
+allow_internet = false
+build_timeout_sec = 600
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240

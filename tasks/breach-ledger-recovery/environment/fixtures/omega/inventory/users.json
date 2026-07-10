@@ -1,0 +1,7 @@
+[
+  {"username": "backup", "uid": 1100, "role": "backup operator", "aliases": ["bak"]},
+  {"username": "www-data", "uid": 33, "role": "web runtime", "aliases": ["httpd"]},
+  {"username": "root", "uid": 0, "role": "administrator", "aliases": []},
+  {"username": "deploy", "uid": 1101, "role": "release automation", "aliases": []},
+  {"username": "svc-metrics", "uid": 1200, "role": "metrics collector", "aliases": []}
+]

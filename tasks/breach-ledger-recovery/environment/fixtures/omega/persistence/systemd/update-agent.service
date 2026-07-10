@@ -1,0 +1,7 @@
+# host=web-2 user=root
+[Unit]
+Description=Update Agent
+[Service]
+ExecStart=/usr/local/bin/update-agent --connect 198.51.100.77
+[Install]
+WantedBy=multi-user.target

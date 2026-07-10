@@ -1,0 +1,27 @@
+version = "2.0"
+
+[metadata]
+author_name = "anonymous"
+author_email = "anonymous"
+category = "system-administration"
+subcategories = []
+difficulty = "hard"
+codebase_size = "small"
+languages = ["go", "bash"]
+number_of_milestones = 0
+tags = ["pubsub", "message-delivery", "distributed-systems", "dead-letter-queue", "backpressure"]
+expert_time_estimate_min = 60.0
+junior_time_estimate_min = 120.0
+
+[environment]
+allow_internet = false
+build_timeout_sec = 600
+cpus = 2
+memory_mb = 4096
+storage_mb = 10240
+
+[agent]
+timeout_sec = 1200
+
+[verifier]
+timeout_sec = 900

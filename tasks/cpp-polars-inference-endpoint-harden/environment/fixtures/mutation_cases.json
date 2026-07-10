@@ -1,0 +1,18 @@
+{
+  "oversize": {
+    "batch_id": "mut-oversize",
+    "rows": []
+  },
+  "unknown_region": {
+    "batch_id": "mut-region",
+    "rows": [
+      {"row_id": "x1", "age": 20.0, "tenure_months": 3, "region": "atlantis", "channel": "web"}
+    ]
+  },
+  "missing_column": {
+    "batch_id": "mut-missing",
+    "rows": [
+      {"row_id": "x2", "age": 20.0, "tenure_months": 3, "channel": "web"}
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 # Task Quality Audit: `16-fleet-risk-calibrator`
 
-**Generated:** 2026-07-08 18:16 UTC  
-**Task path:** `/Users/ayushrai/Downloads/Airdawgs-review-Terminus2/16-fleet-risk-calibrator`  
+**Generated:** 2026-07-09 22:03 UTC  
+**Task path:** `/Users/ayushrai/Downloads/Airdawgs-review-Terminus2/tasks/16-fleet-risk-calibrator`  
 **Layout:** regular  
 **Verdict:** **REJECTED**
 
@@ -11,10 +11,10 @@
 
 | Metric | Count |
 |--------|-------|
-| PASS | 42 |
+| PASS | 33 |
 | FAIL | 3 |
 | NOT APPLICABLE | 4 |
-| CANNOT DETERMINE | 6 |
+| CANNOT DETERMINE | 15 |
 
 **Validator:** 0 error(s), 2 warning(s)
 
@@ -55,20 +55,20 @@
 | 29 | PASS | objective | Tests verify behavior, not implementation (no grepping source code) | No obvious implementation grep in tests | — |
 | 30 | PASS | heuristic | No brittle exact string matching where flexible checks would work | No long brittle string equality patterns detected. | — |
 | 31 | PASS | objective | Tests have informative names or docstrings | All test_* functions have docstrings (AST-verified) | — |
-| 32 | PASS | objective | Rubrics contain at least 3 negative penalty criteria | 6 negative criteria | — |
-| 33 | PASS | objective | Rubric scores are from the set {1, 2, 3, 5, -1, -2, -3, -5} | All scores in ±1,2,3,5 | — |
-| 34 | PASS | objective | Each rubric criterion is one line starting with Agent, comma, then score | 13 properly formatted Agent lines | — |
-| 35 | PASS | objective | Rubric criteria are detailed and precise | Positive points 21 within cap | — |
-| 36 | PASS | objective | Rubric criteria use positive language (not Agent does not do X, +1) | No positive-score negative phrasing detected | — |
-| 37 | PASS | objective | Rubric does not reference testing logic or /tests/ directory | No /tests/ references | — |
-| 38 | PASS | objective | Rubric does not reference metadata (task.toml) or instruction.md | No metadata/instruction references | — |
-| 39 | PASS | objective | Rubric does not mention oracle or NOP runs | No oracle/NOP mentions | — |
+| 32 | CANNOT DETERMINE | external | Rubrics contain at least 3 negative penalty criteria | No rubric in task folder or --report export. | — |
+| 33 | CANNOT DETERMINE | external | Rubric scores are from the set {1, 2, 3, 5, -1, -2, -3, -5} | No rubric available. | — |
+| 34 | CANNOT DETERMINE | external | Each rubric criterion is one line starting with Agent, comma, then score | No rubric available. | — |
+| 35 | CANNOT DETERMINE | external | Rubric criteria are detailed and precise | No rubric available. | — |
+| 36 | CANNOT DETERMINE | external | Rubric criteria use positive language (not Agent does not do X, +1) | No rubric available. | — |
+| 37 | CANNOT DETERMINE | external | Rubric does not reference testing logic or /tests/ directory | No rubric available. | — |
+| 38 | CANNOT DETERMINE | external | Rubric does not reference metadata (task.toml) or instruction.md | No rubric available. | — |
+| 39 | CANNOT DETERMINE | external | Rubric does not mention oracle or NOP runs | No rubric available. | — |
 | 40 | PASS | objective | All required files present (environment/Dockerfile, solution/solve.sh, tests/test.sh, instruction.md, task.toml) | Required files present | — |
 | 41 | PASS | objective | No unnecessary files in parent directory (jobs/, README.md, data/, dev notes) | No obvious stray parent files | — |
 | 42 | PASS | objective | author_name and author_email fields present in task.toml | author fields present | task.toml |
 | 43 | PASS | objective | All other required metadata fields present | Core metadata fields present | task.toml |
 | 44 | PASS | heuristic | Tags, languages, categories are applicable to the task | [medium] Category 'machine-learning' consistent with available signals (score=2). | task.toml |
-| 45 | PASS | objective | Difficulty matches observed agent pass rates | difficulty='medium' present in task.toml; platform='medium' (informational); worst-model 40% → tier 'medium' | task.toml |
+| 45 | PASS | objective | Difficulty matches observed agent pass rates | difficulty='medium' present in task.toml | task.toml |
 | 46 | NOT APPLICABLE | objective | steps/ layout present with per-milestone files (not root instruction/tests/solution) | Not a milestone task (number_of_milestones = 0) | — |
 | 47 | NOT APPLICABLE | objective | Each milestone has a corresponding solveN.sh file | Not a milestone task | — |
 | 48 | NOT APPLICABLE | objective | Each milestone has a corresponding test_mN.py file | Not a milestone task | — |
@@ -77,7 +77,7 @@
 | 51 | PASS | objective | Solution or ground truth answers are not accessible in the environment | .dockerignore excludes solution/ and tests/ | — |
 | 52 | CANNOT DETERMINE | external | Agent cannot modify input data to trivially pass tests | Requires reviewing whether test inputs are writable/immutable in the container. | — |
 | 53 | PASS | objective | Git repos pinned to specific commit (no unpinned git clone) | No git clone in Dockerfile | — |
-| 54 | PASS | objective | Task is not too easy (not >80% combined pass rate consistently) | Worst-model 40% ≤ 80% | — |
+| 54 | CANNOT DETERMINE | external | Task is not too easy (not >80% combined pass rate consistently) | Agent pass rates require --report submission export. | — |
 | 55 | CANNOT DETERMINE | external | Task is not too hard or unfair (not requiring unavailable info, unreliable environment, or luck) | Fairness assessment requires human judgment of instructions, environment, and agent trajectories. | — |
 
 ---
@@ -102,7 +102,9 @@ _No non-blocking warnings._
 - **#9** — Compare against TB2/TB3/Edition 1 task index before submission.
 - **#17** — Scan environment docs and comments for walkthroughs or golden answers.
 - **#21** — Run oracle locally and confirm reward=1.0 across repeated trials.
+- **#32** — Provide --report or --rubric for rubric checks.
 - **#52** — Confirm golden inputs are read-only or tests use ephemeral fixtures.
+- **#54** — Run agent tests and attach entire-report.txt for #54 evaluation.
 
 ---
 
@@ -112,7 +114,16 @@ _No non-blocking warnings._
 - **#9** — Corpus uniqueness cannot be verified from task artifacts alone.
 - **#17** — No obvious solution files; manual review needed for comment/doc leakage.
 - **#21** — Flake detection requires running `./scripts/terminus oracle` (not executed in read-only audit).
+- **#32** — No rubric in task folder or --report export.
+- **#33** — No rubric available.
+- **#34** — No rubric available.
+- **#35** — No rubric available.
+- **#36** — No rubric available.
+- **#37** — No rubric available.
+- **#38** — No rubric available.
+- **#39** — No rubric available.
 - **#52** — Requires reviewing whether test inputs are writable/immutable in the container.
+- **#54** — Agent pass rates require --report submission export.
 - **#55** — Fairness assessment requires human judgment of instructions, environment, and agent trajectories.
 
 ---

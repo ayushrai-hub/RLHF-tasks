@@ -1,0 +1,17 @@
+[
+  {"rule_id": "S01", "sub_type": "Byte", "super_type": "Short", "conditions": []},
+  {"rule_id": "S02", "sub_type": "Short", "super_type": "Int", "conditions": []},
+  {"rule_id": "S03", "sub_type": "Int", "super_type": "Long", "conditions": []},
+  {"rule_id": "S04", "sub_type": "Long", "super_type": "BigInt", "conditions": []},
+  {"rule_id": "S05", "sub_type": "BigInt", "super_type": "Numeric", "conditions": []},
+  {"rule_id": "S06", "sub_type": "Byte", "super_type": "Int", "conditions": []},
+  {"rule_id": "S07", "sub_type": "Float", "super_type": "Double", "conditions": []},
+  {"rule_id": "S08", "sub_type": "Double", "super_type": "Numeric", "conditions": []},
+  {"rule_id": "S09", "sub_type": "Numeric", "super_type": "Serializable", "conditions": ["format"]},
+  {"rule_id": "S10", "sub_type": "Byte", "super_type": "Printable", "conditions": []},
+  {"rule_id": "S11", "sub_type": "Printable", "super_type": "Serializable", "conditions": []},
+  {"rule_id": "S12", "sub_type": "Char", "super_type": "Printable", "conditions": []},
+  {"rule_id": "S13", "sub_type": "Char", "super_type": "Comparable", "conditions": []},
+  {"rule_id": "S14", "sub_type": "Comparable", "super_type": "Hashable", "conditions": []},
+  {"rule_id": "S15", "sub_type": "Byte", "super_type": "Comparable", "conditions": []}
+]

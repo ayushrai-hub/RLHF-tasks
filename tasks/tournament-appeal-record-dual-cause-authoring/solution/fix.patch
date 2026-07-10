@@ -1,0 +1,25 @@
+--- a/src/adjudicate/record.rs
++++ b/src/adjudicate/record.rs
+@@ -198,9 +198,8 @@
+ 
+ fn canonical_annotation(raw: &str) -> Option<String> {
+     let lowered = raw.trim().to_ascii_lowercase();
+-    let alias = lowered.split('-').next().unwrap_or("");
+-    if LEGAL_ANNOTATIONS.contains(&alias) {
+-        Some(alias.to_string())
++    if LEGAL_ANNOTATIONS.iter().any(|label| *label == lowered.as_str()) {
++        Some(lowered)
+     } else {
+         None
+     }
+--- a/src/appeal/replay.rs
++++ b/src/appeal/replay.rs
+@@ -22,7 +22,7 @@
+     let mut evaluation = record::evaluate_record(
+         &replay_record,
+         players,
+-        target.epoch,
++        appeal.replay_epoch,
+         "revoked_at_replay_epoch",
+     );
+     evaluation.status = if evaluation.status == "accepted" {

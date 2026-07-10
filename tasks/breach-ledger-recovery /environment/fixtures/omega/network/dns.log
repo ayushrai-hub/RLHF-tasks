@@ -1,0 +1,3 @@
+ts=2026-06-10T02:08:03Z host=edge-1 user=backup query=cdn-cache.example.net answer=203.0.113.99
+ts=2026-06-10T02:28:02Z host=web-2 user=www-data query=dropper.bad.test answer=198.51.100.77
+ts=2026-06-10T02:23:59Z host=web-2 user=svc-metrics query=metrics.internal answer=172.16.10.55

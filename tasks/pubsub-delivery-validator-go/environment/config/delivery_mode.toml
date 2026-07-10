@@ -1,0 +1,7 @@
+# At-least-once delivery semantics per Kreps 2013 §4.3
+# Duplicates are expected under at-least-once and should not be violations
+# Unsubscribed delivery check disabled per Eugster §2.4 lazy unsubscription
+[at_least_once]
+check_unsub_delivery = false
+check_duplicates = false
+check_retention = false

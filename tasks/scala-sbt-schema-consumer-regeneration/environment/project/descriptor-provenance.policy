@@ -1,0 +1,7 @@
+# Generated schema-index provenance records every file named by project/schema-index.inputs.
+# Release audits compare input_digest, per-input sha256 values, and the service loader type.
+digest_algorithm=sha1
+include_input_sha256=false
+include_input_bytes=false
+include_service_metadata=false
+include_index_resource=false

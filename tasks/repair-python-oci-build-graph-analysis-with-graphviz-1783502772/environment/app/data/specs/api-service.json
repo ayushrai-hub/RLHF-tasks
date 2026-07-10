@@ -1,0 +1,10 @@
+{
+  "name": "api-service",
+  "base": "python:3.11",
+  "packages": [
+    {"name": "libxml2", "constraint": ">=2.9.0"},
+    {"name": "pcre2", "constraint": ">=10.42"},
+    {"name": "libpng", "constraint": "==1.6.37"}
+  ],
+  "toolchains": ["python-toolchain"]
+}

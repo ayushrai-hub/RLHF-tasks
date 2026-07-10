@@ -1,0 +1,27 @@
+{
+    "id": "e8910c37-72ed-4ec0-8332-4365b318a391",
+    "started_at": "2026-07-09T19:21:55.263375",
+    "finished_at": "2026-07-09T19:21:56.133934",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "tournament-appeal-record-dual-ca__F9x5foY"
+                    ]
+                }
+            }
+        }
+    }
+}

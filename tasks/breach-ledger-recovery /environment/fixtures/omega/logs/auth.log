@@ -1,0 +1,5 @@
+seq=1000 ts=2026-06-10T02:01:00Z host=edge-1 user=deploy src=10.10.0.5 event=accepted method=publickey
+seq=1001 ts=2026-06-10T02:03:01Z host=edge-1 user=backup src=203.0.113.41 event=failed method=password
+seq=1002 ts=2026-06-10T02:03:08Z host=edge-1 user=backup src=203.0.113.41 event=failed method=password
+seq=1003 ts=2026-06-10T02:03:44Z host=edge-1 user=backup src=203.0.113.41 event=accepted method=password
+seq=1004 ts=2026-06-10T02:03:45Z host=edge-1 user=backup src=203.0.113.41 event=session_opened method=password

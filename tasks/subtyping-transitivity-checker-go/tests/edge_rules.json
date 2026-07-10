@@ -1,0 +1,10 @@
+[
+  {"rule_id": "E01", "sub_type": "Alpha", "super_type": "Beta", "conditions": []},
+  {"rule_id": "E02", "sub_type": "Beta", "super_type": "Gamma", "conditions": []},
+  {"rule_id": "E03", "sub_type": "Alpha", "super_type": "Beta", "conditions": ["variant"]},
+  {"rule_id": "E04", "sub_type": "Phi", "super_type": "Psi", "conditions": ["strict"]},
+  {"rule_id": "E05", "sub_type": "Psi", "super_type": "Theta", "conditions": []},
+  {"rule_id": "E06", "sub_type": "Mu", "super_type": "Nu", "conditions": []},
+  {"rule_id": "E07", "sub_type": "Nu", "super_type": "Sigma", "conditions": []},
+  {"rule_id": "E08", "sub_type": "Gamma", "super_type": "Omega", "conditions": []}
+]

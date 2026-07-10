@@ -1,0 +1,9 @@
+{
+  "batch_id": "audit-alpha",
+  "rows": [
+    {"row_id": "r01", "age": 42.0, "tenure_months": 18, "region": "west", "channel": "web"},
+    {"row_id": "r02", "age": null, "tenure_months": 6, "region": "east", "channel": "phone"},
+    {"row_id": "r03", "age": 55.0, "tenure_months": null, "region": "north", "channel": "retail"},
+    {"row_id": "r04", "age": 31.0, "tenure_months": 24, "region": "south", "channel": "web"}
+  ]
+}

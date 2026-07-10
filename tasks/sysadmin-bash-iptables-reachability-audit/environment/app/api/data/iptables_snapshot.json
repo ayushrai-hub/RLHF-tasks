@@ -1,0 +1,76 @@
+{
+  "snapshot_at": "2026-06-28T10:00:00Z",
+  "tables": [
+    {
+      "name": "filter",
+      "chains": [
+        {"name": "INPUT",      "kind": "builtin",      "default_policy": "DROP",   "packet_count": 12400, "byte_count": 982156},
+        {"name": "FORWARD",    "kind": "builtin",      "default_policy": "DROP",   "packet_count": 1250,  "byte_count": 100200},
+        {"name": "OUTPUT",     "kind": "builtin",      "default_policy": "ACCEPT", "packet_count": 9821,  "byte_count": 1244302},
+        {"name": "LOGGING",    "kind": "user_defined", "default_policy": "",       "packet_count": 480,   "byte_count": 35400},
+        {"name": "RATELIMIT",  "kind": "user_defined", "default_policy": "",       "packet_count": 2104,  "byte_count": 168320},
+        {"name": "DEADCHAIN",  "kind": "user_defined", "default_policy": "",       "packet_count": 0,     "byte_count": 0},
+        {"name": "STATEFUL",   "kind": "user_defined", "default_policy": "",       "packet_count": 50,    "byte_count": 4200},
+        {"name": "WATCHDOG",   "kind": "user_defined", "default_policy": "",       "packet_count": 18,    "byte_count": 1440},
+        {"name": "ORPHANED",   "kind": "user_defined", "default_policy": "",       "packet_count": 0,     "byte_count": 0},
+        {"name": "DOUBLY_ORPHANED", "kind": "user_defined", "default_policy": "",  "packet_count": 0,     "byte_count": 0}
+      ],
+      "rules": [
+        {"chain": "INPUT",     "position": 1,  "matcher_text": "-i lo",                              "target": "ACCEPT",    "target_args": "",                       "jump_kind": "jump", "packet_count": 4210, "byte_count": 312800},
+        {"chain": "INPUT",     "position": 2,  "matcher_text": "-m state --state ESTABLISHED,RELATED", "target": "ACCEPT",  "target_args": "",                       "jump_kind": "jump", "packet_count": 5102, "byte_count": 480012},
+        {"chain": "INPUT",     "position": 3,  "matcher_text": "-p tcp --dport 22",                  "target": "RATELIMIT", "target_args": "",                       "jump_kind": "jump", "packet_count": 2104, "byte_count": 168320},
+        {"chain": "INPUT",     "position": 4,  "matcher_text": "-p tcp --dport 80",                  "target": "LOGGING",   "target_args": "",                       "jump_kind": "jump", "packet_count": 480,  "byte_count": 35400},
+        {"chain": "INPUT",     "position": 5,  "matcher_text": "-p tcp --dport 443",                 "target": "ACCEPT",    "target_args": "",                       "jump_kind": "jump", "packet_count": 318,  "byte_count": 28720},
+        {"chain": "INPUT",     "position": 6,  "matcher_text": "-p tcp --dport 8080",                "target": "LOG",       "target_args": "--log-prefix \"8080: \"", "jump_kind": "jump", "packet_count": 142,  "byte_count": 11360},
+        {"chain": "INPUT",     "position": 7,  "matcher_text": "-p tcp --dport 8080",                "target": "ACCEPT",    "target_args": "",                       "jump_kind": "jump", "packet_count": 142,  "byte_count": 11360},
+        {"chain": "INPUT",     "position": 8,  "matcher_text": "",                                   "target": "DROP",      "target_args": "",                       "jump_kind": "jump", "packet_count": 44,   "byte_count": 3168},
+        {"chain": "INPUT",     "position": 9,  "matcher_text": "-p tcp --dport 9090",                "target": "ORPHANED",  "target_args": "",                       "jump_kind": "jump", "packet_count": 0,    "byte_count": 0},
+        {"chain": "INPUT",     "position": 10, "matcher_text": "-p tcp --dport 9091",                "target": "ACCEPT",    "target_args": "",                       "jump_kind": "jump", "packet_count": 0,    "byte_count": 0},
+
+        {"chain": "FORWARD",   "position": 1,  "matcher_text": "-m state --state ESTABLISHED,RELATED", "target": "ACCEPT",  "target_args": "",                       "jump_kind": "jump", "packet_count": 1200, "byte_count": 96000},
+        {"chain": "FORWARD",   "position": 2,  "matcher_text": "",                                   "target": "STATEFUL",  "target_args": "",                       "jump_kind": "goto", "packet_count": 50,   "byte_count": 4200},
+        {"chain": "FORWARD",   "position": 3,  "matcher_text": "-p tcp --dport 8080",                "target": "ACCEPT",    "target_args": "",                       "jump_kind": "jump", "packet_count": 0,    "byte_count": 0},
+
+        {"chain": "LOGGING",   "position": 1,  "matcher_text": "",                                   "target": "LOG",       "target_args": "--log-prefix \"FW: \"",  "jump_kind": "jump", "packet_count": 480,  "byte_count": 35400},
+        {"chain": "LOGGING",   "position": 2,  "matcher_text": "",                                   "target": "RETURN",    "target_args": "",                       "jump_kind": "jump", "packet_count": 480,  "byte_count": 35400},
+        {"chain": "LOGGING",   "position": 3,  "matcher_text": "",                                   "target": "DROP",      "target_args": "",                       "jump_kind": "jump", "packet_count": 0,    "byte_count": 0},
+
+        {"chain": "RATELIMIT", "position": 1,  "matcher_text": "-m limit --limit 5/sec",             "target": "ACCEPT",    "target_args": "",                       "jump_kind": "jump", "packet_count": 2100, "byte_count": 168000},
+        {"chain": "RATELIMIT", "position": 2,  "matcher_text": "  -p udp --dport 5353  ",            "target": "WEIRDTARGET", "target_args": "",                     "jump_kind": "jump", "packet_count": 0,    "byte_count": 0},
+        {"chain": "RATELIMIT", "position": 3,  "matcher_text": "",                                   "target": "DROP",      "target_args": "",                       "jump_kind": "jump", "packet_count": 4,    "byte_count": 320},
+
+        {"chain": "DEADCHAIN", "position": 1,  "matcher_text": "",                                   "target": "ACCEPT",    "target_args": "",                       "jump_kind": "jump", "packet_count": 0,    "byte_count": 0},
+
+        {"chain": "STATEFUL",  "position": 1,  "matcher_text": "-m state --state INVALID",           "target": "DROP",      "target_args": "",                       "jump_kind": "jump", "packet_count": 5,    "byte_count": 400},
+        {"chain": "STATEFUL",  "position": 2,  "matcher_text": "",                                   "target": "RETURN",    "target_args": "",                       "jump_kind": "jump", "packet_count": 45,   "byte_count": 3800},
+
+        {"chain": "OUTPUT",    "position": 1,  "matcher_text": "-p tcp --dport 22",                  "target": "WATCHDOG",  "target_args": "",                       "jump_kind": "jump", "packet_count": 18,   "byte_count": 1440},
+
+        {"chain": "WATCHDOG",  "position": 1,  "matcher_text": "",                                   "target": "LOG",       "target_args": "--log-prefix \"BLOCK: \"", "jump_kind": "jump", "packet_count": 18,   "byte_count": 1440},
+        {"chain": "WATCHDOG",  "position": 2,  "matcher_text": "",                                   "target": "ACCEPT",    "target_args": "",                       "jump_kind": "jump", "packet_count": 0,    "byte_count": 0},
+
+        {"chain": "ORPHANED",  "position": 1,  "matcher_text": "-p tcp --dport 4444",                "target": "DOUBLY_ORPHANED", "target_args": "",                  "jump_kind": "jump", "packet_count": 0,    "byte_count": 0},
+        {"chain": "ORPHANED",  "position": 2,  "matcher_text": "",                                   "target": "RETURN",    "target_args": "",                       "jump_kind": "jump", "packet_count": 0,    "byte_count": 0},
+
+        {"chain": "DOUBLY_ORPHANED", "position": 1, "matcher_text": "",                              "target": "DROP",      "target_args": "",                       "jump_kind": "jump", "packet_count": 0,    "byte_count": 0}
+      ]
+    },
+    {
+      "name": "nat",
+      "chains": [
+        {"name": "PREROUTING",  "kind": "builtin",      "default_policy": "ACCEPT", "packet_count": 6420, "byte_count": 514080},
+        {"name": "POSTROUTING", "kind": "builtin",      "default_policy": "ACCEPT", "packet_count": 5912, "byte_count": 472960},
+        {"name": "LOGGING",     "kind": "user_defined", "default_policy": "",       "packet_count": 80,   "byte_count": 5760}
+      ],
+      "rules": [
+        {"chain": "PREROUTING", "position": 1, "matcher_text": "-p tcp --dport 80",   "target": "LOGGING",    "target_args": "",                       "jump_kind": "jump", "packet_count": 80,  "byte_count": 5760},
+        {"chain": "PREROUTING", "position": 2, "matcher_text": "-p tcp --dport 8080", "target": "DNAT",       "target_args": "--to-destination 10.0.0.10:80", "jump_kind": "jump", "packet_count": 320, "byte_count": 25600},
+
+        {"chain": "POSTROUTING", "position": 1, "matcher_text": "-o eth0",            "target": "MASQUERADE", "target_args": "",                       "jump_kind": "jump", "packet_count": 5912, "byte_count": 472960},
+
+        {"chain": "LOGGING",     "position": 1, "matcher_text": "",                   "target": "LOG",        "target_args": "--log-prefix \"NAT: \"", "jump_kind": "jump", "packet_count": 80,  "byte_count": 5760},
+        {"chain": "LOGGING",     "position": 2, "matcher_text": "",                   "target": "ACCEPT",     "target_args": "",                       "jump_kind": "jump", "packet_count": 80,  "byte_count": 5760}
+      ]
+    }
+  ]
+}

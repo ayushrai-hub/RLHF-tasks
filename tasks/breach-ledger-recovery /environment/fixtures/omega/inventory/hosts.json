@@ -1,0 +1,5 @@
+[
+  {"host": "edge-1", "role": "ssh gateway", "aliases": ["edge", "gateway"]},
+  {"host": "web-2", "role": "web tier", "aliases": ["web", "frontend"]},
+  {"host": "db-3", "role": "database tier", "aliases": ["db", "ledger-db"]}
+]

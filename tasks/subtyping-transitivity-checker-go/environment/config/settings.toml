@@ -1,0 +1,3 @@
+[analysis]
+include_conditional = true
+max_chain_depth = 0

@@ -1,0 +1,8 @@
+{
+  "fixture_id": "current-activity-001",
+  "descriptor": "acme.activity.event.v2",
+  "expected_descriptor": "acme.activity.event.v2",
+  "event_id": "evt-current-001",
+  "account_id": "acct-7",
+  "activity_kind": "purchase"
+}

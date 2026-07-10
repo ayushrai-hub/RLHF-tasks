@@ -1,0 +1,5 @@
+fixture_id
+descriptor
+expected_descriptor
+canonical_descriptor
+ok

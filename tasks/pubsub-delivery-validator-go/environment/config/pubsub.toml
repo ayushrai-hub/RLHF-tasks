@@ -1,0 +1,7 @@
+[pubsub]
+check_unsub_delivery = true
+check_duplicates = true
+check_ordering = true
+check_ack_consistency = true
+check_retention = true
+check_deadletter = true

@@ -1,0 +1,18 @@
+{
+"zones": [
+[
+"M",
+2,
+270000
+]
+],
+"overflow": {
+"count": 1,
+"weight": 8000
+},
+"total": {
+"count": 3,
+"weight": 278000
+},
+"digest": 3275799710
+}

@@ -1,0 +1,288 @@
+#!/usr/bin/env bash
+set -euo pipefail
+ROOT="$(cd "$(dirname "$0")" && pwd)"
+TARGET="$ROOT/target"
+STAMP_DIR="$TARGET/stamps"
+SCHEMA_CLASSES="$TARGET/schema-index/classes"
+SCHEMA_JAR="$TARGET/schema-index/schema-index.jar"
+CONSUMER_CLASSES="$TARGET/consumer/classes"
+ROUNDTRIP_REPORT="$TARGET/consumer/roundtrip-report.json"
+INPUT_MANIFEST="$ROOT/project/schema-index.inputs"
+SERVICE_CONFIG="$ROOT/project/service-loader.properties"
+LAYOUT_CONFIG="$ROOT/project/package-layout.properties"
+POLICY_CONFIG="$ROOT/project/descriptor-provenance.policy"
+CONSUMER_CONFIG="$ROOT/consumer/consumer.build"
+
+prop() {
+  local file="$1" key="$2"
+  awk -F= -v key="$key" '
+    /^[[:space:]]*#/ || /^[[:space:]]*$/ { next }
+    { k=$1; sub(/^[[:space:]]+/, "", k); sub(/[[:space:]]+$/, "", k); if (k == key) { v=substr($0, index($0, "=")+1); sub(/^[[:space:]]+/, "", v); sub(/[[:space:]]+$/, "", v); print v; exit } }
+  ' "$file"
+}
+
+bool_prop() {
+  local file="$1" key="$2"
+  case "$(prop "$file" "$key")" in
+    true|TRUE|yes|YES|1) return 0 ;;
+    *) return 1 ;;
+  esac
+}
+
+list_inputs() {
+  awk '
+    /^[[:space:]]*#/ || /^[[:space:]]*$/ { next }
+    { sub(/[[:space:]]+#.*$/, ""); sub(/^[[:space:]]+/, ""); sub(/[[:space:]]+$/, ""); if ($0 != "") print $0 }
+  ' "$INPUT_MANIFEST"
+}
+
+sha_file() { sha256sum "$1" | awk '{print $1}'; }
+sha1_file() { sha1sum "$1" | awk '{print $1}'; }
+input_digest() {
+  local tmp="$TARGET/schema-index/input-digest.lines"
+  mkdir -p "$(dirname "$tmp")"
+  : > "$tmp"
+  while IFS= read -r rel; do
+    [ -n "$rel" ] || continue
+    if [ ! -f "$ROOT/$rel" ]; then
+      echo "schema-index input listed but missing: $rel" >&2
+      exit 21
+    fi
+    printf '%s %s\n' "$rel" "$(sha_file "$ROOT/$rel")" >> "$tmp"
+  done < <(list_inputs)
+  sha256sum "$tmp" | awk '{print $1}'
+}
+
+published_jar_rel() {
+  local rel
+  rel="$(prop "$LAYOUT_CONFIG" publish_jar)"
+  [ -n "$rel" ] || { echo "publish_jar missing in package layout" >&2; exit 26; }
+  printf '%s\n' "$rel"
+}
+
+service_directory() {
+  local dir
+  dir="$(prop "$LAYOUT_CONFIG" service_directory)"
+  [ -n "$dir" ] || { echo "service_directory missing in package layout" >&2; exit 27; }
+  printf '%s\n' "$dir"
+}
+
+parse_idl_records() {
+  while IFS= read -r rel; do
+    case "$rel" in
+      *.rift)
+        awk -v source="$rel" '
+          /^[[:space:]]*schema[[:space:]]+/ { name=$2; gsub(/[^A-Za-z0-9_]/, "", name) }
+          /^[[:space:]]*canonical_descriptor[[:space:]]*=/ { line=$0; sub(/.*=/, "", line); gsub(/[\"[:space:]]/, "", line); canonical=line }
+          /^[[:space:]]*compatibility_group[[:space:]]*=/ { line=$0; sub(/.*=/, "", line); gsub(/[\"[:space:]]/, "", line); group=line }
+          /^[[:space:]]*field[[:space:]]+/ { field=$2; gsub(/:.*/, "", field); fields = fields field "," }
+          END { if (canonical != "") { if (fields ~ /,$/) sub(/,$/, "", fields); print canonical "\t" name "\t" group "\t" fields "\t" source } }
+        ' "$ROOT/$rel"
+        ;;
+    esac
+  done < <(list_inputs)
+}
+
+parse_migrations() {
+  while IFS= read -r rel; do
+    case "$rel" in
+      *.map)
+        awk -v source="$rel" '
+          /^[[:space:]]*#/ || /^[[:space:]]*$/ { next }
+          {
+            sub(/[[:space:]]+#.*$/, "")
+            split($0, parts, "=")
+            if (length(parts) >= 2) {
+              old=parts[1]; new=parts[2]
+              gsub(/^[[:space:]]+|[[:space:]]+$/, "", old)
+              gsub(/^[[:space:]]+|[[:space:]]+$/, "", new)
+              if (old != "" && new != "") print old "\t" new "\t" source
+            }
+          }
+        ' "$ROOT/$rel"
+        ;;
+    esac
+  done < <(list_inputs)
+}
+
+write_provider_java() {
+  local provider_class="$1" resource_path="$2"
+  local package_name="${provider_class%.*}"
+  local simple_name="${provider_class##*.}"
+  local package_dir="${package_name//./\/}"
+  mkdir -p "$SCHEMA_CLASSES/$package_dir"
+  cat > "$SCHEMA_CLASSES/$package_dir/$simple_name.java" <<JAVA
+package $package_name;
+
+import com.acme.rift.SchemaIndexProvider;
+import java.io.InputStream;
+import java.util.LinkedHashSet;
+import java.util.Properties;
+import java.util.Set;
+
+public final class $simple_name implements SchemaIndexProvider {
+  private final Properties properties = new Properties();
+
+  public $simple_name() {
+    try (InputStream in = getClass().getClassLoader().getResourceAsStream("$resource_path")) {
+      if (in == null) {
+        throw new IllegalStateException("missing schema index resource: $resource_path");
+      }
+      properties.load(in);
+    } catch (Exception ex) {
+      throw new IllegalStateException("cannot load schema index", ex);
+    }
+  }
+
+  public String canonicalize(String descriptor) {
+    String value = properties.getProperty("canonical." + descriptor);
+    return value == null ? descriptor : value;
+  }
+
+  public boolean supports(String descriptor) {
+    return properties.containsKey("descriptor." + descriptor);
+  }
+
+  public Set<String> canonicalDescriptors() {
+    Set<String> values = new LinkedHashSet<>();
+    for (String key : properties.stringPropertyNames()) {
+      if (key.startsWith("descriptor.")) {
+        values.add(key.substring("descriptor.".length()));
+      }
+    }
+    return values;
+  }
+}
+JAVA
+}
+
+generate_schema_index() {
+  mkdir -p "$SCHEMA_CLASSES" "$STAMP_DIR" "$TARGET/schema-index"
+  local digest="$1"
+  local service_type provider_class index_resource provenance_resource service_dir digest_algorithm
+  service_type="$(prop "$SERVICE_CONFIG" service_type)"
+  provider_class="$(prop "$SERVICE_CONFIG" provider_class)"
+  index_resource="$(prop "$SERVICE_CONFIG" index_resource)"
+  provenance_resource="$(prop "$SERVICE_CONFIG" provenance_resource)"
+  service_dir="$(service_directory)"
+  digest_algorithm="$(prop "$POLICY_CONFIG" digest_algorithm)"
+  [ -n "$service_type" ] || { echo "service_type missing" >&2; exit 22; }
+  [ -n "$provider_class" ] || { echo "provider_class missing" >&2; exit 23; }
+  [ -n "$index_resource" ] || { echo "index_resource missing" >&2; exit 24; }
+  [ -n "$provenance_resource" ] || { echo "provenance_resource missing" >&2; exit 25; }
+  [ -n "$digest_algorithm" ] || { echo "digest_algorithm missing" >&2; exit 28; }
+  mkdir -p "$SCHEMA_CLASSES/$(dirname "$index_resource")" "$SCHEMA_CLASSES/$(dirname "$provenance_resource")" "$SCHEMA_CLASSES/$service_dir"
+  local index_file="$SCHEMA_CLASSES/$index_resource"
+  : > "$index_file"
+  parse_idl_records | while IFS=$'\t' read -r canonical name group fields source; do
+    [ -n "$canonical" ] || continue
+    printf 'descriptor.%s=%s\n' "$canonical" "$name" >> "$index_file"
+    printf 'canonical.%s=%s\n' "$canonical" "$canonical" >> "$index_file"
+    printf 'group.%s=%s\n' "$canonical" "$group" >> "$index_file"
+    printf 'fields.%s=%s\n' "$canonical" "$fields" >> "$index_file"
+    printf 'source.%s=%s\n' "$canonical" "$source" >> "$index_file"
+  done
+  parse_migrations | while IFS=$'\t' read -r old new source; do
+    printf 'canonical.%s=%s\n' "$old" "$new" >> "$index_file"
+    printf 'migration_source.%s=%s\n' "$old" "$source" >> "$index_file"
+  done
+  LC_ALL=C sort -o "$index_file" "$index_file"
+
+  local prov_file="$SCHEMA_CLASSES/$provenance_resource"
+  : > "$prov_file"
+  printf 'input_digest=%s\n' "$digest" >> "$prov_file"
+  if bool_prop "$POLICY_CONFIG" include_service_metadata; then
+    printf 'service.type=%s\n' "$service_type" >> "$prov_file"
+    printf 'service.provider=%s\n' "$provider_class" >> "$prov_file"
+  fi
+  if bool_prop "$POLICY_CONFIG" include_index_resource; then
+    printf 'index.resource=%s\n' "$index_resource" >> "$prov_file"
+  fi
+  while IFS= read -r rel; do
+    if bool_prop "$POLICY_CONFIG" include_input_sha256; then
+      case "$digest_algorithm" in
+        sha256) printf 'input.%s.sha256=%s\n' "$rel" "$(sha_file "$ROOT/$rel")" >> "$prov_file" ;;
+        sha1) printf 'input.%s.sha1=%s\n' "$rel" "$(sha1_file "$ROOT/$rel")" >> "$prov_file" ;;
+        *) echo "unsupported digest_algorithm: $digest_algorithm" >&2; exit 29 ;;
+      esac
+    fi
+    if bool_prop "$POLICY_CONFIG" include_input_bytes; then
+      printf 'input.%s.bytes=%s\n' "$rel" "$(wc -c < "$ROOT/$rel" | tr -d ' ')" >> "$prov_file"
+    fi
+  done < <(list_inputs)
+  LC_ALL=C sort -o "$prov_file" "$prov_file"
+
+  write_provider_java "$provider_class" "$index_resource"
+  local iface_dir="$SCHEMA_CLASSES/com/acme/rift"
+  mkdir -p "$iface_dir"
+  cp "$ROOT/src/main/java/com/acme/rift/SchemaIndexProvider.java" "$iface_dir/SchemaIndexProvider.java"
+  javac -d "$SCHEMA_CLASSES" "$iface_dir/SchemaIndexProvider.java" $(find "$SCHEMA_CLASSES/com/acme/generated" -name '*.java' -print)
+  printf '%s\n' "$provider_class" > "$SCHEMA_CLASSES/$service_dir/$service_type"
+  (cd "$SCHEMA_CLASSES" && jar --create --file "$SCHEMA_JAR" .)
+  printf '%s\n' "$digest" > "$STAMP_DIR/schema-index.sha256"
+}
+
+schema_compile() {
+  local digest current
+  digest="$(input_digest)"
+  current=""
+  [ -f "$STAMP_DIR/schema-index.sha256" ] && current="$(cat "$STAMP_DIR/schema-index.sha256")"
+  if [ "$digest" != "$current" ] || [ ! -f "$SCHEMA_JAR" ]; then
+    rm -rf "$SCHEMA_CLASSES"
+    generate_schema_index "$digest"
+  fi
+}
+
+publish_local() {
+  schema_compile
+  local rel dest
+  rel="$(published_jar_rel)"
+  dest="$ROOT/$rel"
+  mkdir -p "$(dirname "$dest")"
+  if [ "$dest" != "$SCHEMA_JAR" ]; then
+    cp "$SCHEMA_JAR" "$dest"
+  fi
+}
+
+consumer_roundtrip() {
+  publish_local
+  mkdir -p "$CONSUMER_CLASSES" "$TARGET/consumer"
+  local jar_rel jar_abs fixtures
+  jar_rel="$(prop "$CONSUMER_CONFIG" schema_index_jar)"
+  [ -n "$jar_rel" ] || { echo "schema_index_jar missing in consumer build metadata" >&2; exit 31; }
+  jar_abs="$ROOT/$jar_rel"
+  if [ ! -f "$jar_abs" ]; then
+    echo "consumer schema_index_jar does not exist: $jar_rel" >&2
+    exit 32
+  fi
+  javac -cp "$jar_abs" -d "$CONSUMER_CLASSES" "$ROOT/src/main/java/com/acme/consumer/RoundTripMain.java"
+  fixtures="$(prop "$CONSUMER_CONFIG" roundtrip_fixtures)"
+  # shellcheck disable=SC2086
+  java -cp "$CONSUMER_CLASSES:$jar_abs" com.acme.consumer.RoundTripMain "$ROUNDTRIP_REPORT" "$jar_rel" $fixtures
+}
+
+show_index_hash() {
+  publish_local
+  local rel
+  rel="$(published_jar_rel)"
+  unzip -p "$ROOT/$rel" com/acme/generated/schema-index.properties | sha256sum | awk '{print $1}'
+}
+
+clean() {
+  rm -rf "$TARGET"
+}
+
+if [ "$#" -eq 0 ]; then
+  echo "usage: $0 clean|schemaIndex/compile|publishLocal|consumerRoundTrip|showIndexHash ..." >&2
+  exit 2
+fi
+for task in "$@"; do
+  case "$task" in
+    clean) clean ;;
+    schemaIndex/compile) schema_compile ;;
+    publishLocal) publish_local ;;
+    consumerRoundTrip) consumer_roundtrip ;;
+    showIndexHash) show_index_hash ;;
+    *) echo "unknown sbt task alias: $task" >&2; exit 2 ;;
+  esac
+done

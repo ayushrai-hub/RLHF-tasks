@@ -1,0 +1,4 @@
+[analysis]
+profile = "default"
+include_conditional = false
+max_chain_depth = 0

@@ -1,0 +1,16 @@
+# Probe packets for traversal simulation. Each probe enters the ruleset at
+# entry_chain of entry_table and is walked through the rules with a real
+# jump/goto call stack. Fields use '-' when not applicable. A matcher clause
+# matches when the probe's corresponding field equals the clause value; a
+# `-m limit` clause always matches; an unconditional rule always matches.
+probe_id	entry_table	entry_chain	in_iface	out_iface	proto	dport	state
+t1	filter	INPUT	lo	-	-	-	-
+t2	filter	INPUT	eth0	-	tcp	22	NEW
+t3	filter	INPUT	eth0	-	tcp	80	NEW
+t4	filter	INPUT	eth0	-	tcp	8080	NEW
+t5	filter	INPUT	eth0	-	tcp	9090	NEW
+t6	filter	FORWARD	eth0	eth1	tcp	8080	NEW
+t7	filter	OUTPUT	-	eth0	tcp	22	NEW
+t8	filter	OUTPUT	-	eth0	tcp	443	NEW
+t9	nat	PREROUTING	eth0	-	tcp	80	NEW
+t10	nat	PREROUTING	eth0	-	tcp	8080	NEW

@@ -1,0 +1,110 @@
+Validation complete
+============================= test session starts ==============================
+platform linux -- Python 3.11.2, pytest-8.4.1, pluggy-1.6.0 -- /usr/bin/python3
+cachedir: /tmp/pytest_cache
+rootdir: /tests
+plugins: json-ctrf-0.3.5
+collecting ... collected 49 items
+
+../tests/test_outputs.py::test_binary_exists PASSED                      [  2%]
+../tests/test_outputs.py::test_output_schema PASSED                      [  4%]
+../tests/test_outputs.py::test_summary_schema PASSED                     [  6%]
+../tests/test_outputs.py::test_total_deliveries PASSED                   [  8%]
+../tests/test_outputs.py::test_unsub_violations_count PASSED             [ 10%]
+../tests/test_outputs.py::test_unsub_boundary_exclusive PASSED           [ 12%]
+../tests/test_outputs.py::test_unsub_no_subscription PASSED              [ 14%]
+../tests/test_outputs.py::test_duplicate_violations_per_client PASSED    [ 16%]
+../tests/test_outputs.py::test_duplicate_not_cross_client PASSED         [ 18%]
+../tests/test_outputs.py::test_ordering_violations_strict PASSED         [ 20%]
+../tests/test_outputs.py::test_ordering_d04_regression PASSED            [ 22%]
+../tests/test_outputs.py::test_deadletter_retry_exhaustion PASSED        [ 24%]
+../tests/test_outputs.py::test_deadletter_ttl_expiry PASSED              [ 26%]
+../tests/test_outputs.py::test_deadletter_total PASSED                   [ 28%]
+../tests/test_outputs.py::test_retention_strict_boundary PASSED          [ 30%]
+../tests/test_outputs.py::test_retention_deadletter_interaction PASSED   [ 32%]
+../tests/test_outputs.py::test_retention_expiry_rate PASSED              [ 34%]
+../tests/test_outputs.py::test_retention_age_fields PASSED               [ 36%]
+../tests/test_outputs.py::test_priority_normalization PASSED             [ 38%]
+../tests/test_outputs.py::test_priority_high_violations PASSED           [ 40%]
+../tests/test_outputs.py::test_latency_float_division PASSED             [ 42%]
+../tests/test_outputs.py::test_latency_sorted PASSED                     [ 44%]
+../tests/test_outputs.py::test_avg_mean_interval PASSED                  [ 46%]
+../tests/test_outputs.py::test_backpressure_float_threshold PASSED       [ 48%]
+../tests/test_outputs.py::test_backpressure_sorted PASSED                [ 51%]
+../tests/test_outputs.py::test_backpressure_max_burst_size PASSED        [ 53%]
+../tests/test_outputs.py::test_throttle_floor_division PASSED            [ 55%]
+../tests/test_outputs.py::test_throttle_sorted PASSED                    [ 57%]
+../tests/test_outputs.py::test_throttle_delivery_rate PASSED             [ 59%]
+../tests/test_outputs.py::test_throttle_peak_rate PASSED                 [ 61%]
+../tests/test_outputs.py::test_fanout_ratio PASSED                       [ 63%]
+../tests/test_outputs.py::test_fanout_sorted PASSED                      [ 65%]
+../tests/test_outputs.py::test_topic_stats_sorted PASSED                 [ 67%]
+../tests/test_outputs.py::test_topic_stats_violations_sum PASSED         [ 69%]
+../tests/test_outputs.py::test_num_topics PASSED                         [ 71%]
+../tests/test_outputs.py::test_violation_rates PASSED                    [ 73%]
+../tests/test_outputs.py::test_ack_stats PASSED                          [ 75%]
+../tests/test_outputs.py::test_cross_section_consistency PASSED          [ 77%]
+../tests/test_outputs.py::test_all_valid_false PASSED                    [ 79%]
+../tests/test_outputs.py::test_violations_sorted PASSED                  [ 81%]
+../tests/test_outputs.py::test_source_not_gutted PASSED                  [ 83%]
+../tests/test_outputs.py::test_rerun_deterministic PASSED                [ 85%]
+../tests/test_outputs.py::test_config_override_inactive PASSED           [ 87%]
+../tests/test_outputs.py::test_compound_violation_d31 PASSED             [ 89%]
+../tests/test_outputs.py::test_dead_letter_rate_metric PASSED            [ 91%]
+../tests/test_outputs.py::test_avg_fanout_metric PASSED                  [ 93%]
+../tests/test_outputs.py::test_avg_backpressure_metric PASSED            [ 95%]
+../tests/test_outputs.py::test_priority_distribution PASSED              [ 97%]
+../tests/test_outputs.py::test_avg_priority PASSED                       [100%]
+
+==================================== PASSES ====================================
+=========================== short test summary info ============================
+PASSED ../tests/test_outputs.py::test_binary_exists
+PASSED ../tests/test_outputs.py::test_output_schema
+PASSED ../tests/test_outputs.py::test_summary_schema
+PASSED ../tests/test_outputs.py::test_total_deliveries
+PASSED ../tests/test_outputs.py::test_unsub_violations_count
+PASSED ../tests/test_outputs.py::test_unsub_boundary_exclusive
+PASSED ../tests/test_outputs.py::test_unsub_no_subscription
+PASSED ../tests/test_outputs.py::test_duplicate_violations_per_client
+PASSED ../tests/test_outputs.py::test_duplicate_not_cross_client
+PASSED ../tests/test_outputs.py::test_ordering_violations_strict
+PASSED ../tests/test_outputs.py::test_ordering_d04_regression
+PASSED ../tests/test_outputs.py::test_deadletter_retry_exhaustion
+PASSED ../tests/test_outputs.py::test_deadletter_ttl_expiry
+PASSED ../tests/test_outputs.py::test_deadletter_total
+PASSED ../tests/test_outputs.py::test_retention_strict_boundary
+PASSED ../tests/test_outputs.py::test_retention_deadletter_interaction
+PASSED ../tests/test_outputs.py::test_retention_expiry_rate
+PASSED ../tests/test_outputs.py::test_retention_age_fields
+PASSED ../tests/test_outputs.py::test_priority_normalization
+PASSED ../tests/test_outputs.py::test_priority_high_violations
+PASSED ../tests/test_outputs.py::test_latency_float_division
+PASSED ../tests/test_outputs.py::test_latency_sorted
+PASSED ../tests/test_outputs.py::test_avg_mean_interval
+PASSED ../tests/test_outputs.py::test_backpressure_float_threshold
+PASSED ../tests/test_outputs.py::test_backpressure_sorted
+PASSED ../tests/test_outputs.py::test_backpressure_max_burst_size
+PASSED ../tests/test_outputs.py::test_throttle_floor_division
+PASSED ../tests/test_outputs.py::test_throttle_sorted
+PASSED ../tests/test_outputs.py::test_throttle_delivery_rate
+PASSED ../tests/test_outputs.py::test_throttle_peak_rate
+PASSED ../tests/test_outputs.py::test_fanout_ratio
+PASSED ../tests/test_outputs.py::test_fanout_sorted
+PASSED ../tests/test_outputs.py::test_topic_stats_sorted
+PASSED ../tests/test_outputs.py::test_topic_stats_violations_sum
+PASSED ../tests/test_outputs.py::test_num_topics
+PASSED ../tests/test_outputs.py::test_violation_rates
+PASSED ../tests/test_outputs.py::test_ack_stats
+PASSED ../tests/test_outputs.py::test_cross_section_consistency
+PASSED ../tests/test_outputs.py::test_all_valid_false
+PASSED ../tests/test_outputs.py::test_violations_sorted
+PASSED ../tests/test_outputs.py::test_source_not_gutted
+PASSED ../tests/test_outputs.py::test_rerun_deterministic
+PASSED ../tests/test_outputs.py::test_config_override_inactive
+PASSED ../tests/test_outputs.py::test_compound_violation_d31
+PASSED ../tests/test_outputs.py::test_dead_letter_rate_metric
+PASSED ../tests/test_outputs.py::test_avg_fanout_metric
+PASSED ../tests/test_outputs.py::test_avg_backpressure_metric
+PASSED ../tests/test_outputs.py::test_priority_distribution
+PASSED ../tests/test_outputs.py::test_avg_priority
+============================= 49 passed in 10.44s ==============================

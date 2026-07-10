@@ -1,0 +1,19 @@
+# Generated output schema
+
+The generated jar resource `/app/environment/target/local-ivy/schema-index.jar!/com/acme/generated/schema-index.properties` uses these descriptor keys for the visible contracts: `descriptor.acme.activity.event.v2`, `descriptor.acme.audit.envelope.v2`, `canonical.acme.activity.event.v2`, `canonical.acme.audit.envelope.v2`, `canonical.acme.user.event.v1`, `canonical.acme.audit.envelope.v1`, `migration_source.acme.user.event.v1`, and `migration_source.acme.audit.envelope.v1`. If a maintainer adds a valid migration alias such as `acme.mobile.user_event.v1 = acme.activity.event.v2`, the regenerated index must add `canonical.acme.mobile.user_event.v1` with the same canonical value.
+
+The visible IDL class names are `ActivityEvent` for `acme.activity.event.v2` and `AuditEnvelope` for `acme.audit.envelope.v2`. The generated provider class is `com.acme.generated.SchemaIndexProviderImpl`.
+
+The provenance resource uses `service.type`, `service.provider`, `index.resource`, and one `input.<path>.sha256` entry plus byte count for each declared input. The digest algorithm name is `sha256`; SHA-256 values are 64-character lowercase hexadecimal strings. Required provenance keys include `input.project/package-layout.properties.sha256`, `input.project/descriptor-provenance.policy.sha256`, `input.contracts/migrations/v1_to_v2_descriptor.map.sha256`, and `input.contracts/migrations/audit_v1_to_v2_descriptor.map.sha256`.
+
+The round-trip report uses `schema_index_jar`, `provider_count`, `canonical_descriptor_count`, `all_ok`, and `roundtrips`. Each row includes `fixture_id`, `input_descriptor`, `canonical_descriptor`, and `ok`. The visible fixture identifiers include `legacy-user-event-001`, `legacy-audit-envelope-001`, `current-activity-001`, and `current-envelope-001`; a valid added fixture may use `mobile-legacy-user-event-001`. `all_ok` is true only when every row succeeds.
+
+For auditability, the visible fixture row invariants are named `legacy-user-event-001input_descriptor`, `legacy-user-event-001canonical_descriptor`, `legacy-audit-envelope-001input_descriptor`, `legacy-audit-envelope-001canonical_descriptor`, `current-activity-001canonical_descriptor`, and `current-envelope-001canonical_descriptor`; each name combines a fixture identifier with the report field whose value must be checked.
+
+Release audit paths include `consumer/consumer.build`, `consumer/fixtures/mobile-legacy-user-event.json`, `target/schema-index/classes/com/acme/generated`, `contracts/activity.rift`, and `contracts/envelope.rift`. The jar audit inspects zip entries such as `com/acme/generated/schema-index-provenance.properties` and may be implemented with `zipfile`-style archive inspection plus `hashlib`-style SHA-256 recomputation; these library names describe the audit primitive, not task implementation language. When appending the mobile fixture, the literal suffix is ` consumer/fixtures/mobile-legacy-user-event.json`.
+
+Release audit tooling note: SHA-256 provenance recomputation is checked with the sha256sum command against each path declared in project/schema-index.inputs.
+
+Incremental migration audit example: appending `acme.mobile.user_event.v1 = acme.activity.event.v2` must yield `canonical.acme.mobile.user_event.v1=acme.activity.event.v2` in the regenerated index. The added fixture example may use `event_id` value `evt-mobile-legacy-001`. Consumer fixture membership is controlled by the visible `roundtrip_fixtures=` key in `/app/environment/consumer/consumer.build`.
+
+Generated-artifact shortcut audit: if `target/schema-index/classes/com/acme/generated/schema-index.properties` is prewritten with `canonical.acme.user.event.v1=static-shortcut`, a clean rebuild must overwrite it from the authoritative IDL, migration, layout, service-loader, and provenance inputs.

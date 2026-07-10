@@ -1,0 +1,11 @@
+{
+  "name": "cache-tier",
+  "base": "debian:12",
+  "packages": [
+    {"name": "ringbuf", "constraint": "*"},
+    {"name": "slab", "constraint": "*"},
+    {"name": "mmapfs", "constraint": "*"},
+    {"name": "arena", "constraint": "*"}
+  ],
+  "toolchains": []
+}

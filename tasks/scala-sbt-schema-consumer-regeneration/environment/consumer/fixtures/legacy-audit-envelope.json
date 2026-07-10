@@ -1,0 +1,8 @@
+{
+  "fixture_id": "legacy-audit-envelope-001",
+  "descriptor": "acme.audit.envelope.v1",
+  "expected_descriptor": "acme.audit.envelope.v2",
+  "event_id": "audit-legacy-001",
+  "account_id": "acct-7",
+  "activity_kind": "audit-login"
+}

@@ -1,0 +1,3 @@
+match_kind	match_value	forced_target_type	rationale
+log_prefix_contains	BLOCK:	terminal	BLOCK-prefixed logs trigger external watchdog auto-drop; the LOG rule is policy-terminal even though iptables treats LOG as non-terminating
+target_args_contains	--set-mark 0xDEAD	terminal	mark 0xDEAD is wired to a fail-closed kernel hook; once set the packet is dropped before any subsequent rule fires

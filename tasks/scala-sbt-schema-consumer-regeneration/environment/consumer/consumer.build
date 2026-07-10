@@ -1,0 +1,4 @@
+# Consumer build metadata. Paths are relative to /app/environment.
+schema_index_jar=target/schema-index/schema-index.jar
+roundtrip_fixtures=consumer/fixtures/legacy-user-event.json consumer/fixtures/current-activity.json consumer/fixtures/current-envelope.json
+report_fields=fixture_id input_descriptor canonical_descriptor ok

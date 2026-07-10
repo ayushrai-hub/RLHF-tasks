@@ -1,0 +1,27 @@
+{
+    "id": "73bbf407-2503-479b-9014-b5b19bac9c62",
+    "started_at": "2026-07-10T15:48:07.585436",
+    "finished_at": "2026-07-10T15:48:08.503627",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "_tide-harmonic-forecaster__dQn5TKW"
+                    ]
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "id": "2793af6d-7e72-4c6f-b6d6-8e5038117738",
+    "started_at": "2026-07-10T15:00:06.020446",
+    "finished_at": "2026-07-10T15:00:07.117982",
+    "n_total_trials": 1,
+    "stats": {
+        "n_trials": 1,
+        "n_errors": 1,
+        "evals": {
+            "oracle__adhoc": {
+                "n_trials": 0,
+                "n_errors": 1,
+                "metrics": [
+                    {
+                        "mean": 0.0
+                    }
+                ],
+                "reward_stats": {},
+                "exception_stats": {
+                    "RuntimeError": [
+                        "repair-python-oci-build-graph-an__ytTGsRd"
+                    ]
+                }
+            }
+        }
+    }
+}
