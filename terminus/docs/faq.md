@@ -1,8 +1,10 @@
 # Terminus 2nd Edition — Frequently Asked Questions
 
-*Last updated: April 27, 2026*
+*Last updated: July 17, 2026*
 
 Sections follow the task lifecycle: onboarding → building → testing → submitting → payment.
+
+**Platform nav (Jul 17, 2026):** full **Changelog** and **Task Category Status** live in the docs top menu. Welcome keeps the five most recent changelog entries. Check Task Category Status for which categories/policies are currently open or blocked.
 
 ## Quick navigation
 
@@ -33,9 +35,13 @@ Sections follow the task lifecycle: onboarding → building → testing → subm
 
 **Task gallery vs portal?** Gallery = browse tasks (docs site). Portal = upload (Snorkel Experts). Build locally from gallery, submit via portal.
 
+**Do I have to build the task exactly as the gallery idea describes?** No — gallery ideas are starting points, not strict specs. Adapt, extend, or deviate as needed; the task must still meet quality and difficulty requirements.
+
+**Can I still download the task skeleton after claiming?** Yes — on the claim-success screen and anytime from My Tasks → open the claimed task → Download Skeleton.
+
 **Wait for first review before another task?** No — submit multiple in parallel.
 
-**Initialize a task:** `stb init my-task-name -p "terminus-2nd-edition" -t base`
+**Initialize a task:** `stb init my-task-name -p "terminus-2nd-edition" -t default`
 
 ---
 
@@ -43,7 +49,7 @@ Sections follow the task lifecycle: onboarding → building → testing → subm
 
 **"Your account is not assigned to any Terminal-Bench project."** Complete assessment and wait for assignment.
 
-**Key refresh limit (10)?** Ask admin in `#terminus-2nd-edition-submission` to reset.
+**Key refresh limit (20)?** Ask admin in `#terminus-2nd-edition-submission` to reset or raise it.
 
 **stb login works, keys refresh fails?** Regenerate API key in browser → `stb login` → retry. Escalate in Slack if persistent.
 
@@ -80,6 +86,10 @@ Sections follow the task lifecycle: onboarding → building → testing → subm
 
 **Older revisions:** New guidelines apply to **new submissions only**. If cached checks block revision, trivial change + resubmit or report in Slack.
 
+**Do I need `gpus`, `gpu_types`, or `docker_flags` in `task.toml`?** No — optional Harbor fields. Full or minimal `[environment]` blocks are both accepted; reviewers must not revise for omitting/blanking them. TB2 tasks should not require GPU. See [dockerfile.md](guidelines/dockerfile.md).
+
+**Can I set `allow_internet = true`?** Yes — both settings are allowed; the setting must match the task. Use `false` (default) when fully solvable offline; `true` only when internet is genuinely required (current/external info, web resources, or an unbundleable model/resource such as HuggingFace). An eval may reject `true` without a real need. See [dockerfile.md](guidelines/dockerfile.md) → Internet access.
+
 See [milestones.md](guidelines/milestones.md).
 
 ---
@@ -106,7 +116,7 @@ Counted in `environment/` (excl. Dockerfile, docker-compose):
 
 | Value | Files |
 |-------|-------|
-| `minimal` | 0–19 |
+| `minimal` | 0–19 (allowed again as of May 11, 2026) |
 | `small` | 20+ |
 | `large` | 200+ |
 
@@ -115,7 +125,11 @@ Case-sensitive: `"small"` not `"Small"`.
 ### Timeouts
 
 - Agent timeout max: **1800s** (30 min)
-- Concurrent agent tests: allowed; faster key exhaustion
+- Concurrent agent tests: possible but discouraged — faster key exhaustion; prefer one model at a time
+
+### Blocked categories (new submissions)
+
+As of Jul 10, 2026: **`debugging`**, **`software-engineering`** (since Jun 18), and **`data-processing`** (since Jul 10) are paused — no net-new submissions; hidden from the Task Gallery. **Net-new milestone tasks** are also blocked (Jun 29). Tasks already in the revision queue or awaiting review are exempt and continue to Accepted. Check Task Category Status for the live list. See [platform changelog](../../.cursor/rules/terminus-platform-changelog.mdc) / Task Taxonomy.
 
 ---
 
@@ -144,6 +158,8 @@ stb harbor run -m @anthropic/claude-opus-4-8 -p ./task -k 10
 
 All verifiers = **Python pytest**. `test.sh` is bash wrapper only — no Java/Go test frameworks in test.sh.
 
+**Can tests contain solution logic or hardcoded values?** Rigorous verifier logic is fine — running your own binary, parsing output, golden fixtures/hashes, and spec-derived invariants are legitimate. Avoid: (1) a callable in `tests/` that maps inputs to the complete expected artifact (end-to-end solving belongs in `solution/`); (2) hardcoding values the instruction says the agent must read from a config. Hardcoded numeric/ML targets are fine and often required. See [writing-tests.md](guidelines/writing-tests.md).
+
 ### reward.txt not found
 
 1. **Blocking entrypoint** — use `nginx` then `exec "$@"`, not `exec nginx -g 'daemon off;'`
@@ -154,11 +170,16 @@ All verifiers = **Python pytest**. `test.sh` is bash wrapper only — no Java/Go
 
 Missing **tmux** and/or **asciinema** in Dockerfile.
 
+### Which base image?
+
+Prefer one of the **10 canonical** digest-pinned images (Python, Node, Go, Rust, Java, Ruby, GCC, Maven, Debian, Ubuntu) in [dockerfile.md](guidelines/dockerfile.md). Non-canonical images need a brief, credible justification in the Dockerfile or task README; missing/vague justifications are blocked.
+
 ### Other
 
 - `source "$HOME/.local/bin/env"` flagged as typo → **ignore** (false positive)
 - Harbor build context = `environment/` only — move files into `environment/`
 - `docker network prune` after many harbor runs
+- `stb harbor check` Usage Policy refusal → provider content refusal; re-run or swap judge model (`gpt-5.5` ↔ `claude-opus-4-8`)
 
 ---
 
@@ -178,7 +199,9 @@ stb submissions download SUBMISSION_ID
 | REVIEW_PENDING | Awaiting human | No |
 | ACCEPTED | Accepted | No |
 
-**Daily limits:** 2 new/day (before 2 accepted); 5 new/day (2+ accepted). Revisions don't count. Resets midnight UTC.
+**Daily limits (net-new only):** 2/day before 2 accepted tasks; **3/day** with 2+ accepted. Revisions do not count. Resets midnight UTC.
+
+**Revision-queue limit:** at most **10** submissions in the revision queue. At 10, net-new submissions are blocked until you revise or Discard.
 
 **AutoEval reject despite local pass?** Resubmit; report IDs if persistent.
 
@@ -196,6 +219,7 @@ stb submissions download SUBMISSION_ID
 
 - ≥1 negative per milestone rubric (hard requirement)
 - 10–40 pts per milestone / non-milestone total — **>40 is a main blocker (Revise)**, not optional polish
+- **Positive scores need an explicit `+` sign** (`+1`/`+2`/`+3`/`+5`) — a bare `3` is High-severity revision. Negatives use `-`.
 - Generate via "Generate Rubric(s)" without "Send to Reviewer" — appears during CI, edit in portal UI
 
 ---
@@ -233,11 +257,12 @@ Terminus 1st Edition (deprecated Dec 2025): no payment for non-accepted tasks.
 | Wrong task in reviewer feedback | Dispute + escalate |
 | New rules on old revision | Trivial change + resubmit |
 | Rubric `# Rubric N` parse fail | Manual review |
-| Keys refresh limit | Admin reset |
+| Keys refresh limit (20) | Admin reset |
 | Non-Python flagged as Python | Remove python from languages |
 | `source "$HOME/.local/bin/env"` flag | Ignore |
 | Agent logs missing | Report UUID |
 | Docker network limit | `docker network prune` |
+| `stb harbor check` Usage Policy refusal | Re-run; swap judge model |
 
 ---
 

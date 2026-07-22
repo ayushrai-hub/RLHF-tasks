@@ -10,7 +10,7 @@
 - [ ] No AI-framework scaffolding filenames (CLAUDE.md, skills.md, AGENTS.md, etc.)
 - [ ] tmux and asciinema installed in Dockerfile
 - [ ] No solution/ or tests/ copied into Docker image
-- [ ] allow_internet = false; no runtime network installs in test.sh
+- [ ] `allow_internet` matches the task (`false` offline / `true` only if internet is genuinely required); no runtime network installs in `test.sh` when offline
 - [ ] All FROM images digest-pinned (@sha256:)
 - [ ] Final runtime base is canonical or has credible justification
 - [ ] environment/ ≤ 100 MiB total, no file > 50 MiB

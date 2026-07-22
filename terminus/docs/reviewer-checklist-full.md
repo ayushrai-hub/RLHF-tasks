@@ -97,7 +97,7 @@ Quick reference: [reviewer-checklist.md](reviewer-checklist.md)
 |-----------|----------|
 | Complete task.toml fields (see [task-requirements.md](task-requirements.md)) | High |
 | `custom_docker_compose=true` / `is_multi_container=true` when applicable | High |
-| Tags, languages, category, subcategories match content | Medium |
+| Tags, languages, category, subcategories match content | Medium | Verify against [Task Subtypes](task-subtypes.md) — multiple subtypes allowed; empty when none apply |
 
 ## Milestone Tasks
 

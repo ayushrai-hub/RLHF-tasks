@@ -3,7 +3,7 @@
 Runs `solution/solve.sh` in the container, then tests. **Must pass** before submission.
 
 ```bash
-harbor run -a oracle -p <task-folder>
+stb harbor run -a oracle -p <task-folder>
 ./scripts/terminus oracle <task-folder>
 ```
 

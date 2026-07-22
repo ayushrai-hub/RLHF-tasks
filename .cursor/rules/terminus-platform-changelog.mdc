@@ -1,0 +1,83 @@
+---
+description: Platform changelog — Terminus / TB2 policy updates that override older local defaults
+alwaysApply: true
+---
+
+# Platform Changelog (apply when authoring or reviewing)
+
+Source: Snorkel platform announcements. When this conflicts with older “must be false / always prefer X” wording elsewhere, **prefer this file**.
+
+Live platform pages (Jul 21, 2026): **Changelog** and **Task Category Status** are in the docs top menu. Welcome keeps the five most recent entries; use Changelog for the full history and Task Category Status for which categories/policies are open or blocked. Agent runs use **Snorkel CLI** (`stb login` / `stb keys refresh`) — not Harbor promptfix wheel or manual `OPENAI_API_KEY` / `OPENAI_BASE_URL` exports.
+
+## Jul 21, 2026 — Difficulty checks may run only one model
+
+Difficulty is calculated from accuracy on **Claude Opus 4.8** (Claude Code) and **GPT-5.5** (Codex), normally **5 runs each**.
+
+**Tiers (unchanged):** Hard ≤20% on best **or** worst; Medium 20% < worst ≤60%; Easy 60% < worst ≤80%; reject if worst >80%. Worst model sets the Easy/Medium floor; best ≤20% can still earn Hard.
+
+**One-model early exit:** Checks run **Claude Opus 4.8 first**. If Opus already rates **Hard** (≤20%), **GPT-5.5 is skipped** and the task is finalized as Hard. Either model ≤20% settles Hard, so skipping GPT cannot change the rating.
+
+**Review / authoring:** Results from **only one model** on a Hard-rated task are **expected** — not a bug. Do **not** flag missing GPT-5.5 stats. Non-Hard Opus results still run both models. Authoring/submit flow unchanged. Full text: `docs/guidelines/difficulty.md`.
+
+## Jul 21, 2026 — Quick Start uses Snorkel CLI (stb)
+
+Quick Start installs **snorkelai-stb** via `uv tool install` and authenticates with `stb login` / `stb keys refresh`. The retired Harbor promptfix wheel and manual `OPENAI_API_KEY` / `OPENAI_BASE_URL` exports are gone — the CLI manages AI credentials for agent runs.
+
+```bash
+uv tool install snorkelai-stb \
+  --find-links https://snorkel-python-wheels.s3.us-west-2.amazonaws.com/stb/index.html \
+  --python ">=3.12"
+stb login
+stb keys refresh
+```
+
+Oracle/agents: `stb harbor run -a oracle -p <task-folder>`; `-m @openai/gpt-5.5` / `-m @anthropic/claude-opus-4-8`. Still need Docker Desktop v24+. Full text: `docs/guidelines/quick-start.md`.
+
+## Jul 17, 2026 — Changelog + Task Category Status pages
+
+Changelog moved off Welcome into its own section. New **Task Category Status** page shows open vs blocked categories and policies at a glance. FAQ refreshed with eight policy entries (blocked categories, `allow_internet = true`, optional GPU env fields, canonical base images, verifier logic in tests, gallery task-idea flexibility, post-claim skeleton downloads, rubric `+` sign rule).
+
+## Jul 16, 2026 — Verifier-integrity authoring guidance
+
+Keep the end-to-end solution in `solution/` (**not** in `tests/`). For config-driven tasks, read config values dynamically in the verifier. Writing Tests documents what a good verifier may do (run the agent’s program, parse output, golden fixtures, spec-derived invariants, sealed held-out truth, perturbation/holdout re-runs) so rigorous checkers are not mistaken for violations. Two matching Reviewer Checklist criteria (Medium). See Writing Tests.
+
+## Jul 13, 2026 — allow_internet
+
+`allow_internet = true` tasks are welcome — the setting must match the task. Both `false` (default) and `true` are acceptable:
+
+- **`false`:** fully solvable offline with provided files, docs, deps, and environment
+- **`true`:** only when internet is genuinely required — retrieving current/external information, interacting with web-based resources, or downloading an external model/resource that cannot be bundled (e.g. a HuggingFace model)
+
+An eval checks whether internet is actually required; `true` without a genuine need may be rejected. See Dockerfile Best Practices.
+
+## Jul 10, 2026 — data-processing blocked
+
+**Data Processing & Scripting** (`data-processing`) is paused — not accepting new submissions; removed from the task gallery. Do **not** submit new tasks under this category until this note is removed.
+
+**Exempt:** tasks already in the revision queue or awaiting review continue through to Accepted as normal. See Task Taxonomy.
+
+## Jul 9, 2026 — GPU env fields optional
+
+`gpus`, `gpu_types`, and `docker_flags` in `task.toml` `[environment]` are **optional**. Omitting them or leaving them blank is **not** a revision reason — TB2 tasks are not required to use GPU. Both full and minimal `[environment]` blocks are valid. See Dockerfile Best Practices.
+
+## Jun 29, 2026 — milestones + debugging / software-engineering blocked
+
+**Net-new** milestone tasks and the **debugging** / **software-engineering** categories are currently blocked. New submissions in these areas are rejected by an eval check.
+
+**Exempt:** milestone tasks (and tasks in those categories) already in the revision queue or awaiting review continue through to Accepted as normal. See Task Taxonomy and Milestones.
+
+## Jun 12, 2026 — canonical base images
+
+Prefer the curated 10 digest-pinned Terminal-Bench base images for the final runtime stage (Python, Node, Go, Rust, Java, Ruby, C/C++ GCC, Maven, Debian, Ubuntu) for reusability and cache hits. Non-canonical images are allowed with a **brief, credible** justification in the Dockerfile or task `README.md`; missing or vague justifications are blocked. See Dockerfile Best Practices §2.
+
+## Jun 12, 2026 — difficulty-check models
+
+Tasks are benchmarked against **Claude Opus 4.8** and **GPT-5.5** (previously Opus 4.6 / GPT-5.2). Difficulty thresholds and EASY/MEDIUM/HARD ratings are unchanged — only the models changed. Calibrate accordingly (stronger models may shift prior MEDIUM/HARD ratings). GPT-5.5 is available in the EC CLI. See Difficulty Guidelines.
+
+## Jun 3, 2026 — Environment Problems (Common Errors)
+
+Common Errors includes an **Environment Problems** section: missing tmux/asciinema, runtime network installs in `test.sh`, AI-scaffolding filenames, solution/tests baked into the image, privileged mode, reserved-directory conflicts, oversized build context, unsanctioned base images. Each Common Errors section names its corresponding reviewer feedback category. See Common Errors.
+
+## Jun 3, 2026 — test.sh `rc=$?`
+
+Restored the defensive `rc=$?` form in the canonical `tests/test.sh` example. The `check_test_sh` CI gate accepts both literal `$?` inline and a variable captured from `$?` immediately after pytest. **Prefer the variable form** — `$?` only holds the last exit status; any line between pytest and the conditional silently clobbers it. See Writing Tests.

@@ -70,8 +70,9 @@ build_timeout_sec = 600.0
 cpus = 2
 memory_mb = 4096
 storage_mb = 10240
-allow_internet = false
+allow_internet = false  # or true only if internet is genuinely required
 workdir = "/app"
+# gpus / gpu_types / docker_flags are optional — omit for typical non-GPU tasks
 
 [[steps]]
 name = "milestone_1"

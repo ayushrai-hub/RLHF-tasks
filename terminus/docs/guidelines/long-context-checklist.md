@@ -1,6 +1,6 @@
 # Long Context Task Checklist
 
-Use before submitting or accepting any task with `subcategories = ["long_context"]`.
+Use before submitting or accepting any task with `subcategories = ["long_context"]`. Full subtype definitions: [Task Subtypes](../task-subtypes.md#1-long-context-long_context).
 
 ## Spec Anchor
 

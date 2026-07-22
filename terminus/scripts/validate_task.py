@@ -173,9 +173,14 @@ class TaskValidator:
         if 'version = "2.0"' not in text and "version = '2.0'" not in text:
             self.add(Severity.ERROR, "task.toml", 'version must be "2.0"', rel)
 
-        if "allow_internet = false" not in text.replace(" ", ""):
-            if "allow_internet=false" not in text.replace(" ", "") and "allow_internet = false" not in text:
-                self.add(Severity.ERROR, "task.toml", "allow_internet = false is required in [environment]", rel)
+        if not re.search(r"allow_internet\s*=\s*(true|false)\b", text, re.IGNORECASE):
+            self.add(
+                Severity.ERROR,
+                "task.toml",
+                "allow_internet must be set to true or false in [environment] "
+                "(true only when the task genuinely requires internet)",
+                rel,
+            )
 
         if "number_of_milestones" not in text:
             self.add(Severity.WARNING, "task.toml", "number_of_milestones field recommended", rel)

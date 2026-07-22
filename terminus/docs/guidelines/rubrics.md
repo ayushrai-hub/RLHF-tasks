@@ -50,6 +50,8 @@ Agent <behavior description>, +3
 
 - Starts with `Agent`
 - Ends with `, ±N` where N ∈ {1, 2, 3, 5}
+- **Positive scores require an explicit `+` sign** (`+1`, `+2`, `+3`, `+5`) — a bare `3` is High-severity revision
+- Negatives use `-` (`-1`, `-2`, …)
 - **Forbidden:** `±4`
 
 ### Milestone headers

@@ -22,6 +22,33 @@ ZIP_NAME_MAP = {
 
 SKIP_ZIP_PREFIXES = ("cropped-images", "ECG-Dataset", "law-samples")
 
+# Never prune or treat these as tasks if they appear under tasks/
+PROTECTED_TASKS_NAMES = frozenset(
+    {
+        "README.md",
+        "terminus",
+        "docs",
+        "scripts",
+        "templates",
+        "jobs",
+        ".git",
+        ".cursor",
+    }
+)
+
+
+def rescue_misplaced_hub() -> list[str]:
+    """If the Terminus hub was moved under tasks/, put it back at repo root."""
+    logs: list[str] = []
+    misplaced = TASKS / "terminus"
+    hub = REPO_ROOT / "terminus"
+    if misplaced.is_dir() and not hub.exists():
+        shutil.move(str(misplaced), str(hub))
+        logs.append("RESCUED: tasks/terminus -> terminus/")
+    elif misplaced.is_dir() and hub.exists():
+        logs.append("WARN: both tasks/terminus and terminus/ exist")
+    return logs
+
 
 def is_terminus_task_dir(path: Path) -> bool:
     if not path.is_dir():
@@ -121,7 +148,9 @@ def prune_non_tasks() -> list[str]:
     if not TASKS.is_dir():
         return logs
     for entry in sorted(TASKS.iterdir()):
-        if entry.name == "README.md":
+        if entry.name in PROTECTED_TASKS_NAMES:
+            if entry.name == "terminus" and entry.is_dir():
+                logs.extend(rescue_misplaced_hub())
             continue
         if is_terminus_task_dir(entry):
             continue
@@ -149,6 +178,7 @@ def main() -> int:
     INCOMING.mkdir(parents=True, exist_ok=True)
 
     logs: list[str] = []
+    logs.extend(rescue_misplaced_hub())
     logs.extend(promote_submission_dirs())
 
     for zip_path in find_all_zips():

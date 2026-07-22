@@ -82,6 +82,8 @@ From [difficulty.md](guidelines/difficulty.md):
 
 **#54:** **CHECK** when worst-model rate ≤80%; **UNCHECK** only when worst-model **>80%** (too easy).
 
+**Single-model Hard (Jul 21, 2026):** Platform runs Claude Opus 4.8 first; if ≤20% (Hard), GPT-5.5 may be skipped. One-model Hard results are expected — do **not** UNCHECK or request revision for missing GPT-5.5. See [difficulty.md](guidelines/difficulty.md).
+
 **Reviewer policy:** `task.toml` `difficulty` differing from platform `Difficulty: …` or from agent-run tiers is **never** a revision blocker, never a Main blocker row, and never drives **Revise** on its own. **#54** (>80% worst model) remains the only difficulty-related blocker.
 
 **Portal reviewer note (section 9):** Human tone for the author — acknowledge strengths, then fixes; no framework citations or audit-bot phrasing. See `prompt.md` §9.

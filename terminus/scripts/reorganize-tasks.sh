@@ -176,12 +176,54 @@ for dir in */; do
   fi
 done
 
+echo "=== Phase 2b: rescue hub if it landed under tasks/ ==="
+
+# Never treat the Terminus tooling hub as a task. If Finder/scripts misplaced it
+# under tasks/terminus, move it back before any prune/consolidate step.
+if [ -d tasks/terminus ] && [ ! -e terminus ]; then
+  mv tasks/terminus terminus
+  echo "RESCUED: tasks/terminus -> terminus/"
+elif [ -d tasks/terminus ] && [ -d terminus ]; then
+  echo "WARN: both tasks/terminus and terminus/ exist — leaving both; inspect manually"
+fi
+
+# Ensure root convenience symlinks still resolve after hub moves
+ensure_root_symlink() {
+  local link="$1"
+  local target="$2"
+  if [ -L "$link" ]; then
+    if [ ! -e "$link" ]; then
+      rm -f "$link"
+      ln -s "$target" "$link"
+      echo "FIXED broken symlink: $link -> $target"
+    fi
+  elif [ ! -e "$link" ] && [ -e "$target" ]; then
+    ln -s "$target" "$link"
+    echo "RESTORED symlink: $link -> $target"
+  fi
+}
+ensure_root_symlink prompt.md terminus/prompt.md
+ensure_root_symlink docs terminus/docs
+ensure_root_symlink AGENTS.md terminus/AGENTS.md
+ensure_root_symlink templates terminus/templates
+ensure_root_symlink entire-report.txt terminus/reviews/entire-report.txt
+if [ ! -e terminus/jobs ] && [ -d jobs ]; then
+  ln -s ../jobs terminus/jobs
+  echo "RESTORED symlink: terminus/jobs -> ../jobs"
+fi
+
 echo "=== Phase 3: consolidate task directories into tasks/ ==="
 
 move_task_into_tasks() {
   local src="$1"
   local name
   name=$(basename "$src")
+  case "$name" in
+    tasks|terminus|.cursor|.venv|.venv-review|.git|harbor-compat|law-samples|jobs|scripts|docs|templates)
+      echo "SKIP protected: $name"
+      return 0
+      ;;
+  esac
   is_root_task "$name" && return 0
   local dest="tasks/$name"
   if [ -d "$dest" ]; then
@@ -204,9 +246,12 @@ fi
 for dir in */; do
   name="${dir%/}"
   case "$name" in
-    tasks|terminus|.cursor|.venv|harbor-compat|law-samples|jobs|scripts|docs) continue ;;
+    tasks|terminus|.cursor|.venv|.venv-review|.git|harbor-compat|law-samples|jobs|scripts|docs|templates) continue ;;
   esac
   is_root_task "$name" && continue
+
+  # Never move the hub even if it somehow gained task-like files
+  [ "$name" = "terminus" ] && continue
 
   is_task=false
   if [ -f "$name/task.toml" ] || [ -f "$name/instruction.md" ] || [ -d "$name/steps" ]; then

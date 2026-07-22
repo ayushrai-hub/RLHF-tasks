@@ -27,7 +27,7 @@ Complete reference for passing review. Use with [Submission Checklist](submissio
 | `languages` | ✅ | Main languages only (not verifier Python) |
 | `tags` | ✅ | 3–6 keywords (tools, libraries, techniques) |
 | Runtime limits | ✅ | agent, verifier, build timeouts |
-| `allow_internet` | ✅ | **Must be false** |
+| `allow_internet` | ✅ | `false` (default) or `true` only when internet is genuinely required; setting must match the task |
 
 ```toml
 version = "2.0"
@@ -56,7 +56,8 @@ build_timeout_sec = 600.0
 cpus = 2
 memory_mb = 4096
 storage_mb = 10240
-allow_internet = false
+allow_internet = false  # or true only if the task genuinely requires internet
+# gpus / gpu_types / docker_flags are optional — omit for typical non-GPU tasks
 ```
 
 ## instruction.md

@@ -63,6 +63,19 @@ Prompt: "function divide two numbers" → also test division by zero.
 - Order-dependent tests
 - Hardcoded random outputs
 
+## What a good verifier may do
+
+Rigorous verifier logic is legitimate and expected:
+
+- Run a reference binary / oracle checker and compare outputs
+- Parse structured output; apply golden fixtures, hashes, or spec-derived invariants
+- Hardcode exact numeric/ML targets when the prompt defines them
+
+Avoid:
+
+- A callable in `tests/` that maps task inputs to the **complete** expected artifact (end-to-end solving belongs in `solution/`)
+- Hardcoding values the instruction says the agent must **read from a config/file**
+
 ## CI Validation
 
 `behavior_in_tests`, `behavior_in_task_description`, `informative_test_docstrings`, `ruff`

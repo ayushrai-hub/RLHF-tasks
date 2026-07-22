@@ -42,7 +42,15 @@ MANUAL_RENAMES = {
     "gsqt-importable-config-training-submission-21": "gsqt-importable-config-training",
 }
 
-SKIP_NAMES = {"README.md", "law-samples"}
+SKIP_NAMES = {
+    "README.md",
+    "law-samples",
+    "terminus",
+    "docs",
+    "scripts",
+    "templates",
+    "jobs",
+}
 
 
 def read_toml_name(task_dir: Path) -> str:

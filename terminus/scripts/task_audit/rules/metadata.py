@@ -35,8 +35,14 @@ def check_43(ctx: TaskContext):
     missing = [f for f in required if f not in ctx.toml_text]
     if missing:
         return fail(43, "TASK METADATA", label, f"Missing fields: {', '.join(missing)}", evidence=[EvidenceRef("task.toml")])
-    if 'allow_internet = false' not in ctx.toml_text.replace(" ", "") and "allow_internet=false" not in ctx.toml_text.replace(" ", ""):
-        return fail(43, "TASK METADATA", label, "allow_internet = false required", evidence=[EvidenceRef("task.toml")])
+    if not re.search(r"allow_internet\s*=\s*(true|false)\b", ctx.toml_text, re.IGNORECASE):
+        return fail(
+            43,
+            "TASK METADATA",
+            label,
+            "allow_internet must be true or false (true only when internet is genuinely required)",
+            evidence=[EvidenceRef("task.toml")],
+        )
     return pass_(43, "TASK METADATA", label, "Core metadata fields present", evidence=[EvidenceRef("task.toml")])
 
 

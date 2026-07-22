@@ -8,6 +8,7 @@ Complete Terminus Edition 2 reference for the **RLHF-tasks** automation system.
 | Main README | [`README.md`](../README.md) |
 | Terminus hub | [`terminus/README.md`](../terminus/README.md) |
 | Accuracy review prompt | [`prompt.md`](../prompt.md) |
+| Accuracy review invocation template | [`prompt.template.md`](../prompt.template.md) |
 | CLI | `./scripts/terminus <command> <task-dir>` |
 
 ---
@@ -18,6 +19,7 @@ Complete Terminus Edition 2 reference for the **RLHF-tasks** automation system.
 |-----|---------|
 | [submission-checklist.md](../submission-checklist.md) | Pre-submit checklist |
 | [creating-task.md](creating-task.md) | Scaffold → develop → submit |
+| [quick-start.md](quick-start.md) | Platform + `stb login` / `stb keys refresh` setup |
 | [ci-iteration.md](ci-iteration.md) | Fix CI/LLMaJ failures |
 | [after-submission.md](../after-submission.md) | Post-submit review process |
 
@@ -28,10 +30,10 @@ Complete Terminus Edition 2 reference for the **RLHF-tasks** automation system.
 | [task-requirements.md](../task-requirements.md) | Structural requirements |
 | [task-components.md](task-components.md) | File layout & components |
 | [task-type-taxonomy.md](../task-type-taxonomy.md) | 9 categories |
-| [task-subtypes.md](../task-subtypes.md) | Subcategories |
+| [task-subtypes.md](../task-subtypes.md) | Subcategories (long_context, tool_specific, api_integration, db_interaction, ui_building) |
 | [milestones.md](milestones.md) | Multi-step tasks |
 | [prompt-styling.md](prompt-styling.md) | instruction.md style |
-| [difficulty.md](difficulty.md) | Calibrating pass rates |
+| [difficulty.md](difficulty.md) | Pass-rate tiers; best vs worst; one-model Hard early exit |
 | [what-makes-a-good-task.md](../what-makes-a-good-task.md) | Quality principles |
 | [bad-examples.md](bad-examples.md) | Anti-patterns |
 | [common-errors.md](common-errors.md) | Instruction/test/env anti-patterns |
@@ -45,10 +47,10 @@ Complete Terminus Edition 2 reference for the **RLHF-tasks** automation system.
 | Doc | Purpose |
 |-----|---------|
 | [docker-environment.md](docker-environment.md) | Dockerfile setup & patterns |
-| [dockerfile.md](dockerfile.md) | Canonical images & CI policy |
+| [dockerfile.md](dockerfile.md) | Canonical images, `allow_internet`, optional GPU fields |
 | [oracle-solution.md](oracle-solution.md) | solution/solve.sh |
-| [writing-tests.md](writing-tests.md) | test.sh + pytest |
-| [rubrics.md](rubrics.md) | Platform rubric workflow |
+| [writing-tests.md](writing-tests.md) | test.sh + pytest (incl. verifier logic guidance) |
+| [rubrics.md](rubrics.md) | Platform rubric workflow (`+` sign required on positives) |
 | [submission-export-format.md](submission-export-format.md) | `entire-report.txt` section map for reviewers |
 
 ## Validation
@@ -65,7 +67,8 @@ Complete Terminus Edition 2 reference for the **RLHF-tasks** automation system.
 | [reviewer-checklist.md](../reviewer-checklist.md) | Quick review checklist |
 | [reviewer-checklist-full.md](../reviewer-checklist-full.md) | Full severity-tagged checklist |
 | [reviewer-checklist-ui.md](../reviewer-checklist-ui.md) | **55 portal checkboxes** |
-| [faq.md](../faq.md) | Official FAQ (lifecycle, milestones, difficulty) |
+| [faq.md](../faq.md) | Official FAQ (Jul 17 policy refresh; blocked categories; allow_internet) |
+| Platform Changelog / Task Category Status | Docs site top menu — live open/blocked categories |
 | [../../prompt.md](../../prompt.md) | **Task accuracy review → `review-report.md`** |
 | [../../templates/review-report.template.md](../../templates/review-report.template.md) | Review report template |
 

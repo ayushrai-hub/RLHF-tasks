@@ -1,6 +1,8 @@
 # Task Type Taxonomy (Category)
 
-Each task must have exactly one `category` in `task.toml` describing the primary theme or activity. Subtypes use `subcategories` — see [Task Subtypes](task-subtypes.md) (long_context, tool_specific, api_integration, db_interaction, ui_building).
+Each task must have exactly one `category` in `task.toml` describing the primary theme or activity.
+
+Optional **subtypes** use `subcategories` — see [Task Subtypes](task-subtypes.md). A task may align with multiple subtypes (`long_context`, `tool_specific`, `api_integration`, `db_interaction`, `ui_building`) or leave the field empty when none apply.
 
 ## Categories
 
@@ -15,6 +17,17 @@ Each task must have exactly one `category` in `task.toml` describing the primary
 | `debugging` | Find, diagnose, fix errors in code or config | Memory leak, failing tests, production crash |
 | `security` | Crypto, auth, permissions, pentest, vulns, RE | SQL injection, TLS config, binary RE |
 | `scientific-computing` | Scientific libs, numerical work, simulations | Numerical solver, simulation debug, HPC optimization |
+
+## Currently blocked for **new** submissions
+
+| Category / policy | Status |
+|-------------------|--------|
+| `data-processing` | Blocked (Jul 10, 2026) — paused; removed from gallery |
+| `debugging` | Blocked (since Jun 18, 2026) |
+| `software-engineering` | Blocked (since Jun 18, 2026) |
+| Net-new **milestone** tasks | Blocked (Jun 29, 2026) |
+
+**Exempt:** tasks already in the revision queue or awaiting review continue to Accepted. Check the platform **Task Category Status** page for the live list. Full notes: `.cursor/rules/terminus-platform-changelog.mdc`.
 
 ## Choosing a Category
 

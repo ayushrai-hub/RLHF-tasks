@@ -35,7 +35,7 @@ Human-written, realistic engineering prompts. Six principles:
 
 See [task-requirements.md](../task-requirements.md) for full schema.
 
-Key fields: `category`, `subcategories`, `number_of_milestones`, `codebase_size`, `languages`, `tags` (3–6), timeouts, `allow_internet = false`.
+Key fields: `category`, `subcategories`, `number_of_milestones`, `codebase_size`, `languages`, `tags` (3–6), timeouts, `allow_internet` (`false` default; `true` only if internet is genuinely required). `gpus` / `gpu_types` / `docker_flags` are optional.
 
 ## 3. environment/
 

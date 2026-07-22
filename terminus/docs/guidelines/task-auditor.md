@@ -57,7 +57,7 @@ Each of the 55 items receives exactly one status:
 
 | Kind | Examples |
 |------|----------|
-| `objective` | Digest-pinned FROM, reward.txt path, allow_internet=false |
+| `objective` | Digest-pinned FROM, reward.txt path, allow_internet set (true\|false) |
 | `heuristic` | Concise instruction, natural tone, category fit, spec↔test alignment |
 | `external` | Oracle flake check (needs harbor run), rubric without export, fairness (#55) |
 

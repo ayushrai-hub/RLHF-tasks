@@ -7,11 +7,11 @@ New automated evaluations block certain task properties to improve dataset varia
 | Dimension | Policy |
 |-----------|--------|
 | **Codebase size** | `minimal`, `small`, and `large` all accepted — aim for variety across your portfolio |
-| **Milestones** | Non-milestone tasks not blocked; **milestone tasks preferred** (higher pay) |
+| **Milestones** | **Net-new milestone submissions blocked** (Jun 29, 2026); tasks already in revision/review are exempt. Prefer non-milestone until the block lifts |
 | **Model difficulty** | Only **medium** and **hard** accepted — **easy blocked** |
 | **Python tasks** | Must be **hard** model difficulty to be accepted |
-| **Category** | No restrictions |
-| **Subcategory** | No restrictions |
+| **Category** | **Blocked for new submissions:** `data-processing`, `debugging`, `software-engineering` (queue/review exempt). Check platform **Task Category Status** |
+| **Subcategory** | No restrictions (when parent category is open) |
 | **Languages** | All accepted |
 
 > **Note:** Easy/medium/hard here refers to **model pass rates** on frontier agents (GPT-5.5, Claude Opus 4.8), not the `difficulty` field in `task.toml`.
@@ -30,9 +30,10 @@ New submissions rated **easy** by agent evaluation will be blocked.
 ## Portfolio Tips
 
 - Vary `codebase_size` across submissions
-- Consider milestone format for complex multi-step tasks
+- Prefer non-milestone format while net-new milestones are blocked; use milestones only for exempt revision-queue work
 - Calibrate difficulty before submit: `./scripts/terminus agent <task-dir> --runs 5`
 - Python-heavy tasks: target hard tier (≤20% worst-model)
+- Avoid blocked categories for new work (`data-processing`, `debugging`, `software-engineering`)
 
 ## Verify Before Submit
 

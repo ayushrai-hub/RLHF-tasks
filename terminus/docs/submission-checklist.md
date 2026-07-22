@@ -12,8 +12,11 @@ Use before every submission. For component details see [Task Requirements](task-
 - [ ] Output files are named in instructions
 - [ ] Data schemas are fully specified
 - [ ] Difficulty target: **< 80%** pass rate; new submissions must be **medium or hard** (easy blocked)
-- [ ] `category` set from [9-type taxonomy](task-type-taxonomy.md)
-- [ ] Consider milestone format for complex tasks ([preferred](submission-diversity.md))
+- [ ] `category` set from [9-type taxonomy](task-type-taxonomy.md) — avoid blocked categories for new work (`data-processing`, `debugging`, `software-engineering`)
+- [ ] `subcategories` set from [Task Subtypes](task-subtypes.md) when applicable (multiple allowed; leave empty if none)
+- [ ] If `long_context`: apply [Long Context Checklist](guidelines/long-context-checklist.md)
+- [ ] Net-new milestones currently blocked — use non-milestone unless exempt revision-queue work ([diversity](submission-diversity.md))
+- [ ] `allow_internet` matches the task (`false` default / `true` only if genuinely required)
 
 ### Required Files
 
@@ -54,7 +57,7 @@ Use before every submission. For component details see [Task Requirements](task-
 ### Oracle Agent
 
 ```bash
-harbor run -a oracle -p <task-folder>
+stb harbor run -a oracle -p <task-folder>
 # or: ./scripts/terminus oracle <task-folder>
 ```
 

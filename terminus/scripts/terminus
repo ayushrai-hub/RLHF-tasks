@@ -30,6 +30,9 @@ Commands:
   audit <task-dir> [--report FILE] [--rubric FILE] [-o FILE]
                                            Full 55-item read-only quality audit
   review <task-dir> [--report FILE] [--rubric FILE] [-o FILE]
+  doctor                       Preflight: Docker, harbor, Python deps
+  discover [--json] [--no-root] List task directories
+  batch <validate|audit|oracle|check-all> [options]
 
 Agent options:
   --model <name>    gpt-5.5 (default) or claude-opus-4-8
@@ -40,6 +43,11 @@ Examples:
   terminus check-all ./my-task
   terminus oracle ./my-task
   terminus agent ./my-task --model gpt-5.5 --runs 5
+  terminus review ./my-task --report terminus/reviews/entire-report.txt
+  terminus doctor
+  terminus discover --json
+  terminus batch validate --jobs 4
+  terminus batch oracle --only ruleforge-victory-book
   terminus zip ./my-task ./my-task.zip
   terminus init fix-memory-leak -t base
 EOF
@@ -293,6 +301,24 @@ cmd_review() {
   python3 "$SCRIPT_DIR/review_checklist.py" "${args[@]}"
 }
 
+cmd_doctor() {
+  python3 "$SCRIPT_DIR/doctor.py" "$@"
+}
+
+cmd_discover() {
+  python3 "$SCRIPT_DIR/discover_tasks.py" "$@"
+}
+
+cmd_batch() {
+  local sub="${1:-}"
+  shift || true
+  if [[ -z "$sub" ]]; then
+    log_err "Usage: terminus batch <validate|audit|oracle|check-all> [options]"
+    exit 1
+  fi
+  python3 "$SCRIPT_DIR/batch_runner.py" "$sub" "$@"
+}
+
 cmd_init() {
   local name="$1"
   local template="base"
@@ -329,6 +355,9 @@ case "$COMMAND" in
   rubric-points) [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_rubric_points "$@" ;;
   review)       [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_review "$@" ;;
   audit)        [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_audit "$@" ;;
+  doctor)       cmd_doctor "$@" ;;
+  discover)     cmd_discover "$@" ;;
+  batch)        cmd_batch "$@" ;;
   init)       [[ $# -ge 1 ]] || { usage; exit 1; }; cmd_init "$@" ;;
   help|--help|-h|"") usage ;;
   *)

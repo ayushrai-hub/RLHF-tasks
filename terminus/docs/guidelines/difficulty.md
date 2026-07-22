@@ -1,17 +1,35 @@
 # Difficulty Guidelines
 
-Difficulty = **agent pass rate** on GPT-5.5 and Claude Opus 4.8 (5 runs each).
+Task difficulty is determined by accuracy when run against frontier AI models. This guide helps you design tasks at the right difficulty level.
 
-## Tiers
+## Difficulty Levels
 
-| Tier | Criteria |
-|------|----------|
-| **Hard** | ≤20% on **best** OR **worst** model |
-| **Medium** | 20–60% on **worst** model |
-| **Easy** | 60–80% on **worst** model |
-| **Rejected** | >80% on worst model |
+Difficulty is calculated from accuracy across two evaluation models. The threshold that applies depends on the tier:
 
-**Best vs worst:** Worst model sets the floor for Easy/Medium. Best model ≤20% can earn Hard even if worst also struggles.
+| Tier | Criteria | Notes |
+|------|----------|-------|
+| **Hard** | Accuracy ≤ 20% on the **best** model, **OR** ≤ 20% on the **worst** model | Deep expertise, multi-step reasoning, or niche knowledge |
+| **Medium** | 20% < accuracy ≤ 60% on the **worst** model | Moderate complexity, some domain knowledge |
+| **Easy** | 60% < accuracy ≤ 80% on the **worst** model | Straightforward but still non-trivial |
+| **Rejected** | Worst model **> 80%** | Too easy to be useful as training signal — not accepted |
+
+### Why "best" vs "worst" model?
+
+Both models are normally run against every task (see [one-model early exit](#one-model-early-exit-for-hard-tasks) for the exception). The **worst** model sets the difficulty floor for most tasks: if even the weaker model can solve it most of the time, the task is Easy. The **best** model matters for the hardest tasks: a task where the strongest model still only scores ≤ 20% earns Hard even if the worst model also struggles, because the failure isn't just a weak-model artifact.
+
+## Evaluation Process
+
+Each task is evaluated against:
+
+- **Claude Opus 4.8** with Claude Code agent
+- **GPT-5.5** with Codex agent
+- **5 runs each** to determine average accuracy
+
+### One-model early exit for Hard tasks
+
+Difficulty checks run **Claude Opus 4.8 first**. If Opus 4.8 already rates your task as Hard (≤ 20% accuracy), the **GPT-5.5 run is skipped** and the task is finalized as Hard.
+
+This doesn't lose rigor: a task is Hard whenever **either** model scores ≤ 20%, so an Opus-4.8 Hard result already settles the rating — the GPT-5.5 run couldn't change it. The practical effect is that you'll sometimes see difficulty results from **only one model** instead of two. That's **expected behavior, not a bug** — if GPT-5.5 results are missing on a Hard-rated task, **do not flag it**. Tasks that aren't Hard on Opus 4.8 still run against both models.
 
 ## New Submission Policy
 
@@ -19,54 +37,82 @@ Difficulty = **agent pass rate** on GPT-5.5 and Claude Opus 4.8 (5 runs each).
 - **Python tasks** must be **hard**
 - See [submission-diversity.md](../submission-diversity.md)
 
-## Designing Hard (≤20%)
+## Designing for Difficulty
 
-- Deep domain expertise, 10+ sequential steps
-- Subtle debugging, niche tools
-- Bespoke rules among common patterns
-- Obscure docs, non-obvious root causes
+### Hard (≤ 20% on best or worst model)
 
-## Designing Medium (20–60%)
+Requires one or more of:
 
-- 5–10 steps, some domain knowledge
-- Edge cases, easy-to-miss config
+- Deep domain expertise — knowledge LLMs haven't seen much
+- Complex multi-step reasoning — 10+ sequential steps
+- Subtle debugging — root cause analysis required
+- Niche tools/languages — less common technologies
 
-## Designing Easy (60–80%)
+Techniques: bespoke rules buried in common patterns; obscure documentation; non-obvious root causes; domain-specific knowledge (blockchains, scientific computing).
 
-- Still 3–5 steps, non-trivial
-- One or two tricky aspects on standard problems
+### Medium (20–60% on worst model)
+
+- Moderate complexity — 5–10 steps
+- Some domain knowledge — common but not trivial
+- Clear requirements — but non-obvious solution
+
+Techniques: combine familiar concepts; edge cases; easy-to-miss configuration.
+
+### Easy (60–80% on worst model)
+
+Still non-trivial — not one-liners; multi-step (at least 3–5); clear success criteria. Standard tasks with one or two tricky aspects; well-known problems with specific constraints.
 
 ## Common Mistakes
 
 | Too easy | Too unfair |
 |----------|------------|
-| Single-step | Impossible requirements |
-| Obvious debugging | Ambiguous instructions |
-| Common tutorials | Time-dependent results |
-| Simple API usage | External dependencies |
+| Single-step solutions | Impossible requirements |
+| Obvious debugging / pattern matching | Ambiguous instructions (luck) |
+| Common tutorials in training data | Time-dependent / random results |
+| Simple well-documented API usage | External dependency / env issues |
 
-## Verify
+## Testing Your Difficulty
+
+### 1. Oracle (must PASS)
 
 ```bash
-./scripts/terminus oracle <task-dir>          # must PASS
-./scripts/terminus agent <task-dir> --runs 5   # both models
+stb harbor run -a oracle -p <task-folder>
+# or: ./scripts/terminus oracle <task-folder>
 ```
 
-**Good failure:** reasoning errors, missed edge cases  
-**Bad failure:** unclear instructions, environment bugs → fix task
+### 2. Real agents (2–3+ runs each to gauge rate)
 
-## Adjust
+```bash
+# GPT-5.5
+stb harbor run -m @openai/gpt-5.5 -p <task-folder>
+
+# Claude Opus 4.8
+stb harbor run -m @anthropic/claude-opus-4-8 -p <task-folder>
+```
+
+Auth: `stb login` / `stb keys refresh` (CLI manages AI credentials — no manual `OPENAI_API_KEY` / Harbor promptfix wheel). See [quick-start.md](quick-start.md).
+
+Remember: the **worst** model's pass rate determines Easy/Medium for most tasks.
+
+### 3. Analyze failures
+
+- **Good:** agent misunderstood complexity, missed edge case
+- **Bad:** ambiguous requirements, environment issues → fix the task
+
+## Adjusting Difficulty
 
 | Harder | Easier |
 |--------|--------|
-| More steps, hidden reqs | Clarify instructions |
-| Niche knowledge | Common tech |
-| Debugging scenarios | Reduce steps |
+| More steps, hidden requirements | Reduce step count |
+| Niche knowledge | Make requirements more explicit |
+| Debugging scenarios, edge cases | Common technologies |
+| | Simplify environment |
 
-**Do not** add hints to instructions to make tasks easier.
+**Do not** add hints to instructions just to make tasks easier.
 
 ## Reviewer policy (portal #45 / #54)
 
-- **Worst model** = **lowest** pass rate among GPT-5.5 and Claude Opus 4.8 (not highest).
-- **#45:** **CHECK** when `difficulty` is present in `task.toml`. Mismatch vs platform `Difficulty: …` or vs agent-rate tier is **informational only** — never a blocker or Revise driver.
+- **Worst model** = **lowest** pass rate among models that ran (GPT-5.5 and/or Claude Opus 4.8).
+- **#45:** **CHECK** when `difficulty` is present in `task.toml`. Mismatch vs platform `Difficulty: …` or vs agent-rate tier is **informational only** — never a blocker.
 - **#54:** Block only when worst-model rate **>80%** (task too easy).
+- **Single-model Hard exports:** missing GPT-5.5 (or only Claude present) on a Hard-rated task is **expected** after the Jul 21, 2026 early-exit policy — not a revision reason. See `.cursor/rules/terminus-platform-changelog.mdc`.

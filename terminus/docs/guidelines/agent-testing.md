@@ -1,23 +1,25 @@
 # Testing Agent Performance
 
+Auth via Snorkel CLI (no manual `OPENAI_*` exports):
+
 ```bash
-export OPENAI_API_KEY=<portkey-key>
-export OPENAI_BASE_URL=https://api.portkey.ai/v1
+stb login
+stb keys refresh   # if AI credentials are missing or expired
 
 stb harbor run -m @openai/gpt-5.5 -p <task-folder>
 stb harbor run -m @anthropic/claude-opus-4-8 -p <task-folder>
 ```
 
-Run each model **5 times** for reliable pass rates.
+Run each model **5 times** for reliable pass rates (or at least 2–3 locally to gauge). Platform difficulty checks may skip GPT-5.5 when Claude Opus 4.8 already rates Hard — see [difficulty.md](difficulty.md).
 
 ## Difficulty
 
-| Tier | Worst-model rate |
-|------|------------------|
-| Hard | ≤20% |
-| Medium | 20–60% |
-| Easy | 60–80% |
-| Rejected | >80% |
+| Tier | Criteria |
+|------|----------|
+| Hard | ≤20% on **best** OR **worst** model |
+| Medium | 20% < worst ≤ 60% |
+| Easy | 60% < worst ≤ 80% |
+| Rejected | worst > 80% |
 
 ## Interpreting Failures
 
@@ -35,4 +37,4 @@ Run each model **5 times** for reliable pass rates.
 
 Baseline that does nothing — **0% pass expected**. If NOP passes, task/eval is broken.
 
-See [difficulty.md](difficulty.md) and [submission-diversity.md](../submission-diversity.md).
+See [difficulty.md](difficulty.md), [quick-start.md](quick-start.md), and [submission-diversity.md](../submission-diversity.md).

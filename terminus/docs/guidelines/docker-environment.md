@@ -34,6 +34,7 @@ ENV PYTHONPATH=/app
 - [ ] `environment/` size limits
 - [ ] `.dockerignore` for non-trivial envs
 - [ ] No solution/tests in image
+- [ ] `allow_internet` set accurately (`false` offline / `true` only if required)
 - [ ] Verifier deps in image (not test.sh)
 - [ ] No privileged containers
 

@@ -1,0 +1,55 @@
+---
+description: Zero data loss — never delete/overwrite/move without explicit approval; backup first; preserve git history
+alwaysApply: true
+---
+
+# Primary Requirement: Zero Data Loss
+
+Before making any changes, assume that every file in this repository may contain important work. First priority is preserving all files. Do not delete, overwrite, rename, or move anything unless the user explicitly approves it.
+
+## Hard rules
+
+- **Never delete files.** No `rm`, no permanent deletion, no cleanup. If a file appears unused, leave it alone.
+- **Never overwrite existing files.** If a generated file already exists, create a new version with a timestamp or `.bak` suffix instead.
+- **Never rename files automatically.** If something should be renamed, propose it first and wait for approval.
+- **Never move files without confirmation.** Present a move plan before executing it.
+- **Prefer copying over moving.** Every operation should be reversible. If a safer alternative exists, use it.
+
+## Backups first
+
+Before any modification, create a backup directory such as:
+
+```text
+terminus/_backup/YYYY-MM-DD_HHMMSS/
+```
+
+Copy every file that will be modified into that backup. Treat untracked files as valuable — never assume they are disposable; include them in backups when they would be affected.
+
+## Git safety
+
+- Preserve Git history. Do not rewrite commits. Do not force-push.
+- Do **not** run destructive Git commands such as:
+  - `git clean -fd`
+  - `git reset --hard`
+  - `git checkout .`
+  - `git restore .`
+  - unless the user explicitly requests them.
+- Follow the repo’s commit protocol: only commit when asked; never amend/push unless explicitly requested.
+
+## Plan before acting
+
+Before changes, list and wait for approval:
+
+1. Files to read
+2. Files to modify
+3. Files to create
+4. Files that might be affected
+
+If there is uncertainty, stop and ask. Do not guess. Do not infer that a file is obsolete.
+
+## Success criteria
+
+- Zero deleted files
+- Zero overwritten files without backups
+- Every change is reversible
+- Existing project structure is preserved unless explicitly approved
